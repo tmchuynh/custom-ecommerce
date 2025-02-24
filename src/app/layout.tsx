@@ -1,7 +1,7 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NotFoundProvider } from "./context/NotFoundContext";
 import { Providers } from "./providers";
+import NavigationMenuDemo from "@/components/NavMenu";
 
 export default function RootLayout({
   children,
@@ -12,7 +12,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <NotFoundProvider>
-          <Providers>{children}</Providers>
+          <Providers>
+            <NavigationMenuDemo />
+            {children}
+          </Providers>
         </NotFoundProvider>
       </body>
     </html>
