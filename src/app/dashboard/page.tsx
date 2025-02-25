@@ -1,5 +1,5 @@
-import { SidebarRight } from "@/components/navbar-right";
-import { SidebarLeft } from "@/components/sidebar-left";
+import { SidebarRight } from "@/components/ui/navbar-right";
+import { SidebarLeft } from "@/components/ui/sidebar-left";
 import {
   Breadcrumb,
   BreadcrumbItem,
