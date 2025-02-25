@@ -25,7 +25,7 @@ export function WidgetsExample7() {
           Tech Summit: Shaping Tomorrow
         </Typography>
         <Typography
-          className="mt-2 mb-6 !text-base font-normal text-gray-500"
+          className="mt-2 mb-6 text-base! font-normal text-gray-500"
           placeholder=""
           onPointerEnterCapture={() => {}}
           onPointerLeaveCapture={() => {}}
@@ -33,7 +33,7 @@ export function WidgetsExample7() {
           Prepare to be part of dynamic conversations that will redefine the
           boundaries.
         </Typography>
-        <Button variant="outline" className="flex-shrink-0">
+        <Button variant="outline" className="shrink-0">
           join now
         </Button>
       </div>
