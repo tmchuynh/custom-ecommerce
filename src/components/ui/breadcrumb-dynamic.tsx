@@ -10,13 +10,13 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import useSmallScreen from "@/lib/useSmallScreen";
 import { capitalize } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const DynamicBreadcrumb = () => {
   const pathname = usePathname();
   const pathSegments = pathname.split("/").filter((segment) => segment);
-  const isSmallScreen = useSmallScreen();
+  const isSmallScreen = useIsMobile();
 
   return (
     <Breadcrumb className={isSmallScreen ? "hidden" : "my-4"}>
