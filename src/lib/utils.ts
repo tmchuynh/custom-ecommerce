@@ -5,14 +5,23 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const IV_LENGTH = 16; // AES requires a 128-bit initialization vector
+const IV_LENGTH = 16;
 
-// Utility function to generate a random initialization vector (IV)
+/**
+ * Generates a random initialization vector (IV) for encryption.
+ *
+ * @returns A Uint8Array containing the random IV.
+ */
 function generateIV() {
   return window.crypto.getRandomValues(new Uint8Array(IV_LENGTH));
 }
 
-// Utility function to generate a secure encryption key
+/**
+ * Generates a new CryptoKey for AES-GCM encryption and decryption.
+ *
+ * @returns A promise that resolves to the generated CryptoKey.
+ * @throws Will throw an error if the key generation fails.
+ */
 async function generateEncryptionKey(): Promise<CryptoKey> {
   return window.crypto.subtle.generateKey(
     {
@@ -24,7 +33,17 @@ async function generateEncryptionKey(): Promise<CryptoKey> {
   );
 }
 
-// Encrypt the key (passkey) using AES-GCM algorithm
+/**
+ * Encrypts a passkey using AES-GCM encryption.
+ *
+ * This function generates a random initialization vector (IV), creates an encryption key,
+ * encrypts the passkey, and combines the IV with the encrypted data.
+ *
+ * @param passkey - The string to be encrypted.
+ * @returns A promise that resolves to the encrypted passkey as a base64 encoded string.
+ *          This string includes both the IV and the encrypted data.
+ * @throws Will throw an error if encryption fails.
+ */
 export async function encryptKey(passkey: string): Promise<string> {
   const iv = generateIV();
   const encoder = new TextEncoder();
@@ -39,15 +58,22 @@ export async function encryptKey(passkey: string): Promise<string> {
 
   const encryptedBuffer = new Uint8Array(encryptedData);
   const ivBuffer = new Uint8Array(iv.buffer);
-  // Combine the IV and encrypted data into one array and encode as base64
+
   const combined = new Uint8Array(ivBuffer.length + encryptedBuffer.length);
   combined.set(ivBuffer);
   combined.set(encryptedBuffer, ivBuffer.length);
 
-  return btoa(String.fromCharCode(...combined)); // Base64 encoded
+  return btoa(String.fromCharCode(...combined));
 }
 
-// Decrypt the key (passkey) using AES-GCM algorithm
+/**
+ * Decrypts an encrypted passkey using the provided CryptoKey.
+ *
+ * @param encryptedPasskey - The encrypted passkey as a base64 encoded string.
+ * @param key - The CryptoKey used for decryption.
+ * @returns A promise that resolves to the decrypted passkey as a string.
+ * @throws Will throw an error if decryption fails.
+ */
 export async function decryptKey(
   encryptedPasskey: string,
   key: CryptoKey
@@ -75,16 +101,42 @@ export async function decryptKey(
   }
 }
 
+/**
+ * Formats a number as a currency string.
+ *
+ * @param value - The numeric value to format.
+ * @returns The formatted currency string. If the value is not a number, returns "$0.00".
+ */
 export const formatCurrency = (value: number) => {
   if (isNaN(value)) return "$0.00";
 
   return "$" + value.toLocaleString(undefined);
 };
 
+/**
+ * Capitalizes the first letter of each word in a string and replaces hyphens with spaces.
+ *
+ * @param str - The string to be transformed.
+ * @returns The transformed string with capitalized words and spaces instead of hyphens.
+ */
 export const capitalize = (str: string) => {
-  return str.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+  function replaceChar(char: string): string {
+    return char === "-" ? " " : char.toUpperCase();
+  }
+  return str.replace(/-|\b\w/g, replaceChar);
 };
 
+/**
+ * Converts a given title string into a URL-friendly slug.
+ *
+ * This function performs the following transformations:
+ * - Converts the string to lowercase.
+ * - Removes special characters such as !, @, #, $, ?, %, ,, :, /, ^, &, *.
+ * - Replaces spaces and hyphens with a single hyphen.
+ *
+ * @param title - The title string to be converted into a slug.
+ * @returns The URL-friendly slug.
+ */
 export function setSlug(title: string): string {
   const slug = title
     .toLowerCase()
