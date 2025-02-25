@@ -74,3 +74,21 @@ export async function decryptKey(
     throw new Error("Decryption failed");
   }
 }
+
+export const formatCurrency = (value: number) => {
+  if (isNaN(value)) return "$0.00";
+
+  return "$" + value.toLocaleString(undefined);
+};
+
+export const capitalize = (str: string) => {
+  return str.replace(/-/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+};
+
+export function setSlug(title: string): string {
+  const slug = title
+    .toLowerCase()
+    .replace(/[!@#$?%,:/^&*]/g, "")
+    .replace(/[\s-]+/g, "-");
+  return slug;
+}
