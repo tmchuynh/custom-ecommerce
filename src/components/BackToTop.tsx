@@ -1,19 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { Button } from "./ui/button";
 
+/**
+ * A React component that renders a "Back to Top" button which appears when the user scrolls down the page.
+ * The button allows the user to smoothly scroll back to the top of the page when clicked.
+ *
+ * @component
+ * @example
+ * // Usage example:
+ * <BackToTop />
+ *
+ * @returns {JSX.Element} The rendered "Back to Top" button component.
+ *
+ * @remarks
+ * This component uses the `useState` hook to manage the visibility of the button and the `useEffect` hook to add and remove
+ * a scroll event listener. The `useCallback` hook is used to memoize the scroll event handler.
+ *
+ * @function
+ * @name BackToTop
+ */
 const BackToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isButtonVisible, setIsButtonVisible] = useState(false);
+
+  const toggleVisibility = useCallback(() => {
+    if (window.scrollY > 300) {
+      setIsButtonVisible(true);
+    } else {
+      setIsButtonVisible(false);
+    }
+  }, []);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
@@ -28,11 +46,14 @@ const BackToTop = () => {
   return (
     <div>
       <p className="sr-only">Scroll back to the top of the page</p>
-      {isVisible && (
+      {isButtonVisible && (
         <Button
           onClick={scrollToTop}
-          size={"icon"}
-          className="fixed bottom-4 right-4 bg-accent-1 text-accent-foreground border-accent-1 rounded-full shadow-lg"
+          className={`
+            fixed bottom-4 right-4
+            bg-accent-1 text-accent-foreground border-accent-1
+            rounded-full shadow-lg
+          `}
           aria-label="Back to top"
         >
           <FaArrowUp />

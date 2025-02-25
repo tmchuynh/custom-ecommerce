@@ -1,3 +1,15 @@
+/**
+ * The `CannotFind` component displays a message indicating that the data on the page cannot be loaded.
+ * It uses the `SpinningText` component to create a spinning text effect.
+ *
+ * @component
+ * @example
+ * return (
+ *   <CannotFind />
+ * )
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
 import React from "react";
 import { SpinningText } from "./magicui/spinning-text";
 

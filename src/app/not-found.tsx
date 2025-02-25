@@ -5,6 +5,30 @@ import { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
 
+/**
+ * NotFound component renders a 404 error page with a countdown timer that redirects to the home page.
+ * It provides options to cancel the redirection, go back to the home page immediately, or contact support.
+ *
+ * @component
+ * @example
+ * return (
+ *   <NotFound />
+ * )
+ *
+ * @returns {JSX.Element} The rendered 404 error page component.
+ *
+ * @remarks
+ * - The component uses a countdown timer to automatically redirect the user to the home page after 10 seconds.
+ * - Users can cancel the redirection by clicking the "Cancel Redirection" button.
+ * - The "Go back home" button redirects the user to the home page immediately.
+ * - The "Contact support" button opens the default mail client to send an email to support.
+ *
+ * @dependencies
+ * - `useRouter` from `next/router` for navigation.
+ * - `useState` and `useEffect` from `react` for state management and side effects.
+ * - `DynamicButton` component for rendering buttons with different styles and actions.
+ * - `IoMdClose` and `FaPhoneAlt` icons from `react-icons` for button icons.
+ */
 const NotFound = () => {
   const router = useRouter();
   const [countdown, setCountdown] = useState(10);
