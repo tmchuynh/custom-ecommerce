@@ -50,6 +50,14 @@ export async function encryptKey(passkey: string): Promise<string> {
   const data = encoder.encode(passkey);
   const key = await generateEncryptionKey();
 
+  /**
+   * Encrypts the provided data using the AES-GCM algorithm.
+   *
+   * @param {AesGcmParams} { name: "AES-GCM", iv } - The encryption algorithm and initialization vector.
+   * @param {CryptoKey} key - The cryptographic key used for encryption.
+   * @param {BufferSource} data - The data to be encrypted.
+   * @returns {Promise<ArrayBuffer>} A promise that resolves to the encrypted data as an ArrayBuffer.
+   */
   const encryptedData = await window.crypto.subtle.encrypt(
     { name: "AES-GCM", iv },
     key,
@@ -89,6 +97,14 @@ export async function decryptKey(
   const decoder = new TextDecoder();
 
   try {
+    /**
+     * Decrypts the provided encrypted data using the AES-GCM algorithm.
+     *
+     * @param {CryptoKey} key - The cryptographic key used for decryption.
+     * @param {Uint8Array} iv - The initialization vector used for decryption.
+     * @param {ArrayBuffer} encryptedData - The data to be decrypted.
+     * @returns {Promise<ArrayBuffer>} A promise that resolves to the decrypted data.
+     */
     const decryptedData = await window.crypto.subtle.decrypt(
       { name: "AES-GCM", iv },
       key,

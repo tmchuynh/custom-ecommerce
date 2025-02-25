@@ -20,7 +20,7 @@ import * as React from "react";
  * };
  * ```
  */
-export function useMounted() {
+export function useMounted(): boolean {
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {

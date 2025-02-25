@@ -29,7 +29,7 @@ import { IoMdClose } from "react-icons/io";
  * - `DynamicButton` component for rendering buttons with different styles and actions.
  * - `IoMdClose` and `FaPhoneAlt` icons from `react-icons` for button icons.
  */
-const NotFound = () => {
+const NotFound = (): JSX.Element => {
   const router = useRouter();
   const [countdown, setCountdown] = useState(10);
   const [redirect, setRedirect] = useState(true);
