@@ -16,8 +16,7 @@ export default function RootLayout({
         <NotFoundProvider>
           <Providers>
             <NavMenu />
-            <MainContent />
-            {children}
+            <MainContent>{children}</MainContent>
             <BackToTop />
           </Providers>
         </NotFoundProvider>
@@ -26,10 +25,11 @@ export default function RootLayout({
   );
 }
 
-const MainContent = () => {
+const MainContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main className="w-full md:w-11/12 mx-auto">
+    <section className="w-full md:w-11/12 mx-auto">
       <DynamicBreadcrumb />
-    </main>
+      {children}
+    </section>
   );
 };
