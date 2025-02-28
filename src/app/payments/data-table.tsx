@@ -184,7 +184,7 @@ export function DataTable<TData, TValue>({
                   : ""}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="start">
               <DropdownMenuLabel>Select Status</DropdownMenuLabel>
               <DropdownMenuCheckboxItem
                 checked={selectedStatuses.includes("pending")}
@@ -244,7 +244,7 @@ export function DataTable<TData, TValue>({
                     : ""}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="start">
                 <DropdownMenuLabel>Select Columns</DropdownMenuLabel>
                 {table
                   .getAllColumns()
@@ -305,14 +305,14 @@ export function DataTable<TData, TValue>({
 
         <div className="flex space-x-2 py-4">
           <Button
-            variant="outline"
+            variant="default"
             size="sm"
             onClick={() => exportToCSV("all")}
           >
             Export All to CSV
           </Button>
           <Button
-            variant="outline"
+            variant="secondary"
             size="sm"
             onClick={() => exportToCSV("selected")}
           >
@@ -383,17 +383,21 @@ export function DataTable<TData, TValue>({
             onChange={(e) => {
               table.setPageSize(Number(e.target.value));
             }}
-            className="border rounded p-1"
+            className="border rounded p-1 cursor-pointer"
           >
             {[5, 10, 15, 20, 25].map((pageSize) => (
-              <option key={pageSize} value={pageSize}>
+              <option
+                key={pageSize}
+                value={pageSize}
+                className="cursor-pointer"
+              >
                 {pageSize}
               </option>
             ))}
           </select>
         </div>
         <div className="flex items-center space-x-2">
-          <Pagination className="mt-4">
+          <Pagination className="mt-4 cursor-pointer">
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious

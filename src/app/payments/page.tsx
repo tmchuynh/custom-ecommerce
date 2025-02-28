@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Payment } from "@/lib/interfaces";
 import { DataTable } from "@/app/payments/data-table";
 import { columns } from "@/app/payments/columns";
+import LoadingIndicator from "@/components/Loading";
 
 export default function DemoPage() {
   const [data, setData] = useState<Payment[]>([]);
@@ -33,7 +34,7 @@ export default function DemoPage() {
       <h1 className="text-3xl font-bold mb-6">Payments Data</h1>
 
       {loading ? (
-        <p className="text-gray-600">Loading...</p>
+        <LoadingIndicator />
       ) : (
         <DataTable columns={columns} data={data} />
       )}

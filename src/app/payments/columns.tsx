@@ -4,13 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-
-export type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
-};
+import { Payment } from "@/lib/interfaces";
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -23,6 +17,7 @@ export const columns: ColumnDef<Payment>[] = [
         }
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
+        className="cursor-pointer"
       />
     ),
     cell: ({ row }) => (
@@ -30,6 +25,7 @@ export const columns: ColumnDef<Payment>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        className="cursor-pointer"
       />
     ),
     enableSorting: false,
@@ -43,7 +39,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4"
+          className="-m-4 cursor-pointer"
         >
           ID
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -58,7 +54,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4"
+          className="-m-4 cursor-pointer"
         >
           Status
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -73,7 +69,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4"
+          className="-m-4 cursor-pointer"
         >
           Email
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -88,7 +84,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4"
+          className="-m-4 cursor-pointer"
         >
           Amount
           <ArrowUpDown className="ml-2 h-4 w-4" />
