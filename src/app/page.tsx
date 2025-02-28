@@ -1,7 +1,13 @@
+import { Carousels } from "@/components/Carousel";
+
 export default function Home() {
   return (
     <>
-      <div className="grid grid-nogutter surface-0 text-800"></div>
+      <div>
+        <h1>Home Page</h1>
+        <p>Welcome to the Home Page</p>
+        <Carousels />
+      </div>
     </>
   );
 }
