@@ -31,7 +31,6 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -52,10 +51,10 @@ export function DataTable<TData, TValue>({
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>(
-      Object.fromEntries(columns.map((col) => [col.id, true])) // ✅ Ensure all columns are visible by default
+      Object.fromEntries(columns.map((col) => [col.id, true]))
     );
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>([]);
-  const hasInitialized = useRef(false); // Prevent infinite loop
+  const hasInitialized = useRef(false);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
 
@@ -80,10 +79,9 @@ export function DataTable<TData, TValue>({
     },
   });
 
-  // **🔹 Ensure "Select" column is visible unless it's the only column**
   useEffect(() => {
     if (!hasInitialized.current) {
-      hasInitialized.current = true; // Run once after mount
+      hasInitialized.current = true;
       setColumnVisibility((prev) => ({
         ...prev,
         select: true,
@@ -91,12 +89,10 @@ export function DataTable<TData, TValue>({
     }
   }, []);
 
-  // **🔹 Check if any visible columns (excluding "Select")**
   const hasVisibleColumns = Object.entries(columnVisibility).some(
     ([key, isVisible]) => key !== "select" && isVisible
   );
 
-  // **🔹 Status Filtering Handler (Multi-Select)**
   const handleStatusFilter = (status: string, checked: boolean) => {
     setSelectedStatuses((prev) => {
       const newStatuses = checked
@@ -109,7 +105,6 @@ export function DataTable<TData, TValue>({
     });
   };
 
-  // **🔹 Clear all selected statuses**
   const clearStatusFilter = () => {
     setSelectedStatuses([]);
     table.getColumn("status")?.setFilterValue(undefined);
@@ -123,7 +118,6 @@ export function DataTable<TData, TValue>({
     return filterValue.includes(row.getValue(columnId));
   };
 
-  // Apply custom filter function to status column
   useEffect(() => {
     const statusColumn = table.getColumn("status");
     if (statusColumn) {
@@ -211,7 +205,7 @@ export function DataTable<TData, TValue>({
                   .getAllColumns()
                   .filter(
                     (column) => column.getCanHide() && column.id !== "select"
-                  ) // **Hide "Select" column from menu**
+                  )
                   .map((column) => (
                     <DropdownMenuCheckboxItem
                       key={column.id}
@@ -277,14 +271,12 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <TableHead key={header.id}>
-                    {header.isPlaceholder ? null : (
-                      <div className="flex items-center space-x-2">
-                        {flexRender(
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
                           header.column.columnDef.header,
                           header.getContext()
                         )}
-                      </div>
-                    )}
                   </TableHead>
                 ))}
               </TableRow>

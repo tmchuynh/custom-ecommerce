@@ -42,6 +42,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4"
         >
           Status
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -56,6 +57,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4"
         >
           Email
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -70,6 +72,7 @@ export const columns: ColumnDef<Payment>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4"
         >
           Amount
           <ArrowUpDown className="ml-2 h-4 w-4" />
