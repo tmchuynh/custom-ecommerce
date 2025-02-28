@@ -12,6 +12,8 @@ import {
   getPaginationRowModel,
   useReactTable,
   ColumnOrderState,
+  FilterFn,
+  Row,
 } from "@tanstack/react-table";
 
 import {
@@ -55,6 +57,7 @@ export function DataTable<TData, TValue>({
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>([]);
   const hasInitialized = useRef(false); // Prevent infinite loop
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
+  const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
 
   const table = useReactTable({
     data,
@@ -112,47 +115,146 @@ export function DataTable<TData, TValue>({
     table.getColumn("status")?.setFilterValue(undefined);
   };
 
+  const statusFilterFn: FilterFn<any> = (
+    row: Row<any>,
+    columnId: string,
+    filterValue: string[]
+  ) => {
+    return filterValue.includes(row.getValue(columnId));
+  };
+
+  // Apply custom filter function to status column
+  useEffect(() => {
+    const statusColumn = table.getColumn("status");
+    if (statusColumn) {
+      statusColumn.getFilterFn = () => statusFilterFn;
+    }
+  }, [table]);
+
   return (
     <div>
-      {/* ✅ "Toggle All" is checked by default and toggles all columns except "Select" */}
-      <div className="inline-block border border-black shadow rounded">
-        <div className="px-1 border-b border-black">
-          <label>
-            <input
-              type="checkbox"
-              checked={hasVisibleColumns}
-              onChange={() => {
-                const allVisible = hasVisibleColumns;
-                const newVisibility = Object.fromEntries(
-                  table
-                    .getAllLeafColumns()
-                    .map((column) => [column.id, !allVisible])
-                );
-                setColumnVisibility(newVisibility);
-              }}
-            />{" "}
-            Toggle All
-          </label>
-        </div>
-        {table
-          .getAllLeafColumns()
-          .filter((column) => column.id !== "select") // **Hide "Select" column from toggle**
-          .map((column) => (
-            <div key={column.id} className="px-1">
-              <label>
-                <input
-                  type="checkbox"
-                  checked={column.getIsVisible()}
-                  onChange={column.getToggleVisibilityHandler()}
-                />{" "}
-                {column.id}
-              </label>
-            </div>
-          ))}
-      </div>
-
       {/* ✅ Filter for Status Column */}
       <div className="flex items-center py-4 space-x-4">
+        <div className="flex items-center py-4 space-x-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm">
+                Filter Status
+                {selectedStatuses.length > 0
+                  ? ` (${selectedStatuses.length})`
+                  : ""}
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Select Status</DropdownMenuLabel>
+              <DropdownMenuCheckboxItem
+                checked={selectedStatuses.includes("pending")}
+                onCheckedChange={(checked) =>
+                  handleStatusFilter("pending", checked)
+                }
+              >
+                Pending
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem
+                checked={selectedStatuses.includes("processing")}
+                onCheckedChange={(checked) =>
+                  handleStatusFilter("processing", checked)
+                }
+              >
+                Processing
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem
+                checked={selectedStatuses.includes("success")}
+                onCheckedChange={(checked) =>
+                  handleStatusFilter("success", checked)
+                }
+              >
+                Success
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuCheckboxItem
+                checked={selectedStatuses.includes("failed")}
+                onCheckedChange={(checked) =>
+                  handleStatusFilter("failed", checked)
+                }
+              >
+                Failed
+              </DropdownMenuCheckboxItem>
+              <DropdownMenuLabel>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={clearStatusFilter}
+                  className="w-full"
+                >
+                  Clear Status Filters
+                </Button>
+              </DropdownMenuLabel>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
+        {/* 🔹 Auto-hide Column Selector if No Columns are Visible */}
+        {hasVisibleColumns && (
+          <div>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size={"sm"} className="ml-auto">
+                  Columns
+                  {selectedColumns.length > 0 && selectedColumns.length < 3
+                    ? ` (${selectedColumns.length})`
+                    : ""}
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuLabel>Select Columns</DropdownMenuLabel>
+                {table
+                  .getAllColumns()
+                  .filter(
+                    (column) => column.getCanHide() && column.id !== "select"
+                  ) // **Hide "Select" column from menu**
+                  .map((column) => (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) => {
+                        column.toggleVisibility(!!value);
+                        setSelectedColumns((prev) => {
+                          const newSelectedColumns = !!value
+                            ? [...prev, column.id]
+                            : prev.filter((id) => id !== column.id);
+                          return newSelectedColumns;
+                        });
+                      }}
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  ))}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setColumnVisibility(
+                      Object.fromEntries(
+                        table.getAllColumns().map((column) => [column.id, true])
+                      )
+                    );
+                    setSelectedColumns(
+                      table
+                        .getAllColumns()
+                        .filter((column) => column.id !== "select")
+                        .map((column) => column.id)
+                    );
+                  }}
+                  className="w-full"
+                >
+                  Clear Column Filters
+                </Button>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        )}
+
         <Input
           placeholder="Filter emails..."
           value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
@@ -161,103 +263,6 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-
-        <Input
-          placeholder="Filter status..."
-          value={(table.getColumn("status")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("status")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-
-        {/* 🔹 Auto-hide Column Selector if No Columns are Visible */}
-        {hasVisibleColumns && (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
-                Columns
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              {table
-                .getAllColumns()
-                .filter(
-                  (column) => column.getCanHide() && column.id !== "select"
-                ) // **Hide "Select" column from menu**
-                .map((column) => (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        )}
-      </div>
-
-      <div className="flex items-center py-4 space-x-4">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="sm">
-              Filter Status
-              {selectedStatuses.length > 0
-                ? ` (${selectedStatuses.length})`
-                : ""}
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Select Status</DropdownMenuLabel>
-            <DropdownMenuCheckboxItem
-              checked={selectedStatuses.includes("pending")}
-              onCheckedChange={(checked) =>
-                handleStatusFilter("pending", checked)
-              }
-            >
-              Pending
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={selectedStatuses.includes("processing")}
-              onCheckedChange={(checked) =>
-                handleStatusFilter("processing", checked)
-              }
-            >
-              Processing
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={selectedStatuses.includes("success")}
-              onCheckedChange={(checked) =>
-                handleStatusFilter("success", checked)
-              }
-            >
-              Success
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
-              checked={selectedStatuses.includes("failed")}
-              onCheckedChange={(checked) =>
-                handleStatusFilter("failed", checked)
-              }
-            >
-              Failed
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuLabel>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={clearStatusFilter}
-                className="w-full"
-              >
-                Clear Filters
-              </Button>
-            </DropdownMenuLabel>
-          </DropdownMenuContent>
-        </DropdownMenu>
       </div>
 
       <div className="flex-1 text-sm text-muted-foreground">
