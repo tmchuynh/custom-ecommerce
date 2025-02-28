@@ -3,6 +3,7 @@ import { NotFoundProvider } from "./context/NotFoundContext";
 import { Providers } from "./providers";
 import NavMenu from "@/components/NavMenu";
 import BackToTop from "@/components/BackToTop";
+import DynamicBreadcrumb from "@/components/ui/breadcrumb-dynamic";
 
 export default function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default function RootLayout({
         <NotFoundProvider>
           <Providers>
             <NavMenu />
+            <MainContent />
             {children}
             <BackToTop />
           </Providers>
@@ -23,3 +25,11 @@ export default function RootLayout({
     </html>
   );
 }
+
+const MainContent = () => {
+  return (
+    <main className="w-full md:w-11/12 mx-auto">
+      <DynamicBreadcrumb />
+    </main>
+  );
+};
