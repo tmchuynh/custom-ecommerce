@@ -65,7 +65,7 @@ const callsToAction = [
   { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
-export default function NavigationMenuDemo() {
+export default function NavMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (

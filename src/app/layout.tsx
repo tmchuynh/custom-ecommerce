@@ -1,7 +1,8 @@
 import "./globals.css";
 import { NotFoundProvider } from "./context/NotFoundContext";
 import { Providers } from "./providers";
-import NavigationMenuDemo from "@/components/NavMenu";
+import NavMenu from "@/components/NavMenu";
+import BackToTop from "@/components/BackToTop";
 
 export default function RootLayout({
   children,
@@ -13,8 +14,9 @@ export default function RootLayout({
       <body>
         <NotFoundProvider>
           <Providers>
-            <NavigationMenuDemo />
+            <NavMenu />
             {children}
+            <BackToTop />
           </Providers>
         </NotFoundProvider>
       </body>
