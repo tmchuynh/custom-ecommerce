@@ -34,6 +34,15 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -313,23 +322,87 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
 
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          Next
-        </Button>
+      <div className="flex items-center justify-between space-x-2 py-4">
+        <div className="flex items-center space-x-2">
+          <span>Rows per page:</span>
+          <select
+            value={table.getState().pagination.pageSize}
+            onChange={(e) => {
+              table.setPageSize(Number(e.target.value));
+            }}
+            className="border rounded p-1"
+          >
+            {[5, 10, 15, 20, 25].map((pageSize) => (
+              <option key={pageSize} value={pageSize}>
+                {pageSize}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="flex items-center space-x-2">
+          <Pagination className="mt-4">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  onClick={() => table.previousPage()}
+                  className={
+                    table.getCanPreviousPage()
+                      ? ""
+                      : "pointer-events-none opacity-50"
+                  }
+                  aria-disabled={!table.getCanPreviousPage()}
+                />
+              </PaginationItem>
+
+              {/* Page Numbers & Ellipsis */}
+              {table.getPageCount() > 1 &&
+                Array.from({ length: table.getPageCount() }).map((_, index) => {
+                  const currentPage = table.getState().pagination.pageIndex;
+                  const isActive = index === currentPage;
+
+                  if (
+                    index === 0 ||
+                    index === table.getPageCount() - 1 ||
+                    Math.abs(currentPage - index) <= 1
+                  ) {
+                    return (
+                      <PaginationItem key={index}>
+                        <PaginationLink
+                          isActive={isActive}
+                          onClick={() => table.setPageIndex(index)}
+                        >
+                          {index + 1}
+                        </PaginationLink>
+                      </PaginationItem>
+                    );
+                  }
+
+                  // Show ellipsis when skipping pages
+                  if (
+                    (index === currentPage - 2 && currentPage > 2) ||
+                    (index === currentPage + 2 &&
+                      currentPage < table.getPageCount() - 3)
+                  ) {
+                    return <PaginationEllipsis key={`ellipsis-${index}`} />;
+                  }
+
+                  return null;
+                })}
+
+              <PaginationItem>
+                <PaginationNext
+                  onClick={() => table.nextPage()}
+                  className={
+                    table.getCanNextPage()
+                      ? ""
+                      : "pointer-events-none opacity-50"
+                  }
+                  aria-disabled={!table.getCanNextPage()}
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        </div>
       </div>
     </div>
   );
