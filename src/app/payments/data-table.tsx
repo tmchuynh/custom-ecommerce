@@ -127,6 +127,42 @@ export function DataTable<TData, TValue>({
     return filterValue.includes(row.getValue(columnId));
   };
 
+  const exportToCSV = (exportType: "all" | "selected") => {
+    const rowsToExport =
+      exportType === "selected"
+        ? table.getFilteredSelectedRowModel().rows // Only selected rows
+        : table.getFilteredRowModel().rows; // All rows
+
+    if (rowsToExport.length === 0) {
+      alert("No rows to export.");
+      return;
+    }
+
+    // Get visible column headers
+    const visibleColumns = table.getAllColumns().filter(
+      (column) => column.getIsVisible() && column.id !== "select" // Ignore select column
+    );
+
+    // Convert data to CSV format
+    const csvContent = [
+      visibleColumns.map((col) => col.id).join(","), // Header row
+      ...rowsToExport.map((row) =>
+        visibleColumns
+          .map((col) => JSON.stringify(row.getValue(col.id)))
+          .join(",")
+      ),
+    ].join("\n");
+
+    // Download the CSV file
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute("download", `export_${exportType}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   useEffect(() => {
     const statusColumn = table.getColumn("status");
     if (statusColumn) {
@@ -266,6 +302,23 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
+
+        <div className="flex space-x-2 py-4">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => exportToCSV("all")}
+          >
+            Export All to CSV
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => exportToCSV("selected")}
+          >
+            Export Selected Rows to CSV
+          </Button>
+        </div>
       </div>
 
       <div className="flex-1 text-sm text-muted-foreground">
