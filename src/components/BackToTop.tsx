@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import { Button } from "./ui/button";
@@ -20,7 +22,7 @@ import { Button } from "./ui/button";
  * @function
  * @name BackToTop
  */
-const BackToTop = () => {
+const BackToTop = (): JSX.Element => {
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   const toggleVisibility = useCallback(() => {
