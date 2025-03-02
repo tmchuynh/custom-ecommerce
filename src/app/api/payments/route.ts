@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
-import { data } from "@/lib/constants";
+import { generateFakeData } from "@/lib/data/generateData";
 
 // GET request handler
 export async function GET() {
-  return NextResponse.json(data, { status: 200 });
+  const { purchaseRecords } = generateFakeData(10, 50); // Generate 10 users and 50 payments
+  return NextResponse.json(purchaseRecords, { status: 200 });
 }
