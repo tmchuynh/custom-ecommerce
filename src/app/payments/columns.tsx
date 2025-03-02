@@ -1,12 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Payment } from "@/lib/types";
+import { PurchaseRecord } from "@/lib/types";
 
-export const columns: ColumnDef<Payment>[] = [
+const columnHelper = createColumnHelper<PurchaseRecord>();
+
+export const columns: ColumnDef<PurchaseRecord>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -33,7 +35,7 @@ export const columns: ColumnDef<Payment>[] = [
     size: 50, // Set a fixed width for the select column
   },
   {
-    accessorKey: "id",
+    accessorKey: "date",
     header: ({ column }) => {
       return (
         <Button
@@ -41,14 +43,20 @@ export const columns: ColumnDef<Payment>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-m-4 cursor-pointer"
         >
-          ID
+          Date
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
+    },
+    cell: ({ row }) => {
+      const date = new Date(row.getValue("date"));
+      const formatted = date.toLocaleDateString("en-US");
+
+      return <div className="text-right font-medium w-fit">{formatted}</div>;
     },
   },
   {
-    accessorKey: "status",
+    id: "payment",
     header: ({ column }) => {
       return (
         <Button
@@ -56,26 +64,27 @@ export const columns: ColumnDef<Payment>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-m-4 cursor-pointer"
         >
-          Status
+          Payment
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-  },
-  {
-    accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4 cursor-pointer"
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    columns: [
+      {
+        accessorKey: "payment.ID",
+        header: () => "ID",
+        cell: ({ row }) => {
+          return row.original.payment.id;
+        },
+      },
+      {
+        accessorKey: "payment.status",
+        header: () => "Status",
+        cell: ({ row }) => {
+          return row.original.payment.status;
+        },
+      },
+    ],
   },
   {
     accessorKey: "amount",
