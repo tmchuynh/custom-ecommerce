@@ -44,11 +44,13 @@ export interface PurchaseRecord {
   userId: string;
   amount: number;
   date: Date;
-  items: {
-    productId: string;
-    productName: string;
-    price: number;
-    quantity: number;
-  }[];
+  items: Item[];
   payment: Payment;
+}
+
+export interface Item {
+  productId: string;
+  productName: string;
+  price: number;
+  quantity: number;
 }

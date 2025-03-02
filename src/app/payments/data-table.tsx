@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef, useState } from "react";
 import {
   ColumnDef,
@@ -42,13 +41,15 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { PurchaseRecord } from "@/lib/types";
+import { subTableColumns } from "./columns";
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData extends PurchaseRecord, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
 
-export function DataTable<TData, TValue>({
+export function DataTable<TData extends PurchaseRecord, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
@@ -65,6 +66,7 @@ export function DataTable<TData, TValue>({
   const hasInitialized = useRef(false);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
+  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
 
   const table = useReactTable({
     data,
@@ -96,6 +98,16 @@ export function DataTable<TData, TValue>({
       }));
     }
   }, []);
+
+  useEffect(() => {
+    console.log("Table Columns", columns); // Check columns structure
+    console.log("Table Data", data); // Check if data is correct
+  }, [columns, data]);
+
+  // Check column visibility
+  useEffect(() => {
+    console.log("Column Visibility", columnVisibility);
+  }, [columnVisibility]);
 
   const hasVisibleColumns = Object.entries(columnVisibility).some(
     ([key, isVisible]) => key !== "select" && isVisible
@@ -168,6 +180,70 @@ export function DataTable<TData, TValue>({
       dateColumn.getFilterFn = () => statusFilterFn;
     }
   }, [table]);
+
+  const toggleRowExpansion = (rowId: string) => {
+    setExpandedRows((prev) => {
+      const newExpandedRows = new Set(prev);
+      if (newExpandedRows.has(rowId)) {
+        newExpandedRows.delete(rowId);
+      } else {
+        newExpandedRows.add(rowId);
+      }
+      return newExpandedRows;
+    });
+  };
+
+  const SubTable = ({ row }: { row: Row<PurchaseRecord> }) => {
+    const subTable = useReactTable({
+      data: row.original.items, // Assuming `items` is the nested array in `PurchaseRecord`
+      columns: subTableColumns, // Sub-table columns defined earlier
+      getCoreRowModel: getCoreRowModel(),
+      getSortedRowModel: getSortedRowModel(),
+      onSortingChange: setSorting,
+      state: {
+        sorting,
+      },
+    });
+
+    return (
+      <Table className="w-full border-4">
+        <TableHeader>
+          {subTable.getHeaderGroups().map((headerGroup) => (
+            <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <TableHead key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </TableHead>
+              ))}
+            </TableRow>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {subTable.getRowModel().rows.map((subRow) => (
+            <TableRow key={subRow.id} className="w-fit border-2">
+              {subRow.getVisibleCells().map((cell) => (
+                <TableCell
+                  key={cell.id}
+                  className={
+                    cell.column.id === "quantity" || cell.column.id === "price"
+                      ? "text-left"
+                      : ""
+                  }
+                >
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  };
 
   return (
     <div>
@@ -350,21 +426,41 @@ export function DataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              <>
+                {table.getRowModel().rows.map((row) => (
+                  <React.Fragment key={row.id}>
+                    <TableRow
+                      data-state={row.getIsSelected() && "selected"}
+                      onClick={() => toggleRowExpansion(row.id)}
+                      className="cursor-pointer"
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )}
+                        </TableCell>
+                      ))}
+                      <Button className="ml-auto" variant="ghost">
+                        Edit
+                        {/* <Icon path={Pencil} className="h-4 w-4 text-gray-500" /> */}
+                        {/* <Icon path={X} className="h-4 w-4 text-gray-500" /> */}
+                      </Button>
+                    </TableRow>
+                    {expandedRows.has(row.id) && (
+                      <TableRow className="border-4 table-row">
+                        <TableCell
+                          colSpan={columns.length}
+                          className="w-full table-cell"
+                        >
+                          <SubTable row={row} />
+                        </TableCell>
+                      </TableRow>
+                    )}
+                  </React.Fragment>
+                ))}
+              </>
             ) : (
               <TableRow>
                 <TableCell

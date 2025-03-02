@@ -111,3 +111,74 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
     },
   },
 ];
+
+export const subTableColumns: ColumnDef<PurchaseRecord["items"][0]>[] = [
+  {
+    accessorKey: "productId",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4 cursor-pointer"
+        >
+          Product ID
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "productName",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4 cursor-pointer"
+        >
+          Product Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "price",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4 cursor-pointer"
+        >
+          Price
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const price = row.original.price;
+      const formatted = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+      }).format(price);
+      return <div className="text-right font-medium w-fit">{formatted}</div>;
+    },
+  },
+  {
+    accessorKey: "quantity",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="-m-4 cursor-pointer"
+        >
+          Quantity
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+];
