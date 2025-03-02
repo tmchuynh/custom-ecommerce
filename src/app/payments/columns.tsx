@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Payment } from "@/lib/interfaces";
+import { Payment } from "@/lib/types";
 
 export const columns: ColumnDef<Payment>[] = [
   {
