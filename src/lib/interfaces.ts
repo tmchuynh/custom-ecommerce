@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { CommonProps, LengthType } from "./types";
+import { CommonProps, LengthType, PurchaseRecord } from "./types";
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
@@ -23,4 +23,16 @@ export interface LoaderSizeMarginProps extends CommonProps {
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+}
+
+export interface User extends UserType {
+  purchaseRecords: PurchaseRecord[];
+}
+
+// other exports
+
+export interface UserType {
+  id: string;
+  name: string;
+  email: string;
 }
