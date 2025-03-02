@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { DataTable } from "@/app/payments/data-table";
 import { columns } from "@/app/payments/columns";
 import LoadingIndicator from "@/components/Loading";
-import { Payment } from "@/lib/types";
+import { Payment, PurchaseRecord } from "@/lib/types";
 
 export default function DemoPage() {
-  const [data, setData] = useState<Payment[]>([]);
+  const [data, setData] = useState<PurchaseRecord[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function DemoPage() {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-        const payments: Payment[] = await response.json();
+        const payments: PurchaseRecord[] = await response.json();
         setData(payments);
       } catch (error) {
         console.error("Error fetching payments:", error);
