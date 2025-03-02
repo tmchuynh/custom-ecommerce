@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Payment } from "@/lib/interfaces";
 import { DataTable } from "@/app/payments/data-table";
 import { columns } from "@/app/payments/columns";
 import LoadingIndicator from "@/components/Loading";
+import { Payment } from "@/lib/types";
 
 export default function DemoPage() {
   const [data, setData] = useState<Payment[]>([]);
