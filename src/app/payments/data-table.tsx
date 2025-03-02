@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useEffect, useRef, useState } from "react";
 import {
   ColumnDef,
   flexRender,
@@ -15,7 +16,6 @@ import {
   FilterFn,
   Row,
 } from "@tanstack/react-table";
-
 import {
   Table,
   TableBody,
@@ -24,7 +24,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -164,9 +163,9 @@ export function DataTable<TData, TValue>({
   };
 
   useEffect(() => {
-    const statusColumn = table.getColumn("status");
-    if (statusColumn) {
-      statusColumn.getFilterFn = () => statusFilterFn;
+    const dateColumn = table.getColumn("date");
+    if (dateColumn) {
+      dateColumn.getFilterFn = () => statusFilterFn;
     }
   }, [table]);
 
@@ -296,10 +295,13 @@ export function DataTable<TData, TValue>({
 
         <Input
           placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
-          }
+          // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          onChange={(event) => {
+            const emailColumn = table.getColumn("email");
+            if (emailColumn) {
+              emailColumn.setFilterValue(event.target.value);
+            }
+          }}
           className="max-w-sm"
         />
 
@@ -333,12 +335,14 @@ export function DataTable<TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    <>
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </>
                   </TableHead>
                 ))}
               </TableRow>
