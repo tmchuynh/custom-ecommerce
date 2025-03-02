@@ -425,7 +425,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
             ))}
           </TableHeader>
           <TableBody>
-            {table.getRowModel().rows?.length ? (
+            {table.getCoreRowModel().rows?.length ? (
               <>
                 {table.getRowModel().rows.map((row) => (
                   <React.Fragment key={row.id}>
@@ -449,10 +449,10 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
                       </Button>
                     </TableRow>
                     {expandedRows.has(row.id) && (
-                      <TableRow className="border-4 table-row">
+                      <TableRow className="cursor-pointer">
                         <TableCell
                           colSpan={columns.length}
-                          className="w-full table-cell"
+                          className="w-fit relative h-24"
                         >
                           <SubTable row={row} />
                         </TableCell>
