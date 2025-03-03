@@ -65,7 +65,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     });
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>([]);
   const hasInitialized = useRef(false);
-  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
   const [expandedRow, setExpandedRow] = useState<string | null>(null);
 
@@ -103,23 +102,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
   const hasVisibleColumns = Object.entries(columnVisibility).some(
     ([key, isVisible]) => key !== "select" && isVisible
   );
-
-  const handleStatusFilter = (status: string, checked: boolean) => {
-    setSelectedStatuses((prev) => {
-      const newStatuses = checked
-        ? [...prev, status]
-        : prev.filter((s) => s !== status);
-      table
-        .getColumn("status")
-        ?.setFilterValue(newStatuses.length ? newStatuses : undefined);
-      return newStatuses;
-    });
-  };
-
-  const clearStatusFilter = () => {
-    setSelectedStatuses([]);
-    table.getColumn("status")?.setFilterValue(undefined);
-  };
 
   const statusFilterFn: FilterFn<any> = (
     row: Row<any>,
@@ -165,13 +147,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     document.body.removeChild(link);
   };
 
-  useEffect(() => {
-    const dateColumn = table.getColumn("date");
-    if (dateColumn) {
-      dateColumn.getFilterFn = () => statusFilterFn;
-    }
-  }, [table]);
-
   const toggleRowExpansion = (rowId: string) => {
     setExpandedRow((prev) => (prev === rowId ? null : rowId));
   };
@@ -208,10 +183,10 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
         </TableHeader>
         <TableBody>
           {subTable.getRowModel().rows.map((subRow) => (
-            <TableRow key={subRow.id} className="w-fit">
+            <TableRow key={subRow.index} className="w-fit">
               {subRow.getVisibleCells().map((cell) => (
                 <TableCell
-                  key={cell.id}
+                  key={cell.column.id}
                   className={
                     cell.column.id === "quantity" || cell.column.id === "price"
                       ? "text-left"
@@ -232,64 +207,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     <div>
       {/* ✅ Filter for Status Column */}
       <div className="flex items-center py-4 space-x-4">
-        <div className="flex items-center py-4 space-x-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm">
-                Filter Status
-                {selectedStatuses.length > 0
-                  ? ` (${selectedStatuses.length})`
-                  : ""}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="start">
-              <DropdownMenuLabel>Select Status</DropdownMenuLabel>
-              <DropdownMenuCheckboxItem
-                checked={selectedStatuses.includes("pending")}
-                onCheckedChange={(checked) =>
-                  handleStatusFilter("pending", checked)
-                }
-              >
-                Pending
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={selectedStatuses.includes("processing")}
-                onCheckedChange={(checked) =>
-                  handleStatusFilter("processing", checked)
-                }
-              >
-                Processing
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={selectedStatuses.includes("success")}
-                onCheckedChange={(checked) =>
-                  handleStatusFilter("success", checked)
-                }
-              >
-                Success
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem
-                checked={selectedStatuses.includes("failed")}
-                onCheckedChange={(checked) =>
-                  handleStatusFilter("failed", checked)
-                }
-              >
-                Failed
-              </DropdownMenuCheckboxItem>
-              <DropdownMenuLabel>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={clearStatusFilter}
-                  className="w-full"
-                >
-                  Clear Status Filters
-                </Button>
-              </DropdownMenuLabel>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-
         {/* 🔹 Auto-hide Column Selector if No Columns are Visible */}
         {hasVisibleColumns && (
           <div>
