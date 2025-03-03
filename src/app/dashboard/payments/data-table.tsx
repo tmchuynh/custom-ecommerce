@@ -17,6 +17,16 @@ import {
 } from "@tanstack/react-table";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -35,15 +45,6 @@ import {
 import { PurchaseRecord } from "@/lib/types";
 import { subTableColumns } from "./columns";
 import { DataTableProps } from "@/lib/interfaces";
-import { Table } from "lucide-react";
-import {
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableBody,
-  TableCell,
-} from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
 
 export function DataTable<TData extends PurchaseRecord, TValue>({
   columns,
