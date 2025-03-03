@@ -1,17 +1,10 @@
 import { SidebarRight } from "@/components/ui/navbar-right";
-import { SidebarLeft } from "@/components/ui/sidebar-left";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList,
-  BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { SidebarLeft } from "@/components/ui/sidebar-left";
 
 export default function Page() {
   return (
