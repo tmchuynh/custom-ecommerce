@@ -160,3 +160,19 @@ export function setSlug(title: string): string {
     .replace(/[\s-]+/g, "-");
   return slug;
 }
+
+/**
+ * Converts a given string to title case. It replaces underscores with spaces,
+ * splits the string into words, capitalizes the first letter of each word,
+ * and converts the rest of the letters to lowercase.
+ *
+ * @param issuer - The string to be converted to title case.
+ * @returns The converted string in title case.
+ */
+export function toTitle(issuer: string): string {
+  return issuer
+    .replace("_", " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
