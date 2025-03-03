@@ -67,7 +67,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
   const hasInitialized = useRef(false);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   const [selectedColumns, setSelectedColumns] = useState<string[]>([]);
-  const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+  const [expandedRow, setExpandedRow] = useState<string | null>(null);
 
   const table = useReactTable({
     data,
@@ -173,15 +173,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
   }, [table]);
 
   const toggleRowExpansion = (rowId: string) => {
-    setExpandedRows((prev) => {
-      const newExpandedRows = new Set(prev);
-      if (newExpandedRows.has(rowId)) {
-        newExpandedRows.delete(rowId);
-      } else {
-        newExpandedRows.add(rowId);
-      }
-      return newExpandedRows;
-    });
+    setExpandedRow((prev) => (prev === rowId ? null : rowId));
   };
 
   const SubTable = ({ row }: { row: Row<PurchaseRecord> }) => {
@@ -427,11 +419,9 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
                           )}
                         </TableCell>
                       ))}
-                      <Button className="ml-auto" variant="ghost">
-                        Edit
-                        {/* <Icon path={Pencil} className="h-4 w-4 text-gray-500" /> */}
-                        {/* <Icon path={X} className="h-4 w-4 text-gray-500" /> */}
-                      </Button>
+                      <TableCell>
+                        <IoMdArrowDropdown className="ml-auto" />
+                      </TableCell>
                     </TableRow>
                   </React.Fragment>
                 ))}
@@ -439,7 +429,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
             ) : (
               <TableRow>
                 <TableCell
-                  colSpan={columns.length}
+                  colSpan={columns.length + 1} // Adjust for the additional cell
                   className="h-24 text-center w-full"
                 >
                   No results.
@@ -540,7 +530,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
         <TableBody>
           {table.getCoreRowModel().rows.map(
             (row) =>
-              expandedRows.has(row.id) && (
+              expandedRow === row.id && (
                 <TableRow className="cursor-pointer" key={`sub-${row.id}`}>
                   <TableCell
                     colSpan={columns.length}
