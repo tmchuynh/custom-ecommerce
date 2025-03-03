@@ -15,6 +15,7 @@ import {
   FilterFn,
   Row,
 } from "@tanstack/react-table";
+import { IoMdArrowDropdown } from "react-icons/io";
 import {
   Table,
   TableBody,
@@ -43,11 +44,7 @@ import {
 } from "@/components/ui/pagination";
 import { PurchaseRecord } from "@/lib/types";
 import { subTableColumns } from "./columns";
-
-interface DataTableProps<TData extends PurchaseRecord, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-}
+import { DataTableProps } from "@/lib/interfaces";
 
 export function DataTable<TData extends PurchaseRecord, TValue>({
   columns,
@@ -59,9 +56,13 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
   );
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>(
-      Object.fromEntries(columns.map((col) => [col.id, true]))
-    );
+    React.useState<VisibilityState>({
+      productName: false,
+      productId: false,
+      price: false,
+      quantity: false,
+      // Set other columns to true or false as needed
+    });
   const [columnOrder, setColumnOrder] = React.useState<ColumnOrderState>([]);
   const hasInitialized = useRef(false);
   const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
@@ -98,16 +99,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
       }));
     }
   }, []);
-
-  useEffect(() => {
-    console.log("Table Columns", columns); // Check columns structure
-    console.log("Table Data", data); // Check if data is correct
-  }, [columns, data]);
-
-  // Check column visibility
-  useEffect(() => {
-    console.log("Column Visibility", columnVisibility);
-  }, [columnVisibility]);
 
   const hasVisibleColumns = Object.entries(columnVisibility).some(
     ([key, isVisible]) => key !== "select" && isVisible
@@ -206,7 +197,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     });
 
     return (
-      <Table className="w-full border-4">
+      <Table className="w-full">
         <TableHeader>
           {subTable.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
@@ -225,7 +216,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
         </TableHeader>
         <TableBody>
           {subTable.getRowModel().rows.map((subRow) => (
-            <TableRow key={subRow.id} className="w-fit border-2">
+            <TableRow key={subRow.id} className="w-fit">
               {subRow.getVisibleCells().map((cell) => (
                 <TableCell
                   key={cell.id}
@@ -324,7 +315,13 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
                 {table
                   .getAllColumns()
                   .filter(
-                    (column) => column.getCanHide() && column.id !== "select"
+                    (column) =>
+                      column.getCanHide() &&
+                      column.id !== "select" &&
+                      column.id !== "productName" &&
+                      column.id !== "productId" &&
+                      column.id !== "price" &&
+                      column.id !== "quantity"
                   )
                   .map((column) => (
                     <DropdownMenuCheckboxItem
@@ -369,18 +366,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
           </div>
         )}
 
-        <Input
-          placeholder="Filter emails..."
-          // value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-          onChange={(event) => {
-            const emailColumn = table.getColumn("email");
-            if (emailColumn) {
-              emailColumn.setFilterValue(event.target.value);
-            }
-          }}
-          className="max-w-sm"
-        />
-
         <div className="flex space-x-2 py-4">
           <Button
             variant="default"
@@ -406,7 +391,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
 
       <div className="rounded-md border">
         <Table>
-          <TableHeader>
+          <TableHeader className="w-fit">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
@@ -448,16 +433,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
                         {/* <Icon path={X} className="h-4 w-4 text-gray-500" /> */}
                       </Button>
                     </TableRow>
-                    {expandedRows.has(row.id) && (
-                      <TableRow className="cursor-pointer">
-                        <TableCell
-                          colSpan={columns.length}
-                          className="w-fit relative h-24"
-                        >
-                          <SubTable row={row} />
-                        </TableCell>
-                      </TableRow>
-                    )}
                   </React.Fragment>
                 ))}
               </>
@@ -561,6 +536,23 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
           </Pagination>
         </div>
       </div>
+      <Table>
+        <TableBody>
+          {table.getCoreRowModel().rows.map(
+            (row) =>
+              expandedRows.has(row.id) && (
+                <TableRow className="cursor-pointer" key={`sub-${row.id}`}>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="max-w-min relative h-24"
+                  >
+                    <SubTable row={row} />
+                  </TableCell>
+                </TableRow>
+              )
+          )}
+        </TableBody>
+      </Table>
     </div>
   );
 }
