@@ -11,6 +11,11 @@ export interface LengthObject {
   unit: string;
 }
 
+export interface DataTableProps<TData extends PurchaseRecord, TValue> {
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+}
+
 export interface LoaderSizeProps extends CommonProps {
   size?: LengthType;
 }

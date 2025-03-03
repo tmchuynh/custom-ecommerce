@@ -12,6 +12,7 @@ export interface CommonProps
 
 export type User = {
   firstName: string;
+  middleName: string;
   lastName: string;
   email: string;
   phone: string;
@@ -42,7 +43,6 @@ export type Payment = {
 export interface PurchaseRecord {
   user: User;
   userId: string;
-  amount: number;
   date: Date;
   items: Item[];
   payment: Payment;
