@@ -15,7 +15,7 @@ import {
   FilterFn,
   Row,
 } from "@tanstack/react-table";
-import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import {
   Table,
   TableBody,
@@ -420,7 +420,11 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
                         </TableCell>
                       ))}
                       <TableCell>
-                        <IoMdArrowDropdown className="ml-auto" />
+                        {expandedRow === row.id ? (
+                          <IoMdArrowDropup className="ml-auto" />
+                        ) : (
+                          <IoMdArrowDropdown className="ml-auto" />
+                        )}
                       </TableCell>
                     </TableRow>
                   </React.Fragment>
