@@ -1,21 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-import {
-  ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  getSortedRowModel,
-  SortingState,
-  getFilteredRowModel,
-  VisibilityState,
-  ColumnFiltersState,
-  getPaginationRowModel,
-  useReactTable,
-  ColumnOrderState,
-  FilterFn,
-  Row,
-} from "@tanstack/react-table";
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -32,18 +16,33 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { PurchaseRecord } from "@/lib/types";
-import { subTableColumns } from "./columns";
-import { DataTableProps } from "@/lib/interfaces";
-import { Table } from "lucide-react";
 import {
-  TableHeader,
-  TableRow,
-  TableHead,
   TableBody,
   TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
 } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
+import { DataTableProps } from "@/lib/interfaces";
+import { PurchaseRecord } from "@/lib/types";
+import {
+  ColumnFiltersState,
+  ColumnOrderState,
+  FilterFn,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  Row,
+  SortingState,
+  useReactTable,
+  VisibilityState,
+} from "@tanstack/react-table";
+import { Table } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { subTableColumns } from "./columns";
 
 export function DataTable<TData extends PurchaseRecord, TValue>({
   columns,

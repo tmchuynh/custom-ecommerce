@@ -1,12 +1,12 @@
-import React from "react";
+import LoadingIndicator from "@/components/Loading";
+import { SidebarRight } from "@/components/ui/navbar-right";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { SidebarLeft } from "@/components/ui/sidebar-left";
-import { SidebarRight } from "@/components/ui/navbar-right";
-import LoadingIndicator from "../../components/Loading";
+import React from "react";
 
 interface SidebarLayoutProps {
   loading: boolean;

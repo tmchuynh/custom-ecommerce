@@ -2,7 +2,6 @@
 import { columns } from "@/app/dashboard/payments/columns";
 import { DataTable } from "@/app/dashboard/payments/data-table";
 import PageHeading from "@/components/ui/pageheading";
-import SidebarLayout from "@/app/dashboard/layout";
 import { PurchaseRecord } from "@/lib/types";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
