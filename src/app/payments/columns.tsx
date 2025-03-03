@@ -6,6 +6,7 @@ import { PurchaseRecord } from "@/lib/types";
 import { toTitle } from "@/lib/utils";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
+import React from "react";
 
 export const columns: ColumnDef<PurchaseRecord>[] = [
   {
