@@ -69,7 +69,7 @@ const data = {
   favorites: [
     {
       name: "Past Purchases",
-      url: "/payments",
+      url: "/dashboard/payments",
       emoji: "📊",
     },
     {
