@@ -1,12 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { PurchaseRecord } from "@/lib/types";
-
-const columnHelper = createColumnHelper<PurchaseRecord>();
+import { toTitle } from "@/lib/utils";
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
 
 export const columns: ColumnDef<PurchaseRecord>[] = [
   {
@@ -33,6 +32,26 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
     enableSorting: false,
     enableHiding: true,
     size: 50, // Set a fixed width for the select column
+  },
+  {
+    accessorKey: "productName",
+    header: "Product Name",
+    enableHiding: false,
+  },
+  {
+    accessorKey: "productId",
+    header: "Product ID",
+    enableHiding: false,
+  },
+  {
+    accessorKey: "price",
+    header: "Price",
+    enableHiding: false,
+  },
+  {
+    accessorKey: "quantity",
+    header: "Quantity",
+    enableHiding: false,
   },
   {
     accessorKey: "date",
@@ -79,7 +98,20 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
       },
       {
         accessorKey: "payment.status",
-        header: () => "Status",
+        header: ({ column }) => {
+          return (
+            <Button
+              variant="ghost"
+              onClick={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+              className="-m-4 cursor-pointer"
+            >
+              Status
+              <ArrowUpDown className="ml-2 h-4 w-4" />
+            </Button>
+          );
+        },
         cell: ({ row }) => {
           return row.original.payment.status;
         },
@@ -87,27 +119,19 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
     ],
   },
   {
-    accessorKey: "amount",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-m-4 cursor-pointer"
-        >
-          Amount
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    id: "creditCardType",
+    header: () => "Credit Card",
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return <div className="text-right font-medium w-fit">{formatted}</div>;
+      return toTitle(row.original.user.creditCard.issuer);
+    },
+  },
+  {
+    id: "creditCardNumber",
+    header: () => "Credit Card",
+    cell: ({ row }) => {
+      const cardNumber = row.original.user.creditCard.number;
+      const formatted = `**** **** **** ${cardNumber.slice(-4)}`;
+      return formatted;
     },
   },
 ];
