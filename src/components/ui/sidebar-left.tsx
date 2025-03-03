@@ -1,31 +1,24 @@
 "use client";
-
-import * as React from "react";
-import {
-  AudioWaveform,
-  Blocks,
-  Calendar,
-  Command,
-  Home,
-  Inbox,
-  MessageCircleQuestion,
-  Search,
-  Settings2,
-  Sparkles,
-  Trash2,
-} from "lucide-react";
-
 import { NavFavorites } from "@/components/ui/nav-favorites";
-import { NavMain } from "@/components/ui/nav-main";
 import { NavSecondary } from "@/components/ui/nav-secondary";
 import { NavWorkspaces } from "@/components/ui/nav-workspaces";
-import { TeamSwitcher } from "@/components/ui/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { TeamSwitcher } from "@/components/ui/team-switcher";
+import {
+  AudioWaveform,
+  Blocks,
+  Calendar,
+  Command,
+  MessageCircleQuestion,
+  Settings2,
+  Trash2,
+} from "lucide-react";
+import * as React from "react";
 
 // This is sample data.
 const data = {
@@ -75,8 +68,8 @@ const data = {
   ],
   favorites: [
     {
-      name: "Project Management & Task Tracking",
-      url: "#",
+      name: "Past Purchases",
+      url: "/payments",
       emoji: "📊",
     },
     {
