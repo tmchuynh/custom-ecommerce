@@ -20,7 +20,7 @@ import SyncLoader from "./SyncLoader";
  * The component uses Tailwind CSS classes for styling and layout.
  * The spinner's size, speed, and CSS overrides are customizable via the SyncLoader props.
  */
-const LoadingIndicator: React.FC = () => {
+const LoadingIndicator: React.FC = (): JSX.Element => {
   return (
     <main className="w-10/12 md:w-11/12 mx-auto py-6 h-lvh flex justify-center items-center">
       <SyncLoader
