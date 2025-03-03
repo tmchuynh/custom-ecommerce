@@ -13,15 +13,16 @@ const generateCreditCard = (): CreditCard => {
 const generateUser = (creditCard: CreditCard): User => {
   return {
     firstName: faker.person.firstName(),
+    middleName: faker.person.middleName(),
     lastName: faker.person.lastName(),
     email: faker.internet.email(),
     phone: faker.phone.number(),
     creditCard,
     address: {
-      street: faker.address.street(),
-      city: faker.address.city(),
-      state: faker.address.state(),
-      zipCode: faker.address.zipCode(),
+      street: faker.location.street(),
+      city: faker.location.city(),
+      state: faker.location.state(),
+      zipCode: faker.location.zipCode(),
     },
   };
 };
@@ -33,12 +34,19 @@ const generatePurchaseRecord = (
   return {
     user,
     userId: user.email,
-    amount: payment.amount,
     date: payment.date,
     items: Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, () => ({
-      productId: faker.string.uuid(),
+      productId: faker.string.numeric(5),
       productName: faker.commerce.productName(),
-      price: parseFloat(faker.commerce.price()),
+      price: parseFloat(
+        faker.finance.amount({
+          min: 5,
+          max: 45,
+          dec: 5,
+          symbol: "",
+          autoFormat: true,
+        })
+      ),
       quantity: faker.number.int({ min: 1, max: 10 }),
     })),
     payment,
@@ -47,7 +55,7 @@ const generatePurchaseRecord = (
 
 const generatePayment = (user: User): Payment => {
   return {
-    id: faker.string.uuid(),
+    id: faker.string.alphanumeric({ length: 10, casing: "upper" }),
     amount: parseFloat(faker.finance.amount()),
     status: faker.helpers.arrayElement([
       "pending",
