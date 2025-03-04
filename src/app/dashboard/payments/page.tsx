@@ -152,13 +152,13 @@ export default function DemoPage() {
   );
 
   return (
-    <div className="container mx-auto py-10">
+    <main className="w-11/12 md:w-10/12 mx-auto">
       <PageHeading
         title="Back End Developer"
         jobDetails={jobDetails}
         actions={actions}
       />
       <DataTable columns={columns} data={data} />
-    </div>
+    </main>
   );
 }

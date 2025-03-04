@@ -11,9 +11,9 @@ export default function Page() {
   });
 
   return (
-    <>
+    <main className="w-11/12 md:w-10/12 mx-auto">
       <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50" />
       <div className="mx-auto h-[100vh] w-full max-w-3xl rounded-xl bg-muted/50" />
-    </>
+    </main>
   );
 }
