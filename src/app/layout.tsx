@@ -27,9 +27,9 @@ export default function RootLayout({
 
 const MainContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <section>
+    <main>
       <DynamicBreadcrumb />
       {children}
-    </section>
+    </main>
   );
 };
