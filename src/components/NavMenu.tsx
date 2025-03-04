@@ -104,7 +104,7 @@ export default function NavMenu() {
           <a href="/dashboard" className="text-sm/6 font-semibold">
             Dashboard
           </a>
-          <a href="/payments" className="text-sm/6 font-semibold">
+          <a href="/dashboard/payments" className="text-sm/6 font-semibold">
             Payments
           </a>
           <a href="#" className="text-sm/6 font-semibold">
