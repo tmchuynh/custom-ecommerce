@@ -4,21 +4,38 @@ import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 
-export function Sonner() {
+export function Sonner({
+  className,
+  children,
+  text,
+  description,
+  title,
+  action,
+  label,
+  ...props
+}: {
+  description: string;
+  text: string;
+  title?: string;
+  action: () => void;
+  label: string;
+  className?: string;
+  children?: React.ReactNode;
+}) {
   return (
     <Button
       variant="outline"
       onClick={() =>
-        toast("Event has been created", {
-          description: "Sunday, December 03, 2023 at 9:00 AM",
+        toast(title, {
+          description: description,
           action: {
-            label: "Undo",
-            onClick: () => console.log("Undo"),
+            label: label,
+            onClick: () => action(),
           },
         })
       }
     >
-      Show Toast
+      {text}
     </Button>
   );
 }
