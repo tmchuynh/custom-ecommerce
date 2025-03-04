@@ -8,6 +8,11 @@ import React, { useEffect, useState } from "react";
 import { CoolMode } from "./magicui/cool-mode";
 import { Sonner } from "./Sonner";
 import Link from "next/link";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
 
 const LoginPage: React.FC = () => {
   const router = useRouter();
@@ -29,6 +34,7 @@ const LoginPage: React.FC = () => {
     number: false,
     symbol: false,
   });
+  const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
   useEffect(() => {
     if (!sessionStorage.getItem("reloaded")) {
@@ -319,45 +325,53 @@ const LoginPage: React.FC = () => {
             <div className="grid md:grid-cols-2 md:gap-6">
               <div className="relative z-0 w-full mb-5 group">
                 <Label htmlFor="register_password">Password</Label>
-                <Input
-                  id="register_password"
-                  type="password"
-                  name="password"
-                  value={userData.password}
-                  onChange={handleInputChange}
-                  placeholder="Password"
-                  required
-                  autoComplete="new-password"
-                />
-                <div className="text-sm mt-2">
-                  <p
-                    className={
-                      passwordValidations.length
-                        ? "text-green-500"
-                        : "text-red-500"
-                    }
-                  >
-                    At least 8 characters
-                  </p>
-                  <p
-                    className={
-                      passwordValidations.number
-                        ? "text-green-500"
-                        : "text-red-500"
-                    }
-                  >
-                    At least one number
-                  </p>
-                  <p
-                    className={
-                      passwordValidations.symbol
-                        ? "text-green-500"
-                        : "text-red-500"
-                    }
-                  >
-                    At least one symbol
-                  </p>
-                </div>
+                <HoverCard open={isPasswordFocused}>
+                  <HoverCardTrigger asChild>
+                    <Input
+                      id="register_password"
+                      type="password"
+                      name="password"
+                      value={userData.password}
+                      onChange={handleInputChange}
+                      onFocus={() => setIsPasswordFocused(true)}
+                      onBlur={() => setIsPasswordFocused(false)}
+                      placeholder="Password"
+                      required
+                      autoComplete="new-password"
+                    />
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    <div className="text-sm mt-2">
+                      <p
+                        className={
+                          passwordValidations.length
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }
+                      >
+                        At least 8 characters
+                      </p>
+                      <p
+                        className={
+                          passwordValidations.number
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }
+                      >
+                        At least one number
+                      </p>
+                      <p
+                        className={
+                          passwordValidations.symbol
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }
+                      >
+                        At least one symbol
+                      </p>
+                    </div>
+                  </HoverCardContent>
+                </HoverCard>
               </div>
               <div className="relative z-0 w-full mb-5 group">
                 <Label htmlFor="register_cPassword">Confirm Password</Label>
