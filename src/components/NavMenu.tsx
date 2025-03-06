@@ -59,18 +59,18 @@ export default function NavMenu() {
 
             <PopoverPanel
               transition
-              className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl  ring-1 shadow-lg ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+              className="absolute top-full -left-8 z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl  ring-1 shadow-lg ring-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in bg-popover"
             >
               <div className="p-4">
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:"
+                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-100"
                   >
-                    <div className="flex size-11 flex-none items-center justify-center rounded-lg  group-hover:">
+                    <div className="flex size-11 border-2 flex-none items-center justify-center rounded-lg group-hover:bg-teal-50 p-2">
                       <item.icon
                         aria-hidden="true"
-                        className="size-6 group-hover:"
+                        className="size-6 group-hover:text-green-600"
                       />
                     </div>
                     <div className="flex-auto">
@@ -83,16 +83,16 @@ export default function NavMenu() {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5 ">
+              <div className="grid grid-cols-2 divide-x divide-gray-900/5">
                 {callsToAction.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold hover:"
+                    className="flex items-center justify-center gap-x-2.5 group hover:bg-green-800 p-3 text-sm/6 hover:text-white"
                   >
                     <item.icon
                       aria-hidden="true"
-                      className="size-5 flex-none"
+                      className="size-5 group-hover:text-white flex-none"
                     />
                     {item.name}
                   </a>
