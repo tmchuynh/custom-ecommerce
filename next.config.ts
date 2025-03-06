@@ -20,6 +20,24 @@ const nextConfig: NextConfig = {
         port: "", // Optional: You can leave this blank
         pathname: "/**", // Allow all paths from tailwindui.com
       },
+      {
+        protocol: "https",
+        hostname: "tailwindcss.com", // Adding the tailwindcss.com domain
+        port: "", // Optional: You can leave this blank
+        pathname: "/**", // Allow all paths from tailwindcss.com
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com", // Adding the images.unsplash.com domain
+        port: "", // Optional: You can leave this blank
+        pathname: "/**", // Allow all paths from images.unsplash.com
+      },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com", // Adding the plus.unsplash.com domain
+        port: "", // Optional: You can leave this blank
+        pathname: "/**", // Allow all paths from plus.unsplash.com
+      },
     ],
     dangerouslyAllowSVG: true, // Allows SVG images to be loaded
   },
