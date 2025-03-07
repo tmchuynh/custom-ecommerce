@@ -5,13 +5,9 @@ import PageHeading from "@/components/ui/pageheading";
 import { PurchaseRecord } from "@/lib/types";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import {
-  BriefcaseIcon,
-  CalendarIcon,
   CheckIcon,
   ChevronDownIcon,
-  CurrencyDollarIcon,
   LinkIcon,
-  MapPinIcon,
   PencilIcon,
 } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
