@@ -39,45 +39,6 @@ export default function DemoPage() {
     fetchPayments();
   }, []);
 
-  const jobDetails = [
-    {
-      icon: (
-        <BriefcaseIcon
-          aria-hidden="true"
-          className="mr-1.5 size-5 shrink-0 text-gray-400"
-        />
-      ),
-      text: "Full-time",
-    },
-    {
-      icon: (
-        <MapPinIcon
-          aria-hidden="true"
-          className="mr-1.5 size-5 shrink-0 text-gray-400"
-        />
-      ),
-      text: "Remote",
-    },
-    {
-      icon: (
-        <CurrencyDollarIcon
-          aria-hidden="true"
-          className="mr-1.5 size-5 shrink-0 text-gray-400"
-        />
-      ),
-      text: "$120k – $140k",
-    },
-    {
-      icon: (
-        <CalendarIcon
-          aria-hidden="true"
-          className="mr-1.5 size-5 shrink-0 text-gray-400"
-        />
-      ),
-      text: "Closing on January 9, 2020",
-    },
-  ];
-
   const actions = (
     <>
       <span className="hidden sm:block">
@@ -155,8 +116,7 @@ export default function DemoPage() {
     <main className="w-11/12 md:w-10/12 mx-auto">
       <PageHeading
         title="Back End Developer"
-        jobDetails={jobDetails}
-        actions={actions}
+        description="We are looking for a back end developer to join our team."
       />
       <DataTable columns={columns} data={data} />
     </main>
