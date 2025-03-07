@@ -4,6 +4,7 @@ import { Providers } from "./providers";
 import NavMenu from "@/components/NavMenu";
 import BackToTop from "@/components/BackToTop";
 import DynamicBreadcrumb from "@/components/ui/breadcrumb-dynamic";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ const MainContent = ({ children }: { children: React.ReactNode }) => {
     <main>
       <DynamicBreadcrumb />
       {children}
+      <Footer />
     </main>
   );
 };
