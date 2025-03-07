@@ -16,6 +16,9 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
+import { Toggle } from "./ui/toggle";
+import { IoSunny } from "react-icons/io5";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default function NavMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -65,37 +68,25 @@ export default function NavMenu() {
                 {products.map((item) => (
                   <div
                     key={item.name}
-                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-100"
+                    className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-muted"
                   >
-                    <div className="flex size-11 border-2 flex-none items-center justify-center rounded-lg group-hover:bg-teal-50 p-2">
+                    <div className="flex size-11 bg-teritary flex-none items-center justify-center rounded-lg group-hover:bg-secondary p-2">
                       <item.icon
                         aria-hidden="true"
-                        className="size-6 group-hover:text-green-600"
+                        className="size-6 text-secondary-foreground"
                       />
                     </div>
                     <div className="flex-auto">
-                      <a href={item.href} className="block font-semibold">
+                      <a
+                        href={item.href}
+                        className="block font-semibold group-hover:underline underline-offset-4"
+                      >
                         {item.name}
                         <span className="absolute inset-0" />
                       </a>
                       <p className="mt-1">{item.description}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-2 divide-x divide-gray-900/5">
-                {callsToAction.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="flex items-center justify-center gap-x-2.5 group hover:bg-green-800 p-3 text-sm/6 hover:text-white"
-                  >
-                    <item.icon
-                      aria-hidden="true"
-                      className="size-5 group-hover:text-white flex-none"
-                    />
-                    {item.name}
-                  </a>
                 ))}
               </div>
             </PopoverPanel>
@@ -111,12 +102,17 @@ export default function NavMenu() {
             Company
           </a>
         </PopoverGroup>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="px-10">
+            <ThemeToggle />
+          </div>
           <a href="/login" className="text-sm/6 font-semibold">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </nav>
+
       <Dialog
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
