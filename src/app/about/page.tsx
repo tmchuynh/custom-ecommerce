@@ -1,16 +1,11 @@
 "use client";
-
 import FeaturedBlogs from "@/components/FeaturedBlogs";
-import Footer from "@/components/Footer";
 import LogoCloud from "@/components/LogoCloud";
 import Team from "@/components/Team";
 import { stats, values } from "@/lib/constants";
 import Image from "next/image";
-import { useState } from "react";
 
 export default function Example() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
   return (
     <main className="isolate">
       {/* Hero section */}
@@ -185,8 +180,6 @@ export default function Example() {
       <Team />
 
       <FeaturedBlogs />
-
-      <Footer />
     </main>
   );
 }
