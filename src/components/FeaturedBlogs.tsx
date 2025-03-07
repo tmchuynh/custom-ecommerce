@@ -1,4 +1,4 @@
-import { blogPosts } from "@/lib/constants";
+import { blogPosts } from "@/lib/blog-constants";
 import Image from "next/image";
 
 export default function FeaturedBlogs() {
