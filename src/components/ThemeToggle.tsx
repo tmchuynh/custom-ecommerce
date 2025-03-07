@@ -1,12 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { FiSun, FiMoon } from "react-icons/fi";
 import { Switch } from "./ui/switch";
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const toggleTheme = () => {
     if (theme === "dark") {
@@ -15,6 +20,10 @@ export const ThemeToggle = () => {
       setTheme("dark");
     }
   };
+
+  if (!mounted) {
+    return null; // Render nothing until mounted
+  }
 
   return (
     <div className="flex items-center space-x-2">
