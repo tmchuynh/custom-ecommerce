@@ -41,3 +41,15 @@ export interface UserType {
   name: string;
   email: string;
 }
+
+export interface JobDetail {
+  icon: React.ReactNode;
+  text: string;
+}
+
+export interface PageHeadingProps {
+  title: string;
+  description?: string;
+  jobDetails?: JobDetail[];
+  actions?: React.ReactNode;
+}

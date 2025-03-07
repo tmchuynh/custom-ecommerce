@@ -1,11 +1,19 @@
+import CurrencyDollarIcon from "@heroicons/react/20/solid/CurrencyDollarIcon";
 import {
   CursorArrowRaysIcon,
   FingerPrintIcon,
   SquaresPlusIcon,
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
-import { ChartPieIcon, PhoneIcon, PlayCircleIcon } from "lucide-react";
-import { JSX, SVGProps } from "react";
+import {
+  ChartPieIcon,
+  PhoneIcon,
+  PlayCircleIcon,
+  BriefcaseIcon,
+  MapPinIcon,
+  CurrencyIcon,
+  CalendarIcon,
+} from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
 
 export const products = [
@@ -226,4 +234,23 @@ export const blogPosts = [
     },
   },
   // More posts...
+];
+
+export const jobDetails = [
+  {
+    icon: BriefcaseIcon,
+    text: "Full-time",
+  },
+  {
+    icon: MapPinIcon,
+    text: "Remote",
+  },
+  {
+    icon: CurrencyDollarIcon,
+    text: "Remote",
+  },
+  {
+    icon: CalendarIcon,
+    text: "Remote",
+  },
 ];
