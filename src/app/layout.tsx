@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <NotFoundProvider>
           <Providers>
             <NavMenu />
@@ -28,7 +28,7 @@ export default function RootLayout({
 
 const MainContent = ({ children }: { children: React.ReactNode }) => {
   return (
-    <main>
+    <main className="flex-grow">
       <DynamicBreadcrumb />
       {children}
       <Footer />
