@@ -1,5 +1,4 @@
 "use client";
-
 import { callsToAction, products } from "@/lib/constants";
 import {
   Dialog,
@@ -16,8 +15,6 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { useState } from "react";
-import { Toggle } from "./ui/toggle";
-import { IoSunny } from "react-icons/io5";
 import { ThemeToggle } from "./ThemeToggle";
 
 export default function NavMenu() {
@@ -51,7 +48,7 @@ export default function NavMenu() {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Popover className="relative">
+          <Popover className="relative bg-popover text-popover-foreground">
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold">
               Product
               <ChevronDownIcon
