@@ -24,6 +24,13 @@ const LoginPage: React.FC = () => {
     }
   }, []);
 
+  /**
+   * Displays a toast notification with a specified type and message.
+   * The toast will automatically disappear after 5 seconds.
+   *
+   * @param type - The type of the toast notification, either "error" or "success".
+   * @param message - The message to be displayed in the toast notification.
+   */
   const showToast = (type: "error" | "success", message: string) => {
     setToastMessage({ type, message });
     setTimeout(() => {
@@ -31,6 +38,16 @@ const LoginPage: React.FC = () => {
     }, 5000);
   };
 
+  /**
+   * Handles the login process by sending the username and password to the server,
+   * retrieving the user data upon successful login, and handling errors appropriately.
+   *
+   * @param {string} username - The username of the user attempting to log in.
+   * @param {string} password - The password of the user attempting to log in.
+   * @returns {Promise<void>} A promise that resolves when the login process is complete.
+   *
+   * @throws {Error} Throws an error if the login or fetching user data fails.
+   */
   const handleLogin = async (username: string, password: string) => {
     setIsLoading(true);
 
