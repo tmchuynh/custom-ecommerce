@@ -101,6 +101,14 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     ([key, isVisible]) => key !== "select" && isVisible
   );
 
+  /**
+   * Filters rows based on the status column.
+   *
+   * @param row - The row object containing data for a single row.
+   * @param columnId - The ID of the column to filter.
+   * @param filterValue - An array of filter values to match against the column value.
+   * @returns A boolean indicating whether the row matches the filter criteria.
+   */
   const statusFilterFn: FilterFn<any> = (
     row: Row<any>,
     columnId: string,
@@ -109,6 +117,22 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     return filterValue.includes(row.getValue(columnId));
   };
 
+  /**
+   * Exports table data to a CSV file.
+   *
+   * @param exportType - Specifies whether to export all rows or only selected rows.
+   *                      - "all": Exports all rows.
+   *                      - "selected": Exports only selected rows.
+   *
+   * The function performs the following steps:
+   * 1. Determines the rows to export based on the `exportType` parameter.
+   * 2. Alerts the user if there are no rows to export.
+   * 3. Retrieves the visible column headers, excluding the select column.
+   * 4. Converts the data to CSV format.
+   * 5. Initiates the download of the CSV file.
+   *
+   * The CSV file is named `export_{exportType}.csv`.
+   */
   const exportToCSV = (exportType: "all" | "selected") => {
     const rowsToExport =
       exportType === "selected"
@@ -149,6 +173,24 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
     setExpandedRow((prev) => (prev === rowId ? null : rowId));
   };
 
+  /**
+   * SubTable component renders a nested table for displaying items within a purchase record.
+   *
+   * @param {Object} props - The component props.
+   * @param {Row<PurchaseRecord>} props.row - The row object containing the purchase record data.
+   *
+   * @returns {JSX.Element} The rendered sub-table component.
+   *
+   * @example
+   * ```tsx
+   * <SubTable row={row} />
+   * ```
+   *
+   * @remarks
+   * This component uses `useReactTable` to manage the table state and rendering.
+   * It assumes that `row.original.items` contains the nested array of items in the `PurchaseRecord`.
+   * The `subTableColumns` should be defined earlier to specify the columns for the sub-table.
+   */
   const SubTable = ({ row }: { row: Row<PurchaseRecord> }) => {
     const subTable = useReactTable({
       data: row.original.items, // Assuming `items` is the nested array in `PurchaseRecord`
