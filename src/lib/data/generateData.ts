@@ -1,6 +1,15 @@
 import { faker } from "@faker-js/faker";
 import { User, Payment, PurchaseRecord, CreditCard } from "@/lib/types";
 
+/**
+ * Generates a random credit card object.
+ *
+ * @returns {CreditCard} An object containing the following properties:
+ * - `number`: A randomly generated credit card number.
+ * - `issuer`: The issuer of the credit card.
+ * - `expirationDate`: The expiration date of the credit card in a localized string format.
+ * - `cvv`: A randomly generated CVV code.
+ */
 const generateCreditCard = (): CreditCard => {
   return {
     number: faker.finance.creditCardNumber(),
@@ -10,6 +19,12 @@ const generateCreditCard = (): CreditCard => {
   };
 };
 
+/**
+ * Generates a user object with random personal information and a provided credit card.
+ *
+ * @param {CreditCard} creditCard - The credit card information to associate with the user.
+ * @returns {User} A user object containing random personal details and the provided credit card.
+ */
 const generateUser = (creditCard: CreditCard): User => {
   return {
     firstName: faker.person.firstName(),
@@ -27,6 +42,13 @@ const generateUser = (creditCard: CreditCard): User => {
   };
 };
 
+/**
+ * Generates a purchase record for a given user and payment.
+ *
+ * @param {User} user - The user making the purchase.
+ * @param {Payment} payment - The payment details for the purchase.
+ * @returns {PurchaseRecord} The generated purchase record containing user details, purchase date, items purchased, and payment information.
+ */
 const generatePurchaseRecord = (
   user: User,
   payment: Payment
@@ -53,6 +75,12 @@ const generatePurchaseRecord = (
   };
 };
 
+/**
+ * Generates a payment object for a given user.
+ *
+ * @param {User} user - The user for whom the payment is being generated.
+ * @returns {Payment} The generated payment object.
+ */
 const generatePayment = (user: User): Payment => {
   return {
     id: faker.string.alphanumeric({ length: 10, casing: "upper" }),
@@ -68,6 +96,14 @@ const generatePayment = (user: User): Payment => {
   };
 };
 
+/**
+ * Generates fake data for users, payments, and purchase records.
+ *
+ * @param {number} numUsers - The number of users to generate.
+ * @param {number} numPayments - The total number of payments to generate.
+ * @returns {{ users: User[], payments: Payment[], purchaseRecords: PurchaseRecord[] }}
+ * An object containing arrays of generated users, payments, and purchase records.
+ */
 export const generateFakeData = (numUsers: number, numPayments: number) => {
   const users: User[] = [];
   const payments: Payment[] = [];
