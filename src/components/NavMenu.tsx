@@ -492,7 +492,10 @@ export default function NavMenu() {
 
                     {/* Wish List  */}
                     <div className="ml-4 flow-root lg:ml-8">
-                      <a href="#" className="group -m-2 flex items-center p-2">
+                      <a
+                        href="/wishlist_items"
+                        className="group -m-2 flex items-center p-2"
+                      >
                         <FaHeart
                           aria-hidden="true"
                           className="size-6 shrink-0 group-hover:text-primary"
@@ -506,7 +509,10 @@ export default function NavMenu() {
 
                     {/* Cart */}
                     <div className="ml-4 flow-root lg:ml-8">
-                      <a href="#" className="group -m-2 flex items-center p-2">
+                      <a
+                        href="/shopping_cart"
+                        className="group -m-2 flex items-center p-2"
+                      >
                         <ShoppingBagIcon
                           aria-hidden="true"
                           className="size-6 shrink-0 group-hover:text-primary"
