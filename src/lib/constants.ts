@@ -2,6 +2,7 @@ import CurrencyDollarIcon from "@heroicons/react/20/solid/CurrencyDollarIcon";
 import {
   ArrowPathIcon,
   CursorArrowRaysIcon,
+  DocumentTextIcon,
   FingerPrintIcon,
   GlobeAltIcon,
   InformationCircleIcon,
@@ -14,9 +15,12 @@ import {
   BriefcaseIcon,
   CalendarIcon,
   ChartPieIcon,
+  GiftIcon,
   MapPinIcon,
   NewspaperIcon,
+  RulerIcon,
   ShieldCheckIcon,
+  StarIcon,
   UsersIcon,
 } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
@@ -38,9 +42,10 @@ export const resources = [
 
 export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
-export const navigation = {
+export const navigations = {
   categories: [
     {
+      id: "women",
       name: "Women",
       featured: [
         {
@@ -49,146 +54,250 @@ export const navigation = {
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
           imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
+            "Latest arrivals in women's fashion, from dresses to casual wear.",
         },
         {
-          name: "Basic Tees",
+          name: "Dresses & Skirts",
           href: "#",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
         },
         {
           name: "Accessories",
           href: "#",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
-          imageAlt:
-            "Model wearing minimalist watch with black wristband and white watch face.",
+          imageAlt: "Elegant accessories to complement your outfits.",
         },
-        {
-          name: "Carry",
-          href: "#",
-          imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-04.jpg",
-          imageAlt:
-            "Model opening tan leather long wallet with credit card pockets and cash pouch.",
-        },
+      ],
+      sections: [
+        [
+          {
+            id: "footwear",
+            name: "Footwear & Accessories",
+            items: [
+              { name: "Sneakers", href: "#" },
+              { name: "Boots", href: "#" },
+              { name: "Flats", href: "#" },
+              { name: "Heels", href: "#" },
+              { name: "Bags", href: "#" },
+              { name: "Jewelry", href: "#" },
+            ],
+          },
+          {
+            id: "shop-collection",
+            name: "Shop by Collection",
+            items: [
+              { name: "New Arrivals", href: "#" },
+              { name: "Best Sellers", href: "#" },
+              { name: "Sale", href: "#" },
+              { name: "Shop All", href: "#" },
+            ],
+          },
+        ],
+        [
+          {
+            id: "clothing",
+            name: "All Clothing",
+            items: [
+              { name: "Tops", href: "#" },
+              { name: "Bottoms", href: "#" },
+              { name: "Swimwear", href: "#" },
+              { name: "Underwear", href: "#" },
+              { name: "Outerwear", href: "#" },
+              { name: "Activewear", href: "#" },
+            ],
+          },
+          {
+            id: "accessories",
+            name: "All Accessories",
+            items: [
+              { name: "Watches", href: "#" },
+              { name: "Wallets", href: "#" },
+              { name: "Bags", href: "#" },
+              { name: "Scarves", href: "#" },
+              { name: "Sunglasses", href: "#" },
+              { name: "Hats", href: "#" },
+              { name: "Belts", href: "#" },
+            ],
+          },
+        ],
+        [
+          {
+            id: "brands",
+            name: "Brands",
+            items: [
+              { name: "Zara", href: "#" },
+              { name: "H&M", href: "#" },
+              { name: "Gucci", href: "#" },
+              { name: "Chanel", href: "#" },
+              { name: "Nike", href: "#" },
+            ],
+          },
+        ],
       ],
     },
     {
+      id: "men",
       name: "Men",
       featured: [
-        {
-          name: "New Arrivals",
-          href: "#",
-          imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-01.jpg",
-          imageAlt:
-            "Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.",
-        },
-        {
-          name: "Basic Tees",
-          href: "#",
-          imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-02.jpg",
-          imageAlt: "Model wearing light heather gray t-shirt.",
-        },
         {
           name: "Accessories",
           href: "#",
           imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-03.jpg",
-          imageAlt:
-            "Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.",
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-03-category-01.jpg",
+          imageAlt: "Hats, watches, and accessories to complete your look.",
         },
         {
-          name: "Carry",
+          name: "New Arrivals",
           href: "#",
           imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-04.jpg",
-          imageAlt:
-            "Model putting folded cash into slim card holder olive leather wallet with hand stitching.",
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+          imageAlt: "New men's fashion trends for every occasion.",
         },
+        {
+          name: "Tees & Tops",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg",
+          imageAlt: "Comfortable and stylish t-shirts and shirts for men.",
+        },
+      ],
+      sections: [
+        [
+          {
+            id: "footwear",
+            name: "Footwear & Accessories",
+            items: [
+              { name: "Sneakers", href: "#" },
+              { name: "Boots", href: "#" },
+              { name: "Sandals", href: "#" },
+              { name: "Belts", href: "#" },
+              { name: "Bags", href: "#" },
+            ],
+          },
+          {
+            id: "shop-collection",
+            name: "Shop by Collection",
+            items: [
+              { name: "New Arrivals", href: "#" },
+              { name: "Sale", href: "#" },
+              { name: "Best Sellers", href: "#" },
+              { name: "Shop All", href: "#" },
+            ],
+          },
+        ],
+        [
+          {
+            id: "clothing",
+            name: "Clothing",
+            items: [
+              { name: "Tops", href: "#" },
+              { name: "Pants", href: "#" },
+              { name: "Jackets", href: "#" },
+              { name: "Swimwear", href: "#" },
+              { name: "Suits", href: "#" },
+              { name: "Activewear", href: "#" },
+            ],
+          },
+          {
+            id: "accessories",
+            name: "Accessories",
+            items: [
+              { name: "Sunglasses", href: "#" },
+              { name: "Watches", href: "#" },
+              { name: "Wallets", href: "#" },
+              { name: "Bags", href: "#" },
+              { name: "Hats", href: "#" },
+            ],
+          },
+        ],
+        [
+          {
+            id: "brands",
+            name: "Brands",
+            items: [
+              { name: "Reebok", href: "#" },
+              { name: "Nike", href: "#" },
+              { name: "Adidas", href: "#" },
+              { name: "Puma", href: "#" },
+              { name: "Under Armour", href: "#" },
+            ],
+          },
+        ],
       ],
     },
   ],
   pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
+    { name: "Our Story", href: "#" },
+    { name: "Find Stores", href: "#" },
   ],
 };
 
-export const categories = [
+export const about = [
   {
-    title: "Boost your conversion rate",
-    href: "#",
-    category: { title: "Marketing", href: "#" },
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    name: "Customer Service",
     description:
-      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
-  },
-  {
-    title: "Boost your conversion rate",
-    href: "#",
-    category: { title: "Marketing", href: "#" },
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    description:
-      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
-  },
-  {
-    title: "Boost your conversion rate",
-    href: "#",
-    category: { title: "Marketing", href: "#" },
-    imageUrl:
-      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
-    description:
-      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
-  },
-  {
-    title: "How to use search engine optimization to drive sales",
-    href: "#",
-    category: { title: "Sales", href: "#" },
-    imageUrl:
-      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
-    description:
-      "Optio cum necessitatibus dolor voluptatum provident commodi et.",
-  },
-];
-
-export const products = [
-  {
-    name: "About Us",
-    description: "Get a better understanding of your traffic",
-    href: "#",
-    icon: ChartPieIcon,
-  },
-  {
-    name: "Frequently Asked Questions",
-    description: "Speak directly to your customers",
+      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
     href: "#",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
-    description: "Your customers’ data will be safe and secure",
+    name: "Privacy Policy",
+    description:
+      "Read how we handle and protect your personal data with complete privacy.",
+    href: "#",
+    icon: ShieldCheckIcon,
+  },
+  {
+    name: "Return Policy",
+    description:
+      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+    href: "#",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Loyalty Program",
+    description:
+      "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
+    href: "#",
+    icon: GiftIcon,
+  },
+  {
+    name: "Size Guides",
+    description:
+      "Ensure the perfect fit with our detailed size guides for clothing and shoes.",
+    href: "#",
+    icon: RulerIcon,
+  },
+  {
+    name: "Customer Reviews",
+    description:
+      "See what other customers have to say about our products and services.",
+    href: "#",
+    icon: StarIcon,
+  },
+  {
+    name: "Gift Cards",
+    description:
+      "Give the gift of choice with our gift cards. Perfect for any occasion.",
+    href: "#",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Track Order",
+    description:
+      "Easily track your order status and delivery details in real-time.",
     href: "#",
     icon: FingerPrintIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools",
+    name: "Terms & Conditions",
+    description:
+      "Understand the rules and regulations of using our website and purchasing from us.",
     href: "#",
-    icon: SquaresPlusIcon,
-  },
-  {
-    name: "Automations",
-    description: "Build strategic funnels that will convert",
-    href: "#",
-    icon: ArrowPathIcon,
+    icon: DocumentTextIcon,
   },
 ];
 
