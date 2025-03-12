@@ -40,17 +40,32 @@ export type Payment = {
   date: Date;
 };
 
-export interface PurchaseRecord {
+export type PurchaseRecord = {
   user: User;
   userId: string;
   date: Date;
   items: Item[];
   payment: Payment;
-}
+};
 
-export interface Item {
+export type Item = {
   productId: string;
   productName: string;
   price: number;
   quantity: number;
-}
+};
+
+export type StoreItem = {
+  id: number;
+  href: string;
+  name: string;
+  description: string;
+  color: string;
+  availableColors: {
+    name: string;
+    colorBg: string;
+  }[];
+  price: number;
+  imageSrc: string;
+  imageAlt: string;
+};
