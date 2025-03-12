@@ -1,44 +1,19 @@
 import CurrencyDollarIcon from "@heroicons/react/20/solid/CurrencyDollarIcon";
 import {
-  ArrowPathIcon,
   CursorArrowRaysIcon,
   DocumentTextIcon,
   FingerPrintIcon,
-  GlobeAltIcon,
-  InformationCircleIcon,
-  SquaresPlusIcon,
-  UserGroupIcon,
-  VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 import {
-  BookOpenIcon,
   BriefcaseIcon,
   CalendarIcon,
-  ChartPieIcon,
   GiftIcon,
   MapPinIcon,
-  NewspaperIcon,
   RulerIcon,
   ShieldCheckIcon,
   StarIcon,
-  UsersIcon,
 } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
-
-export const engagement = [
-  { name: "About", href: "#", icon: InformationCircleIcon },
-  { name: "Customers", href: "#", icon: UsersIcon },
-  { name: "Press", href: "#", icon: NewspaperIcon },
-  { name: "Careers", href: "#", icon: BriefcaseIcon },
-  { name: "Privacy", href: "#", icon: ShieldCheckIcon },
-];
-
-export const resources = [
-  { name: "Community", href: "#", icon: UserGroupIcon },
-  { name: "Partners", href: "#", icon: GlobeAltIcon },
-  { name: "Guides", href: "#", icon: BookOpenIcon },
-  { name: "Webinars", href: "#", icon: VideoCameraIcon },
-];
 
 export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
@@ -230,8 +205,8 @@ export const navigations = {
     },
   ],
   pages: [
-    { name: "Our Story", href: "#" },
-    { name: "Find Stores", href: "#" },
+    { name: "Our Story", href: "/about" },
+    { name: "Find Stores", href: "/about/locations" },
   ],
 };
 
@@ -240,63 +215,63 @@ export const about = [
     name: "Customer Service",
     description:
       "Get assistance with your orders, returns, and inquiries. We're here to help you!",
-    href: "#",
+    href: "/customer_service",
+    icon: CursorArrowRaysIcon,
+  },
+  {
+    name: "Frequently Asked Questions",
+    description:
+      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
+    href: "/customer_service/frequently_asked_questions",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "Privacy Policy",
     description:
       "Read how we handle and protect your personal data with complete privacy.",
-    href: "#",
+    href: "/policy/privacy",
     icon: ShieldCheckIcon,
   },
   {
     name: "Return Policy",
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
-    href: "#",
+    href: "/policy/return",
     icon: CursorArrowRaysIcon,
   },
   {
     name: "Loyalty Program",
     description:
       "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
-    href: "#",
+    href: "/loyalty_program",
     icon: GiftIcon,
   },
   {
     name: "Size Guides",
     description:
       "Ensure the perfect fit with our detailed size guides for clothing and shoes.",
-    href: "#",
+    href: "/size_guides",
     icon: RulerIcon,
   },
   {
     name: "Customer Reviews",
     description:
       "See what other customers have to say about our products and services.",
-    href: "#",
+    href: "/about/customer_reviews",
     icon: StarIcon,
-  },
-  {
-    name: "Gift Cards",
-    description:
-      "Give the gift of choice with our gift cards. Perfect for any occasion.",
-    href: "#",
-    icon: CursorArrowRaysIcon,
   },
   {
     name: "Track Order",
     description:
       "Easily track your order status and delivery details in real-time.",
-    href: "#",
+    href: "/customer_service/track_order",
     icon: FingerPrintIcon,
   },
   {
     name: "Terms & Conditions",
     description:
       "Understand the rules and regulations of using our website and purchasing from us.",
-    href: "#",
+    href: "/info/",
     icon: DocumentTextIcon,
   },
 ];
