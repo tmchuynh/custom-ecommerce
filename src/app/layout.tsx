@@ -5,6 +5,7 @@ import NavMenu from "@/components/NavMenu";
 import BackToTop from "@/components/BackToTop";
 import DynamicBreadcrumb from "@/components/ui/breadcrumb-dynamic";
 import Footer from "@/components/Footer";
+import { CurrencyProvider } from "./context/CurrencyContext";
 
 export default function RootLayout({
   children,
@@ -16,8 +17,10 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <NotFoundProvider>
           <Providers>
-            <NavMenu />
-            <MainContent>{children}</MainContent>
+            <CurrencyProvider>
+              <NavMenu />
+              <MainContent>{children}</MainContent>
+            </CurrencyProvider>
             <BackToTop />
           </Providers>
         </NotFoundProvider>
