@@ -222,7 +222,7 @@ export const about = [
     name: "Frequently Asked Questions",
     description:
       "Get assistance with your orders, returns, and inquiries. We're here to help you!",
-    href: "/customer_service/frequently_asked_questions",
+    href: "/about/frequently_asked_questions",
     icon: CursorArrowRaysIcon,
   },
   {
