@@ -41,7 +41,7 @@ export default function LogoCloud() {
           />
         </div>
         <div className="mt-16 flex justify-center">
-          <p className="relative rounded-full px-4 py-1.5 text-sm/6 text-gray-600 ring-1 ring-gray-900/5 ring-inset">
+          <p className="relative rounded-full px-4 py-1.5 text-sm/6 ring-1 ring-gray-900/5 ring-inset">
             <span className="hidden md:inline">
               Over 2500 companies use our tools to better their business.
             </span>

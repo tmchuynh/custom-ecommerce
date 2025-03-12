@@ -43,18 +43,18 @@ const faqs = [
 const FAQPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
+      <h1 className="text-4xl font-extrabold text-center mb-8">
         Frequently Asked Questions
       </h1>
 
       <div className="space-y-6">
         <Accordion type="single" collapsible>
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="w-full p-4 text-xl font-semibold text-gray-900 bg-gray-100 rounded-t-md hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-indigo-500">
+            <AccordionItem key={index} value={`item-${index}`} className="my-9">
+              <AccordionTrigger className="w-full p-4 text-xl font-semibold bg-muted rounded-md  ">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="p-4 text-gray-600">
+              <AccordionContent className="p-4">
                 <p>{faq.answer}</p>
               </AccordionContent>
             </AccordionItem>

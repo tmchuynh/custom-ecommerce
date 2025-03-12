@@ -5,11 +5,9 @@ import Image from "next/image"; // Ensure that you have next/image imported for 
 const SizeGuide = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
-        Size Guide
-      </h1>
+      <h1 className="text-4xl font-extrabold text-center mb-8">Size Guide</h1>
 
-      <p className="text-xl text-center text-gray-600 mb-12">
+      <p className="text-xl text-center mb-12">
         Use our size guide to find your perfect fit! Whether you're shopping for
         tops, bottoms, or shoes, we have the measurements and visuals to help
         you make the right choice.
@@ -17,15 +15,11 @@ const SizeGuide = () => {
 
       {/* Shirt Size Guide */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Shirt Size Guide
-        </h2>
+        <h2 className="text-2xl font-semibold mb-4">Shirt Size Guide</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-medium text-gray-700 mb-4">
-              Men's Shirt Sizing
-            </h3>
-            <table className="table-auto w-full border-collapse border border-gray-300">
+            <h3 className="text-lg font-medium mb-4">Men's Shirt Sizing</h3>
+            <table className="table-auto w-full border-collapse">
               <thead>
                 <tr>
                   <th className="px-4 py-2 text-left">Size</th>
@@ -71,15 +65,11 @@ const SizeGuide = () => {
 
       {/* Pants Size Guide */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Pants Size Guide
-        </h2>
+        <h2 className="text-2xl font-semibold mb-4">Pants Size Guide</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-medium text-gray-700 mb-4">
-              Men's Pants Sizing
-            </h3>
-            <table className="table-auto w-full border-collapse border border-gray-300">
+            <h3 className="text-lg font-medium mb-4">Men's Pants Sizing</h3>
+            <table className="table-auto w-full border-collapse">
               <thead>
                 <tr>
                   <th className="px-4 py-2 text-left">Size</th>
@@ -125,15 +115,11 @@ const SizeGuide = () => {
 
       {/* Shoe Size Guide */}
       <div className="mb-12">
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-          Shoe Size Guide
-        </h2>
+        <h2 className="text-2xl font-semibold mb-4">Shoe Size Guide</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
-            <h3 className="text-lg font-medium text-gray-700 mb-4">
-              Men's Shoe Sizing
-            </h3>
-            <table className="table-auto w-full border-collapse border border-gray-300">
+            <h3 className="text-lg font-medium mb-4">Men's Shoe Sizing</h3>
+            <table className="table-auto w-full border-collapse">
               <thead>
                 <tr>
                   <th className="px-4 py-2 text-left">Size</th>

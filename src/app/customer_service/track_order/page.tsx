@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button"; // Use your own button component
 import { Input } from "@/components/ui/input"; // Use your own input component
+import { Card } from "@/components/ui/card";
 
 const TrackOrder = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
@@ -35,20 +36,20 @@ const TrackOrder = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
+      <h1 className="text-4xl font-extrabold text-center mb-8">
         Track Your Order
       </h1>
-      <p className="text-xl text-center text-gray-600 mb-12">
+      <p className="text-xl text-center mb-12">
         Enter your tracking number to get the latest update on your order
         status.
       </p>
 
       <div className="flex justify-center items-center">
-        <div className="bg-white shadow-lg p-8 rounded-lg max-w-md w-full">
+        <Card className="shadow-lg p-8 rounded-lg max-w-md w-full">
           <div className="mb-6">
             <label
               htmlFor="tracking-number"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium"
             >
               Tracking Number
             </label>
@@ -58,7 +59,7 @@ const TrackOrder = () => {
               value={trackingNumber}
               onChange={(e) => setTrackingNumber(e.target.value)}
               placeholder="Enter your tracking number"
-              className="mt-2 w-full p-3 border border-gray-300 rounded-md"
+              className="mt-2 w-full p-3 rounded-md border-input border"
             />
           </div>
 
@@ -70,9 +71,7 @@ const TrackOrder = () => {
 
           {orderStatus && (
             <div className="mt-6 text-center">
-              <h3 className="text-lg font-semibold text-gray-800">
-                Order Status:
-              </h3>
+              <h3 className="text-lg font-semibold">Order Status:</h3>
               <p
                 className={`mt-2 text-xl ${
                   orderStatus === "Order not found"
@@ -84,7 +83,7 @@ const TrackOrder = () => {
               </p>
             </div>
           )}
-        </div>
+        </Card>
       </div>
     </div>
   );

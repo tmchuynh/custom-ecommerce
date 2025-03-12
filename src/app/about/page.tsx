@@ -55,7 +55,7 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <h1 className="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
+                <h1 className="text-5xl font-semibold tracking-tight text-pretty sm:text-7xl">
                   We’re changing the way people connect
                 </h1>
                 <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
@@ -98,18 +98,18 @@ export default function Example() {
 
       <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
             Our mission
           </h2>
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
-              <p className="text-xl/8 text-gray-600">
+              <p className="text-xl/8">
                 Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
                 sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
                 id at vitae feugiat egestas ac. Diam nulla orci at in viverra
                 scelerisque eget. Eleifend egestas fringilla sapien.
               </p>
-              <p className="mt-10 max-w-xl text-base/7 text-gray-700">
+              <p className="mt-10 max-w-xl text-base/7">
                 Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
                 risus enim. Mattis mauris semper sed amet vitae sed turpis id.
                 Id dolor praesent donec est. Odio penatibus risus viverra tellus
@@ -125,8 +125,8 @@ export default function Example() {
                     key={stat.label}
                     className="flex flex-col-reverse gap-y-4"
                   >
-                    <dt className="text-base/7 text-gray-600">{stat.label}</dt>
-                    <dd className="text-5xl font-semibold tracking-tight text-gray-900">
+                    <dt className="text-base/7">{stat.label}</dt>
+                    <dd className="text-5xl font-semibold tracking-tight">
                       {stat.value}
                     </dd>
                   </div>
@@ -149,10 +149,10 @@ export default function Example() {
 
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
             Our values
           </h2>
-          <p className="mt-6 text-lg/8 text-gray-600">
+          <p className="mt-6 text-lg/8">
             Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
             voluptatum cupiditate veritatis in accusamus quisquam.
           </p>
@@ -168,7 +168,7 @@ export default function Example() {
                 <dt className="font-bold uppercase text-primary md:tracking-wide lg:tracking-wider xl:tracking-widest text-xl">
                   {value.name}
                 </dt>
-                <dd className="mt-1 text-gray-600">{value.description}</dd>
+                <dd className="mt-1">{value.description}</dd>
               </div>
             </div>
           ))}

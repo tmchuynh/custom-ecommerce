@@ -2,7 +2,7 @@ import { XMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Banner() {
   return (
-    <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div className="relative isolate flex items-center gap-x-6 overflow-hidden px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
       <div
         aria-hidden="true"
         className="absolute top-1/2 left-[max(-7rem,calc(50%-52rem))] -z-10 -translate-y-1/2 transform-gpu blur-2xl"
@@ -28,7 +28,7 @@ export default function Banner() {
         />
       </div>
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <p className="text-sm/6 text-gray-900">
+        <p className="text-sm/6">
           <strong className="font-semibold">GeneriCon 2023</strong>
           <svg
             viewBox="0 0 2 2"
@@ -52,7 +52,7 @@ export default function Banner() {
           className="-m-3 p-3 focus-visible:outline-offset-[-4px]"
         >
           <span className="sr-only">Dismiss</span>
-          <XMarkIcon aria-hidden="true" className="size-5 text-gray-900" />
+          <XMarkIcon aria-hidden="true" className="size-5" />
         </button>
       </div>
     </div>

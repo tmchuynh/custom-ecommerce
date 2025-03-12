@@ -1,5 +1,7 @@
 "use client";
 
+import { Card, CardContent } from "@/components/ui/card";
+
 const CustomerReviews = () => {
   const reviews = [
     {
@@ -111,10 +113,10 @@ const CustomerReviews = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8">
+      <h1 className="text-4xl font-extrabold text-center mb-8">
         Customer Reviews
       </h1>
-      <p className="text-xl text-center text-gray-600 mb-12">
+      <p className="text-xl text-center mb-12">
         See what our customers are saying about us! We value their feedback and
         continuously strive to provide the best service possible.
       </p>
@@ -122,23 +124,25 @@ const CustomerReviews = () => {
       {/* Reviews Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {reviews.map((review, index) => (
-          <div
+          <Card
             key={index}
-            className="bg-white border border-gray-200 rounded-lg p-6 shadow-md"
+            className="bg-card rounded-lg p-6 shadow-md flex flex-col justify-between"
           >
-            <div className="flex items-center mb-4">
-              <div className="text-lg font-semibold text-gray-800">
-                {review.name}
+            <CardContent className="w-full p-0">
+              <div className="flex items-center mb-4">
+                <div className="text-lg font-semibold">{review.name}</div>
+                <div className="ml-2 text-sm text-gray-500">
+                  ({review.date})
+                </div>
               </div>
-              <div className="ml-2 text-sm text-gray-500">({review.date})</div>
-            </div>
 
-            <div className="mb-4">
-              <p className="text-gray-600">{review.review}</p>
-            </div>
+              <div className="mb-4">
+                <p className="text-gray-600">{review.review}</p>
+              </div>
+            </CardContent>
 
             {/* Rating */}
-            <div className="flex items-center">
+            <div className="flex items-center gap-5">
               {Array.from({ length: 5 }, (_, index) => (
                 <svg
                   key={index}
@@ -153,7 +157,7 @@ const CustomerReviews = () => {
                 </svg>
               ))}
             </div>
-          </div>
+          </Card>
         ))}
       </div>
     </div>

@@ -296,7 +296,7 @@ export default function NavMenu() {
                                         key={item.name}
                                         className={cn(
                                           itemIdx === 0 ? "col-span-2" : "",
-                                          "group relative overflow-hidden rounded-md bg-gray-100"
+                                          "group relative overflow-hidden rounded-md bg-muted"
                                         )}
                                       >
                                         <Image
@@ -315,7 +315,7 @@ export default function NavMenu() {
                                           <div className="bg-white/60 p-4 text-sm">
                                             <a
                                               href={item.href}
-                                              className="font-medium text-gray-900"
+                                              className="font-medium"
                                             >
                                               <span
                                                 aria-hidden="true"
@@ -325,7 +325,7 @@ export default function NavMenu() {
                                             </a>
                                             <p
                                               aria-hidden="true"
-                                              className="mt-0.5 text-gray-700 sm:mt-1"
+                                              className="mt-0.5 sm:mt-1"
                                             >
                                               Shop now
                                             </p>
@@ -345,7 +345,7 @@ export default function NavMenu() {
                                             <div key={section.name}>
                                               <p
                                                 id={`${category.id}-${section.id}-heading`}
-                                                className="font-medium text-gray-900"
+                                                className="font-medium"
                                               >
                                                 {section.name}
                                               </p>
