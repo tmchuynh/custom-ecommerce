@@ -1,30 +1,221 @@
 import CurrencyDollarIcon from "@heroicons/react/20/solid/CurrencyDollarIcon";
 import {
+  ArrowPathIcon,
   CursorArrowRaysIcon,
   FingerPrintIcon,
+  GlobeAltIcon,
+  InformationCircleIcon,
   SquaresPlusIcon,
-  ArrowPathIcon,
+  UserGroupIcon,
+  VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 import {
-  ChartPieIcon,
-  PhoneIcon,
-  PlayCircleIcon,
+  BookOpenIcon,
   BriefcaseIcon,
-  MapPinIcon,
-  CurrencyIcon,
   CalendarIcon,
+  ChartPieIcon,
+  MapPinIcon,
+  NewspaperIcon,
+  ShieldCheckIcon,
+  UsersIcon,
 } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
 
+export const engagement = [
+  { name: "About", href: "#", icon: InformationCircleIcon },
+  { name: "Customers", href: "#", icon: UsersIcon },
+  { name: "Press", href: "#", icon: NewspaperIcon },
+  { name: "Careers", href: "#", icon: BriefcaseIcon },
+  { name: "Privacy", href: "#", icon: ShieldCheckIcon },
+];
+
+export const resources = [
+  { name: "Community", href: "#", icon: UserGroupIcon },
+  { name: "Partners", href: "#", icon: GlobeAltIcon },
+  { name: "Guides", href: "#", icon: BookOpenIcon },
+  { name: "Webinars", href: "#", icon: VideoCameraIcon },
+];
+
+export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
+
+export const navigation = {
+  categories: [
+    {
+      name: "Women",
+      featured: [
+        {
+          name: "New Arrivals",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
+          imageAlt:
+            "Models sitting back to back, wearing Basic Tee in black and bone.",
+        },
+        {
+          name: "Basic Tees",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt:
+            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
+        },
+        {
+          name: "Accessories",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+          imageAlt:
+            "Model wearing minimalist watch with black wristband and white watch face.",
+        },
+        {
+          name: "Carry",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-04.jpg",
+          imageAlt:
+            "Model opening tan leather long wallet with credit card pockets and cash pouch.",
+        },
+      ],
+    },
+    {
+      name: "Men",
+      featured: [
+        {
+          name: "New Arrivals",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-01.jpg",
+          imageAlt:
+            "Hats and sweaters on wood shelves next to various colors of t-shirts on hangers.",
+        },
+        {
+          name: "Basic Tees",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-02.jpg",
+          imageAlt: "Model wearing light heather gray t-shirt.",
+        },
+        {
+          name: "Accessories",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-03.jpg",
+          imageAlt:
+            "Grey 6-panel baseball hat with black brim, black mountain graphic on front, and light heather gray body.",
+        },
+        {
+          name: "Carry",
+          href: "#",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-01-men-category-04.jpg",
+          imageAlt:
+            "Model putting folded cash into slim card holder olive leather wallet with hand stitching.",
+        },
+      ],
+    },
+  ],
+  pages: [
+    { name: "Company", href: "#" },
+    { name: "Stores", href: "#" },
+  ],
+};
+
+export const categories = [
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "How to use search engine optimization to drive sales",
+    href: "#",
+    category: { title: "Sales", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
+    description:
+      "Optio cum necessitatibus dolor voluptatum provident commodi et.",
+  },
+];
+
+export const recentPosts = [
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "Boost your conversion rate",
+    href: "#",
+    category: { title: "Marketing", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3603&q=80",
+    description:
+      "Et et dolore officia quis nostrud esse aute cillum irure do esse. Eiusmod ad deserunt cupidatat est magna Lorem.",
+  },
+  {
+    title: "How to use search engine optimization to drive sales",
+    href: "#",
+    category: { title: "Sales", href: "#" },
+    imageUrl:
+      "https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80",
+    description:
+      "Optio cum necessitatibus dolor voluptatum provident commodi et.",
+  },
+];
+
 export const products = [
   {
-    name: "Analytics",
+    name: "About Us",
     description: "Get a better understanding of your traffic",
     href: "#",
     icon: ChartPieIcon,
   },
   {
-    name: "Engagement",
+    name: "Frequently Asked Questions",
     description: "Speak directly to your customers",
     href: "#",
     icon: CursorArrowRaysIcon,
@@ -47,11 +238,6 @@ export const products = [
     href: "#",
     icon: ArrowPathIcon,
   },
-];
-
-export const callsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", href: "#", icon: PhoneIcon },
 ];
 
 export const people = [
