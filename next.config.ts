@@ -1,5 +1,20 @@
 import type { NextConfig } from "next";
 
+const imageHosts = [
+  "placehold.co",
+  "tailwindui.com",
+  "tailwindcss.com",
+  "images.unsplash.com",
+  "hips.hearstapps.com",
+  "previews.123rf.com",
+  "www.websiteclosers.com",
+  "media.gq.com",
+  "i5.walmartimages.com",
+  "fashionisers.com",
+  "png.pngtree.com",
+  "plus.unsplash.com",
+];
+
 const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_EMAILJS_SERVICE_ID: "service_8nwkxet",
@@ -7,39 +22,13 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_EMAILJS_PUBLIC_KEY: "qeV_W2IMId2NMUL5W",
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        port: "", // Optional: You can leave this blank
-        pathname: "/**", // Allow all paths from placehold.co
-      },
-      {
-        protocol: "https",
-        hostname: "tailwindui.com", // Adding the tailwindui.com domain
-        port: "", // Optional: You can leave this blank
-        pathname: "/**", // Allow all paths from tailwindui.com
-      },
-      {
-        protocol: "https",
-        hostname: "tailwindcss.com", // Adding the tailwindcss.com domain
-        port: "", // Optional: You can leave this blank
-        pathname: "/**", // Allow all paths from tailwindcss.com
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com", // Adding the images.unsplash.com domain
-        port: "", // Optional: You can leave this blank
-        pathname: "/**", // Allow all paths from images.unsplash.com
-      },
-      {
-        protocol: "https",
-        hostname: "plus.unsplash.com", // Adding the plus.unsplash.com domain
-        port: "", // Optional: You can leave this blank
-        pathname: "/**", // Allow all paths from plus.unsplash.com
-      },
-    ],
-    dangerouslyAllowSVG: true, // Allows SVG images to be loaded
+    remotePatterns: imageHosts.map((hostname) => ({
+      protocol: "https",
+      hostname,
+      port: "",
+      pathname: "/**",
+    })),
+    dangerouslyAllowSVG: true,
   },
 };
 
