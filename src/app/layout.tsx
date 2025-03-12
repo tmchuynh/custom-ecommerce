@@ -6,6 +6,8 @@ import BackToTop from "@/components/BackToTop";
 import DynamicBreadcrumb from "@/components/ui/breadcrumb-dynamic";
 import Footer from "@/components/Footer";
 import { CurrencyProvider } from "./context/CurrencyContext";
+import { CartProvider } from "./context/cartContext";
+import { WishlistProvider } from "./context/wishlistContext";
 
 export default function RootLayout({
   children,
@@ -19,7 +21,11 @@ export default function RootLayout({
           <Providers>
             <CurrencyProvider>
               <NavMenu />
-              <MainContent>{children}</MainContent>
+              <CartProvider>
+                <WishlistProvider>
+                  <MainContent>{children}</MainContent>
+                </WishlistProvider>
+              </CartProvider>
             </CurrencyProvider>
             <BackToTop />
           </Providers>
