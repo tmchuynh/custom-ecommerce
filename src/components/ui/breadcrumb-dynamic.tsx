@@ -50,7 +50,7 @@ const DynamicBreadcrumb = () => {
   }, [pathSegments]);
 
   return (
-    <Breadcrumb className="w-10/12 mx-auto">
+    <Breadcrumb className="w-10/12 mx-auto pt-16">
       <BreadcrumbList>{breadcrumbItems}</BreadcrumbList>
     </Breadcrumb>
   );
