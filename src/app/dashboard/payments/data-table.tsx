@@ -40,7 +40,7 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table";
-import React, { useEffect, useRef, useState } from "react";
+import React, { JSX, useEffect, useRef, useState } from "react";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { subTableColumns } from "./columns";
 
@@ -100,22 +100,6 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
   const hasVisibleColumns = Object.entries(columnVisibility).some(
     ([key, isVisible]) => key !== "select" && isVisible
   );
-
-  /**
-   * Filters rows based on the status column.
-   *
-   * @param row - The row object containing data for a single row.
-   * @param columnId - The ID of the column to filter.
-   * @param filterValue - An array of filter values to match against the column value.
-   * @returns A boolean indicating whether the row matches the filter criteria.
-   */
-  const statusFilterFn: FilterFn<any> = (
-    row: Row<any>,
-    columnId: string,
-    filterValue: string[]
-  ) => {
-    return filterValue.includes(row.getValue(columnId));
-  };
 
   /**
    * Exports table data to a CSV file.
@@ -191,7 +175,7 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
    * It assumes that `row.original.items` contains the nested array of items in the `PurchaseRecord`.
    * The `subTableColumns` should be defined earlier to specify the columns for the sub-table.
    */
-  const SubTable = ({ row }: { row: Row<PurchaseRecord> }) => {
+  const SubTable = ({ row }: { row: Row<PurchaseRecord> }): JSX.Element => {
     const subTable = useReactTable({
       data: row.original.items, // Assuming `items` is the nested array in `PurchaseRecord`
       columns: subTableColumns, // Sub-table columns defined earlier
@@ -208,34 +192,41 @@ export function DataTable<TData extends PurchaseRecord, TValue>({
         <TableHeader>
           {subTable.getHeaderGroups().map((headerGroup) => (
             <TableRow key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <TableHead key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </TableHead>
-              ))}
+              {headerGroup.headers
+                .filter((header) => header.id !== "date")
+                .map((header) => (
+                  <TableHead key={header.id}>
+                    {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                  </TableHead>
+                ))}
             </TableRow>
           ))}
         </TableHeader>
         <TableBody>
           {subTable.getRowModel().rows.map((subRow) => (
             <TableRow key={subRow.index} className="w-fit">
-              {subRow.getVisibleCells().map((cell) => (
-                <TableCell
-                  key={cell.column.id}
-                  className={
-                    cell.column.id === "quantity" || cell.column.id === "price"
-                      ? "text-left"
-                      : ""
-                  }
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </TableCell>
-              ))}
+              {subRow.getVisibleCells().map((cell) => {
+                return (
+                  <TableCell
+                    key={cell.column.id}
+                    className={
+                      cell.column.id === "quantity" ||
+                      cell.column.id === "price"
+                        ? "text-left"
+                        : cell.column.id === "date"
+                        ? "hidden"
+                        : ""
+                    }
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </TableCell>
+                );
+              })}
             </TableRow>
           ))}
         </TableBody>
