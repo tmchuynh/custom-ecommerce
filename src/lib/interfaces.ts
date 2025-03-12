@@ -53,3 +53,32 @@ export interface PageHeadingProps {
   jobDetails?: JobDetail[];
   actions?: React.ReactNode;
 }
+
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+export interface CartContextType {
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
+  getTotalPrice: () => number;
+}
+
+export interface WishlistItem {
+  id: number;
+  name: string;
+  price: number;
+  imageSrc: string;
+  imageAlt: string;
+}
+
+export interface WishlistContextType {
+  wishlistItems: WishlistItem[];
+  addToWishlist: (item: WishlistItem) => void;
+  removeFromWishlist: (id: number) => void;
+}
