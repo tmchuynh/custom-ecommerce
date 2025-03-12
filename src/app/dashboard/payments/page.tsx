@@ -3,14 +3,7 @@ import { columns } from "@/app/dashboard/payments/columns";
 import { DataTable } from "@/app/dashboard/payments/data-table";
 import PageHeading from "@/components/ui/pageheading";
 import { PurchaseRecord } from "@/lib/types";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-import {
-  CheckIcon,
-  ChevronDownIcon,
-  LinkIcon,
-  PencilIcon,
-} from "@heroicons/react/20/solid";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 
 /**
  * DemoPage component fetches payment data from the server and displays it in a data table.
@@ -31,7 +24,7 @@ import { useEffect, useState } from "react";
  * @function
  * @name DemoPage
  */
-export default function DemoPage() {
+export default function DemoPage(): JSX.Element {
   const [data, setData] = useState<PurchaseRecord[]>([]);
   const [loading, setLoading] = useState(true);
 
