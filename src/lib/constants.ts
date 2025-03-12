@@ -229,14 +229,14 @@ export const about = [
     name: "Privacy Policy",
     description:
       "Read how we handle and protect your personal data with complete privacy.",
-    href: "/policy/privacy",
+    href: "/policies/privacy",
     icon: ShieldCheckIcon,
   },
   {
     name: "Return Policy",
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
-    href: "/policy/return",
+    href: "/policies/return",
     icon: CursorArrowRaysIcon,
   },
   {
@@ -271,7 +271,7 @@ export const about = [
     name: "Terms & Conditions",
     description:
       "Understand the rules and regulations of using our website and purchasing from us.",
-    href: "/info/",
+    href: "/policies/terms_and_conditions",
     icon: DocumentTextIcon,
   },
 ];
