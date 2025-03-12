@@ -85,7 +85,7 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
     ),
     enableSorting: false,
     enableHiding: true,
-    size: 50, // Set a fixed width for the select column
+    size: 50,
   },
   {
     accessorKey: "productName",
@@ -125,8 +125,9 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
       const date = new Date(row.getValue("date"));
       const formatted = date.toLocaleDateString("en-US");
 
-      return <div className="text-right font-medium w-fit">{formatted}</div>;
+      return <div className="text-left font-medium w-3/4">{formatted}</div>;
     },
+    size: 20,
   },
   {
     id: "payment",
@@ -138,7 +139,6 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
           className="-m-4 cursor-pointer"
         >
           Payment
-          <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
@@ -149,6 +149,7 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
         cell: ({ row }) => {
           return row.original.payment.id;
         },
+        size: 25,
       },
       {
         accessorKey: "payment.status",
@@ -169,6 +170,7 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
         cell: ({ row }) => {
           return row.original.payment.status;
         },
+        size: 25,
       },
     ],
   },
@@ -178,6 +180,7 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
     cell: ({ row }) => {
       return toTitle(row.original.user.creditCard.issuer);
     },
+    size: 25,
   },
   {
     id: "creditCardNumber",
@@ -187,6 +190,7 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
       const formatted = `**** **** **** ${cardNumber.slice(-4)}`;
       return formatted;
     },
+    size: 25,
   },
 ];
 
@@ -207,6 +211,11 @@ export const columns: ColumnDef<PurchaseRecord>[] = [
  * @type {ColumnDef<PurchaseRecord["items"][0]>[]}
  */
 export const subTableColumns: ColumnDef<PurchaseRecord["items"][0]>[] = [
+  {
+    accessorKey: "date",
+    header: "Date",
+    enableHiding: false,
+  },
   {
     accessorKey: "productId",
     header: ({ column }) => {
