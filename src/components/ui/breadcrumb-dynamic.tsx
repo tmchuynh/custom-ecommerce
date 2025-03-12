@@ -20,13 +20,19 @@ const DynamicBreadcrumb = () => {
   );
 
   const capitalizedSegments = useMemo(
-    () => pathSegments.map((segment) => capitalize(segment)),
+    () =>
+      pathSegments.map((segment) =>
+        capitalize(segment.replaceAll("_", " ").trim())
+      ),
     [pathSegments]
   );
 
   const breadcrumbItems = useMemo(() => {
     return pathSegments.map((_segment, index) => {
-      const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
+      const href = `/${pathSegments
+        .slice(0, index + 1)
+        .join("/")
+        .replaceAll("_", " ")}`;
       const isLast = index === pathSegments.length - 1;
       const capitalizedSegment = capitalizedSegments[index];
 
