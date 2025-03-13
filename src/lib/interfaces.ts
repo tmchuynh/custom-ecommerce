@@ -1,5 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { CommonProps, LengthType, PurchaseRecord } from "./types";
+import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
+import { LengthType, PurchaseRecord } from "./types";
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
@@ -34,24 +35,10 @@ export interface User extends UserType {
   purchaseRecords: PurchaseRecord[];
 }
 
-// other exports
-
 export interface UserType {
   id: string;
   name: string;
   email: string;
-}
-
-export interface JobDetail {
-  icon: React.ReactNode;
-  text: string;
-}
-
-export interface PageHeadingProps {
-  title: string;
-  description?: string;
-  jobDetails?: JobDetail[];
-  actions?: React.ReactNode;
 }
 
 export interface CartItem {
@@ -67,6 +54,34 @@ export interface CartContextType {
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   getTotalPrice: () => number;
+}
+
+export interface CommonProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
+  color?: string;
+  loading?: boolean;
+  cssOverride?: CSSProperties;
+  speedMultiplier?: number;
+}
+
+export interface CurrencyContextType {
+  selectedCurrency: string;
+  setSelectedCurrency: (currency: string) => void;
+}
+
+export interface DynamicButtonProps {
+  variant?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+  text: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  onClick?: () => void;
+  className?: string;
+  iconClassName?: string;
 }
 
 export interface WishlistItem {

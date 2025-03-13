@@ -1,11 +1,7 @@
 "use client";
 
+import { CurrencyContextType } from "@/lib/interfaces";
 import React, { createContext, useContext, useState, ReactNode } from "react";
-
-interface CurrencyContextType {
-  selectedCurrency: string;
-  setSelectedCurrency: (currency: string) => void;
-}
 
 // Create the Currency Context with a default value
 const CurrencyContext = createContext<CurrencyContextType | undefined>(

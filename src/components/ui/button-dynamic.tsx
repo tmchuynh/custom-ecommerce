@@ -2,21 +2,7 @@ import { cn } from "@/lib/utils";
 import React from "react";
 import { LuArrowBigRightDash } from "react-icons/lu";
 import { Button } from "./button";
-
-interface DynamicButtonProps {
-  variant?:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "secondary"
-    | "ghost"
-    | "link";
-  text: string;
-  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  onClick?: () => void;
-  className?: string;
-  iconClassName?: string;
-}
+import { DynamicButtonProps } from "@/lib/interfaces";
 
 const DynamicButton: React.FC<DynamicButtonProps> = ({
   variant = "default",
