@@ -14,6 +14,7 @@ import { capitalize } from "@/lib/utils";
 
 const DynamicBreadcrumb = () => {
   const pathname = usePathname();
+
   const pathSegments = useMemo(
     () => pathname.split("/").filter((segment) => segment),
     [pathname]
@@ -28,11 +29,18 @@ const DynamicBreadcrumb = () => {
   );
 
   const breadcrumbItems = useMemo(() => {
+    if (pathname === "/") {
+      return null; // Do not render breadcrumb on the homepage
+    }
+
     return pathSegments.map((_segment, index) => {
       const href = `/${pathSegments
         .slice(0, index + 1)
         .join("/")
         .replaceAll("_", " ")}`;
+      if (href === "/") {
+        return <div className="hidden" key={0}></div>;
+      }
       const isLast = index === pathSegments.length - 1;
       const capitalizedSegment = capitalizedSegments[index];
 
@@ -45,7 +53,10 @@ const DynamicBreadcrumb = () => {
                 {capitalizedSegment}
               </BreadcrumbPage>
             ) : (
-              <BreadcrumbLink className="bg-muted px-3 py-2 rounded-lg cursor-default">
+              <BreadcrumbLink
+                href={href}
+                className="bg-muted px-3 py-2 rounded-lg cursor-default"
+              >
                 {capitalizedSegment}
               </BreadcrumbLink>
             )}
@@ -55,8 +66,12 @@ const DynamicBreadcrumb = () => {
     });
   }, [pathSegments]);
 
+  if (breadcrumbItems === null) {
+    return null;
+  }
+
   return (
-    <Breadcrumb className="w-10/12 mx-auto pt-16 absolute top-20 left-20 right-0 z-20">
+    <Breadcrumb className="mx-auto pt-16 border z-30">
       <BreadcrumbList>{breadcrumbItems}</BreadcrumbList>
     </Breadcrumb>
   );
