@@ -7,7 +7,7 @@ export const fetchProductData = async (
   slug: string
 ) => {
   const res = await fetch(
-    `/api/products/${gender}/${category}/${item}/${slug}`
+    `/api/shopping/${gender}/${category}/${item}/${slug}`
   );
   if (!res.ok) {
     throw new Error("Product data not found");
