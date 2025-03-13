@@ -287,7 +287,7 @@ export default function NavMenu() {
                             transition
                             className="absolute inset-x-0 -z-10 bg-background pt-16 ring-1 shadow-lg ring-gray-900/5 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                           >
-                            <div className="relative bg-white">
+                            <div className="relative">
                               <div className="mx-auto max-w-7xl px-8">
                                 <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
                                   <div className="grid grid-cols-2 grid-rows-1 gap-8 text-sm">
@@ -315,7 +315,7 @@ export default function NavMenu() {
                                           <div className="bg-white/60 p-4 text-sm">
                                             <a
                                               href={item.href}
-                                              className="font-medium"
+                                              className="font-bold tracking-wider uppercase"
                                             >
                                               <span
                                                 aria-hidden="true"
@@ -334,18 +334,21 @@ export default function NavMenu() {
                                       </div>
                                     ))}
                                   </div>
-                                  <div className="grid grid-cols-3 gap-x-8 gap-y-10 text-sm text-gray-500">
+                                  <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
                                     {category.sections.map(
                                       (column, columnIdx) => (
                                         <div
                                           key={columnIdx}
-                                          className="space-y-10"
+                                          className="space-y-15 grid-cols-2 grid-rows-2 h-full"
                                         >
                                           {column.map((section) => (
-                                            <div key={section.name}>
+                                            <div
+                                              key={section.name}
+                                              className="min-h-fit h-5/11"
+                                            >
                                               <p
                                                 id={`${category.id}-${section.id}-heading`}
-                                                className="font-medium"
+                                                className="font-bold tracking-wider uppercase"
                                               >
                                                 {section.name}
                                               </p>
@@ -361,7 +364,7 @@ export default function NavMenu() {
                                                   >
                                                     <a
                                                       href={item.href}
-                                                      className="hover:text-gray-800"
+                                                      className="hover:underline underline-offset-6"
                                                     >
                                                       {item.name}
                                                     </a>
