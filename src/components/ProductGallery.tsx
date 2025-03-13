@@ -1,6 +1,7 @@
 // components/ProductGallery.tsx
 import { Tab, TabList, TabPanels, TabPanel, TabGroup } from "@headlessui/react";
 import React from "react";
+import Image from "next/image";
 
 const ProductGallery = ({ images }: { images: any[] }) => {
   return (
@@ -11,9 +12,14 @@ const ProductGallery = ({ images }: { images: any[] }) => {
             key={image.id}
             className="group relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium text-gray-900 uppercase hover:bg-gray-50 focus:ring-3 focus:ring-indigo-500/50 focus:ring-offset-4 focus:outline-hidden"
           >
-            <span className="sr-only">{image.name}</span>
             <span className="absolute inset-0 overflow-hidden rounded-md">
-              <img alt="" src={image.src} className="size-full object-cover" />
+              <Image
+                alt={image.alt}
+                src={image.src}
+                fill
+                sizes="100%"
+                className="object-cover"
+              />
             </span>
             <span
               aria-hidden="true"
@@ -25,11 +31,13 @@ const ProductGallery = ({ images }: { images: any[] }) => {
 
       <TabPanels>
         {images.map((image) => (
-          <TabPanel key={image.id}>
-            <img
+          <TabPanel key={image.id} className="relative aspect-square">
+            <Image
               alt={image.alt}
               src={image.src}
-              className="aspect-square w-full object-cover sm:rounded-lg"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover sm:rounded-lg"
             />
           </TabPanel>
         ))}
