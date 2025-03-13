@@ -45,8 +45,9 @@ export default function HomePage() {
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
           <Image
             alt=""
+            width={1920}
+            height={1080}
             src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-01-hero-full-width.jpg"
-            layout="fill"
             objectFit="cover"
           />
         </div>
@@ -114,9 +115,10 @@ export default function HomePage() {
                                 className="absolute inset-0"
                               >
                                 <Image
+                                  width={1920}
+                                  height={1080}
                                   alt=""
                                   src={section.imageSrc}
-                                  layout="fill"
                                   objectFit="cover"
                                 />
                               </span>
@@ -180,8 +182,9 @@ export default function HomePage() {
                           <span aria-hidden="true" className="absolute inset-0">
                             <Image
                               alt=""
+                              width={1920}
+                              height={1080}
                               src={item.imageSrc}
-                              layout="fill"
                               objectFit="cover"
                               className="size-full object-cover"
                             />
@@ -296,9 +299,10 @@ export default function HomePage() {
                     >
                       <div className="relative h-96 group rounded-2xl overflow-hidden">
                         <Image
+                          width={1920}
+                          height={1080}
                           alt={product.imageAlt}
                           src={product.imageSrc}
-                          layout="fill"
                           objectFit="cover"
                           className="aspect-square w-full bg-gray-200 object-cover"
                         />
@@ -360,9 +364,10 @@ export default function HomePage() {
           <div aria-hidden="true" className="absolute inset-0">
             <div className="absolute inset-0 mx-auto">
               <Image
+                width={1920}
+                height={1080}
                 alt=""
                 src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-sale-full-width.jpg"
-                layout="fill"
                 objectFit="cover"
               />
             </div>
