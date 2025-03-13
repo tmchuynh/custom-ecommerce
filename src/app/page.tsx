@@ -148,6 +148,101 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Collection section */}
+        <section
+          aria-labelledby="collection-heading"
+          className="mx-auto max-w-xl px-4 sm:px-6 sm:pt-10 lg:max-w-7xl lg:px-8"
+        >
+          <h2
+            id="collection-heading"
+            className="text-2xl font-bold tracking-tight text-gray-900"
+          >
+            Shop by Collection
+          </h2>
+          <p className="mt-4 text-base text-gray-500">
+            Each season, we collaborate with world-class designers to create a
+            collection inspired by the natural world.
+          </p>
+
+          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-4 lg:gap-x-8">
+            {navigations.categories.map((category) => {
+              if (category.name === "Women") {
+                return category.sections.map((section) =>
+                  section.map((section) => {
+                    if (section.id === "shop-collection") {
+                      return section.items.map((item) => (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                        >
+                          <span aria-hidden="true" className="absolute inset-0">
+                            <Image
+                              alt=""
+                              src={item.imageSrc}
+                              layout="fill"
+                              objectFit="cover"
+                              className="size-full object-cover"
+                            />
+                          </span>
+                          <span
+                            aria-hidden="true"
+                            className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+                          />
+                          <span className="relative mt-auto text-center text-xl font-bold text-white">
+                            {item.name}
+                          </span>
+                        </a>
+                      ));
+                    }
+                  })
+                );
+              }
+            })}
+          </div>
+        </section>
+
+        {/* Perks */}
+        <section
+          aria-labelledby="perks-heading"
+          className="border-t border-gray-200 bg-gray-50"
+        >
+          <h2 id="perks-heading" className="sr-only">
+            Our perks
+          </h2>
+
+          <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
+              {perks.map((perk) => (
+                <div
+                  key={perk.name}
+                  className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
+                >
+                  <div className="md:shrink-0">
+                    <div className="flow-root">
+                      <Image
+                        alt=""
+                        src={perk.imageUrl}
+                        className="mx-auto -my-1 h-24 w-auto"
+                        width={96}
+                        height={96}
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-6 md:mt-0 md:ml-4 lg:mt-6 lg:ml-0">
+                    <h3 className="text-base font-medium text-gray-900">
+                      {perk.name}
+                    </h3>
+                    <p className="mt-3 text-sm text-gray-500">
+                      {perk.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Trending products */}
         <section aria-labelledby="trending-heading" className="bg-white">
           <div className="lg:mx-auto lg:max-w-7xl lg:px-8 py-15">
