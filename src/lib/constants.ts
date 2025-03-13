@@ -25,22 +25,22 @@ export const navigations = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          href: "/shopping/women/collections/new_arrivals",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
           imageAlt:
             "Latest arrivals in women's fashion, from dresses to casual wear.",
         },
         {
-          name: "Dresses & Skirts",
-          href: "#",
+          name: "Accessories",
+          href: "/shopping/women/accessories",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
           imageAlt: "Stylish dresses for all occasions, from formal to casual.",
         },
         {
-          name: "Accessories",
-          href: "#",
+          name: "Latest Drops",
+          href: "/shopping/women/collections/latest_drops",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
           imageAlt: "Elegant accessories to complement your outfits.",
@@ -49,65 +49,78 @@ export const navigations = {
       sections: [
         [
           {
-            id: "footwear",
-            name: "Footwear & Accessories",
+            id: "clothing",
+            name: "Clothing",
             items: [
-              { name: "Sneakers", href: "#" },
-              { name: "Boots", href: "#" },
-              { name: "Flats", href: "#" },
-              { name: "Heels", href: "#" },
-              { name: "Bags", href: "#" },
-              { name: "Jewelry", href: "#" },
+              { name: "Tops", href: "/shopping/women/clothes/tops" },
+              { name: "Pants", href: "/shopping/women/clothes/pants" },
+              { name: "Bras", href: "/shopping/women/clothes/bras" },
+              {
+                name: "Dresses & Skirts",
+                href: "/shopping/women/clothes/dresses_skirts",
+              },
+              { name: "Swimwear", href: "/shopping/women/clothes/swimwear" },
+              {
+                name: "Activewear",
+                href: "/shopping/women/clothes/activewear",
+              },
+              {
+                name: "Formal Wear",
+                href: "/shopping/women/clothes/formal_wear",
+              },
+              { name: "Underwear", href: "/shopping/women/clothes/underwear" },
+              { name: "Outerwear", href: "/shopping/women/clothes/outerwear" },
             ],
           },
+          {
+            id: "shoes",
+            name: "Shoes",
+            items: [
+              { name: "Formal Shoes", href: "/shopping/women/shoes/formal" },
+              { name: "Sneakers", href: "/shopping/women/shoes/sneakers" },
+              { name: "Sandals", href: "/shopping/women/shoes/sandals" },
+              { name: "Boots", href: "/shopping/women/shoes/boots" },
+              { name: "Flats", href: "/shopping/women/shoes/flats" },
+              { name: "Heels", href: "/shopping/women/shoes/heels" },
+            ],
+          },
+        ],
+        [
+          {
+            id: "accessories",
+            name: "Accessories",
+            items: [
+              {
+                name: "Sunglasses",
+                href: "/shopping/women/accessories/sunglasses",
+              },
+              { name: "Watches", href: "/shopping/women/accessories/watches" },
+              { name: "Wallets", href: "/shopping/women/accessories/wallets" },
+              { name: "Bags", href: "/shopping/women/accessories/bags" },
+              { name: "Belts", href: "/shopping/women/accessories/belts" },
+              { name: "Scarves", href: "/shopping/women/accessories/scarves" },
+              { name: "Hats", href: "/shopping/women/accessories/hats" },
+            ],
+          },
+        ],
+        [
           {
             id: "shop-collection",
             name: "Shop by Collection",
             items: [
-              { name: "New Arrivals", href: "#" },
-              { name: "Best Sellers", href: "#" },
-              { name: "Sale", href: "#" },
-              { name: "Shop All", href: "#" },
-            ],
-          },
-        ],
-        [
-          {
-            id: "clothing",
-            name: "All Clothing",
-            items: [
-              { name: "Tops", href: "#" },
-              { name: "Bottoms", href: "#" },
-              { name: "Swimwear", href: "#" },
-              { name: "Underwear", href: "#" },
-              { name: "Outerwear", href: "#" },
-              { name: "Activewear", href: "#" },
-            ],
-          },
-          {
-            id: "accessories",
-            name: "All Accessories",
-            items: [
-              { name: "Watches", href: "#" },
-              { name: "Wallets", href: "#" },
-              { name: "Bags", href: "#" },
-              { name: "Scarves", href: "#" },
-              { name: "Sunglasses", href: "#" },
-              { name: "Hats", href: "#" },
-              { name: "Belts", href: "#" },
-            ],
-          },
-        ],
-        [
-          {
-            id: "brands",
-            name: "Brands",
-            items: [
-              { name: "Zara", href: "#" },
-              { name: "H&M", href: "#" },
-              { name: "Gucci", href: "#" },
-              { name: "Chanel", href: "#" },
-              { name: "Nike", href: "#" },
+              {
+                name: "New Arrivals",
+                href: "/shopping/women/collections/new_arrivals",
+              },
+              {
+                name: "Latest Drops",
+                href: "/shopping/women/collections/latest_drops",
+              },
+              {
+                name: "Best Sellers",
+                href: "/shopping/women/collections/best_sellers",
+              },
+              { name: "Sale", href: "/shopping/women/collections/sale" },
             ],
           },
         ],
@@ -118,22 +131,23 @@ export const navigations = {
       name: "Men",
       featured: [
         {
-          name: "Accessories",
-          href: "#",
-          imageSrc:
-            "https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-03-category-01.jpg",
-          imageAlt: "Hats, watches, and accessories to complete your look.",
-        },
-        {
           name: "New Arrivals",
-          href: "#",
+          href: "/shopping/men/collections/new_arrivals",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
           imageAlt: "New men's fashion trends for every occasion.",
         },
         {
-          name: "Tees & Tops",
-          href: "#",
+          name: "Shoes",
+          href: "/shopping/men/shoes",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-03-category-01.jpg",
+          imageAlt: "Hats, watches, and accessories to complete your look.",
+        },
+        {
+          name: "Latest Drops",
+          href: "/shopping/men/collections/latest_drops",
+
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt: "Comfortable and stylish t-shirts and shirts for men.",
@@ -142,62 +156,73 @@ export const navigations = {
       sections: [
         [
           {
-            id: "footwear",
-            name: "Footwear & Accessories",
+            id: "clothing",
+            name: "Clothing",
             items: [
-              { name: "Sneakers", href: "#" },
-              { name: "Boots", href: "#" },
-              { name: "Sandals", href: "#" },
-              { name: "Belts", href: "#" },
-              { name: "Bags", href: "#" },
+              { name: "Tops", href: "/shopping/men/clothes/tops" },
+              { name: "Pants", href: "/shopping/men/clothes/pants" },
+              { name: "Swimwear", href: "/shopping/men/clothes/swimwear" },
+              {
+                name: "Activewear",
+                href: "/shopping/men/clothes/activewear",
+              },
+              {
+                name: "Formal Wear",
+                href: "/shopping/men/clothes/formal_wear",
+              },
+              { name: "Underwear", href: "/shopping/men/clothes/underwear" },
+              { name: "Outerwear", href: "/shopping/men/clothes/outerwear" },
             ],
           },
           {
-            id: "shop-collection",
-            name: "Shop by Collection",
+            id: "shoes",
+            name: "Shoes",
             items: [
-              { name: "New Arrivals", href: "#" },
-              { name: "Sale", href: "#" },
-              { name: "Best Sellers", href: "#" },
-              { name: "Shop All", href: "#" },
+              { name: "Formal Shoes", href: "/shopping/men/shoes/formal" },
+
+              { name: "Sneakers", href: "/shopping/men/shoes/sneakers" },
+
+              { name: "Sandals", href: "/shopping/men/shoes/sandals" },
+              { name: "Boots", href: "/shopping/men/shoes/boots" },
             ],
           },
         ],
         [
-          {
-            id: "clothing",
-            name: "Clothing",
-            items: [
-              { name: "Tops", href: "#" },
-              { name: "Pants", href: "#" },
-              { name: "Jackets", href: "#" },
-              { name: "Swimwear", href: "#" },
-              { name: "Suits", href: "#" },
-              { name: "Activewear", href: "#" },
-            ],
-          },
           {
             id: "accessories",
             name: "Accessories",
             items: [
-              { name: "Sunglasses", href: "#" },
-              { name: "Watches", href: "#" },
-              { name: "Wallets", href: "#" },
-              { name: "Bags", href: "#" },
-              { name: "Hats", href: "#" },
+              {
+                name: "Sunglasses",
+                href: "/shopping/men/accessories/sunglasses",
+              },
+              { name: "Watches", href: "/shopping/men/accessories/watches" },
+              { name: "Wallets", href: "/shopping/men/accessories/wallets" },
+              { name: "Bags", href: "/shopping/men/accessories/bags" },
+              { name: "Belts", href: "/shopping/men/accessories/belts" },
+              { name: "Scarves", href: "/shopping/men/accessories/scarves" },
+              { name: "Hats", href: "/shopping/men/accessories/hats" },
             ],
           },
         ],
         [
           {
-            id: "brands",
-            name: "Brands",
+            id: "shop-collection",
+            name: "Shop by Collection",
             items: [
-              { name: "Reebok", href: "#" },
-              { name: "Nike", href: "#" },
-              { name: "Adidas", href: "#" },
-              { name: "Puma", href: "#" },
-              { name: "Under Armour", href: "#" },
+              {
+                name: "New Arrivals",
+                href: "/shopping/men/collections/new_arrivals",
+              },
+              {
+                name: "Latest Drops",
+                href: "/shopping/men/collections/latest_drops",
+              },
+              {
+                name: "Best Sellers",
+                href: "/shopping/men/collections/best_sellers",
+              },
+              { name: "Sale", href: "/shopping/men/collections/sale" },
             ],
           },
         ],
@@ -229,14 +254,14 @@ export const about = [
     name: "Privacy Policy",
     description:
       "Read how we handle and protect your personal data with complete privacy.",
-    href: "/policies/privacy",
+    href: "/policies/privacy_policy",
     icon: ShieldCheckIcon,
   },
   {
     name: "Return Policy",
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
-    href: "/policies/return",
+    href: "/policies/return_policy",
     icon: CursorArrowRaysIcon,
   },
   {
@@ -390,6 +415,96 @@ export const people = [
     role: "Customer Success Manager",
     imageUrl:
       "https://plus.unsplash.com/premium_photo-1688572454849-4348982edf7d?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  },
+];
+
+export const perks = [
+  {
+    name: "Free returns",
+    imageUrl:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-returns-light.svg",
+    description:
+      "Not what you expected? Place it back in the parcel and attach the pre-paid postage stamp.",
+  },
+  {
+    name: "Same day delivery",
+    imageUrl:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-calendar-light.svg",
+    description:
+      "We offer a delivery service that has never been done before. Checkout today and receive your products within hours.",
+  },
+  {
+    name: "All year discount",
+    imageUrl:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-gift-card-light.svg",
+    description:
+      'Looking for a deal? You can use the code "ALLYEAR" at checkout and get money off all year round.',
+  },
+  {
+    name: "For the planet",
+    imageUrl:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-planet-light.svg",
+    description:
+      "We’ve pledged 1% of sales to the preservation and restoration of the natural environment.",
+  },
+];
+
+export const offers = [
+  {
+    name: "Download the app",
+    description: "Get an exclusive $5 off code",
+    href: "#",
+  },
+  {
+    name: "Return when you're ready",
+    description: "60 days of free returns",
+    href: "#",
+  },
+  {
+    name: "Sign up for our newsletter",
+    description: "15% off your first order",
+    href: "#",
+  },
+];
+
+export const trendingProducts = [
+  {
+    id: 1,
+    name: "Machined Pen",
+    color: "Black",
+    price: "$35",
+    href: "#",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-product-01.jpg",
+    imageAlt:
+      "Black machined steel pen with hexagonal grip and small white logo at top.",
+    availableColors: [
+      { name: "Black", colorBg: "#111827" },
+      { name: "Brass", colorBg: "#FDE68A" },
+      { name: "Chrome", colorBg: "#E5E7EB" },
+    ],
+  },
+  // More products...
+];
+
+export const testimonials = [
+  {
+    id: 1,
+    quote:
+      "My order arrived super quickly. The product is even better than I hoped it would be. Very happy customer over here!",
+    attribution: "Sarah Peters, New Orleans",
+  },
+  {
+    id: 2,
+    quote:
+      "I had to return a purchase that didn’t fit. The whole process was so simple that I ended up ordering two new items!",
+    attribution: "Kelly McPherson, Chicago",
+  },
+  {
+    id: 3,
+    quote:
+      "Now that I’m on holiday for the summer, I’ll probably order a few more shirts. It’s just so convenient, and I know the quality will always be there.",
+    attribution: "Chris Paul, Phoenix",
   },
 ];
 
