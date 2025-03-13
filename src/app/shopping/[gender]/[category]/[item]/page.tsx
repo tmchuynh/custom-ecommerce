@@ -1,32 +1,29 @@
-"use client"; // Ensure this component is rendered on the client side
+"use client";
 
-import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation"; // Use this for app router
+import { mockProductData } from "@/lib/constants";
+import { GenderCategories } from "@/lib/types";
 
 const CategoryPage = () => {
-  const [isClient, setIsClient] = useState(false); // Track if component is client-side
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-
   const router = useRouter();
-  const { gender, category, item } = useParams(); // We will get params dynamically from this
-
-  useEffect(() => {
-    setIsClient(true); // Set isClient to true after the component has mounted
-  }, []);
+  const { gender, category, item } = useParams();
 
   useEffect(() => {
     if (gender && category && item) {
       const fetchProductData = async () => {
         try {
-          // Ensure URL construction matches API
-          const response = await fetch(
-            `/api/shopping/${gender}/${category}/${item}`
-          );
-          const data = await response.json();
+          // Flatten the mock data to make it easier to work with
+          const categoryData = (mockProductData as GenderCategories)[
+            gender as string
+          ]?.[category as string]?.[item as string];
 
-          if (response.ok) {
-            setProducts(data); // Set products when data is fetched
+          // Check if the category data exists and flatten it
+          if (categoryData) {
+            const productsArray = Object.values(categoryData); // Extract values as an array
+            setProducts(productsArray); // Set the products state to the array
           } else {
             console.error("Product data not found");
           }
@@ -41,7 +38,7 @@ const CategoryPage = () => {
     }
   }, [gender, category, item]);
 
-  if (!isClient || loading) {
+  if (loading) {
     return <div>Loading...</div>;
   }
 
@@ -51,34 +48,21 @@ const CategoryPage = () => {
 
   return (
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          {gender && (
-            <>
-              {typeof gender === "string" &&
-                gender.charAt(0).toUpperCase() + gender.slice(1)}{" "}
-              / {category} / {item}
-              Categories
-            </>
-          )}
-        </h1>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {products.map((product) => (
-            <div key={product.id} className="bg-white p-4 rounded-lg shadow-lg">
-              <img
-                src={product.imageSrc}
-                alt={product.name}
-                className="w-full h-48 object-cover rounded-md"
-              />
-              <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-              <p className="text-sm text-gray-500 mt-2">{product.price}</p>
-              <button className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg">
-                Add to Cart
-              </button>
-            </div>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
+        {products.map((product, index) => (
+          <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
+            <img
+              src={product.imageSrc}
+              alt={product.name}
+              className="w-full h-48 object-cover rounded-md"
+            />
+            <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
+            <p className="text-sm text-gray-500 mt-2">{product.price}</p>
+            <button className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg">
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
     </main>
   );
