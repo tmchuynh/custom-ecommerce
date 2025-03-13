@@ -76,7 +76,7 @@ export default function HomePage() {
         {/* Category section */}
         <section
           aria-labelledby="category-heading"
-          className="pt-24 sm:pt-32 xl:mx-auto xl:max-w-7xl xl:px-8"
+          className="sm:pt-20 xl:mx-auto xl:max-w-7xl xl:px-8"
         >
           <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
             <h2
@@ -150,7 +150,7 @@ export default function HomePage() {
 
         {/* Trending products */}
         <section aria-labelledby="trending-heading" className="bg-white">
-          <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8 lg:py-32">
+          <div className="lg:mx-auto lg:max-w-7xl lg:px-8 py-15">
             <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
               <h2
                 id="trending-heading"
@@ -178,7 +178,7 @@ export default function HomePage() {
                       key={product.id}
                       className="inline-flex w-64 flex-col text-center lg:w-auto"
                     >
-                      <div className="group relative">
+                      <div className="relative h-96 group rounded-2xl overflow-hidden">
                         <Image
                           alt={product.imageAlt}
                           src={product.imageSrc}
@@ -186,8 +186,13 @@ export default function HomePage() {
                           objectFit="cover"
                           className="aspect-square w-full bg-gray-200 object-cover"
                         />
-                        <div className="mt-6">
-                          <p className="text-sm text-gray-500">
+                        <div className="mt-6 pt-8 h-1/3 w-full absolute bottom-0 bg-gradient-to-t from-muted via-muted/80 to-muted/10 group-hover:opacity-75">
+                          <p
+                            className="text-sm uppercase font-semibold tracking-widest"
+                            style={{
+                              color: product.availableColors.at(0)?.colorBg,
+                            }}
+                          >
                             {product.color}
                           </p>
                           <h3 className="mt-1 font-semibold text-gray-900">
@@ -234,10 +239,10 @@ export default function HomePage() {
         </section>
 
         {/* Sale section */}
-        <div className="relative overflow-hidden">
+        <div className="relative">
           {/* Decorative background image and gradient */}
           <div aria-hidden="true" className="absolute inset-0">
-            <div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
+            <div className="absolute inset-0 mx-auto">
               <Image
                 alt=""
                 src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-sale-full-width.jpg"
@@ -265,13 +270,13 @@ export default function HomePage() {
                 Most of our products are limited releases that won't come back.
                 Get your favorite items while they're in stock.
               </p>
-              <a
-                href="#"
-                className="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-gray-800 sm:w-auto"
-              >
-                Get access to our one-time sale
-              </a>
             </div>
+            <a
+              href="#"
+              className="mt-6 inline-block w-full rounded-md border border-transparent bg-gray-900 px-8 py-3 font-medium text-white hover:bg-gray-800 sm:w-auto"
+            >
+              Get access to our one-time sale
+            </a>
           </section>
 
           {/* Testimonials */}
