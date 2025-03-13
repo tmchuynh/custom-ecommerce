@@ -5,11 +5,11 @@ import ProductDetails from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
-import { useRouter } from "next/router";
+import { useParams, useRouter } from "next/navigation";
 
 const ProductPage = () => {
   const router = useRouter();
-  const { gender, category, item, slug } = router.query;
+  const { gender, category, item, slug } = useParams();
 
   const [product, setProduct] = useState<any | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
@@ -20,7 +20,7 @@ const ProductPage = () => {
       try {
         // This is a mock function to simulate fetching the product by gender, category, item, and slug.
         const response = await fetch(
-          `/api/products/${gender}/${category}/${item}/${slug}`
+          `/api/shopping/${gender}/${category}/${item}/${slug}`
         );
         const data = await response.json();
         setProduct(data.product);
