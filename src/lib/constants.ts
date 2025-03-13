@@ -51,37 +51,109 @@ export const navigations = {
           {
             id: "clothing",
             name: "Clothing",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
-              { name: "Tops", href: "/shopping/women/clothes/tops" },
-              { name: "Pants", href: "/shopping/women/clothes/pants" },
-              { name: "Bras", href: "/shopping/women/clothes/bras" },
+              {
+                name: "Tops",
+                href: "/shopping/women/clothes/tops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Pants",
+                href: "/shopping/women/clothes/pants",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Bras",
+                href: "/shopping/women/clothes/bras",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
               {
                 name: "Dresses & Skirts",
                 href: "/shopping/women/clothes/dresses_skirts",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Swimwear", href: "/shopping/women/clothes/swimwear" },
+              {
+                name: "Swimwear",
+                href: "/shopping/women/clothes/swimwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
               {
                 name: "Activewear",
                 href: "/shopping/women/clothes/activewear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Formal Wear",
                 href: "/shopping/women/clothes/formal_wear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Underwear", href: "/shopping/women/clothes/underwear" },
-              { name: "Outerwear", href: "/shopping/women/clothes/outerwear" },
+              {
+                name: "Underwear",
+                href: "/shopping/women/clothes/underwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Outerwear",
+                href: "/shopping/women/clothes/outerwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
           {
             id: "shoes",
             name: "Shoes",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
-              { name: "Formal Shoes", href: "/shopping/women/shoes/formal" },
-              { name: "Sneakers", href: "/shopping/women/shoes/sneakers" },
-              { name: "Sandals", href: "/shopping/women/shoes/sandals" },
-              { name: "Boots", href: "/shopping/women/shoes/boots" },
-              { name: "Flats", href: "/shopping/women/shoes/flats" },
-              { name: "Heels", href: "/shopping/women/shoes/heels" },
+              {
+                name: "Formal Shoes",
+                href: "/shopping/women/shoes/formal",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Sneakers",
+                href: "/shopping/women/shoes/sneakers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Sandals",
+                href: "/shopping/women/shoes/sandals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Boots",
+                href: "/shopping/women/shoes/boots",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Flats",
+                href: "/shopping/women/shoes/flats",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Heels",
+                href: "/shopping/women/shoes/heels",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -89,17 +161,52 @@ export const navigations = {
           {
             id: "accessories",
             name: "Accessories",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
               {
                 name: "Sunglasses",
                 href: "/shopping/women/accessories/sunglasses",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Watches", href: "/shopping/women/accessories/watches" },
-              { name: "Wallets", href: "/shopping/women/accessories/wallets" },
-              { name: "Bags", href: "/shopping/women/accessories/bags" },
-              { name: "Belts", href: "/shopping/women/accessories/belts" },
-              { name: "Scarves", href: "/shopping/women/accessories/scarves" },
-              { name: "Hats", href: "/shopping/women/accessories/hats" },
+              {
+                name: "Watches",
+                href: "/shopping/women/accessories/watches",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Wallets",
+                href: "/shopping/women/accessories/wallets",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Bags",
+                href: "/shopping/women/accessories/bags",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Belts",
+                href: "/shopping/women/accessories/belts",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Scarves",
+                href: "/shopping/women/accessories/scarves",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Hats",
+                href: "/shopping/women/accessories/hats",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -107,20 +214,34 @@ export const navigations = {
           {
             id: "shop-collection",
             name: "Shop by Collection",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
               {
                 name: "New Arrivals",
                 href: "/shopping/women/collections/new_arrivals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Latest Drops",
                 href: "/shopping/women/collections/latest_drops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Best Sellers",
                 href: "/shopping/women/collections/best_sellers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Sale", href: "/shopping/women/collections/sale" },
+              {
+                name: "Sale",
+                href: "/shopping/women/collections/sale",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -158,32 +279,87 @@ export const navigations = {
           {
             id: "clothing",
             name: "Clothing",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
-              { name: "Tops", href: "/shopping/men/clothes/tops" },
-              { name: "Pants", href: "/shopping/men/clothes/pants" },
-              { name: "Swimwear", href: "/shopping/men/clothes/swimwear" },
+              {
+                name: "Tops",
+                href: "/shopping/men/clothes/tops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Pants",
+                href: "/shopping/men/clothes/pants",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Swimwear",
+                href: "/shopping/men/clothes/swimwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
               {
                 name: "Activewear",
                 href: "/shopping/men/clothes/activewear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Formal Wear",
                 href: "/shopping/men/clothes/formal_wear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Underwear", href: "/shopping/men/clothes/underwear" },
-              { name: "Outerwear", href: "/shopping/men/clothes/outerwear" },
+              {
+                name: "Underwear",
+                href: "/shopping/men/clothes/underwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Outerwear",
+                href: "/shopping/men/clothes/outerwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
           {
             id: "shoes",
             name: "Shoes",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
-              { name: "Formal Shoes", href: "/shopping/men/shoes/formal" },
+              {
+                name: "Formal Shoes",
+                href: "/shopping/men/shoes/formal",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
 
-              { name: "Sneakers", href: "/shopping/men/shoes/sneakers" },
+              {
+                name: "Sneakers",
+                href: "/shopping/men/shoes/sneakers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
 
-              { name: "Sandals", href: "/shopping/men/shoes/sandals" },
-              { name: "Boots", href: "/shopping/men/shoes/boots" },
+              {
+                name: "Sandals",
+                href: "/shopping/men/shoes/sandals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Boots",
+                href: "/shopping/men/shoes/boots",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -191,17 +367,52 @@ export const navigations = {
           {
             id: "accessories",
             name: "Accessories",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
               {
                 name: "Sunglasses",
                 href: "/shopping/men/accessories/sunglasses",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Watches", href: "/shopping/men/accessories/watches" },
-              { name: "Wallets", href: "/shopping/men/accessories/wallets" },
-              { name: "Bags", href: "/shopping/men/accessories/bags" },
-              { name: "Belts", href: "/shopping/men/accessories/belts" },
-              { name: "Scarves", href: "/shopping/men/accessories/scarves" },
-              { name: "Hats", href: "/shopping/men/accessories/hats" },
+              {
+                name: "Watches",
+                href: "/shopping/men/accessories/watches",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Wallets",
+                href: "/shopping/men/accessories/wallets",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Bags",
+                href: "/shopping/men/accessories/bags",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Belts",
+                href: "/shopping/men/accessories/belts",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Scarves",
+                href: "/shopping/men/accessories/scarves",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Hats",
+                href: "/shopping/men/accessories/hats",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -209,20 +420,34 @@ export const navigations = {
           {
             id: "shop-collection",
             name: "Shop by Collection",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             items: [
               {
                 name: "New Arrivals",
                 href: "/shopping/men/collections/new_arrivals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Latest Drops",
                 href: "/shopping/men/collections/latest_drops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
                 name: "Best Sellers",
                 href: "/shopping/men/collections/best_sellers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
-              { name: "Sale", href: "/shopping/men/collections/sale" },
+              {
+                name: "Sale",
+                href: "/shopping/men/collections/sale",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
             ],
           },
         ],
@@ -553,21 +778,31 @@ export const values = [
   },
 ];
 
-export const jobDetails = [
-  {
-    icon: BriefcaseIcon,
-    text: "Full-time",
-  },
-  {
-    icon: MapPinIcon,
-    text: "Remote",
-  },
-  {
-    icon: CurrencyDollarIcon,
-    text: "Remote",
-  },
-  {
-    icon: CalendarIcon,
-    text: "Remote",
-  },
-];
+export const footerNavigation = {
+  shop: [
+    { name: "Bags", href: "#" },
+    { name: "Tees", href: "#" },
+    { name: "Objects", href: "#" },
+    { name: "Home Goods", href: "#" },
+    { name: "Accessories", href: "#" },
+  ],
+  company: [
+    { name: "Who we are", href: "#" },
+    { name: "Sustainability", href: "#" },
+    { name: "Press", href: "#" },
+    { name: "Careers", href: "#" },
+    { name: "Terms & Conditions", href: "#" },
+    { name: "Privacy", href: "#" },
+  ],
+  account: [
+    { name: "Manage Account", href: "#" },
+    { name: "Returns & Exchanges", href: "#" },
+    { name: "Redeem a Gift Card", href: "#" },
+  ],
+  connect: [
+    { name: "Contact Us", href: "#" },
+    { name: "Facebook", href: "#" },
+    { name: "Instagram", href: "#" },
+    { name: "Pinterest", href: "#" },
+  ],
+};
