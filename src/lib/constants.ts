@@ -806,3 +806,79 @@ export const footerNavigation = {
     { name: "Pinterest", href: "#" },
   ],
 };
+
+export const policies = [
+  {
+    name: "Free delivery all year long",
+    description:
+      "Name another place that offers year long free delivery? We’ll be waiting. Order now and you’ll get delivery absolutely free.",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-delivery-light.svg",
+  },
+  {
+    name: "24/7 Customer Support",
+    description:
+      "Or so we want you to believe. In reality our chat widget is powered by a naive series of if/else statements that churn out canned responses. Guaranteed to irritate.",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-chat-light.svg",
+  },
+  {
+    name: "Fast Shopping Cart",
+    description:
+      "Look at the cart in that icon, there's never been a faster cart. What does this mean for the actual checkout experience? I don't know.",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-fast-checkout-light.svg",
+  },
+  {
+    name: "Gift Cards",
+    description:
+      "We sell these hoping that you will buy them for your friends and they will never actually use it. Free money for us, it's great.",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-gift-card-light.svg",
+  },
+];
+
+export const reviews = {
+  average: 4,
+  featured: [
+    {
+      id: 1,
+      rating: 5,
+      content: `
+        <p>This icon pack is just what I need for my latest project. There's an icon for just about anything I could ever need. Love the playful look!</p>
+      `,
+      date: "July 16, 2021",
+      datetime: "2021-07-16",
+      author: "Emily Selman",
+      avatarSrc:
+        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
+    },
+    {
+      id: 2,
+      rating: 5,
+      content: `
+        <p>Blown away by how polished this icon pack is. Everything looks so consistent and each SVG is optimized out of the box so I can use it directly with confidence. It would take me several hours to create a single icon this good, so it's a steal at this price.</p>
+      `,
+      date: "July 12, 2021",
+      datetime: "2021-07-12",
+      author: "Hector Gibbons",
+      avatarSrc:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
+    },
+    // More reviews...
+  ],
+};
+
+export const faqs = [
+  {
+    question: "What format are these icons?",
+    answer:
+      "The icons are in SVG (Scalable Vector Graphic) format. They can be imported into your design tool of choice and used directly in code.",
+  },
+  {
+    question: "Can I use the icons at different sizes?",
+    answer:
+      "Yes. The icons are drawn on a 24 x 24 pixel grid, but the icons can be scaled to different sizes as needed. We don't recommend going smaller than 20 x 20 or larger than 64 x 64 to retain legibility and visual balance.",
+  },
+  // More FAQs...
+];
