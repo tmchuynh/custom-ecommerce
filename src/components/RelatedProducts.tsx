@@ -20,7 +20,8 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
                 <Image
                   alt={product.imageAlt}
                   src={product.imageSrc}
-                  layout="fill"
+                  width={1920}
+                  height={1080}
                   objectFit="cover"
                   className="rounded-lg"
                 />
