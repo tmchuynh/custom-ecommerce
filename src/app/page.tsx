@@ -7,6 +7,8 @@ import {
   trendingProducts,
 } from "@/lib/constants";
 import { useState } from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,7 +16,7 @@ export default function HomePage() {
   return (
     <div>
       <nav aria-label="Offers" className="order-last lg:order-first">
-        <div className="mx-auto max-w-7xl lg:px-8">
+        <div className="mx-auto lg:px-8">
           <ul
             role="list"
             className="grid grid-cols-1 divide-y divide-gray-200 lg:grid-cols-3 lg:divide-x lg:divide-y-0"
@@ -40,10 +42,11 @@ export default function HomePage() {
       <div className="relative bg-gray-900">
         {/* Decorative image and overlay */}
         <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <img
+          <Image
             alt=""
             src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-01-hero-full-width.jpg"
-            className="size-full object-cover"
+            layout="fill"
+            objectFit="cover"
           />
         </div>
         <div
@@ -109,10 +112,11 @@ export default function HomePage() {
                                 aria-hidden="true"
                                 className="absolute inset-0"
                               >
-                                <img
+                                <Image
                                   alt=""
                                   src={section.imageSrc}
-                                  className="size-full object-cover"
+                                  layout="fill"
+                                  objectFit="cover"
                                 />
                               </span>
                               <span
@@ -175,10 +179,12 @@ export default function HomePage() {
                       className="inline-flex w-64 flex-col text-center lg:w-auto"
                     >
                       <div className="group relative">
-                        <img
+                        <Image
                           alt={product.imageAlt}
                           src={product.imageSrc}
-                          className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75"
+                          layout="fill"
+                          objectFit="cover"
+                          className="aspect-square w-full bg-gray-200 object-cover"
                         />
                         <div className="mt-6">
                           <p className="text-sm text-gray-500">
@@ -232,10 +238,11 @@ export default function HomePage() {
           {/* Decorative background image and gradient */}
           <div aria-hidden="true" className="absolute inset-0">
             <div className="absolute inset-0 mx-auto max-w-7xl overflow-hidden xl:px-8">
-              <img
+              <Image
                 alt=""
                 src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-sale-full-width.jpg"
-                className="size-full object-cover"
+                layout="fill"
+                objectFit="cover"
               />
             </div>
             <div className="absolute inset-0 bg-white/75" />
@@ -309,135 +316,6 @@ export default function HomePage() {
             </div>
           </section>
         </div>
-
-        {/* Collection section */}
-        <section
-          aria-labelledby="collection-heading"
-          className="mx-auto max-w-xl px-4 pt-24 sm:px-6 sm:pt-32 lg:max-w-7xl lg:px-8"
-        >
-          <h2
-            id="collection-heading"
-            className="text-2xl font-bold tracking-tight text-gray-900"
-          >
-            Shop by Collection
-          </h2>
-          <p className="mt-4 text-base text-gray-500">
-            Each season, we collaborate with world-class designers to create a
-            collection inspired by the natural world.
-          </p>
-
-          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-4 lg:gap-x-8">
-            {navigations.categories.map((category) => {
-              if (category.name === "Women") {
-                return category.sections.map((section) =>
-                  section.map((section) => {
-                    if (section.id === "shop-collection") {
-                      return section.items.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
-                        >
-                          <span aria-hidden="true" className="absolute inset-0">
-                            <img
-                              alt=""
-                              src={item.imageSrc}
-                              className="size-full object-cover"
-                            />
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
-                          />
-                          <span className="relative mt-auto text-center text-xl font-bold text-white">
-                            {item.name}
-                          </span>
-                        </a>
-                      ));
-                    }
-                  })
-                );
-              }
-            })}
-          </div>
-        </section>
-
-        {/* Perks */}
-        <section
-          aria-labelledby="perks-heading"
-          className="border-t border-gray-200 bg-gray-50"
-        >
-          <h2 id="perks-heading" className="sr-only">
-            Our perks
-          </h2>
-
-          <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
-            <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
-              {perks.map((perk) => (
-                <div
-                  key={perk.name}
-                  className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
-                >
-                  <div className="md:shrink-0">
-                    <div className="flow-root">
-                      <img
-                        alt=""
-                        src={perk.imageUrl}
-                        className="mx-auto -my-1 h-24 w-auto"
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-6 md:mt-0 md:ml-4 lg:mt-6 lg:ml-0">
-                    <h3 className="text-base font-medium text-gray-900">
-                      {perk.name}
-                    </h3>
-                    <p className="mt-3 text-sm text-gray-500">
-                      {perk.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Featured section */}
-        <section
-          aria-labelledby="comfort-heading"
-          className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8"
-        >
-          <div className="relative overflow-hidden rounded-lg">
-            <div className="absolute inset-0">
-              <img
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-01-feature-section-02.jpg"
-                className="size-full object-cover"
-              />
-            </div>
-            <div className="relative bg-gray-900/75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
-              <div className="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-                <h2
-                  id="comfort-heading"
-                  className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
-                >
-                  Simple productivity
-                </h2>
-                <p className="mt-3 text-xl text-white">
-                  Endless tasks, limited hours, a single piece of paper. Not
-                  really a haiku, but we're doing our best here. No kanban
-                  boards, burndown charts, or tangled flowcharts with our Focus
-                  system. Just the undeniable urge to fill empty circles.
-                </p>
-                <a
-                  href="#"
-                  className="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
-                >
-                  Shop Focus
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
     </div>
   );
