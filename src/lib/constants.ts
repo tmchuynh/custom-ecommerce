@@ -882,3 +882,105 @@ export const faqs = [
   },
   // More FAQs...
 ];
+
+export const mockProductData = {
+  men: {
+    shoes: {
+      sneakers: {
+        "blue-sneakers": {
+          name: "Blue Sneakers",
+          price: "$40",
+          description: "Stylish and comfortable sneakers for kids.",
+        },
+        "green-sneakers": {
+          name: "Green Sneakers",
+          price: "$45",
+          description: "Comfy green sneakers for children.",
+        },
+      },
+    },
+    clothing: {
+      shirts: {
+        "flannel-shirt": {
+          name: "Flannel Shirt",
+          price: "$40",
+          description: "Warm flannel shirt",
+        },
+      },
+    },
+  },
+  women: {
+    shoes: {
+      sneakers: {
+        "red-sneakers": {
+          name: "Red Sneakers",
+          price: "$55",
+          description: "Comfortable red sneakers",
+        },
+      },
+    },
+    clothing: {
+      tops: {
+        "floral-top": {
+          name: "Floral Top",
+          price: "$30",
+          description: "A beautiful floral print top",
+        },
+      },
+    },
+  },
+  children: {
+    clothing: {
+      tops: {
+        "t-shirt": {
+          name: "T-Shirt",
+          price: "$15",
+          description: "Soft and comfortable t-shirt for kids.",
+        },
+        hoodie: {
+          name: "Hoodie",
+          price: "$30",
+          description: "Cozy hoodie for chilly days.",
+        },
+      },
+      pants: {
+        jeans: {
+          name: "Jeans",
+          price: "$25",
+          description: "Durable jeans for active kids.",
+        },
+        leggings: {
+          name: "Leggings",
+          price: "$18",
+          description: "Flexible leggings for comfort and movement.",
+        },
+      },
+    },
+    shoes: {
+      sneakers: {
+        "blue-sneakers": {
+          name: "Blue Sneakers",
+          price: "$40",
+          description: "Stylish and comfortable sneakers for kids.",
+        },
+        "green-sneakers": {
+          name: "Green Sneakers",
+          price: "$45",
+          description: "Comfy green sneakers for children.",
+        },
+      },
+      sandals: {
+        "summer-sandals": {
+          name: "Summer Sandals",
+          price: "$25",
+          description: "Cool sandals for summer days.",
+        },
+        "flip-flops": {
+          name: "Flip Flops",
+          price: "$10",
+          description: "Easy-to-wear flip-flops for kids.",
+        },
+      },
+    },
+  },
+};
