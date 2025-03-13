@@ -59,3 +59,21 @@ export type StoreItem = {
   imageSrc: string;
   imageAlt: string;
 };
+
+export type ProductDetails = {
+  name: string;
+  price: string;
+  description: string;
+};
+
+export type CategoryItems = {
+  [item: string]: {
+    [slug: string]: ProductDetails; // Dynamic slug values for items under each category
+  };
+};
+
+export type GenderCategories = {
+  [gender: string]: {
+    [category: string]: CategoryItems; // Categories (clothing, shoes, accessories) under each gender
+  };
+};
