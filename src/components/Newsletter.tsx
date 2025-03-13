@@ -35,9 +35,10 @@ export default function Newsletter() {
       <div className="relative mt-6 flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:mt-0">
         <div className="absolute inset-0 overflow-hidden rounded-lg">
           <Image
+            width={1920}
+            height={1080}
             alt=""
             src="https://tailwindcss.com/plus-assets/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-            layout="fill"
             objectFit="cover"
             className="saturate-0 filter"
           />

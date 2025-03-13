@@ -20,8 +20,9 @@ export default function FeaturedBlogs() {
           >
             <Image
               alt=""
+              width={1920}
+              height={1080}
               src={post.imageUrl}
-              layout="fill"
               objectFit="cover"
               className="absolute inset-0 -z-10"
             />

@@ -18,6 +18,8 @@ const ProductGallery = ({ images }: { images: any[] }) => {
                 src={image.src}
                 fill
                 sizes="100%"
+                width={1920}
+                height={1080}
                 className="object-cover"
               />
             </span>
@@ -35,6 +37,8 @@ const ProductGallery = ({ images }: { images: any[] }) => {
             <Image
               alt={image.alt}
               src={image.src}
+              width={1920}
+              height={1080}
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover sm:rounded-lg"

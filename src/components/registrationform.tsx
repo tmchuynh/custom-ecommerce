@@ -16,8 +16,9 @@ export function RegistrationForm({
             <Image
               src="https://placehold.co/600x400"
               alt="Image"
-              layout="fill"
               objectFit="cover"
+              width={1920}
+              height={1080}
               className="dark:brightness-[0.2] dark:grayscale"
             />
           </div>
