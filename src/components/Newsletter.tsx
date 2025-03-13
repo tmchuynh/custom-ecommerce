@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Newsletter() {
   return (
-    <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8">
+    <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-30 gap-y-6 md:gap-y-8 w-11/12 lg:w-10/12 2xl:w-9/12 py-10 mx-auto">
       <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
         <div className="mx-auto max-w-sm">
           <h3 className="font-semibold text-gray-900">
