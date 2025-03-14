@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation"; // Use this for app router
+import { useParams, useRouter } from "next/navigation";
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
 import Image from "next/image";
@@ -19,17 +19,19 @@ const CategoryPage = () => {
     if (gender && category && item) {
       const fetchProductData = async () => {
         try {
-          // Flatten the mock data to make it easier to work with
+          console.log("Gender:", gender);
+          console.log("Category:", category);
+          console.log("Item:", item);
+
           const categoryData = (mockProductData as GenderCategories)[
             gender as string
           ]?.[category as string]?.[item as string];
 
-          // Check if the category data exists and flatten it
           if (categoryData) {
-            const productsArray = Object.values(categoryData); // Extract values as an array
-            setProducts(productsArray); // Set the products state to the array
+            const productsArray = Object.values(categoryData);
+            setProducts(productsArray);
           } else {
-            console.error("Product data not found");
+            console.error("Product data not found for category:", category);
           }
         } catch (error) {
           console.error("Error fetching product data", error);
