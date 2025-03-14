@@ -39,7 +39,6 @@ export default function Newsletter() {
             height={1080}
             alt=""
             src="https://tailwindcss.com/plus-assets/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-            objectFit="cover"
             className="saturate-0 filter"
           />
           <div className="absolute inset-0 bg-indigo-600/90" />
