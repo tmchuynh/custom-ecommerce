@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import { CartProvider } from "./context/cartContext";
 import { WishlistProvider } from "./context/wishlistContext";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -28,6 +29,14 @@ export default function RootLayout({
               </CurrencyProvider>
             </CartProvider>
             <BackToTop />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                style: {
+                  marginTop: "200px",
+                },
+              }}
+            />
           </Providers>
         </NotFoundProvider>
       </body>
