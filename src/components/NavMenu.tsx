@@ -25,7 +25,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { Button } from "./ui/button";
 import {
@@ -46,6 +46,44 @@ export default function NavMenu() {
   const [openPopovers, setOpenPopovers] = useState<{ [key: string]: boolean }>(
     {}
   );
+  const [sortedCategories, setSortedCategories] = useState<
+    {
+      id: string;
+      name: string;
+      featured: any[];
+      sections: {
+        id: string;
+        name: string;
+        href: string;
+        imageSrc: string;
+        items: any[];
+      }[];
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const sorted = navigations.categories.map((category) => {
+      // Sort sections inside each category based on the number of items in the section
+      const sortedSections = category.sections.map((sectionArray) => {
+        return sectionArray.map((section) => ({
+          ...section,
+          // Sort items in each section by the length of the item's name
+          items: section.items.sort((a, b) => b.name.length - a.name.length),
+        }));
+      });
+
+      const sortedCategory = {
+        ...category,
+        sections: sortedSections
+          .flat()
+          .sort((a, b) => b.items.length - a.items.length), // Sort sections by number of items
+      };
+
+      return sortedCategory;
+    });
+
+    setSortedCategories(sorted); // Update the state with sorted categories
+  }, []);
 
   // Function to handle toggle of Popover
   const togglePopover = (name: string) => {
@@ -95,7 +133,7 @@ export default function NavMenu() {
             <TabGroup className="mt-2">
               <div>
                 <TabList className="-mb-px flex space-x-8 px-4">
-                  {navigations.categories.map((category) => (
+                  {sortedCategories.map((category) => (
                     <Tab
                       key={category.name}
                       className="flex-1 px-1 py-4 text-base font-medium whitespace-nowrap"
@@ -106,7 +144,7 @@ export default function NavMenu() {
                 </TabList>
               </div>
               <TabPanels as={Fragment}>
-                {navigations.categories.map((category) => (
+                {sortedCategories.map((category) => (
                   <TabPanel
                     key={category.name}
                     className="space-y-12 px-4 py-6"
@@ -261,7 +299,7 @@ export default function NavMenu() {
                   {/* Flyout menus */}
                   <PopoverGroup className="inset-x-0 bottom-0 px-4">
                     <div className="flex h-full justify-center space-x-8">
-                      {navigations.categories.map((category) => (
+                      {sortedCategories.map((category) => (
                         <Popover key={category.name} className="flex">
                           <div className="relative flex">
                             <PopoverButton
@@ -336,43 +374,41 @@ export default function NavMenu() {
                                   </div>
                                   <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
                                     {category.sections.map(
-                                      (column, columnIdx) => (
+                                      (section, columnIdx) => (
                                         <div
                                           key={columnIdx}
                                           className="space-y-15 grid-cols-2 grid-rows-2 h-full"
                                         >
-                                          {column.map((section) => (
-                                            <div
-                                              key={section.name}
-                                              className="min-h-fit h-5/11"
+                                          <div
+                                            key={section.name}
+                                            className="min-h-fit h-5/11"
+                                          >
+                                            <p
+                                              id={`${category.id}-${section.id}-heading`}
+                                              className="font-bold tracking-wider uppercase"
                                             >
-                                              <p
-                                                id={`${category.id}-${section.id}-heading`}
-                                                className="font-bold tracking-wider uppercase"
-                                              >
-                                                {section.name}
-                                              </p>
-                                              <ul
-                                                role="list"
-                                                aria-labelledby={`${category.id}-${section.id}-heading`}
-                                                className="mt-4 space-y-4"
-                                              >
-                                                {section.items.map((item) => (
-                                                  <li
-                                                    key={item.name}
-                                                    className="flex"
+                                              {section.name}
+                                            </p>
+                                            <ul
+                                              role="list"
+                                              aria-labelledby={`${category.id}-${section.id}-heading`}
+                                              className="mt-4 space-y-4"
+                                            >
+                                              {section.items.map((item) => (
+                                                <li
+                                                  key={item.name}
+                                                  className="flex"
+                                                >
+                                                  <a
+                                                    href={item.href}
+                                                    className="hover:underline underline-offset-6"
                                                   >
-                                                    <a
-                                                      href={item.href}
-                                                      className="hover:underline underline-offset-6"
-                                                    >
-                                                      {item.name}
-                                                    </a>
-                                                  </li>
-                                                ))}
-                                              </ul>
-                                            </div>
-                                          ))}
+                                                    {item.name}
+                                                  </a>
+                                                </li>
+                                              ))}
+                                            </ul>
+                                          </div>
                                         </div>
                                       )
                                     )}
