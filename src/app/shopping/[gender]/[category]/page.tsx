@@ -53,11 +53,11 @@ const CategoryPage = () => {
       <div className="mx-auto max-w-7xl">
         {gender && category && (
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            {typeof gender === "string" &&
-              gender.charAt(0).toUpperCase() + gender.slice(1)}{" "}
-            for{" "}
             {typeof category === "string" &&
-              category.charAt(0).toUpperCase() + gender.slice(1)}
+              category.charAt(0).toUpperCase() + gender.slice(1)}{" "}
+            for{" "}
+            {typeof gender === "string" &&
+              gender.charAt(0).toUpperCase() + gender.slice(1)}
           </h1>
         )}
 
