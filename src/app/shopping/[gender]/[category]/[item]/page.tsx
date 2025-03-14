@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation"; // Use this for app router
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
+import Image from "next/image";
 
 const CategoryPage = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -51,9 +52,11 @@ const CategoryPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
-            <img
+            <Image
               src={product.imageSrc}
               alt={product.name}
+              width={500}
+              height={500}
               className="w-full h-48 object-cover rounded-md"
             />
             <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
