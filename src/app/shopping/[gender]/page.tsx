@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CategoryCard from "@/components/CategoryCard";
 import { useParams } from "next/navigation";
+import { mockProductData } from "@/lib/constants";
+import { GenderCategories } from "@/lib/types";
 
 const GenderPage = () => {
   const router = useRouter();
@@ -17,17 +19,20 @@ const GenderPage = () => {
     if (typeof gender === "string") {
       const fetchCategoryData = async () => {
         try {
-          // Fetch categories data based on gender
-          const response = await fetch(`/api/categories/${gender}`);
-          const data = await response.json();
+          // Flatten the mock data to make it easier to work with
+          const categoryData = (mockProductData as GenderCategories)[
+            gender as string
+          ];
 
-          if (response.ok) {
-            setCategories(data); // Assuming the API returns a list of categories for the gender
+          // Check if the category data exists and flatten it
+          if (categoryData) {
+            const productsArray = Object.values(categoryData); // Extract values as an array
+            setCategories(productsArray); // Set the products state to the array
           } else {
-            console.error("Categories not found for gender:", gender);
+            console.error("Product data not found");
           }
         } catch (error) {
-          console.error("Error fetching categories data", error);
+          console.error("Error fetching product data", error);
         } finally {
           setLoading(false);
         }
