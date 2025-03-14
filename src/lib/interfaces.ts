@@ -97,3 +97,8 @@ export interface WishlistContextType {
   addToWishlist: (item: WishlistItem) => void;
   removeFromWishlist: (id: number) => void;
 }
+
+export interface ComingSoonMessageProps {
+  gender: string;
+  sectionName: string;
+}
