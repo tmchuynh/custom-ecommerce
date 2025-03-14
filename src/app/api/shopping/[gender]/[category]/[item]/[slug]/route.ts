@@ -6,12 +6,11 @@ import { NextResponse } from "next/server";
 // API Route for product details
 export async function GET(
   request: Request,
-  {
-    params,
-  }: {
-    params: { gender: string; category: string; item: string; slug: string };
+  props: {
+    params: Promise<{ gender: string; category: string; item: string; slug: string }>;
   }
 ) {
+  const params = await props.params;
   const { gender, category, item, slug } = params;
 
   const productData = (mockProductData as GenderCategories)[gender]?.[

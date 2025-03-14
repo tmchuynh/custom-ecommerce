@@ -4,8 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { gender: string; category: string } }
+  props: { params: Promise<{ gender: string; category: string }> }
 ) {
+  const params = await props.params;
   const { gender, category } = params;
 
   // Define types for the items object

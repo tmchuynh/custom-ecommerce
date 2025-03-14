@@ -65,10 +65,8 @@ const mockCategoryData: Record<
     },
   ],
 };
-export async function GET(
-  request: Request,
-  { params }: { params: { gender: Gender } }
-) {
+export async function GET(request: Request, props: { params: Promise<{ gender: Gender }> }) {
+  const params = await props.params;
   const { gender } = params;
 
   // Fetch category data based on gender

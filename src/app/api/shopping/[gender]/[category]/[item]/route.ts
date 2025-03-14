@@ -4,8 +4,9 @@ import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
-  { params }: { params: { gender: string; category: string; item: string } }
+  props: { params: Promise<{ gender: string; category: string; item: string }> }
 ) {
+  const params = await props.params;
   const { gender, category, item } = params;
   const categoryData = (mockProductData as GenderCategories)[gender]?.[
     category
