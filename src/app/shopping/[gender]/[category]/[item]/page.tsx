@@ -5,12 +5,15 @@ import { useParams, useRouter } from "next/navigation"; // Use this for app rout
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
 import Image from "next/image";
+import ComingSoonMessage from "@/components/ComingSoon";
 
 const CategoryPage = () => {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const router = useRouter();
   const { gender, category, item } = useParams();
+  const section = item as string;
+  const overhead = gender as string;
 
   useEffect(() => {
     if (gender && category && item) {
@@ -44,7 +47,12 @@ const CategoryPage = () => {
   }
 
   if (products.length === 0) {
-    return <div>No products found for this category.</div>;
+    return (
+      <ComingSoonMessage
+        gender={overhead.charAt(0).toUpperCase() + overhead.slice(1)}
+        sectionName={section.charAt(0).toUpperCase() + section.slice(1)}
+      />
+    );
   }
 
   return (
