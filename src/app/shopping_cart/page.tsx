@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useCart } from "../context/cartContext";
+import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 const CartPage = () => {
   const { cartItems, updateQuantity, removeFromCart, getTotalPrice } =
@@ -24,19 +26,22 @@ const CartPage = () => {
         <p className="text-xl text-center text-gray-600">Your cart is empty.</p>
       ) : (
         <div className="space-y-8">
-          <div className="flex flex-col gap-8">
-            {cartItems.map((item) => (
+          <div className="flex flex-col">
+            {cartItems.map((item, index) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between border-b border-gray-200 py-6"
+                className={cn("flex items-center justify-between py-6", {
+                  "border-b border-gray-300 ": index !== cartItems.length - 1,
+                })}
               >
                 <div className="flex items-center space-x-6">
-                  <Image
+                  {/* <Image
                     src={item.imageSrc}
                     alt={item.name}
                     width={175}
                     height={175}
-                  />
+                  /> */}
+                  <Skeleton className="h-[175] w-[175] rounded-xl" />
                   <div className="flex flex-col gap-y-3">
                     <p className="text-lg font-medium text-gray-900">
                       {item.name}
@@ -68,7 +73,7 @@ const CartPage = () => {
               </div>
             ))}
           </div>
-          <div className="flex justify-between items-center border-t border-gray-200 pt-6">
+          <div className="flex justify-between items-center pt-2">
             <div className="text-lg font-medium text-gray-900">Total:</div>
             <div className="text-xl font-bold text-gray-900">
               ${getTotalPrice().toFixed(2)}
