@@ -874,6 +874,13 @@ export const perks = [
       "Not what you expected? Place it back in the parcel and attach the pre-paid postage stamp.",
   },
   {
+    name: "Free delivery all year long",
+    description:
+      "Name another place that offers year long free delivery? We’ll be waiting. Order now and you’ll get delivery absolutely free.",
+    imageUrl:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-delivery-light.svg",
+  },
+  {
     name: "Same day delivery",
     imageUrl:
       "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-calendar-light.svg",
@@ -886,13 +893,6 @@ export const perks = [
       "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-gift-card-light.svg",
     description:
       'Looking for a deal? You can use the code "ALLYEAR" at checkout and get money off all year round.',
-  },
-  {
-    name: "For the planet",
-    imageUrl:
-      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-planet-light.svg",
-    description:
-      "We’ve pledged 1% of sales to the preservation and restoration of the natural environment.",
   },
 ];
 
@@ -1031,13 +1031,6 @@ export const footerNavigation = {
 
 export const policies = [
   {
-    name: "Free delivery all year long",
-    description:
-      "Name another place that offers year long free delivery? We’ll be waiting. Order now and you’ll get delivery absolutely free.",
-    imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-delivery-light.svg",
-  },
-  {
     name: "24/7 Customer Support",
     description:
       "Or so we want you to believe. In reality our chat widget is powered by a naive series of if/else statements that churn out canned responses. Guaranteed to irritate.",
@@ -1045,18 +1038,18 @@ export const policies = [
       "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-chat-light.svg",
   },
   {
-    name: "Fast Shopping Cart",
-    description:
-      "Look at the cart in that icon, there's never been a faster cart. What does this mean for the actual checkout experience? I don't know.",
-    imageSrc:
-      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-fast-checkout-light.svg",
-  },
-  {
     name: "Gift Cards",
     description:
       "We sell these hoping that you will buy them for your friends and they will never actually use it. Free money for us, it's great.",
     imageSrc:
       "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-gift-card-light.svg",
+  },
+  {
+    name: "For the planet",
+    imageSrc:
+      "https://tailwindcss.com/plus-assets/img/ecommerce/icons/icon-planet-light.svg",
+    description:
+      "We’ve pledged 1% of sales to the preservation and restoration of the natural environment.",
   },
 ];
 

@@ -207,60 +207,31 @@ export default function HomePage() {
         </section>
 
         {/* Policies section */}
-        <section aria-labelledby="policy-heading" className="mt-16 lg:mt-24">
+        <section
+          aria-labelledby="policy-heading"
+          className="mt-16 lg:mt-24 border-t border-gray-200 bg-gray-50"
+        >
           <h2 id="policy-heading" className="sr-only">
             Our policies
           </h2>
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8">
-            {policies.map((policy) => (
-              <div key={policy.name}>
-                <img alt="" src={policy.imageSrc} className="h-24 w-auto" />
-                <h3 className="mt-6 text-base font-medium text-gray-900">
-                  {policy.name}
-                </h3>
-                <p className="mt-3 text-base text-gray-500">
-                  {policy.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Perks */}
-        <section
-          aria-labelledby="perks-heading"
-          className="border-t border-gray-200 bg-gray-50"
-        >
-          <h2 id="perks-heading" className="sr-only">
-            Our perks
-          </h2>
 
           <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
-              {perks.map((perk) => (
-                <div
-                  key={perk.name}
-                  className="text-center md:flex md:items-start md:text-left lg:block lg:text-center"
-                >
-                  <div className="md:shrink-0">
-                    <div className="flow-root">
-                      <Image
-                        alt=""
-                        src={perk.imageUrl}
-                        className="mx-auto -my-1 h-24 w-auto"
-                        width={96}
-                        height={96}
-                      />
-                    </div>
-                  </div>
-                  <div className="mt-6 md:mt-0 md:ml-4 lg:mt-6 lg:ml-0">
-                    <h3 className="text-base font-medium text-gray-900">
-                      {perk.name}
-                    </h3>
-                    <p className="mt-3 text-sm text-gray-500">
-                      {perk.description}
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-0">
+              {policies.map((policy) => (
+                <div key={policy.name}>
+                  <Image
+                    alt=""
+                    src={policy.imageSrc}
+                    className="h-24 w-auto"
+                    width={96}
+                    height={96}
+                  />
+                  <h3 className="mt-6 text-base font-medium text-gray-900">
+                    {policy.name}
+                  </h3>
+                  <p className="mt-3 text-base text-gray-500">
+                    {policy.description}
+                  </p>
                 </div>
               ))}
             </div>
