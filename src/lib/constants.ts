@@ -1108,14 +1108,14 @@ export const mockProductData = {
   men: {
     shoes: {
       formal: {
-        "brown-formal-shoes": {
+        "men-brown-formal-shoes": {
           name: "Brown Formal Shoes",
           price: "$60",
           description: "Elegant brown formal shoes for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "black-formal-shoes": {
+        "men-black-formal-shoes": {
           name: "Black Formal Shoes",
           price: "$65",
           description: "Classic black formal shoes for men.",
@@ -1124,28 +1124,28 @@ export const mockProductData = {
         },
       },
       sneakers: {
-        "blue-sneakers": {
+        "men-blue-sneakers": {
           name: "Blue Sneakers",
           price: "$40",
           description: "Stylish and comfortable sneakers for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "white-sneakers": {
+        "men-white-sneakers": {
           name: "White Sneakers",
           price: "$60",
           description: "Comfortable white sneakers for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "black-sneakers": {
+        "men-black-sneakers": {
           name: "Black Sneakers",
           price: "$65",
           description: "Stylish black sneakers for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "green-sneakers": {
+        "men-green-sneakers": {
           name: "Green Sneakers",
           price: "$45",
           description: "Comfy green sneakers for men.",
@@ -1154,28 +1154,28 @@ export const mockProductData = {
         },
       },
       sandals: {
-        "summer-sandals": {
+        "men-summer-sandals": {
           name: "Summer Sandals",
           price: "$40",
           description: "Cool sandals for summer days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "brown-sandals": {
+        "men-brown-sandals": {
           name: "Brown Sandals",
           price: "$35",
           description: "Stylish brown sandals for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "black-sandals": {
+        "men-black-sandals": {
           name: "Black Sandals",
           price: "$40",
           description: "Black sandals for relaxed outings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "leather-sandals": {
+        "men-leather-sandals": {
           name: "Leather Sandals",
           price: "$50",
           description: "Comfortable leather sandals for daily wear.",
@@ -1184,42 +1184,42 @@ export const mockProductData = {
         },
       },
       boots: {
-        "ankle-boots": {
+        "men-ankle-boots": {
           name: "Ankle Boots",
           price: "$80",
           description: "Stylish ankle boots for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "snow-boots": {
+        "men-snow-boots": {
           name: "Snow Boots",
           price: "$70",
           description: "Warm snow boots for winter play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "rain-boots": {
+        "men-rain-boots": {
           name: "Rain Boots",
           price: "$55",
           description: "Waterproof rain boots for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "leather-boots": {
+        "men-leather-boots": {
           name: "Leather Boots",
           price: "$120",
           description: "Durable leather boots for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "combat-boots": {
+        "men-combat-boots": {
           name: "Combat Boots",
           price: "$55",
           description: "Trendy combat boots for the adventurous kid.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/combat-boots-for-kids-600nw-92008067.jpg",
         },
-        "chelsea-boots": {
+        "men-chelsea-boots": {
           name: "Chelsea Boots",
           price: "$50",
           description:
@@ -1227,14 +1227,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chelsea-boots-600nw-92008067.jpg",
         },
-        "hiking-boots": {
+        "men-hiking-boots": {
           name: "Hiking Boots",
           price: "$60",
           description: "Durable hiking boots, perfect for young adventurers.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/hiking-boots-600nw-92008067.jpg",
         },
-        "suede-boots": {
+        "men-suede-boots": {
           name: "Suede Boots",
           price: "$110",
           description: "Fashionable suede boots for cold weather.",
@@ -1245,62 +1245,60 @@ export const mockProductData = {
     },
     clothing: {
       formal_wear: {
-        "tuxedo-suit": {
-          name: "Tuxedo Suit",
+        "men-tuxedo-suit": {
+          name: "Men Tuxedo Suit",
           price: "$250",
           description:
             "A classic tuxedo suit for formal events and black-tie occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-shirt": {
-          name: "Dress Shirt",
+        "men-dress-shirt": {
+          name: "Men Dress Shirt",
           price: "$45",
           description:
             "A tailored dress shirt perfect for business and formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-pants": {
-          name: "Dress Pants",
+        "men-dress-pants": {
+          name: "Men Dress Pants",
           price: "$80",
           description:
             "Tailored dress pants to complete your formal look with comfort and style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "suit-jacket": {
-          name: "Suit Jacket",
+        "men-suit-jacket": {
+          name: "Men Suit Jacket",
           price: "$100",
           description: "A sophisticated suit jacket for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        cufflinks: {
-          name: "Cufflinks",
+        "men-cufflinks": {
+          name: "Men Cufflinks",
           price: "$25",
-          description:
-            "Elegant cufflinks to elevate your formal attire and add a touch of sophistication.",
+          description: "Elegant cufflinks to elevate your formal attire.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-shoes": {
-          name: "Dress Shoes",
+        "men-dress-shoes": {
+          name: "Men Dress Shoes",
           price: "$150",
           description:
-            "Classic leather dress shoes for formal occasions, designed for comfort and style.",
+            "Classic leather dress shoes designed for comfort and style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        vest: {
-          name: "Formal Vest",
+        "men-vest": {
+          name: "Men Formal Vest",
           price: "$60",
-          description:
-            "A sleek and sophisticated vest to complete your suit for a formal look.",
+          description: "A sleek vest to complete your formal suit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-socks": {
+        "men-dress-socks": {
           name: "Dress Socks",
           price: "$12",
           description:
@@ -1308,7 +1306,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "formal-tie": {
+        "men-formal-tie": {
           name: "Formal Tie",
           price: "$30",
           description:
@@ -1316,7 +1314,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "bow-tie": {
+        "men-bow-tie": {
           name: "Bow Tie",
           price: "$20",
           description:
@@ -1324,35 +1322,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "parka-coat": {
+        "men-parka-coat": {
           name: "Parka Coat",
           price: "$220",
           description: "Heavy-duty parka coat for ultimate winter protection.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "trench-coat": {
+        "men-trench-coat": {
           name: "Trench Coat",
           price: "$160",
           description: "Sleek and stylish trench coat for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "rain-jacket": {
+        "men-rain-jacket": {
           name: "Rain Jacket",
           price: "$80",
           description: "Waterproof rain jacket for unpredictable weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "blazer-jacket": {
+        "men-blazer-jacket": {
           name: "Blazer Jacket",
           price: "$180",
           description: "Sophisticated blazer jacket for business meetings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "slim-fit-blazer": {
+        "men-slim-fit-blazer": {
           name: "Slim Fit Blazer",
           price: "$120",
           description:
@@ -1362,7 +1360,7 @@ export const mockProductData = {
         },
       },
       activewear: {
-        "running-shorts": {
+        "men-running-shorts": {
           name: "Running Shorts",
           price: "$35",
           description:
@@ -1370,7 +1368,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "performance-t-shirt": {
+        "men-performance-t-shirt": {
           name: "Performance T-Shirt",
           price: "$40",
           description:
@@ -1378,7 +1376,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "gym-pants": {
+        "men-gym-pants": {
           name: "Gym Pants",
           price: "$50",
           description:
@@ -1386,7 +1384,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "compression-shirt": {
+        "men-compression-shirt": {
           name: "Compression Shirt",
           price: "$45",
           description:
@@ -1394,7 +1392,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "track-jacket": {
+        "men-track-jacket": {
           name: "Track Jacket",
           price: "$60",
           description:
@@ -1402,7 +1400,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "sports-leggings": {
+        "men-sports-leggings": {
           name: "Sports Leggings",
           price: "$55",
           description:
@@ -1410,7 +1408,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "training-shoes": {
+        "men-training-shoes": {
           name: "Training Shoes",
           price: "$75",
           description:
@@ -1418,7 +1416,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "sweat-wicking-jacket": {
+        "men-sweat-wicking-jacket": {
           name: "Sweat-Wicking Jacket",
           price: "$70",
           description:
@@ -1426,7 +1424,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "base-layer-shirt": {
+        "men-base-layer-shirt": {
           name: "Base Layer Shirt",
           price: "$38",
           description:
@@ -1434,7 +1432,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "athletic-shorts": {
+        "men-athletic-shorts": {
           name: "Athletic Shorts",
           price: "$25",
           description:
@@ -1444,21 +1442,21 @@ export const mockProductData = {
         },
       },
       sleepwear: {
-        "silk-pajamas": {
+        "men-silk-pajamas": {
           name: "Silk Pajamas",
           price: "$40",
           description: "Luxurious silk pajamas for a good night’s sleep.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "cotton-pajamas": {
+        "men-cotton-pajamas": {
           name: "Cotton Pajamas",
           price: "$30",
           description: "Soft cotton pajamas for comfortable sleep.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "silk-robes": {
+        "men-silk-robes": {
           name: "Silk Robes",
           price: "$85",
           description: "Luxurious silk robes for men.",
@@ -1467,7 +1465,7 @@ export const mockProductData = {
         },
       },
       underwear: {
-        "cotton-boxers": {
+        "men-cotton-boxers": {
           name: "Cotton Boxers",
           price: "$20",
           description:
@@ -1475,7 +1473,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "slim-fit-boxers": {
+        "men-slim-fit-boxers": {
           name: "Slim Fit Boxers",
           price: "$25",
           description:
@@ -1483,7 +1481,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "sport-boxers": {
+        "men-sport-boxers": {
           name: "Sports Boxers",
           price: "$30",
           description:
@@ -1491,7 +1489,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "printed-boxers": {
+        "men-printed-boxers": {
           name: "Printed Boxers",
           price: "$22",
           description:
