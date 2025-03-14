@@ -40,7 +40,6 @@ const DynamicBreadcrumb = () => {
     const firstSegment = capitalizedSegments[0];
     const lastSegment = capitalizedSegments[capitalizedSegments.length - 1];
 
-    // Always add the first segment (Home)
     items.push(
       <BreadcrumbItem key="home">
         <BreadcrumbLink
@@ -51,6 +50,22 @@ const DynamicBreadcrumb = () => {
         </BreadcrumbLink>
       </BreadcrumbItem>
     );
+
+    if (firstSegment === lastSegment) {
+      items.push(
+        <>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem key={lastSegment}>
+            <BreadcrumbLink
+              href="/"
+              className="bg-muted px-3 py-2 rounded-lg cursor-default"
+            >
+              {lastSegment}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </>
+      );
+    }
 
     // On larger screens, add the full breadcrumb trail
     if (pathSegments.length > 1) {
