@@ -19,14 +19,14 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <NotFoundProvider>
           <Providers>
-            <CurrencyProvider>
-              <NavMenu />
-              <CartProvider>
+            <CartProvider>
+              <CurrencyProvider>
+                <NavMenu />
                 <WishlistProvider>
                   <MainContent>{children}</MainContent>
                 </WishlistProvider>
-              </CartProvider>
-            </CurrencyProvider>
+              </CurrencyProvider>
+            </CartProvider>
             <BackToTop />
           </Providers>
         </NotFoundProvider>

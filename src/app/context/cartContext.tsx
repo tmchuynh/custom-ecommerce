@@ -1,27 +1,39 @@
+// cartContext.tsx
 "use client";
 
 import { CartContextType, CartItem } from "@/lib/interfaces";
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
-// Create context
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-// Create provider to wrap the app
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
+  // Rehydrate cart items from localStorage on mount
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setCartItems(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // Persist cartItems to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    console.log("Cart items updated:", cartItems);
+  }, [cartItems]);
+
   const addToCart = (item: CartItem) => {
+    console.log("addToCart called with item:", item);
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((i) => i.id === item.id);
       if (itemIndex >= 0) {
-        // Item already exists, just update quantity
         const updatedItems = [...prevItems];
         updatedItems[itemIndex].quantity += item.quantity;
         return updatedItems;
       } else {
-        // Item does not exist, add new item
         return [...prevItems, item];
       }
     });
@@ -32,11 +44,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const updateQuantity = (id: number, quantity: number) => {
-    setCartItems((prevItems) => {
-      return prevItems.map((item) =>
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
         item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
-      );
-    });
+      )
+    );
   };
 
   const getTotalPrice = () => {
@@ -61,7 +73,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-// Custom hook to access the cart context
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {

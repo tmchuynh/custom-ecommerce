@@ -6,14 +6,16 @@ import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
 import Image from "next/image";
 import ComingSoonMessage from "@/components/ComingSoon";
+import { useCart } from "@/app/context/cartContext";
+import { Button } from "@/components/ui/button";
 
 const CategoryPage = () => {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
   const { gender, category, item } = useParams();
   const section = item as string;
   const overhead = gender as string;
+  const { addToCart } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
@@ -23,9 +25,12 @@ const CategoryPage = () => {
           console.log("Category:", category);
           console.log("Item:", item);
 
+          // Assume data is in the correct structure (adjust if needed)
           const categoryData = (mockProductData as GenderCategories)[
             gender as string
           ]?.[category as string]?.[item as string];
+
+          console.log("Category Data:", categoryData);
 
           if (categoryData) {
             const productsArray = Object.values(categoryData);
@@ -44,9 +49,19 @@ const CategoryPage = () => {
     }
   }, [gender, category, item]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const handleAddToCart = (product: any, id: number) => {
+    console.log("handleAddToCart called with product:", product);
+    addToCart({
+      id: id,
+      name: product.name,
+      description: product.description,
+      price: parseFloat(product.price.replace("$", "")),
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    });
+  };
+
+  if (loading) return <div>Loading...</div>;
 
   if (products.length === 0) {
     return (
@@ -71,9 +86,12 @@ const CategoryPage = () => {
             />
             <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
             <p className="text-sm text-gray-500 mt-2">{product.price}</p>
-            <button className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg">
+            <Button
+              onClick={() => handleAddToCart(product, index)}
+              className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg"
+            >
               Add to Cart
-            </button>
+            </Button>
           </div>
         ))}
       </div>

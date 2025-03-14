@@ -44,8 +44,10 @@ export interface UserType {
 export interface CartItem {
   id: number;
   name: string;
+  description: string;
   price: number;
   quantity: number;
+  imageSrc: string;
 }
 
 export interface CartContextType {

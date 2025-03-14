@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCart } from "../context/cartContext";
 
 const CartPage = () => {
@@ -30,11 +31,19 @@ const CartPage = () => {
                 className="flex items-center justify-between border-b border-gray-200 py-6"
               >
                 <div className="flex items-center space-x-6">
-                  <div className="w-24 h-24 bg-gray-200 rounded-lg">
-                    Image Here
-                  </div>
-                  <div className="text-lg font-medium text-gray-900">
-                    {item.name}
+                  <Image
+                    src={item.imageSrc}
+                    alt={item.name}
+                    width={175}
+                    height={175}
+                  />
+                  <div className="flex flex-col gap-y-3">
+                    <p className="text-lg font-medium text-gray-900">
+                      {item.name}
+                    </p>
+                    <p className="text-sm font-medium text-gray-900">
+                      {item.description}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
