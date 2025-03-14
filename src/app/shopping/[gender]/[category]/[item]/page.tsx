@@ -8,6 +8,7 @@ import Image from "next/image";
 import ComingSoonMessage from "@/components/ComingSoon";
 import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner"; // Import the toast function
 
 const CategoryPage = () => {
   const [products, setProducts] = useState<any[]>([]);
@@ -25,7 +26,7 @@ const CategoryPage = () => {
           console.log("Category:", category);
           console.log("Item:", item);
 
-          // Assume data is in the correct structure (adjust if needed)
+          // Access the product data from the mock data
           const categoryData = (mockProductData as GenderCategories)[
             gender as string
           ]?.[category as string]?.[item as string];
@@ -52,13 +53,14 @@ const CategoryPage = () => {
   const handleAddToCart = (product: any, id: number) => {
     console.log("handleAddToCart called with product:", product);
     addToCart({
-      id: id,
+      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
       name: product.name,
       description: product.description,
       price: parseFloat(product.price.replace("$", "")),
       quantity: 1,
       imageSrc: product.imageSrc,
     });
+    toast.success(`${product.name} added to cart!`);
   };
 
   if (loading) return <div>Loading...</div>;
