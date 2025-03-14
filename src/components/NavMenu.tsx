@@ -291,7 +291,7 @@ export default function NavMenu() {
                     src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                     width={32}
                     height={32}
-                    className="h-8 w-auto"
+                    className="h-8 aspect-square w-auto"
                   />
                 </div>
 
@@ -507,7 +507,7 @@ export default function NavMenu() {
                     src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
                     width={32}
                     height={32}
-                    className="h-8 w-auto"
+                    className="h-8 aspect-square w-auto"
                   />
                 </a>
 
