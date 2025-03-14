@@ -13,6 +13,7 @@ const imageHosts = [
   "fashionisers.com",
   "png.pngtree.com",
   "plus.unsplash.com",
+  "www.shutterstock.com",
 ];
 
 const nextConfig: NextConfig = {

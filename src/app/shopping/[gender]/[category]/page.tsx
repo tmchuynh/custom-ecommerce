@@ -10,11 +10,13 @@ const CategoryPage = () => {
   const router = useRouter();
   const { gender, category } = useParams();
 
-  const [items, setItems] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (gender && category) {
+      console.log("gender", gender);
+      console.log("category", category);
       const fetchItemsData = async () => {
         try {
           // Flatten the mock data to make it easier to work with
@@ -24,8 +26,10 @@ const CategoryPage = () => {
 
           // Check if the category data exists and flatten it
           if (categoryData) {
-            const productsArray = Object.values(categoryData); // Extract values as an array
-            setItems(productsArray); // Set the products state to the array
+            const productsArray = Object.values(categoryData).flatMap(
+              (subCategory: any) => Object.values(subCategory)
+            ); // Flatten all products
+            setProducts(productsArray); // Set the products state to the flattened array
           } else {
             console.error("Product data not found");
           }
@@ -44,7 +48,7 @@ const CategoryPage = () => {
     return <div>Loading...</div>;
   }
 
-  if (items.length === 0) {
+  if (products.length === 0) {
     return <div>No items found in this category.</div>;
   }
 
@@ -53,18 +57,22 @@ const CategoryPage = () => {
       <div className="mx-auto max-w-7xl">
         {gender && category && (
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            {typeof category === "string" &&
-              category.charAt(0).toUpperCase() + gender.slice(1)}{" "}
-            for{" "}
             {typeof gender === "string" &&
-              gender.charAt(0).toUpperCase() + gender.slice(1)}
+              gender.charAt(0).toUpperCase() + gender.slice(1)}{" "}
+            {typeof category === "string" &&
+              category.charAt(0).toUpperCase() + category.slice(1)}
           </h1>
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {items.map((item: any) => (
-            <ProductCard key={item.slug} product={item} />
-          ))}
+          {products.map((product, index) => {
+            return (
+              <ProductCard
+                key={product.name || index} // Use a unique identifier
+                product={product}
+              />
+            );
+          })}
         </div>
       </div>
     </main>

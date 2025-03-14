@@ -891,11 +891,15 @@ export const mockProductData = {
           name: "Blue Sneakers",
           price: "$40",
           description: "Stylish and comfortable sneakers for kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
         "green-sneakers": {
           name: "Green Sneakers",
           price: "$45",
           description: "Comfy green sneakers for children.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
@@ -905,6 +909,8 @@ export const mockProductData = {
           name: "Flannel Shirt",
           price: "$40",
           description: "Warm flannel shirt",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
@@ -916,6 +922,8 @@ export const mockProductData = {
           name: "Red Sneakers",
           price: "$55",
           description: "Comfortable red sneakers",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
@@ -925,6 +933,8 @@ export const mockProductData = {
           name: "Floral Top",
           price: "$30",
           description: "A beautiful floral print top",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
@@ -936,11 +946,15 @@ export const mockProductData = {
           name: "T-Shirt",
           price: "$15",
           description: "Soft and comfortable t-shirt for kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
         hoodie: {
           name: "Hoodie",
           price: "$30",
           description: "Cozy hoodie for chilly days.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
       pants: {
@@ -948,11 +962,15 @@ export const mockProductData = {
           name: "Jeans",
           price: "$25",
           description: "Durable jeans for active kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
         leggings: {
           name: "Leggings",
           price: "$18",
           description: "Flexible leggings for comfort and movement.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
@@ -962,11 +980,15 @@ export const mockProductData = {
           name: "Blue Sneakers",
           price: "$40",
           description: "Stylish and comfortable sneakers for kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
         "green-sneakers": {
           name: "Green Sneakers",
           price: "$45",
           description: "Comfy green sneakers for children.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
       sandals: {
@@ -974,11 +996,15 @@ export const mockProductData = {
           name: "Summer Sandals",
           price: "$25",
           description: "Cool sandals for summer days.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
         "flip-flops": {
           name: "Flip Flops",
           price: "$10",
           description: "Easy-to-wear flip-flops for kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
       },
     },
