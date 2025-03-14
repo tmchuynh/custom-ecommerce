@@ -6,10 +6,13 @@ import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
 import { useParams, useRouter } from "next/navigation";
+import { mockProductData } from "@/lib/constants";
+import { GenderCategories } from "@/lib/types";
 
 const ProductPage = () => {
   const router = useRouter();
   const { gender, category, item, slug } = useParams();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const [product, setProduct] = useState<any | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
@@ -18,15 +21,22 @@ const ProductPage = () => {
     // Simulating fetching data based on the dynamic route
     const fetchProduct = async () => {
       try {
-        // This is a mock function to simulate fetching the product by gender, category, item, and slug.
-        const response = await fetch(
-          `/api/shopping/${gender}/${category}/${item}/${slug}`
-        );
-        const data = await response.json();
-        setProduct(data.product);
-        setRelatedProducts(data.relatedProducts);
+        // Flatten the mock data to make it easier to work with
+        const categoryData = (mockProductData as GenderCategories)[
+          gender as string
+        ]?.[category as string]?.[item as string]?.[slug as string];
+
+        // Check if the category data exists and flatten it
+        if (categoryData) {
+          const productsArray = Object.values(categoryData); // Extract values as an array
+          setProduct(productsArray); // Set the products state to the array
+        } else {
+          console.error("Product data not found");
+        }
       } catch (error) {
-        console.error("Error fetching product:", error);
+        console.error("Error fetching product data", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -34,6 +44,10 @@ const ProductPage = () => {
       fetchProduct();
     }
   }, [gender, category, item, slug]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!product) {
     return <div>Loading...</div>;
