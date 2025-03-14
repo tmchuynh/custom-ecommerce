@@ -51,10 +51,15 @@ const CategoryPage = () => {
   return (
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-          {category.charAt(0).toUpperCase() + category.slice(1)} for{" "}
-          {gender.charAt(0).toUpperCase() + gender.slice(1)}
-        </h1>
+        {gender && category && (
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            {typeof gender === "string" &&
+              gender.charAt(0).toUpperCase() + gender.slice(1)}{" "}
+            for{" "}
+            {typeof category === "string" &&
+              category.charAt(0).toUpperCase() + gender.slice(1)}
+          </h1>
+        )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
           {items.map((item: any) => (
