@@ -26,18 +26,16 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
           className="rounded-t-lg"
         />
       </div>
-
       <div className="flex flex-1 flex-col justify-between p-4">
         <h3 className="text-lg font-semibold text-gray-900">{category.name}</h3>
         <p className="mt-2 text-sm text-gray-500">{category.description}</p>
       </div>
-
       <div className="absolute inset-x-0 bottom-0 p-4">
         <Link
           href={`/shopping/[gender]/[category]/${category.slug}`}
           as={`/shopping/${category.slug}`}
-        >
-          <a className="text-indigo-600 hover:text-indigo-800">Shop now</a>
+          className="text-indigo-600 hover:text-indigo-800">
+          Shop now
         </Link>
       </div>
     </div>

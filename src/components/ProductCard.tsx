@@ -20,7 +20,7 @@ const ProductCard = ({ product }: { product: any }) => {
         <Link
           href={`/shopping/${product.gender}/${product.category}/${product.item}/${product.slug}`}
           passHref
-        >
+          legacyBehavior>
           <button className="mt-2 w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 focus:outline-none">
             View Details
           </button>
