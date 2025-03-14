@@ -1108,79 +1108,248 @@ export const mockProductData = {
   men: {
     shoes: {
       formal: {
-        "men-brown-formal-shoes": {
-          name: "Brown Formal Shoes",
-          price: "$60",
-          description: "Elegant brown formal shoes for men.",
+        "oxford-shoes": {
+          name: "Oxford Shoes",
+          price: "$120",
+          description:
+            "Classic Oxford shoes made from premium leather, perfect for formal events and business attire.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/oxford-shoes-men.jpg",
         },
-        "men-black-formal-shoes": {
-          name: "Black Formal Shoes",
-          price: "$65",
-          description: "Classic black formal shoes for men.",
+        "derby-shoes": {
+          name: "Derby Shoes",
+          price: "$130",
+          description:
+            "Sleek and sophisticated Derby shoes with an open-lacing system, ideal for both formal and semi-formal occasions.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/derby-shoes-men.jpg",
+        },
+        "monk-strap-shoes": {
+          name: "Monk Strap Shoes",
+          price: "$140",
+          description:
+            "Stylish monk strap shoes with a unique buckle design, adding a touch of elegance to any outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/monk-strap-shoes-men.jpg",
+        },
+        "brogue-shoes": {
+          name: "Brogue Shoes",
+          price: "$135",
+          description:
+            "Classic brogue shoes with detailed perforations, perfect for business and formal events.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/brogue-shoes-men.jpg",
+        },
+        loafers: {
+          name: "Loafers",
+          price: "$110",
+          description:
+            "Comfortable and stylish loafers with a sleek silhouette, ideal for both formal and casual wear.",
+          imageSrc: "https://www.shutterstock.com/image-photo/loafers-men.jpg",
+        },
+        "dress-boots": {
+          name: "Dress Boots",
+          price: "$150",
+          description:
+            "Elegant dress boots made of fine leather, perfect for colder weather while maintaining a formal look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/dress-boots-men.jpg",
+        },
+        "cap-toe-shoes": {
+          name: "Cap Toe Shoes",
+          price: "$125",
+          description:
+            "Classic cap-toe shoes made from premium leather, featuring a durable and sophisticated design.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/cap-toe-shoes-men.jpg",
+        },
+        "wingtip-shoes": {
+          name: "Wingtip Shoes",
+          price: "$145",
+          description:
+            "Stylish wingtip shoes with intricate perforations and a distinctive look, perfect for formal occasions.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/wingtip-shoes-men.jpg",
+        },
+        "sleek-dress-shoes": {
+          name: "Sleek Dress Shoes",
+          price: "$120",
+          description:
+            "Modern and sleek dress shoes designed for a polished, formal look at any event.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/sleek-dress-shoes-men.jpg",
+        },
+        "tassel-loafers": {
+          name: "Tassel Loafers",
+          price: "$125",
+          description:
+            "Elegant tassel loafers that offer a sophisticated, refined look for formal and semi-formal occasions.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/tassel-loafers-men.jpg",
         },
       },
       sneakers: {
-        "men-blue-sneakers": {
-          name: "Blue Sneakers",
-          price: "$40",
-          description: "Stylish and comfortable sneakers for men.",
+        "minimalist-leather-sneakers": {
+          name: "Minimalist Leather Sneakers",
+          price: "$70",
+          description:
+            "Sleek and versatile leather sneakers designed for a modern minimalist look.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/minimalist-leather-sneakers-men.jpg",
         },
-        "men-white-sneakers": {
-          name: "White Sneakers",
-          price: "$60",
-          description: "Comfortable white sneakers for men.",
+        "performance-running-sneakers": {
+          name: "Performance Running Sneakers",
+          price: "$85",
+          description:
+            "Engineered for optimal performance, these running sneakers provide excellent cushioning and support.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/performance-running-sneakers-men.jpg",
         },
-        "men-black-sneakers": {
-          name: "Black Sneakers",
+        "retro-runner-sneakers": {
+          name: "Retro Runner Sneakers",
+          price: "$75",
+          description:
+            "Combining classic style with modern comfort, these retro-inspired sneakers are perfect for everyday wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/retro-runner-sneakers-men.jpg",
+        },
+        "high-top-sneakers": {
+          name: "High Top Sneakers",
+          price: "$80",
+          description:
+            "A stylish high top sneaker that offers both a contemporary look and added ankle support.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/high-top-sneakers-men.jpg",
+        },
+        "slip-on-sneakers": {
+          name: "Slip-On Sneakers",
           price: "$65",
-          description: "Stylish black sneakers for men.",
+          description:
+            "Easy-to-wear slip-on sneakers that combine convenience with a casual yet polished style.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/slip-on-sneakers-men.jpg",
         },
-        "men-green-sneakers": {
-          name: "Green Sneakers",
-          price: "$45",
-          description: "Comfy green sneakers for men.",
+        "vintage-inspired-sneakers": {
+          name: "Vintage Inspired Sneakers",
+          price: "$78",
+          description:
+            "Inspired by classic designs, these vintage sneakers offer a timeless aesthetic with modern comfort.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/vintage-inspired-sneakers-men.jpg",
+        },
+        "basketball-style-sneakers": {
+          name: "Basketball Style Sneakers",
+          price: "$90",
+          description:
+            "Designed with performance and style in mind, these sneakers are ideal for both the court and the street.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/basketball-style-sneakers-men.jpg",
+        },
+        "urban-casual-sneakers": {
+          name: "Urban Casual Sneakers",
+          price: "$68",
+          description:
+            "A blend of comfort and urban style, these sneakers are perfect for everyday casual wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/urban-casual-sneakers-men.jpg",
+        },
+        "premium-athletic-sneakers": {
+          name: "Premium Athletic Sneakers",
+          price: "$95",
+          description:
+            "High-quality athletic sneakers offering superior support and a sleek design for active lifestyles.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/premium-athletic-sneakers-men.jpg",
+        },
+        "street-style-sneakers": {
+          name: "Street Style Sneakers",
+          price: "$72",
+          description:
+            "Fashion-forward street style sneakers that bring a bold statement to everyday outfits.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/street-style-sneakers-men.jpg",
         },
       },
       sandals: {
-        "men-summer-sandals": {
-          name: "Summer Sandals",
-          price: "$40",
-          description: "Cool sandals for summer days.",
+        "classic-leather-sandals": {
+          name: "Classic Leather Sandals",
+          price: "$60",
+          description:
+            "Timeless leather sandals offering a comfortable and stylish option for casual wear.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/classic-leather-sandals-men.jpg",
         },
-        "men-brown-sandals": {
-          name: "Brown Sandals",
-          price: "$35",
-          description: "Stylish brown sandals for casual wear.",
+        "sporty-athletic-sandals": {
+          name: "Sporty Athletic Sandals",
+          price: "$65",
+          description:
+            "Designed for active lifestyles, these sandals provide excellent grip and support for outdoor activities.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/sporty-athletic-sandals-men.jpg",
         },
-        "men-black-sandals": {
-          name: "Black Sandals",
-          price: "$40",
-          description: "Black sandals for relaxed outings.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "men-leather-sandals": {
-          name: "Leather Sandals",
+        "casual-slide-sandals": {
+          name: "Casual Slide Sandals",
           price: "$50",
-          description: "Comfortable leather sandals for daily wear.",
+          description:
+            "Easy-to-wear slide sandals perfect for warm weather, combining comfort with a laid-back look.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/casual-slide-sandals-men.jpg",
+        },
+        "beach-espadrille-sandals": {
+          name: "Beach Espadrille Sandals",
+          price: "$55",
+          description:
+            "Lightweight and breathable espadrille sandals ideal for beach outings and summer adventures.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/beach-espadrille-sandals-men.jpg",
+        },
+        "rugged-outdoor-sandals": {
+          name: "Rugged Outdoor Sandals",
+          price: "$70",
+          description:
+            "Durable and supportive sandals built for outdoor exploration and rugged terrain.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/rugged-outdoor-sandals-men.jpg",
+        },
+        "minimalist-design-sandals": {
+          name: "Minimalist Design Sandals",
+          price: "$58",
+          description:
+            "Simple yet stylish sandals with a minimalist design, perfect for modern casual wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/minimalist-design-sandals-men.jpg",
+        },
+        "strappy-leather-sandals": {
+          name: "Strappy Leather Sandals",
+          price: "$62",
+          description:
+            "Elegant strappy sandals crafted from premium leather, offering both style and comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/strappy-leather-sandals-men.jpg",
+        },
+        "water-resistant-sandals": {
+          name: "Water Resistant Sandals",
+          price: "$68",
+          description:
+            "Engineered with water-resistant materials, these sandals are perfect for poolside or rainy day use.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/water-resistant-sandals-men.jpg",
+        },
+        "flip-flops-sandals": {
+          name: "Flip-Flops Sandals",
+          price: "$45",
+          description:
+            "Comfortable flip-flops designed for quick outings and relaxed summer days.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/flip-flops-sandals-men.jpg",
+        },
+        "premium-comfort-sandals": {
+          name: "Premium Comfort Sandals",
+          price: "$75",
+          description:
+            "High-quality sandals with extra cushioning and support, ensuring all-day comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/premium-comfort-sandals-men.jpg",
         },
       },
       boots: {
@@ -1212,6 +1381,22 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        "chukka-boots": {
+          name: "Chukka Boots",
+          price: "$115",
+          description:
+            "Casual yet stylish chukka boots, ideal for relaxed, everyday wear with a hint of ruggedness.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/chukka-boots-men.jpg",
+        },
+        "work-boots": {
+          name: "Work Boots",
+          price: "$140",
+          description:
+            "Heavy-duty work boots built for durability and comfort, perfect for tough, outdoor conditions.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/work-boots-men.jpg",
+        },
         "men-combat-boots": {
           name: "Combat Boots",
           price: "$55",
@@ -1226,6 +1411,30 @@ export const mockProductData = {
             "Classic Chelsea boots for kids, stylish and easy to wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/chelsea-boots-600nw-92008067.jpg",
+        },
+        "desert-boots": {
+          name: "Desert Boots",
+          price: "$110",
+          description:
+            "Classic desert boots with a soft, flexible sole, offering both comfort and a stylish look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/desert-boots-men.jpg",
+        },
+        "motorcycle-boots": {
+          name: "Motorcycle Boots",
+          price: "$150",
+          description:
+            "Stylish and durable motorcycle boots designed to provide protection and comfort while riding.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/motorcycle-boots-men.jpg",
+        },
+        "engineer-boots": {
+          name: "Engineer Boots",
+          price: "$145",
+          description:
+            "Sturdy engineer boots with a vintage-inspired design, perfect for adding edge to your outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/engineer-boots-men.jpg",
         },
         "men-hiking-boots": {
           name: "Hiking Boots",
@@ -1551,6 +1760,22 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        parka: {
+          name: "Parka",
+          price: "$110",
+          description:
+            "A versatile parka designed for both urban and outdoor adventures.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/parka-example.jpg",
+        },
+        windbreaker: {
+          name: "Windbreaker",
+          price: "$40",
+          description:
+            "A lightweight windbreaker that offers protection against the wind without sacrificing style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
+        },
         "denim-jacket": {
           name: "Denim Jacket",
           price: "$100",
@@ -1857,6 +2082,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        "gold-chain-necklace": {
+          name: "Gold Chain Necklace",
+          price: "$85",
+          description:
+            "A refined gold chain necklace perfect for everyday wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
+        },
         "leather-bracelet": {
           name: "Leather Bracelet",
           price: "$25",
@@ -1870,6 +2103,22 @@ export const mockProductData = {
           description: "Casual beaded necklace for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+        },
+        "beaded-bracelet": {
+          name: "Beaded Bracelet",
+          price: "$35",
+          description:
+            "A colorful beaded bracelet that brings a pop of color to your style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/beaded-bracelet-example.jpg",
+        },
+        "chain-bracelet": {
+          name: "Chain Bracelet",
+          price: "$45",
+          description:
+            "A sleek chain bracelet that adds sophistication to your wrist.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
         },
         "gold-chain": {
           name: "Gold Chain",
@@ -2310,48 +2559,117 @@ export const mockProductData = {
   women: {
     shoes: {
       sneakers: {
-        "red-sneakers": {
-          name: "Red Sneakers",
-          price: "$55",
-          description: "Comfortable red sneakers for women.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "blue-sneakers": {
-          name: "Blue Sneakers",
-          price: "$60",
-          description: "Stylish blue sneakers for women.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "white-sneakers": {
-          name: "White Sneakers",
-          price: "$50",
-          description: "Versatile white sneakers for everyday wear.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "pink-sneakers": {
-          name: "Pink Sneakers",
-          price: "$58",
-          description: "Trendy pink sneakers for a chic look.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "black-sneakers": {
-          name: "Black Sneakers",
-          price: "$65",
+        "lightweight-training-sneakers": {
+          name: "Lightweight Training Sneakers",
+          price: "$36",
           description:
-            "Sleek and stylish black sneakers, perfect for any outfit.",
+            "Engineered for performance, these lightweight training sneakers offer excellent support and breathability for active kids.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/lightweight-training-sneakers-kids.jpg",
         },
-        "gray-sneakers": {
-          name: "Gray Sneakers",
-          price: "$62",
-          description: "Comfortable gray sneakers for casual and sporty looks.",
+        "retro-inspired-sneakers": {
+          name: "Retro Inspired Sneakers",
+          price: "$39",
+          description:
+            "Classic retro-inspired design meets modern comfort, perfect for adding a vintage vibe to any outfit.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/retro-inspired-sneakers-kids.jpg",
+        },
+        "mesh-breathable-sneakers": {
+          name: "Mesh Breathable Sneakers",
+          price: "$34",
+          description:
+            "Designed with breathable mesh fabric to keep little feet cool and comfortable during play.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/mesh-breathable-sneakers-kids.jpg",
+        },
+        "high-performance-sneakers": {
+          name: "High Performance Sneakers",
+          price: "$42",
+          description:
+            "Crafted for active kids, these sneakers offer durability and superior performance for sports and play.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/high-performance-sneakers-kids.jpg",
+        },
+        "color-block-sneakers": {
+          name: "Color Block Sneakers",
+          price: "$37",
+          description:
+            "Vibrant color blocking creates a fun and eye-catching design, perfect for creative and adventurous kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/color-block-sneakers-kids.jpg",
+        },
+        "all-terrain-sneakers": {
+          name: "All Terrain Sneakers",
+          price: "$40",
+          description:
+            "Engineered for versatility, these sneakers provide traction and stability on various surfaces, ideal for outdoor activities.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/all-terrain-sneakers-kids.jpg",
+        },
+        "premium-leather-sneakers": {
+          name: "Premium Leather Sneakers",
+          price: "$45",
+          description:
+            "Combining style and quality, these premium leather sneakers offer a sleek look for both formal and casual settings.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/premium-leather-sneakers-kids.jpg",
+        },
+        "crossover-high-top-sneakers": {
+          name: "Crossover High Top Sneakers",
+          price: "$41",
+          description:
+            "Blending classic high-top design with modern twists, these sneakers ensure both style and support for growing feet.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/crossover-high-top-sneakers-kids.jpg",
+        },
+        "flex-fit-sneakers": {
+          name: "Flex Fit Sneakers",
+          price: "$38",
+          description:
+            "Designed with a flexible fit to ensure maximum comfort during all-day activities and dynamic movements.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/flex-fit-sneakers-kids.jpg",
+        },
+        "water-resistant-sneakers": {
+          name: "Water Resistant Sneakers",
+          price: "$39",
+          description:
+            "Built with water-resistant materials, these sneakers are perfect for rainy days and outdoor adventures.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/water-resistant-sneakers-kids.jpg",
+        },
+        "classic-canvas-sneakers": {
+          name: "Classic Canvas Sneakers",
+          price: "$30",
+          description:
+            "Timeless canvas sneakers ideal for everyday wear, offering durability and comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/classic-canvas-sneakers-kids.jpg",
+        },
+        "eco-friendly-sneakers": {
+          name: "Eco-Friendly Sneakers",
+          price: "$38",
+          description:
+            "Sustainable sneakers made with eco-friendly materials, ideal for environmentally conscious families.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/eco-friendly-sneakers-kids.jpg",
+        },
+        "sporty-runner-sneakers": {
+          name: "Sporty Runner Sneakers",
+          price: "$35",
+          description:
+            "Lightweight and breathable sneakers designed for active kids, perfect for running and play.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/sporty-runner-sneakers-kids.jpg",
+        },
+        "high-top-sneakers": {
+          name: "High Top Sneakers",
+          price: "$40",
+          description:
+            "Fashionable high-top sneakers offering enhanced ankle support and a trendy look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/high-top-sneakers-kids.jpg",
         },
         "leather-sneakers": {
           name: "Leather Sneakers",
@@ -2384,6 +2702,22 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        "loafer-flats": {
+          name: "Loafer Flats",
+          price: "$50",
+          description:
+            "Sleek and stylish loafer flats that add a touch of sophistication to casual and business looks.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/loafer-flats-women.jpg",
+        },
+        "espadrille-flats": {
+          name: "Espadrille Flats",
+          price: "$45",
+          description:
+            "Breathable and comfortable espadrille flats, perfect for warm weather and casual outings.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/espadrille-flats-women.jpg",
+        },
         "pointed-toe-flats": {
           name: "Pointed Toe Flats",
           price: "$50",
@@ -2398,6 +2732,46 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        "moccasin-flats": {
+          name: "Moccasin Flats",
+          price: "$48",
+          description:
+            "Soft and flexible moccasin flats that offer all-day comfort and a relaxed, chic look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/moccasin-flats-women.jpg",
+        },
+        "slip-on-flats": {
+          name: "Slip-On Flats",
+          price: "$38",
+          description:
+            "Casual slip-on flats designed for easy wear and maximum comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/slip-on-flats-women.jpg",
+        },
+        "brogue-flats": {
+          name: "Brogue Flats",
+          price: "$60",
+          description:
+            "Stylish brogue flats with a mix of classic and modern design, perfect for formal or casual wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/brogue-flats-women.jpg",
+        },
+        "strappy-flats": {
+          name: "Strappy Flats",
+          price: "$52",
+          description:
+            "Chic strappy flats that add a trendy touch to your look while keeping comfort at the forefront.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/strappy-flats-women.jpg",
+        },
+        "metallic-flats": {
+          name: "Metallic Flats",
+          price: "$65",
+          description:
+            "Eye-catching metallic flats that combine fashion-forward style with everyday comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/metallic-flats-women.jpg",
+        },
         "suede-flats": {
           name: "Suede Flats",
           price: "$60",
@@ -2410,21 +2784,6 @@ export const mockProductData = {
           name: "Floral Flats",
           price: "$55",
           description: "Stylish floral flats for a fun and feminine look.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "espadrille-flats": {
-          name: "Espadrille Flats",
-          price: "$70",
-          description: "Light and airy espadrille flats, perfect for summer.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "metallic-flats": {
-          name: "Metallic Flats",
-          price: "$75",
-          description:
-            "Shiny metallic flats to add a touch of glam to your outfit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
@@ -2503,6 +2862,45 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
+        "classic-pumps": {
+          name: "Classic Pumps",
+          price: "$80",
+          description:
+            "Timeless classic pumps offering elegance and comfort, perfect for formal events or professional settings.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/classic-pumps-women.jpg",
+        },
+        wedges: {
+          name: "Wedges",
+          price: "$65",
+          description:
+            "Versatile wedge heels that combine comfort with a stylish silhouette, perfect for both casual and dressy occasions.",
+          imageSrc: "https://www.shutterstock.com/image-photo/wedges-women.jpg",
+        },
+        "kitten-heels": {
+          name: "Kitten Heels",
+          price: "$60",
+          description:
+            "Charming kitten heels that provide a more subtle height boost while maintaining comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/kitten-heels-women.jpg",
+        },
+        "strappy-heels": {
+          name: "Strappy Heels",
+          price: "$95",
+          description:
+            "Sexy and stylish strappy heels, perfect for a night out or formal events.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/strappy-heels-women.jpg",
+        },
+        "slingback-heels": {
+          name: "Slingback Heels",
+          price: "$80",
+          description:
+            "Elegant slingback heels that offer a refined and stylish look for both day and evening wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/slingback-heels-women.jpg",
+        },
         "pointed-toe-heels": {
           name: "Pointed Toe Heels",
           price: "$105",
@@ -2518,13 +2916,6 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "slingback-heels": {
-          name: "Slingback Heels",
-          price: "$120",
-          description: "Classic slingback heels for a timeless, elegant style.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
       },
       boots: {
         "ankle-boots": {
@@ -2533,6 +2924,30 @@ export const mockProductData = {
           description: "Stylish ankle boots for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+        },
+        "desert-boots": {
+          name: "Desert Boots",
+          price: "$110",
+          description:
+            "Classic desert boots with a soft, flexible sole, offering both comfort and a stylish look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/desert-boots-men.jpg",
+        },
+        "motorcycle-boots": {
+          name: "Motorcycle Boots",
+          price: "$150",
+          description:
+            "Stylish and durable motorcycle boots designed to provide protection and comfort while riding.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/motorcycle-boots-men.jpg",
+        },
+        "engineer-boots": {
+          name: "Engineer Boots",
+          price: "$145",
+          description:
+            "Sturdy engineer boots with a vintage-inspired design, perfect for adding edge to your outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/engineer-boots-men.jpg",
         },
         "knee-high-boots": {
           name: "Knee High Boots",
@@ -3262,29 +3677,199 @@ export const mockProductData = {
         },
       },
       pants: {
-        "pant-suit": {
-          name: "Pant Suit",
-          price: "$180",
+        "skinny-jeans": {
+          name: "Skinny Jeans",
+          price: "$40",
           description:
-            "Tailored pant suit for professional and formal settings.",
+            "Classic skinny jeans with a comfortable stretch for everyday wear.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/pant-suit-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/skinny-jeans-example.jpg",
         },
-        jeans: {
-          name: "Jeans",
-          price: "$60",
-          description: "Classic denim jeans for everyday wear.",
+        "high-waisted-jeans": {
+          name: "High Waisted Jeans",
+          price: "$45",
+          description:
+            "Trendy high-waisted jeans that provide a flattering silhouette and versatile style.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/high-waisted-jeans-example.jpg",
+        },
+        "wide-leg-pants": {
+          name: "Wide Leg Pants",
+          price: "$50",
+          description:
+            "Elegant wide-leg pants perfect for both casual and office settings.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/wide-leg-pants-example.jpg",
+        },
+        "paperbag-waist": {
+          name: "Paperbag Waist Pants",
+          price: "$42",
+          description:
+            "Stylish paperbag waist pants with a cinched waist and relaxed fit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/paperbag-waist-pants-example.jpg",
+        },
+        culottes: {
+          name: "Culottes",
+          price: "$38",
+          description:
+            "Flowy culottes that combine comfort with a modern, chic look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/culottes-example.jpg",
+        },
+        "palazzo-pants": {
+          name: "Palazzo Pants",
+          price: "$48",
+          description:
+            "Lightweight palazzo pants designed for a breezy, elegant style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/palazzo-pants-example.jpg",
+        },
+        leggings: {
+          name: "Leggings",
+          price: "$25",
+          description:
+            "Comfortable and versatile leggings suitable for workouts or casual wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/leggings-example.jpg",
+        },
+        "cargo-pants": {
+          name: "Cargo Pants",
+          price: "$35",
+          description:
+            "Practical cargo pants with multiple pockets for an urban, utilitarian look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/cargo-pants-example.jpg",
+        },
+        "tailored-trousers": {
+          name: "Tailored Trousers",
+          price: "$55",
+          description:
+            "Elegant tailored trousers designed for a polished and professional appearance.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/tailored-trousers-example.jpg",
+        },
+        "jogger-pants": {
+          name: "Jogger Pants",
+          price: "$30",
+          description:
+            "Casual jogger pants that offer both style and comfort for everyday activities.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/jogger-pants-example.jpg",
         },
       },
       tops: {
         "floral-top": {
           name: "Floral Top",
           price: "$30",
-          description: "A beautiful floral print top.",
+          description:
+            "A beautiful floral print top perfect for spring and summer.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+        },
+        "lace-blouse": {
+          name: "Lace Blouse",
+          price: "$45",
+          description:
+            "A delicate lace blouse featuring intricate detailing for a refined look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/lace-blouse-example.jpg",
+        },
+        "crop-tank": {
+          name: "Crop Tank Top",
+          price: "$25",
+          description:
+            "A trendy crop tank top that's perfect for a casual summer outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/crop-tank-top-example.jpg",
+        },
+        "striped-tshirt": {
+          name: "Striped T-Shirt",
+          price: "$20",
+          description:
+            "A classic striped t-shirt that offers both comfort and style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/striped-tshirt-example.jpg",
+        },
+        "peplum-top": {
+          name: "Peplum Top",
+          price: "$38",
+          description:
+            "A flattering peplum top that accentuates the waist and flows gracefully.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/peplum-top-example.jpg",
+        },
+        "bandeau-top": {
+          name: "Bandeau Top",
+          price: "$22",
+          description:
+            "A chic bandeau top perfect for a minimalist summer look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/bandeau-top-example.jpg",
+        },
+        "ruffled-top": {
+          name: "Ruffled Top",
+          price: "$32",
+          description:
+            "A playful ruffled top that adds a feminine touch to your ensemble.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/ruffled-top-example.jpg",
+        },
+        "sleeveless-jersey": {
+          name: "Sleeveless Jersey Top",
+          price: "$28",
+          description:
+            "A comfortable sleeveless jersey top ideal for layering and casual wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/sleeveless-jersey-top-example.jpg",
+        },
+        "puff-sleeve": {
+          name: "Puff Sleeve Top",
+          price: "$42",
+          description:
+            "A trendy puff sleeve top that blends vintage style with modern fashion.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/puff-sleeve-top-example.jpg",
+        },
+        "graphic-tee": {
+          name: "Graphic Tee",
+          price: "$18",
+          description:
+            "A casual graphic tee that makes a statement with its unique design.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/graphic-tee-example.jpg",
+        },
+        "v-neck-blouse": {
+          name: "V-Neck Blouse",
+          price: "$34",
+          description:
+            "A stylish V-neck blouse offering a flattering silhouette and versatile style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/v-neck-blouse-example.jpg",
+        },
+        "peasant-top": {
+          name: "Peasant Top",
+          price: "$26",
+          description:
+            "A relaxed peasant top with bohemian vibes, perfect for a laid-back look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/peasant-top-example.jpg",
+        },
+        "halter-neck": {
+          name: "Halter Neck Top",
+          price: "$35",
+          description:
+            "A stylish halter neck top that accentuates the shoulders for an elegant silhouette.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/halter-neck-top-example.jpg",
+        },
+        "off-shoulder-top": {
+          name: "Off Shoulder Top",
+          price: "$40",
+          description:
+            "An off shoulder top that adds a touch of modern chic to any outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/off-shoulder-top-example.jpg",
         },
       },
       bras: {
@@ -3411,7 +3996,22 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/raincoat-600nw-92008067.jpg",
         },
-
+        parka: {
+          name: "Parka",
+          price: "$110",
+          description:
+            "A versatile parka designed for both urban and outdoor adventures.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/parka-example.jpg",
+        },
+        windbreaker: {
+          name: "Windbreaker",
+          price: "$40",
+          description:
+            "A lightweight windbreaker that offers protection against the wind without sacrificing style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
+        },
         "leather-jacket": {
           name: "Leather Jacket",
           price: "$150",
@@ -3509,19 +4109,36 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-necklace-600nw-92008067.jpg",
         },
+        "gold-chain-necklace": {
+          name: "Gold Chain Necklace",
+          price: "$85",
+          description:
+            "A refined gold chain necklace perfect for everyday wear.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
+        },
+        "choker-necklace": {
+          name: "Choker Necklace",
+          price: "$50",
+          description:
+            "A trendy choker necklace that adds a modern flair to your look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/choker-necklace-example.jpg",
+        },
+        "statement-necklace": {
+          name: "Statement Necklace",
+          price: "$60",
+          description:
+            "A bold statement necklace designed to elevate your style.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/statement-necklace-example.jpg",
+        },
         "pearl-necklace": {
           name: "Pearl Necklace",
           price: "$150",
           description: "Classic pearl necklace for formal events.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/pearl-necklace-600nw-92008067.jpg",
-        },
-        "choker-necklace": {
-          name: "Choker Necklace",
-          price: "$40",
-          description: "Trendy choker necklace for a modern look.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/choker-necklace-600nw-92008067.jpg",
         },
         "heart-necklace": {
           name: "Heart Necklace",
@@ -3550,6 +4167,14 @@ export const mockProductData = {
           description: "Luxury gold bracelet for elegant evenings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-bracelet-600nw-92008067.jpg",
+        },
+        "chain-bracelet": {
+          name: "Chain Bracelet",
+          price: "$45",
+          description:
+            "A sleek chain bracelet that adds sophistication to your wrist.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
         },
         "bangle-bracelet": {
           name: "Bangle Bracelet",
@@ -4020,21 +4645,111 @@ export const mockProductData = {
   kids: {
     shoes: {
       formal: {
-        "black-formal-shoes": {
-          name: "Black Formal Shoes",
-          price: "$60",
-          description: "Elegant black formal shoes for kids.",
+        "classic-buckle-shoes": {
+          name: "Classic Buckle Shoes",
+          price: "$35",
+          description:
+            "Timeless formal shoes featuring a buckle detail, perfect for formal occasions and school events.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/classic-buckle-shoes-kids.jpg",
         },
-        "brown-formal-shoes": {
-          name: "Brown Formal Shoes",
-          price: "$55",
-          description: "Stylish brown formal shoes for kids.",
+        "sparkle-formal-shoes": {
+          name: "Sparkle Formal Shoes",
+          price: "$38",
+          description:
+            "Formal shoes with subtle sparkle detailing that add a playful twist to classic style.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/sparkle-formal-shoes-kids.jpg",
         },
-        "oxford-shoes": {
+        "mini-loafers": {
+          name: "Mini Loafers",
+          price: "$32",
+          description:
+            "Comfortable mini loafers designed for kids, ideal for a smart and polished look at formal events.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/mini-loafers-kids.jpg",
+        },
+        "elegant-derby-shoes": {
+          name: "Elegant Derby Shoes",
+          price: "$42",
+          description:
+            "Refined derby shoes crafted for kids, offering a sophisticated look for formal occasions.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/elegant-derby-shoes-kids.jpg",
+        },
+        "mini-mary-janes": {
+          name: "Mini Mary Janes",
+          price: "$37",
+          description:
+            "Charming Mary Jane style shoes designed for kids with a classic buckle for a secure fit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/mini-mary-janes-kids.jpg",
+        },
+        "refined-moccasins": {
+          name: "Refined Moccasins",
+          price: "$39",
+          description:
+            "Soft yet stylish moccasins that combine comfort with formal design details.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/refined-moccasins-kids.jpg",
+        },
+        "classic-brogues-kids": {
+          name: "Classic Brogues",
+          price: "$44",
+          description:
+            "Traditional brogues featuring perforated detailing, perfect for elevating a kid’s formal wardrobe.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/classic-brogues-kids.jpg",
+        },
+        "polished-dress-shoes": {
+          name: "Polished Dress Shoes",
+          price: "$41",
+          description:
+            "Sleek dress shoes with a glossy finish, ensuring a neat appearance at formal events.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/polished-dress-shoes-kids.jpg",
+        },
+        "sleek-formal-sneakers": {
+          name: "Sleek Formal Sneakers",
+          price: "$38",
+          description:
+            "A unique blend of casual comfort and formal design, these sneakers are perfect for smart casual events.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/sleek-formal-sneakers-kids.jpg",
+        },
+        "tuxedo-kids-shoes": {
+          name: "Tuxedo Shoes",
+          price: "$46",
+          description:
+            "Inspired by classic tuxedo style, these shoes offer a refined look for special occasions.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/tuxedo-kids-shoes.jpg",
+        },
+        "vintage-formal-kids": {
+          name: "Vintage Formal Shoes",
+          price: "$40",
+          description:
+            "A nod to timeless elegance, these vintage-inspired shoes are crafted for young trendsetters.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/vintage-formal-kids-shoes.jpg",
+        },
+        "royal-formal-kids": {
+          name: "Royal Formal Shoes",
+          price: "$48",
+          description:
+            "Designed for a regal look, these formal shoes feature premium details and craftsmanship.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/royal-formal-kids-shoes.jpg",
+        },
+        "smart-dress-shoes": {
+          name: "Smart Dress Shoes",
+          price: "$43",
+          description:
+            "Modern dress shoes that combine traditional design with a contemporary twist, perfect for any formal event.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/smart-dress-shoes-kids.jpg",
+        },
+        "polished-oxfords-shoes": {
           name: "Oxford Shoes",
           price: "$55",
           description:
@@ -4109,34 +4824,53 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/snow-boots-600nw-92008067.jpg",
         },
-        "brown-boots": {
-          name: "Brown Boots",
-          price: "$40",
-          description: "Durable brown boots for winter adventures.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/childrens-brown-boots-600nw-92008067.jpg",
-        },
-        "pink-boots": {
-          name: "Pink Boots",
-          price: "$45",
-          description: "Cute pink boots for outdoor play and rainy days.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/childrens-pink-boots-600nw-92008067.jpg",
-        },
-        "black-boots": {
-          name: "Black Boots",
-          price: "$50",
-          description: "Stylish black boots for everyday wear.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/childrens-black-boots-600nw-92008067.jpg",
-        },
-        "ankle-boots": {
-          name: "Ankle Boots",
+        "classic-leather-boots": {
+          name: "Classic Leather Boots",
           price: "$40",
           description:
-            "Stylish ankle boots perfect for the fall and winter seasons.",
+            "Elegant leather boots with a timeless design, perfect for both formal and casual wear.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/ankle-boots-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/classic-leather-boots-kids.jpg",
+        },
+        "insulated-winter-boots": {
+          name: "Insulated Winter Boots",
+          price: "$45",
+          description:
+            "Warm and waterproof insulated boots ideal for cold weather and snowy days.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/insulated-winter-boots-kids.jpg",
+        },
+        "rain-boots": {
+          name: "Rain Boots",
+          price: "$30",
+          description:
+            "Bright and fun rain boots designed to keep little feet dry during wet weather.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/rain-boots-kids.jpg",
+        },
+        "suede-ankle-boots": {
+          name: "Suede Ankle Boots",
+          price: "$35",
+          description:
+            "Stylish suede ankle boots that offer a mix of casual comfort and a refined look.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/suede-ankle-boots-kids.jpg",
+        },
+        "fuzzy-booties": {
+          name: "Fuzzy Booties",
+          price: "$25",
+          description:
+            "Cozy fuzzy booties perfect for indoor play or mild outdoor wear on cooler days.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/fuzzy-booties-kids.jpg",
+        },
+        "velcro-sneaker-boots": {
+          name: "Velcro Sneaker Boots",
+          price: "$38",
+          description:
+            "Sporty boots featuring Velcro straps for easy wear and a secure fit, ideal for active kids.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/velcro-sneaker-boots-kids.jpg",
         },
         "combat-boots": {
           name: "Combat Boots",
@@ -4160,42 +4894,79 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/hiking-boots-600nw-92008067.jpg",
         },
-        "rain-boots": {
-          name: "Rain Boots",
-          price: "$25",
-          description: "Waterproof rain boots, perfect for those rainy days.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/rain-boots-600nw-92008067.jpg",
-        },
       },
       sneakers: {
-        "blue-sneakers": {
-          name: "Blue Sneakers",
+        "classic-canvas-sneakers": {
+          name: "Classic Canvas Sneakers",
+          price: "$30",
+          description:
+            "Timeless canvas sneakers ideal for everyday wear, offering durability and comfort.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/classic-canvas-sneakers-kids.jpg",
+        },
+        "sporty-runner-sneakers": {
+          name: "Sporty Runner Sneakers",
+          price: "$35",
+          description:
+            "Lightweight and breathable sneakers designed for active kids, perfect for running and play.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/sporty-runner-sneakers-kids.jpg",
+        },
+        "high-top-sneakers": {
+          name: "High Top Sneakers",
           price: "$40",
-          description: "Stylish and comfortable sneakers for kids.",
+          description:
+            "Fashionable high-top sneakers offering enhanced ankle support and a trendy look.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/blue-sneakers-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/high-top-sneakers-kids.jpg",
         },
-        "green-sneakers": {
-          name: "Green Sneakers",
-          price: "$45",
-          description: "Comfy green sneakers for children.",
+        "velcro-fastening-sneakers": {
+          name: "Velcro Fastening Sneakers",
+          price: "$32",
+          description:
+            "Convenient sneakers with Velcro straps for an easy on-and-off fit, ideal for younger children.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/green-sneakers-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/velcro-fastening-sneakers-kids.jpg",
         },
-        "red-sneakers": {
-          name: "Red Sneakers",
-          price: "$50",
-          description: "Bold red sneakers with excellent grip.",
+        "colorful-pattern-sneakers": {
+          name: "Colorful Pattern Sneakers",
+          price: "$33",
+          description:
+            "Vibrant sneakers featuring playful patterns, perfect for adding a pop of color to any outfit.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/red-sneakers-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/colorful-pattern-sneakers-kids.jpg",
         },
-        "sport-sneakers": {
-          name: "Sport Sneakers",
-          price: "$55",
-          description: "Durable sport sneakers made for active kids.",
+        "eco-friendly-sneakers": {
+          name: "Eco-Friendly Sneakers",
+          price: "$38",
+          description:
+            "Sustainable sneakers made with eco-friendly materials, ideal for environmentally conscious families.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/sport-sneakers-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/eco-friendly-sneakers-kids.jpg",
+        },
+        "water-resistant-sneakers": {
+          name: "Water Resistant Sneakers",
+          price: "$39",
+          description:
+            "Built with water-resistant materials, these sneakers are perfect for rainy days and outdoor adventures.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/water-resistant-sneakers-kids.jpg",
+        },
+        "retro-inspired-sneakers": {
+          name: "Retro Inspired Sneakers",
+          price: "$39",
+          description:
+            "Classic retro-inspired design meets modern comfort, perfect for adding a vintage vibe to any outfit.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/retro-inspired-sneakers-kids.jpg",
+        },
+        "mesh-breathable-sneakers": {
+          name: "Mesh Breathable Sneakers",
+          price: "$34",
+          description:
+            "Designed with breathable mesh fabric to keep little feet cool and comfortable during play.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/mesh-breathable-sneakers-kids.jpg",
         },
         "light-up-sneakers": {
           name: "Light-Up Sneakers",
