@@ -85,6 +85,11 @@ export type FeaturedDetails = {
   imageAlt: string;
 };
 
+export type PagesDetails = {
+  name: string;
+  href: string;
+};
+
 export type ItemDetails = {
   name: string;
   href: string;
@@ -108,4 +113,5 @@ export type CategoryDetails = {
 
 export type NavigationDetails = {
   categories: CategoryDetails[];
+  pages: PagesDetails[];
 };
