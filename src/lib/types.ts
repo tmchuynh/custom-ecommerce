@@ -77,3 +77,35 @@ export type GenderCategories = {
     [category: string]: CategoryItems; // Categories (clothing, shoes, accessories) under each gender
   };
 };
+
+export type FeaturedDetails = {
+  name: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+};
+
+export type ItemDetails = {
+  name: string;
+  href: string;
+  imageSrc: string;
+};
+
+export type SectionDetails = {
+  id: string;
+  name: string;
+  href: string;
+  imageSrc: string;
+  items: ItemDetails[];
+};
+
+export type CategoryDetails = {
+  id: string;
+  name: string;
+  featured: FeaturedDetails[];
+  sections: SectionDetails[][];
+};
+
+export type NavigationDetails = {
+  categories: CategoryDetails[];
+};

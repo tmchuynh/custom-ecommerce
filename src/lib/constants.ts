@@ -1,23 +1,15 @@
-import CurrencyDollarIcon from "@heroicons/react/20/solid/CurrencyDollarIcon";
 import {
   CursorArrowRaysIcon,
   DocumentTextIcon,
   FingerPrintIcon,
 } from "@heroicons/react/24/outline";
-import {
-  BriefcaseIcon,
-  CalendarIcon,
-  GiftIcon,
-  MapPinIcon,
-  RulerIcon,
-  ShieldCheckIcon,
-  StarIcon,
-} from "lucide-react";
+import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
+import { CategoryDetails, NavigationDetails } from "./types";
 
 export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
-export const navigations = {
+export const navigations: NavigationDetails = {
   categories: [
     {
       id: "women",
@@ -70,6 +62,12 @@ export const navigations = {
               {
                 name: "Bras",
                 href: "/shopping/women/clothes/bras",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Maternity Clothes",
+                href: "/shopping/women/clothes/maternity_clothes",
                 imageSrc:
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
@@ -168,6 +166,12 @@ export const navigations = {
               {
                 name: "Sunglasses",
                 href: "/shopping/women/accessories/sunglasses",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Necklaces & Bracelets",
+                href: "/shopping/kids/accessories/necklaces_and_braceslets",
                 imageSrc:
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
@@ -378,6 +382,12 @@ export const navigations = {
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
               {
+                name: "Necklaces & Bracelets",
+                href: "/shopping/kids/accessories/necklaces_and_braceslets",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
                 name: "Watches",
                 href: "/shopping/men/accessories/watches",
                 imageSrc:
@@ -445,6 +455,218 @@ export const navigations = {
               {
                 name: "Sale",
                 href: "/shopping/men/collections/sale",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+            ],
+          },
+        ],
+      ],
+    },
+    {
+      id: "kids",
+      name: "Kids",
+      featured: [
+        {
+          name: "New Arrivals",
+          href: "/shopping/kids/collections/new_arrivals",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+          imageAlt: "New kids's fashion trends for every occasion.",
+        },
+        {
+          name: "Shoes",
+          href: "/shopping/kids/shoes",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-03-category-01.jpg",
+          imageAlt: "Hats, watches, and accessories to complete your look.",
+        },
+        {
+          name: "Latest Drops",
+          href: "/shopping/kids/collections/latest_drops",
+
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/category-page-02-image-card-06.jpg",
+          imageAlt: "Comfortable and stylish t-shirts and shirts for kids.",
+        },
+      ],
+      sections: [
+        [
+          {
+            id: "clothing",
+            name: "Clothing",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            items: [
+              {
+                name: "Tops",
+                href: "/shopping/kids/clothes/tops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Pants",
+                href: "/shopping/kids/clothes/pants",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Swimwear",
+                href: "/shopping/kids/clothes/swimwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Sleepwear",
+                href: "/shopping/kids/clothes/activewear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Activewear",
+                href: "/shopping/kids/clothes/activewear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Formal Wear",
+                href: "/shopping/kids/clothes/formal_wear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Underwear",
+                href: "/shopping/kids/clothes/underwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Outerwear",
+                href: "/shopping/kids/clothes/outerwear",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+            ],
+          },
+          {
+            id: "shoes",
+            name: "Shoes",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            items: [
+              {
+                name: "Formal Shoes",
+                href: "/shopping/kids/shoes/formal",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+
+              {
+                name: "Sneakers",
+                href: "/shopping/kids/shoes/sneakers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+
+              {
+                name: "Sandals",
+                href: "/shopping/kids/shoes/sandals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Boots",
+                href: "/shopping/kids/shoes/boots",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: "accessories",
+            name: "Accessories",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            items: [
+              {
+                name: "Sunglasses",
+                href: "/shopping/kids/accessories/sunglasses",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Necklaces & Bracelets",
+                href: "/shopping/kids/accessories/necklaces_and_braceslets",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Watches",
+                href: "/shopping/kids/accessories/watches",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Bags",
+                href: "/shopping/kids/accessories/bags",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Belts",
+                href: "/shopping/kids/accessories/belts",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Scarves",
+                href: "/shopping/kids/accessories/scarves",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Hats",
+                href: "/shopping/kids/accessories/hats",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+            ],
+          },
+        ],
+        [
+          {
+            id: "shop-collection",
+            name: "Shop by Collection",
+            href: "",
+            imageSrc:
+              "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            items: [
+              {
+                name: "New Arrivals",
+                href: "/shopping/kids/collections/new_arrivals",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Latest Drops",
+                href: "/shopping/kids/collections/latest_drops",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Best Sellers",
+                href: "/shopping/kids/collections/best_sellers",
+                imageSrc:
+                  "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+              },
+              {
+                name: "Sale",
+                href: "/shopping/kids/collections/sale",
                 imageSrc:
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
