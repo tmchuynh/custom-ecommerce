@@ -1,11 +1,15 @@
 // /api/categories/[gender].ts
 import { mockProductData } from "@/lib/constants";
-import { GenderCategories } from "@/lib/types";
+import { Gender, GenderCategories } from "@/lib/types";
 import { NextResponse } from "next/server";
 
-// Sample mock data (replace with your actual data)
-type Gender = "men" | "women" | "children";
-
+/**
+ * @description This function handles the GET request for retrieving shopping categories based on gender.
+ * @param {Request} _request - The incoming request object (not used in the function).
+ * @param {object} props - An object containing the route parameters.
+ * @param {Promise<{ gender: Gender }>} props.params - A promise that resolves to an object containing the gender parameter.
+ * @returns {Promise<NextResponse>} A promise that resolves to a NextResponse object containing either the categories or an error message.
+ */
 export async function GET(
   _request: Request,
   props: { params: Promise<{ gender: Gender }> }

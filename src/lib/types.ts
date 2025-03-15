@@ -1,4 +1,5 @@
 export type LengthType = number | string;
+export type Gender = "men" | "women" | "children";
 
 export type User = {
   firstName: string;
