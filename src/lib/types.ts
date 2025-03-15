@@ -78,6 +78,15 @@ export type CategoryItems = {
   };
 };
 
+export type CategoryCardProps = {
+  category: {
+    slug: string;
+    name: string;
+    description: string;
+    imageSrc: string;
+  };
+};
+
 export type GenderCategories = {
   [gender: string]: {
     [category: string]: CategoryItems; // Categories (clothing, shoes, accessories) under each gender

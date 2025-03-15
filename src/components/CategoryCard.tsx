@@ -3,15 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-type CategoryCardProps = {
-  category: {
-    slug: string;
-    name: string;
-    description: string;
-    imageSrc: string;
-  };
-};
+import { CategoryCardProps } from "@/lib/types";
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
   return (
@@ -34,7 +26,8 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
         <Link
           href={`/shopping/[gender]/[category]/${category.slug}`}
           as={`/shopping/${category.slug}`}
-          className="text-indigo-600 hover:text-indigo-800">
+          className="text-indigo-600 hover:text-indigo-800"
+        >
           Shop now
         </Link>
       </div>
