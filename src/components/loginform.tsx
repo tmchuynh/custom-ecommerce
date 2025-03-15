@@ -9,6 +9,20 @@ import { CoolMode } from "./magicui/cool-mode";
 import { Sonner } from "./Sonner";
 import Link from "next/link";
 
+/**
+ * `LoginPage` is a React component that renders a login form, handles user authentication,
+ * and redirects the user to the quiz page upon successful login. It includes features such as
+ * form submission, input validation, loading state management, and displaying toast notifications
+ * for login status.
+ *
+ * The component uses the `useRouter` hook from `next/navigation` for navigation, and it interacts
+ * with the `/api/auth/login` and `/api/auth/me` API endpoints for authentication and user data retrieval.
+ *
+ * It also implements a workaround to force a page reload on initial load to ensure the latest
+ * session state is reflected.
+ *
+ * @returns {React.FC} A React functional component representing the login page.
+ */
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const [toastMessage, setToastMessage] = useState<{

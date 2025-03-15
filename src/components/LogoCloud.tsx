@@ -1,4 +1,14 @@
 import Image from "next/image";
+/**
+ * A component that displays a cloud of logo images.
+ *
+ * This component showcases a collection of logos from various companies,
+ * demonstrating the wide adoption of the company's tools. It includes
+ * responsive grid layouts for different screen sizes and a call-to-action
+ * link to customer stories.
+ *
+ * @returns {JSX.Element} A React element representing the logo cloud.
+ */
 export default function LogoCloud() {
   return (
     <div className="relative isolate -z-10 mt-28 py-12 border-2">
