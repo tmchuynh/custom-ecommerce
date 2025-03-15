@@ -7,7 +7,7 @@ import { NextResponse } from "next/server";
 type Gender = "men" | "women" | "children";
 
 export async function GET(
-  request: Request,
+  _request: Request,
   props: { params: Promise<{ gender: Gender }> }
 ) {
   const params = await props.params;
