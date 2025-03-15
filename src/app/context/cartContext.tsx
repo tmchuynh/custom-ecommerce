@@ -6,6 +6,16 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
+/**
+ * `CartProvider` is a React context provider component that manages the cart state for an e-commerce application.
+ * It provides functionalities to add, remove, and update items in the cart, as well as calculate the total price.
+ * The cart items are persisted in the localStorage to maintain the cart state across sessions.
+ *
+ * @param {React.FC<{ children: React.ReactNode }>} props - The props passed to the `CartProvider` component.
+ * @param {React.ReactNode} props.children - The child components that will have access to the cart context.
+ *
+ * @returns {React.ReactNode} A React context provider that wraps the children components and provides access to the cart context.
+ */
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -25,6 +35,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     console.log("Cart items updated:", cartItems);
   }, [cartItems]);
 
+  /**
+   * Adds an item to the cart. If the item already exists in the cart, its quantity is updated.
+   * If the item does not exist, it is added to the cart.
+   *
+   * @param {CartItem} item - The item to add to the cart.
+   *                        If the item already exists in the cart, its quantity is updated.
+   *                        If the item does not exist, it is added to the cart.
+   *
+   * @returns {void}
+   */
   const addToCart = (item: CartItem) => {
     console.log("addToCart called with item:", item);
     setCartItems((prevItems) => {
@@ -39,10 +59,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     });
   };
 
+  /**
+   * Removes an item from the cart based on its ID.
+   *
+   * @param id - The ID of the item to remove.
+   */
   const removeFromCart = (id: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
+  /**
+   * Updates the quantity of a specific item in the cart.
+   * The quantity is ensured to be at least 1.
+   *
+   * @param id The ID of the item to update.
+   * @param quantity The new quantity for the item. Must be a positive integer.
+   */
   const updateQuantity = (id: number, quantity: number) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
@@ -51,6 +83,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
+  /**
+   * Calculates the total price of all items in the cart.
+   *
+   * @returns {number} The total price of the items in the cart.
+   */
   const getTotalPrice = () => {
     return cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
@@ -73,6 +110,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
+/**
+ * @returns {CartContextType} The cart context.
+ * @throws {Error} If the hook is used outside of a CartProvider.
+ */
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {

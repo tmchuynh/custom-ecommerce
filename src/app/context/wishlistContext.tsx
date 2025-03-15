@@ -3,14 +3,22 @@
 import { WishlistContextType, WishlistItem } from "@/lib/interfaces";
 import React, { createContext, useState, useContext } from "react";
 
-// Define types for wishlist item and wishlist context
-
-// Create context
+/**
+ * Context for managing the wishlist.
+ *
+ * Provides a way to access and update the wishlist state throughout the application.
+ */
 const WishlistContext = createContext<WishlistContextType | undefined>(
   undefined
 );
 
-// Create provider to wrap the app
+/**
+ * Provides the Wishlist context to its children.
+ * It manages the wishlist items, allowing to add and remove items from the wishlist.
+ *
+ * @param {React.ReactNode} children - The children to be wrapped with the Wishlist context.
+ * @returns {JSX.Element} A provider component that supplies the wishlist context to its children.
+ */
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
@@ -38,7 +46,10 @@ export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-// Custom hook to access the wishlist context
+/**
+ * @returns {WishlistContextType} The wishlist context.
+ * @throws {Error} If the hook is used outside of a WishlistProvider.
+ */
 export const useWishlist = () => {
   const context = useContext(WishlistContext);
   if (!context) {

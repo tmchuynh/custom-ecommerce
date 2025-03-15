@@ -1,12 +1,14 @@
 "use client";
 
+import { NotFoundContextType } from "@/lib/types";
 import { createContext, ReactNode, useContext, useState } from "react";
 
-type NotFoundContextType = {
-  isNotFound: boolean;
-  setNotFound: (value: boolean) => void;
-};
-
+/**
+ * Context for managing the state of a "not found" condition.
+ *
+ * This context can be used to share and update the "not found" status across different components in the application.
+ * It is initialized with an `undefined` value, and consumers should check for this value to determine if the context has been properly initialized.
+ */
 const NotFoundContext = createContext<NotFoundContextType | undefined>(
   undefined
 );

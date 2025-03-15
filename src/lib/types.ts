@@ -1,6 +1,11 @@
 export type LengthType = number | string;
 export type Gender = "men" | "women" | "children";
 
+export type NotFoundContextType = {
+  isNotFound: boolean;
+  setNotFound: (value: boolean) => void;
+};
+
 export type User = {
   firstName: string;
   middleName: string;
