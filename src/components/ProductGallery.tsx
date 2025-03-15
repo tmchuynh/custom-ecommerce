@@ -1,5 +1,4 @@
-import { Tab, TabList, TabPanels, TabPanel, TabGroup } from "@headlessui/react";
-import React from "react";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import Image from "next/image";
 
 const ProductGallery = ({ images }: { images: any[] }) => {

@@ -1,14 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Skeleton } from "./ui/skeleton";
-import { Button } from "./ui/button";
-import { toast } from "sonner";
 import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 const ProductCard = ({ product, index }: { product: any; index: number }) => {
   const { addToCart } = useCart();
 
-  const handleAddToCart = (product: any, id: number) => {
+  /**
+   * Handles adding a product to the cart.
+   *
+   * @param {any} product - The product to add to the cart.
+   * @param {number} id - The ID of the product (using index as fallback).
+   * @returns {void}
+   */
+  const handleAddToCart = (product: any, id: number): void => {
     console.log("handleAddToCart called with product:", product);
     addToCart({
       id: id, // using the index as a fallback ID; consider using a unique product identifier if available
