@@ -80,14 +80,18 @@ const CategoryPage = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => (
           <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
-            {/* <Image
-              src={product.imageSrc}
-              alt={product.name}
-              width={500}
-              height={500}
-              className="w-full h-48 object-cover rounded-md"
-            /> */}
-            <Skeleton className="h-[250px] w-full rounded-xl" />
+            {product.imageSrc ? (
+              // <Image
+              //   src={product.imageSrc}
+              //   alt={product.name} // Use a meaningful alt description
+              //   width={400}
+              //   height={400}
+              //   className="w-full h-64 object-cover"
+              // />
+              <Skeleton className="h-[175] w-full rounded-xl" />
+            ) : (
+              <div className="w-full h-[175] bg-gray-200" />
+            )}
             <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
             <p className="text-sm text-gray-500 mt-2">{product.price}</p>
             <Button
