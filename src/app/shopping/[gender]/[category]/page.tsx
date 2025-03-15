@@ -68,8 +68,9 @@ const CategoryPage = () => {
           {products.map((product, index) => {
             return (
               <ProductCard
-                key={product.name || index} // Use a unique identifier
+                key={index} // Use a unique identifier
                 product={product}
+                index={index}
               />
             );
           })}
