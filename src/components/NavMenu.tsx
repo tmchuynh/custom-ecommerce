@@ -1,6 +1,8 @@
 "use client";
 
+import { useCurrency } from "@/app/context/CurrencyContext";
 import { about, currencies, navigations } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 import {
   Dialog,
   DialogBackdrop,
@@ -27,6 +29,7 @@ import {
 import Image from "next/image";
 import { Fragment, useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 import {
   Select,
@@ -36,9 +39,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { ThemeToggle } from "./ThemeToggle";
-import { useCurrency } from "@/app/context/CurrencyContext";
-import { cn } from "@/lib/utils";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -46,6 +46,19 @@ export default function NavMenu() {
   const [openPopovers, setOpenPopovers] = useState<{ [key: string]: boolean }>(
     {}
   );
+  /**
+   * @description A state variable that holds the sorted categories.
+   * @typedef {object} Category
+   * @property {string} id - The ID of the category.
+   * @property {string} name - The name of the category.
+   * @property {any[]} featured - An array of featured items in the category.
+   * @property {object[]} sections - An array of sections in the category.
+   * @property {string} sections[].id - The ID of the section.
+   * @property {string} sections[].name - The name of the section.
+   * @property {string} sections[].href - The URL of the section.
+   * @property {string} sections[].imageSrc - The source URL of the section's image.
+   * @property {any[]} sections[].items - An array of items in the section.
+   */
   const [sortedCategories, setSortedCategories] = useState<
     {
       id: string;
@@ -63,7 +76,16 @@ export default function NavMenu() {
 
   useEffect(() => {
     const sorted = navigations.categories.map((category) => {
-      // Sort sections inside each category based on the number of items in the section
+      /**
+       * Sorts the items within each section of the category by the length of the item's name in descending order.
+       *
+       * @remarks
+       * This function maps over the sections of a category, then maps over each section array to sort the items.
+       * The items are sorted based on the length of their names, with the longest names appearing first.
+       *
+       * @param category The category object containing sections with items to be sorted.
+       * @returns A new array of sections with items sorted by name length.
+       */
       const sortedSections = category.sections.map((sectionArray) => {
         return sectionArray.map((section) => ({
           ...section,
@@ -72,6 +94,12 @@ export default function NavMenu() {
         }));
       });
 
+      /**
+       * Represents a category with its sections sorted by the number of items in descending order.
+       *
+       * The `sections` property is a flattened array of sections, where each section is sorted based on the number of items it contains.
+       * This allows for easy access to the most popular sections within the category.
+       */
       const sortedCategory = {
         ...category,
         sections: sortedSections
@@ -85,7 +113,12 @@ export default function NavMenu() {
     setSortedCategories(sorted); // Update the state with sorted categories
   }, []);
 
-  // Function to handle toggle of Popover
+  /**
+   * Toggles the visibility of a popover menu.
+   * It closes all other popovers and toggles the state of the clicked popover.
+   *
+   * @param {string} name - The name of the popover to toggle. This name should correspond to a key in the `openPopovers` state.
+   */
   const togglePopover = (name: string) => {
     setOpenPopovers((prevState: { [key: string]: boolean }) => {
       // If the clicked popover is already open, close it, otherwise open it
