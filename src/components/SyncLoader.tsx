@@ -23,6 +23,12 @@ function SyncLoader({
     ...cssOverride,
   };
 
+  /**
+   * Generates the CSS styles for a single bouncing circle in the SyncLoader component.
+   *
+   * @param i The index of the circle, used to offset the animation.
+   * @returns An object containing the CSS properties for the circle.
+   */
   const style = (i: number): React.CSSProperties => {
     return {
       backgroundColor: color,
