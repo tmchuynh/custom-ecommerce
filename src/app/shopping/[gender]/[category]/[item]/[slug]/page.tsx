@@ -10,7 +10,6 @@ import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
 
 const ProductPage = () => {
-  const router = useRouter();
   const { gender, category, item, slug } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
 

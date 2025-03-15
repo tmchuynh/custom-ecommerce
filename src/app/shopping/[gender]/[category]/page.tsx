@@ -7,7 +7,6 @@ import { useParams, useRouter } from "next/navigation";
 import { GenderCategories } from "@/lib/types";
 
 const CategoryPage = () => {
-  const router = useRouter();
   const { gender, category } = useParams();
 
   const [products, setProducts] = useState<any[]>([]);

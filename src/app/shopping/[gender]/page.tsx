@@ -8,7 +8,6 @@ import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
 
 const GenderPage = () => {
-  const router = useRouter();
   const { gender } = useParams(); // gender will be either a string or an array
 
   const [categories, setCategories] = useState<any[]>([]);
