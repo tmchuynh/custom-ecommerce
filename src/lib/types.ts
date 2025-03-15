@@ -115,3 +115,12 @@ export type NavigationDetails = {
   categories: CategoryDetails[];
   pages: PagesDetails[];
 };
+
+export type DetailItem = {
+  name: string;
+  items: string[];
+};
+
+export type ProductDetailsProps = {
+  details: DetailItem[];
+};

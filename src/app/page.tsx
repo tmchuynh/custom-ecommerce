@@ -2,14 +2,12 @@
 import {
   navigations,
   offers,
-  perks,
   policies,
   testimonials,
   trendingProducts,
 } from "@/lib/constants";
 import { useState } from "react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

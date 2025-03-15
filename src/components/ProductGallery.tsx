@@ -1,4 +1,3 @@
-// components/ProductGallery.tsx
 import { Tab, TabList, TabPanels, TabPanel, TabGroup } from "@headlessui/react";
 import React from "react";
 import Image from "next/image";

@@ -5,16 +5,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-
-// Defining the types for the details and items
-type DetailItem = {
-  name: string;
-  items: string[];
-};
-
-type ProductDetailsProps = {
-  details: DetailItem[];
-};
+import { ProductDetailsProps } from "@/lib/types";
 
 const ProductDetails = ({ details }: ProductDetailsProps) => {
   return (
