@@ -1,18 +1,26 @@
 "use client";
-
-import Image from "next/image";
-import { useCart } from "../context/cartContext";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
+import { useCart } from "../context/cartContext";
 
 const CartPage = () => {
   const { cartItems, updateQuantity, removeFromCart, getTotalPrice } =
     useCart(); // Access cart data
 
+  /**
+   * Handles the update of an item's quantity in the shopping cart.
+   *
+   * @param id - The ID of the item to update.
+   * @param quantity - The new quantity for the item.
+   */
   const handleUpdateQuantity = (id: number, quantity: number) => {
     updateQuantity(id, quantity);
   };
 
+  /**
+   * Handles the removal of an item from the shopping cart.
+   * @param {number} id - The ID of the item to remove.
+   */
   const handleRemoveItem = (id: number) => {
     removeFromCart(id);
   };

@@ -17,7 +17,12 @@ const TrackOrder = () => {
     { trackingNumber: "112233", status: "Delivered" },
   ];
 
-  // Handle the tracking request
+  /**
+   * Handles the track order functionality.
+   * It simulates an API call to find the order status based on the tracking number.
+   * Updates the orderStatus state with the status if found, otherwise sets it to "Order not found".
+   * Sets the loading state to true during the process and false after completion.
+   */
   const handleTrackOrder = () => {
     setLoading(true);
     // Simulate a delay (API call)

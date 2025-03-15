@@ -1,13 +1,18 @@
 "use client";
-
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import CategoryCard from "@/components/CategoryCard";
-import { useParams } from "next/navigation";
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
+import { useParams } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
 
-const GenderPage = () => {
+/**
+ * @description A page component that displays categories based on the gender parameter.
+ * It fetches category data based on the gender specified in the route parameters.
+ * It handles loading states and displays a message when no categories are found.
+ *
+ * @returns {JSX.Element} A React component that renders the categories for a given gender.
+ */
+const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender will be either a string or an array
 
   const [categories, setCategories] = useState<any[]>([]);

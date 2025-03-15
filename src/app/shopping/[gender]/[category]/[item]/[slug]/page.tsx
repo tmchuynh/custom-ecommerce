@@ -1,15 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import ProductDetails from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
-import { useParams, useRouter } from "next/navigation";
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
+import { useParams } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
 
-const ProductPage = () => {
+/**
+ * @description ProductPage component fetches and displays product details based on dynamic route parameters.
+ * It fetches product data based on gender, category, item, and slug parameters from the URL.
+ * The component displays a loading state while fetching data and renders product information,
+ * a product gallery, product details, and related products once the data is loaded.
+ *
+ * @returns {JSX.Element} The ProductPage component.
+ */
+const ProductPage = (): JSX.Element => {
   const { gender, category, item, slug } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
 

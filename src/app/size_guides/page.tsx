@@ -1,7 +1,4 @@
 "use client";
-
-import Image from "next/image"; // Ensure that you have next/image imported for optimized images
-
 const SizeGuide = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

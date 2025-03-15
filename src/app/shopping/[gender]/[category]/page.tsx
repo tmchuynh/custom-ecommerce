@@ -1,12 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/constants";
-import ProductCard from "@/components/ProductCard"; // Assuming you have a ProductCard component
-import { useParams, useRouter } from "next/navigation";
 import { GenderCategories } from "@/lib/types";
+import { useParams } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
 
-const CategoryPage = () => {
+/**
+ * `CategoryPage` is a functional component that renders a page displaying products based on the specified gender and category.
+ * It fetches product data based on the `gender` and `category` route parameters using the `useParams` hook from 'next/navigation'.
+ * The component manages its state using `useState` for storing the products and a loading flag.
+ * It uses `useEffect` to fetch the product data when the `gender` or `category` parameters change.
+ * The component displays a loading message while fetching data, a "no items found" message if no products are available,
+ * and a grid of `ProductCard` components to display the products.
+ *
+ * @returns {JSX.Element} A JSX element representing the category page.
+ */
+const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
 
   const [products, setProducts] = useState<any[]>([]);
