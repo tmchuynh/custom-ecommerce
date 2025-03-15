@@ -17,6 +17,18 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+
+/**
+ * @typedef {object} ChartData
+ * @property {string} month - The month of the data.
+ * @property {number} desktop - The value for desktop users.
+ * @property {number} mobile - The value for mobile users.
+ */
+
+/**
+ * @type {ChartData[]}
+ * An array of objects containing chart data for each month, separated by desktop and mobile users.
+ */
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
   { month: "February", desktop: 305, mobile: 200 },
@@ -26,6 +38,15 @@ const chartData = [
   { month: "June", desktop: 214, mobile: 140 },
 ];
 
+/**
+ * @description Configuration object for the line chart, defining properties for different platforms.
+ * @property {object} desktop - Configuration for desktop platform.
+ * @property {string} desktop.label - Label for the desktop data series.
+ * @property {string} desktop.color - Color for the desktop data series, using HSL color values.
+ * @property {object} mobile - Configuration for mobile platform.
+ * @property {string} mobile.label - Label for the mobile data series.
+ * @property {string} mobile.color - Color for the mobile data series, using HSL color values.
+ */
 const chartConfig = {
   desktop: {
     label: "Desktop",
