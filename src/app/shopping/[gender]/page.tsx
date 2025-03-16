@@ -63,7 +63,7 @@ const GenderPage = (): JSX.Element => {
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {gender && (
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+          <h1 className="text-3xl font-bold tracking-tight">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
             Categories
@@ -71,8 +71,11 @@ const GenderPage = (): JSX.Element => {
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {categories.map((category: any) => (
-            <CategoryCard key={category.slug} category={category} />
+          {categories.map((category, index) => (
+            <CategoryCard
+              key={`${category.slug}-${index}`}
+              category={category}
+            />
           ))}
         </div>
       </div>
