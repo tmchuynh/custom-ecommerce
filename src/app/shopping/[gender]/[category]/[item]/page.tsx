@@ -56,8 +56,9 @@ const CategoryPage = (): JSX.Element => {
       typeof product.price === "string"
         ? parseFloat(product.price.replace("$", ""))
         : product.price;
+
     const cartItem = {
-      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
+      id: id,
       name: product.name,
       description: product.description,
       price: price,
@@ -65,12 +66,8 @@ const CategoryPage = (): JSX.Element => {
       imageSrc: product.imageSrc,
     };
 
-    if (itemExistsInCart(id)) {
-      updateQuantity(id, cartItem.quantity + 1);
-    } else {
-      addToCart(cartItem);
-    }
-
+    // Directly call addToCart. The cart context will update quantity if it already exists.
+    addToCart(cartItem);
     toast.success(`${product.name} added to cart!`);
   };
 

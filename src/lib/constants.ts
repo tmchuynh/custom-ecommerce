@@ -383,7 +383,7 @@ export const navigations: NavigationDetails = {
               },
               {
                 name: "Necklaces & Bracelets",
-                href: "/shopping/kids/accessories/necklaces_and_braceslets",
+                href: "/shopping/men/accessories/necklaces_and_braceslets",
                 imageSrc:
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
