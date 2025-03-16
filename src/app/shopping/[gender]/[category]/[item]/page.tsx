@@ -99,7 +99,8 @@ const CategoryPage = (): JSX.Element => {
               <div className="w-full h-[175] bg-gray-200" />
             )}
             <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-            <p className="text-sm text-gray-500 mt-2">{product.price}</p>
+            <p className="text-sm text-gray-500 mt-2">{product.description}</p>
+            <p className="text-md text-gray-700 mt-2">{product.price}</p>
             <Button
               onClick={() => handleAddToCart(product, index)}
               className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg"
