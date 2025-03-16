@@ -24,7 +24,7 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const section = item as string;
   const overhead = gender as string;
-  const { addToCart, updateQuantity, itemExistsInCart } = useCart();
+  const { addToCart, updateQuantity, itemExistsInCart, cartItems } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
@@ -86,32 +86,35 @@ const CategoryPage = (): JSX.Element => {
   return (
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
-        {products.map((product, index) => (
-          <div key={index} className="p-4 rounded-lg shadow-lg">
-            {product.imageSrc ? (
-              // <Image
-              //   src={product.imageSrc}
-              //   alt={product.name} // Use a meaningful alt description
-              //   width={400}
-              //   height={400}
-              //   className="w-full h-64 object-cover"
-              // />
-              <Skeleton className="h-[175] w-full rounded-xl" />
-            ) : (
-              <div className="w-full h-[175] bg-gray-200" />
-            )}
-            <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-            <p className="text-sm mt-2">{product.description}</p>
-            <p className="text-md mt-2">{product.price}</p>
-            {itemExistsInCart(index) ? (
-              <QuantityButtons itemId={index} />
-            ) : (
-              <Button onClick={() => handleAddToCart(product, index)}>
-                Add to Cart
-              </Button>
-            )}
-          </div>
-        ))}
+        {products.map((product, index) => {
+          const foundItem = cartItems.find((item) => item.id === index);
+          return (
+            <div key={index} className="p-4 rounded-lg shadow-lg">
+              {product.imageSrc ? (
+                // <Image
+                //   src={product.imageSrc}
+                //   alt={product.name} // Use a meaningful alt description
+                //   width={400}
+                //   height={400}
+                //   className="w-full h-64 object-cover"
+                // />
+                <Skeleton className="h-[175] w-full rounded-xl" />
+              ) : (
+                <div className="w-full h-[175] bg-gray-200" />
+              )}
+              <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
+              <p className="text-sm mt-2">{product.description}</p>
+              <p className="text-md mt-2">{product.price}</p>
+              {foundItem && foundItem.quantity > 0 ? (
+                <QuantityButtons itemId={index} />
+              ) : (
+                <Button onClick={() => handleAddToCart(product, index)}>
+                  Add to Cart
+                </Button>
+              )}
+            </div>
+          );
+        })}
       </div>
     </main>
   );
