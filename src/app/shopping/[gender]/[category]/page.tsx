@@ -24,8 +24,6 @@ const CategoryPage = (): JSX.Element => {
 
   useEffect(() => {
     if (gender && category) {
-      console.log("gender", gender);
-      console.log("category", category);
       const fetchItemsData = async () => {
         try {
           // Flatten the mock data to make it easier to work with

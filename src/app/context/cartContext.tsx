@@ -32,7 +32,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   // Persist cartItems to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    console.log("Cart items updated:", cartItems);
   }, [cartItems]);
 
   /**
@@ -46,7 +45,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    * @returns {void}
    */
   const addToCart = (item: CartItem): void => {
-    console.log("addToCart called with item:", item);
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((i) => i.id === item.id);
       if (itemIndex >= 0) {

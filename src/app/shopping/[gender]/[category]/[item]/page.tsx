@@ -29,16 +29,10 @@ const CategoryPage = (): JSX.Element => {
     if (gender && category && item) {
       const fetchProductData = async () => {
         try {
-          console.log("Gender:", gender);
-          console.log("Category:", category);
-          console.log("Item:", item);
-
           // Access the product data from the mock data
           const categoryData = (mockProductData as GenderCategories)[
             gender as string
           ]?.[category as string]?.[item as string];
-
-          console.log("Category Data:", categoryData);
 
           if (categoryData) {
             const productsArray = Object.values(categoryData);
@@ -58,7 +52,6 @@ const CategoryPage = (): JSX.Element => {
   }, [gender, category, item]);
 
   const handleAddToCart = (product: any, id: number) => {
-    console.log("handleAddToCart called with product:", product);
     const price =
       typeof product.price === "string"
         ? parseFloat(product.price.replace("$", ""))

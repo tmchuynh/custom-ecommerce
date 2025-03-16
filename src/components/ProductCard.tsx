@@ -14,7 +14,6 @@ const ProductCard = ({ product, index }: { product: any; index: number }) => {
    * @returns {void}
    */
   const handleAddToCart = (product: any, id: number): void => {
-    console.log("handleAddToCart called with product:", product);
     addToCart({
       id: id, // using the index as a fallback ID; consider using a unique product identifier if available
       name: product.name,

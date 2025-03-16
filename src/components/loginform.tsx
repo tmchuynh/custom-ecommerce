@@ -76,7 +76,6 @@ const LoginPage: React.FC = () => {
       });
 
       if (!response.ok) {
-        console.log(response);
         throw new Error("Login failed");
       }
 
