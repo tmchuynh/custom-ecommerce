@@ -7,7 +7,7 @@ import { CategoryCardProps } from "@/lib/types";
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md hover:shadow-lg">
+    <div className="group relative flex flex-col overflow-hidden rounded-lg border shadow-md hover:shadow-lg">
       <div className="relative aspect-w-16 aspect-h-9">
         <Image
           src={category.imageSrc}
@@ -19,8 +19,8 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
         />
       </div>
       <div className="flex flex-1 flex-col justify-between p-4">
-        <h3 className="text-lg font-semibold text-gray-900">{category.name}</h3>
-        <p className="mt-2 text-sm text-gray-500">{category.description}</p>
+        <h3 className="text-lg font-semibold">{category.name}</h3>
+        <p className="mt-2 text-sm">{category.description}</p>
       </div>
       <div className="absolute inset-x-0 bottom-0 p-4">
         <Link

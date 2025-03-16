@@ -1,6 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
 import ComingSoonMessage from "@/components/ComingSoon";
+import QuantityButtons from "@/components/Quantity";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { mockProductData } from "@/lib/constants";
@@ -86,7 +87,7 @@ const CategoryPage = (): JSX.Element => {
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
+          <div key={index} className="p-4 rounded-lg shadow-lg">
             {product.imageSrc ? (
               // <Image
               //   src={product.imageSrc}
@@ -100,14 +101,15 @@ const CategoryPage = (): JSX.Element => {
               <div className="w-full h-[175] bg-gray-200" />
             )}
             <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-            <p className="text-sm text-gray-500 mt-2">{product.description}</p>
-            <p className="text-md text-gray-700 mt-2">{product.price}</p>
-            <Button
-              onClick={() => handleAddToCart(product, index)}
-              className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg"
-            >
-              Add to Cart
-            </Button>
+            <p className="text-sm mt-2">{product.description}</p>
+            <p className="text-md mt-2">{product.price}</p>
+            {itemExistsInCart(index) ? (
+              <QuantityButtons itemId={index} />
+            ) : (
+              <Button onClick={() => handleAddToCart(product, index)}>
+                Add to Cart
+              </Button>
+            )}
           </div>
         ))}
       </div>
