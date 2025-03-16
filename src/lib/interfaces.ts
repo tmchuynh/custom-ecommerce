@@ -26,38 +26,6 @@ export interface LoaderSizeMarginProps extends CommonProps {
   margin?: LengthType;
 }
 
-export interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
-}
-
-export interface User extends UserType {
-  purchaseRecords: PurchaseRecord[];
-}
-
-export interface UserType {
-  id: string;
-  name: string;
-  email: string;
-}
-
-export interface CartItem {
-  id: number;
-  name: string;
-  description: string;
-  price: number;
-  quantity: number;
-  imageSrc: string;
-}
-
-export interface CartContextType {
-  cartItems: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (id: number) => void;
-  updateQuantity: (id: number, quantity: number) => void;
-  getTotalPrice: () => number;
-}
-
 export interface CommonProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
   color?: string;
@@ -84,6 +52,43 @@ export interface DynamicButtonProps {
   onClick?: () => void;
   className?: string;
   iconClassName?: string;
+}
+
+export interface DataTableProps<TData, TValue> {
+  columns: ColumnDef<TData, TValue>[];
+  data: TData[];
+}
+
+export interface User extends UserType {
+  purchaseRecords: PurchaseRecord[];
+}
+
+export interface UserType {
+  id: string;
+  name: string;
+  email: string;
+}
+
+export interface ProductItem {
+  name: string;
+  price: string | number;
+  description: string;
+  imageSrc: string;
+}
+
+export interface CartItem extends ProductItem {
+  id: number;
+  quantity: number;
+}
+
+export interface CartContextType {
+  cartItems: CartItem[];
+  addToCart: (item: CartItem) => void;
+  removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
+  getTotalPrice: () => number;
+  getTotalItems: () => number;
+  itemExistsInCart: (id: number) => boolean;
 }
 
 export interface WishlistItem {
