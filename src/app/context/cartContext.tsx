@@ -18,7 +18,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
  */
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
-}) => {
+}): React.ReactNode => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   // Rehydrate cart items from localStorage on mount
@@ -45,7 +45,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    *
    * @returns {void}
    */
-  const addToCart = (item: CartItem) => {
+  const addToCart = (item: CartItem): void => {
     console.log("addToCart called with item:", item);
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((i) => i.id === item.id);
@@ -88,11 +88,30 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    *
    * @returns {number} The total price of the items in the cart.
    */
-  const getTotalPrice = () => {
+  const getTotalPrice = (): number => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total: number, item) => total + Number(item.price) * item.quantity,
       0
     );
+  };
+
+  /**
+   * Gets the total number of items in the cart.
+   *
+   * @returns {number} The total number of items in the cart.
+   */
+  const getTotalItems = (): number => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  /**
+   * Checks if an item exists in the cart based on its ID.
+   *
+   * @param id - The ID of the item to check.
+   * @returns {boolean} True if the item exists in the cart, false otherwise.
+   */
+  const itemExistsInCart = (id: number): boolean => {
+    return cartItems.some((item) => item.id === id);
   };
 
   return (
@@ -103,6 +122,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         removeFromCart,
         updateQuantity,
         getTotalPrice,
+        getTotalItems,
+        itemExistsInCart,
       }}
     >
       {children}
@@ -114,7 +135,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
  * @returns {CartContextType} The cart context.
  * @throws {Error} If the hook is used outside of a CartProvider.
  */
-export const useCart = () => {
+export const useCart = (): CartContextType => {
   const context = useContext(CartContext);
   if (!context) {
     throw new Error("useCart must be used within a CartProvider");
