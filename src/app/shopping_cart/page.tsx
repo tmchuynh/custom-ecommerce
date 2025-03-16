@@ -34,53 +34,52 @@ const CartPage = () => {
         <p className="text-xl text-center text-gray-600">Your cart is empty.</p>
       ) : (
         <div className="space-y-8">
-          <div className="flex flex-col">
-            {cartItems.map((item, index) => (
-              <div
-                key={item.id}
-                className={cn("flex items-center justify-between py-6", {
-                  "border-b border-gray-300 ": index !== cartItems.length - 1,
-                })}
-              >
-                <div className="flex items-center space-x-6">
-                  {/* <Image
+          {cartItems.map((item, index) => (
+            <div
+              key={item.id}
+              className={cn("md:grid md:grid-cols-4 lg:grid-cols-7 pb-10", {
+                "border-b border-gray-300": index !== cartItems.length - 1,
+              })}
+            >
+              <div className="md:grid md:grid-cols-3 md:col-span-3 lg:col-span-5 lg:grid-cols-4 xl:grid-cols-7">
+                {/* <Image
                     src={item.imageSrc}
                     alt={item.name}
                     width={175}
                     height={175}
                   /> */}
-                  <Skeleton className="h-[175] w-[175] rounded-xl" />
-                  <div className="flex flex-col gap-y-3">
-                    <p className="text-lg font-medium text-gray-900">
-                      {item.name}
-                    </p>
-                    <p className="text-sm font-medium text-gray-900">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <input
-                    type="number"
-                    value={item.quantity}
-                    onChange={(e) =>
-                      handleUpdateQuantity(item.id, parseInt(e.target.value))
-                    }
-                    className="w-16 text-center border border-gray-300 rounded-md"
-                  />
-                  <div className="text-lg font-medium text-gray-900">
-                    ${item.price * item.quantity}
-                  </div>
-                  <button
-                    onClick={() => handleRemoveItem(item.id)}
-                    className="text-red-600 hover:text-red-800"
-                  >
-                    Remove
-                  </button>
+                <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
+                <div className="flex flex-col justify-center gap-y-3 col-span-2 xl:col-span-5">
+                  <p className="text-lg font-medium text-gray-900">
+                    {item.name}
+                  </p>
+                  <p className="text-sm font-medium text-gray-900">
+                    {item.description}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="flex items-center justify-center md:justify-end space-x-4 py-9 md:col-span-1 lg:col-span-2">
+                <input
+                  type="number"
+                  value={item.quantity}
+                  onChange={(e) =>
+                    handleUpdateQuantity(item.id, parseInt(e.target.value))
+                  }
+                  className="w-16 text-center border border-gray-300 rounded-md"
+                />
+                <div className="text-lg font-medium text-gray-900">
+                  ${item.price * item.quantity}
+                </div>
+                <button
+                  onClick={() => handleRemoveItem(item.id)}
+                  className="text-red-600 hover:text-red-800"
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))}
           <div className="flex justify-between items-center pt-2">
             <div className="text-lg font-medium text-gray-900">Total:</div>
             <div className="text-xl font-bold text-gray-900">

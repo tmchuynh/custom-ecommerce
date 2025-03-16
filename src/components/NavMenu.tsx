@@ -46,19 +46,6 @@ export default function NavMenu() {
   const [openPopovers, setOpenPopovers] = useState<{ [key: string]: boolean }>(
     {}
   );
-  /**
-   * @description A state variable that holds the sorted categories.
-   * @typedef {object} Category
-   * @property {string} id - The ID of the category.
-   * @property {string} name - The name of the category.
-   * @property {any[]} featured - An array of featured items in the category.
-   * @property {object[]} sections - An array of sections in the category.
-   * @property {string} sections[].id - The ID of the section.
-   * @property {string} sections[].name - The name of the section.
-   * @property {string} sections[].href - The URL of the section.
-   * @property {string} sections[].imageSrc - The source URL of the section's image.
-   * @property {any[]} sections[].items - An array of items in the section.
-   */
   const [sortedCategories, setSortedCategories] = useState<
     {
       id: string;

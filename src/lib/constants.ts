@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
-import { CategoryDetails, NavigationDetails } from "./types";
+import { NavigationDetails } from "./types";
 
 export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
@@ -1108,7 +1108,7 @@ export const mockProductData = {
   men: {
     shoes: {
       formal: {
-        "oxford-shoes": {
+        "men-oxford-shoes": {
           name: "Oxford Shoes",
           price: "$120",
           description:
@@ -1116,7 +1116,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/oxford-shoes-men.jpg",
         },
-        "derby-shoes": {
+        "men-derby-shoes": {
           name: "Derby Shoes",
           price: "$130",
           description:
@@ -1124,7 +1124,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/derby-shoes-men.jpg",
         },
-        "monk-strap-shoes": {
+        "men-monk-strap-shoes": {
           name: "Monk Strap Shoes",
           price: "$140",
           description:
@@ -1132,7 +1132,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/monk-strap-shoes-men.jpg",
         },
-        "brogue-shoes": {
+        "men-brogue-shoes": {
           name: "Brogue Shoes",
           price: "$135",
           description:
@@ -1140,14 +1140,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/brogue-shoes-men.jpg",
         },
-        loafers: {
+        "men-loafers": {
           name: "Loafers",
           price: "$110",
           description:
             "Comfortable and stylish loafers with a sleek silhouette, ideal for both formal and casual wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/loafers-men.jpg",
         },
-        "dress-boots": {
+        "men-dress-boots": {
           name: "Dress Boots",
           price: "$150",
           description:
@@ -1155,7 +1155,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-boots-men.jpg",
         },
-        "cap-toe-shoes": {
+        "men-cap-toe-shoes": {
           name: "Cap Toe Shoes",
           price: "$125",
           description:
@@ -1163,7 +1163,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cap-toe-shoes-men.jpg",
         },
-        "wingtip-shoes": {
+        "men-wingtip-shoes": {
           name: "Wingtip Shoes",
           price: "$145",
           description:
@@ -1171,7 +1171,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wingtip-shoes-men.jpg",
         },
-        "sleek-dress-shoes": {
+        "men-sleek-dress-shoes": {
           name: "Sleek Dress Shoes",
           price: "$120",
           description:
@@ -1179,7 +1179,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleek-dress-shoes-men.jpg",
         },
-        "tassel-loafers": {
+        "men-tassel-loafers": {
           name: "Tassel Loafers",
           price: "$125",
           description:
@@ -1189,7 +1189,7 @@ export const mockProductData = {
         },
       },
       sneakers: {
-        "minimalist-leather-sneakers": {
+        "men-minimalist-leather-sneakers": {
           name: "Minimalist Leather Sneakers",
           price: "$70",
           description:
@@ -1197,7 +1197,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-leather-sneakers-men.jpg",
         },
-        "performance-running-sneakers": {
+        "men-performance-running-sneakers": {
           name: "Performance Running Sneakers",
           price: "$85",
           description:
@@ -1205,7 +1205,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/performance-running-sneakers-men.jpg",
         },
-        "retro-runner-sneakers": {
+        "men-retro-runner-sneakers": {
           name: "Retro Runner Sneakers",
           price: "$75",
           description:
@@ -1213,7 +1213,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/retro-runner-sneakers-men.jpg",
         },
-        "high-top-sneakers": {
+        "men-high-top-sneakers": {
           name: "High Top Sneakers",
           price: "$80",
           description:
@@ -1221,7 +1221,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-top-sneakers-men.jpg",
         },
-        "slip-on-sneakers": {
+        "men-slip-on-sneakers": {
           name: "Slip-On Sneakers",
           price: "$65",
           description:
@@ -1229,7 +1229,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slip-on-sneakers-men.jpg",
         },
-        "vintage-inspired-sneakers": {
+        "men-vintage-inspired-sneakers": {
           name: "Vintage Inspired Sneakers",
           price: "$78",
           description:
@@ -1237,7 +1237,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-inspired-sneakers-men.jpg",
         },
-        "basketball-style-sneakers": {
+        "men-basketball-style-sneakers": {
           name: "Basketball Style Sneakers",
           price: "$90",
           description:
@@ -1245,7 +1245,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/basketball-style-sneakers-men.jpg",
         },
-        "urban-casual-sneakers": {
+        "men-urban-casual-sneakers": {
           name: "Urban Casual Sneakers",
           price: "$68",
           description:
@@ -1253,7 +1253,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/urban-casual-sneakers-men.jpg",
         },
-        "premium-athletic-sneakers": {
+        "men-premium-athletic-sneakers": {
           name: "Premium Athletic Sneakers",
           price: "$95",
           description:
@@ -1261,7 +1261,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/premium-athletic-sneakers-men.jpg",
         },
-        "street-style-sneakers": {
+        "men-street-style-sneakers": {
           name: "Street Style Sneakers",
           price: "$72",
           description:
@@ -1271,7 +1271,7 @@ export const mockProductData = {
         },
       },
       sandals: {
-        "classic-leather-sandals": {
+        "men-classic-leather-sandals": {
           name: "Classic Leather Sandals",
           price: "$60",
           description:
@@ -1279,7 +1279,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-leather-sandals-men.jpg",
         },
-        "sporty-athletic-sandals": {
+        "men-sporty-athletic-sandals": {
           name: "Sporty Athletic Sandals",
           price: "$65",
           description:
@@ -1287,7 +1287,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sporty-athletic-sandals-men.jpg",
         },
-        "casual-slide-sandals": {
+        "men-casual-slide-sandals": {
           name: "Casual Slide Sandals",
           price: "$50",
           description:
@@ -1295,7 +1295,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/casual-slide-sandals-men.jpg",
         },
-        "beach-espadrille-sandals": {
+        "men-beach-espadrille-sandals": {
           name: "Beach Espadrille Sandals",
           price: "$55",
           description:
@@ -1303,7 +1303,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/beach-espadrille-sandals-men.jpg",
         },
-        "rugged-outdoor-sandals": {
+        "men-rugged-outdoor-sandals": {
           name: "Rugged Outdoor Sandals",
           price: "$70",
           description:
@@ -1311,7 +1311,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/rugged-outdoor-sandals-men.jpg",
         },
-        "minimalist-design-sandals": {
+        "men-minimalist-design-sandals": {
           name: "Minimalist Design Sandals",
           price: "$58",
           description:
@@ -1319,7 +1319,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-design-sandals-men.jpg",
         },
-        "strappy-leather-sandals": {
+        "men-strappy-leather-sandals": {
           name: "Strappy Leather Sandals",
           price: "$62",
           description:
@@ -1327,7 +1327,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/strappy-leather-sandals-men.jpg",
         },
-        "water-resistant-sandals": {
+        "men-water-resistant-sandals": {
           name: "Water Resistant Sandals",
           price: "$68",
           description:
@@ -1335,7 +1335,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/water-resistant-sandals-men.jpg",
         },
-        "flip-flops-sandals": {
+        "men-flip-flops-sandals": {
           name: "Flip-Flops Sandals",
           price: "$45",
           description:
@@ -1343,7 +1343,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flip-flops-sandals-men.jpg",
         },
-        "premium-comfort-sandals": {
+        "men-premium-comfort-sandals": {
           name: "Premium Comfort Sandals",
           price: "$75",
           description:
@@ -1381,7 +1381,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "chukka-boots": {
+        "men-chukka-boots": {
           name: "Chukka Boots",
           price: "$115",
           description:
@@ -1389,7 +1389,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chukka-boots-men.jpg",
         },
-        "work-boots": {
+        "men-work-boots": {
           name: "Work Boots",
           price: "$140",
           description:
@@ -1412,7 +1412,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chelsea-boots-600nw-92008067.jpg",
         },
-        "desert-boots": {
+        "men-desert-boots": {
           name: "Desert Boots",
           price: "$110",
           description:
@@ -1420,7 +1420,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/desert-boots-men.jpg",
         },
-        "motorcycle-boots": {
+        "men-motorcycle-boots": {
           name: "Motorcycle Boots",
           price: "$150",
           description:
@@ -1428,7 +1428,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/motorcycle-boots-men.jpg",
         },
-        "engineer-boots": {
+        "men-engineer-boots": {
           name: "Engineer Boots",
           price: "$145",
           description:
@@ -1706,7 +1706,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "microfiber-boxers": {
+        "men-microfiber-boxers": {
           name: "Microfiber Boxers",
           price: "$28",
           description:
@@ -1714,7 +1714,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "boxer-briefs": {
+        "men-boxer-briefs": {
           name: "Boxer Briefs",
           price: "$25",
           description:
@@ -1722,28 +1722,28 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "athletic-briefs": {
+        "men-athletic-briefs": {
           name: "Athletic Briefs",
           price: "$30",
           description: "Performance-oriented briefs for an active lifestyle.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        briefs: {
+        "men-briefs": {
           name: "Classic Briefs",
           price: "$18",
           description: "Soft and stretchy briefs for daily wear and comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "thermal-briefs": {
+        "men-thermal-briefs": {
           name: "Thermal Briefs",
           price: "$35",
           description: "Warm and cozy thermal briefs perfect for cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "luxury-briefs": {
+        "men-luxury-briefs": {
           name: "Luxury Briefs",
           price: "$50",
           description:
@@ -1753,14 +1753,14 @@ export const mockProductData = {
         },
       },
       outerwear: {
-        "leather-jacket": {
+        "men-leather-jacket": {
           name: "Leather Jacket",
           price: "$150",
           description: "Stylish leather jacket for cool evenings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        parka: {
+        "men-parka": {
           name: "Parka",
           price: "$110",
           description:
@@ -1768,7 +1768,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/parka-example.jpg",
         },
-        windbreaker: {
+        "men-windbreaker": {
           name: "Windbreaker",
           price: "$40",
           description:
@@ -1776,65 +1776,63 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
         },
-        "denim-jacket": {
+        "men-denim-jacket": {
           name: "Denim Jacket",
           price: "$100",
           description: "Classic denim jacket with a modern fit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "bomber-jacket": {
+        "men-bomber-jacket": {
           name: "Bomber Jacket",
           price: "$130",
           description: "A casual bomber jacket with a sleek design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "puffer-coat": {
+        "men-puffer-coat": {
           name: "Puffer Coat",
           price: "$170",
           description: "Insulated puffer coat perfect for cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-
-        "hooded-jacket": {
+        "men-hooded-jacket": {
           name: "Hooded Jacket",
           price: "$120",
           description: "Casual hooded jacket for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "fleece-jacket": {
+        "men-fleece-jacket": {
           name: "Fleece Jacket",
           price: "$90",
           description: "Comfortable fleece jacket for warmth and layering.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "vest-jacket": {
+        "men-vest-jacket": {
           name: "Vest Jacket",
           price: "$110",
           description: "Stylish vest jacket for layering over shirts.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-
-        "quilted-jacket": {
+        "men-quilted-jacket": {
           name: "Quilted Jacket",
           price: "$140",
           description: "Stylish quilted jacket with a modern fit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        peacoat: {
+        "men-peacoat": {
           name: "Peacoat",
           price: "$160",
           description: "Classic peacoat for a timeless winter look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "winter-coat": {
+        "men-winter-coat": {
           name: "Winter Coat",
           price: "$180",
           description: "Warm and cozy winter coat for men.",
@@ -1843,14 +1841,14 @@ export const mockProductData = {
         },
       },
       swimwear: {
-        "swim-trunks": {
+        "men-swim-trunks": {
           name: "Swim Trunks",
           price: "$35",
           description: "Comfortable swim trunks perfect for the beach or pool.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "board-shorts": {
+        "men-board-shorts": {
           name: "Board Shorts",
           price: "$40",
           description:
@@ -1858,14 +1856,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "swim-briefs": {
+        "men-swim-briefs": {
           name: "Swim Briefs",
           price: "$25",
           description: "Sleek swim briefs for a streamlined fit in the water.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "rash-guard": {
+        "men-rash-guard": {
           name: "Rash Guard",
           price: "$30",
           description:
@@ -1873,14 +1871,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        speedo: {
+        "men-speedo": {
           name: "Speedo",
           price: "$45",
           description: "Classic speedo for a close and competitive fit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "swim-suit": {
+        "men-swim-suit": {
           name: "Swim Suit",
           price: "$50",
           description:
@@ -1888,7 +1886,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "water-shorts": {
+        "men-water-shorts": {
           name: "Water Shorts",
           price: "$38",
           description:
@@ -1896,7 +1894,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "swim-surf-trunks": {
+        "men-swim-surf-trunks": {
           name: "Swim & Surf Trunks",
           price: "$42",
           description:
@@ -1904,7 +1902,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "beach-shorts": {
+        "men-beach-shorts": {
           name: "Beach Shorts",
           price: "$28",
           description: "Casual beach shorts ideal for lounging or swimming.",
@@ -1913,21 +1911,21 @@ export const mockProductData = {
         },
       },
       pants: {
-        "skinny-jeans": {
+        "men-skinny-jeans": {
           name: "Skinny Jeans",
           price: "$50",
           description: "Slim-fit jeans for a modern, stylish look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "straight-leg-jeans": {
+        "men-straight-leg-jeans": {
           name: "Straight Leg Jeans",
           price: "$55",
           description: "Classic straight-leg jeans for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "cargo-pants": {
+        "men-cargo-pants": {
           name: "Cargo Pants",
           price: "$45",
           description:
@@ -1935,7 +1933,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        chinos: {
+        "men-chinos": {
           name: "Chinos",
           price: "$40",
           description:
@@ -1943,7 +1941,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        joggers: {
+        "men-joggers": {
           name: "Joggers",
           price: "$35",
           description:
@@ -1951,7 +1949,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-pants": {
+        "men-dress-pants": {
           name: "Dress Pants",
           price: "$65",
           description:
@@ -1959,7 +1957,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "athletic-pants": {
+        "men-athletic-pants": {
           name: "Athletic Pants",
           price: "$30",
           description:
@@ -1967,14 +1965,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "linen-pants": {
+        "men-linen-pants": {
           name: "Linen Pants",
           price: "$50",
           description: "Lightweight linen pants perfect for warm weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "twill-pants": {
+        "men-twill-pants": {
           name: "Twill Pants",
           price: "$55",
           description:
@@ -1982,7 +1980,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "khaki-pants": {
+        "men-khaki-pants": {
           name: "Khaki Pants",
           price: "$40",
           description:
@@ -1992,7 +1990,7 @@ export const mockProductData = {
         },
       },
       tops: {
-        "basic-t-shirt": {
+        "men-basic-t-shirt": {
           name: "Basic T-Shirt",
           price: "$25",
           description:
@@ -2000,7 +1998,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "polo-shirt": {
+        "men-polo-shirt": {
           name: "Polo Shirt",
           price: "$35",
           description:
@@ -2008,7 +2006,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "v-neck-shirt": {
+        "men-v-neck-shirt": {
           name: "V-Neck Shirt",
           price: "$30",
           description:
@@ -2016,7 +2014,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "button-down-shirt": {
+        "men-button-down-shirt": {
           name: "Button-Down Shirt",
           price: "$50",
           description:
@@ -2024,7 +2022,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "henley-shirt": {
+        "men-henley-shirt": {
           name: "Henley Shirt",
           price: "$40",
           description:
@@ -2032,7 +2030,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "flannel-shirt": {
+        "men-flannel-shirt": {
           name: "Flannel Shirt",
           price: "$55",
           description:
@@ -2040,7 +2038,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "graphic-t-shirt": {
+        "men-graphic-t-shirt": {
           name: "Graphic T-Shirt",
           price: "$30",
           description:
@@ -2048,7 +2046,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "long-sleeve-shirt": {
+        "men-long-sleeve-shirt": {
           name: "Long Sleeve Shirt",
           price: "$45",
           description:
@@ -2056,14 +2054,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "hooded-sweatshirt": {
+        "men-hooded-sweatshirt": {
           name: "Hooded Sweatshirt",
           price: "$60",
           description: "A cozy hooded sweatshirt for casual, laid-back days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        sweater: {
+        "men-sweater": {
           name: "Sweater",
           price: "$70",
           description:
@@ -2075,14 +2073,14 @@ export const mockProductData = {
     },
     accessories: {
       necklaces_and_braceslets: {
-        "silver-necklace": {
+        "men-silver-necklace": {
           name: "Silver Necklace",
           price: "$55",
           description: "Elegant silver necklace for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "gold-chain-necklace": {
+        "men-gold-chain-necklace": {
           name: "Gold Chain Necklace",
           price: "$85",
           description:
@@ -2090,21 +2088,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
         },
-        "leather-bracelet": {
+        "men-leather-bracelet": {
           name: "Leather Bracelet",
           price: "$25",
           description: "Stylish leather bracelet for a rugged look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "beaded-necklace": {
+        "men-beaded-necklace": {
           name: "Beaded Necklace",
           price: "$40",
           description: "Casual beaded necklace for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "beaded-bracelet": {
+        "men-beaded-bracelet": {
           name: "Beaded Bracelet",
           price: "$35",
           description:
@@ -2112,7 +2110,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/beaded-bracelet-example.jpg",
         },
-        "chain-bracelet": {
+        "men-chain-bracelet": {
           name: "Chain Bracelet",
           price: "$45",
           description:
@@ -2120,7 +2118,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
         },
-        "gold-chain": {
+        "men-gold-chain": {
           name: "Gold Chain",
           price: "$120",
           description: "Luxury gold chain for formal and casual wear.",
@@ -2129,35 +2127,35 @@ export const mockProductData = {
         },
       },
       sunglasses: {
-        "round-sunglasses": {
+        "men-round-sunglasses": {
           name: "Round Sunglasses",
           price: "$45",
           description: "Stylish round sunglasses for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "aviator-sunglasses": {
+        "men-aviator-sunglasses": {
           name: "Aviator Sunglasses",
           price: "$60",
           description: "Classic aviator sunglasses for a timeless look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "square-sunglasses": {
+        "men-square-sunglasses": {
           name: "Square Sunglasses",
           price: "$50",
           description: "Bold and modern square sunglasses.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "polarized-sunglasses": {
+        "men-polarized-sunglasses": {
           name: "Polarized Sunglasses",
           price: "$70",
           description: "Polarized sunglasses to reduce glare and protect eyes.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "wayfarer-sunglasses": {
+        "men-wayfarer-sunglasses": {
           name: "Wayfarer Sunglasses",
           price: "$55",
           description: "Iconic wayfarer sunglasses for a timeless style.",
@@ -2165,35 +2163,35 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/wayfarer-sunglasses-600nw-92008067.jpg",
         },
 
-        "sport-sunglasses": {
+        "men-sport-sunglasses": {
           name: "Sport Sunglasses",
           price: "$75",
           description: "Sporty sunglasses designed for active men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-sunglasses-600nw-92008067.jpg",
         },
-        "fishing-sunglasses": {
+        "men-fishing-sunglasses": {
           name: "Fishing Sunglasses",
           price: "$85",
           description: "Durable sunglasses for fishing and outdoor activities.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/fishing-sunglasses-600nw-92008067.jpg",
         },
-        "color-block-sunglasses": {
+        "men-color-block-sunglasses": {
           name: "Color Block Sunglasses",
           price: "$70",
           description: "Trendy color-block sunglasses for a fun and bold look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/color-block-sunglasses-600nw-92008067.jpg",
         },
-        "tactical-sunglasses": {
+        "men-tactical-sunglasses": {
           name: "Tactical Sunglasses",
           price: "$90",
           description: "Rugged tactical sunglasses for outdoor adventures.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/tactical-sunglasses-600nw-92008067.jpg",
         },
-        "oversized-sunglasses": {
+        "men-oversized-sunglasses": {
           name: "Oversized Sunglasses",
           price: "$70",
           description:
@@ -2203,28 +2201,28 @@ export const mockProductData = {
         },
       },
       watches: {
-        "sport-watch": {
+        "men-sport-watch": {
           name: "Sport Watch",
           price: "$80",
           description: "Sporty and durable watch for active men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "dress-watch": {
+        "men-dress-watch": {
           name: "Dress Watch",
           price: "$120",
           description: "Elegant dress watch for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        smartwatch: {
+        "men-smartwatch": {
           name: "Smartwatch",
           price: "$150",
           description: "High-tech smartwatch with fitness tracking features.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "chronograph-watch": {
+        "men-chronograph-watch": {
           name: "Chronograph Watch",
           price: "$200",
           description: "Premium chronograph watch with multiple dials.",
@@ -2233,7 +2231,7 @@ export const mockProductData = {
         },
       },
       wallets: {
-        "leather-wallet": {
+        "men-leather-wallet": {
           name: "Leather Wallet",
           price: "$70",
           description:
@@ -2241,7 +2239,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/black-leather-wallet-600nw-92008067.jpg",
         },
-        "bifold-wallet": {
+        "men-bifold-wallet": {
           name: "Bifold Wallet",
           price: "$50",
           description:
@@ -2249,7 +2247,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bifold-wallet-600nw-92008067.jpg",
         },
-        "trifold-wallet": {
+        "men-trifold-wallet": {
           name: "Trifold Wallet",
           price: "$55",
           description:
@@ -2257,14 +2255,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/trifold-wallet-600nw-92008067.jpg",
         },
-        "minimalist-wallet": {
+        "men-minimalist-wallet": {
           name: "Minimalist Wallet",
           price: "$30",
           description: "Slim minimalist wallet designed for essentials only.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-wallet-600nw-92008067.jpg",
         },
-        "money-clip-wallet": {
+        "men-money-clip-wallet": {
           name: "Money Clip Wallet",
           price: "$45",
           description:
@@ -2272,7 +2270,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/money-clip-wallet-600nw-92008067.jpg",
         },
-        "cardholder-wallet": {
+        "men-cardholder-wallet": {
           name: "Cardholder Wallet",
           price: "$40",
           description:
@@ -2280,14 +2278,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cardholder-wallet-600nw-92008067.jpg",
         },
-        "checkbook-wallet": {
+        "men-checkbook-wallet": {
           name: "Checkbook Wallet",
           price: "$60",
           description: "Wallet designed with checkbook holders and card slots.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/checkbook-wallet-600nw-92008067.jpg",
         },
-        "zip-around-wallet": {
+        "men-zip-around-wallet": {
           name: "Zip-Around Wallet",
           price: "$75",
           description:
@@ -2295,7 +2293,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/zip-around-wallet-600nw-92008067.jpg",
         },
-        "passport-wallet": {
+        "men-passport-wallet": {
           name: "Passport Wallet",
           price: "$85",
           description:
@@ -2303,7 +2301,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/passport-wallet-600nw-92008067.jpg",
         },
-        "travel-wallet": {
+        "men-travel-wallet": {
           name: "Travel Wallet",
           price: "$90",
           description:
@@ -2313,42 +2311,42 @@ export const mockProductData = {
         },
       },
       scarves: {
-        "winter-scarf": {
+        "men-winter-scarf": {
           name: "Winter Scarf",
           price: "$35",
           description: "Warm scarf for cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "silk-scarf": {
+        "men-silk-scarf": {
           name: "Silk Scarf",
           price: "$50",
           description: "Elegant silk scarf for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "casual-scarf": {
+        "men-casual-scarf": {
           name: "Casual Scarf",
           price: "$25",
           description: "Casual and comfortable scarf for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "cashmere-scarf": {
+        "men-cashmere-scarf": {
           name: "Cashmere Scarf",
           price: "$100",
           description: "Luxurious cashmere scarf for the cold season.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "wool-scarf": {
+        "men-wool-scarf": {
           name: "Wool Scarf",
           price: "$35",
           description: "Warm wool scarf for the winter, soft and cozy.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/wool-scarf-600nw-92008067.jpg",
         },
-        "plaid-scarf": {
+        "men-plaid-scarf": {
           name: "Plaid Scarf",
           price: "$40",
           description:
@@ -2356,28 +2354,28 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/plaid-scarf-600nw-92008067.jpg",
         },
-        "knitted-scarf": {
+        "men-knitted-scarf": {
           name: "Knitted Scarf",
           price: "$30",
           description: "Hand-knitted scarf for a cozy, casual look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/knitted-scarf-600nw-92008067.jpg",
         },
-        "leather-scarf": {
+        "men-leather-scarf": {
           name: "Leather Scarf",
           price: "$90",
           description: "Sleek leather scarf for a sophisticated and edgy look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-scarf-600nw-92008067.jpg",
         },
-        "pashmina-scarf": {
+        "men-pashmina-scarf": {
           name: "Pashmina Scarf",
           price: "$50",
           description: "Soft pashmina scarf, perfect for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/pashmina-scarf-600nw-92008067.jpg",
         },
-        "tartan-scarf": {
+        "men-tartan-scarf": {
           name: "Tartan Scarf",
           price: "$45",
           description: "Bold tartan design scarf for a classic style.",
@@ -2386,49 +2384,49 @@ export const mockProductData = {
         },
       },
       belts: {
-        "leather-belt": {
+        "men-leather-belt": {
           name: "Leather Belt",
           price: "$40",
           description: "Classic leather belt for casual and formal wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-belt-600nw-92008067.jpg",
         },
-        "canvas-belt": {
+        "men-canvas-belt": {
           name: "Canvas Belt",
           price: "$25",
           description: "Durable canvas belt for everyday use.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/canvas-belt-600nw-92008067.jpg",
         },
-        "dress-belt": {
+        "men-dress-belt": {
           name: "Dress Belt",
           price: "$55",
           description: "Sleek dress belt for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-belt-600nw-92008067.jpg",
         },
-        "woven-belt": {
+        "men-woven-belt": {
           name: "Woven Belt",
           price: "$35",
           description: "Stylish woven belt for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/woven-belt-600nw-92008067.jpg",
         },
-        "reversible-belt": {
+        "men-reversible-belt": {
           name: "Reversible Belt",
           price: "$45",
           description: "Versatile reversible belt for different styles.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/reversible-belt-600nw-92008067.jpg",
         },
-        "belt-with-buckle": {
+        "men-belt-with-buckle": {
           name: "Belt with Buckle",
           price: "$30",
           description: "Classic belt with stylish buckle design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/belt-with-buckle-600nw-92008067.jpg",
         },
-        "braided-leather-belt": {
+        "men-braided-leather-belt": {
           name: "Braided Leather Belt",
           price: "$50",
           description: "Handmade braided leather belt for a unique look.",
@@ -2437,7 +2435,7 @@ export const mockProductData = {
         },
       },
       bags: {
-        "messenger-bag": {
+        "men-messenger-bag": {
           name: "Messenger Bag",
           price: "$80",
           description:
@@ -2445,7 +2443,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "leather-bag": {
+        "men-leather-bag": {
           name: "Leather Bag",
           price: "$150",
           description:
@@ -2453,49 +2451,49 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        backpack: {
+        "men-backpack": {
           name: "Backpack",
           price: "$70",
           description: "Spacious and durable backpack for daily use.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        briefcase: {
+        "men-briefcase": {
           name: "Leather Briefcase",
           price: "$150",
           description: "Professional leather briefcase for work.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-briefcase-600nw-92008067.jpg",
         },
-        "duffle-bag": {
+        "men-duffle-bag": {
           name: "Duffle Bag",
           price: "$70",
           description: "Spacious duffle bag for weekend trips.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/duffle-bag-600nw-92008067.jpg",
         },
-        "tote-bag": {
+        "men-tote-bag": {
           name: "Tote Bag",
           price: "$50",
           description: "Versatile tote bag for daily use.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/tote-bag-600nw-92008067.jpg",
         },
-        "crossbody-bag": {
+        "men-crossbody-bag": {
           name: "Crossbody Bag",
           price: "$45",
           description: "Stylish crossbody bag for on-the-go convenience.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/crossbody-bag-600nw-92008067.jpg",
         },
-        "canvas-bag": {
+        "men-canvas-bag": {
           name: "Canvas Bag",
           price: "$40",
           description: "Casual canvas bag perfect for everyday errands.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/canvas-bag-600nw-92008067.jpg",
         },
-        "duffel-bag": {
+        "men-duffel-bag": {
           name: "Duffel Bag",
           price: "$120",
           description: "Sturdy duffel bag for travel or gym use.",
@@ -2504,49 +2502,49 @@ export const mockProductData = {
         },
       },
       hats: {
-        "fedora-hat": {
+        "men-fedora-hat": {
           name: "Fedora Hat",
           price: "$50",
           description: "Classic fedora for men, perfect for any season.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "baseball-cap": {
+        "men-baseball-cap": {
           name: "Baseball Cap",
           price: "$25",
           description: "Casual baseball cap for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        beanie: {
+        "men-beanie": {
           name: "Beanie",
           price: "$30",
           description: "Cozy beanie to keep you warm during the cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/beanie-600nw-92008067.jpg",
         },
-        "bucket-hat": {
+        "men-bucket-hat": {
           name: "Bucket Hat",
           price: "$35",
           description: "Stylish and practical bucket hat for sunny days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bucket-hat-600nw-92008067.jpg",
         },
-        "panama-hat": {
+        "men-panama-hat": {
           name: "Panama Hat",
           price: "$75",
           description: "Elegant Panama hat for a relaxed look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/panama-hat-600nw-92008067.jpg",
         },
-        "trucker-hat": {
+        "men-trucker-hat": {
           name: "Trucker Hat",
           price: "$22",
           description: "Trendy trucker hat for a laid-back style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/trucker-hat-600nw-92008067.jpg",
         },
-        "cowboy-hat": {
+        "men-cowboy-hat": {
           name: "Cowboy Hat",
           price: "$100",
           description: "Stylish cowboy hat for a rugged and classic look.",
@@ -2559,7 +2557,7 @@ export const mockProductData = {
   women: {
     shoes: {
       sneakers: {
-        "lightweight-training-sneakers": {
+        "women-lightweight-training-sneakers": {
           name: "Lightweight Training Sneakers",
           price: "$36",
           description:
@@ -2567,7 +2565,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lightweight-training-sneakers-kids.jpg",
         },
-        "retro-inspired-sneakers": {
+        "women-retro-inspired-sneakers": {
           name: "Retro Inspired Sneakers",
           price: "$39",
           description:
@@ -2575,7 +2573,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/retro-inspired-sneakers-kids.jpg",
         },
-        "mesh-breathable-sneakers": {
+        "women-mesh-breathable-sneakers": {
           name: "Mesh Breathable Sneakers",
           price: "$34",
           description:
@@ -2583,7 +2581,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/mesh-breathable-sneakers-kids.jpg",
         },
-        "high-performance-sneakers": {
+        "women-high-performance-sneakers": {
           name: "High Performance Sneakers",
           price: "$42",
           description:
@@ -2591,7 +2589,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-performance-sneakers-kids.jpg",
         },
-        "color-block-sneakers": {
+        "women-color-block-sneakers": {
           name: "Color Block Sneakers",
           price: "$37",
           description:
@@ -2599,7 +2597,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/color-block-sneakers-kids.jpg",
         },
-        "all-terrain-sneakers": {
+        "women-all-terrain-sneakers": {
           name: "All Terrain Sneakers",
           price: "$40",
           description:
@@ -2607,7 +2605,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/all-terrain-sneakers-kids.jpg",
         },
-        "premium-leather-sneakers": {
+        "women-premium-leather-sneakers": {
           name: "Premium Leather Sneakers",
           price: "$45",
           description:
@@ -2615,7 +2613,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/premium-leather-sneakers-kids.jpg",
         },
-        "crossover-high-top-sneakers": {
+        "women-crossover-high-top-sneakers": {
           name: "Crossover High Top Sneakers",
           price: "$41",
           description:
@@ -2623,7 +2621,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/crossover-high-top-sneakers-kids.jpg",
         },
-        "flex-fit-sneakers": {
+        "women-flex-fit-sneakers": {
           name: "Flex Fit Sneakers",
           price: "$38",
           description:
@@ -2631,7 +2629,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flex-fit-sneakers-kids.jpg",
         },
-        "water-resistant-sneakers": {
+        "women-water-resistant-sneakers": {
           name: "Water Resistant Sneakers",
           price: "$39",
           description:
@@ -2639,7 +2637,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/water-resistant-sneakers-kids.jpg",
         },
-        "classic-canvas-sneakers": {
+        "women-classic-canvas-sneakers": {
           name: "Classic Canvas Sneakers",
           price: "$30",
           description:
@@ -2647,7 +2645,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-canvas-sneakers-kids.jpg",
         },
-        "eco-friendly-sneakers": {
+        "women-eco-friendly-sneakers": {
           name: "Eco-Friendly Sneakers",
           price: "$38",
           description:
@@ -2655,7 +2653,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/eco-friendly-sneakers-kids.jpg",
         },
-        "sporty-runner-sneakers": {
+        "women-sporty-runner-sneakers": {
           name: "Sporty Runner Sneakers",
           price: "$35",
           description:
@@ -2663,7 +2661,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sporty-runner-sneakers-kids.jpg",
         },
-        "high-top-sneakers": {
+        "women-high-top-sneakers": {
           name: "High Top Sneakers",
           price: "$40",
           description:
@@ -2671,7 +2669,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-top-sneakers-kids.jpg",
         },
-        "leather-sneakers": {
+        "women-leather-sneakers": {
           name: "Leather Sneakers",
           price: "$80",
           description:
@@ -2679,14 +2677,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "platform-sneakers": {
+        "women-platform-sneakers": {
           name: "Platform Sneakers",
           price: "$75",
           description: "Trendy platform sneakers for added height and comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "mesh-sneakers": {
+        "women-mesh-sneakers": {
           name: "Mesh Sneakers",
           price: "$65",
           description: "Breathable mesh sneakers, perfect for warm weather.",
@@ -2695,14 +2693,14 @@ export const mockProductData = {
         },
       },
       flats: {
-        "ballet-flats": {
+        "women-ballet-flats": {
           name: "Ballet Flats",
           price: "$45",
           description: "Classic ballet flats for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "loafer-flats": {
+        "women-loafer-flats": {
           name: "Loafer Flats",
           price: "$50",
           description:
@@ -2710,7 +2708,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/loafer-flats-women.jpg",
         },
-        "espadrille-flats": {
+        "women-espadrille-flats": {
           name: "Espadrille Flats",
           price: "$45",
           description:
@@ -2718,21 +2716,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/espadrille-flats-women.jpg",
         },
-        "pointed-toe-flats": {
+        "women-pointed-toe-flats": {
           name: "Pointed Toe Flats",
           price: "$50",
           description: "Chic pointed-toe flats for a polished look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "leather-flats": {
+        "women-leather-flats": {
           name: "Leather Flats",
           price: "$65",
           description: "Elegant leather flats for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "moccasin-flats": {
+        "women-moccasin-flats": {
           name: "Moccasin Flats",
           price: "$48",
           description:
@@ -2740,7 +2738,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/moccasin-flats-women.jpg",
         },
-        "slip-on-flats": {
+        "women-slip-on-flats": {
           name: "Slip-On Flats",
           price: "$38",
           description:
@@ -2748,7 +2746,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slip-on-flats-women.jpg",
         },
-        "brogue-flats": {
+        "women-brogue-flats": {
           name: "Brogue Flats",
           price: "$60",
           description:
@@ -2756,7 +2754,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/brogue-flats-women.jpg",
         },
-        "strappy-flats": {
+        "women-strappy-flats": {
           name: "Strappy Flats",
           price: "$52",
           description:
@@ -2764,7 +2762,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/strappy-flats-women.jpg",
         },
-        "metallic-flats": {
+        "women-metallic-flats": {
           name: "Metallic Flats",
           price: "$65",
           description:
@@ -2772,7 +2770,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/metallic-flats-women.jpg",
         },
-        "suede-flats": {
+        "women-suede-flats": {
           name: "Suede Flats",
           price: "$60",
           description:
@@ -2780,21 +2778,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "floral-flats": {
+        "women-floral-flats": {
           name: "Floral Flats",
           price: "$55",
           description: "Stylish floral flats for a fun and feminine look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "velvet-flats": {
+        "women-velvet-flats": {
           name: "Velvet Flats",
           price: "$80",
           description: "Luxurious velvet flats for a stylish, rich look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "strap-flats": {
+        "women-strap-flats": {
           name: "Strap Flats",
           price: "$65",
           description:
@@ -2802,7 +2800,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "peep-toe-flats": {
+        "women-peep-toe-flats": {
           name: "Peep Toe Flats",
           price: "$60",
           description: "Flattering peep-toe flats with a touch of elegance.",
@@ -2811,14 +2809,14 @@ export const mockProductData = {
         },
       },
       heels: {
-        "high-heels": {
+        "women-high-heels": {
           name: "High Heels",
           price: "$90",
           description: "Elegant high heels for formal events.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "stiletto-heels": {
+        "women-stiletto-heels": {
           name: "Stiletto Heels",
           price: "$120",
           description:
@@ -2826,35 +2824,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "platform-heels": {
+        "women-platform-heels": {
           name: "Platform Heels",
           price: "$110",
           description: "Trendy platform heels for added height and comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "block-heels": {
+        "women-block-heels": {
           name: "Block Heels",
           price: "$95",
           description: "Stable and stylish block heels for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "wedge-heels": {
+        "women-wedge-heels": {
           name: "Wedge Heels",
           price: "$85",
           description: "Comfortable wedge heels with a chic, summery vibe.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "ankle-strap-heels": {
+        "women-ankle-strap-heels": {
           name: "Ankle Strap Heels",
           price: "$100",
           description: "Stylish ankle-strap heels for a trendy, secure fit.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "peep-toe-heels": {
+        "women-peep-toe-heels": {
           name: "Peep Toe Heels",
           price: "$110",
           description:
@@ -2862,7 +2860,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "classic-pumps": {
+        "women-classic-pumps": {
           name: "Classic Pumps",
           price: "$80",
           description:
@@ -2870,14 +2868,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-pumps-women.jpg",
         },
-        wedges: {
+        "women-wedges": {
           name: "Wedges",
           price: "$65",
           description:
             "Versatile wedge heels that combine comfort with a stylish silhouette, perfect for both casual and dressy occasions.",
           imageSrc: "https://www.shutterstock.com/image-photo/wedges-women.jpg",
         },
-        "kitten-heels": {
+        "women-kitten-heels": {
           name: "Kitten Heels",
           price: "$60",
           description:
@@ -2885,7 +2883,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/kitten-heels-women.jpg",
         },
-        "strappy-heels": {
+        "women-strappy-heels": {
           name: "Strappy Heels",
           price: "$95",
           description:
@@ -2893,7 +2891,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/strappy-heels-women.jpg",
         },
-        "slingback-heels": {
+        "women-slingback-heels": {
           name: "Slingback Heels",
           price: "$80",
           description:
@@ -2901,14 +2899,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slingback-heels-women.jpg",
         },
-        "pointed-toe-heels": {
+        "women-pointed-toe-heels": {
           name: "Pointed Toe Heels",
           price: "$105",
           description: "Elegant pointed-toe heels for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "lace-up-heels": {
+        "women-lace-up-heels": {
           name: "Lace-up Heels",
           price: "$130",
           description:
@@ -2918,14 +2916,14 @@ export const mockProductData = {
         },
       },
       boots: {
-        "ankle-boots": {
+        "women-ankle-boots": {
           name: "Ankle Boots",
           price: "$80",
           description: "Stylish ankle boots for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "desert-boots": {
+        "women-desert-boots": {
           name: "Desert Boots",
           price: "$110",
           description:
@@ -2933,7 +2931,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/desert-boots-men.jpg",
         },
-        "motorcycle-boots": {
+        "women-motorcycle-boots": {
           name: "Motorcycle Boots",
           price: "$150",
           description:
@@ -2941,7 +2939,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/motorcycle-boots-men.jpg",
         },
-        "engineer-boots": {
+        "women-engineer-boots": {
           name: "Engineer Boots",
           price: "$145",
           description:
@@ -2949,14 +2947,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/engineer-boots-men.jpg",
         },
-        "knee-high-boots": {
+        "women-knee-high-boots": {
           name: "Knee High Boots",
           price: "$140",
           description: "Stylish knee-high boots for a chic, winter-ready look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "chelsea-boots": {
+        "women-chelsea-boots": {
           name: "Chelsea Boots",
           price: "$130",
           description:
@@ -2964,28 +2962,28 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "combat-boots": {
+        "women-combat-boots": {
           name: "Combat Boots",
           price: "$150",
           description: "Edgy combat boots for a bold, tough look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "riding-boots": {
+        "women-riding-boots": {
           name: "Riding Boots",
           price: "$160",
           description: "Elegant riding boots for a classic, refined style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "western-boots": {
+        "women-western-boots": {
           name: "Western Boots",
           price: "$170",
           description: "Stylish western boots with a hint of cowboy charm.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "faux-fur-boots": {
+        "women-faux-fur-boots": {
           name: "Faux Fur Boots",
           price: "$120",
           description:
@@ -2993,7 +2991,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "over-the-knee-boots": {
+        "women-over-the-knee-boots": {
           name: "Over-the-Knee Boots",
           price: "$180",
           description:
@@ -3001,7 +2999,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "snow-boots": {
+        "women-snow-boots": {
           name: "Snow Boots",
           price: "$110",
           description:
@@ -3009,35 +3007,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "platform-boots": {
+        "women-platform-boots": {
           name: "Platform Boots",
           price: "$135",
           description: "Fashionable platform boots for a modern, edgy look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "rain-boots": {
+        "women-rain-boots": {
           name: "Rain Boots",
           price: "$55",
           description: "Waterproof rain boots for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "leather-boots": {
+        "women-leather-boots": {
           name: "Leather Boots",
           price: "$120",
           description: "Durable leather boots for men.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "hiking-boots": {
+        "women-hiking-boots": {
           name: "Hiking Boots",
           price: "$60",
           description: "Durable hiking boots, perfect for young adventurers.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/hiking-boots-600nw-92008067.jpg",
         },
-        "suede-boots": {
+        "women-suede-boots": {
           name: "Suede Boots",
           price: "$110",
           description: "Fashionable suede boots for cold weather.",
@@ -3046,21 +3044,21 @@ export const mockProductData = {
         },
       },
       sandals: {
-        "summer-sandals": {
+        "women-summer-sandals": {
           name: "Summer Sandals",
           price: "$30",
           description: "Cool sandals for summer days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "flip-flops": {
+        "women-flip-flops": {
           name: "Flip Flops",
           price: "$12",
           description: "Easy-to-wear flip-flops for kids.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "flat-sandals": {
+        "women-flat-sandals": {
           name: "Flat Sandals",
           price: "$40",
           description:
@@ -3068,21 +3066,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "strap-sandals": {
+        "women-strap-sandals": {
           name: "Strap Sandals",
           price: "$45",
           description: "Elegant strap sandals perfect for warm weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "wedge-sandals": {
+        "women-wedge-sandals": {
           name: "Wedge Sandals",
           price: "$60",
           description: "Chic wedge sandals with a comfortable heel.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "gladiator-sandals": {
+        "women-gladiator-sandals": {
           name: "Gladiator Sandals",
           price: "$70",
           description:
@@ -3090,7 +3088,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "platform-sandals": {
+        "women-platform-sandals": {
           name: "Platform Sandals",
           price: "$80",
           description: "Bold and stylish platform sandals for a trendy look.",
@@ -3099,14 +3097,14 @@ export const mockProductData = {
         },
       },
       formal: {
-        pumps: {
+        "women-pumps": {
           name: "Pumps",
           price: "$90",
           description: "Classic pumps for formal events and office wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "ballerina-flats": {
+        "women-ballerina-flats": {
           name: "Ballerina Flats",
           price: "$50",
           description:
@@ -3114,35 +3112,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "ballerina-heels": {
+        "women-ballerina-heels": {
           name: "Ballerina Heels",
           price: "$70",
           description: "Stylish ballerina heels for a chic and feminine look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        oxfords: {
+        "women-oxfords": {
           name: "Oxfords",
           price: "$120",
           description: "Elegant leather oxfords for a refined look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        stilettos: {
+        "women-stilettos": {
           name: "Stilettos",
           price: "$100",
           description: "High heel stilettos for a bold and glamorous look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "block-heels": {
+        "women-block-heels": {
           name: "Block Heels",
           price: "$95",
           description: "Stable and stylish block heels for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "wedding-shoes": {
+        "women-wedding-shoes": {
           name: "Wedding Shoes",
           price: "$200",
           description:
@@ -3150,14 +3148,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        mules: {
+        "women-mules": {
           name: "Mules",
           price: "$75",
           description: "Stylish mules with an open back for formal wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "peep-toe": {
+        "women-peep-toe": {
           name: "Peep Toe Shoes",
           price: "$85",
           description:
@@ -3169,7 +3167,7 @@ export const mockProductData = {
     },
     clothing: {
       maternity_clothing: {
-        dress: {
+        "women-maternity-dress": {
           name: "Maternity Dress",
           price: "$80",
           description:
@@ -3177,14 +3175,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-dress-600nw-92008067.jpg",
         },
-        top: {
+        "women-maternity-top": {
           name: "Maternity Top",
           price: "$45",
           description: "Soft and breathable maternity top for all-day comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-top-600nw-92008067.jpg",
         },
-        pants: {
+        "women-maternity-pants": {
           name: "Maternity Pants",
           price: "$60",
           description:
@@ -3192,7 +3190,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-pants-600nw-92008067.jpg",
         },
-        jeans: {
+        "women-maternity-jeans": {
           name: "Maternity Jeans",
           price: "$75",
           description:
@@ -3200,7 +3198,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-jeans-600nw-92008067.jpg",
         },
-        skirt: {
+        "women-maternity-skirt": {
           name: "Maternity Skirt",
           price: "$50",
           description:
@@ -3208,7 +3206,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-skirt-600nw-92008067.jpg",
         },
-        leggings: {
+        "women-maternity-leggings": {
           name: "Maternity Leggings",
           price: "$30",
           description:
@@ -3216,7 +3214,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-leggings-600nw-92008067.jpg",
         },
-        blouse: {
+        "women-maternity-blouse": {
           name: "Maternity Blouse",
           price: "$55",
           description:
@@ -3224,14 +3222,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-blouse-600nw-92008067.jpg",
         },
-        jacket: {
+        "women-maternity-jacket": {
           name: "Maternity Jacket",
           price: "$120",
           description: "Stylish maternity jacket for layering over outfits.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-jacket-600nw-92008067.jpg",
         },
-        "nursing-top": {
+        "women-maternity-nursing-top": {
           name: "Maternity Nursing Top",
           price: "$40",
           description:
@@ -3239,7 +3237,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-nursing-top-600nw-92008067.jpg",
         },
-        "pencil-skirt": {
+        "women-maternity-pencil-skirt": {
           name: "Maternity Pencil Skirt",
           price: "$50",
           description:
@@ -3247,7 +3245,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-pencil-skirt-600nw-92008067.jpg",
         },
-        "a-line-dress": {
+        "women-maternity-a-line-dress": {
           name: "Maternity A-Line Dress",
           price: "$70",
           description:
@@ -3255,7 +3253,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-a-line-dress-600nw-92008067.jpg",
         },
-        "maxi-dress": {
+        "women-maternity-maxi-dress": {
           name: "Maternity Maxi Dress",
           price: "$90",
           description:
@@ -3263,7 +3261,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-maxi-dress-600nw-92008067.jpg",
         },
-        "wrap-dress": {
+        "women-maternity-wrap-dress": {
           name: "Maternity Wrap Dress",
           price: "$75",
           description:
@@ -3271,7 +3269,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-wrap-dress-600nw-92008067.jpg",
         },
-        "sun-dress": {
+        "women-maternity-sun-dress": {
           name: "Maternity Sun Dress",
           price: "$55",
           description:
@@ -3279,7 +3277,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-sun-dress-600nw-92008067.jpg",
         },
-        "maxi-skirt": {
+        "women-maternity-maxi-skirt": {
           name: "Maternity Maxi Skirt",
           price: "$60",
           description:
@@ -3287,7 +3285,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-maxi-skirt-600nw-92008067.jpg",
         },
-        robe: {
+        "women-maternity-robe": {
           name: "Maternity Robe",
           price: "$35",
           description:
@@ -3295,7 +3293,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maternity-robe-600nw-92008067.jpg",
         },
-        sweater: {
+        "women-maternity-sweater": {
           name: "Maternity Sweater",
           price: "$60",
           description:
@@ -3305,7 +3303,7 @@ export const mockProductData = {
         },
       },
       dresses_skirts: {
-        "maxi-dress": {
+        "women-maxi-dress": {
           name: "Maxi Dress",
           price: "$135",
           description:
@@ -3313,14 +3311,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/maxi-dress-600nw-92008067.jpg",
         },
-        "floral-dress": {
+        "women-floral-dress": {
           name: "Floral Dress",
           price: "$50",
           description: "A beautiful floral dress perfect for spring.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "floral-midi-dress": {
+        "women-floral-midi-dress": {
           name: "Floral Midi Dress",
           price: "$60",
           description:
@@ -3328,7 +3326,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/floral-midi-dress-600nw-92008067.jpg",
         },
-        "black-maxi-dress": {
+        "women-black-maxi-dress": {
           name: "Black Maxi Dress",
           price: "$80",
           description:
@@ -3336,7 +3334,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/black-maxi-dress-600nw-92008067.jpg",
         },
-        "fit-and-flare-dress": {
+        "women-fit-and-flare-dress": {
           name: "Fit and Flare Dress",
           price: "$55",
           description:
@@ -3344,7 +3342,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/fit-and-flare-dress-600nw-92008067.jpg",
         },
-        "pleated-midi-skirt": {
+        "women-pleated-midi-skirt": {
           name: "Pleated Midi Skirt",
           price: "$45",
           description:
@@ -3352,7 +3350,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/pleated-midi-skirt-600nw-92008067.jpg",
         },
-        "high-waisted-pencil-skirt": {
+        "women-high-waisted-pencil-skirt": {
           name: "High-Waisted Pencil Skirt",
           price: "$50",
           description:
@@ -3360,7 +3358,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-pencil-skirt-600nw-92008067.jpg",
         },
-        "floral-wrap-dress": {
+        "women-floral-wrap-dress": {
           name: "Floral Wrap Dress",
           price: "$65",
           description:
@@ -3368,7 +3366,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/floral-wrap-dress-600nw-92008067.jpg",
         },
-        "denim-pleated-skirt": {
+        "women-denim-pleated-skirt": {
           name: "Denim Pleated Skirt",
           price: "$40",
           description:
@@ -3376,7 +3374,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/denim-pleated-skirt-600nw-92008067.jpg",
         },
-        "striped-maxi-skirt": {
+        "women-striped-maxi-skirt": {
           name: "Striped Maxi Skirt",
           price: "$55",
           description:
@@ -3384,7 +3382,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/striped-maxi-skirt-600nw-92008067.jpg",
         },
-        "silk-sundress": {
+        "women-silk-sundress": {
           name: "Silk Sundress",
           price: "$70",
           description:
@@ -3392,7 +3390,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-sundress-600nw-92008067.jpg",
         },
-        "leather-pencil-skirt": {
+        "women-leather-pencil-skirt": {
           name: "Leather Pencil Skirt",
           price: "$85",
           description: "A sleek leather pencil skirt for a bold and chic look.",
@@ -3401,7 +3399,7 @@ export const mockProductData = {
         },
       },
       sleepwear: {
-        "silk-pajama-set": {
+        "women-silk-pajama-set": {
           name: "Silk Pajama Set",
           price: "$95",
           description:
@@ -3409,7 +3407,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-pajama-set-600nw-92008067.jpg",
         },
-        "cotton-nightgown": {
+        "women-cotton-nightgown": {
           name: "Cotton Nightgown",
           price: "$40",
           description:
@@ -3417,7 +3415,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-nightgown-600nw-92008067.jpg",
         },
-        "lace-trimmed-robe": {
+        "women-lace-trimmed-robe": {
           name: "Lace Trimmed Robe",
           price: "$55",
           description:
@@ -3425,7 +3423,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-trimmed-robe-600nw-92008067.jpg",
         },
-        "flannel-pajama-set": {
+        "women-flannel-pajama-set": {
           name: "Flannel Pajama Set",
           price: "$60",
           description:
@@ -3433,7 +3431,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flannel-pajama-set-600nw-92008067.jpg",
         },
-        "lace-slip-nightdress": {
+        "women-lace-slip-nightdress": {
           name: "Lace Slip Nightdress",
           price: "$50",
           description:
@@ -3441,7 +3439,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-slip-nightdress-600nw-92008067.jpg",
         },
-        "short-sleeve-pajama-set": {
+        "women-short-sleeve-pajama-set": {
           name: "Short Sleeve Pajama Set",
           price: "$35",
           description:
@@ -3449,7 +3447,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/short-sleeve-pajama-set-600nw-92008067.jpg",
         },
-        "silk-robe": {
+        "women-silk-robe": {
           name: "Silk Robe",
           price: "$85",
           description:
@@ -3457,7 +3455,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-robe-600nw-92008067.jpg",
         },
-        "cotton-sleep-shirt": {
+        "women-cotton-sleep-shirt": {
           name: "Cotton Sleep Shirt",
           price: "$30",
           description:
@@ -3465,7 +3463,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-sleep-shirt-600nw-92008067.jpg",
         },
-        "satin-sleepwear-set": {
+        "women-satin-sleepwear-set": {
           name: "Satin Sleepwear Set",
           price: "$70",
           description:
@@ -3473,7 +3471,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/satin-sleepwear-set-600nw-92008067.jpg",
         },
-        "long-sleeve-pajama-set": {
+        "women-long-sleeve-pajama-set": {
           name: "Long Sleeve Pajama Set",
           price: "$50",
           description:
@@ -3481,14 +3479,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/long-sleeve-pajama-set-600nw-92008067.jpg",
         },
-        "cotton-pajamas": {
+        "women-cotton-pajamas": {
           name: "Cotton Pajamas",
           price: "$30",
           description: "Soft cotton pajamas for comfortable sleep.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "silk-robes": {
+        "women-silk-robes": {
           name: "Silk Robes",
           price: "$85",
           description: "Luxurious silk robes for men.",
@@ -3497,28 +3495,28 @@ export const mockProductData = {
         },
       },
       formal_wear: {
-        "evening-gown": {
+        "women-evening-gown": {
           name: "Evening Gown",
           price: "$200",
           description: "Elegant evening gown for special occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "cardigan-coat": {
+        "women-cardigan-coat": {
           name: "Cardigan Coat",
           price: "$55",
           description: "Soft cardigan coat perfect for layering.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/cardigan-coat-600nw-92008067.jpg",
         },
-        "cocktail-dress": {
+        "women-cocktail-dress": {
           name: "Cocktail Dress",
           price: "$120",
           description: "Stylish cocktail dress perfect for evening parties.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/cocktail-dress-600nw-92008067.jpg",
         },
-        "sheath-dress": {
+        "women-sheath-dress": {
           name: "Sheath Dress",
           price: "$100",
           description:
@@ -3526,7 +3524,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sheath-dress-600nw-92008067.jpg",
         },
-        "ball-gown": {
+        "women-ball-gown": {
           name: "Ball Gown",
           price: "$250",
           description:
@@ -3534,7 +3532,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/ball-gown-600nw-92008067.jpg",
         },
-        "blazer-dress": {
+        "women-blazer-dress": {
           name: "Blazer Dress",
           price: "$110",
           description:
@@ -3542,7 +3540,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/blazer-dress-600nw-92008067.jpg",
         },
-        "lace-dress": {
+        "women-lace-dress": {
           name: "Lace Dress",
           price: "$95",
           description:
@@ -3550,7 +3548,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-dress-600nw-92008067.jpg",
         },
-        "halter-dress": {
+        "women-halter-dress": {
           name: "Halter Dress",
           price: "$85",
           description:
@@ -3560,7 +3558,7 @@ export const mockProductData = {
         },
       },
       activewear: {
-        "sports-bra": {
+        "women-sports-bra": {
           name: "Sports Bra",
           price: "$30",
           description:
@@ -3568,7 +3566,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-bra-600nw-92008067.jpg",
         },
-        "yoga-pants": {
+        "women-yoga-pants": {
           name: "Yoga Pants",
           price: "$45",
           description:
@@ -3576,7 +3574,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/yoga-pants-600nw-92008067.jpg",
         },
-        "athletic-tank-top": {
+        "women-athletic-tank-top": {
           name: "Athletic Tank Top",
           price: "$35",
           description:
@@ -3584,7 +3582,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/athletic-tank-top-600nw-92008067.jpg",
         },
-        "compression-leggings": {
+        "women-compression-leggings": {
           name: "Compression Leggings",
           price: "$60",
           description:
@@ -3592,7 +3590,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/compression-leggings-600nw-92008067.jpg",
         },
-        "zip-up-jacket": {
+        "women-zip-up-jacket": {
           name: "Zip-Up Jacket",
           price: "$70",
           description:
@@ -3600,14 +3598,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/zip-up-jacket-600nw-92008067.jpg",
         },
-        "running-shorts": {
+        "women-running-shorts": {
           name: "Running Shorts",
           price: "$25",
           description: "Comfortable running shorts for enhanced performance.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/running-shorts-600nw-92008067.jpg",
         },
-        "sports-leggings": {
+        "women-sports-leggings": {
           name: "Sports Leggings",
           price: "$50",
           description:
@@ -3615,14 +3613,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-leggings-600nw-92008067.jpg",
         },
-        "workout-t-shirt": {
+        "women-workout-t-shirt": {
           name: "Workout T-Shirt",
           price: "$28",
           description: "Moisture-wicking workout t-shirt for daily training.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/workout-t-shirt-600nw-92008067.jpg",
         },
-        "sports-biker-shorts": {
+        "women-sports-biker-shorts": {
           name: "Sports Biker Shorts",
           price: "$40",
           description:
@@ -3630,7 +3628,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-biker-shorts-600nw-92008067.jpg",
         },
-        "athletic-sweatshirt": {
+        "women-athletic-sweatshirt": {
           name: "Athletic Sweatshirt",
           price: "$65",
           description: "Soft athletic sweatshirt for post-workout comfort.",
@@ -3639,14 +3637,14 @@ export const mockProductData = {
         },
       },
       underwear: {
-        "cotton-briefs": {
+        "women-cotton-briefs": {
           name: "Cotton Briefs",
           price: "$20",
           description: "Soft cotton briefs for everyday comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-briefs-600nw-92008067.jpg",
         },
-        "high-waist-briefs": {
+        "women-high-waist-briefs": {
           name: "High Waist Briefs",
           price: "$25",
           description:
@@ -3654,21 +3652,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waist-briefs-600nw-92008067.jpg",
         },
-        "bikini-briefs": {
+        "women-bikini-briefs": {
           name: "Bikini Briefs",
           price: "$18",
           description: "Comfortable bikini briefs for daily wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bikini-briefs-600nw-92008067.jpg",
         },
-        "silk-panties": {
+        "women-silk-panties": {
           name: "Silk Panties",
           price: "$50",
           description: "Luxurious silk panties for a smooth and soft feel.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-panties-600nw-92008067.jpg",
         },
-        "lace-thong": {
+        "women-lace-thong": {
           name: "Lace Thong",
           price: "$30",
           description: "Sexy lace thong for special occasions.",
@@ -3677,7 +3675,7 @@ export const mockProductData = {
         },
       },
       pants: {
-        "skinny-jeans": {
+        "women-skinny-jeans": {
           name: "Skinny Jeans",
           price: "$40",
           description:
@@ -3685,7 +3683,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/skinny-jeans-example.jpg",
         },
-        "high-waisted-jeans": {
+        "women-high-waisted-jeans": {
           name: "High Waisted Jeans",
           price: "$45",
           description:
@@ -3693,7 +3691,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-jeans-example.jpg",
         },
-        "wide-leg-pants": {
+        "women-wide-leg-pants": {
           name: "Wide Leg Pants",
           price: "$50",
           description:
@@ -3701,7 +3699,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wide-leg-pants-example.jpg",
         },
-        "paperbag-waist": {
+        "women-paperbag-waist": {
           name: "Paperbag Waist Pants",
           price: "$42",
           description:
@@ -3709,7 +3707,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/paperbag-waist-pants-example.jpg",
         },
-        culottes: {
+        "women-culottes": {
           name: "Culottes",
           price: "$38",
           description:
@@ -3717,7 +3715,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/culottes-example.jpg",
         },
-        "palazzo-pants": {
+        "women-palazzo-pants": {
           name: "Palazzo Pants",
           price: "$48",
           description:
@@ -3725,7 +3723,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/palazzo-pants-example.jpg",
         },
-        leggings: {
+        "women-leggings": {
           name: "Leggings",
           price: "$25",
           description:
@@ -3733,7 +3731,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leggings-example.jpg",
         },
-        "cargo-pants": {
+        "women-cargo-pants": {
           name: "Cargo Pants",
           price: "$35",
           description:
@@ -3741,7 +3739,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cargo-pants-example.jpg",
         },
-        "tailored-trousers": {
+        "women-tailored-trousers": {
           name: "Tailored Trousers",
           price: "$55",
           description:
@@ -3749,7 +3747,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tailored-trousers-example.jpg",
         },
-        "jogger-pants": {
+        "women-jogger-pants": {
           name: "Jogger Pants",
           price: "$30",
           description:
@@ -3759,7 +3757,7 @@ export const mockProductData = {
         },
       },
       tops: {
-        "floral-top": {
+        "women-floral-top": {
           name: "Floral Top",
           price: "$30",
           description:
@@ -3767,7 +3765,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "lace-blouse": {
+        "women-lace-blouse": {
           name: "Lace Blouse",
           price: "$45",
           description:
@@ -3775,7 +3773,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-blouse-example.jpg",
         },
-        "crop-tank": {
+        "women-crop-tank": {
           name: "Crop Tank Top",
           price: "$25",
           description:
@@ -3783,7 +3781,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/crop-tank-top-example.jpg",
         },
-        "striped-tshirt": {
+        "women-striped-tshirt": {
           name: "Striped T-Shirt",
           price: "$20",
           description:
@@ -3791,7 +3789,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/striped-tshirt-example.jpg",
         },
-        "peplum-top": {
+        "women-peplum-top": {
           name: "Peplum Top",
           price: "$38",
           description:
@@ -3799,7 +3797,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peplum-top-example.jpg",
         },
-        "bandeau-top": {
+        "women-bandeau-top": {
           name: "Bandeau Top",
           price: "$22",
           description:
@@ -3807,7 +3805,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bandeau-top-example.jpg",
         },
-        "ruffled-top": {
+        "women-ruffled-top": {
           name: "Ruffled Top",
           price: "$32",
           description:
@@ -3815,7 +3813,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/ruffled-top-example.jpg",
         },
-        "sleeveless-jersey": {
+        "women-sleeveless-jersey": {
           name: "Sleeveless Jersey Top",
           price: "$28",
           description:
@@ -3823,7 +3821,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleeveless-jersey-top-example.jpg",
         },
-        "puff-sleeve": {
+        "women-puff-sleeve": {
           name: "Puff Sleeve Top",
           price: "$42",
           description:
@@ -3831,7 +3829,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puff-sleeve-top-example.jpg",
         },
-        "graphic-tee": {
+        "women-graphic-tee": {
           name: "Graphic Tee",
           price: "$18",
           description:
@@ -3839,7 +3837,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/graphic-tee-example.jpg",
         },
-        "v-neck-blouse": {
+        "women-v-neck-blouse": {
           name: "V-Neck Blouse",
           price: "$34",
           description:
@@ -3847,7 +3845,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/v-neck-blouse-example.jpg",
         },
-        "peasant-top": {
+        "women-peasant-top": {
           name: "Peasant Top",
           price: "$26",
           description:
@@ -3855,7 +3853,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peasant-top-example.jpg",
         },
-        "halter-neck": {
+        "women-halter-neck": {
           name: "Halter Neck Top",
           price: "$35",
           description:
@@ -3863,7 +3861,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/halter-neck-top-example.jpg",
         },
-        "off-shoulder-top": {
+        "women-off-shoulder-top": {
           name: "Off Shoulder Top",
           price: "$40",
           description:
@@ -3873,49 +3871,49 @@ export const mockProductData = {
         },
       },
       bras: {
-        "lace-bras": {
+        "women-lace-bras": {
           name: "Lace Bras",
           price: "$25",
           description: "Elegant lace bras for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "mesh-bra": {
+        "women-mesh-bra": {
           name: "Mesh Bra",
           price: "$38",
           description: "Breathable mesh bra with elegant details.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/mesh-bra-600nw-92008067.jpg",
         },
-        "pushup-bra": {
+        "women-pushup-bra": {
           name: "Push-up Bra",
           price: "$35",
           description: "Enhance your curves with this comfortable push-up bra.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "sports-bra": {
+        "women-sports-bra": {
           name: "Sports Bra",
           price: "$40",
           description: "Supportive sports bra for active women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        bralette: {
+        "women-bralette": {
           name: "Bralette",
           price: "$28",
           description: "A stylish and comfortable bralette for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "underwire-bra": {
+        "women-underwire-bra": {
           name: "Underwire Bra",
           price: "$35",
           description: "Supportive underwire bra for all-day comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "nursing-bra": {
+        "women-nursing-bra": {
           name: "Nursing Bra",
           price: "$45",
           description:
@@ -3923,14 +3921,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "plunge-bra": {
+        "women-plunge-bra": {
           name: "Plunge Bra",
           price: "$38",
           description: "Low-cut plunge bra for deep-neck outfits.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "lingerie-bra": {
+        "women-lingerie-bra": {
           name: "Lingerie Bra",
           price: "$50",
           description: "Elegant lingerie bra perfect for special occasions.",
@@ -3939,7 +3937,7 @@ export const mockProductData = {
         },
       },
       outerwear: {
-        "trench-coat": {
+        "women-trench-coat": {
           name: "Trench Coat",
           price: "$130",
           description:
@@ -3947,56 +3945,56 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/trench-coat-600nw-92008067.jpg",
         },
-        "denim-jacket": {
+        "women-denim-jacket": {
           name: "Denim Jacket",
           price: "$85",
           description: "Classic denim jacket for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/denim-jacket-600nw-92008067.jpg",
         },
-        "puffer-jacket": {
+        "women-puffer-jacket": {
           name: "Puffer Jacket",
           price: "$100",
           description: "Warm and cozy puffer jacket for cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/puffer-jacket-600nw-92008067.jpg",
         },
-        "wool-coat": {
+        "women-wool-coat": {
           name: "Wool Coat",
           price: "$180",
           description: "Luxurious wool coat for formal and casual events.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/wool-coat-600nw-92008067.jpg",
         },
-        "bomber-jacket": {
+        "women-bomber-jacket": {
           name: "Bomber Jacket",
           price: "$75",
           description: "Cool and trendy bomber jacket for a casual look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bomber-jacket-600nw-92008067.jpg",
         },
-        peacoat: {
+        "women-peacoat": {
           name: "Peacoat",
           price: "$140",
           description: "Classic peacoat for timeless style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/peacoat-600nw-92008067.jpg",
         },
-        "faux-fur-coat": {
+        "women-faux-fur-coat": {
           name: "Faux Fur Coat",
           price: "$130",
           description: "Luxurious faux fur coat for a glamorous look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/faux-fur-coat-600nw-92008067.jpg",
         },
-        raincoat: {
+        "women-raincoat": {
           name: "Raincoat",
           price: "$60",
           description: "Functional raincoat to keep you dry in wet weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/raincoat-600nw-92008067.jpg",
         },
-        parka: {
+        "women-parka": {
           name: "Parka",
           price: "$110",
           description:
@@ -4004,7 +4002,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/parka-example.jpg",
         },
-        windbreaker: {
+        "women-windbreaker": {
           name: "Windbreaker",
           price: "$40",
           description:
@@ -4012,7 +4010,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
         },
-        "leather-jacket": {
+        "women-leather-jacket": {
           name: "Leather Jacket",
           price: "$150",
           description: "Classic leather jacket for women.",
@@ -4021,70 +4019,70 @@ export const mockProductData = {
         },
       },
       swimwear: {
-        "bikini-set": {
+        "women-bikini-set": {
           name: "Bikini Set",
           price: "$40",
           description: "Stylish bikini set for the beach or pool.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bikini-set-600nw-92008067.jpg",
         },
-        "one-piece-swimsuit": {
+        "women-one-piece-swimsuit": {
           name: "One-Piece Swimsuit",
           price: "$60",
           description: "Elegant one-piece swimsuit with flattering design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/one-piece-swimsuit-600nw-92008067.jpg",
         },
-        "high-waisted-bikini": {
+        "women-high-waisted-bikini": {
           name: "High-Waisted Bikini",
           price: "$50",
           description: "Retro-inspired high-waisted bikini for extra coverage.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-bikini-600nw-92008067.jpg",
         },
-        tankini: {
+        "women-tankini": {
           name: "Tankini",
           price: "$45",
           description: "Comfortable tankini top with matching bottoms.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/tankini-600nw-92008067.jpg",
         },
-        "swim-dress": {
+        "women-swim-dress": {
           name: "Swim Dress",
           price: "$70",
           description: "Flattering swim dress with built-in support.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-dress-600nw-92008067.jpg",
         },
-        "cover-up": {
+        "women-cover-up": {
           name: "Swim Cover-Up",
           price: "$30",
           description: "Lightweight swim cover-up for sun protection.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-cover-up-600nw-92008067.jpg",
         },
-        "sport-swimsuit": {
+        "women-sport-swimsuit": {
           name: "Sport Swimsuit",
           price: "$55",
           description: "Performance swimsuit for active beach days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-swimsuit-600nw-92008067.jpg",
         },
-        "strapless-bikini": {
+        "women-strapless-bikini": {
           name: "Strapless Bikini",
           price: "$35",
           description: "Strapless bikini with supportive structure.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/strapless-bikini-600nw-92008067.jpg",
         },
-        monokini: {
+        "women-monokini": {
           name: "Monokini",
           price: "$80",
           description: "Sexy monokini with cutout details.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/monokini-600nw-92008067.jpg",
         },
-        "swim-shorts": {
+        "women-swim-shorts": {
           name: "Swim Shorts",
           price: "$25",
           description: "Comfortable swim shorts for active swimmers.",
@@ -4095,21 +4093,21 @@ export const mockProductData = {
     },
     accessories: {
       necklaces_and_braceslets: {
-        "gold-necklace": {
+        "women-gold-necklace": {
           name: "Gold Necklace",
           price: "$120",
           description: "Elegant gold necklace for special occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-necklace-600nw-92008067.jpg",
         },
-        "silver-necklace": {
+        "women-silver-necklace": {
           name: "Silver Necklace",
           price: "$80",
           description: "Stylish silver necklace for daily wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-necklace-600nw-92008067.jpg",
         },
-        "gold-chain-necklace": {
+        "women-gold-chain-necklace": {
           name: "Gold Chain Necklace",
           price: "$85",
           description:
@@ -4117,7 +4115,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
         },
-        "choker-necklace": {
+        "women-choker-necklace": {
           name: "Choker Necklace",
           price: "$50",
           description:
@@ -4125,7 +4123,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/choker-necklace-example.jpg",
         },
-        "statement-necklace": {
+        "women-statement-necklace": {
           name: "Statement Necklace",
           price: "$60",
           description:
@@ -4133,42 +4131,42 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/statement-necklace-example.jpg",
         },
-        "pearl-necklace": {
+        "women-pearl-necklace": {
           name: "Pearl Necklace",
           price: "$150",
           description: "Classic pearl necklace for formal events.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/pearl-necklace-600nw-92008067.jpg",
         },
-        "heart-necklace": {
+        "women-heart-necklace": {
           name: "Heart Necklace",
           price: "$35",
           description: "Cute heart-shaped necklace for romantic moments.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/heart-necklace-600nw-92008067.jpg",
         },
-        "diamond-necklace": {
+        "women-diamond-necklace": {
           name: "Diamond Necklace",
           price: "$250",
           description: "Luxury diamond necklace for special occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/diamond-necklace-600nw-92008067.jpg",
         },
-        "silver-bracelet": {
+        "women-silver-bracelet": {
           name: "Silver Bracelet",
           price: "$60",
           description: "Sleek silver bracelet for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-bracelet-600nw-92008067.jpg",
         },
-        "gold-bracelet": {
+        "women-gold-bracelet": {
           name: "Gold Bracelet",
           price: "$130",
           description: "Luxury gold bracelet for elegant evenings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-bracelet-600nw-92008067.jpg",
         },
-        "chain-bracelet": {
+        "women-chain-bracelet": {
           name: "Chain Bracelet",
           price: "$45",
           description:
@@ -4176,28 +4174,28 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
         },
-        "bangle-bracelet": {
+        "women-bangle-bracelet": {
           name: "Bangle Bracelet",
           price: "$50",
           description: "Classic bangle bracelet for a chic look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bangle-bracelet-600nw-92008067.jpg",
         },
-        "beaded-bracelet": {
+        "women-beaded-bracelet": {
           name: "Beaded Bracelet",
           price: "$25",
           description: "Fun and colorful beaded bracelet for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/beaded-bracelet-600nw-92008067.jpg",
         },
-        "gemstone-bracelet": {
+        "women-gemstone-bracelet": {
           name: "Gemstone Bracelet",
           price: "$75",
           description: "Beautiful gemstone bracelet for a pop of color.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gemstone-bracelet-600nw-92008067.jpg",
         },
-        "cuff-bracelet": {
+        "women-cuff-bracelet": {
           name: "Cuff Bracelet",
           price: "$40",
           description: "Bold cuff bracelet for a fashion-forward look.",
@@ -4206,63 +4204,63 @@ export const mockProductData = {
         },
       },
       sunglasses: {
-        "round-sunglasses": {
+        "women-round-sunglasses": {
           name: "Round Sunglasses",
           price: "$45",
           description: "Trendy round sunglasses for a stylish look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/round-sunglasses-600nw-92008067.jpg",
         },
-        "aviator-sunglasses": {
+        "women-aviator-sunglasses": {
           name: "Aviator Sunglasses",
           price: "$60",
           description: "Classic aviator sunglasses for a cool vibe.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/aviator-sunglasses-600nw-92008067.jpg",
         },
-        "cat-eye-sunglasses": {
+        "women-cat-eye-sunglasses": {
           name: "Cat Eye Sunglasses",
           price: "$50",
           description: "Chic cat-eye sunglasses for a vintage look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/cat-eye-sunglasses-600nw-92008067.jpg",
         },
-        "oversized-sunglasses": {
+        "women-oversized-sunglasses": {
           name: "Oversized Sunglasses",
           price: "$70",
           description: "Elegant oversized sunglasses for a bold style.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/oversized-sunglasses-600nw-92008067.jpg",
         },
-        "square-sunglasses": {
+        "women-square-sunglasses": {
           name: "Square Sunglasses",
           price: "$55",
           description: "Modern square sunglasses for a fashionable look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/square-sunglasses-600nw-92008067.jpg",
         },
-        "polarized-sunglasses": {
+        "women-polarized-sunglasses": {
           name: "Polarized Sunglasses",
           price: "$80",
           description: "Premium polarized sunglasses for clear vision.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/polarized-sunglasses-600nw-92008067.jpg",
         },
-        "color-block-sunglasses": {
+        "women-color-block-sunglasses": {
           name: "Color Block Sunglasses",
           price: "$65",
           description: "Trendy color-block sunglasses for a fun look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/color-block-sunglasses-600nw-92008067.jpg",
         },
-        "gradient-sunglasses": {
+        "women-gradient-sunglasses": {
           name: "Gradient Sunglasses",
           price: "$75",
           description: "Stylish gradient sunglasses for a sleek effect.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gradient-sunglasses-600nw-92008067.jpg",
         },
-        "round-metal-sunglasses": {
+        "women-round-metal-sunglasses": {
           name: "Round Metal Sunglasses",
           price: "$65",
           description:
@@ -4270,7 +4268,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/round-metal-sunglasses-600nw-92008067.jpg",
         },
-        "chic-sunglasses": {
+        "women-chic-sunglasses": {
           name: "Chic Sunglasses",
           price: "$60",
           description: "Sophisticated chic sunglasses for everyday wear.",
@@ -4279,56 +4277,56 @@ export const mockProductData = {
         },
       },
       watches: {
-        "luxury-watch": {
+        "women-luxury-watch": {
           name: "Luxury Watch",
           price: "$120",
           description: "Elegant and luxurious watch for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "sport-watch": {
+        "women-sport-watch": {
           name: "Sport Watch",
           price: "$80",
           description: "Sporty watch with a durable design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "classic-watch": {
+        "women-classic-watch": {
           name: "Classic Watch",
           price: "$120",
           description: "Elegant and timeless classic watch for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-watch-600nw-92008067.jpg",
         },
-        "gold-watch": {
+        "women-gold-watch": {
           name: "Gold Watch",
           price: "$250",
           description: "Sophisticated gold watch perfect for formal occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-watch-600nw-92008067.jpg",
         },
-        "silver-watch": {
+        "women-silver-watch": {
           name: "Silver Watch",
           price: "$180",
           description: "Chic silver watch with a polished finish.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-watch-600nw-92008067.jpg",
         },
-        "leather-strap-watch": {
+        "women-leather-strap-watch": {
           name: "Leather Strap Watch",
           price: "$110",
           description: "Stylish leather strap watch with a minimalist design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-strap-watch-600nw-92008067.jpg",
         },
-        "diamond-watch": {
+        "women-diamond-watch": {
           name: "Diamond Watch",
           price: "$500",
           description: "Luxurious diamond-studded watch for special occasions.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/diamond-watch-600nw-92008067.jpg",
         },
-        "fitness-watch": {
+        "women-fitness-watch": {
           name: "Fitness Watch",
           price: "$95",
           description:
@@ -4336,21 +4334,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/fitness-watch-600nw-92008067.jpg",
         },
-        "minimalist-watch": {
+        "women-minimalist-watch": {
           name: "Minimalist Watch",
           price: "$75",
           description: "Sleek and simple minimalist watch for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-watch-600nw-92008067.jpg",
         },
-        "vintage-watch": {
+        "women-vintage-watch": {
           name: "Vintage Watch",
           price: "$150",
           description: "Vintage-inspired watch with a retro design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-watch-600nw-92008067.jpg",
         },
-        "rose-gold-watch": {
+        "women-rose-gold-watch": {
           name: "Rose Gold Watch",
           price: "$220",
           description: "Elegant rose gold watch with a refined design.",
@@ -4359,28 +4357,28 @@ export const mockProductData = {
         },
       },
       wallets: {
-        "leather-wallet": {
+        "women-leather-wallet": {
           name: "Leather Wallet",
           price: "$60",
           description: "Premium leather wallet for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "clutch-wallet": {
+        "women-clutch-wallet": {
           name: "Clutch Wallet",
           price: "$50",
           description: "Elegant clutch wallet for evening outings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "zip-around-wallet": {
+        "women-zip-around-wallet": {
           name: "Zip-Around Wallet",
           price: "$40",
           description: "Stylish zip-around wallet with plenty of space.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/zip-around-wallet-600nw-92008067.jpg",
         },
-        "cardholder-wallet": {
+        "women-cardholder-wallet": {
           name: "Cardholder Wallet",
           price: "$30",
           description:
@@ -4388,14 +4386,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cardholder-wallet-600nw-92008067.jpg",
         },
-        "coin-wallet": {
+        "women-coin-wallet": {
           name: "Coin Wallet",
           price: "$25",
           description: "Practical and small wallet designed for coins.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/coin-wallet-600nw-92008067.jpg",
         },
-        "wristlet-wallet": {
+        "women-wristlet-wallet": {
           name: "Wristlet Wallet",
           price: "$55",
           description:
@@ -4403,14 +4401,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wristlet-wallet-600nw-92008067.jpg",
         },
-        "fold-over-wallet": {
+        "women-fold-over-wallet": {
           name: "Fold-Over Wallet",
           price: "$50",
           description: "Fashionable fold-over wallet with sleek design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/fold-over-wallet-600nw-92008067.jpg",
         },
-        "checkbook-wallet": {
+        "women-checkbook-wallet": {
           name: "Checkbook Wallet",
           price: "$45",
           description:
@@ -4418,14 +4416,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/checkbook-wallet-600nw-92008067.jpg",
         },
-        "chain-wallet": {
+        "women-chain-wallet": {
           name: "Chain Wallet",
           price: "$75",
           description: "Fashion-forward chain wallet for a stylish touch.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/chain-wallet-600nw-92008067.jpg",
         },
-        "card-case-wallet": {
+        "women-card-case-wallet": {
           name: "Card Case Wallet",
           price: "$20",
           description: "Sleek and compact card case for minimalists.",
@@ -4434,28 +4432,28 @@ export const mockProductData = {
         },
       },
       scarves: {
-        "cashmere-scarf": {
+        "women-cashmere-scarf": {
           name: "Cashmere Scarf",
           price: "$70",
           description: "Soft cashmere scarf for the cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "silk-scarf": {
+        "women-silk-scarf": {
           name: "Silk Scarf",
           price: "$45",
           description: "Luxurious silk scarf for elegant wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "chiffon-scarf": {
+        "women-chiffon-scarf": {
           name: "Chiffon Scarf",
           price: "$40",
           description: "Light and airy chiffon scarf, perfect for layering.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/chiffon-scarf-600nw-92008067.jpg",
         },
-        "floral-scarf": {
+        "women-floral-scarf": {
           name: "Floral Scarf",
           price: "$35",
           description:
@@ -4463,21 +4461,21 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/floral-scarf-600nw-92008067.jpg",
         },
-        "animal-print-scarf": {
+        "women-animal-print-scarf": {
           name: "Animal Print Scarf",
           price: "$50",
           description: "Bold animal print scarf for a stylish statement.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/animal-print-scarf-600nw-92008067.jpg",
         },
-        "knitted-scarf": {
+        "women-knitted-scarf": {
           name: "Knitted Scarf",
           price: "$25",
           description: "Cozy knitted scarf for casual wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/knitted-scarf-600nw-92008067.jpg",
         },
-        "pashmina-scarf": {
+        "women-pashmina-scarf": {
           name: "Pashmina Scarf",
           price: "$70",
           description: "Luxurious pashmina scarf for an elegant touch.",
@@ -4486,42 +4484,42 @@ export const mockProductData = {
         },
       },
       belts: {
-        "leather-belt": {
+        "women-leather-belt": {
           name: "Leather Belt",
           price: "$40",
           description: "Elegant leather belt for a stylish look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-belt-600nw-92008067.jpg",
         },
-        "skinny-belt": {
+        "women-skinny-belt": {
           name: "Skinny Belt",
           price: "$25",
           description: "Slim and chic skinny belt for waist definition.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/skinny-belt-600nw-92008067.jpg",
         },
-        "wide-belt": {
+        "women-wide-belt": {
           name: "Wide Belt",
           price: "$35",
           description: "Statement wide belt for a bold look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/wide-belt-600nw-92008067.jpg",
         },
-        "chain-belt": {
+        "women-chain-belt": {
           name: "Chain Belt",
           price: "$55",
           description: "Stylish chain belt for a trendy and chic touch.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/chain-belt-600nw-92008067.jpg",
         },
-        "braided-belt": {
+        "women-braided-belt": {
           name: "Braided Belt",
           price: "$30",
           description: "Casual braided belt for a laid-back look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/braided-belt-600nw-92008067.jpg",
         },
-        "reversible-belt": {
+        "women-reversible-belt": {
           name: "Reversible Belt",
           price: "$50",
           description:
@@ -4529,7 +4527,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/reversible-belt-600nw-92008067.jpg",
         },
-        "cummerbund-belt": {
+        "women-cummerbund-belt": {
           name: "Cummerbund Belt",
           price: "$60",
           description: "Elegant cummerbund-style belt for formal events.",
@@ -4538,49 +4536,49 @@ export const mockProductData = {
         },
       },
       bags: {
-        handbag: {
+        "women-simply-black-handbag": {
           name: "Handbag",
           price: "$120",
           description: "Elegant leather handbag for stylish looks.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/elegant-handbag-600nw-92008067.jpg",
         },
-        "tote-bag": {
+        "women-tote-bag": {
           name: "Tote Bag",
           price: "$80",
           description: "Spacious and stylish tote bag for everyday use.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "clutch-bag": {
+        "women-clutch-bag": {
           name: "Clutch Bag",
           price: "$65",
           description: "Elegant clutch bag for evening events.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "shoulder-bag": {
+        "women-shoulder-bag": {
           name: "Shoulder Bag",
           price: "$70",
           description: "Comfortable shoulder bag for casual outings.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/shoulder-bag-600nw-92008067.jpg",
         },
-        backpack: {
+        "women-fashionable-backpack": {
           name: "Fashion Backpack",
           price: "$95",
           description: "Trendy backpack with a modern design.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/fashion-backpack-600nw-92008067.jpg",
         },
-        "crossbody-bag": {
+        "women-crossbody-bag": {
           name: "Crossbody Bag",
           price: "$60",
           description: "Versatile crossbody bag for hands-free convenience.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/crossbody-bag-600nw-92008067.jpg",
         },
-        "canvas-bag": {
+        "women-canvas-bag": {
           name: "Canvas Bag",
           price: "$40",
           description:
@@ -4590,49 +4588,49 @@ export const mockProductData = {
         },
       },
       hats: {
-        "fedora-hat": {
+        "women-fedora-hat": {
           name: "Fedora Hat",
           price: "$50",
           description: "Stylish fedora hat for a chic look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/fedora-hat-600nw-92008067.jpg",
         },
-        "sun-hat": {
+        "women-sun-hat": {
           name: "Sun Hat",
           price: "$40",
           description: "Wide-brimmed sun hat to protect from the sun.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sun-hat-600nw-92008067.jpg",
         },
-        beret: {
+        "women-elegant-beret": {
           name: "Beret",
           price: "$30",
           description: "Elegant beret for a sophisticated touch.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/beret-600nw-92008067.jpg",
         },
-        beanie: {
-          name: "Beanie",
+        "women-wool-beanie": {
+          name: "Wool Beanie",
           price: "$25",
           description: "Cozy beanie for cold weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/beanie-600nw-92008067.jpg",
         },
-        "bucket-hat": {
+        "women-bucket-hat": {
           name: "Bucket Hat",
           price: "$35",
           description: "Casual bucket hat for sunny days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bucket-hat-600nw-92008067.jpg",
         },
-        "cloche-hat": {
+        "women-cloche-hat": {
           name: "Cloche Hat",
           price: "$60",
           description: "Vintage-inspired cloche hat for a unique look.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/cloche-hat-600nw-92008067.jpg",
         },
-        "wide-brim-hat": {
+        "women-wide-brim-hat": {
           name: "Wide Brim Hat",
           price: "$75",
           description: "Elegant wide-brimmed hat for a fashion-forward style.",
@@ -4645,7 +4643,7 @@ export const mockProductData = {
   kids: {
     shoes: {
       formal: {
-        "classic-buckle-shoes": {
+        "kids-classic-buckle-shoes": {
           name: "Classic Buckle Shoes",
           price: "$35",
           description:
@@ -4653,7 +4651,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-buckle-shoes-kids.jpg",
         },
-        "sparkle-formal-shoes": {
+        "kids-sparkle-formal-shoes": {
           name: "Sparkle Formal Shoes",
           price: "$38",
           description:
@@ -4661,7 +4659,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sparkle-formal-shoes-kids.jpg",
         },
-        "mini-loafers": {
+        "kids-mini-loafers": {
           name: "Mini Loafers",
           price: "$32",
           description:
@@ -4669,7 +4667,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/mini-loafers-kids.jpg",
         },
-        "elegant-derby-shoes": {
+        "kids-elegant-derby-shoes": {
           name: "Elegant Derby Shoes",
           price: "$42",
           description:
@@ -4677,7 +4675,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/elegant-derby-shoes-kids.jpg",
         },
-        "mini-mary-janes": {
+        "kids-mini-mary-janes": {
           name: "Mini Mary Janes",
           price: "$37",
           description:
@@ -4685,7 +4683,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/mini-mary-janes-kids.jpg",
         },
-        "refined-moccasins": {
+        "kids-refined-moccasins": {
           name: "Refined Moccasins",
           price: "$39",
           description:
@@ -4693,7 +4691,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/refined-moccasins-kids.jpg",
         },
-        "classic-brogues-kids": {
+        "kids-classic-brogues-kids": {
           name: "Classic Brogues",
           price: "$44",
           description:
@@ -4701,7 +4699,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-brogues-kids.jpg",
         },
-        "polished-dress-shoes": {
+        "kids-polished-dress-shoes": {
           name: "Polished Dress Shoes",
           price: "$41",
           description:
@@ -4709,7 +4707,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/polished-dress-shoes-kids.jpg",
         },
-        "sleek-formal-sneakers": {
+        "kids-sleek-formal-sneakers": {
           name: "Sleek Formal Sneakers",
           price: "$38",
           description:
@@ -4717,7 +4715,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleek-formal-sneakers-kids.jpg",
         },
-        "tuxedo-kids-shoes": {
+        "kids-tuxedo-kids-shoes": {
           name: "Tuxedo Shoes",
           price: "$46",
           description:
@@ -4725,7 +4723,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tuxedo-kids-shoes.jpg",
         },
-        "vintage-formal-kids": {
+        "kids-vintage-formal-kids": {
           name: "Vintage Formal Shoes",
           price: "$40",
           description:
@@ -4733,7 +4731,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-formal-kids-shoes.jpg",
         },
-        "royal-formal-kids": {
+        "kids-royal-formal-kids": {
           name: "Royal Formal Shoes",
           price: "$48",
           description:
@@ -4741,7 +4739,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/royal-formal-kids-shoes.jpg",
         },
-        "smart-dress-shoes": {
+        "kids-smart-dress-shoes": {
           name: "Smart Dress Shoes",
           price: "$43",
           description:
@@ -4749,7 +4747,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/smart-dress-shoes-kids.jpg",
         },
-        "polished-oxfords-shoes": {
+        "kids-polished-oxfords-shoes": {
           name: "Oxford Shoes",
           price: "$55",
           description:
@@ -4757,7 +4755,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/oxford-shoes-600nw-92008067.jpg",
         },
-        "tan-dress-shoes": {
+        "kids-tan-dress-shoes": {
           name: "Tan Dress Shoes",
           price: "$40",
           description:
@@ -4765,7 +4763,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tan-dress-shoes-600nw-92008067.jpg",
         },
-        "leather-dress-shoes": {
+        "kids-leather-dress-shoes": {
           name: "Leather Dress Shoes",
           price: "$65",
           description:
@@ -4775,14 +4773,14 @@ export const mockProductData = {
         },
       },
       sandals: {
-        "summer-sandals": {
+        "kids-summer-sandals": {
           name: "Summer Sandals",
           price: "$25",
           description: "Cool and comfortable sandals perfect for summer days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/summer-sandals-600nw-92008067.jpg",
         },
-        "flip-flops": {
+        "kids-flip-flops": {
           name: "Flip Flops",
           price: "$10",
           description:
@@ -4790,7 +4788,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flip-flops-600nw-92008067.jpg",
         },
-        "closed-toe-sandals": {
+        "kids-closed-toe-sandals": {
           name: "Closed Toe Sandals",
           price: "$30",
           description:
@@ -4798,7 +4796,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/closed-toe-sandals-600nw-92008067.jpg",
         },
-        "velcro-sandals": {
+        "kids-velcro-sandals": {
           name: "Velcro Sandals",
           price: "$28",
           description:
@@ -4806,7 +4804,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/velcro-sandals-600nw-92008067.jpg",
         },
-        "sport-sandals": {
+        "kids-sport-sandals": {
           name: "Sport Sandals",
           price: "$35",
           description:
@@ -4816,7 +4814,7 @@ export const mockProductData = {
         },
       },
       boots: {
-        "snow-boots": {
+        "kids-snow-boots": {
           name: "Snow Boots",
           price: "$45",
           description:
@@ -4824,7 +4822,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/snow-boots-600nw-92008067.jpg",
         },
-        "classic-leather-boots": {
+        "kids-classic-leather-boots": {
           name: "Classic Leather Boots",
           price: "$40",
           description:
@@ -4832,7 +4830,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-leather-boots-kids.jpg",
         },
-        "insulated-winter-boots": {
+        "kids-insulated-winter-boots": {
           name: "Insulated Winter Boots",
           price: "$45",
           description:
@@ -4840,7 +4838,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/insulated-winter-boots-kids.jpg",
         },
-        "rain-boots": {
+        "kids-rain-boots": {
           name: "Rain Boots",
           price: "$30",
           description:
@@ -4848,7 +4846,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/rain-boots-kids.jpg",
         },
-        "suede-ankle-boots": {
+        "kids-suede-ankle-boots": {
           name: "Suede Ankle Boots",
           price: "$35",
           description:
@@ -4856,7 +4854,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/suede-ankle-boots-kids.jpg",
         },
-        "fuzzy-booties": {
+        "kids-fuzzy-booties": {
           name: "Fuzzy Booties",
           price: "$25",
           description:
@@ -4864,7 +4862,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/fuzzy-booties-kids.jpg",
         },
-        "velcro-sneaker-boots": {
+        "kids-velcro-sneaker-boots": {
           name: "Velcro Sneaker Boots",
           price: "$38",
           description:
@@ -4872,14 +4870,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/velcro-sneaker-boots-kids.jpg",
         },
-        "combat-boots": {
+        "kids-combat-boots": {
           name: "Combat Boots",
           price: "$55",
           description: "Trendy combat boots for the adventurous kid.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/combat-boots-for-kids-600nw-92008067.jpg",
         },
-        "chelsea-boots": {
+        "kids-chelsea-boots": {
           name: "Chelsea Boots",
           price: "$50",
           description:
@@ -4887,7 +4885,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chelsea-boots-600nw-92008067.jpg",
         },
-        "hiking-boots": {
+        "kids-hiking-boots": {
           name: "Hiking Boots",
           price: "$60",
           description: "Durable hiking boots, perfect for young adventurers.",
@@ -4896,7 +4894,7 @@ export const mockProductData = {
         },
       },
       sneakers: {
-        "classic-canvas-sneakers": {
+        "kids-classic-canvas-sneakers": {
           name: "Classic Canvas Sneakers",
           price: "$30",
           description:
@@ -4904,7 +4902,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-canvas-sneakers-kids.jpg",
         },
-        "sporty-runner-sneakers": {
+        "kids-sporty-runner-sneakers": {
           name: "Sporty Runner Sneakers",
           price: "$35",
           description:
@@ -4912,7 +4910,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sporty-runner-sneakers-kids.jpg",
         },
-        "high-top-sneakers": {
+        "kids-high-top-sneakers": {
           name: "High Top Sneakers",
           price: "$40",
           description:
@@ -4920,7 +4918,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-top-sneakers-kids.jpg",
         },
-        "velcro-fastening-sneakers": {
+        "kids-velcro-fastening-sneakers": {
           name: "Velcro Fastening Sneakers",
           price: "$32",
           description:
@@ -4928,7 +4926,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/velcro-fastening-sneakers-kids.jpg",
         },
-        "colorful-pattern-sneakers": {
+        "kids-colorful-pattern-sneakers": {
           name: "Colorful Pattern Sneakers",
           price: "$33",
           description:
@@ -4936,7 +4934,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/colorful-pattern-sneakers-kids.jpg",
         },
-        "eco-friendly-sneakers": {
+        "kids-eco-friendly-sneakers": {
           name: "Eco-Friendly Sneakers",
           price: "$38",
           description:
@@ -4944,7 +4942,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/eco-friendly-sneakers-kids.jpg",
         },
-        "water-resistant-sneakers": {
+        "kids-water-resistant-sneakers": {
           name: "Water Resistant Sneakers",
           price: "$39",
           description:
@@ -4952,7 +4950,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/water-resistant-sneakers-kids.jpg",
         },
-        "retro-inspired-sneakers": {
+        "kids-retro-inspired-sneakers": {
           name: "Retro Inspired Sneakers",
           price: "$39",
           description:
@@ -4960,7 +4958,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/retro-inspired-sneakers-kids.jpg",
         },
-        "mesh-breathable-sneakers": {
+        "kids-mesh-breathable-sneakers": {
           name: "Mesh Breathable Sneakers",
           price: "$34",
           description:
@@ -4968,7 +4966,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/mesh-breathable-sneakers-kids.jpg",
         },
-        "light-up-sneakers": {
+        "kids-light-up-sneakers": {
           name: "Light-Up Sneakers",
           price: "$60",
           description: "Fun and vibrant sneakers with light-up soles.",
@@ -4979,7 +4977,7 @@ export const mockProductData = {
     },
     clothing: {
       formal_wear: {
-        "boys-suit": {
+        "kids-boys-suit": {
           name: "Boys Suit",
           price: "$80",
           description:
@@ -4987,7 +4985,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/boys-suit-600nw-92008067.jpg",
         },
-        "girls-dress": {
+        "kids-girls-dress": {
           name: "Girls Formal Dress",
           price: "$75",
           description:
@@ -4995,7 +4993,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/girls-formal-dress-600nw-92008067.jpg",
         },
-        "boys-dress-shirt": {
+        "kids-boys-dress-shirt": {
           name: "Boys Dress Shirt",
           price: "$25",
           description:
@@ -5003,7 +5001,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/boys-dress-shirt-600nw-92008067.jpg",
         },
-        "girls-formal-jacket": {
+        "kids-girls-formal-jacket": {
           name: "Girls Formal Jacket",
           price: "$40",
           description:
@@ -5011,14 +5009,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/girls-formal-jacket-600nw-92008067.jpg",
         },
-        "boys-formal-pants": {
+        "kids-boys-formal-pants": {
           name: "Boys Formal Pants",
           price: "$30",
           description: "Sharp and tailored formal pants for boys.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/boys-formal-pants-600nw-92008067.jpg",
         },
-        "girls-formal-shoes": {
+        "kids-girls-formal-shoes": {
           name: "Girls Formal Shoes",
           price: "$50",
           description:
@@ -5026,7 +5024,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/girls-formal-shoes-600nw-92008067.jpg",
         },
-        "boys-tuxedo": {
+        "kids-boys-tuxedo": {
           name: "Boys Tuxedo",
           price: "$120",
           description:
@@ -5036,28 +5034,28 @@ export const mockProductData = {
         },
       },
       activewear: {
-        "gym-t-shirt": {
+        "kids-gym-t-shirt": {
           name: "Gym T-Shirt",
           price: "$20",
           description: "Comfortable gym t-shirt for active kids.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        "kids-gym-shorts": {
+        "kids-kids-gym-shorts": {
           name: "Kids Gym Shorts",
           price: "$18",
           description: "Comfortable gym shorts for active kids.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-gym-shorts-600nw-92008067.jpg",
         },
-        "active-t-shirt": {
+        "kids-active-t-shirt": {
           name: "Active T-Shirt",
           price: "$20",
           description: "Breathable t-shirt perfect for running and play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/active-t-shirt-600nw-92008067.jpg",
         },
-        "kids-tracksuit": {
+        "kids-kids-tracksuit": {
           name: "Kids Tracksuit",
           price: "$40",
           description:
@@ -5065,14 +5063,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-tracksuit-600nw-92008067.jpg",
         },
-        "sport-jacket": {
+        "kids-sport-jacket": {
           name: "Sport Jacket",
           price: "$35",
           description: "Windproof jacket for active outdoor play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-jacket-600nw-92008067.jpg",
         },
-        "athletic-pants": {
+        "kids-athletic-pants": {
           name: "Athletic Pants",
           price: "$25",
           description:
@@ -5080,7 +5078,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/athletic-pants-600nw-92008067.jpg",
         },
-        "track-pants": {
+        "kids-track-pants": {
           name: "Track Pants",
           price: "$25",
           description: "Stretchable track pants for sports activities.",
@@ -5097,42 +5095,42 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-pajama-set-600nw-92008067.jpg",
         },
-        "flannel-pajamas": {
+        "kids-flannel-pajamas": {
           name: "Flannel Pajamas",
           price: "$35",
           description: "Warm and cozy flannel pajamas for winter nights.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/flannel-pajamas-600nw-92008067.jpg",
         },
-        "sleeping-bag": {
+        "kids-sleeping-bag": {
           name: "Sleeping Bag",
           price: "$50",
           description: "Comfy sleeping bag perfect for sleepovers and camping.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleeping-bag-600nw-92008067.jpg",
         },
-        "princess-nightgown": {
+        "kids-princess-nightgown": {
           name: "Princess Nightgown",
           price: "$25",
           description: "Cute nightgown for girls who love princess themes.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/princess-nightgown-600nw-92008067.jpg",
         },
-        "superhero-pajamas": {
+        "kids-superhero-pajamas": {
           name: "Superhero Pajamas",
           price: "$30",
           description: "Superhero-themed pajamas for little heroes.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/superhero-pajamas-600nw-92008067.jpg",
         },
-        "boys-pajama-bottoms": {
+        "kids-boys-pajama-bottoms": {
           name: "Boys Pajama Bottoms",
           price: "$18",
           description: "Soft and stretchy pajama bottoms for boys.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/boys-pajama-bottoms-600nw-92008067.jpg",
         },
-        "girls-pajama-set": {
+        "kids-girls-pajama-set": {
           name: "Girls Pajama Set",
           price: "$32",
           description: "Adorable pajama set for girls, perfect for bedtime.",
@@ -5141,15 +5139,15 @@ export const mockProductData = {
         },
       },
       pants: {
-        jeans: {
-          name: "Jeans",
+        "kids-skinny-jeans": {
+          name: "Skinny Jeans",
           price: "$25",
           description: "Durable jeans for active kids.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        leggings: {
-          name: "Leggings",
+        "kids-fleece-leggings": {
+          name: "Fleece Leggings",
           price: "$20",
           description: "Stretchy leggings for comfort and flexibility.",
           imageSrc:
@@ -5172,7 +5170,7 @@ export const mockProductData = {
         },
       },
       tops: {
-        "t-shirt": {
+        "kids-t-shirt": {
           name: "T-Shirt",
           price: "$15",
           description: "Soft cotton t-shirt for everyday wear.",
@@ -5196,7 +5194,7 @@ export const mockProductData = {
         },
       },
       outerwear: {
-        "winter-jacket": {
+        "kids-winter-jacket": {
           name: "Winter Jacket",
           price: "$70",
           description: "Warm winter jacket to keep kids cozy.",
@@ -5210,14 +5208,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-vest-600nw-92008067.jpg",
         },
-        hoodie: {
-          name: "Hoodie",
+        "kids-cotton-hoodie": {
+          name: "Cotton Hoodie",
           price: "$35",
           description: "Cozy hoodie for chilly weather.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
         },
-        raincoat: {
+        "kids-raincoat": {
           name: "Raincoat",
           price: "$45",
           description: "Colorful raincoat for rainy days.",
@@ -5288,7 +5286,7 @@ export const mockProductData = {
     },
     accessories: {
       necklaces_and_braceslets: {
-        "beaded-necklace": {
+        "kids-beaded-necklace": {
           name: "Beaded Necklace",
           price: "$15",
           description: "Colorful beaded necklace for kids.",
@@ -5325,33 +5323,12 @@ export const mockProductData = {
         },
       },
       sunglasses: {
-        "round-sunglasses": {
+        "kids-round-sunglasses": {
           name: "Round Sunglasses",
           price: "$10",
           description: "Cute round sunglasses for sunny days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-        },
-        "kids-sunglasses-blue": {
-          name: "Kids Blue Sunglasses",
-          price: "$15",
-          description: "Stylish blue sunglasses for sunny days.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-sunglasses-blue-600nw-92008067.jpg",
-        },
-        "kids-sunglasses-pink": {
-          name: "Kids Pink Sunglasses",
-          price: "$15",
-          description: "Cute pink sunglasses perfect for the beach.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-sunglasses-pink-600nw-92008067.jpg",
-        },
-        "kids-sunglasses-red": {
-          name: "Kids Red Sunglasses",
-          price: "$18",
-          description: "Bright red sunglasses for a fun, summer look.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-sunglasses-red-600nw-92008067.jpg",
         },
         "kids-sunglasses-aviator": {
           name: "Kids Aviator Sunglasses",
@@ -5406,20 +5383,6 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-summer-scarf-600nw-92008067.jpg",
         },
-        "kids-pink-scarf": {
-          name: "Kids Pink Scarf",
-          price: "$15",
-          description: "Soft pink scarf, perfect for girls.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-pink-scarf-600nw-92008067.jpg",
-        },
-        "kids-striped-scarf": {
-          name: "Kids Striped Scarf",
-          price: "$14",
-          description: "Colorful striped scarf for boys and girls.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-striped-scarf-600nw-92008067.jpg",
-        },
       },
       belts: {
         "kids-leather-belt": {
@@ -5442,13 +5405,6 @@ export const mockProductData = {
           description: "Fun and vibrant belt for kids, perfect for summer.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/kids-colorful-belt-600nw-92008067.jpg",
-        },
-        "kids-buckle-belt": {
-          name: "Kids Buckle Belt",
-          price: "$22",
-          description: "Stylish buckle belt for a trendy look.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/kids-buckle-belt-600nw-92008067.jpg",
         },
       },
       bags: {
@@ -5513,14 +5469,14 @@ export const mockProductData = {
         },
       },
       toys: {
-        "silk-teddy": {
+        "kids-silk-teddy": {
           name: "Silk Teddy",
           price: "$80",
           description: "Luxurious silk teddy for elegant nights.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-teddy-600nw-92008067.jpg",
         },
-        "lego-set": {
+        "kids-lego-set": {
           name: "Lego Set",
           price: "$25",
           description:
@@ -5528,28 +5484,28 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lego-set-600nw-92008067.jpg",
         },
-        "plush-teddy-bear": {
+        "kids-plush-teddy-bear": {
           name: "Plush Teddy Bear",
           price: "$15",
           description: "Soft and cuddly teddy bear for kids of all ages.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/plush-teddy-bear-600nw-92008067.jpg",
         },
-        "toy-car": {
+        "kids-toy-car": {
           name: "Toy Car",
           price: "$10",
           description: "Fun toy car for kids to race around.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/toy-car-600nw-92008067.jpg",
         },
-        "doll-house": {
+        "kids-doll-house": {
           name: "Doll House",
           price: "$40",
           description: "Miniature doll house set for imaginative play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/doll-house-600nw-92008067.jpg",
         },
-        "building-blocks": {
+        "kids-building-blocks": {
           name: "Building Blocks",
           price: "$18",
           description:
@@ -5557,7 +5513,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/building-blocks-600nw-92008067.jpg",
         },
-        "action-figure": {
+        "kids-action-figure": {
           name: "Action Figure",
           price: "$12",
           description:
@@ -5565,7 +5521,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/action-figure-600nw-92008067.jpg",
         },
-        "puzzle-game": {
+        "kids-puzzle-game": {
           name: "Puzzle Game",
           price: "$8",
           description:
@@ -5573,14 +5529,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puzzle-game-600nw-92008067.jpg",
         },
-        "play-doh-set": {
+        "kids-play-doh-set": {
           name: "Play-Doh Set",
           price: "$12",
           description: "A colorful set of Play-Doh for creative sculpting.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/play-doh-set-600nw-92008067.jpg",
         },
-        "remote-control-car": {
+        "kids-remote-control-car": {
           name: "Remote Control Car",
           price: "$35",
           description:
@@ -5588,7 +5544,7 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/remote-control-car-600nw-92008067.jpg",
         },
-        "baby-doll": {
+        "kids-baby-doll": {
           name: "Baby Doll",
           price: "$18",
           description:
@@ -5596,14 +5552,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/baby-doll-600nw-92008067.jpg",
         },
-        "magic-marker-set": {
+        "kids-magic-marker-set": {
           name: "Magic Marker Set",
           price: "$15",
           description: "A set of washable magic markers for arts and crafts.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/magic-marker-set-600nw-92008067.jpg",
         },
-        "toy-piano": {
+        "kids-toy-piano": {
           name: "Toy Piano",
           price: "$22",
           description:
@@ -5611,77 +5567,77 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/toy-piano-600nw-92008067.jpg",
         },
-        "play-kitchen-set": {
+        "kids-play-kitchen-set": {
           name: "Play Kitchen Set",
           price: "$50",
           description: "Miniature kitchen set with cooking utensils and food.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/play-kitchen-set-600nw-92008067.jpg",
         },
-        "toy-dinosaur": {
+        "kids-toy-dinosaur": {
           name: "Toy Dinosaur",
           price: "$20",
           description: "A realistic toy dinosaur for imaginative play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/toy-dinosaur-600nw-92008067.jpg",
         },
-        "sports-set": {
+        "kids-sports-set": {
           name: "Sports Set",
           price: "$25",
           description: "Mini sports set including a ball, bat, and gloves.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-set-600nw-92008067.jpg",
         },
-        "bouncing-ball": {
+        "kids-bouncing-ball": {
           name: "Bouncing Ball",
           price: "$10",
           description: "A bouncy ball for kids to play indoors and outdoors.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/bouncing-ball-600nw-92008067.jpg",
         },
-        "puzzle-toys": {
+        "kids-puzzle-toys": {
           name: "Puzzle Toys",
           price: "$18",
           description: "A set of wooden puzzle toys for brain development.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/puzzle-toys-600nw-92008067.jpg",
         },
-        "water-gun": {
+        "kids-water-gun": {
           name: "Water Gun",
           price: "$12",
           description: "A fun water gun for outdoor summer play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/water-gun-600nw-92008067.jpg",
         },
-        "toy-guitar": {
+        "kids-toy-guitar": {
           name: "Toy Guitar",
           price: "$30",
           description: "A colorful toy guitar for young rockstars.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/toy-guitar-600nw-92008067.jpg",
         },
-        "jump-rope": {
+        "kids-jump-rope": {
           name: "Jump Rope",
           price: "$8",
           description: "A colorful jump rope for active kids.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/jump-rope-600nw-92008067.jpg",
         },
-        "animal-figurines": {
+        "kids-animal-figurines": {
           name: "Animal Figurines",
           price: "$15",
           description: "A set of realistic animal figurines for creative play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/animal-figurines-600nw-92008067.jpg",
         },
-        "toy-fishing-set": {
+        "kids-toy-fishing-set": {
           name: "Toy Fishing Set",
           price: "$18",
           description: "A fun toy fishing set for pretend play.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/toy-fishing-set-600nw-92008067.jpg",
         },
-        "toy-train-set": {
+        "kids-toy-train-set": {
           name: "Toy Train Set",
           price: "$30",
           description:
