@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { FiSun, FiMoon } from "react-icons/fi";
-import { Switch } from "./ui/switch";
+import { Switch } from "@/components/ui/switch";
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
