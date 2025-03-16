@@ -3,6 +3,7 @@ import { useCart } from "@/app/context/cartContext";
 import ComingSoonMessage from "@/components/ComingSoon";
 import QuantityButtons from "@/components/Quantity";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { mockProductData } from "@/lib/constants";
 import { GenderCategories } from "@/lib/types";
@@ -89,7 +90,10 @@ const CategoryPage = (): JSX.Element => {
         {products.map((product, index) => {
           const foundItem = cartItems.find((item) => item.id === index);
           return (
-            <div key={index} className="p-4 rounded-lg shadow-lg">
+            <Card
+              key={index}
+              className="p-4 rounded-lg shadow-lg flex flex-col justify-around"
+            >
               {product.imageSrc ? (
                 // <Image
                 //   src={product.imageSrc}
@@ -100,19 +104,25 @@ const CategoryPage = (): JSX.Element => {
                 // />
                 <Skeleton className="h-[175] w-full rounded-xl" />
               ) : (
-                <div className="w-full h-[175] bg-gray-200" />
+                <div className="w-full h-[175]" />
               )}
-              <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
-              <p className="text-sm mt-2">{product.description}</p>
-              <p className="text-md mt-2">{product.price}</p>
-              {foundItem && foundItem.quantity > 0 ? (
-                <QuantityButtons itemId={index} />
-              ) : (
-                <Button onClick={() => handleAddToCart(product, index)}>
-                  Add to Cart
-                </Button>
-              )}
-            </div>
+              <CardContent className="flex flex-col justify-between h-1/2">
+                <div>
+                  <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
+                  <p className="text-sm mt-2">{product.description}</p>
+                </div>
+                <p className="text-md mt-2">{product.price}</p>
+              </CardContent>
+              <CardFooter>
+                {foundItem && foundItem.quantity > 0 ? (
+                  <QuantityButtons itemId={index} />
+                ) : (
+                  <Button onClick={() => handleAddToCart(product, index)}>
+                    Add to Cart
+                  </Button>
+                )}
+              </CardFooter>
+            </Card>
           );
         })}
       </div>
