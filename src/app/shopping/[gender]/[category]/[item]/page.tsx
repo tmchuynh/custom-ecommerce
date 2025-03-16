@@ -23,7 +23,7 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const section = item as string;
   const overhead = gender as string;
-  const { addToCart } = useCart();
+  const { addToCart, updateQuantity } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {

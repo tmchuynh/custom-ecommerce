@@ -69,7 +69,7 @@ const CartPage = () => {
                   className="w-16 text-center border border-gray-300 rounded-md"
                 />
                 <div className="text-lg font-medium text-gray-900">
-                  ${item.price * item.quantity}
+                  ${Number(item.price) * item.quantity}
                 </div>
                 <button
                   onClick={() => handleRemoveItem(item.id)}
