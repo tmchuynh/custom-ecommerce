@@ -72,16 +72,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   /**
    * Updates the quantity of a specific item in the cart.
-   * The quantity is ensured to be at least 1.
+   * If the new quantity is below 1, the item is removed from the cart.
    *
    * @param id The ID of the item to update.
-   * @param quantity The new quantity for the item. Must be a positive integer.
+   * @param quantity The new quantity for the item.
    */
   const updateQuantity = (id: number, quantity: number) => {
+    if (quantity < 1) {
+      removeFromCart(id);
+      return;
+    }
     setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
-      )
+      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
     );
   };
 
