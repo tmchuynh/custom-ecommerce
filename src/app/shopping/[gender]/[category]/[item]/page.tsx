@@ -23,7 +23,7 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const section = item as string;
   const overhead = gender as string;
-  const { addToCart, updateQuantity } = useCart();
+  const { addToCart, updateQuantity, itemExistsInCart } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
@@ -59,14 +59,25 @@ const CategoryPage = (): JSX.Element => {
 
   const handleAddToCart = (product: any, id: number) => {
     console.log("handleAddToCart called with product:", product);
-    addToCart({
+    const price =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace("$", ""))
+        : product.price;
+    const cartItem = {
       id: id, // using the index as a fallback ID; consider using a unique product identifier if available
       name: product.name,
       description: product.description,
-      price: parseFloat(product.price.replace("$", "")),
+      price: price,
       quantity: 1,
       imageSrc: product.imageSrc,
-    });
+    };
+
+    if (itemExistsInCart(id)) {
+      updateQuantity(id, cartItem.quantity + 1);
+    } else {
+      addToCart(cartItem);
+    }
+
     toast.success(`${product.name} added to cart!`);
   };
 

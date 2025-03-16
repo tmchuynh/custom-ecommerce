@@ -60,7 +60,7 @@ export default function NavMenu() {
       }[];
     }[]
   >([]);
-  const { cartItems } = useCart();
+  const { getTotalItems } = useCart();
 
   useEffect(() => {
     const sorted = navigations.categories.map((category) => {
@@ -579,7 +579,7 @@ export default function NavMenu() {
                           className="size-6 shrink-0 group-hover:text-primary"
                         />
                         <span className="ml-2 text-sm font-medium group-hover:text-secondary">
-                          {cartItems?.length || 0}
+                          {getTotalItems() || 0}
                         </span>
                         <span className="sr-only">items in cart, view bag</span>
                       </a>
