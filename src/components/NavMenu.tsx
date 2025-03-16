@@ -1,5 +1,5 @@
 "use client";
-
+import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/CurrencyContext";
 import { about, currencies, navigations } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -60,6 +60,7 @@ export default function NavMenu() {
       }[];
     }[]
   >([]);
+  const { cartItems } = useCart();
 
   useEffect(() => {
     const sorted = navigations.categories.map((category) => {
@@ -578,7 +579,7 @@ export default function NavMenu() {
                           className="size-6 shrink-0 group-hover:text-primary"
                         />
                         <span className="ml-2 text-sm font-medium group-hover:text-secondary">
-                          0
+                          {cartItems?.length || 0}
                         </span>
                         <span className="sr-only">items in cart, view bag</span>
                       </a>
