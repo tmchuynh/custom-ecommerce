@@ -75,7 +75,7 @@ export default function NavMenu() {
         ...category,
         sections: sortedSections
           .flat()
-          .sort((a, b) => b.items.length - a.items.length), // Sort sections by number of items
+          .sort((a, b) => a.name.localeCompare(b.name)), // Sort sections by number of items
       };
 
       return sortedCategory;
