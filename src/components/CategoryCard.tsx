@@ -1,5 +1,7 @@
 "use client";
 
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { CategoryCardProps } from "@/lib/types";
@@ -21,14 +23,20 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
         <Skeleton className="h-[145] w-full rounded-xl" />
       </div>
       <div className="border h-64">
-        <div className="flex flex-1 flex-col justify-between p-4 border">
-          <h3 className="text-lg font-semibold text-foreground">
-            {category.name}
-          </h3>
-          <p className="mt-2 text-sm">{category.description}</p>
-        </div>
+        {category.name || (category.name && category.description) ? (
+          <div className="flex flex-1 flex-col justify-between p-4 border">
+            <h3 className="text-lg font-semibold text-foreground">
+              {category.name}
+            </h3>
+            {category.description && (
+              <p className="mt-2 text-sm">{category.description}</p>
+            )}
+          </div>
+        ) : (
+          <Skeleton className="h-24 w-full" />
+        )}
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <Link href={`/category/${category.slug}`}>Shop now</Link>
+          <Link href={`/category/${category?.slug}`}>Shop now</Link>
         </div>
       </div>
     </div>
