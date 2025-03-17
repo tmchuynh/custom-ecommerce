@@ -1,6 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
-import { LengthType, PurchaseRecord } from "./types";
+import { LengthType } from "./types";
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
@@ -10,11 +10,6 @@ export interface LoaderSizeMarginProps extends CommonProps {
 export interface LengthObject {
   value: number;
   unit: string;
-}
-
-export interface DataTableProps<TData extends PurchaseRecord, TValue> {
-  columns: ColumnDef<TData, TValue>[];
-  data: TData[];
 }
 
 export interface LoaderSizeProps extends CommonProps {
@@ -57,10 +52,6 @@ export interface DynamicButtonProps {
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-}
-
-export interface User extends UserType {
-  purchaseRecords: PurchaseRecord[];
 }
 
 export interface UserType {
