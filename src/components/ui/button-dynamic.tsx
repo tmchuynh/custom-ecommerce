@@ -22,7 +22,7 @@ const DynamicButton: React.FC<DynamicButtonProps> = ({
       {Icon && (
         <span
           className={cn(
-            "inline-block transition-transform duration-300 ease-in-out group-hover:translate-x-4",
+            "inline-block px-2 transition-transform duration-300 ease-in-out group-hover:translate-x-4",
             iconClassName
           )}
         >
