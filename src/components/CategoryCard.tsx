@@ -6,7 +6,7 @@ import { CategoryCardProps } from "@/lib/types";
 import { Skeleton } from "./ui/skeleton";
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
-  console.log(category);
+  console.log("Category from CategoryCard", category);
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border shadow-md hover:shadow-lg">
       <div className="relative aspect-w-16 aspect-h-9">
@@ -20,17 +20,16 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
         /> */}
         <Skeleton className="h-[145] w-full rounded-xl" />
       </div>
-      <div className="flex flex-1 flex-col justify-between p-4">
-        <h3 className="text-lg font-semibold">{category.name}</h3>
-        <p className="mt-2 text-sm">{category.description}</p>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 p-4">
-        <Link
-          href={`/shopping/[gender]/[category]/${category.slug}`}
-          as={`/shopping/${category.slug}`}
-        >
-          Shop now
-        </Link>
+      <div className="border h-64">
+        <div className="flex flex-1 flex-col justify-between p-4 border">
+          <h3 className="text-lg font-semibold text-foreground">
+            {category.name}
+          </h3>
+          <p className="mt-2 text-sm">{category.description}</p>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 p-4">
+          <Link href={`/category/${category.slug}`}>Shop now</Link>
+        </div>
       </div>
     </div>
   );
