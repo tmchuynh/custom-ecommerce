@@ -25,9 +25,9 @@ const CategoryPage = (): JSX.Element => {
       const fetchItemsData = async () => {
         try {
           // Flatten the mock data to make it easier to work with
-          const categoryData = (mockProductData as GenderCategories)[
-            gender as string
-          ]?.[category as string];
+          const categoryData = (mockProductData as any)[gender as string]?.[
+            category as string
+          ];
 
           // Check if the category data exists and flatten it
           if (categoryData) {

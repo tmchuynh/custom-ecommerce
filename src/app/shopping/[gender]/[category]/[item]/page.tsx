@@ -31,9 +31,9 @@ const CategoryPage = (): JSX.Element => {
       const fetchProductData = async () => {
         try {
           // Access the product data from the mock data
-          const categoryData = (mockProductData as GenderCategories)[
-            gender as string
-          ]?.[category as string]?.[item as string];
+          const categoryData = (mockProductData as any)[gender as string]?.[
+            category as string
+          ]?.[item as string];
 
           if (categoryData) {
             const productsArray = Object.values(categoryData);
