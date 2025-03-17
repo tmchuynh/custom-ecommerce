@@ -5,8 +5,8 @@
 import React from "react";
 import { CategoryCardProps } from "@/lib/types";
 import { Skeleton } from "./ui/skeleton";
-import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import DynamicButton from "./ui/button-dynamic";
 
 const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
   const router = useRouter();
@@ -37,13 +37,12 @@ const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
           <Skeleton className="h-24 w-full" />
         )}
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <Button
+          <DynamicButton
+            text="Shop now"
             onClick={() =>
               router.push(`/shopping/${gender}/${category.name.toLowerCase()}`)
             }
-          >
-            Shop now
-          </Button>
+          />
         </div>
       </div>
     </div>
