@@ -24,9 +24,7 @@ export async function GET(
   const params = await props.params;
   const { gender, category, item, slug } = params;
 
-  const productData = (mockProductData as GenderCategories)[gender]?.[
-    category
-  ]?.[item]?.[slug];
+  const productData = mockProductData[gender]?.[category]?.[item]?.[slug];
 
   if (!productData) {
     return NextResponse.json({ message: "Product not found" }, { status: 404 });

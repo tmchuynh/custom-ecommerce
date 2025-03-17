@@ -6,22 +6,72 @@ export type NotFoundContextType = {
   setNotFound: (value: boolean) => void;
 };
 
-// Base type for navigation items
-export type LinkItem = {
-  name: string;
-  href: string;
+export type User = {
+  firstName: string;
+  middleName?: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  creditCard: CreditCard;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zipCode: string;
+  };
 };
 
-// Extended type for items with images
-export type ImageLinkItem = LinkItem & {
+export type CreditCard = {
+  number: string;
+  expirationDate: string;
+  cvv: string;
+  issuer: string;
+};
+
+export type Payment = {
+  id: string;
+  amount: number;
+  status: "pending" | "processing" | "success" | "failed";
+  email: string;
+  date: Date;
+};
+
+export type PurchaseRecord = {
+  user: User;
+  userId: string;
+  date: Date;
+  items: Item[];
+  payment: Payment;
+};
+
+export type Item = {
+  productId: string;
+  productName: string;
+  price: number;
+  quantity: number;
+};
+
+export type StoreItem = {
+  id: number;
+  href: string;
+  name: string;
+  description: string;
+  color: string;
+  availableColors: {
+    name: string;
+    colorBg: string;
+  }[];
+  price: number;
   imageSrc: string;
-  imageAlt?: string;
+  imageAlt: string;
 };
 
 export type ProductDetails = {
   name: string;
   price: number;
   description: string;
+  slug: string;
+  imageSrc: string;
 };
 
 export type CategoryItems = {
@@ -30,15 +80,15 @@ export type CategoryItems = {
   };
 };
 
-export type CategoryCard = {
+export type CategoryCardProps = {
+  category: CategoryCardData;
+};
+
+export type CategoryCardData = {
   slug: string;
   name: string;
   description: string;
   imageSrc: string;
-};
-
-export type CategoryCardProps = {
-  category: CategoryCard;
 };
 
 export type GenderCategories = {
@@ -47,9 +97,17 @@ export type GenderCategories = {
   };
 };
 
-export type FeaturedDetails = ImageLinkItem;
+export type FeaturedDetails = {
+  name: string;
+  href: string;
+  imageSrc: string;
+  imageAlt: string;
+};
 
-export type PagesDetails = LinkItem;
+export type PagesDetails = {
+  name: string;
+  href: string;
+};
 
 export type ItemDetails = {
   name: string;

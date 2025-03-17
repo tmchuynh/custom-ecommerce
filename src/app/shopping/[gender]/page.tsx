@@ -1,77 +1,115 @@
 "use client";
 import CategoryCard from "@/components/CategoryCard";
 import { mockProductData } from "@/lib/constants";
-import { GenderCategories } from "@/lib/types";
+import { CategoryCardData, GenderCategories } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
-/**
- * @description A page component that displays categories based on the gender parameter.
- * It fetches category data based on the gender specified in the route parameters.
- * It handles loading states and displays a message when no categories are found.
- *
- * @returns {JSX.Element} A React component that renders the categories for a given gender.
- */
+// Wrapper for CategoryCard to handle the component's unusual parameter structure
+const CategoryCardWrapper = ({
+  category,
+  gender,
+  ...props
+}: {
+  category: CategoryCardData;
+  gender: string;
+  [key: string]: any;
+}) => {
+  return CategoryCard({ category }, gender);
+};
+
 const GenderPage = (): JSX.Element => {
-  const { gender } = useParams(); // gender will be either a string or an array
-  const [categories, setCategories] = useState<any[]>([]);
+  const { gender } = useParams(); // gender is string | string[]
+  const [categories, setCategories] = useState<CategoryCardData[]>([]);
+  const [genderCategory, setGenderCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Check if gender is available and is a string (if it's an array, handle accordingly)
-    // Ensure gender is a string
-    if (typeof gender === "string") {
+    const fetchItemsData = async () => {
       try {
-        // Flatten the mock data to make it easier to work with
-        const categoryData = (mockProductData as GenderCategories)[gender];
+        // Ensure we have a valid string value for gender
+        const validGender = Array.isArray(gender) ? gender[0] : gender;
+        if (!validGender || !["men", "women", "kids"].includes(validGender)) {
+          console.error("Invalid or missing gender parameter");
+          return;
+        }
+        setGenderCategory(validGender);
 
-        // Check if the category data exists and flatten it
+        // After validation, we know validGender is one of the allowed values
+        const categoryData =
+          mockProductData[validGender as "men" | "women" | "kids"];
         if (categoryData) {
-          const productsArray = Array.isArray(categoryData)
-            ? categoryData
-            : Object.values(categoryData); // Extract values as an array if not already an array
-          console.log("Products Array from the page", productsArray);
-          setCategories(productsArray); // Set the products state to the array
+          // The keys represent top-level categories (e.g. "shoes", "accessories", etc.)
+          const categoryKeys = Object.keys(categoryData);
+          const categoryCards: CategoryCardData[] = categoryKeys.map(
+            (catKey) => {
+              // Get all subcategories for the current category key
+              const subCategories =
+                categoryData[catKey as keyof typeof categoryData];
+              // Flatten the subcategories to get an array of products for this category
+              const productsInCategory = Object.values(subCategories).flatMap(
+                (subCategory: any) => Object.values(subCategory)
+              );
+              // Pick the first product as a representative (if available)
+              const representativeProduct = productsInCategory[0] as {
+                description?: string;
+                imageSrc?: string;
+              };
+              return {
+                slug: catKey,
+                name: catKey.charAt(0).toUpperCase() + catKey.slice(1),
+                description:
+                  representativeProduct?.description || `Explore our ${catKey}`,
+                imageSrc: representativeProduct?.imageSrc || "/default.jpg",
+              };
+            }
+          );
+          setCategories(categoryCards);
         } else {
-          console.warn("Product data not found");
+          console.error("Product data not found");
         }
       } catch (error) {
         console.error("Error fetching product data", error);
       } finally {
         setLoading(false);
       }
-    } else {
-      setLoading(false); // If gender is not a valid string, stop loading
-    }
+    };
+
+    fetchItemsData();
   }, [gender]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
 
-  // Handle case where no categories are found
   if (categories.length === 0) {
     return <div>No categories found for this gender.</div>;
   }
 
-  // Render the categories if data is available
   return (
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {gender && (
           <h1 className="text-3xl font-bold tracking-tight">
             {typeof gender === "string" &&
-              `${gender.charAt(0).toUpperCase()}${gender.slice(1)} Categories`}
+              gender.charAt(0).toUpperCase() + gender.slice(1)}
           </h1>
         )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {categories.map((category, index) => (
-            <CategoryCard
-              key={`${category.slug}-${index}`}
-              category={category}
-            />
-          ))}
+        <div className="mx-auto max-w-7xl">
+          {gender && (
+            <>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+                {categories.map((category) => (
+                  <CategoryCardWrapper
+                    key={category.slug}
+                    category={category}
+                    gender={genderCategory}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </main>

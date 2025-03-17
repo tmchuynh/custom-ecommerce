@@ -7,8 +7,7 @@ import Link from "next/link";
 import { CategoryCardProps } from "@/lib/types";
 import { Skeleton } from "./ui/skeleton";
 
-const CategoryCard = ({ category }: CategoryCardProps) => {
-  console.log("Category from CategoryCard", category);
+const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border shadow-md hover:shadow-lg">
       <div className="relative aspect-w-16 aspect-h-9">
@@ -36,7 +35,9 @@ const CategoryCard = ({ category }: CategoryCardProps) => {
           <Skeleton className="h-24 w-full" />
         )}
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <Link href={`/category/${category?.slug}`}>Shop now</Link>
+          <Link href={`/shopping/${gender}/${category.name.toLowerCase()}`}>
+            Shop now
+          </Link>
         </div>
       </div>
     </div>
