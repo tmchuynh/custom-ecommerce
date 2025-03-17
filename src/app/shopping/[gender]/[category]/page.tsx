@@ -1,8 +1,6 @@
 "use client";
-
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/constants";
-import { GenderCategories } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 

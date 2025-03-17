@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { mockProductData } from "@/lib/constants";
-import { GenderCategories } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 import { toast } from "sonner"; // Import the toast function
@@ -25,7 +24,7 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const section = item as string;
   const overhead = gender as string;
-  const { addToCart, updateQuantity, itemExistsInCart, cartItems } = useCart();
+  const { addToCart, cartItems } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
