@@ -27,6 +27,7 @@ import { FeaturedDetails, ItemDetails, SectionDetails } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import FeaturedCategory from "./FeaturedCategory";
+import CategoryList from "./CategoryList";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -185,45 +186,12 @@ export default function NavMenu() {
                                     <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
                                       {category.sections.map(
                                         (section, columnIdx) => (
-                                          <div
+                                          <CategoryList
+                                            category={category}
+                                            section={section}
+                                            index={columnIdx}
                                             key={columnIdx}
-                                            className="space-y-4"
-                                          >
-                                            <div className="flex items-center justify-between">
-                                              <p
-                                                id={`${category.id}-${section.id}-heading`}
-                                                className="font-bold tracking-wider uppercase"
-                                              >
-                                                {section.name}
-                                              </p>
-                                            </div>
-                                            <ul
-                                              role="list"
-                                              aria-labelledby={`${category.id}-${section.id}-heading`}
-                                              className="mt-4 space-y-4"
-                                            >
-                                              <li>
-                                                <Link
-                                                  href={`/shopping/${category.id}/${section.id}`}
-                                                >
-                                                  Shop All
-                                                </Link>
-                                              </li>
-                                              {section.items.map((item) => (
-                                                <li
-                                                  key={item.name}
-                                                  className="flex"
-                                                >
-                                                  <Link
-                                                    href={item.href}
-                                                    className="hover:underline underline-offset-6"
-                                                  >
-                                                    {item.name}
-                                                  </Link>
-                                                </li>
-                                              ))}
-                                            </ul>
-                                          </div>
+                                          />
                                         )
                                       )}
                                     </div>

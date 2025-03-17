@@ -46,6 +46,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Tops",
@@ -115,6 +116,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Formal Shoes",
@@ -162,6 +164,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Sunglasses",
@@ -221,6 +224,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "New Arrivals",
@@ -286,6 +290,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Tops",
@@ -337,6 +342,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Formal Shoes",
@@ -374,6 +380,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Sunglasses",
@@ -433,6 +440,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "New Arrivals",
@@ -498,6 +506,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Tops",
@@ -555,6 +564,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Formal Shoes",
@@ -592,6 +602,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "Sunglasses",
@@ -651,6 +662,7 @@ export const navigations: NavigationDetails = {
             href: "",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+            imageAlt: "",
             items: [
               {
                 name: "New Arrivals",

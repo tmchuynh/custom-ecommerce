@@ -120,6 +120,7 @@ export type SectionDetails = {
   name: string;
   href: string;
   imageSrc: string;
+  imageAlt: string;
   items: ItemDetails[];
 };
 
