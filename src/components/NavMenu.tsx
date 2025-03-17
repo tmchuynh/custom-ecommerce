@@ -1,8 +1,6 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
-import { useCurrency } from "@/app/context/CurrencyContext";
 import { about, navigations } from "@/lib/constants";
-import { cn } from "@/lib/utils";
 import {
   Popover,
   PopoverButton,
@@ -23,9 +21,8 @@ import { FaHeart } from "react-icons/fa";
 import NavMobileMenu from "./NavMobileMenu";
 import NavTopMenu from "./NavTopMenu";
 import { Button } from "./ui/button";
-import { FeaturedDetails, ItemDetails, SectionDetails } from "@/lib/types";
+import { FeaturedDetails, SectionDetails } from "@/lib/types";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import FeaturedCategory from "./FeaturedCategory";
 import CategoryList from "./CategoryList";
 
@@ -177,12 +174,17 @@ export default function NavMenu() {
                                   </div>
 
                                   <div>
-                                    <Link
-                                      href="/shopping/men"
-                                      className="flex items-center text-sm font-bold hover:underline underline-offset-4 pb-10 pt-6"
+                                    <Button
+                                      variant={"link"}
+                                      onClick={() => {
+                                        togglePopover(category.name);
+                                        router.push(
+                                          `/shopping/${category.name.toLowerCase()}`
+                                        );
+                                      }}
                                     >
-                                      Shop All Men
-                                    </Link>
+                                      Shop All {category.name}
+                                    </Button>
                                     <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
                                       {category.sections.map(
                                         (section, columnIdx) => (

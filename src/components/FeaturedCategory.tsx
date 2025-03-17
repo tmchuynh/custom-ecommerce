@@ -1,10 +1,16 @@
-import { FeaturedCategoryProps } from "@/lib/interfaces";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+
+interface FeaturedCategoryProps {
+  item: any;
+  index: number;
+  closePopovers?: () => void;
+}
 
 export default function FeaturedCategory({
   item,
   index,
+  closePopovers,
 }: FeaturedCategoryProps) {
   return (
     <div
@@ -26,7 +32,11 @@ export default function FeaturedCategory({
       />
       <div className="absolute inset-0 flex flex-col justify-end">
         <div className="bg-white/55 px-4 py-8 text-sm max:h-1/3 flex flex-col justify-start">
-          <a href={item.href} className="font-bold tracking-wider uppercase">
+          <a
+            href={item.href}
+            className="font-bold tracking-wider uppercase"
+            onClick={() => closePopovers && closePopovers()}
+          >
             <span aria-hidden="true" className="absolute inset-0" />
             {item.name}
           </a>
