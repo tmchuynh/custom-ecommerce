@@ -14,41 +14,37 @@ import { JSX, useEffect, useState } from "react";
  */
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender will be either a string or an array
-
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     // Check if gender is available and is a string (if it's an array, handle accordingly)
+    // Ensure gender is a string
     if (typeof gender === "string") {
-      const fetchCategoryData = async () => {
-        try {
-          // Flatten the mock data to make it easier to work with
-          const categoryData = (mockProductData as GenderCategories)[
-            gender as string
-          ];
+      try {
+        // Flatten the mock data to make it easier to work with
+        const categoryData = (mockProductData as GenderCategories)[gender];
 
-          // Check if the category data exists and flatten it
-          if (categoryData) {
-            const productsArray = Object.values(categoryData); // Extract values as an array
-            setCategories(productsArray); // Set the products state to the array
-          } else {
-            console.error("Product data not found");
-          }
-        } catch (error) {
-          console.error("Error fetching product data", error);
-        } finally {
-          setLoading(false);
+        // Check if the category data exists and flatten it
+        if (categoryData) {
+          const productsArray = Array.isArray(categoryData)
+            ? categoryData
+            : Object.values(categoryData); // Extract values as an array if not already an array
+          console.log("Products Array from the page", productsArray);
+          setCategories(productsArray); // Set the products state to the array
+        } else {
+          console.warn("Product data not found");
         }
-      };
-
-      fetchCategoryData();
+      } catch (error) {
+        console.error("Error fetching product data", error);
+      } finally {
+        setLoading(false);
+      }
     } else {
       setLoading(false); // If gender is not a valid string, stop loading
     }
-  }, [gender]); // Re-run if gender changes
+  }, [gender]);
 
-  // Handle loading state
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -65,8 +61,7 @@ const GenderPage = (): JSX.Element => {
         {gender && (
           <h1 className="text-3xl font-bold tracking-tight">
             {typeof gender === "string" &&
-              gender.charAt(0).toUpperCase() + gender.slice(1)}
-            Categories
+              `${gender.charAt(0).toUpperCase()}${gender.slice(1)} Categories`}
           </h1>
         )}
 
