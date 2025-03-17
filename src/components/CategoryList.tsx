@@ -1,11 +1,15 @@
 import { CategoryProps } from "@/lib/interfaces";
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 export default function CategoryList({
   section,
   index,
   category,
+  closePopovers,
 }: CategoryProps) {
+  const router = useRouter();
   return (
     <div key={index} className="space-y-4">
       <div className="flex items-center justify-between">
@@ -21,17 +25,29 @@ export default function CategoryList({
         aria-labelledby={`${category.id}-${section.id}-heading`}
         className="mt-4 space-y-4"
       >
-        <li>
-          <Link href={`/shopping/${category.id}/${section.id}`}>Shop All</Link>
-        </li>
+        {section.name !== "Shop by Collection" && (
+          <li>
+            <a
+              href={`/shopping/${category.id}/${section.id}`}
+              className="p-0 my-0 text-foreground hover:underline underline-offset-4"
+              onClick={() => {
+                closePopovers?.();
+                router.push(`/shopping/${category.id}/${section.id}`);
+              }}
+            >
+              Shop All {section.name}
+            </a>
+          </li>
+        )}
         {section.items.map((item) => (
-          <li key={item.name} className="flex">
-            <Link
+          <li key={item.name} className="">
+            <a
               href={item.href}
-              className="hover:underline underline-offset-6"
+              className="p-0 my-0 text-foreground hover:underline underline-offset-4"
+              onClick={closePopovers}
             >
               {item.name}
-            </Link>
+            </a>
           </li>
         ))}
       </ul>

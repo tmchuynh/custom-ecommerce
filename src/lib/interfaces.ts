@@ -57,6 +57,7 @@ export interface DynamicButtonProps {
 export interface FeaturedCategoryProps {
   item: FeaturedDetails;
   index: number;
+  closePopovers?: () => void;
 }
 
 export interface CategoryProps {
@@ -68,6 +69,7 @@ export interface CategoryProps {
   };
   section: SectionDetails;
   index: number;
+  closePopovers?: () => void;
 }
 
 export interface DataTableProps<TData, TValue> {

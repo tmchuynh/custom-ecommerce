@@ -27,20 +27,23 @@ export default function FeaturedCategory({
         height={900}
         className={cn(
           index === 0 ? "aspect-9/7" : "aspect-square",
-          "w-full object-cover group-hover:opacity-75"
+          "w-full object-cover"
         )}
       />
       <div className="absolute inset-0 flex flex-col justify-end">
-        <div className="bg-white/55 px-4 py-8 text-sm max:h-1/3 flex flex-col justify-start">
+        <div className="bg-white/55 px-4 py-8 text-sm overflow-hidden transition-all duration-500 ease-in-out group-hover:h-full flex flex-col justify-start">
           <a
             href={item.href}
             className="font-bold tracking-wider uppercase"
-            onClick={() => closePopovers && closePopovers()}
+            onClick={closePopovers}
           >
             <span aria-hidden="true" className="absolute inset-0" />
             {item.name}
           </a>
-          <p aria-hidden="true" className="mt-0.5 sm:mt-5">
+          <p
+            aria-hidden="true"
+            className="mt-0.5 sm:mt-5 group-hover:underline underline-offset-4"
+          >
             Shop now
           </p>
         </div>

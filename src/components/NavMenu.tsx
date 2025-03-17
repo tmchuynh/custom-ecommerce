@@ -25,6 +25,7 @@ import { FeaturedDetails, SectionDetails } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import FeaturedCategory from "./FeaturedCategory";
 import CategoryList from "./CategoryList";
+import Link from "next/link";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -105,6 +106,19 @@ export default function NavMenu() {
     });
   };
 
+  /**
+   * Closes all open popovers.
+   * Used when navigating to a new page to ensure clean UI state.
+   */
+  const closeAllPopovers = () => {
+    setOpenPopovers(
+      Object.keys(openPopovers).reduce((acc, key) => {
+        acc[key] = false;
+        return acc;
+      }, {} as { [key: string]: boolean })
+    );
+  };
+
   return (
     <div className="relative z-20 shadow-sm">
       <div className="relative z-40 lg:hidden">
@@ -169,22 +183,23 @@ export default function NavMenu() {
                                         key={item.name}
                                         item={item}
                                         index={itemIdx}
+                                        closePopovers={closeAllPopovers}
                                       />
                                     ))}
                                   </div>
 
                                   <div>
-                                    <Button
-                                      variant={"link"}
-                                      onClick={() => {
-                                        togglePopover(category.name);
-                                        router.push(
-                                          `/shopping/${category.name.toLowerCase()}`
-                                        );
-                                      }}
-                                    >
-                                      Shop All {category.name}
-                                    </Button>
+                                    <div className="py-4">
+                                      <a
+                                        href={`/shopping/${category.name.toLowerCase()}`}
+                                        className="p-0 my-0 text-foreground text-sm hover:underline underline-offset-4"
+                                        onClick={() => {
+                                          togglePopover(category.name);
+                                        }}
+                                      >
+                                        Shop All {category.name}
+                                      </a>
+                                    </div>
                                     <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
                                       {category.sections.map(
                                         (section, columnIdx) => (
@@ -193,6 +208,7 @@ export default function NavMenu() {
                                             section={section}
                                             index={columnIdx}
                                             key={columnIdx}
+                                            closePopovers={closeAllPopovers}
                                           />
                                         )
                                       )}
@@ -230,10 +246,11 @@ export default function NavMenu() {
                           <div className="mx-auto max-w-7xl gap-x-8 gap-y-10 px-6 pb-10 lg:px-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-8">
                               {about.map((item) => (
-                                <a
+                                <Link
                                   key={item.name}
                                   href={item.href}
                                   className="flex py-2 text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center"
+                                  onClick={closeAllPopovers}
                                 >
                                   <item.icon
                                     aria-hidden="true"
@@ -243,7 +260,7 @@ export default function NavMenu() {
                                     <p className="flex gap-x-4"> {item.name}</p>
                                     <p>{item.description}</p>
                                   </div>
-                                </a>
+                                </Link>
                               ))}
                             </div>
                           </div>
@@ -251,13 +268,14 @@ export default function NavMenu() {
                       </Popover>
 
                       {navigations.pages.map((page) => (
-                        <a
+                        <Link
                           key={page.name}
                           href={page.href}
-                          className="flex items-center text-sm font-medium "
+                          className="flex items-center text-sm font-medium"
+                          onClick={closeAllPopovers}
                         >
                           {page.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </PopoverGroup>
