@@ -6,69 +6,21 @@ export type NotFoundContextType = {
   setNotFound: (value: boolean) => void;
 };
 
-export type User = {
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  creditCard: CreditCard;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    zipCode: string;
-  };
-};
-
-export type CreditCard = {
-  number: string;
-  expirationDate: string;
-  cvv: string;
-  issuer: string;
-};
-
-export type Payment = {
-  id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
-  date: Date;
-};
-
-export type PurchaseRecord = {
-  user: User;
-  userId: string;
-  date: Date;
-  items: Item[];
-  payment: Payment;
-};
-
-export type Item = {
-  productId: string;
-  productName: string;
-  price: number;
-  quantity: number;
-};
-
-export type StoreItem = {
-  id: number;
-  href: string;
+// Base type for navigation items
+export type LinkItem = {
   name: string;
-  description: string;
-  color: string;
-  availableColors: {
-    name: string;
-    colorBg: string;
-  }[];
-  price: number;
+  href: string;
+};
+
+// Extended type for items with images
+export type ImageLinkItem = LinkItem & {
   imageSrc: string;
-  imageAlt: string;
+  imageAlt?: string;
 };
 
 export type ProductDetails = {
   name: string;
-  price: string;
+  price: number;
   description: string;
 };
 
@@ -78,13 +30,15 @@ export type CategoryItems = {
   };
 };
 
+export type CategoryCard = {
+  slug: string;
+  name: string;
+  description: string;
+  imageSrc: string;
+};
+
 export type CategoryCardProps = {
-  category: {
-    slug: string;
-    name: string;
-    description: string;
-    imageSrc: string;
-  };
+  category: CategoryCard;
 };
 
 export type GenderCategories = {
@@ -93,17 +47,9 @@ export type GenderCategories = {
   };
 };
 
-export type FeaturedDetails = {
-  name: string;
-  href: string;
-  imageSrc: string;
-  imageAlt: string;
-};
+export type FeaturedDetails = ImageLinkItem;
 
-export type PagesDetails = {
-  name: string;
-  href: string;
-};
+export type PagesDetails = LinkItem;
 
 export type ItemDetails = {
   name: string;
