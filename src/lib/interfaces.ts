@@ -1,6 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
-import { LengthType } from "./types";
+import { FeaturedDetails, LengthType } from "./types";
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
@@ -47,6 +47,11 @@ export interface DynamicButtonProps {
   onClick?: () => void;
   className?: string;
   iconClassName?: string;
+}
+
+export interface FeaturedCategoryProps {
+  item: FeaturedDetails;
+  index: number;
 }
 
 export interface DataTableProps<TData, TValue> {

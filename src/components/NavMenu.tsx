@@ -23,9 +23,14 @@ import { FaHeart } from "react-icons/fa";
 import NavMobileMenu from "./NavMobileMenu";
 import NavTopMenu from "./NavTopMenu";
 import { Button } from "./ui/button";
+import { FeaturedDetails, ItemDetails, SectionDetails } from "@/lib/types";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import FeaturedCategory from "./FeaturedCategory";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   const [openPopovers, setOpenPopovers] = useState<{ [key: string]: boolean }>(
     {}
   );
@@ -33,14 +38,8 @@ export default function NavMenu() {
     {
       id: string;
       name: string;
-      featured: any[];
-      sections: {
-        id: string;
-        name: string;
-        href: string;
-        imageSrc: string;
-        items: any[];
-      }[];
+      featured: FeaturedDetails[];
+      sections: SectionDetails[];
     }[]
   >([]);
   const { getTotalItems } = useCart();
@@ -168,88 +167,66 @@ export default function NavMenu() {
                                 <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
                                   <div className="grid grid-cols-2 grid-rows-1 gap-8 text-sm">
                                     {category.featured.map((item, itemIdx) => (
-                                      <div
+                                      <FeaturedCategory
                                         key={item.name}
-                                        className={cn(
-                                          itemIdx === 0 ? "col-span-2" : "",
-                                          "group relative overflow-hidden rounded-md bg-muted"
-                                        )}
-                                      >
-                                        <Image
-                                          alt={item.imageAlt}
-                                          src={item.imageSrc}
-                                          width={800}
-                                          height={900}
-                                          className={cn(
-                                            itemIdx === 0
-                                              ? "aspect-2/1"
-                                              : "aspect-square",
-                                            "w-full object-cover group-hover:opacity-75"
-                                          )}
-                                        />
-                                        <div className="absolute inset-0 flex flex-col justify-end">
-                                          <div className="bg-white/60 p-4 text-sm">
-                                            <a
-                                              href={item.href}
-                                              className="font-bold tracking-wider uppercase"
-                                            >
-                                              <span
-                                                aria-hidden="true"
-                                                className="absolute inset-0"
-                                              />
-                                              {item.name}
-                                            </a>
-                                            <p
-                                              aria-hidden="true"
-                                              className="mt-0.5 sm:mt-1"
-                                            >
-                                              Shop now
-                                            </p>
-                                          </div>
-                                        </div>
-                                      </div>
+                                        item={item}
+                                        index={itemIdx}
+                                      />
                                     ))}
                                   </div>
-                                  <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
-                                    {category.sections.map(
-                                      (section, columnIdx) => (
-                                        <div
-                                          key={columnIdx}
-                                          className="space-y-15 grid-cols-2 grid-rows-2 h-full"
-                                        >
+
+                                  <div>
+                                    <Link
+                                      href="/shopping/men"
+                                      className="flex items-center text-sm font-bold hover:underline underline-offset-4 pb-10 pt-6"
+                                    >
+                                      Shop All Men
+                                    </Link>
+                                    <div className="grid grid-cols-3 gap-x-14 gap-y-10 text-sm">
+                                      {category.sections.map(
+                                        (section, columnIdx) => (
                                           <div
-                                            key={section.name}
-                                            className="min-h-fit h-5/11"
+                                            key={columnIdx}
+                                            className="space-y-4"
                                           >
-                                            <p
-                                              id={`${category.id}-${section.id}-heading`}
-                                              className="font-bold tracking-wider uppercase"
-                                            >
-                                              {section.name}
-                                            </p>
+                                            <div className="flex items-center justify-between">
+                                              <p
+                                                id={`${category.id}-${section.id}-heading`}
+                                                className="font-bold tracking-wider uppercase"
+                                              >
+                                                {section.name}
+                                              </p>
+                                            </div>
                                             <ul
                                               role="list"
                                               aria-labelledby={`${category.id}-${section.id}-heading`}
                                               className="mt-4 space-y-4"
                                             >
+                                              <li>
+                                                <Link
+                                                  href={`/shopping/${category.id}/${section.id}`}
+                                                >
+                                                  Shop All
+                                                </Link>
+                                              </li>
                                               {section.items.map((item) => (
                                                 <li
                                                   key={item.name}
                                                   className="flex"
                                                 >
-                                                  <a
+                                                  <Link
                                                     href={item.href}
                                                     className="hover:underline underline-offset-6"
                                                   >
                                                     {item.name}
-                                                  </a>
+                                                  </Link>
                                                 </li>
                                               ))}
                                             </ul>
                                           </div>
-                                        </div>
-                                      )
-                                    )}
+                                        )
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
