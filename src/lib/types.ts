@@ -76,7 +76,7 @@ export type ProductDetails = {
 
 export type CategoryItems = {
   [item: string]: {
-    [slug: string]: ProductDetails; // Dynamic slug values for items under each category
+    [slug: string]: ProductDetails;
   };
 };
 
@@ -93,7 +93,7 @@ export type CategoryCardData = {
 
 export type GenderCategories = {
   [gender: string]: {
-    [category: string]: CategoryItems; // Categories (clothing, shoes, accessories) under each gender
+    [category: string]: CategoryItems;
   };
 };
 

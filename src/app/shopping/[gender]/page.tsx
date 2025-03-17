@@ -25,6 +25,26 @@ const GenderPage = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    /**
+     * Fetches and processes category data based on the specified gender.
+     *
+     * This async function validates the gender parameter, retrieves the corresponding
+     * product data, and transforms it into category cards for display. It handles
+     * edge cases such as invalid gender parameters and missing product data.
+     *
+     * @async
+     * @function fetchItemsData
+     * @throws {Error} Logs error to console if product data fetching fails
+     *
+     * @example
+     * // Call the function to load category data
+     * await fetchItemsData();
+     *
+     * @remarks
+     * - Validates gender parameter against allowed values: "men", "women", "kids"
+     * - Sets loading state to false when completed, regardless of success/failure
+     * - Creates category cards with representative product images and descriptions
+     */
     const fetchItemsData = async () => {
       try {
         // Ensure we have a valid string value for gender

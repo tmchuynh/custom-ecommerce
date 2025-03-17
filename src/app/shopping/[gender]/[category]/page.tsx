@@ -22,6 +22,20 @@ const CategoryPage = (): JSX.Element => {
 
   useEffect(() => {
     if (gender && category) {
+      /**
+       * Fetches and processes product data based on the current gender and category.
+       *
+       * This function retrieves product information from the mock data store, organizing it by:
+       * 1. Finding the appropriate gender section
+       * 2. Finding the specified category within that gender
+       * 3. Flattening the nested subcategories into a single product array
+       *
+       * The function does not directly return values but updates component state:
+       * - Sets the products state with the flattened array of products
+       * - Sets the loading state to false when complete, regardless of success or failure
+       *
+       * @throws Logs error to console if the data cannot be found or processed
+       */
       const fetchItemsData = async () => {
         try {
           // Flatten the mock data to make it easier to work with
