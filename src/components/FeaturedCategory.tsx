@@ -30,8 +30,8 @@ export default function FeaturedCategory({
           "w-full object-cover"
         )}
       />
-      <div className="absolute inset-0 flex flex-col justify-end">
-        <div className="bg-white/55 px-4 py-8 text-sm overflow-hidden transition-all duration-500 ease-in-out group-hover:h-full flex flex-col justify-start">
+      <div className="absolute inset-0 flex flex-col justify-end overflow-hidden">
+        <div className="bg-white/55 px-4 py-8 text-sm h-96 absolute w-full top-[50%] transition-transform duration-700 ease-in-out flex flex-col justify-start transform group-hover:-translate-y-2/12">
           <a
             href={item.href}
             className="font-bold tracking-wider uppercase"
