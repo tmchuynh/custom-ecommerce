@@ -3,11 +3,13 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { CategoryCardProps } from "@/lib/types";
 import { Skeleton } from "./ui/skeleton";
+import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
+  const router = useRouter();
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border shadow-md hover:shadow-lg">
       <div className="relative aspect-w-16 aspect-h-9">
@@ -21,9 +23,9 @@ const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
         /> */}
         <Skeleton className="h-[145] w-full rounded-xl" />
       </div>
-      <div className="border h-64">
+      <div className="h-[200] flex flex-col justify-between">
         {category.name || (category.name && category.description) ? (
-          <div className="flex flex-1 flex-col justify-between p-4 border">
+          <div className="flex flex-col justify-between p-4 h-fit-content">
             <h3 className="text-lg font-semibold text-foreground">
               {category.name}
             </h3>
@@ -35,9 +37,13 @@ const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
           <Skeleton className="h-24 w-full" />
         )}
         <div className="absolute inset-x-0 bottom-0 p-4">
-          <Link href={`/shopping/${gender}/${category.name.toLowerCase()}`}>
+          <Button
+            onClick={() =>
+              router.push(`/shopping/${gender}/${category.name.toLowerCase()}`)
+            }
+          >
             Shop now
-          </Link>
+          </Button>
         </div>
       </div>
     </div>
