@@ -28,12 +28,14 @@ export const mockProductData = {
             {
               name: "Product Features",
               items: [
-                { material: ["Premium leather", "Premium leather"] },
-                { construction: ["Handcrafted stitching"] },
-                { sole: "Leather sole" },
-                { insole: "Comfort-cushioned insole" },
-                { style: "Classic design" },
-                { care: ["Regular polishing recommended"] },
+                {
+                  material: ["Premium leather", "Premium leather"],
+                  construction: ["Handcrafted stitching"],
+                  sole: "Leather sole",
+                  insole: "Comfort-cushioned insole",
+                  style: "Classic design",
+                  care: ["Regular polishing recommended"],
+                },
               ],
             },
           ],
@@ -82,9 +84,8 @@ export const mockProductData = {
             },
           ],
         },
-
         "men-derby-shoes": {
-          name: "Derby Shoes",
+          name: "Men's Derby Shoes",
           price: "$130",
           description:
             "Sleek and sophisticated Derby shoes with an open-lacing system, ideal for both formal and semi-formal occasions.",
@@ -92,45 +93,50 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/derby-shoes-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Derby_Shoes_Front_View.jpg",
+            "/images/Shopping/Men/Derby_Shoes_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Open-lacing construction"],
+                  sole: "Leather sole",
+                  insole: "Comfort-cushioned insole",
+                  style: "Sleek and sophisticated",
+                  care: ["Regular cleaning recommended"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
@@ -6633,7 +6639,6 @@ export const mockProductData = {
             },
           ],
         },
-
         "men-sport-sunglasses": {
           name: "Sport Sunglasses",
           price: "$75",
