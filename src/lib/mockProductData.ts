@@ -26,13 +26,15 @@ export const mockProductData = {
           ],
           details: [
             {
-              title: "Product Features",
-              material: "Premium leather",
-              construction: "Handcrafted stitching",
-              sole: "Leather sole",
-              insole: "Comfort-cushioned insole",
-              style: "Classic design",
-              care: "Regular polishing recommended",
+              name: "Product Features",
+              items: [
+                { material: ["Premium leather", "Premium leather"] },
+                { construction: ["Handcrafted stitching"] },
+                { sole: "Leather sole" },
+                { insole: "Comfort-cushioned insole" },
+                { style: "Classic design" },
+                { care: ["Regular polishing recommended"] },
+              ],
             },
           ],
           relatedProducts: [
@@ -80,6 +82,7 @@ export const mockProductData = {
             },
           ],
         },
+
         "men-derby-shoes": {
           name: "Derby Shoes",
           price: "$130",
