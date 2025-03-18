@@ -26,24 +26,29 @@ const GenderPage = (): JSX.Element => {
 
   useEffect(() => {
     /**
-     * Fetches and processes category data based on the specified gender.
+     * Fetches and processes product data based on the gender parameter.
      *
-     * This async function validates the gender parameter, retrieves the corresponding
-     * product data, and transforms it into category cards for display. It handles
-     * edge cases such as invalid gender parameters and missing product data.
+     * This function validates the gender parameter, retrieves the corresponding
+     * product data, and generates category cards for display. It also handles
+     * errors and ensures proper state updates.
      *
      * @async
      * @function fetchItemsData
-     * @throws {Error} Logs error to console if product data fetching fails
-     *
-     * @example
-     * // Call the function to load category data
-     * await fetchItemsData();
+     * @throws Will log an error if the gender parameter is invalid or if there is an issue fetching product data.
      *
      * @remarks
-     * - Validates gender parameter against allowed values: "men", "women", "kids"
-     * - Sets loading state to false when completed, regardless of success/failure
-     * - Creates category cards with representative product images and descriptions
+     * - The `gender` parameter must be one of the following values: "men", "women", or "kids".
+     * - The function uses mock product data to generate category cards.
+     * - Each category card includes a slug, name, description, and image source.
+     * - If no representative product is found for a category, default values are used for the description and image source.
+     *
+     * @example
+     * // Example usage:
+     * fetchItemsData();
+     *
+     * @see {@link setGenderCategory} for setting the gender category state.
+     * @see {@link setCategories} for updating the category cards state.
+     * @see {@link setLoading} for managing the loading state.
      */
     const fetchItemsData = async () => {
       try {

@@ -32,19 +32,24 @@ const CategoryPage = (): JSX.Element => {
   useEffect(() => {
     if (gender && category && item) {
       /**
-       * Fetches product data based on the current gender, category, and item parameters.
+       * Asynchronously fetches product data based on the provided gender, category, and item.
        *
-       * This asynchronous function attempts to retrieve product data from the mock data
-       * store using the route parameters. If data is found, it updates the products state
-       * with an array of the products. If no data is found or an error occurs, it logs
-       * the error to the console. In all cases, it sets the loading state to false when
-       * the operation completes.
+       * This function retrieves product data from a mock data source and updates the state
+       * variables for the selected gender, category, and item. If the product data for the
+       * specified category is found, it converts the data into an array and updates the
+       * products state. If the data is not found, it logs an error to the console.
        *
        * @async
-       * @throws {Error} Logs any errors that occur during data fetching to the console
+       * @function fetchProductData
+       * @throws Will log an error to the console if there is an issue fetching the product data.
+       *
+       * @remarks
+       * - This function assumes the existence of `mockProductData` as a data source.
+       * - The function also updates the loading state to `false` once the operation is complete.
+       *
        * @example
-       * // Call inside useEffect or event handler
-       * await fetchProductData();
+       * // Example usage:
+       * fetchProductData();
        */
       const fetchProductData = async () => {
         try {

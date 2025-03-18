@@ -9,12 +9,42 @@ import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
 /**
- * @description ProductPage component fetches and displays product details based on dynamic route parameters.
- * It fetches product data based on gender, category, item, and slug parameters from the URL.
- * The component displays a loading state while fetching data and renders product information,
- * a product gallery, product details, and related products once the data is loaded.
+ * ProductPage Component
  *
- * @returns {JSX.Element} The ProductPage component.
+ * This component is responsible for rendering the product details page based on dynamic route parameters.
+ * It fetches product data and related products using the parameters provided in the URL.
+ *
+ * @returns {JSX.Element} The rendered product page.
+ *
+ * @remarks
+ * - The component uses `useParams` to extract dynamic route parameters (`gender`, `category`, `item`, `slug`).
+ * - It fetches product data from a mock data source and sets the state for the product and related products.
+ * - Displays a loading state while fetching data.
+ * - If no product data is found, it shows a fallback loading message.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <ProductPage />
+ * ```
+ *
+ * @dependencies
+ * - `useParams` from React Router for accessing route parameters.
+ * - `useState` and `useEffect` from React for managing state and side effects.
+ * - Custom components:
+ *   - `ProductGallery` for displaying product images.
+ *   - `ProductInfo` for showing product information and handling color selection.
+ *   - `ProductDetails` for displaying detailed product descriptions.
+ *   - `RelatedProducts` for rendering a list of related products.
+ *
+ * @state
+ * - `loading` (`boolean`): Indicates whether the product data is being fetched.
+ * - `product` (`any | null`): Stores the fetched product data.
+ * - `relatedProducts` (`any[]`): Stores the list of related products.
+ *
+ * @hooks
+ * - `useEffect`: Fetches product data when route parameters change.
+ * - `useParams`: Extracts dynamic route parameters from the URL.
  */
 const ProductPage = (): JSX.Element => {
   const { gender, category, item, slug } = useParams();
@@ -24,7 +54,26 @@ const ProductPage = (): JSX.Element => {
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
 
   useEffect(() => {
-    // Simulating fetching data based on the dynamic route
+    /**
+     * Asynchronously fetches product data based on the provided parameters
+     * and updates the component's state with the fetched data.
+     *
+     * This function retrieves product details from a mock data source
+     * using the `gender`, `category`, `item`, and `slug` parameters.
+     * It sets the product and related products state if the data is found,
+     * or logs an error if the data is not available.
+     *
+     * @async
+     * @function fetchProduct
+     * @throws Will log an error if there is an issue fetching the product data.
+     * @remarks
+     * - The function assumes the existence of a `mockProductData` object
+     *   containing the product information.
+     * - The `setProduct` and `setRelatedProducts` functions are used to
+     *   update the component's state.
+     * - The `setLoading` function is called in the `finally` block to
+     *   indicate that the loading process has completed.
+     */
     const fetchProduct = async () => {
       try {
         // Flatten the mock data to make it easier to work with
