@@ -35,7 +35,9 @@ const ProductPage = (): JSX.Element => {
         // Check if the category data exists and flatten it
         if (categoryData) {
           const productsArray = Object.values(categoryData); // Extract values as an array
-          setProduct(productsArray); // Set the products state to the array
+          setProduct(categoryData); // Set the products state to the array
+          setRelatedProducts(categoryData.relatedProducts); // Set the related products state to the array
+          console.log(categoryData);
         } else {
           console.error("Product data not found");
         }
@@ -68,7 +70,7 @@ const ProductPage = (): JSX.Element => {
           <div>
             <ProductInfo
               product={product}
-              selectedColor={product.colors[0]} // Example, you can handle dynamic color selection here
+              selectedColor={product.colors} // Example, you can handle dynamic color selection here
               setSelectedColor={() => {}}
             />
             <ProductDetails details={product.details} />

@@ -1,8 +1,33 @@
 // components/RelatedProducts.tsx
 import React from "react";
 import Image from "next/image";
+import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
 const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
+  const { addToCart, cartItems } = useCart();
+
+  const handleAddToCart = (product: any, id: number) => {
+    const price =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace("$", ""))
+        : product.price;
+
+    const cartItem = {
+      id: id,
+      name: product.name,
+      description: product.description,
+      price: price,
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    };
+
+    // Directly call addToCart. The cart context will update quantity if it already exists.
+    addToCart(cartItem);
+    toast.success(`${product.name} added to cart!`);
+  };
   return (
     <section
       aria-labelledby="related-heading"
@@ -13,18 +38,20 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
       </h2>
 
       <div className="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-        {relatedProducts.map((product) => (
-          <div key={product.id}>
+        {relatedProducts.map((product, index) => (
+          <div key={index}>
             <div className="relative">
               <div className="relative h-72 w-full overflow-hidden rounded-lg">
-                <Image
+                {/* <Image
                   alt={product.imageAlt}
                   src={product.imageSrc}
                   width={1920}
+                  priority
                   height={1080}
                   objectFit="cover"
                   className="rounded-lg"
-                />
+                /> */}
+                <Skeleton className="h-[175] w-full rounded-xl" />
               </div>
               <div className="relative mt-4">
                 <h3 className="text-sm font-medium text-gray-900">
@@ -43,13 +70,10 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
               </div>
             </div>
             <div className="mt-6">
-              <a
-                href={product.href}
-                className="relative flex items-center justify-center rounded-md border border-transparent bg-gray-100 px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-200"
-              >
-                Add to bag
+              <Button onClick={() => handleAddToCart(product, index)}>
+                Add to Cart
                 <span className="sr-only">, {product.name}</span>
-              </a>
+              </Button>
             </div>
           </div>
         ))}

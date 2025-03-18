@@ -2,15 +2,33 @@
 import React from "react";
 import { RadioGroup, Radio } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
+
+// Define proper types for colors
+interface Color {
+  name: string;
+  bgColor: string;
+}
+
+interface ProductType {
+  name: string;
+  price: string;
+  colors: Color[];
+}
 
 const ProductInfo = ({
   product,
   selectedColor,
   setSelectedColor,
 }: {
-  product: any;
-  selectedColor: any;
-  setSelectedColor: React.Dispatch<React.SetStateAction<any>>;
+  product: ProductType;
+  selectedColor: Color;
+  setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
 }) => {
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
@@ -31,18 +49,30 @@ const ProductInfo = ({
             onChange={setSelectedColor}
             className="flex items-center gap-x-3"
           >
-            {product.colors.map((color: any) => (
-              <Radio
-                key={color.name}
-                value={color}
-                aria-label={color.name}
-                className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-              >
-                <span
-                  aria-hidden="true"
-                  className={`${color.bgColor} size-8 rounded-full border border-black/10`}
-                />
-              </Radio>
+            {product.colors.map((color: Color, index: number) => (
+              <TooltipProvider key={index}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Radio
+                      key={index}
+                      value={color}
+                      aria-label={color.name}
+                      className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="bg-dynamic size-8 rounded-full border border-black/10"
+                        style={
+                          { "--bg-color": color.bgColor } as React.CSSProperties
+                        }
+                      />
+                    </Radio>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{color.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             ))}
           </RadioGroup>
         </fieldset>

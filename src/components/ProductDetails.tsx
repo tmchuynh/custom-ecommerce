@@ -16,14 +16,12 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
       <div className="divide-y divide-gray-200 border-t">
         <Accordion type="single" collapsible>
           {details.map((detail, index) => (
-            <AccordionItem key={detail.name} value={`detail-${index}`}>
-              <h3>
-                <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
-                  <span className="text-sm font-medium text-gray-900 group-data-open:text-indigo-600">
-                    {detail.name}
-                  </span>
-                </AccordionTrigger>
-              </h3>
+            <AccordionItem key={index} value={`detail-${index}`}>
+              <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
+                <span className="text-sm font-medium text-gray-900 group-data-open:text-indigo-600">
+                  {detail.name}
+                </span>
+              </AccordionTrigger>
               <AccordionContent className="pb-6">
                 <ul
                   role="list"
