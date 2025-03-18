@@ -138,7 +138,16 @@ export type NavigationDetails = {
 
 export type DetailItem = {
   name: string;
-  items: string[];
+  items: {
+    material: string[];
+    construction: string[];
+    sole: string;
+    insole: string;
+    style: string;
+    care: string[];
+    fabricType?: string;
+    careInstructionsLink?: string;
+  }[];
 };
 
 export type ProductDetailsProps = {
