@@ -6,50 +6,77 @@ export const mockProductData = {
           name: "Men Oxford Shoes",
           price: "$120",
           description:
-            "Classic Oxford shoes made from premium leather, perfect for formal events and business attire.",
+            "Classic Oxford shoes made from premium leather, offering a timeless design for formal and business attire.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/oxford-shoes-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
+            },
+            {
+              bgColor: "#8B4513",
+              name: "Brown",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Oxford_Shoes_Front_View.jpg",
+            "/images/Shopping/Men/Oxford_Shoes_Side_View.jpg",
+            "/images/Shopping/Men/Oxford_Shoes_Detail.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              title: "Product Features",
+              material: "Premium leather",
+              construction: "Handcrafted stitching",
+              sole: "Leather sole",
+              insole: "Comfort-cushioned insole",
+              style: "Classic design",
+              care: "Regular polishing recommended",
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              name: "Men's Derby Shoes",
+              price: "$110",
+              description:
+                "Sleek Derby shoes with a refined design, perfect for both formal and smart-casual occasions.",
+              imageSrc: "/images/Shopping/Men/Derby_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Premium leather",
+              style: "Modern and versatile",
+            },
+            {
+              name: "Men's Brogue Shoes",
+              price: "$130",
+              description:
+                "Detailed Brogue shoes combining intricate perforation with superior craftsmanship for a sophisticated look.",
+              imageSrc: "/images/Shopping/Men/Brogue_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#8B4513",
+                  name: "Brown",
+                },
+              ],
+              items: [
+                "Brogue Shoes",
+                "Mesh Breathable Sneakers",
+                "High Performance Sneakers",
+                "Color Block Sneakers",
+              ],
+              material: "Premium leather",
+              style: "Intricate detailing",
             },
           ],
         },
