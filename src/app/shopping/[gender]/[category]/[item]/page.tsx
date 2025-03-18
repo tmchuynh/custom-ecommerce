@@ -140,7 +140,8 @@ const CategoryPage = (): JSX.Element => {
                     <a
                       href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
                         .toLowerCase()
-                        .replaceAll(" ", "-")}`}
+                        .replaceAll(" ", "-")
+                        .replaceAll("'s", "")}`}
                     >
                       {product.name}
                     </a>
