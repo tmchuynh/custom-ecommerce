@@ -1,6 +1,6 @@
 "use client";
 import CategoryCard from "@/components/CategoryCard";
-import { mockProductData } from "@/lib/constants";
+import { mockProductData } from "@/lib/mockProductData";
 import { CategoryCardData, GenderCategories } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";

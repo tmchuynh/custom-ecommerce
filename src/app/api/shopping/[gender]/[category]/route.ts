@@ -1,4 +1,4 @@
-import { mockProductData } from "@/lib/constants";
+import { mockProductData } from "@/lib/mockProductData";
 import { GenderCategories } from "@/lib/types";
 import { NextResponse } from "next/server";
 

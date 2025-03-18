@@ -4,7 +4,7 @@ import ProductDetails from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
-import { mockProductData } from "@/lib/constants";
+import { mockProductData } from "@/lib/mockProductData";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 

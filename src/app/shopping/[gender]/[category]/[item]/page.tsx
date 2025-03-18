@@ -5,7 +5,7 @@ import QuantityButtons from "@/components/Quantity";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { mockProductData } from "@/lib/constants";
+import { mockProductData } from "@/lib/mockProductData";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 import { toast } from "sonner"; // Import the toast function
