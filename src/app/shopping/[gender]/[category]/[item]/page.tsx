@@ -22,6 +22,9 @@ const CategoryPage = (): JSX.Element => {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const { gender, category, item } = useParams();
+  const [selectedGender, setSelectedGender] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<string>("");
   const section = item as string;
   const overhead = gender as string;
   const { addToCart, cartItems } = useCart();
@@ -49,6 +52,12 @@ const CategoryPage = (): JSX.Element => {
           const categoryData = (mockProductData as any)[gender as string]?.[
             category as string
           ]?.[item as string];
+
+          setSelectedGender(gender as string);
+
+          setSelectedCategory(category as string);
+
+          setSelectedItem(item as string);
 
           if (categoryData) {
             const productsArray = Object.values(categoryData);
@@ -122,7 +131,15 @@ const CategoryPage = (): JSX.Element => {
               )}
               <CardContent className="flex flex-col justify-between h-1/2">
                 <div>
-                  <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
+                  <h3 className="text-lg font-semibold mt-4">
+                    <a
+                      href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
+                        .toLowerCase()
+                        .replaceAll(" ", "-")}`}
+                    >
+                      {product.name}
+                    </a>
+                  </h3>
                   <p className="text-sm mt-2">{product.description}</p>
                 </div>
                 <p className="text-md mt-2">{product.price}</p>
@@ -133,6 +150,7 @@ const CategoryPage = (): JSX.Element => {
                 ) : (
                   <Button onClick={() => handleAddToCart(product, index)}>
                     Add to Cart
+                    <span className="sr-only">, {product.name}</span>
                   </Button>
                 )}
               </CardFooter>
