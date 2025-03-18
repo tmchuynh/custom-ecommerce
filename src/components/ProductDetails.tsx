@@ -26,35 +26,29 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6">
-                  <ul
-                    role="list"
-                    className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
-                  >
-                    {items?.map((item, idx) => {
-                      // Assuming each item is an object with a single key-value pair
-                      const key = Object.keys(item)[0];
-                      const value = Object.values(item)[0];
+                  {items?.map((item, idx) => {
+                    // Assuming each item is an object with a single key-value pair
+                    const key = Object.keys(item);
+                    const value = Object.values(item);
 
-                      return (
-                        <li key={idx} className="pl-2">
-                          <span className="underline underline-offset-4">
-                            {capitalize(key)}
-                          </span>
-                          :{" "}
-                          {typeof value === "string"
-                            ? value
-                            : Array.isArray(value)
-                            ? value.map((val, i) => (
-                                <span key={i}>
-                                  {i > 0 && ", "}
-                                  {val}
-                                </span>
-                              ))
-                            : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
+                    console.log(key, value);
+
+                    return (
+                      <ul
+                        key={idx}
+                        role="list"
+                        className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
+                      >
+                        {value.map((v, i) => {
+                          return (
+                            <li key={i} className="pl-2">
+                              {capitalize(key[i])}: {v}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    );
+                  })}
                 </AccordionContent>
               </AccordionItem>
             );
