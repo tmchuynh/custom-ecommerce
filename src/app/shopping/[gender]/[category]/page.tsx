@@ -19,9 +19,13 @@ const CategoryPage = (): JSX.Element => {
 
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [selectedGender, setSelectedGender] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   useEffect(() => {
     if (gender && category) {
+      console.log("Gender", gender);
+      console.log("Category", category);
       /**
        * Fetches and processes product data based on the current gender and category.
        *
@@ -42,13 +46,30 @@ const CategoryPage = (): JSX.Element => {
           const categoryData = (mockProductData as any)[gender as string]?.[
             category as string
           ];
+          console.log(Object.keys(categoryData));
+
+          setSelectedGender(gender as string);
+          setSelectedCategory(category as string);
 
           // Check if the category data exists and flatten it
           if (categoryData) {
-            const productsArray = Object.values(categoryData).flatMap(
-              (subCategory: any) => Object.values(subCategory)
-            ); // Flatten all products
-            setProducts(productsArray); // Set the products state to the flattened array
+            // Modified to retain item type information
+            const enhancedProducts: any[] = [];
+
+            // Iterate through each item type (boots, formal, etc.)
+            Object.entries(categoryData).forEach(
+              ([itemType, subCategory]: [string, any]) => {
+                // Add each product with its item type
+                Object.values(subCategory).forEach((product: any) => {
+                  enhancedProducts.push({
+                    ...product,
+                    itemType: itemType, // Store the item type with each product
+                  });
+                });
+              }
+            );
+
+            setProducts(enhancedProducts);
           } else {
             console.error("Product data not found");
           }
@@ -87,8 +108,11 @@ const CategoryPage = (): JSX.Element => {
           {products.map((product, index) => {
             return (
               <ProductCard
-                key={index} // Use a unique identifier
+                key={index}
                 product={product}
+                selectedGender={selectedGender}
+                selectedCategory={selectedCategory}
+                selectedItem={product.itemType} // Use the item type instead of product name
                 index={index}
               />
             );

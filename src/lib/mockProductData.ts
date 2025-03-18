@@ -3,7 +3,7 @@ export const mockProductData = {
     shoes: {
       formal: {
         "men-oxford-shoes": {
-          name: "Oxford Shoes",
+          name: "Men Oxford Shoes",
           price: "$120",
           description:
             "Classic Oxford shoes made from premium leather, perfect for formal events and business attire.",

@@ -3,7 +3,19 @@ import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 
-const ProductCard = ({ product, index }: { product: any; index: number }) => {
+const ProductCard = ({
+  product,
+  index,
+  selectedGender,
+  selectedCategory,
+  selectedItem,
+}: {
+  product: any;
+  index: number;
+  selectedGender: string;
+  selectedCategory: string;
+  selectedItem: string;
+}) => {
   const { addToCart } = useCart();
 
   /**
@@ -25,21 +37,21 @@ const ProductCard = ({ product, index }: { product: any; index: number }) => {
     toast.success(`${product.name} added to cart!`);
   };
 
+  // Generate the correct link using the item type (boots, formal, etc.)
+  const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
+    .toLowerCase()
+    .replaceAll(" ", "-")}`;
+
   return (
     <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
       {product.imageSrc ? (
-        // <Image
-        //   src={product.imageSrc}
-        //   alt={product.name} // Use a meaningful alt description
-        //   width={400}
-        //   height={400}
-        //   className="w-full h-64 object-cover"
-        // />
         <Skeleton className="h-[175] w-full rounded-xl" />
       ) : (
         <div className="w-full h-[175] bg-gray-200" />
       )}
-      <h3 className="text-lg font-semibold mt-4">{product.name}</h3>
+      <h3 className="text-lg font-semibold mt-4">
+        <a href={productLink}>{product.name}</a>
+      </h3>
       <p className="text-sm text-gray-500 mt-2">{product.price}</p>
       <Button
         onClick={() => handleAddToCart(product, index)}
