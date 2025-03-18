@@ -34,7 +34,6 @@ const ProductPage = (): JSX.Element => {
 
         // Check if the category data exists and flatten it
         if (categoryData) {
-          const productsArray = Object.values(categoryData); // Extract values as an array
           setProduct(categoryData); // Set the products state to the array
           setRelatedProducts(categoryData.relatedProducts); // Set the related products state to the array
           console.log(categoryData);
