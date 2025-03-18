@@ -1,6 +1,6 @@
 // /api/categories/[gender].ts
 import { mockProductData } from "@/lib/mockProductData";
-import { Gender, GenderCategories } from "@/lib/types";
+import { Gender } from "@/lib/types";
 import { NextResponse } from "next/server";
 
 /**
@@ -13,12 +13,12 @@ import { NextResponse } from "next/server";
 export async function GET(
   _request: Request,
   props: { params: Promise<{ gender: Gender }> }
-) {
+): Promise<NextResponse> {
   const params = await props.params;
   const { gender } = params;
 
   // Fetch category data based on gender
-  const categories = (mockProductData as GenderCategories)[gender];
+  const categories = (mockProductData as any)[gender];
 
   if (!categories) {
     return NextResponse.json(

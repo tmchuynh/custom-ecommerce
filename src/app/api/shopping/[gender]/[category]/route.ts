@@ -1,5 +1,4 @@
 import { mockProductData } from "@/lib/mockProductData";
-import { GenderCategories } from "@/lib/types";
 import { NextResponse } from "next/server";
 
 /**
@@ -12,7 +11,7 @@ import { NextResponse } from "next/server";
 export async function GET(
   _request: Request,
   props: { params: Promise<{ gender: string; category: string }> }
-) {
+): Promise<NextResponse> {
   const params = await props.params;
   const { gender, category } = params;
 
@@ -24,9 +23,8 @@ export async function GET(
   // Mock data for demonstration purposes
 
   const categoryData =
-    (mockProductData as GenderCategories)[gender.toLowerCase()]?.[
-      category.toLowerCase()
-    ] || [];
+    (mockProductData as any)[gender.toLowerCase()]?.[category.toLowerCase()] ||
+    [];
 
   return NextResponse.json(categoryData);
 }

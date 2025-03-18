@@ -1,5 +1,4 @@
 import { mockProductData } from "@/lib/mockProductData";
-import { GenderCategories } from "@/lib/types";
 import { NextResponse } from "next/server";
 
 /**
@@ -18,9 +17,9 @@ export async function GET(
 ): Promise<NextResponse> {
   const params = await props.params;
   const { gender, category, item } = params;
-  const categoryData = (mockProductData as GenderCategories)[gender]?.[
-    category
-  ]?.[item];
+  const categoryData = (mockProductData as any)[gender as string]?.[
+    category as string
+  ]?.[item as string];
 
   if (!categoryData) {
     return NextResponse.json({ message: "Product not found" }, { status: 404 });
