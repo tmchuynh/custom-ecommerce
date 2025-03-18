@@ -23,7 +23,7 @@ export default function Newsletter() {
             <div className="mt-3 sm:mt-0 sm:ml-4 sm:shrink-0">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-xs hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-white focus:outline-hidden"
+                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-xs hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-hidden"
               >
                 Sign up
               </button>

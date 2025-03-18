@@ -1,5 +1,5 @@
 // components/ProductInfo.tsx
-import React from "react";
+import React, { JSX } from "react";
 import { RadioGroup, Radio } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import {
@@ -8,19 +8,29 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
+import { ProductType, Color } from "@/lib/types";
 
-// Define proper types for colors
-interface Color {
-  name: string;
-  bgColor: string;
-}
-
-interface ProductType {
-  name: string;
-  price: string;
-  colors: Color[];
-}
-
+/**
+ * The `ProductInfo` component displays detailed information about a product,
+ * including its name, price, available colors, and actions to add the product
+ * to the shopping bag or favorites list.
+ *
+ * @param {Object} props - The props object.
+ * @param {ProductType} props.product - The product object containing details such as name, price, and available colors.
+ * @param {Color} props.selectedColor - The currently selected color for the product.
+ * @param {React.Dispatch<React.SetStateAction<Color>>} props.setSelectedColor - A state setter function to update the selected color.
+ *
+ * @returns {JSX.Element} A React component that renders the product information and actions.
+ *
+ * @example
+ * ```tsx
+ * <ProductInfo
+ *   product={product}
+ *   selectedColor={selectedColor}
+ *   setSelectedColor={setSelectedColor}
+ * />
+ * ```
+ */
 const ProductInfo = ({
   product,
   selectedColor,
@@ -29,7 +39,7 @@ const ProductInfo = ({
   product: ProductType;
   selectedColor: Color;
   setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
-}) => {
+}): JSX.Element => {
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
       <h1 className="text-3xl font-bold tracking-tight text-gray-900">

@@ -27,7 +27,7 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
                   role="list"
                   className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
                 >
-                  {detail.items.map((item, idx) => (
+                  {detail.items?.map((item, idx) => (
                     <li key={idx} className="pl-2">
                       {item}
                     </li>

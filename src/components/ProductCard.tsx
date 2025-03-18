@@ -2,7 +2,35 @@ import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { JSX } from "react";
 
+/**
+ * A React component that renders a product card with details such as name, price, and an image.
+ * It also provides functionality to add the product to the cart.
+ *
+ * @component
+ * @param {Object} props - The props object.
+ * @param {any} props.product - The product object containing details like name, description, price, and image source.
+ * @param {number} props.index - The index of the product in the list, used as a fallback ID.
+ * @param {string} props.selectedGender - The selected gender category for filtering products.
+ * @param {string} props.selectedCategory - The selected product category.
+ * @param {string} props.selectedItem - The selected item type within the category.
+ * @returns {JSX.Element} The rendered product card component.
+ *
+ * @example
+ * <ProductCard
+ *   product={{
+ *     name: "T-Shirt",
+ *     description: "A comfortable cotton t-shirt",
+ *     price: "$19.99",
+ *     imageSrc: "/images/tshirt.jpg"
+ *   }}
+ *   index={0}
+ *   selectedGender="men"
+ *   selectedCategory="clothing"
+ *   selectedItem="t-shirts"
+ * />
+ */
 const ProductCard = ({
   product,
   index,
@@ -15,7 +43,7 @@ const ProductCard = ({
   selectedGender: string;
   selectedCategory: string;
   selectedItem: string;
-}) => {
+}): JSX.Element => {
   const { addToCart } = useCart();
 
   /**
@@ -37,7 +65,6 @@ const ProductCard = ({
     toast.success(`${product.name} added to cart!`);
   };
 
-  // Generate the correct link using the item type (boots, formal, etc.)
   const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
     .toLowerCase()
     .replaceAll(" ", "-")}`;
