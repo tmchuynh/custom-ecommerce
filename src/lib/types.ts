@@ -144,3 +144,14 @@ export type DetailItem = {
 export type ProductDetailsProps = {
   details: DetailItem[];
 };
+
+export type Color = {
+  name: string;
+  bgColor: string;
+};
+
+export type ProductType = {
+  name: string;
+  price: string;
+  colors: Color[];
+};
