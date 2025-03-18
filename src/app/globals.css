@@ -245,6 +245,16 @@
   }
 }
 
+.bg-dynamic {
+  background-color: var(--bg-color);
+}
+
+/* 
+.bg-\[\$\{color\.bgColor\}\] {
+  background-color: ${color.bgColor};
+}
+*/
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
