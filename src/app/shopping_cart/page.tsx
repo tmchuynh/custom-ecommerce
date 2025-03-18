@@ -3,8 +3,30 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { useCart } from "../context/cartContext";
 import { Button } from "@/components/ui/button";
+import { JSX } from "react";
 
-const CartPage = () => {
+/**
+ * Represents the shopping cart page of the e-commerce application.
+ *
+ * This component displays the items currently in the user's shopping cart,
+ * allowing them to update item quantities, remove items, and view the total price.
+ *
+ * Features:
+ * - Displays a list of cart items with their details (name, description, price, and quantity).
+ * - Allows users to update the quantity of each item in the cart.
+ * - Allows users to remove items from the cart.
+ * - Displays the total price of all items in the cart.
+ * - Shows a message when the cart is empty.
+ *
+ * Dependencies:
+ * - Relies on the `useCart` hook to access cart data and actions.
+ * - Uses utility functions like `cn` for conditional class names.
+ * - Includes reusable components like `Skeleton` and `Button`.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered shopping cart page.
+ */
+const CartPage = (): JSX.Element => {
   const { cartItems, updateQuantity, removeFromCart, getTotalPrice } =
     useCart(); // Access cart data
 
