@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 export default function Newsletter() {
   return (
@@ -21,12 +22,9 @@ export default function Newsletter() {
               className="block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
             />
             <div className="mt-3 sm:mt-0 sm:ml-4 sm:shrink-0">
-              <button
-                type="submit"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-xs hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:outline-hidden"
-              >
+              <Button variant={"secondary"} type="submit">
                 Sign up
-              </button>
+              </Button>
             </div>
           </form>
         </div>
