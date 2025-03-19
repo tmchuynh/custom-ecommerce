@@ -21,7 +21,7 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
             return (
               <AccordionItem key={index} value={`detail-${index}`}>
                 <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
-                  <span className="text-sm font-medium text-gray-900 group-data-open:text-indigo-600">
+                  <span className="text-sm font-medium group-data-open:">
                     Details
                   </span>
                 </AccordionTrigger>
@@ -37,7 +37,7 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
                       <ul
                         key={idx}
                         role="list"
-                        className="list-disc space-y-1 pl-5 text-sm/6 text-gray-700 marker:text-gray-300"
+                        className="list-disc space-y-1 pl-5 text-sm/6 marker:text-gray-300"
                       >
                         {value.map((v, i) => {
                           return (
