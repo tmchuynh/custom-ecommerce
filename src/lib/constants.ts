@@ -255,6 +255,37 @@ export const navigations: NavigationDetails = {
           },
         ],
       ],
+      collections: [
+        {
+          name: "New Arrivals",
+          href: "/shopping/women/collections/new_arrivals",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
+          imageAlt:
+            "Latest arrivals in women's fashion, from dresses to casual wear.",
+        },
+        {
+          name: "Best Sellers",
+          href: "/shopping/women/collections/best_sellers",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
+        {
+          name: "Latest Drops",
+          href: "/shopping/women/collections/latest_drops",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+          imageAlt: "Elegant accessories to complement your outfits.",
+        },
+        {
+          name: "Sale",
+          href: "/shopping/women/collections/sale",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
+      ],
     },
     {
       id: "men",
@@ -470,6 +501,37 @@ export const navigations: NavigationDetails = {
             ],
           },
         ],
+      ],
+      collections: [
+        {
+          name: "New Arrivals",
+          href: "/shopping/men/collections/new_arrivals",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
+          imageAlt:
+            "Latest arrivals in women's fashion, from dresses to casual wear.",
+        },
+        {
+          name: "Best Sellers",
+          href: "/shopping/mencollections//best_sellers",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
+        {
+          name: "Latest Drops",
+          href: "/shopping/men/collections/latest_drops",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+          imageAlt: "Elegant accessories to complement your outfits.",
+        },
+        {
+          name: "Sale",
+          href: "/shopping/men/collections/sale",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
       ],
     },
     {
@@ -692,6 +754,37 @@ export const navigations: NavigationDetails = {
             ],
           },
         ],
+      ],
+      collections: [
+        {
+          name: "New Arrivals",
+          href: "/shopping/kids/collections/new_arrivals",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-01.jpg",
+          imageAlt:
+            "Latest arrivals in women's fashion, from dresses to casual wear.",
+        },
+        {
+          name: "Best Sellers",
+          href: "/shopping/kids/collections/best_sellers",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
+        {
+          name: "Latest Drops",
+          href: "/shopping/kids/collections/latest_drops",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
+          imageAlt: "Elegant accessories to complement your outfits.",
+        },
+        {
+          name: "Sale",
+          href: "/shopping/kids/collections/sale",
+          imageSrc:
+            "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
+          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+        },
       ],
     },
   ],
