@@ -6,7 +6,7 @@ export default function Newsletter() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-4xl font-semibold tracking-tight text-white">
+            <h2 className="text-2xl font-semibold mb-4">
               Subscribe to our newsletter
             </h2>
             <p className="mt-4 text-lg text-gray-300">

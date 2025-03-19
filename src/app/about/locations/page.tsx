@@ -86,9 +86,7 @@ const LocationsPage = () => {
             })}
           >
             <div className="flex flex-col justify-center">
-              <h2 className="text-2xl font-semiboldnavigations">
-                {location.name}
-              </h2>
+              <h2 className="text-2xl font-semibold mb-4">{location.name}</h2>
               <p className="text-lg mb-4">{location.address}</p>
               <p className="text-lg mb-4">Store Hours:</p>
               <ul className="list-disc list-inside text-lg mb-4">

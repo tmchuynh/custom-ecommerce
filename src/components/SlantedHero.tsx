@@ -9,7 +9,7 @@ export default function SlantedHero() {
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-5 xl:grid-cols-9 gap-8">
           <div className="lg:gap-8 lg:col-span-3 xl:col-span-5">
             <div className="flex flex-col gap-6 ">
-              <h1 className="max-w-2xl text-5xl font-semibold tracking-tight text-balance  sm:text-7xl md:col-span-3 lg:col-span-4 text-foreground">
+              <h1 className="text-4xl font-extrabold text-center mb-8">
                 We’re changing the way people connect
               </h1>
               <p className="text-lg font-medium text-pretty text-foreground sm:text-xl/8">

@@ -5,9 +5,9 @@ export default function FeaturedBlogs() {
   return (
     <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
       <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-        <h2 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
+        <h1 className="text-4xl font-semibold tracking-tight text-balance sm:text-5xl">
           From the blog
-        </h2>
+        </h1>
         <p className="mt-2 text-lg/8">
           Learn how to grow your business with our expert advice.
         </p>

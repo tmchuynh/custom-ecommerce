@@ -42,7 +42,7 @@ const ProductInfo = ({
 }): JSX.Element => {
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-      <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+      <h1 className="text-4xl font-extrabold text-center mb-8">
         {product.name}
       </h1>
 
@@ -52,7 +52,7 @@ const ProductInfo = ({
       </div>
 
       <div className="mt-6">
-        <h3 className="text-sm text-gray-600">Color</h3>
+        <h3 className="text-lg font-medium mb-4">Color</h3>
         <fieldset aria-label="Choose a color" className="mt-2">
           <RadioGroup
             value={selectedColor}

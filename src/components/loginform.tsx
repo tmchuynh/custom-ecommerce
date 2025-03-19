@@ -124,7 +124,7 @@ const LoginPage: React.FC = () => {
       <div className="grid md:grid-cols-2 md:gap-6 w-11/12 mx-auto">
         {/* Login Form */}
         <div className="p-6 rounded-lg shadow-md border hover:shadow-md">
-          <h2 className="text-center">Login</h2>
+          <h2 className="text-2xl font-semibold mb-4">Login</h2>
           <form
             className="mx-auto w-full p-10"
             onSubmit={(e) => {

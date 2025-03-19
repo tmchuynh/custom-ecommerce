@@ -129,7 +129,7 @@ const CategoryPage = (): JSX.Element => {
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {gender && category && (
-          <h1 className="text-3xl font-bold tracking-tight">
+          <h1 className="text-4xl font-extrabold text-center mb-8">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
             's{" "}

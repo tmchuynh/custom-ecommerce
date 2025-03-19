@@ -6,7 +6,7 @@ export default function Newsletter() {
     <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-30 gap-y-6 md:gap-y-8 w-11/12 lg:w-10/12 2xl:w-9/12 py-10 mx-auto">
       <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
         <div className="mx-auto max-w-sm">
-          <h3 className="font-semibold text-gray-900">
+          <h3 className="text-lg font-medium mb-4">
             Sign up for our newsletter
           </h3>
           <p className="mt-2 text-sm text-gray-500">
@@ -42,9 +42,7 @@ export default function Newsletter() {
           <div className="absolute inset-0 bg-indigo-600/90" />
         </div>
         <div className="relative mx-auto max-w-sm text-center">
-          <h3 className="text-2xl font-bold tracking-tight text-white">
-            Get early access
-          </h3>
+          <h3 className="text-lg font-medium mb-4">Get early access</h3>
           <p className="mt-2 text-gray-200">
             Did you sign up to the newsletter? If so, use the keyword we sent
             you to get access.{" "}

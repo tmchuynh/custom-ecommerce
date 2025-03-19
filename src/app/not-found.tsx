@@ -61,7 +61,7 @@ const NotFound = (): JSX.Element => {
   return (
     <main className="grid place-items-center px-6 py-24 sm:py-32 lg:px-8 min-h-screen">
       <div className="text-center">
-        <h1 className="my-4 text-balance uppercase font-Luckiest tracking-wider lg:text-4xl text-lg text-primary font-extrabold text-center">
+        <h1 className="text-4xl font-extrabold text-center mb-8">
           404 Page not found
         </h1>
         <div className="mt-6 text-pretty text-lg font-medium sm:text-xl/8">

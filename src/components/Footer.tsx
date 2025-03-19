@@ -15,7 +15,7 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-8 xl:col-span-2">
               <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                 <div>
-                  <h3 className="text-sm font-medium text-white">Shop</h3>
+                  <h3 className="text-lg font-medium mb-4">Shop</h3>
                   <ul role="list" className="mt-6 space-y-6">
                     {footerNavigation.shop.map((item) => (
                       <li key={item.name} className="text-sm">
@@ -30,7 +30,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-white">Company</h3>
+                  <h3 className="text-lg font-medium mb-4">Company</h3>
                   <ul role="list" className="mt-6 space-y-6">
                     {footerNavigation.company.map((item) => (
                       <li key={item.name} className="text-sm">
@@ -47,7 +47,7 @@ export default function Footer() {
               </div>
               <div className="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                 <div>
-                  <h3 className="text-sm font-medium text-white">Account</h3>
+                  <h3 className="text-lg font-medium mb-4">Account</h3>
                   <ul role="list" className="mt-6 space-y-6">
                     {footerNavigation.account.map((item) => (
                       <li key={item.name} className="text-sm">
@@ -62,7 +62,7 @@ export default function Footer() {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-white">Connect</h3>
+                  <h3 className="text-lg font-medium mb-4">Connect</h3>
                   <ul role="list" className="mt-6 space-y-6">
                     {footerNavigation.connect.map((item) => (
                       <li key={item.name} className="text-sm">

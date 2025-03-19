@@ -55,7 +55,7 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <h1 className="text-5xl font-semibold tracking-tight text-pretty sm:text-7xl">
+                <h1 className="text-4xl font-extrabold text-center mb-8">
                   We’re changing the way people connect
                 </h1>
                 <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
@@ -98,9 +98,7 @@ export default function Example() {
 
       <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
-            Our mission
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">Our mission</h2>
           <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
             <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
               <p className="text-xl/8">
@@ -149,9 +147,7 @@ export default function Example() {
 
       <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
-            Our values
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">Our values</h2>
           <p className="mt-6 text-lg/8">
             Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
             voluptatum cupiditate veritatis in accusamus quisquam.

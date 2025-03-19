@@ -45,7 +45,7 @@ export default function Example() {
               <p className="text-base/7 font-semibold text-indigo-600">
                 Deploy faster
               </p>
-              <h1 className="mt-2 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl">
+              <h1 className="text-4xl font-extrabold text-center mb-8">
                 A better workflow
               </h1>
               <p className="mt-6 text-xl/8">
@@ -117,7 +117,7 @@ export default function Example() {
                 et ultrices hac adipiscing egestas. Iaculis convallis ac tempor
                 et ut. Ac lorem vel integer orci.
               </p>
-              <h2 className="mt-16 text-2xl font-bold tracking-tight">
+              <h2 className="text-2xl font-semibold mb-4">
                 No server? No problem.
               </h2>
               <p className="mt-6">
