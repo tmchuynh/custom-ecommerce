@@ -1,6 +1,5 @@
 // components/RelatedProducts.tsx
 import React from "react";
-import Image from "next/image";
 import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
@@ -31,9 +30,9 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
   return (
     <section
       aria-labelledby="related-heading"
-      className="mt-10 border-t border-gray-200 px-4 py-16 sm:px-0"
+      className="mt-10 px-4 py-16 sm:px-0"
     >
-      <h2 id="related-heading" className="text-xl font-bold text-gray-900">
+      <h2 id="related-heading" className="text-xl font-bold">
         Customers also bought
       </h2>
 
@@ -54,17 +53,15 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
                 <Skeleton className="h-[175] w-full rounded-xl" />
               </div>
               <div className="relative mt-4">
-                <h3 className="text-sm font-medium text-gray-900">
-                  {product.name}
-                </h3>
-                <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                <h3 className="text-sm font-medium">{product.name}</h3>
+                <p className="mt-1 text-sm">{product.color}</p>
               </div>
               <div className="absolute inset-x-0 top-0 flex h-72 items-end justify-end overflow-hidden rounded-lg p-4">
                 <div
                   aria-hidden="true"
                   className="absolute inset-x-0 bottom-0 h-36 bg-linear-to-t from-black opacity-50"
                 />
-                <p className="relative text-lg font-semibold text-white">
+                <p className="relative text-lg font-semibold">
                   {product.price}
                 </p>
               </div>
