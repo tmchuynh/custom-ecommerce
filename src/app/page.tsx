@@ -96,45 +96,55 @@ export default function HomePage() {
 
           <div className="mt-4 flow-root">
             <div className="-my-2">
-              <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8">
-                {navigations.categories.map((category) => {
-                  if (category.name === "Women") {
-                    return category.sections.map((section) =>
-                      section.map((section) => {
-                        if (section.id !== "shop-collection") {
-                          return (
-                            <a
-                              key={section.name}
-                              href={section.href}
-                              className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="absolute inset-0"
-                              >
-                                <Image
-                                  width={1920}
-                                  height={1080}
-                                  alt=""
-                                  src={section.imageSrc}
-                                  objectFit="cover"
-                                />
-                              </span>
-                              <span
-                                aria-hidden="true"
-                                className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
-                              />
-                              <span className="relative mt-auto text-center text-xl font-bold text-white">
-                                {section.name}
-                              </span>
-                            </a>
-                          );
-                        }
-                      })
-                    );
-                  }
-                })}
-              </div>
+              {navigations.categories.map((category, index) => {
+                return (
+                  <>
+                    {category.name}
+                    <div
+                      className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8"
+                      key={index}
+                    >
+                      {category.sections.map((section) => {
+                        return (
+                          <>
+                            {section.map((section) => {
+                              if (section.id !== "shop-collection") {
+                                return (
+                                  <a
+                                    key={section.name}
+                                    href={section.href}
+                                    className="relative flex h-60 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                                  >
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute inset-0"
+                                    >
+                                      <Image
+                                        width={1920}
+                                        height={1080}
+                                        alt=""
+                                        src={section.imageSrc}
+                                        className="size-full object-cover object-center"
+                                      />
+                                    </span>
+                                    <span
+                                      aria-hidden="true"
+                                      className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+                                    />
+                                    <span className="relative mt-auto text-center text-xl font-bold text-white">
+                                      {category.name}'s {section.name}
+                                    </span>
+                                  </a>
+                                );
+                              }
+                            })}
+                          </>
+                        );
+                      })}
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
 
@@ -165,41 +175,83 @@ export default function HomePage() {
             collection inspired by the natural world.
           </p>
 
+          <div className="mt-4 flow-root">
+            <div className="-my-2">
+              {navigations.categories.map((category, index) => {
+                return (
+                  <>
+                    {category.name}
+                    <div
+                      className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8"
+                      key={index}
+                    >
+                      {category.collections.map((section, indexS) => {
+                        return (
+                          <a
+                            key={section.name}
+                            href={section.href}
+                            className="relative flex h-60 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-0"
+                            >
+                              <Image
+                                width={1920}
+                                height={1080}
+                                alt=""
+                                src={section.imageSrc}
+                                className="size-full object-cover object-center"
+                              />
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+                            />
+                            <span className="relative mt-auto text-center text-xl font-bold text-white">
+                              {section.name}
+                            </span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </>
+                );
+              })}
+            </div>
+          </div>
           <div className="mt-10 space-y-12 lg:grid lg:grid-cols-4 lg:gap-x-8">
             {navigations.categories.map((category) => {
-              if (category.name === "Women") {
-                return category.sections.map((section) =>
-                  section.map((section) => {
-                    if (section.id === "shop-collection") {
-                      return section.items.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
-                        >
-                          <span aria-hidden="true" className="absolute inset-0">
-                            <Image
-                              alt=""
-                              width={1920}
-                              height={1080}
-                              src={item.imageSrc}
-                              objectFit="cover"
-                              className="size-full object-cover"
-                            />
-                          </span>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+              return category.sections.map((section) =>
+                section.map((section) => {
+                  if (section.id === "shop-collection") {
+                    return section.items.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="relative flex h-48 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                      >
+                        <span aria-hidden="true" className="absolute inset-0">
+                          <Image
+                            alt=""
+                            width={1920}
+                            height={1080}
+                            src={item.imageSrc}
+                            className="size-full object-cover object-center"
                           />
-                          <span className="relative mt-auto text-center text-xl font-bold text-white">
-                            {item.name}
-                          </span>
-                        </a>
-                      ));
-                    }
-                  })
-                );
-              }
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+                        />
+                        <span className="relative mt-auto text-center text-xl font-bold text-white">
+                          {category.name}'s {item.name}
+                        </span>
+                      </a>
+                    ));
+                  }
+                })
+              );
             })}
           </div>
         </section>
