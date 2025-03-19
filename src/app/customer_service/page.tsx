@@ -1,8 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const CustomerService = () => {
+  const router = useRouter();
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-extrabold text-center mb-8">
@@ -33,7 +35,10 @@ const CustomerService = () => {
             <p>
               <strong>Email Support:</strong> For general inquiries, product
               questions, or issues with your order, please contact us at{" "}
-              <Button variant={"link"} href="mailto:support@yourcompany.com">
+              <Button
+                variant={"link"}
+                onClick={() => router.push("mailto:support@yourcompany.com")}
+              >
                 support@yourcompany.com
               </Button>
             </p>
