@@ -14516,46 +14516,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/skinny-jeans-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#808080", name: "Grey" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Skinny_Jeans_1.jpg",
+            "/images/Shopping/Women/Skinny_Jeans_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "High-quality denim with a slight stretch",
+                "Modern skinny fit that flatters the figure",
+                "Versatile style for casual or smart-casual looks",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Denim Jacket",
+              price: "$75",
+              imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+            },
+            {
+              name: "Women Casual Sneakers",
+              price: "$50",
+              imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
             },
           ],
         },
@@ -14567,46 +14556,35 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-jeans-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#2F4F4F", name: "Dark Slate" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/High_Waisted_Jeans_1.jpg",
+            "/images/Shopping/Women/High_Waisted_Jeans_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Premium denim with a high-rise design",
+                "Comfortable stretch for ease of movement",
+                "Ideal for pairing with crop tops or blouses",
               ],
+              careInstructions: ["Machine wash cold", "Line dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Skinny Jeans",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
+            },
+            {
+              name: "Women Casual Sneakers",
+              price: "$50",
+              imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
             },
           ],
         },
@@ -14618,46 +14596,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wide-leg-pants-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#696969", name: "Dim Grey" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Wide_Leg_Pants_1.jpg",
+            "/images/Shopping/Women/Wide_Leg_Pants_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Flowy silhouette with a relaxed fit",
+                "Lightweight, breathable fabric for comfort",
+                "Ideal for creating a chic, professional look",
               ],
+              careInstructions: ["Machine wash gentle", "Iron on low heat"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Blazer",
+              price: "$60",
+              imageSrc: "/images/Shopping/Women/Blazer.jpg",
             },
           ],
         },
@@ -14669,46 +14630,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/paperbag-waist-pants-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#8B4513", name: "Brown" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Paperbag_Waist_1.jpg",
+            "/images/Shopping/Women/Paperbag_Waist_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Casual yet chic design with a cinched waist",
+                "Comfortable fabric that drapes elegantly",
+                "Versatile for both casual and semi-formal wear",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Crop Top",
+              price: "$25",
+              imageSrc: "/images/Shopping/Women/Crop_Top.jpg",
             },
           ],
         },
@@ -14720,46 +14664,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/culottes-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#708090", name: "Slate Gray" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Culottes_1.jpg",
+            "/images/Shopping/Women/Culottes_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Lightweight and airy fabric",
+                "Flattering, relaxed cut",
+                "Perfect for summer and transitional seasons",
               ],
+              careInstructions: ["Machine wash gentle", "Hang dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Blouse",
+              price: "$35",
+              imageSrc: "/images/Shopping/Women/Blouse.jpg",
             },
           ],
         },
@@ -14771,46 +14698,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/palazzo-pants-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFD700", name: "Gold" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Palazzo_Pants_1.jpg",
+            "/images/Shopping/Women/Palazzo_Pants_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Elegant and flowy silhouette",
+                "High-quality, breathable fabric",
+                "Ideal for casual and dressy occasions",
               ],
+              careInstructions: ["Machine wash cold", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Off Shoulder Top",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Off_Shoulder_Top.jpg",
             },
           ],
         },
@@ -14822,46 +14733,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leggings-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#696969", name: "Grey" },
+            { bgColor: "#FF4500", name: "Orange" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Leggings_1.jpg",
+            "/images/Shopping/Women/Leggings_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Stretchable fabric for full range of motion",
+                "Snug yet comfortable fit",
+                "Ideal for gym workouts or casual outings",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Sports Bra",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Sports_Bra.jpg",
             },
           ],
         },
@@ -14873,46 +14768,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cargo-pants-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#556B2F", name: "Olive" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Cargo_Pants_1.jpg",
+            "/images/Shopping/Women/Cargo_Pants_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Durable fabric with a relaxed fit",
+                "Multiple functional pockets",
+                "Great for everyday wear and travel",
               ],
+              careInstructions: ["Machine wash cold", "Line dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Casual Sneakers",
+              price: "$50",
+              imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
             },
           ],
         },
@@ -14924,46 +14802,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tailored-trousers-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#808080", name: "Grey" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Tailored_Trousers_1.jpg",
+            "/images/Shopping/Women/Tailored_Trousers_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Sleek, structured design",
+                "Ideal for office or formal occasions",
+                "Fabric that maintains its shape",
               ],
+              careInstructions: ["Machine wash gentle", "Iron on low heat"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Blazer",
+              price: "$60",
+              imageSrc: "/images/Shopping/Women/Blazer.jpg",
             },
           ],
         },
@@ -14975,46 +14836,29 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/jogger-pants-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#2F4F4F", name: "Dark Slate" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Jogger_Pants_1.jpg",
+            "/images/Shopping/Women/Jogger_Pants_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Soft fabric with an elastic waistband",
+                "Modern jogger style with tapered legs",
+                "Ideal for casual wear and workouts",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Sports Bra",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Sports_Bra.jpg",
             },
           ],
         },
@@ -15026,48 +14870,37 @@ export const mockProductData = {
           description:
             "A beautiful floral print top perfect for spring and summer.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/floral-top-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FF69B4", name: "Pink" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Floral_Top_1.jpg",
+            "/images/Shopping/Women/Floral_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Lightweight and breathable fabric",
+                "Vibrant floral print",
+                "Casual yet stylish design",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women's Sandals",
+              price: "$30",
+              imageSrc: "/images/Shopping/Women/Sandals.jpg",
+            },
+            {
+              name: "Women's Denim Shorts",
+              price: "$25",
+              imageSrc: "/images/Shopping/Women/Denim_Shorts.jpg",
             },
           ],
         },
@@ -15079,46 +14912,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-blouse-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFDAB9", name: "Peach" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Lace_Blouse_1.jpg",
+            "/images/Shopping/Women/Lace_Blouse_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Elegant lace detailing",
+                "Soft and lightweight fabric",
+                "Perfect for both casual and formal wear",
               ],
+              careInstructions: ["Hand wash", "Do not bleach", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Midi Skirt",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Midi_Skirt.jpg",
             },
           ],
         },
@@ -15130,46 +14947,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/crop-tank-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FF4500", name: "Orange" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Crop_Tank_1.jpg",
+            "/images/Shopping/Women/Crop_Tank_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Trendy cropped design",
+                "Soft, stretchy fabric",
+                "Ideal for hot summer days",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women High Waisted Shorts",
+              price: "$28",
+              imageSrc: "/images/Shopping/Women/High_Waisted_Shorts.jpg",
             },
           ],
         },
@@ -15181,46 +14982,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/striped-tshirt-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FF0000", name: "Red" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Striped_Tshirt_1.jpg",
+            "/images/Shopping/Women/Striped_Tshirt_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Classic stripe design",
+                "100% cotton fabric",
+                "Versatile and casual style",
               ],
+              careInstructions: ["Machine wash", "Iron on low heat"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Skinny Jeans",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
             },
           ],
         },
@@ -15232,46 +15017,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peplum-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#8B0000", name: "Burgundy" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Peplum_Top_1.jpg",
+            "/images/Shopping/Women/Peplum_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Tailored to enhance the waist",
+                "Lightweight and breathable fabric",
+                "Elegant draping design",
               ],
+              careInstructions: ["Hand wash", "Lay flat to dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Skinny Jeans",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
             },
           ],
         },
@@ -15283,46 +15052,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bandeau-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFC0CB", name: "Pink" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Bandeau_Top_1.jpg",
+            "/images/Shopping/Women/Bandeau_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Minimalist design with a sleek finish",
+                "Soft and stretchy fabric",
+                "Ideal for beach or pool days",
               ],
+              careInstructions: ["Machine wash gentle", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Swim Cover-Up",
+              price: "$30",
+              imageSrc: "/images/Shopping/Women/Swim_CoverUp.jpg",
             },
           ],
         },
@@ -15334,46 +15087,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/ruffled-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFD700", name: "Gold" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Ruffled_Top_1.jpg",
+            "/images/Shopping/Women/Ruffled_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Soft ruffles for added texture",
+                "Breathable fabric for all-day wear",
+                "Versatile style for casual and dressy occasions",
               ],
+              careInstructions: ["Hand wash recommended", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women High Waist Skirt",
+              price: "$50",
+              imageSrc: "/images/Shopping/Women/High_Waist_Skirt.jpg",
             },
           ],
         },
@@ -15385,46 +15122,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleeveless-jersey-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#808080", name: "Grey" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Sleeveless_Jersey_1.jpg",
+            "/images/Shopping/Women/Sleeveless_Jersey_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Breathable fabric for comfort",
+                "Versatile style for layering",
+                "Casual and relaxed fit",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Jogger Pants",
+              price: "$30",
+              imageSrc: "/images/Shopping/Women/Jogger_Pants.jpg",
             },
           ],
         },
@@ -15436,46 +15157,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puff-sleeve-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FF69B4", name: "Pink" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Puff_Sleeve_1.jpg",
+            "/images/Shopping/Women/Puff_Sleeve_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Bold puff sleeves for a statement look",
+                "Soft, breathable fabric",
+                "Perfect for a casual chic outfit",
               ],
+              careInstructions: ["Hand wash", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Crop Tank Top",
+              price: "$25",
+              imageSrc: "/images/Shopping/Women/Crop_Tank_1.jpg",
             },
           ],
         },
@@ -15487,46 +15192,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/graphic-tee-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FF0000", name: "Red" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Graphic_Tee_1.jpg",
+            "/images/Shopping/Women/Graphic_Tee_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Unique, eye-catching graphic design",
+                "Soft, comfortable cotton fabric",
+                "Ideal for casual outings",
               ],
+              careInstructions: ["Machine wash cold", "Iron on low heat"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Denim Shorts",
+              price: "$30",
+              imageSrc: "/images/Shopping/Women/Denim_Shorts.jpg",
             },
           ],
         },
@@ -15538,46 +15227,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/v-neck-blouse-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFD700", name: "Gold" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/V_Neck_Blouse_1.jpg",
+            "/images/Shopping/Women/V_Neck_Blouse_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Flattering V-neck design",
+                "Lightweight, breathable material",
+                "Perfect for office or casual wear",
               ],
+              careInstructions: ["Machine wash gentle", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Midi Skirt",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Midi_Skirt.jpg",
             },
           ],
         },
@@ -15589,46 +15262,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peasant-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FF6347", name: "Tomato" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Peasant_Top_1.jpg",
+            "/images/Shopping/Women/Peasant_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Bohemian-inspired relaxed design",
+                "Lightweight and airy fabric",
+                "Ideal for casual outings",
               ],
+              careInstructions: ["Machine wash cold", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Culottes",
+              price: "$38",
+              imageSrc: "/images/Shopping/Women/Culottes.jpg",
             },
           ],
         },
@@ -15640,46 +15297,30 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/halter-neck-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFD700", name: "Gold" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Halter_Neck_1.jpg",
+            "/images/Shopping/Women/Halter_Neck_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Elegant halter design",
+                "Soft, breathable fabric",
+                "Versatile for casual or dressy occasions",
               ],
+              careInstructions: ["Hand wash", "Lay flat to dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Off Shoulder Top",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Off_Shoulder_Top.jpg",
             },
           ],
         },
@@ -15691,53 +15332,37 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/off-shoulder-top-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#87CEEB", name: "Sky Blue" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Off_Shoulder_Top_1.jpg",
+            "/images/Shopping/Women/Off_Shoulder_Top_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Modern off-shoulder design",
+                "Soft, lightweight fabric",
+                "Perfect for summer outings",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women High Waist Skirt",
+              price: "$50",
+              imageSrc: "/images/Shopping/Women/High_Waist_Skirt.jpg",
             },
           ],
         },
       },
       bras: {
         "women-lace-bras": {
-          name: "Women's Lace Bras",
+          name: "Lace Bras",
           price: "$25",
           description:
             "Elegant lace bras designed for comfort and style—perfect for everyday wear or special occasions.",
@@ -15798,7 +15423,7 @@ export const mockProductData = {
               name: "Underwire Bra",
               price: "$35",
               description:
-                "A classic underwire bra providing firm support and a natural lift.",
+                "A classic underwire bra providing firm support and natural lift.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
               colors: [
                 { bgColor: "#000000", name: "Black" },
@@ -15810,107 +15435,141 @@ export const mockProductData = {
         "women-mesh-bra": {
           name: "Mesh Bra",
           price: "$38",
-          description: "Breathable mesh bra with elegant details.",
+          description:
+            "Breathable mesh bra with elegant details for everyday comfort.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/mesh-bra-600nw-92008067.jpg",
-        },
-        "women-pushup-bra": {
-          name: "Push-up Bra",
-          price: "$35",
-          description: "Enhance your curves with this comfortable push-up bra.",
-          imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFB6C1", name: "Light Pink" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Mesh_Bra_1.jpg",
+            "/images/Shopping/Women/Mesh_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Lightweight mesh fabric for superior breathability",
+                "Elegant design with subtle detailing",
+                "Seamless finish for a smooth look",
               ],
+              careInstructions: ["Hand wash recommended", "Do not tumble dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Lace Bras",
+              price: "$25",
+              description: "Elegant lace bras designed for a chic look.",
+              imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#FF69B4", name: "Pink" },
               ],
+            },
+            {
+              name: "Underwire Bra",
+              price: "$35",
+              description: "Classic underwire bra providing firm support.",
+              imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
+            },
+          ],
+        },
+        "women-pushup-bra": {
+          name: "Push-up Bra",
+          price: "$35",
+          description:
+            "Enhance your curves with this comfortable and supportive push-up bra.",
+          imageSrc:
+            "https://www.shutterstock.com/image-photo/pushup-bra-600nw-92008067.jpg",
+          colors: [
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
+            { bgColor: "#FFC0CB", name: "Pink" },
+          ],
+          images: [
+            "/images/Shopping/Women/Pushup_Bra_1.jpg",
+            "/images/Shopping/Women/Pushup_Bra_2.jpg",
+          ],
+          details: [
+            {
+              name: "Product Details",
+              features: [
+                "Enhances natural curves for a flattering silhouette",
+                "Soft padding for added comfort",
+                "Adjustable straps for a custom fit",
+              ],
+              careInstructions: ["Hand wash only", "Air dry in shade"],
+            },
+          ],
+          relatedProducts: [
+            {
+              name: "Lace Bras",
+              price: "$25",
+              description: "Elegant lace bras with intricate detailing.",
+              imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
+            },
+            {
+              name: "Underwire Bra",
+              price: "$35",
+              description: "A classic underwire bra for a natural lift.",
+              imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
         "women-sports-bra": {
           name: "Sports Bra",
           price: "$40",
-          description: "Supportive sports bra for active women.",
+          description:
+            "A supportive sports bra engineered for active women, offering excellent moisture control and comfort.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/sports-bra-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#1E90FF", name: "Blue" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Sports_Bra_1.jpg",
+            "/images/Shopping/Women/Sports_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "High-impact support with breathable fabric",
+                "Ergonomic design for optimal performance",
+                "Moisture-wicking technology keeps you dry",
+              ],
+              careInstructions: [
+                "Machine wash cold on gentle cycle",
+                "Do not tumble dry",
               ],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Mesh Bra",
+              price: "$38",
+              description: "A breathable mesh bra with elegant details.",
+              imageSrc: "/images/Shopping/Women/Mesh_Bra_1.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
+            },
+            {
+              name: "Underwire Bra",
+              price: "$35",
+              description: "A classic underwire bra offering firm support.",
+              imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
@@ -15919,98 +15578,89 @@ export const mockProductData = {
           price: "$28",
           description: "A stylish and comfortable bralette for everyday wear.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/bralette-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFDAB9", name: "Peach" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Bralette_1.jpg",
+            "/images/Shopping/Women/Bralette_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Soft, seamless design for maximum comfort",
+                "Lightweight fabric that conforms to your shape",
+                "Versatile style suitable for layering",
+              ],
+              careInstructions: [
+                "Hand wash recommended",
+                "Do not use bleach",
+                "Air dry",
               ],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Lace Bras",
+              price: "$25",
+              description: "Elegant lace bras with intricate detailing.",
+              imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
+            },
+            {
+              name: "Push-up Bra",
+              price: "$35",
+              description: "Supportive push-up bra for enhancing curves.",
+              imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
         "women-underwire-bra": {
           name: "Underwire Bra",
           price: "$35",
-          description: "Supportive underwire bra for all-day comfort.",
+          description:
+            "A classic underwire bra providing firm support and a natural lift.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/underwire-bra-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFD700", name: "Gold" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Underwire_Bra_1.jpg",
+            "/images/Shopping/Women/Underwire_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Firm support for enhanced shape",
+                "Smooth, seamless design",
+                "Lightweight construction for all-day comfort",
               ],
+              careInstructions: ["Hand wash cold", "Lay flat to dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Push-up Bra",
+              price: "$35",
+              description:
+                "Enhance your curves with this supportive push-up bra.",
+              imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
+            },
+            {
+              name: "Mesh Bra",
+              price: "$38",
+              description: "Breathable mesh bra with elegant details.",
+              imageSrc: "/images/Shopping/Women/Mesh_Bra_1.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
@@ -16018,50 +15668,35 @@ export const mockProductData = {
           name: "Nursing Bra",
           price: "$45",
           description:
-            "Convenient and comfortable nursing bra for new mothers.",
+            "Convenient and comfortable nursing bra designed for ease of breastfeeding.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/nursing-bra-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFC0CB", name: "Pink" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Nursing_Bra_1.jpg",
+            "/images/Shopping/Women/Nursing_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Easy access for breastfeeding",
+                "Soft, flexible fabric for comfort",
+                "Secure fit with adjustable straps",
               ],
+              careInstructions: ["Hand wash recommended", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Underwire Bra",
+              price: "$35",
+              description: "Classic underwire bra for everyday support.",
+              imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
@@ -16070,98 +15705,69 @@ export const mockProductData = {
           price: "$38",
           description: "Low-cut plunge bra for deep-neck outfits.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/plunge-bra-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Plunge_Bra_1.jpg",
+            "/images/Shopping/Women/Plunge_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Ideal for low-cut tops",
+                "Smooth and supportive design",
+                "Enhances natural shape",
               ],
+              careInstructions: ["Hand wash only", "Do not tumble dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Push-up Bra",
+              price: "$35",
+              description: "Enhance your curves with a supportive push-up bra.",
+              imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
         "women-lingerie-bra": {
           name: "Lingerie Bra",
           price: "$50",
-          description: "Elegant lingerie bra perfect for special occasions.",
+          description:
+            "Elegant lingerie bra with delicate detailing for special occasions.",
           imageSrc:
-            "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
+            "https://www.shutterstock.com/image-photo/lingerie-bra-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#8B0000", name: "Maroon" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Lingerie_Bra_1.jpg",
+            "/images/Shopping/Women/Lingerie_Bra_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Exquisite lace and satin details",
+                "Designed for a smooth, elegant look",
+                "Ideal for formal and intimate settings",
               ],
+              careInstructions: ["Hand wash in cold water", "Lay flat to dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Lace Bras",
+              price: "$25",
+              description: "Elegant lace bras for a refined look.",
+              imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
+              colors: [{ bgColor: "#000000", name: "Black" }],
             },
           ],
         },
@@ -16174,47 +15780,32 @@ export const mockProductData = {
             "Sophisticated trench coat for layering over formal wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/trench-coat-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000000", name: "Black" }],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Trench_Coat_1.jpg",
+            "/images/Shopping/Women/Trench_Coat_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Tailored fit with a classic silhouette",
+                "Water-resistant fabric for unpredictable weather",
+                "Adjustable belt to cinch the waist",
               ],
+              careInstructions: ["Dry clean only", "Store on a padded hanger"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Denim Jacket",
+              price: "$85",
+              imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+            },
+            {
+              name: "Women Wool Coat",
+              price: "$180",
+              imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
             },
           ],
         },
@@ -16225,46 +15816,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/denim-jacket-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#1C1C1C", name: "Dark Blue" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Denim_Jacket_1.jpg",
+            "/images/Shopping/Women/Denim_Jacket_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Lightweight and versatile denim fabric",
+                "Relaxed cropped fit perfect for layering",
+                "Ideal for casual and weekend looks",
               ],
+              careInstructions: ["Machine wash cold", "Line dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+            },
+            {
+              name: "Women Bomber Jacket",
+              price: "$75",
+              imageSrc: "/images/Shopping/Women/Bomber_Jacket.jpg",
             },
           ],
         },
@@ -16275,46 +15854,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puffer-jacket-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#2E8B57", name: "Olive" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Puffer_Jacket_1.jpg",
+            "/images/Shopping/Women/Puffer_Jacket_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Insulated for maximum warmth",
+                "Lightweight design without bulk",
+                "Hooded option available for extra protection",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Wool Coat",
+              price: "$180",
+              imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+            },
+            {
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
             },
           ],
         },
@@ -16325,46 +15892,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wool-coat-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#696969", name: "Grey" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Wool_Coat_1.jpg",
+            "/images/Shopping/Women/Wool_Coat_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "100% wool for premium warmth and quality",
+                "Tailored cut for a refined look",
+                "Fully lined for added comfort",
               ],
+              careInstructions: ["Dry clean only"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+            },
+            {
+              name: "Women Puffer Jacket",
+              price: "$100",
+              imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
             },
           ],
         },
@@ -16375,46 +15930,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bomber-jacket-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FF6347", name: "Tomato" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Bomber_Jacket_1.jpg",
+            "/images/Shopping/Women/Bomber_Jacket_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Retro-inspired design with a modern twist",
+                "Lightweight, breathable fabric for everyday wear",
+                "Versatile style ideal for casual outings",
               ],
+              careInstructions: ["Machine wash cold", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Denim Jacket",
+              price: "$85",
+              imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+            },
+            {
+              name: "Women Windbreaker",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Windbreaker.jpg",
             },
           ],
         },
@@ -16425,46 +15968,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peacoat-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#2F4F4F", name: "Charcoal" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Peacoat_1.jpg",
+            "/images/Shopping/Women/Peacoat_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Double-breasted design for a classic look",
+                "Wool blend fabric for warmth and durability",
+                "Tailored cut that flatters the figure",
               ],
+              careInstructions: ["Dry clean only"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Wool Coat",
+              price: "$180",
+              imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+            },
+            {
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
             },
           ],
         },
@@ -16475,46 +16006,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/faux-fur-coat-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#8B0000", name: "Burgundy" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Faux_Fur_Coat_1.jpg",
+            "/images/Shopping/Women/Faux_Fur_Coat_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Soft, plush faux fur for a luxurious feel",
+                "Designed to keep you warm in style",
+                "Ideal for upscale casual occasions",
               ],
+              careInstructions: ["Dry clean only"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Wool Coat",
+              price: "$180",
+              imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+            },
+            {
+              name: "Women Peacoat",
+              price: "$140",
+              imageSrc: "/images/Shopping/Women/Peacoat.jpg",
             },
           ],
         },
@@ -16525,46 +16044,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/raincoat-600nw-92008067.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#1E90FF", name: "Blue" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Raincoat_1.jpg",
+            "/images/Shopping/Women/Raincoat_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Waterproof material to keep you dry",
+                "Lightweight and packable design",
+                "Adjustable hood for extra coverage",
               ],
+              careInstructions: ["Wipe clean with a damp cloth", "Air dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Windbreaker",
+              price: "$40",
+              imageSrc: "/images/Shopping/Women/Windbreaker.jpg",
+            },
+            {
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
             },
           ],
         },
@@ -16576,46 +16083,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/parka-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#2F4F4F", name: "Charcoal" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Parka_1.jpg",
+            "/images/Shopping/Women/Parka_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Insulated for cold weather",
+                "Multiple pockets for practical storage",
+                "Adjustable hood and cuffs for a custom fit",
               ],
+              careInstructions: ["Machine wash cold", "Tumble dry low"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Puffer Jacket",
+              price: "$100",
+              imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
+            },
+            {
+              name: "Women Trench Coat",
+              price: "$130",
+              imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
             },
           ],
         },
@@ -16627,46 +16122,34 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
           colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
+            { bgColor: "#000000", name: "Black" },
+            { bgColor: "#FF4500", name: "Orange" },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Windbreaker_1.jpg",
+            "/images/Shopping/Women/Windbreaker_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "Wind-resistant fabric for a comfortable wear",
+                "Breathable and lightweight design",
+                "Ideal for layering during transitional weather",
               ],
+              careInstructions: ["Machine wash gentle", "Line dry"],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Puffer Jacket",
+              price: "$100",
+              imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
+            },
+            {
+              name: "Women Raincoat",
+              price: "$60",
+              imageSrc: "/images/Shopping/Women/Raincoat.jpg",
             },
           ],
         },
@@ -16676,47 +16159,35 @@ export const mockProductData = {
           description: "Classic leather jacket for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000000", name: "Black" }],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Women/Leather_Jacket_1.jpg",
+            "/images/Shopping/Women/Leather_Jacket_2.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              name: "Product Details",
+              features: [
+                "High-quality genuine leather construction",
+                "Fitted silhouette with timeless design",
+                "Perfect for adding an edgy touch to any outfit",
+              ],
+              careInstructions: [
+                "Dry clean only",
+                "Store in a cool, dry place",
               ],
             },
           ],
           relatedProducts: [
             {
-              name: "Men's Shoes",
-              color: "green",
-              size: "9",
-              price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
+              name: "Women Denim Jacket",
+              price: "$85",
+              imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+            },
+            {
+              name: "Women Bomber Jacket",
+              price: "$75",
+              imageSrc: "/images/Shopping/Women/Bomber_Jacket.jpg",
             },
           ],
         },
@@ -16851,12 +16322,7 @@ export const mockProductData = {
           description: "Retro-inspired high-waisted bikini for extra coverage.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-bikini-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16901,12 +16367,7 @@ export const mockProductData = {
           description: "Comfortable tankini top with matching bottoms.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/tankini-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16951,12 +16412,7 @@ export const mockProductData = {
           description: "Flattering swim dress with built-in support.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-dress-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -17001,12 +16457,7 @@ export const mockProductData = {
           description: "Lightweight swim cover-up for sun protection.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-cover-up-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -17051,12 +16502,7 @@ export const mockProductData = {
           description: "Performance swimsuit for active beach days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-swimsuit-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -17101,12 +16547,7 @@ export const mockProductData = {
           description: "Strapless bikini with supportive structure.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/strapless-bikini-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -17151,12 +16592,7 @@ export const mockProductData = {
           description: "Sexy monokini with cutout details.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/monokini-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -17201,12 +16637,7 @@ export const mockProductData = {
           description: "Comfortable swim shorts for active swimmers.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-shorts-600nw-92008067.jpg",
-          colors: [
-            {
-              bgColor: "#000",
-              name: "Black",
-            },
-          ],
+          colors: [{ bgColor: "#000", name: "Black" }],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
