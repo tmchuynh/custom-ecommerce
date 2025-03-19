@@ -58,7 +58,7 @@ export default function Example() {
                 <h1 className="text-4xl font-extrabold text-center mb-8">
                   We’re changing the way people connect
                 </h1>
-                <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-none">
+                <p className="mt-8 text-lg font-medium text-pretty sm:max-w-md sm:text-xl/8 lg:max-w-none">
                   Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
                   quis cupidatat mollit aute velit. Et labore commodo nulla
                   aliqua proident mollit ullamco exercitation tempor. Sint
@@ -73,7 +73,7 @@ export default function Example() {
                   src="https://images.unsplash.com/photo-1472148083604-64f1084980b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
                 />
 
                 <Image
@@ -81,14 +81,14 @@ export default function Example() {
                   src="https://images.unsplash.com/photo-1513171920216-2640b288471b?q=80&w=1709&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
                 />
                 <Image
                   alt=""
                   src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
+                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
                 />
               </div>
             </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "./ui/button";
 /**
  * A component that displays a cloud of logo images.
  *
@@ -55,10 +56,10 @@ export default function LogoCloud() {
             <span className="hidden md:inline">
               Over 2500 companies use our tools to better their business.
             </span>
-            <a href="#" className="font-semibold text-indigo-600">
+            <Button href="#" className="font-semibold">
               <span aria-hidden="true" className="absolute inset-0" /> Read our
               customer stories <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Button>
           </p>
         </div>
       </div>

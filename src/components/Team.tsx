@@ -29,9 +29,7 @@ export default function Team() {
                 />
                 <div>
                   <h3 className="text-lg font-medium mb-4">{person.name}</h3>
-                  <p className="text-sm/6 font-semibold text-indigo-600">
-                    {person.role}
-                  </p>
+                  <p className="text-sm/6 font-semibold">{person.role}</p>
                 </div>
               </div>
             </li>

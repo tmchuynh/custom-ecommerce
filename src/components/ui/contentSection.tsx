@@ -42,9 +42,7 @@ export default function Example() {
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold text-indigo-600">
-                Deploy faster
-              </p>
+              <p className="text-base/7 font-semibold">Deploy faster</p>
               <h1 className="text-4xl font-extrabold text-center mb-8">
                 A better workflow
               </h1>
@@ -78,7 +76,7 @@ export default function Example() {
                 <li className="flex gap-x-3">
                   <CloudArrowUpIcon
                     aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-indigo-600"
+                    className="mt-1 size-5 flex-none"
                   />
                   <span>
                     <strong className="font-semibold">Push to deploy.</strong>{" "}
@@ -90,7 +88,7 @@ export default function Example() {
                 <li className="flex gap-x-3">
                   <LockClosedIcon
                     aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-indigo-600"
+                    className="mt-1 size-5 flex-none"
                   />
                   <span>
                     <strong className="font-semibold">SSL certificates.</strong>{" "}
@@ -101,7 +99,7 @@ export default function Example() {
                 <li className="flex gap-x-3">
                   <ServerIcon
                     aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-indigo-600"
+                    className="mt-1 size-5 flex-none"
                   />
                   <span>
                     <strong className="font-semibold">Database backups.</strong>{" "}

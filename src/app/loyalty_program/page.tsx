@@ -40,12 +40,8 @@ const LoyaltyProgram = () => {
                   </div>
                 </div>
                 <div className="mt-6 md:mt-0 md:ml-4 lg:mt-6 lg:ml-0">
-                  <h3 className="text-base font-medium text-gray-900">
-                    {perk.name}
-                  </h3>
-                  <p className="mt-3 text-sm text-gray-500">
-                    {perk.description}
-                  </p>
+                  <h3 className="text-base font-medium">{perk.name}</h3>
+                  <p className="mt-3 text-sm">{perk.description}</p>
                 </div>
               </div>
             ))}

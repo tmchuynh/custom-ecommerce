@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+
 const CustomerService = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -31,12 +33,9 @@ const CustomerService = () => {
             <p>
               <strong>Email Support:</strong> For general inquiries, product
               questions, or issues with your order, please contact us at{" "}
-              <a
-                href="mailto:support@yourcompany.com"
-                className="text-blue-500"
-              >
+              <Button variant={"link"} href="mailto:support@yourcompany.com">
                 support@yourcompany.com
-              </a>
+              </Button>
             </p>
             <p>
               <strong>Phone Support:</strong> Our customer service team is

@@ -46,12 +46,9 @@ export default function Newsletter() {
           <p className="mt-2 text-gray-200">
             Did you sign up to the newsletter? If so, use the keyword we sent
             you to get access.{" "}
-            <a
-              href="#"
-              className="font-bold whitespace-nowrap text-white hover:text-gray-200"
-            >
+            <Button variant={"ghost"} href="#">
               Go now<span aria-hidden="true"> &rarr;</span>
-            </a>
+            </Button>
           </p>
         </div>
       </div>
