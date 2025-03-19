@@ -129,6 +129,7 @@ export type CategoryDetails = {
   name: string;
   featured: FeaturedDetails[];
   sections: SectionDetails[][];
+  collections: FeaturedDetails[];
 };
 
 export type NavigationDetails = {
