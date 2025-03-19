@@ -107,7 +107,7 @@ const DynamicBreadcrumb = () => {
   };
 
   return (
-    <Breadcrumb className="mx-auto pt-9 z-30">
+    <Breadcrumb className="mx-auto pt-9 z-30 w-full md:w-11/12">
       {/* On small screens, show only the first and last breadcrumb item */}
 
       {/* On small screens, show the dropdown for pages in between */}
