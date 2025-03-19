@@ -246,7 +246,7 @@ export default function NavMenu() {
                           <div className="mx-auto max-w-7xl gap-x-8 gap-y-10 px-6 pb-10 lg:px-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-8">
                               {about.map((item) => (
-                                <Link
+                                <a
                                   key={item.name}
                                   href={item.href}
                                   className="flex py-2 text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center"
@@ -260,7 +260,7 @@ export default function NavMenu() {
                                     <p className="flex gap-x-4"> {item.name}</p>
                                     <p>{item.description}</p>
                                   </div>
-                                </Link>
+                                </a>
                               ))}
                             </div>
                           </div>
