@@ -1,7 +1,27 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Newsletter() {
+  const [showForm, setShowForm] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const router = useRouter();
+  const toggleForm = () => setShowForm(!showForm);
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    // Handle form submission logic here
+    setShowForm(false);
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-30 gap-y-6 md:gap-y-8 w-11/12 lg:w-10/12 2xl:w-9/12 py-10 mx-auto">
       <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
@@ -46,7 +66,10 @@ export default function Newsletter() {
           <p className="mt-2 text-gray-200">
             Did you sign up to the newsletter? If so, use the keyword we sent
             you to get access.{" "}
-            <Button variant={"ghost"} href="#">
+            <Button
+              variant={"ghost"}
+              onClick={() => router.push("/early-access")}
+            >
               Go now<span aria-hidden="true"> &rarr;</span>
             </Button>
           </p>
