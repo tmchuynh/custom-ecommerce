@@ -1,6 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
 import ComingSoonMessage from "@/components/ComingSoon";
+import ProductCard from "@/components/ProductCard";
 import QuantityButtons from "@/components/Quantity";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
@@ -114,53 +115,31 @@ const CategoryPage = (): JSX.Element => {
 
   return (
     <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        {gender && category && item && (
+          <h1 className="text-3xl font-bold tracking-tight">
+            {typeof gender === "string" &&
+              gender.charAt(0).toUpperCase() + gender.slice(1)}
+            's{" "}
+            {typeof item === "string" &&
+              item.charAt(0).toUpperCase() + item.slice(1)}{" "}
+            {typeof category === "string" &&
+              category.charAt(0).toUpperCase() + category.slice(1)}
+          </h1>
+        )}
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => {
-          const foundItem = cartItems.find((item) => item.id === index);
           return (
-            <Card
+            <ProductCard
               key={index}
-              className="p-4 rounded-lg shadow-lg flex flex-col justify-around"
-            >
-              {product.imageSrc ? (
-                // <Image
-                //   src={product.imageSrc}
-                //   alt={product.name} // Use a meaningful alt description
-                //   width={400}
-                //   height={400}
-                //   className="w-full h-64 object-cover"
-                // />
-                <Skeleton className="h-[175] w-full rounded-xl" />
-              ) : (
-                <div className="w-full h-[175]" />
-              )}
-              <CardContent className="flex flex-col justify-between h-1/2">
-                <div>
-                  <h3 className="text-lg font-semibold mt-4">
-                    <a
-                      href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
-                        .toLowerCase()
-                        .replaceAll(" ", "-")
-                        .replaceAll("'s", "")}`}
-                    >
-                      {product.name}
-                    </a>
-                  </h3>
-                  <p className="text-sm mt-2">{product.description}</p>
-                </div>
-                <p className="text-md mt-2">{product.price}</p>
-              </CardContent>
-              <CardFooter>
-                {foundItem && foundItem.quantity > 0 ? (
-                  <QuantityButtons itemId={index} />
-                ) : (
-                  <Button onClick={() => handleAddToCart(product, index)}>
-                    Add to Cart
-                    <span className="sr-only">, {product.name}</span>
-                  </Button>
-                )}
-              </CardFooter>
-            </Card>
+              product={product}
+              selectedGender={selectedGender}
+              selectedCategory={selectedCategory}
+              selectedItem={product.itemType} // Use the item type instead of product name
+              index={index}
+            />
           );
         })}
       </div>

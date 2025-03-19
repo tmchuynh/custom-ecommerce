@@ -3,6 +3,8 @@ import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 import { JSX } from "react";
+import QuantityButtons from "./Quantity";
+import { Card, CardContent, CardFooter } from "./ui/card";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -44,7 +46,8 @@ const ProductCard = ({
   selectedCategory: string;
   selectedItem: string;
 }): JSX.Element => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
+  const foundItem = cartItems.find((item) => item.id === index);
 
   /**
    * Handles adding a product to the cart.
@@ -67,26 +70,53 @@ const ProductCard = ({
 
   const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
     .toLowerCase()
-    .replaceAll(" ", "-")}`;
+    .replaceAll(" ", "-")
+    .replaceAll("'s", "")}`;
 
   return (
-    <div key={index} className="bg-white p-4 rounded-lg shadow-lg">
+    <Card
+      key={index}
+      className="p-4 rounded-lg shadow-lg flex flex-col justify-around"
+    >
       {product.imageSrc ? (
+        // <Image
+        //   src={product.imageSrc}
+        //   alt={product.name} // Use a meaningful alt description
+        //   width={400}
+        //   height={400}
+        //   className="w-full h-64 object-cover"
+        // />
         <Skeleton className="h-[175] w-full rounded-xl" />
       ) : (
-        <div className="w-full h-[175] bg-gray-200" />
+        <div className="w-full h-[175]" />
       )}
-      <h3 className="text-lg font-semibold mt-4">
-        <a href={productLink}>{product.name}</a>
-      </h3>
-      <p className="text-sm text-gray-500 mt-2">{product.price}</p>
-      <Button
-        onClick={() => handleAddToCart(product, index)}
-        className="mt-4 text-white bg-indigo-600 px-4 py-2 rounded-lg"
-      >
-        Add to Cart
-      </Button>
-    </div>
+      <CardContent className="flex flex-col justify-between h-1/2">
+        <div>
+          <h3 className="text-lg font-semibold mt-4">
+            <a
+              href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
+                .toLowerCase()
+                .replaceAll(" ", "-")
+                .replaceAll("'s", "")}`}
+            >
+              {product.name}
+            </a>
+          </h3>
+          <p className="text-sm mt-2">{product.description}</p>
+        </div>
+        <p className="text-md mt-2">{product.price}</p>
+      </CardContent>
+      <CardFooter>
+        {foundItem && foundItem.quantity > 0 ? (
+          <QuantityButtons itemId={index} />
+        ) : (
+          <Button onClick={() => handleAddToCart(product, index)}>
+            Add to Cart
+            <span className="sr-only">, {product.name}</span>
+          </Button>
+        )}
+      </CardFooter>
+    </Card>
   );
 };
 

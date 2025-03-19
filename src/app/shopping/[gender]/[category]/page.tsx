@@ -131,26 +131,27 @@ const CategoryPage = (): JSX.Element => {
         {gender && category && (
           <h1 className="text-3xl font-bold tracking-tight">
             {typeof gender === "string" &&
-              gender.charAt(0).toUpperCase() + gender.slice(1)}{" "}
+              gender.charAt(0).toUpperCase() + gender.slice(1)}
+            's{" "}
             {typeof category === "string" &&
               category.charAt(0).toUpperCase() + category.slice(1)}
           </h1>
         )}
+      </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-          {products.map((product, index) => {
-            return (
-              <ProductCard
-                key={index}
-                product={product}
-                selectedGender={selectedGender}
-                selectedCategory={selectedCategory}
-                selectedItem={product.itemType} // Use the item type instead of product name
-                index={index}
-              />
-            );
-          })}
-        </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
+        {products.map((product, index) => {
+          return (
+            <ProductCard
+              key={index}
+              product={product}
+              selectedGender={selectedGender}
+              selectedCategory={selectedCategory}
+              selectedItem={product.itemType} // Use the item type instead of product name
+              index={index}
+            />
+          );
+        })}
       </div>
     </main>
   );
