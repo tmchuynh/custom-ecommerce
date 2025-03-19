@@ -531,7 +531,6 @@ export const mockProductData = {
             },
           ],
         },
-
         "men-tassel-loafers": {
           name: "Men's Tassel Loafers",
           price: "$125",
@@ -591,7 +590,7 @@ export const mockProductData = {
       },
       sneakers: {
         "men-minimalist-leather-sneakers": {
-          name: "Minimalist Leather Sneakers",
+          name: "Men's Minimalist Leather Sneakers",
           price: "$70",
           description:
             "Sleek and versatile leather sneakers designed for a modern minimalist look.",
@@ -599,50 +598,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/minimalist-leather-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Minimalist_Leather_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Minimalist_Leather_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Minimalist design"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Modern and minimalist",
+                  care: ["Wipe with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-performance-running-sneakers": {
-          name: "Performance Running Sneakers",
+          name: "Men's Performance Running Sneakers",
           price: "$85",
           description:
             "Engineered for optimal performance, these running sneakers provide excellent cushioning and support.",
@@ -650,50 +654,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/performance-running-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Performance_Running_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Performance_Running_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Synthetic", "Mesh"],
+                  construction: ["Engineered design for performance"],
+                  sole: "Cushioned sole",
+                  insole: "Responsive cushioning",
+                  style: "Sporty and functional",
+                  care: ["Clean with mild detergent"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-retro-runner-sneakers": {
-          name: "Retro Runner Sneakers",
+          name: "Men's Retro Runner Sneakers",
           price: "$75",
           description:
             "Combining classic style with modern comfort, these retro-inspired sneakers are perfect for everyday wear.",
@@ -701,50 +710,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/retro-runner-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Retro_Runner_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Retro_Runner_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Retro-inspired design"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Classic with modern comfort",
+                  care: ["Wipe clean with a soft cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-high-top-sneakers": {
-          name: "High Top Sneakers",
+          name: "Men's High Top Sneakers",
           price: "$80",
           description:
             "A stylish high top sneaker that offers both a contemporary look and added ankle support.",
@@ -752,50 +766,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/high-top-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/High_Top_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/High_Top_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["High top design for ankle support"],
+                  sole: "Rubber sole",
+                  insole: "Padded insole",
+                  style: "Contemporary and supportive",
+                  care: ["Wipe clean with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-slip-on-sneakers": {
-          name: "Slip-On Sneakers",
+          name: "Men's Slip-On Sneakers",
           price: "$65",
           description:
             "Easy-to-wear slip-on sneakers that combine convenience with a casual yet polished style.",
@@ -803,50 +822,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/slip-on-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Slip_On_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Slip_On_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Slip-on design"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Casual yet polished",
+                  care: ["Wipe clean with a soft cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-vintage-inspired-sneakers": {
-          name: "Vintage Inspired Sneakers",
+          name: "Men's Vintage Inspired Sneakers",
           price: "$78",
           description:
             "Inspired by classic designs, these vintage sneakers offer a timeless aesthetic with modern comfort.",
@@ -854,50 +878,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-inspired-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Vintage_Inspired_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Vintage_Inspired_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Retro design with modern comfort"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Timeless and classic",
+                  care: ["Wipe with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-basketball-style-sneakers": {
-          name: "Basketball Style Sneakers",
+          name: "Men's Basketball Style Sneakers",
           price: "$90",
           description:
             "Designed with performance and style in mind, these sneakers are ideal for both the court and the street.",
@@ -905,50 +934,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/basketball-style-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Basketball_Style_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Basketball_Style_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Synthetic", "Mesh"],
+                  construction: ["Basketball-inspired design"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Sporty and stylish",
+                  care: ["Clean with mild detergent"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-urban-casual-sneakers": {
-          name: "Urban Casual Sneakers",
+          name: "Men's Urban Casual Sneakers",
           price: "$68",
           description:
             "A blend of comfort and urban style, these sneakers are perfect for everyday casual wear.",
@@ -956,50 +990,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/urban-casual-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Urban_Casual_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Urban_Casual_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Casual design with urban flair"],
+                  sole: "Rubber sole",
+                  insole: "Padded insole",
+                  style: "Comfortable and stylish",
+                  care: ["Wipe clean with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-premium-athletic-sneakers": {
-          name: "Premium Athletic Sneakers",
+          name: "Men's Premium Athletic Sneakers",
           price: "$95",
           description:
             "High-quality athletic sneakers offering superior support and a sleek design for active lifestyles.",
@@ -1007,50 +1046,55 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/premium-athletic-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Premium_Athletic_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Premium_Athletic_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Engineered for performance"],
+                  sole: "Cushioned sole",
+                  insole: "Responsive cushioning",
+                  style: "Sleek and supportive",
+                  care: ["Clean with a soft brush"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
         "men-street-style-sneakers": {
-          name: "Street Style Sneakers",
+          name: "Men's Street Style Sneakers",
           price: "$72",
           description:
             "Fashion-forward street style sneakers that bring a bold statement to everyday outfits.",
@@ -1058,52 +1102,57 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/street-style-sneakers-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Street_Style_Sneakers_Front_View.jpg",
+            "/images/Shopping/Men/Street_Style_Sneakers_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Bold street style design"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Fashion-forward and bold",
+                  care: ["Wipe clean with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
       },
       sandals: {
         "men-classic-leather-sandals": {
-          name: "Classic Leather Sandals",
+          name: "Men's Classic Leather Sandals",
           price: "$60",
           description:
             "Timeless leather sandals offering a comfortable and stylish option for casual wear.",
@@ -1111,50 +1160,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-leather-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Classic_Leather_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Classic_Leather_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Strap design with handcrafted detailing"],
+                  sole: "Rubber sole",
+                  insole: "Cushioned insole",
+                  style: "Timeless and casual",
+                  care: ["Wipe with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-sporty-athletic-sandals": {
-          name: "Sporty Athletic Sandals",
+          name: "Men's Sporty Athletic Sandals",
           price: "$65",
           description:
             "Designed for active lifestyles, these sandals provide excellent grip and support for outdoor activities.",
@@ -1162,50 +1217,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sporty-athletic-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Sporty_Athletic_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Sporty_Athletic_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather", "Synthetic"],
+                  construction: ["Sporty design with adjustable straps"],
+                  sole: "Durable rubber sole",
+                  insole: "Ergonomic cushioned insole",
+                  style: "Athletic and supportive",
+                  care: ["Clean with mild soap"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-casual-slide-sandals": {
-          name: "Casual Slide Sandals",
+          name: "Men's Casual Slide Sandals",
           price: "$50",
           description:
             "Easy-to-wear slide sandals perfect for warm weather, combining comfort with a laid-back look.",
@@ -1213,50 +1274,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/casual-slide-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Casual_Slide_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Casual_Slide_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Slip-on design"],
+                  sole: "Lightweight rubber sole",
+                  insole: "Soft cushioned insole",
+                  style: "Laid-back and comfortable",
+                  care: ["Wipe clean with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-beach-espadrille-sandals": {
-          name: "Beach Espadrille Sandals",
+          name: "Men's Beach Espadrille Sandals",
           price: "$55",
           description:
             "Lightweight and breathable espadrille sandals ideal for beach outings and summer adventures.",
@@ -1264,50 +1331,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/beach-espadrille-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Beach_Espadrille_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Beach_Espadrille_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Canvas", "Jute"],
+                  construction: ["Woven espadrille design"],
+                  sole: "Flexible rubber sole",
+                  insole: "Comfortable insole",
+                  style: "Casual and breezy",
+                  care: ["Hand wash recommended"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-rugged-outdoor-sandals": {
-          name: "Rugged Outdoor Sandals",
+          name: "Men's Rugged Outdoor Sandals",
           price: "$70",
           description:
             "Durable and supportive sandals built for outdoor exploration and rugged terrain.",
@@ -1315,50 +1388,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/rugged-outdoor-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Rugged_Outdoor_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Rugged_Outdoor_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather", "Synthetic"],
+                  construction: ["Reinforced design for durability"],
+                  sole: "Heavy-duty rubber sole",
+                  insole: "Shock-absorbing insole",
+                  style: "Rugged and durable",
+                  care: ["Clean with water and mild soap"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-minimalist-design-sandals": {
-          name: "Minimalist Design Sandals",
+          name: "Men's Minimalist Design Sandals",
           price: "$58",
           description:
             "Simple yet stylish sandals with a minimalist design, perfect for modern casual wear.",
@@ -1366,50 +1445,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/minimalist-design-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Minimalist_Design_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Minimalist_Design_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Streamlined and simple design"],
+                  sole: "Rubber sole",
+                  insole: "Light cushioned insole",
+                  style: "Minimalist and modern",
+                  care: ["Wipe with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-strappy-leather-sandals": {
-          name: "Strappy Leather Sandals",
+          name: "Men's Strappy Leather Sandals",
           price: "$62",
           description:
             "Elegant strappy sandals crafted from premium leather, offering both style and comfort.",
@@ -1417,50 +1502,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/strappy-leather-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Strappy_Leather_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Strappy_Leather_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather"],
+                  construction: ["Multiple strap design"],
+                  sole: "Rubber sole",
+                  insole: "Padded insole",
+                  style: "Elegant and comfortable",
+                  care: ["Use leather conditioner"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-water-resistant-sandals": {
-          name: "Water Resistant Sandals",
+          name: "Men's Water Resistant Sandals",
           price: "$68",
           description:
             "Engineered with water-resistant materials, these sandals are perfect for poolside or rainy day use.",
@@ -1468,50 +1559,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/water-resistant-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Water_Resistant_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Water_Resistant_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Synthetic", "Rubber"],
+                  construction: ["Water-resistant design"],
+                  sole: "Non-slip rubber sole",
+                  insole: "Quick-drying insole",
+                  style: "Functional and versatile",
+                  care: ["Rinse with water after use"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-flip-flops-sandals": {
-          name: "Flip-Flops Sandals",
+          name: "Men's Flip-Flops Sandals",
           price: "$45",
           description:
             "Comfortable flip-flops designed for quick outings and relaxed summer days.",
@@ -1519,50 +1616,56 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/flip-flops-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Flip_Flops_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Flip_Flops_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Foam", "Rubber"],
+                  construction: ["Simple flip-flop design"],
+                  sole: "Foam sole",
+                  insole: "Textured footbed",
+                  style: "Casual and lightweight",
+                  care: ["Wash with soap and water"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
+
         "men-premium-comfort-sandals": {
-          name: "Premium Comfort Sandals",
+          name: "Men's Premium Comfort Sandals",
           price: "$75",
           description:
             "High-quality sandals with extra cushioning and support, ensuring all-day comfort.",
@@ -1570,45 +1673,50 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/premium-comfort-sandals-men.jpg",
           colors: [
             {
-              bgColor: "#000",
+              bgColor: "#000000",
               name: "Black",
             },
           ],
           images: [
-            "/images/Shopping/Men/Brogue Shoes.jpg",
-            "/images/Shopping/Men/Derby Shoes.jpg",
+            "/images/Shopping/Men/Premium_Comfort_Sandals_Front_View.jpg",
+            "/images/Shopping/Men/Premium_Comfort_Sandals_Side_View.jpg",
           ],
           details: [
             {
-              name: "Shopping",
-              color: "green",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Leather", "Foam"],
+                  construction: ["Ergonomic design for extra cushioning"],
+                  sole: "Extra cushioned rubber sole",
+                  insole: "Memory foam insole",
+                  style: "Comfortable and supportive",
+                  care: ["Clean with a damp cloth"],
+                },
               ],
             },
           ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-              color: "green",
-              size: "9",
               price: "$36",
-              material: "leather",
-              fit: "fitted",
-              imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
-              imageAlt: "Mens shoes",
+              description:
+                "A versatile pair of men's shoes suitable for various occasions.",
+              imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
+              colors: [
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+              ],
               items: [
                 "Brogue Shoes",
                 "Mesh Breathable Sneakers",
                 "High Performance Sneakers",
                 "Color Block Sneakers",
               ],
+              material: "Leather",
+              style: "Fitted",
             },
           ],
         },
