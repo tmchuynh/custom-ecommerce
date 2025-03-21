@@ -14,7 +14,7 @@ import { Color } from "@/lib/types";
 import { Radio, RadioGroup } from "@headlessui/react";
 
 const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
-  const { addToCart } = useCart();
+  const { addToCart, cartItems } = useCart();
 
   /**
    * Handles adding a product to the shopping cart.
