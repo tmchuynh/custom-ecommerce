@@ -12,7 +12,9 @@ function Skeleton({ className, text, ...props }: SkeletonProps) {
       {...props}
     >
       {text && (
-        <span className="skeleton-text font-Ruthie text-center">{text}</span>
+        <span className="font-Ruthie text-center text-primary z-20">
+          {text}
+        </span>
       )}
     </div>
   );
