@@ -71,6 +71,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
+   * Removes all items from the cart.
+   */
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  /**
    * Updates the quantity of a specific item in the cart.
    * If the new quantity is below 1, the item is removed from the cart.
    *
@@ -124,6 +131,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         cartItems,
         addToCart,
         removeFromCart,
+        clearCart,
         updateQuantity,
         getTotalPrice,
         getTotalItems,
