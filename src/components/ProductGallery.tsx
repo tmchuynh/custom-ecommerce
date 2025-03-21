@@ -1,19 +1,19 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { JSX } from "react";
 import { Skeleton } from "./ui/skeleton";
 import { generateRandomNumberArray } from "@/lib/utils";
+import { Button } from "./ui/button";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
   // For demo purposes, we generate an array of numbers (you can replace this with your actual image array)
-  const randomMax = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-  const randomMin = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-  const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-  const randomArray = generateRandomNumberArray(
-    randomLength,
-    randomMin,
-    randomMax
-  );
+  const randomArray = useMemo(() => {
+    const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
+    const randomMin = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    const randomMax = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
+    return generateRandomNumberArray(randomLength, randomMin, randomMax);
+  }, []);
   const total = randomArray.length;
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -61,7 +61,7 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
             <span className="absolute inset-0 overflow-hidden rounded-md">
               {/* Pass the index as text to the Skeleton */}
               <Skeleton
-                text={index.toString()}
+                text={(index + 1).toString()}
                 className="h-full w-full rounded-xl hidden md:flex"
               />
             </span>
@@ -82,7 +82,7 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
               className="relative aspect-square border rounded-2xl overflow-hidden"
             >
               <Skeleton
-                text={index.toString()}
+                text={(selectedIndex + 1).toString()}
                 className="h-full w-full rounded-xl hidden md:flex"
               />
             </TabPanel>
@@ -90,20 +90,24 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
         </TabPanels>
 
         {/* Arrow Navigation Buttons over the TabPanels */}
-        <button
+        <Button
+          variant="outline"
+          size="icon"
           onClick={goToPrevious}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2 p-2 rounded-full"
+          className="absolute top-1/2 left-2 transform -translate-y-1/2"
           aria-label="Previous"
         >
-          &larr;
-        </button>
-        <button
+          <FiArrowLeft />
+        </Button>
+        <Button
+          variant="outline"
+          size="icon"
           onClick={goToNext}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full"
+          className="absolute top-1/2 right-2 transform -translate-y-1/2"
           aria-label="Next"
         >
-          &rarr;
-        </button>
+          <FiArrowRight />
+        </Button>
       </div>
     </TabGroup>
   );

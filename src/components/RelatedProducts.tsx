@@ -1,5 +1,5 @@
 // components/RelatedProducts.tsx
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 import { useCart } from "@/app/context/cartContext";
@@ -38,14 +38,12 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
   };
 
   // Generate a random array for the skeleton carousel.
-  const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-  const randomMin = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-  const randomMax = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
-  const randomArray = generateRandomNumberArray(
-    randomLength,
-    randomMin,
-    randomMax
-  );
+  const randomArray = useMemo(() => {
+    const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
+    const randomMin = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+    const randomMax = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
+    return generateRandomNumberArray(randomLength, randomMin, randomMax);
+  }, []);
   const total = randomArray.length;
   const [selectedIndex, setSelectedIndex] = useState(0);
   console.log("total", total);
@@ -97,7 +95,7 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
                     }`}
                   >
                     <Skeleton
-                      text={index.toString()}
+                      text={(selectedIndex + 1).toString()}
                       className="h-full w-full rounded-xl hidden md:flex"
                     />
                   </div>
