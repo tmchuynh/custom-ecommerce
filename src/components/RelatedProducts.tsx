@@ -27,7 +27,7 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
    * If the product already exists in the cart, the cart context will handle updating the quantity.
    * A success toast notification is displayed upon successful addition.
    */
-  const handleAddToCart = (product: any, id: number) => {
+  const handleAddToCart = (product: any, id: string) => {
     const price =
       typeof product.price === "string"
         ? parseFloat(product.price.replace("$", ""))
@@ -81,42 +81,46 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
                 <p className="relative text-lg font-semibold">
                   {product.price}
                 </p>
-
+                {/* {product.colors && ( */}
                 <fieldset aria-label="Choose a color" className="mt-2">
                   <RadioGroup className="flex items-center gap-x-3">
-                    {product.colors.map((color: Color, index: number) => (
-                      <TooltipProvider key={index}>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Radio
-                              key={index}
-                              value={color}
-                              aria-label={color.name}
-                              className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="bg-dynamic size-8 rounded-full border"
-                                style={
-                                  {
-                                    "--bg-color": color.bgColor,
-                                  } as React.CSSProperties
-                                }
-                              />
-                            </Radio>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{color.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    ))}
+                    {product.colors.map((color: Color, index: number) => {
+                      console.log(color);
+                      return (
+                        <TooltipProvider key={index}>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Radio
+                                key={index}
+                                value={color}
+                                aria-label={color.name}
+                                className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                              >
+                                <span
+                                  aria-hidden="true"
+                                  className="bg-dynamic size-8 rounded-full border"
+                                  style={
+                                    {
+                                      "--bg-color": color.bgColor,
+                                    } as React.CSSProperties
+                                  }
+                                />
+                              </Radio>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>{color.name}</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      );
+                    })}
                   </RadioGroup>
                 </fieldset>
+                {/* // )} */}
               </div>
             </div>
             <div className="mt-6">
-              <Button onClick={() => handleAddToCart(product, index)}>
+              <Button onClick={() => handleAddToCart(product, product.name)}>
                 Add to Cart
                 <span className="sr-only">, {product.name}</span>
               </Button>

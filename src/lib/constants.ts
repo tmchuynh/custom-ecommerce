@@ -1141,6 +1141,13 @@ export const footerNavigation = {
   ],
 };
 
+export const navigationSections = [
+  { title: "Shop", items: footerNavigation.shop },
+  { title: "Company", items: footerNavigation.company },
+  { title: "Account", items: footerNavigation.account },
+  { title: "Connect", items: footerNavigation.connect },
+];
+
 export const policies = [
   {
     name: "24/7 Customer Support",

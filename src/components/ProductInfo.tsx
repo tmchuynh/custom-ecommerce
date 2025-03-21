@@ -72,59 +72,61 @@ const ProductInfo = ({
         <p className="text-3xl tracking-tight">{product.price}</p>
       </div>
 
-      <div className="mt-6">
-        <h3 className="text-lg font-medium mb-4">Color</h3>
-        <fieldset aria-label="Choose a color" className="mt-2">
-          <RadioGroup
-            value={selectedColor}
-            onChange={setSelectedColor}
-            className="flex items-center gap-x-3"
-          >
-            {product.colors.map((color: Color, index: number) => (
-              <div key={index} className="flex flex-col items-start">
-                <TooltipProvider key={index}>
-                  <Tooltip>
-                    <TooltipTrigger>
-                      <Radio
-                        key={index}
-                        value={color}
-                        aria-label={color.name}
-                        className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="bg-dynamic size-8 rounded-full border"
-                          style={
-                            {
-                              "--bg-color": color.bgColor,
-                            } as React.CSSProperties
-                          }
-                        />
-                      </Radio>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{color.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
-
-                <div className="mt-10 flex gap-5">
-                  <Button
-                    onClick={() => handleAddToCart(product, product.name)}
-                    type="submit"
-                  >
-                    Add to Cart
-                  </Button>
-
-                  <Button type="button" variant={"ghost"}>
-                    <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
-                    <span className="sr-only">Add to favorites</span>
-                  </Button>
+      {product.colors.length > 0 && (
+        <div className="mt-6">
+          <h3 className="text-lg font-medium mb-4">Color</h3>
+          <fieldset aria-label="Choose a color" className="mt-2">
+            <RadioGroup
+              value={selectedColor}
+              onChange={setSelectedColor}
+              className="flex items-center gap-x-3"
+            >
+              {product.colors.map((color: Color, index: number) => (
+                <div key={index} className="flex flex-col items-start">
+                  <TooltipProvider key={index}>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Radio
+                          key={index}
+                          value={color}
+                          aria-label={color.name}
+                          className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="bg-dynamic size-8 rounded-full border"
+                            style={
+                              {
+                                "--bg-color": color.bgColor,
+                              } as React.CSSProperties
+                            }
+                          />
+                        </Radio>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{color.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
                 </div>
-              </div>
-            ))}
-          </RadioGroup>
-        </fieldset>
+              ))}
+            </RadioGroup>
+          </fieldset>
+        </div>
+      )}
+
+      <div className="mt-10 flex gap-5">
+        <Button
+          onClick={() => handleAddToCart(product, product.name)}
+          type="submit"
+        >
+          Add to Cart
+        </Button>
+
+        <Button type="button" variant={"ghost"}>
+          <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
+          <span className="sr-only">Add to favorites</span>
+        </Button>
       </div>
     </div>
   );
