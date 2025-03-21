@@ -2,6 +2,7 @@ import { useCart } from "@/app/context/cartContext";
 import { clsx, type ClassValue } from "clsx";
 import { toast } from "sonner";
 import { twMerge } from "tailwind-merge";
+import { RandomNumberArrayOptions } from "./interfaces";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -177,4 +178,17 @@ export function toTitle(issuer: string): string {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
+}
+
+export function generateRandomNumberArray(
+  length: RandomNumberArrayOptions["length"],
+  min: RandomNumberArrayOptions["min"],
+  max: RandomNumberArrayOptions["max"]
+): number[] {
+  const randomArray: number[] = [];
+  for (let i = 0; i < length; i++) {
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    randomArray.push(randomNumber);
+  }
+  return randomArray;
 }

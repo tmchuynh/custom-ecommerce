@@ -2,6 +2,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import Image from "next/image";
 import { JSX } from "react";
 import { Skeleton } from "./ui/skeleton";
+import { generateRandomNumberArray } from "@/lib/utils";
 
 /**
  * A React component that displays a gallery of product images using tabs.
@@ -32,13 +33,13 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
   return (
     <TabGroup className={"space-y-8"}>
       <TabList className="grid grid-cols-4 gap-6">
-        {images.map((image, index) => {
-          const segments = image.split("/");
-          const lastSegment = segments[segments.length - 1];
-          const cleanAlt = lastSegment
-            .split("?")[0]
-            .replaceAll("_", " ")
-            .replace(".jpg", "");
+        {generateRandomNumberArray(6, 3, 15).map((image, index) => {
+          // const segments = image.split("/");
+          // const lastSegment = segments[segments.length - 1];
+          // const cleanAlt = lastSegment
+          //   .split("?")[0]
+          //   .replaceAll("_", " ")
+          //   .replace(".jpg", "");
           return (
             <Tab
               key={index}
@@ -68,13 +69,13 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
       </TabList>
 
       <TabPanels>
-        {images.map((image, index) => {
-          const segments = image.split("/");
-          const lastSegment = segments[segments.length - 1];
-          const cleanAlt = lastSegment
-            .split("?")[0]
-            .replaceAll("_", " ")
-            .replace(".jpg", "");
+        {generateRandomNumberArray(6, 3, 15).map((image, index) => {
+          // const segments = image.split("/");
+          // const lastSegment = segments[segments.length - 1];
+          // const cleanAlt = lastSegment
+          //   .split("?")[0]
+          //   .replaceAll("_", " ")
+          //   .replace(".jpg", "");
           return (
             <TabPanel
               key={index}

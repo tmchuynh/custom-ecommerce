@@ -123,3 +123,9 @@ export interface ComingSoonMessageProps {
   gender: string;
   sectionName: string;
 }
+
+export interface RandomNumberArrayOptions {
+  length: number;
+  min: number;
+  max: number;
+}
