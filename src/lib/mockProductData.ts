@@ -15,6 +15,10 @@ export const mockProductData = {
               name: "Black",
             },
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#8B4513",
               name: "Brown",
             },
@@ -51,6 +55,10 @@ export const mockProductData = {
                   bgColor: "#000000",
                   name: "Black",
                 },
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
               ],
               items: [
                 "Brogue Shoes",
@@ -68,6 +76,10 @@ export const mockProductData = {
                 "Detailed Brogue shoes combining intricate perforation with superior craftsmanship for a sophisticated look.",
               imageSrc: "/images/Shopping/Men/Brogue_Shoes.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#8B4513",
                   name: "Brown",
@@ -92,6 +104,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/derby-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -125,6 +141,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -148,6 +168,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/monk-strap-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -181,6 +205,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -204,6 +232,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/brogue-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -237,6 +269,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -259,6 +295,10 @@ export const mockProductData = {
             "Comfortable and stylish loafers with a sleek silhouette, ideal for both formal and casual wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/loafers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -292,6 +332,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -315,6 +359,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -348,6 +396,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -371,6 +423,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cap-toe-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -404,6 +460,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -427,6 +487,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wingtip-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -460,6 +524,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -483,6 +551,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleek-dress-shoes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -516,6 +588,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -539,6 +615,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tassel-loafers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -572,6 +652,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -597,6 +681,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-leather-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -630,6 +718,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -653,6 +745,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/performance-running-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -686,6 +782,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -709,6 +809,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/retro-runner-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -742,6 +846,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -765,6 +873,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-top-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -798,6 +910,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -821,6 +937,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slip-on-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -854,6 +974,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -877,6 +1001,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-inspired-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -910,6 +1038,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -933,6 +1065,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/basketball-style-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -966,6 +1102,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -989,6 +1129,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/urban-casual-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1022,6 +1166,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1045,6 +1193,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/premium-athletic-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1078,6 +1230,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1101,6 +1257,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/street-style-sneakers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1134,6 +1294,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1159,6 +1323,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-leather-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1192,6 +1360,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1215,6 +1387,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sporty-athletic-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1248,6 +1424,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1271,6 +1451,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/casual-slide-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1304,6 +1488,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1327,6 +1515,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/beach-espadrille-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1360,6 +1552,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1383,6 +1579,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/rugged-outdoor-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1416,6 +1616,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1439,6 +1643,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-design-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1472,6 +1680,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1495,6 +1707,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/strappy-leather-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1528,6 +1744,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1551,6 +1771,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/water-resistant-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1584,6 +1808,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1607,6 +1835,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flip-flops-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1640,6 +1872,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1663,6 +1899,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/premium-comfort-sandals-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1696,6 +1936,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1720,6 +1964,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1753,6 +2001,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1775,6 +2027,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/snow-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1808,6 +2064,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1830,6 +2090,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/rain-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1863,6 +2127,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1885,6 +2153,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1918,6 +2190,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1941,6 +2217,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chukka-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -1976,6 +2256,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -1999,6 +2283,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/work-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2032,6 +2320,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2055,6 +2347,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/combat-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2088,6 +2384,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2111,6 +2411,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chelsea-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2144,6 +2448,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2167,6 +2475,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/desert-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2200,6 +2512,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2223,6 +2539,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/motorcycle-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2256,6 +2576,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2279,6 +2603,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/engineer-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2312,6 +2640,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2334,6 +2666,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/hiking-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2367,6 +2703,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2389,6 +2729,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/suede-boots-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2422,6 +2766,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2449,6 +2797,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2482,6 +2834,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2505,6 +2861,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2538,6 +2898,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2561,6 +2925,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2594,6 +2962,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2616,6 +2988,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2649,6 +3025,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2671,6 +3051,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2704,6 +3088,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2727,6 +3115,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2760,6 +3152,18 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+                {
+                  bgColor: "#008000",
+                  name: "Green",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2782,6 +3186,14 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2815,8 +3227,16 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
+                },
+                {
+                  bgColor: "#000000",
+                  name: "Black",
                 },
               ],
               items: [
@@ -2838,6 +3258,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2871,6 +3295,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2894,6 +3322,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2927,6 +3359,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -2950,6 +3386,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -2983,6 +3423,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3005,6 +3449,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3038,6 +3486,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3060,6 +3512,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3093,6 +3549,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3115,6 +3575,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3148,6 +3612,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3170,6 +3638,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3203,6 +3675,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3226,6 +3702,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3259,6 +3739,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Oxford_Shoes.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3284,6 +3768,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/running-shorts-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3318,6 +3806,10 @@ export const mockProductData = {
                 "/images/Shopping/Men/Performance_T-Shirt_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3339,6 +3831,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Gym_Pants_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3357,6 +3853,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/performance-tshirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3390,6 +3890,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Running_Shorts_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3405,6 +3909,10 @@ export const mockProductData = {
                 "Tight-fitting shirt that provides support and enhances blood circulation.",
               imageSrc: "/images/Shopping/Men/Compression_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#008000",
                   name: "Green",
@@ -3429,6 +3937,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/gym-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3462,6 +3974,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Running_Shorts_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3476,6 +3992,10 @@ export const mockProductData = {
               description: "Comfortable jacket for warm-ups or post-workout.",
               imageSrc: "/images/Shopping/Men/Track_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#008000",
                   name: "Green",
@@ -3495,6 +4015,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/compression-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3527,7 +4051,13 @@ export const mockProductData = {
                 "Moisture-wicking t-shirt designed for intense workouts.",
               imageSrc:
                 "/images/Shopping/Men/Performance_T-Shirt_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Moisture-wicking",
                 "Breathable",
@@ -3543,7 +4073,13 @@ export const mockProductData = {
               description:
                 "A moisture-wicking base layer shirt to keep you dry and comfortable in any workout.",
               imageSrc: "/images/Shopping/Men/Base_Layer_Shirt_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Moisture-wicking",
                 "Breathable",
@@ -3561,7 +4097,13 @@ export const mockProductData = {
           description: "Comfortable jacket for warm-ups or post-workout.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/track-jacket-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Track_Jacket_Front_View.jpg",
             "/images/Shopping/Men/Track_Jacket_Side_View.jpg",
@@ -3588,7 +4130,13 @@ export const mockProductData = {
               description:
                 "Stretchable and durable pants designed for maximum movement and comfort.",
               imageSrc: "/images/Shopping/Men/Gym_Pants_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
               material: "Polyester",
               style: "Athletic",
@@ -3600,7 +4148,13 @@ export const mockProductData = {
                 "Lightweight jacket designed to wick away sweat and keep you dry during workouts.",
               imageSrc:
                 "/images/Shopping/Men/Sweat_Wicking_Jacket_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Sweat-wicking",
                 "Breathable",
@@ -3619,7 +4173,13 @@ export const mockProductData = {
             "High-performance leggings designed for flexibility and comfort during workouts.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-leggings-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Sports_Leggings_Front_View.jpg",
             "/images/Shopping/Men/Sports_Leggings_Side_View.jpg",
@@ -3646,7 +4206,13 @@ export const mockProductData = {
               description:
                 "Stretchable and durable pants designed for maximum movement and comfort.",
               imageSrc: "/images/Shopping/Men/Gym_Pants_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
               material: "Polyester",
               style: "Athletic",
@@ -3657,7 +4223,13 @@ export const mockProductData = {
               description:
                 "Perfect for high-intensity workouts, providing flexibility and breathability.",
               imageSrc: "/images/Shopping/Men/Athletic_Shorts_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Breathable", "Flexible", "Lightweight", "Comfortable"],
               material: "Polyester",
               style: "Athletic",
@@ -3671,7 +4243,13 @@ export const mockProductData = {
             "Versatile shoes designed for weightlifting, running, and various workouts.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/training-shoes-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Training_Shoes_Front_View.jpg",
             "/images/Shopping/Men/Training_Shoes_Side_View.jpg",
@@ -3699,7 +4277,13 @@ export const mockProductData = {
                 "Moisture-wicking t-shirt designed for intense workouts.",
               imageSrc:
                 "/images/Shopping/Men/Performance_T-Shirt_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Moisture-wicking",
                 "Breathable",
@@ -3715,7 +4299,13 @@ export const mockProductData = {
               description:
                 "Stretchable and durable pants designed for maximum movement and comfort.",
               imageSrc: "/images/Shopping/Men/Gym_Pants_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
               material: "Polyester",
               style: "Athletic",
@@ -3729,7 +4319,13 @@ export const mockProductData = {
             "Lightweight jacket designed to wick away sweat and keep you dry during workouts.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sweat-wicking-jacket-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Sweat_Wicking_Jacket_Front_View.jpg",
             "/images/Shopping/Men/Sweat_Wicking_Jacket_Side_View.jpg",
@@ -3756,7 +4352,13 @@ export const mockProductData = {
               description:
                 "A moisture-wicking base layer shirt to keep you dry and comfortable in any workout.",
               imageSrc: "/images/Shopping/Men/Base_Layer_Shirt_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Moisture-wicking",
                 "Breathable",
@@ -3771,7 +4373,13 @@ export const mockProductData = {
               price: "$60",
               description: "Comfortable jacket for warm-ups or post-workout.",
               imageSrc: "/images/Shopping/Men/Track_Jacket_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Lightweight", "Breathable", "Comfortable", "Casual"],
               material: "Polyester",
               style: "Athletic",
@@ -3785,7 +4393,13 @@ export const mockProductData = {
             "A moisture-wicking base layer shirt to keep you dry and comfortable in any workout.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/base-layer-shirt-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Base_Layer_Shirt_Front_View.jpg",
             "/images/Shopping/Men/Base_Layer_Shirt_Side_View.jpg",
@@ -3812,7 +4426,13 @@ export const mockProductData = {
               description:
                 "Tight-fitting shirt that provides support and enhances blood circulation.",
               imageSrc: "/images/Shopping/Men/Compression_Shirt_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Supportive",
                 "Moisture-wicking",
@@ -3829,7 +4449,13 @@ export const mockProductData = {
                 "Lightweight jacket designed to wick away sweat and keep you dry during workouts.",
               imageSrc:
                 "/images/Shopping/Men/Sweat_Wicking_Jacket_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: [
                 "Sweat-wicking",
                 "Breathable",
@@ -3848,7 +4474,13 @@ export const mockProductData = {
             "Perfect for high-intensity workouts, providing flexibility and breathability.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/athletic-shorts-men.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Athletic_Shorts_Front_View.jpg",
             "/images/Shopping/Men/Athletic_Shorts_Side_View.jpg",
@@ -3875,7 +4507,13 @@ export const mockProductData = {
               description:
                 "Lightweight and breathable shorts for running and workouts.",
               imageSrc: "/images/Shopping/Men/Running_Shorts_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Lightweight", "Breathable", "Quick-dry", "Comfortable"],
               material: "Polyester",
               style: "Athletic",
@@ -3886,7 +4524,13 @@ export const mockProductData = {
               description:
                 "High-performance leggings designed for flexibility and comfort during workouts.",
               imageSrc: "/images/Shopping/Men/Sports_Leggings_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Flexible", "Breathable", "Lightweight", "Comfortable"],
               material: "Polyester",
               style: "Athletic",
@@ -3902,6 +4546,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-pajamas-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3934,6 +4582,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Cotton_Pajamas_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -3948,6 +4600,10 @@ export const mockProductData = {
               description: "Luxurious silk robes for men.",
               imageSrc: "/images/Shopping/Men/Silk_Robes_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#008000",
                   name: "Green",
@@ -3966,6 +4622,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-pajamas-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -3998,6 +4658,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Silk_Pajamas_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -4012,6 +4676,10 @@ export const mockProductData = {
               description: "Luxurious silk robes for men.",
               imageSrc: "/images/Shopping/Men/Silk_Robes_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#008000",
                   name: "Green",
@@ -4030,6 +4698,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-robes-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000000",
               name: "Black",
@@ -4062,6 +4734,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Silk_Pajamas_Front_View.jpg",
               colors: [
                 {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                {
                   bgColor: "#008000",
                   name: "Green",
                 },
@@ -4076,6 +4752,10 @@ export const mockProductData = {
               description: "Soft cotton pajamas for comfortable sleep.",
               imageSrc: "/images/Shopping/Men/Cotton_Pajamas_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 {
                   bgColor: "#008000",
                   name: "Green",
@@ -4097,6 +4777,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-boxers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4128,7 +4812,13 @@ export const mockProductData = {
               description:
                 "Slim fit boxers offering a snug fit and ultimate comfort.",
               imageSrc: "/images/Shopping/Men/Slim_Fit_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Snug fit", "Comfortable", "Breathable"],
               material: "Cotton",
               style: "Modern",
@@ -4139,7 +4829,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a secure, comfortable fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Soft", "Secure fit"],
               material: "Cotton",
               style: "Classic",
@@ -4154,6 +4850,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slim-fit-boxers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4185,7 +4885,13 @@ export const mockProductData = {
               description:
                 "Comfortable and breathable cotton boxers for everyday wear.",
               imageSrc: "/images/Shopping/Men/Cotton_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Breathable", "Soft", "Casual"],
               material: "Cotton",
               style: "Casual",
@@ -4196,7 +4902,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a secure, comfortable fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Snug", "Secure"],
               material: "Cotton",
               style: "Classic",
@@ -4211,6 +4923,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-boxers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4242,7 +4958,13 @@ export const mockProductData = {
               description:
                 "Performance-oriented briefs for an active lifestyle.",
               imageSrc: "/images/Shopping/Men/Athletic_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Breathable", "Performance"],
               material: "Polyester",
               style: "Athletic",
@@ -4253,7 +4975,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a secure, comfortable fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Secure", "Snug", "Comfortable"],
               material: "Cotton",
               style: "Classic",
@@ -4268,6 +4996,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/printed-boxers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -4299,7 +5031,13 @@ export const mockProductData = {
               description:
                 "Slim fit boxers offering a snug fit and ultimate comfort.",
               imageSrc: "/images/Shopping/Men/Slim_Fit_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Snug", "Comfortable", "Breathable"],
               material: "Cotton",
               style: "Modern",
@@ -4310,7 +5048,13 @@ export const mockProductData = {
               description:
                 "Comfortable and breathable cotton boxers for everyday wear.",
               imageSrc: "/images/Shopping/Men/Cotton_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Soft", "Casual", "Breathable"],
               material: "Cotton",
               style: "Casual",
@@ -4325,6 +5069,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/microfiber-boxers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4356,7 +5104,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a comfortable and secure fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Soft", "Secure"],
               material: "Cotton",
               style: "Classic",
@@ -4367,7 +5121,13 @@ export const mockProductData = {
               description:
                 "Soft and stretchy briefs for daily wear and comfort.",
               imageSrc: "/images/Shopping/Men/Classic_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Comfortable", "Breathable", "Classic"],
               material: "Cotton",
               style: "Traditional",
@@ -4382,6 +5142,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/boxer-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4413,7 +5177,13 @@ export const mockProductData = {
               description:
                 "Performance-oriented briefs for an active lifestyle.",
               imageSrc: "/images/Shopping/Men/Athletic_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Breathable", "Performance"],
               material: "Polyester",
               style: "Athletic",
@@ -4424,7 +5194,13 @@ export const mockProductData = {
               description:
                 "Comfortable and breathable cotton boxers for everyday wear.",
               imageSrc: "/images/Shopping/Men/Cotton_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Soft", "Casual", "Breathable"],
               material: "Cotton",
               style: "Casual",
@@ -4438,6 +5214,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/athletic-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4469,7 +5249,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a comfortable and secure fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Secure", "Soft", "Comfortable"],
               material: "Cotton",
               style: "Classic",
@@ -4480,7 +5266,13 @@ export const mockProductData = {
               description:
                 "Warm and cozy thermal briefs perfect for cold weather.",
               imageSrc: "/images/Shopping/Men/Thermal_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Warm", "Cozy", "Comfortable"],
               material: "Cotton",
               style: "Performance",
@@ -4494,6 +5286,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/classic-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4525,7 +5321,13 @@ export const mockProductData = {
               description:
                 "Comfortable and breathable cotton boxers for everyday wear.",
               imageSrc: "/images/Shopping/Men/Cotton_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Breathable", "Soft", "Casual"],
               material: "Cotton",
               style: "Casual",
@@ -4536,7 +5338,13 @@ export const mockProductData = {
               description:
                 "Slim fit boxers offering a snug fit and ultimate comfort.",
               imageSrc: "/images/Shopping/Men/Slim_Fit_Boxers_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Snug", "Comfortable", "Modern"],
               material: "Cotton",
               style: "Modern",
@@ -4550,6 +5358,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/thermal-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4581,7 +5393,13 @@ export const mockProductData = {
               description:
                 "Performance-oriented briefs for an active lifestyle.",
               imageSrc: "/images/Shopping/Men/Athletic_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Breathable", "Performance"],
               material: "Polyester",
               style: "Athletic",
@@ -4592,7 +5410,13 @@ export const mockProductData = {
               description:
                 "Premium luxury briefs made from high-quality materials.",
               imageSrc: "/images/Shopping/Men/Luxury_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Premium", "Soft", "Luxurious"],
               material: "Cotton",
               style: "Elegant",
@@ -4607,6 +5431,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/luxury-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -4638,7 +5466,13 @@ export const mockProductData = {
               description:
                 "Warm and cozy thermal briefs perfect for cold weather.",
               imageSrc: "/images/Shopping/Men/Thermal_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Warm", "Cozy", "Comfortable"],
               material: "Cotton",
               style: "Performance",
@@ -4649,7 +5483,13 @@ export const mockProductData = {
               description:
                 "Combination of boxers and briefs for a comfortable and secure fit.",
               imageSrc: "/images/Shopping/Men/Boxer_Briefs_Front_View.jpg",
-              colors: [{ bgColor: "#008000", name: "Green" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#008000", name: "Green" },
+              ],
               items: ["Supportive", "Soft", "Secure"],
               material: "Cotton",
               style: "Classic",
@@ -4665,6 +5505,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-jacket-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#000080", name: "Navy" },
@@ -4696,10 +5540,11 @@ export const mockProductData = {
               description: "Classic denim jacket with a modern fit.",
               imageSrc: "/images/Shopping/Men/Denim_Jacket_Front_View.jpg",
               colors: [
-                { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#000000", name: "Black" },
+                { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#808080", name: "Gray" },
               ],
               items: ["Casual", "Timeless", "Modern fit"],
               material: "Denim",
@@ -4711,6 +5556,10 @@ export const mockProductData = {
               description: "A casual bomber jacket with a sleek design.",
               imageSrc: "/images/Shopping/Men/Bomber_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#800000", name: "Maroon" },
@@ -4729,6 +5578,10 @@ export const mockProductData = {
             "A versatile parka designed for both urban and outdoor adventures.",
           imageSrc: "https://www.shutterstock.com/image-photo/parka-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808000", name: "Olive" },
             { bgColor: "#000080", name: "Navy" },
@@ -4761,6 +5614,10 @@ export const mockProductData = {
                 "A lightweight windbreaker that offers protection without sacrificing style.",
               imageSrc: "/images/Shopping/Men/Windbreaker_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -4776,6 +5633,10 @@ export const mockProductData = {
               description: "Stylish leather jacket for cool evenings.",
               imageSrc: "/images/Shopping/Men/Leather_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#000080", name: "Navy" },
@@ -4795,6 +5656,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/windbreaker-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#FF0000", name: "Red" },
@@ -4827,6 +5692,10 @@ export const mockProductData = {
                 "A versatile parka designed for both urban and outdoor adventures.",
               imageSrc: "/images/Shopping/Men/Parka_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#000080", name: "Navy" },
@@ -4842,6 +5711,10 @@ export const mockProductData = {
               description: "Classic denim jacket with a modern fit.",
               imageSrc: "/images/Shopping/Men/Denim_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
@@ -4860,6 +5733,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/denim-jacket-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
@@ -4891,6 +5768,10 @@ export const mockProductData = {
               description: "A casual bomber jacket with a sleek design.",
               imageSrc: "/images/Shopping/Men/Bomber_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#800000", name: "Maroon" },
@@ -4906,6 +5787,10 @@ export const mockProductData = {
               description: "Stylish leather jacket for cool evenings.",
               imageSrc: "/images/Shopping/Men/Leather_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#000080", name: "Navy" },
@@ -4924,6 +5809,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bomber-jacket-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808000", name: "Olive" },
             { bgColor: "#800000", name: "Maroon" },
@@ -4955,6 +5844,10 @@ export const mockProductData = {
               description: "Classic denim jacket with a modern fit.",
               imageSrc: "/images/Shopping/Men/Denim_Jacket_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
@@ -4971,6 +5864,10 @@ export const mockProductData = {
                 "A lightweight windbreaker that offers protection without sacrificing style.",
               imageSrc: "/images/Shopping/Men/Windbreaker_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -4991,6 +5888,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-trunks-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -5023,6 +5924,10 @@ export const mockProductData = {
                 "Long board shorts designed for both surfing and swimming.",
               imageSrc: "/images/Shopping/Men/Board_Shorts_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
@@ -5038,6 +5943,10 @@ export const mockProductData = {
                 "Sleek swim briefs for a streamlined fit in the water.",
               imageSrc: "/images/Shopping/Men/Swim_Briefs_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5056,6 +5965,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/board-shorts-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -5088,6 +6001,10 @@ export const mockProductData = {
                 "Comfortable swim trunks perfect for the beach or pool.",
               imageSrc: "/images/Shopping/Men/Swim_Trunks_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5103,6 +6020,10 @@ export const mockProductData = {
                 "Sleek swim briefs for a streamlined fit in the water.",
               imageSrc: "/images/Shopping/Men/Swim_Briefs_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5120,6 +6041,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-briefs-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -5152,6 +6077,10 @@ export const mockProductData = {
                 "Comfortable swim trunks perfect for the beach or pool.",
               imageSrc: "/images/Shopping/Men/Swim_Trunks_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5167,6 +6096,10 @@ export const mockProductData = {
                 "Long board shorts designed for both surfing and swimming.",
               imageSrc: "/images/Shopping/Men/Board_Shorts_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
@@ -5185,6 +6118,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/rash-guard-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -5218,8 +6155,10 @@ export const mockProductData = {
               imageSrc: "/images/Shopping/Men/Swim_Suit_Front_View.jpg",
               colors: [
                 { bgColor: "#000000", name: "Black" },
-                { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#808080", name: "Gray" },
               ],
               items: ["Streamlined", "Flexible", "Sporty"],
               material: "Polyester",
@@ -5232,6 +6171,10 @@ export const mockProductData = {
                 "Comfortable swim trunks perfect for the beach or pool.",
               imageSrc: "/images/Shopping/Men/Swim_Trunks_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5248,6 +6191,10 @@ export const mockProductData = {
           description: "Classic speedo for a close and competitive fit.",
           imageSrc: "https://www.shutterstock.com/image-photo/speedo-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -5279,6 +6226,10 @@ export const mockProductData = {
                 "Sleek swim briefs for a streamlined fit in the water.",
               imageSrc: "/images/Shopping/Men/Swim_Briefs_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5297,6 +6248,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-suit-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -5329,6 +6284,10 @@ export const mockProductData = {
                 "Protective rash guard for extra sun protection and comfort.",
               imageSrc: "/images/Shopping/Men/Rash_Guard_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -5344,6 +6303,10 @@ export const mockProductData = {
                 "Comfortable swim trunks perfect for the beach or pool.",
               imageSrc: "/images/Shopping/Men/Swim_Trunks_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -5363,6 +6326,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/skinny-jeans-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#00008B", name: "Dark Blue" },
             { bgColor: "#808080", name: "Gray" },
@@ -5395,10 +6362,12 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Straight_Leg_Jeans_Front_View.jpg",
               colors: [
+                { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#000000", name: "Black" },
-                { bgColor: "#00008B", name: "Dark Blue" },
+                { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#808080", name: "Gray" },
               ],
               items: ["Timeless", "Comfortable", "Versatile"],
               material: "Denim",
@@ -5411,6 +6380,10 @@ export const mockProductData = {
                 "Casual yet refined chinos, perfect for work and play.",
               imageSrc: "/images/Shopping/Men/Chinos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#000000", name: "Black" },
@@ -5429,6 +6402,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/straight-leg-jeans-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#00008B", name: "Dark Blue" },
             { bgColor: "#808080", name: "Gray" },
@@ -5460,6 +6437,10 @@ export const mockProductData = {
               description: "Slim-fit jeans for a modern, stylish look.",
               imageSrc: "/images/Shopping/Men/Skinny_Jeans_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#00008B", name: "Dark Blue" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5475,6 +6456,10 @@ export const mockProductData = {
               description: "Durable cargo pants with plenty of pockets.",
               imageSrc: "/images/Shopping/Men/Cargo_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#C3B091", name: "Khaki" },
@@ -5494,6 +6479,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cargo-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808000", name: "Olive" },
             { bgColor: "#C3B091", name: "Khaki" },
@@ -5525,6 +6514,10 @@ export const mockProductData = {
               description: "Comfortable jogger pants for outdoor activities.",
               imageSrc: "/images/Shopping/Men/Joggers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#36454F", name: "Charcoal" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5541,6 +6534,10 @@ export const mockProductData = {
                 "Classic khaki pants, a timeless option for casual wear.",
               imageSrc: "/images/Shopping/Men/Khaki_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#C3B091", name: "Khaki" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#808000", name: "Olive" },
@@ -5558,6 +6555,10 @@ export const mockProductData = {
           description: "Casual yet refined chinos, perfect for work and play.",
           imageSrc: "https://www.shutterstock.com/image-photo/chinos-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#000000", name: "Black" },
@@ -5590,6 +6591,10 @@ export const mockProductData = {
                 "Tailored dress pants for formal events and office wear.",
               imageSrc: "/images/Shopping/Men/Dress_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -5605,6 +6610,10 @@ export const mockProductData = {
               description: "Slim-fit jeans for a modern, stylish look.",
               imageSrc: "/images/Shopping/Men/Skinny_Jeans_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#00008B", name: "Dark Blue" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5623,6 +6632,10 @@ export const mockProductData = {
             "Comfortable jogger pants for casual wear and outdoor activities.",
           imageSrc: "https://www.shutterstock.com/image-photo/joggers-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#36454F", name: "Charcoal" },
             { bgColor: "#808080", name: "Gray" },
@@ -5654,6 +6667,10 @@ export const mockProductData = {
               description: "Durable cargo pants with plenty of pockets.",
               imageSrc: "/images/Shopping/Men/Cargo_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#C3B091", name: "Khaki" },
@@ -5670,6 +6687,10 @@ export const mockProductData = {
                 "Comfortable athletic pants for workouts and outdoor activities.",
               imageSrc: "/images/Shopping/Men/Athletic_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5689,6 +6710,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -5720,6 +6745,10 @@ export const mockProductData = {
               description: "Casual yet refined chinos for work and play.",
               imageSrc: "/images/Shopping/Men/Chinos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#000000", name: "Black" },
@@ -5735,6 +6764,10 @@ export const mockProductData = {
               description: "Slim-fit jeans for a modern, stylish look.",
               imageSrc: "/images/Shopping/Men/Skinny_Jeans_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#00008B", name: "Dark Blue" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5754,6 +6787,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/athletic-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#808080", name: "Gray" },
@@ -5786,6 +6823,10 @@ export const mockProductData = {
                 "Comfortable jogger pants for casual wear and outdoor activities.",
               imageSrc: "/images/Shopping/Men/Joggers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#36454F", name: "Charcoal" },
                 { bgColor: "#808080", name: "Gray" },
@@ -5802,6 +6843,10 @@ export const mockProductData = {
                 "High-performance leggings designed for flexibility and comfort.",
               imageSrc: "/images/Shopping/Men/Sports_Leggings_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -5820,6 +6865,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/linen-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#000080", name: "Navy" },
@@ -5852,6 +6901,10 @@ export const mockProductData = {
                 "Soft twill pants that are durable and versatile for any occasion.",
               imageSrc: "/images/Shopping/Men/Twill_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -5867,6 +6920,10 @@ export const mockProductData = {
               description: "Casual yet refined chinos for work and play.",
               imageSrc: "/images/Shopping/Men/Chinos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#000000", name: "Black" },
@@ -5886,6 +6943,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/twill-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -5918,6 +6979,10 @@ export const mockProductData = {
                 "Tailored dress pants for formal events and office wear.",
               imageSrc: "/images/Shopping/Men/Dress_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -5933,6 +6998,10 @@ export const mockProductData = {
               description: "Lightweight linen pants perfect for warm weather.",
               imageSrc: "/images/Shopping/Men/Linen_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#000080", name: "Navy" },
@@ -5952,6 +7021,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/khaki-pants-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#C3B091", name: "Khaki" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#808000", name: "Olive" },
@@ -5983,6 +7056,10 @@ export const mockProductData = {
               description: "Durable cargo pants with plenty of pockets.",
               imageSrc: "/images/Shopping/Men/Cargo_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#C3B091", name: "Khaki" },
@@ -5998,6 +7075,10 @@ export const mockProductData = {
               description: "Casual yet refined chinos for work and play.",
               imageSrc: "/images/Shopping/Men/Chinos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#000000", name: "Black" },
@@ -6019,6 +7100,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/basic-tshirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -6051,6 +7136,10 @@ export const mockProductData = {
                 "A classic polo shirt, perfect for casual or smart-casual occasions.",
               imageSrc: "/images/Shopping/Men/Polo_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -6065,6 +7154,10 @@ export const mockProductData = {
               description: "A stylish v-neck shirt for a trendy, casual look.",
               imageSrc: "/images/Shopping/Men/VNeck_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -6083,6 +7176,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/polo-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -6115,6 +7212,10 @@ export const mockProductData = {
                 "A comfortable and versatile basic t-shirt for everyday wear.",
               imageSrc: "/images/Shopping/Men/Basic_TShirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -6130,6 +7231,10 @@ export const mockProductData = {
                 "A versatile button-down shirt for both casual and semi-formal wear.",
               imageSrc: "/images/Shopping/Men/Button_Down_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#87CEEB", name: "Sky Blue" },
@@ -6148,6 +7253,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vneck-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -6180,6 +7289,10 @@ export const mockProductData = {
                 "A comfortable and versatile basic t-shirt for everyday wear.",
               imageSrc: "/images/Shopping/Men/Basic_TShirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6194,6 +7307,10 @@ export const mockProductData = {
                 "A casual henley shirt with a button placket for a laid-back yet stylish look.",
               imageSrc: "/images/Shopping/Men/Henley_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
@@ -6212,6 +7329,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/button-down-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#87CEEB", name: "Sky Blue" },
@@ -6244,6 +7365,10 @@ export const mockProductData = {
                 "A classic polo shirt, perfect for casual or smart-casual occasions.",
               imageSrc: "/images/Shopping/Men/Polo_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -6258,6 +7383,10 @@ export const mockProductData = {
               description: "A stylish v-neck shirt for a trendy, casual look.",
               imageSrc: "/images/Shopping/Men/VNeck_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6275,6 +7404,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/henley-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF4500", name: "Orange" },
@@ -6307,6 +7440,10 @@ export const mockProductData = {
                 "A comfortable and versatile basic t-shirt for everyday wear.",
               imageSrc: "/images/Shopping/Men/Basic_TShirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6320,6 +7457,10 @@ export const mockProductData = {
               description: "A stylish v-neck shirt for a trendy, casual look.",
               imageSrc: "/images/Shopping/Men/VNeck_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6337,6 +7478,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/flannel-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#00008B", name: "Navy" },
@@ -6369,6 +7514,10 @@ export const mockProductData = {
                 "A casual henley shirt with a button placket for a laid-back yet stylish look.",
               imageSrc: "/images/Shopping/Men/Henley_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6383,6 +7532,10 @@ export const mockProductData = {
                 "A versatile button-down shirt for both casual and semi-formal wear.",
               imageSrc: "/images/Shopping/Men/Button_Down_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6400,6 +7553,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/graphic-tshirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -6433,6 +7590,10 @@ export const mockProductData = {
                 "A comfortable and versatile basic t-shirt for everyday wear.",
               imageSrc: "/images/Shopping/Men/Basic_TShirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6446,6 +7607,10 @@ export const mockProductData = {
               description: "A stylish v-neck shirt for a trendy, casual look.",
               imageSrc: "/images/Shopping/Men/VNeck_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6463,6 +7628,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/long-sleeve-shirt-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -6495,6 +7664,10 @@ export const mockProductData = {
                 "A versatile button-down shirt for both casual and semi-formal wear.",
               imageSrc: "/images/Shopping/Men/Button_Down_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#87CEEB", name: "Sky Blue" },
@@ -6510,6 +7683,10 @@ export const mockProductData = {
                 "A casual henley shirt with a button placket for a laid-back yet stylish look.",
               imageSrc: "/images/Shopping/Men/Henley_Shirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -6530,6 +7707,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-necklace-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#808080", name: "Gray" },
@@ -6563,6 +7744,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Gold_Chain_Necklace_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#B76E79", name: "Rose Gold" },
                 { bgColor: "#000000", name: "Black" },
@@ -6578,6 +7763,10 @@ export const mockProductData = {
               description: "Stylish leather bracelet for a rugged look.",
               imageSrc: "/images/Shopping/Men/Leather_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -6597,6 +7786,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#FFD700", name: "Gold" },
             { bgColor: "#B76E79", name: "Rose Gold" },
             { bgColor: "#000000", name: "Black" },
@@ -6631,6 +7824,10 @@ export const mockProductData = {
               description: "Elegant silver necklace for men.",
               imageSrc: "/images/Shopping/Men/Silver_Necklace_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#808080", name: "Gray" },
@@ -6646,6 +7843,10 @@ export const mockProductData = {
               description: "Luxury gold chain for formal and casual wear.",
               imageSrc: "/images/Shopping/Men/Gold_Chain_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#B76E79", name: "Rose Gold" },
                 { bgColor: "#000000", name: "Black" },
@@ -6664,6 +7865,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-bracelet-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -6696,6 +7901,10 @@ export const mockProductData = {
                 "A colorful beaded bracelet that adds a pop of color to your style.",
               imageSrc: "/images/Shopping/Men/Beaded_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
@@ -6712,6 +7921,10 @@ export const mockProductData = {
                 "A sleek chain bracelet that adds sophistication to your wrist.",
               imageSrc: "/images/Shopping/Men/Chain_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -6730,6 +7943,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/beaded-necklace-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#008000", name: "Green" },
@@ -6762,6 +7979,10 @@ export const mockProductData = {
                 "A colorful beaded bracelet that brings a pop of color to your style.",
               imageSrc: "/images/Shopping/Men/Beaded_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
@@ -6777,6 +7998,10 @@ export const mockProductData = {
               description: "Elegant silver necklace for men.",
               imageSrc: "/images/Shopping/Men/Silver_Necklace_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#808080", name: "Gray" },
@@ -6796,6 +8021,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/beaded-bracelet-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#008000", name: "Green" },
@@ -6827,6 +8056,10 @@ export const mockProductData = {
               description: "Casual beaded necklace for everyday wear.",
               imageSrc: "/images/Shopping/Men/Beaded_Necklace_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
@@ -6843,6 +8076,10 @@ export const mockProductData = {
                 "A sleek chain bracelet that adds sophistication to your wrist.",
               imageSrc: "/images/Shopping/Men/Chain_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -6862,6 +8099,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -6893,6 +8134,10 @@ export const mockProductData = {
               description: "Luxury gold chain for formal and casual wear.",
               imageSrc: "/images/Shopping/Men/Gold_Chain_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#B76E79", name: "Rose Gold" },
                 { bgColor: "#000000", name: "Black" },
@@ -6908,6 +8153,10 @@ export const mockProductData = {
               description: "Stylish leather bracelet for a rugged look.",
               imageSrc: "/images/Shopping/Men/Leather_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -6926,6 +8175,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-chain-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#FFD700", name: "Gold" },
             { bgColor: "#B76E79", name: "Rose Gold" },
             { bgColor: "#000000", name: "Black" },
@@ -6962,6 +8215,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Gold_Chain_Necklace_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#B76E79", name: "Rose Gold" },
                 { bgColor: "#000000", name: "Black" },
@@ -6978,6 +8235,10 @@ export const mockProductData = {
                 "A sleek chain bracelet that adds sophistication to your wrist.",
               imageSrc: "/images/Shopping/Men/Chain_Bracelet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -6998,6 +8259,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/round-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Tortoise" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -7030,6 +8295,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Aviator_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7046,6 +8315,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Wayfarer_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7064,6 +8337,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/aviator-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFD700", name: "Gold" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -7095,6 +8372,10 @@ export const mockProductData = {
               description: "Stylish round sunglasses for a retro look.",
               imageSrc: "/images/Shopping/Men/Round_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7112,6 +8393,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Polarized_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -7130,6 +8415,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/square-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#696969", name: "Dark Gray" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -7162,6 +8451,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Wayfarer_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7177,6 +8470,10 @@ export const mockProductData = {
               description: "Sporty sunglasses designed for active men.",
               imageSrc: "/images/Shopping/Men/Sport_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -7195,6 +8492,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/polarized-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -7227,6 +8528,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Aviator_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7242,6 +8547,10 @@ export const mockProductData = {
               description: "Stylish round sunglasses with a retro vibe.",
               imageSrc: "/images/Shopping/Men/Round_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7260,6 +8569,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wayfarer-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Tortoise" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -7292,6 +8605,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Aviator_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7307,6 +8624,10 @@ export const mockProductData = {
               description: "Bold and modern square sunglasses.",
               imageSrc: "/images/Shopping/Men/Square_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#696969", name: "Dark Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -7325,6 +8646,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#FF0000", name: "Red" },
@@ -7358,6 +8683,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Polarized_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -7374,6 +8703,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Tactical_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#006400", name: "Dark Green" },
                 { bgColor: "#556B2F", name: "Olive" },
@@ -7392,6 +8725,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/fishing-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#808080", name: "Gray" },
@@ -7425,6 +8762,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Polarized_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -7440,6 +8781,10 @@ export const mockProductData = {
               description: "Sporty sunglasses designed for active men.",
               imageSrc: "/images/Shopping/Men/Sport_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -7458,6 +8803,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/color-block-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -7491,6 +8840,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Wayfarer_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7506,6 +8859,10 @@ export const mockProductData = {
               description: "Stylish round sunglasses for a retro look.",
               imageSrc: "/images/Shopping/Men/Round_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7524,6 +8881,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tactical-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#006400", name: "Dark Green" },
             { bgColor: "#556B2F", name: "Olive" },
@@ -7555,6 +8916,10 @@ export const mockProductData = {
               description: "Sporty sunglasses designed for active men.",
               imageSrc: "/images/Shopping/Men/Sport_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -7572,6 +8937,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Polarized_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -7591,6 +8960,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/oversized-sunglasses-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -7624,6 +8997,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Wayfarer_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Tortoise" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7640,6 +9017,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Men/Aviator_Sunglasses_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -7660,6 +9041,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-watch-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#0000FF", name: "Blue" },
             { bgColor: "#FF0000", name: "Red" },
@@ -7692,6 +9077,10 @@ export const mockProductData = {
                 "High-tech smartwatch with fitness tracking features.",
               imageSrc: "/images/Shopping/Men/Smartwatch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#4B4B4B", name: "Space Gray" },
@@ -7707,6 +9096,10 @@ export const mockProductData = {
               description: "Premium chronograph watch with multiple dials.",
               imageSrc: "/images/Shopping/Men/Chronograph_Watch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7725,6 +9118,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-watch-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -7759,6 +9156,10 @@ export const mockProductData = {
               description: "Premium chronograph watch with multiple dials.",
               imageSrc: "/images/Shopping/Men/Chronograph_Watch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7775,6 +9176,10 @@ export const mockProductData = {
                 "High-tech smartwatch with fitness tracking features.",
               imageSrc: "/images/Shopping/Men/Smartwatch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#4B4B4B", name: "Space Gray" },
@@ -7793,6 +9198,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/smartwatch-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#4B4B4B", name: "Space Gray" },
@@ -7828,6 +9237,10 @@ export const mockProductData = {
               description: "Sporty and durable watch for active men.",
               imageSrc: "/images/Shopping/Men/Sport_Watch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#FF0000", name: "Red" },
@@ -7843,6 +9256,10 @@ export const mockProductData = {
               description: "Premium chronograph watch with multiple dials.",
               imageSrc: "/images/Shopping/Men/Chronograph_Watch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7861,6 +9278,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/chronograph-watch-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -7892,6 +9313,10 @@ export const mockProductData = {
               description: "Elegant dress watch for formal occasions.",
               imageSrc: "/images/Shopping/Men/Dress_Watch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -7908,6 +9333,10 @@ export const mockProductData = {
                 "High-tech smartwatch with fitness tracking features.",
               imageSrc: "/images/Shopping/Men/Smartwatch_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#4B4B4B", name: "Space Gray" },
@@ -7929,6 +9358,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/black-leather-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -7961,6 +9394,10 @@ export const mockProductData = {
                 "Timeless bifold wallet with plenty of card slots and cash space.",
               imageSrc: "/images/Shopping/Men/Bifold_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -7977,6 +9414,10 @@ export const mockProductData = {
                 "Slim minimalist wallet designed for essentials only.",
               imageSrc: "/images/Shopping/Men/Minimalist_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -7996,6 +9437,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bifold-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8028,6 +9473,10 @@ export const mockProductData = {
                 "Classic leather wallet, durable and stylish for daily use.",
               imageSrc: "/images/Shopping/Men/Leather_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8044,6 +9493,10 @@ export const mockProductData = {
                 "Practical trifold wallet with multiple compartments for cards and cash.",
               imageSrc: "/images/Shopping/Men/Trifold_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8063,6 +9516,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/trifold-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8095,6 +9552,10 @@ export const mockProductData = {
                 "Timeless bifold wallet with plenty of card slots and cash space.",
               imageSrc: "/images/Shopping/Men/Bifold_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8111,6 +9572,10 @@ export const mockProductData = {
                 "Slim minimalist wallet designed for essentials only.",
               imageSrc: "/images/Shopping/Men/Minimalist_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -8129,6 +9594,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/minimalist-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -8161,6 +9630,10 @@ export const mockProductData = {
                 "Classic leather wallet, durable and stylish for daily use.",
               imageSrc: "/images/Shopping/Men/Leather_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8177,6 +9650,10 @@ export const mockProductData = {
                 "Stylish wallet with money clip for secure cash holding.",
               imageSrc: "/images/Shopping/Men/Money_Clip_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8196,6 +9673,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/money-clip-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8228,6 +9709,10 @@ export const mockProductData = {
                 "Slim minimalist wallet designed for essentials only.",
               imageSrc: "/images/Shopping/Men/Minimalist_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -8244,6 +9729,10 @@ export const mockProductData = {
                 "Timeless bifold wallet with plenty of card slots and cash space.",
               imageSrc: "/images/Shopping/Men/Bifold_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8263,6 +9752,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cardholder-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -8295,6 +9788,10 @@ export const mockProductData = {
                 "Slim minimalist wallet designed for essentials only.",
               imageSrc: "/images/Shopping/Men/Minimalist_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -8311,6 +9808,10 @@ export const mockProductData = {
                 "Wallet designed with checkbook holders and card slots.",
               imageSrc: "/images/Shopping/Men/Checkbook_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8329,6 +9830,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/checkbook-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8364,6 +9869,10 @@ export const mockProductData = {
                 "Timeless bifold wallet with plenty of card slots and cash space.",
               imageSrc: "/images/Shopping/Men/Bifold_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8380,6 +9889,10 @@ export const mockProductData = {
                 "Secure zip-around wallet with ample storage for cards, cash, and coins.",
               imageSrc: "/images/Shopping/Men/Zip_Around_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8399,6 +9912,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/zip-around-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8431,6 +9948,10 @@ export const mockProductData = {
                 "Wallet designed with checkbook holders and card slots.",
               imageSrc: "/images/Shopping/Men/Checkbook_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8447,6 +9968,10 @@ export const mockProductData = {
                 "Large wallet designed to hold a passport along with other important documents.",
               imageSrc: "/images/Shopping/Men/Passport_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8466,6 +9991,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/passport-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8501,6 +10030,10 @@ export const mockProductData = {
                 "Secure zip-around wallet with ample storage for cards, cash, and coins.",
               imageSrc: "/images/Shopping/Men/Zip_Around_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8517,6 +10050,10 @@ export const mockProductData = {
                 "Functional travel wallet with compartments for passport, tickets, and cash.",
               imageSrc: "/images/Shopping/Men/Travel_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8537,6 +10074,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/travel-wallet-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -8576,6 +10117,10 @@ export const mockProductData = {
                 "Large wallet designed to hold a passport along with other important documents.",
               imageSrc: "/images/Shopping/Men/Passport_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -8592,6 +10137,10 @@ export const mockProductData = {
                 "Compact wallet for cards and a bit of cash, perfect for everyday carry.",
               imageSrc: "/images/Shopping/Men/Cardholder_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -8612,6 +10161,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/winter-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -8643,6 +10196,10 @@ export const mockProductData = {
               description: "Warm wool scarf for winter, soft and cozy.",
               imageSrc: "/images/Shopping/Men/Wool_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8658,6 +10215,10 @@ export const mockProductData = {
               description: "Luxurious cashmere scarf for the cold season.",
               imageSrc: "/images/Shopping/Men/Cashmere_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8676,6 +10237,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#800000", name: "Burgundy" },
@@ -8707,6 +10272,10 @@ export const mockProductData = {
               description: "Soft pashmina scarf, perfect for everyday wear.",
               imageSrc: "/images/Shopping/Men/Pashmina_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -8722,6 +10291,10 @@ export const mockProductData = {
               description: "Luxurious cashmere scarf for the cold season.",
               imageSrc: "/images/Shopping/Men/Cashmere_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8740,6 +10313,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/casual-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -8771,6 +10348,10 @@ export const mockProductData = {
               description: "Hand-knitted scarf for a cozy, casual look.",
               imageSrc: "/images/Shopping/Men/Knitted_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8786,6 +10367,10 @@ export const mockProductData = {
               description: "Warm wool scarf for winter, soft and cozy.",
               imageSrc: "/images/Shopping/Men/Wool_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8804,6 +10389,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cashmere-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -8835,6 +10424,10 @@ export const mockProductData = {
               description: "Elegant silk scarf for formal occasions.",
               imageSrc: "/images/Shopping/Men/Silk_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#800000", name: "Burgundy" },
@@ -8850,6 +10443,10 @@ export const mockProductData = {
               description: "Warm wool scarf for winter, soft and cozy.",
               imageSrc: "/images/Shopping/Men/Wool_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8868,6 +10465,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wool-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -8899,6 +10500,10 @@ export const mockProductData = {
               description: "Warm scarf for cold weather.",
               imageSrc: "/images/Shopping/Men/Winter_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8914,6 +10519,10 @@ export const mockProductData = {
               description: "Hand-knitted scarf for a cozy, casual look.",
               imageSrc: "/images/Shopping/Men/Knitted_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8932,6 +10541,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/plaid-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#000080", name: "Navy" },
@@ -8964,6 +10577,10 @@ export const mockProductData = {
               description: "Hand-knitted scarf for a cozy, casual look.",
               imageSrc: "/images/Shopping/Men/Knitted_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8979,6 +10596,10 @@ export const mockProductData = {
               description: "Bold tartan design scarf for a classic style.",
               imageSrc: "/images/Shopping/Men/Tartan_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#000080", name: "Navy" },
@@ -8997,6 +10618,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/knitted-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -9028,6 +10653,10 @@ export const mockProductData = {
               description: "Warm wool scarf for winter, soft and cozy.",
               imageSrc: "/images/Shopping/Men/Wool_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9043,6 +10672,10 @@ export const mockProductData = {
               description: "Classic plaid pattern scarf for a timeless style.",
               imageSrc: "/images/Shopping/Men/Plaid_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9062,6 +10695,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9093,6 +10730,10 @@ export const mockProductData = {
               description: "Luxurious cashmere scarf for the cold season.",
               imageSrc: "/images/Shopping/Men/Cashmere_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9108,6 +10749,10 @@ export const mockProductData = {
               description: "Hand-knitted scarf for a cozy, casual look.",
               imageSrc: "/images/Shopping/Men/Knitted_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9126,6 +10771,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/pashmina-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -9157,6 +10806,10 @@ export const mockProductData = {
               description: "Elegant silk scarf for formal occasions.",
               imageSrc: "/images/Shopping/Men/Silk_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#800000", name: "Burgundy" },
@@ -9172,6 +10825,10 @@ export const mockProductData = {
               description: "Luxurious cashmere scarf for the cold season.",
               imageSrc: "/images/Shopping/Men/Cashmere_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9190,6 +10847,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tartan-scarf-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#000080", name: "Navy" },
@@ -9221,6 +10882,10 @@ export const mockProductData = {
               description: "Classic plaid pattern scarf for a timeless style.",
               imageSrc: "/images/Shopping/Men/Plaid_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9237,6 +10902,10 @@ export const mockProductData = {
               description: "Hand-knitted scarf for a cozy, casual look.",
               imageSrc: "/images/Shopping/Men/Knitted_Scarf_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9257,6 +10926,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9288,6 +10961,10 @@ export const mockProductData = {
               description: "Durable canvas belt for everyday use.",
               imageSrc: "/images/Shopping/Men/Canvas_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9302,6 +10979,10 @@ export const mockProductData = {
               description: "Stylish woven belt for casual wear.",
               imageSrc: "/images/Shopping/Men/Woven_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -9319,6 +11000,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/canvas-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -9350,6 +11035,10 @@ export const mockProductData = {
               description: "Classic leather belt for casual and formal wear.",
               imageSrc: "/images/Shopping/Men/Leather_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9365,6 +11054,10 @@ export const mockProductData = {
               description: "Stylish woven belt for casual wear.",
               imageSrc: "/images/Shopping/Men/Woven_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -9382,6 +11075,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/dress-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -9413,6 +11110,10 @@ export const mockProductData = {
               description: "Classic leather belt for casual and formal wear.",
               imageSrc: "/images/Shopping/Men/Leather_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9428,6 +11129,10 @@ export const mockProductData = {
               description: "Versatile reversible belt for different styles.",
               imageSrc: "/images/Shopping/Men/Reversible_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9446,6 +11151,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/woven-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -9477,6 +11186,10 @@ export const mockProductData = {
               description: "Durable canvas belt for everyday use.",
               imageSrc: "/images/Shopping/Men/Canvas_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#000080", name: "Navy" },
@@ -9491,6 +11204,10 @@ export const mockProductData = {
               description: "Versatile reversible belt for different styles.",
               imageSrc: "/images/Shopping/Men/Reversible_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9509,6 +11226,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/reversible-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9540,6 +11261,10 @@ export const mockProductData = {
               description: "Sleek dress belt for formal occasions.",
               imageSrc: "/images/Shopping/Men/Dress_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -9555,6 +11280,10 @@ export const mockProductData = {
               description: "Stylish woven belt for casual wear.",
               imageSrc: "/images/Shopping/Men/Woven_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -9573,6 +11302,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/belt-with-buckle-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9604,6 +11337,10 @@ export const mockProductData = {
                 "Slim minimalist wallet designed for essentials only.",
               imageSrc: "/images/Shopping/Men/Minimalist_Wallet_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -9619,6 +11356,10 @@ export const mockProductData = {
               description: "Versatile reversible belt for different styles.",
               imageSrc: "/images/Shopping/Men/Reversible_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9637,6 +11378,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/braided-leather-belt-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9672,6 +11417,10 @@ export const mockProductData = {
               description: "Classic leather belt for casual and formal wear.",
               imageSrc: "/images/Shopping/Men/Leather_Belt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9687,6 +11436,10 @@ export const mockProductData = {
               description: "Classic belt with stylish buckle design.",
               imageSrc: "/images/Shopping/Men/Belt_With_Buckle_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9707,6 +11460,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/messenger-bag-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9739,6 +11496,10 @@ export const mockProductData = {
                 "Elegant leather bag for professional and casual settings.",
               imageSrc: "/images/Shopping/Men/Leather_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9754,6 +11515,10 @@ export const mockProductData = {
               description: "Spacious and durable backpack for daily use.",
               imageSrc: "/images/Shopping/Men/Backpack_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#2F4F4F", name: "Dark Slate" },
                 { bgColor: "#808080", name: "Gray" },
@@ -9773,6 +11538,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-bag-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -9804,6 +11573,10 @@ export const mockProductData = {
               description: "Casual messenger bag for carrying essentials.",
               imageSrc: "/images/Shopping/Men/Messenger_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9819,6 +11592,10 @@ export const mockProductData = {
               description: "Professional leather briefcase for work.",
               imageSrc: "/images/Shopping/Men/Briefcase_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#808080", name: "Gray" },
@@ -9835,6 +11612,10 @@ export const mockProductData = {
           description: "Spacious and durable backpack for daily use.",
           imageSrc: "https://www.shutterstock.com/image-photo/backpack-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Dark Slate" },
             { bgColor: "#808080", name: "Gray" },
@@ -9866,6 +11647,10 @@ export const mockProductData = {
               description: "Casual messenger bag for carrying essentials.",
               imageSrc: "/images/Shopping/Men/Messenger_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9881,6 +11666,10 @@ export const mockProductData = {
               description: "Spacious duffle bag for weekend trips.",
               imageSrc: "/images/Shopping/Men/Duffle_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -9899,6 +11688,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-briefcase-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#808080", name: "Gray" },
@@ -9929,6 +11722,10 @@ export const mockProductData = {
               description: "Elegant leather bag for professional settings.",
               imageSrc: "/images/Shopping/Men/Leather_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9944,6 +11741,10 @@ export const mockProductData = {
               description: "Casual messenger bag for carrying essentials.",
               imageSrc: "/images/Shopping/Men/Messenger_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -9962,6 +11763,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/duffle-bag-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -9993,6 +11798,10 @@ export const mockProductData = {
               description: "Spacious and durable backpack for daily use.",
               imageSrc: "/images/Shopping/Men/Backpack_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#2F4F4F", name: "Dark Slate" },
                 { bgColor: "#808080", name: "Gray" },
@@ -10008,6 +11817,10 @@ export const mockProductData = {
               description: "Versatile tote bag for daily use.",
               imageSrc: "/images/Shopping/Men/Tote_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -10026,6 +11839,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tote-bag-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -10057,6 +11874,10 @@ export const mockProductData = {
               description: "Spacious duffle bag for weekend trips.",
               imageSrc: "/images/Shopping/Men/Duffle_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -10072,6 +11893,10 @@ export const mockProductData = {
               description: "Stylish crossbody bag for on-the-go convenience.",
               imageSrc: "/images/Shopping/Men/Crossbody_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10090,6 +11915,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/crossbody-bag-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -10121,6 +11950,10 @@ export const mockProductData = {
               description: "Versatile tote bag for daily use.",
               imageSrc: "/images/Shopping/Men/Tote_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -10136,6 +11969,10 @@ export const mockProductData = {
               description: "Casual messenger bag for carrying essentials.",
               imageSrc: "/images/Shopping/Men/Messenger_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10154,6 +11991,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/canvas-bag-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -10185,6 +12026,10 @@ export const mockProductData = {
               description: "Versatile tote bag for daily use.",
               imageSrc: "/images/Shopping/Men/Tote_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -10200,6 +12045,10 @@ export const mockProductData = {
               description: "Stylish crossbody bag for on-the-go convenience.",
               imageSrc: "/images/Shopping/Men/Crossbody_Bag_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10220,6 +12069,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/fedora-hat-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -10252,6 +12105,10 @@ export const mockProductData = {
               description: "Casual baseball cap for everyday wear.",
               imageSrc: "/images/Shopping/Men/Baseball_Cap_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -10267,6 +12124,10 @@ export const mockProductData = {
               description: "Elegant Panama hat for a relaxed look.",
               imageSrc: "/images/Shopping/Men/Panama_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -10285,6 +12146,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/baseball-cap-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -10317,6 +12182,10 @@ export const mockProductData = {
               description: "Trendy trucker hat for a laid-back style.",
               imageSrc: "/images/Shopping/Men/Trucker_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -10332,6 +12201,10 @@ export const mockProductData = {
               description: "Classic fedora for men, perfect for any season.",
               imageSrc: "/images/Shopping/Men/Fedora_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10349,6 +12222,10 @@ export const mockProductData = {
           description: "Cozy beanie to keep you warm during cold weather.",
           imageSrc: "https://www.shutterstock.com/image-photo/beanie-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -10381,6 +12258,10 @@ export const mockProductData = {
               description: "Casual baseball cap for everyday wear.",
               imageSrc: "/images/Shopping/Men/Baseball_Cap_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -10395,6 +12276,10 @@ export const mockProductData = {
               description: "Trendy trucker hat for a laid-back style.",
               imageSrc: "/images/Shopping/Men/Trucker_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#0000FF", name: "Blue" },
@@ -10413,6 +12298,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bucket-hat-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#556B2F", name: "Olive" },
@@ -10445,6 +12334,10 @@ export const mockProductData = {
               description: "Casual baseball cap for everyday wear.",
               imageSrc: "/images/Shopping/Men/Baseball_Cap_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -10459,6 +12352,10 @@ export const mockProductData = {
               description: "Classic fedora for men, perfect for any season.",
               imageSrc: "/images/Shopping/Men/Fedora_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10477,6 +12374,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/panama-hat-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -10509,6 +12410,10 @@ export const mockProductData = {
               description: "Classic fedora for men, perfect for any season.",
               imageSrc: "/images/Shopping/Men/Fedora_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10524,6 +12429,10 @@ export const mockProductData = {
               description: "Casual baseball cap for everyday wear.",
               imageSrc: "/images/Shopping/Men/Baseball_Cap_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -10541,6 +12450,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/trucker-hat-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -10573,6 +12486,10 @@ export const mockProductData = {
               description: "Casual baseball cap for everyday wear.",
               imageSrc: "/images/Shopping/Men/Baseball_Cap_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -10587,6 +12504,10 @@ export const mockProductData = {
               description: "Stylish bucket hat for sunny days.",
               imageSrc: "/images/Shopping/Men/Bucket_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#556B2F", name: "Olive" },
@@ -10605,6 +12526,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cowboy-hat-men.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -10637,6 +12562,10 @@ export const mockProductData = {
               description: "Classic fedora for men, perfect for any season.",
               imageSrc: "/images/Shopping/Men/Fedora_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#D2B48C", name: "Tan" },
@@ -10652,6 +12581,10 @@ export const mockProductData = {
               description: "Elegant Panama hat for a relaxed look.",
               imageSrc: "/images/Shopping/Men/Panama_Hat_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Beige" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -10677,6 +12610,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-lightweight-training-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#235CD8", name: "Blue" },
@@ -10714,6 +12651,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Mesh_Breathable_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
@@ -10730,6 +12671,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/High_Performance_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -10748,6 +12693,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-retro-inspired-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -10780,6 +12729,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Lightweight_Training_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -10797,6 +12750,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-mesh-breathable-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -10828,6 +12785,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Retro_Inspired_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -10845,6 +12806,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-high-performance-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -10877,6 +12842,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Mesh_Breathable_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -10894,6 +12863,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-color-block-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#0000FF", name: "Blue" },
@@ -10928,6 +12901,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Retro_Inspired_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -10945,6 +12922,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-all-terrain-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Dark Slate" },
             { bgColor: "#808080", name: "Gray" },
@@ -10978,6 +12959,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/High_Performance_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
@@ -10995,6 +12980,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-premium-leather-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#8B4513", name: "Brown" },
@@ -11028,6 +13017,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Retro_Inspired_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -11045,6 +13038,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-crossover-high-top-sneakers.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -11078,6 +13075,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Premium_Leather_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11096,6 +13097,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ballet-flats.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -11128,6 +13133,10 @@ export const mockProductData = {
                 "Sleek and stylish loafer flats with a sophisticated touch.",
               imageSrc: "/images/Shopping/Women/Loafer_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#F5F5DC", name: "Beige" },
@@ -11146,6 +13155,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/loafer-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -11177,6 +13190,10 @@ export const mockProductData = {
               description: "Classic ballet flats for casual wear.",
               imageSrc: "/images/Shopping/Women/Ballet_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Beige" },
               ],
@@ -11192,6 +13209,10 @@ export const mockProductData = {
           description: "Stylish mules with an open back for formal wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/women-mules.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -11222,6 +13243,10 @@ export const mockProductData = {
               description: "Elegant leather oxfords for a refined look.",
               imageSrc: "/images/Shopping/Women/Oxfords_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11239,6 +13264,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/espadrille-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -11270,6 +13299,10 @@ export const mockProductData = {
               description: "Classic ballet flats for casual wear.",
               imageSrc: "/images/Shopping/Women/Ballet_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Beige" },
               ],
@@ -11286,6 +13319,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/pointed-toe-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Nude" },
             { bgColor: "#FF0000", name: "Red" },
@@ -11318,6 +13355,10 @@ export const mockProductData = {
                 "Sleek and stylish loafer flats with a sophisticated touch.",
               imageSrc: "/images/Shopping/Women/Loafer_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11334,6 +13375,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leather-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#F5F5DC", name: "Nude" },
@@ -11366,6 +13411,10 @@ export const mockProductData = {
                 "Sleek and stylish loafer flats with a sophisticated touch.",
               imageSrc: "/images/Shopping/Women/Loafer_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11383,6 +13432,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/moccasin-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Taupe" },
@@ -11413,6 +13466,10 @@ export const mockProductData = {
               description: "Elegant leather flats for everyday wear.",
               imageSrc: "/images/Shopping/Women/Leather_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11430,6 +13487,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/slip-on-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Gray" },
@@ -11461,6 +13522,10 @@ export const mockProductData = {
                 "Soft and flexible moccasin flats for all-day comfort.",
               imageSrc: "/images/Shopping/Women/Moccasin_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -11478,6 +13543,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/brogue-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -11510,6 +13579,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Pointed_Toe_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Nude" },
               ],
@@ -11527,6 +13600,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/strappy-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -11558,6 +13635,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Pointed_Toe_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Nude" },
               ],
@@ -11575,6 +13656,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/metallic-flats-women.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#C0C0C0", name: "Silver" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -11608,6 +13693,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Premium_Leather_Sneakers_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -11625,6 +13714,10 @@ export const mockProductData = {
           description: "Classic pumps for formal events and office wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/women-pumps.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -11657,6 +13750,10 @@ export const mockProductData = {
                 "Elegant wedding shoes with intricate details for the big day.",
               imageSrc: "/images/Shopping/Women/Wedding_Shoes_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Nude" },
                 { bgColor: "#C0C0C0", name: "Silver" },
@@ -11674,6 +13771,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ballerina-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFDAB9", name: "Peach" },
@@ -11704,6 +13805,10 @@ export const mockProductData = {
               description: "Charming ballerina flats for elegant wear.",
               imageSrc: "/images/Shopping/Women/Ballerina_Flats_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Beige" },
               ],
@@ -11720,6 +13825,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-stilettos.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -11751,6 +13860,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -11768,6 +13881,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000",
               name: "Black",
@@ -11818,6 +13935,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-block-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -11848,6 +13969,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -11866,6 +13991,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-wedding-shoes.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Nude" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -11897,6 +14026,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -11914,6 +14047,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-wedge-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF7F50", name: "Coral" },
@@ -11950,6 +14087,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Platform_Sandals_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -11967,6 +14108,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ankle-strap-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -11998,6 +14143,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -12016,6 +14165,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-peep-toe-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Nude" },
             { bgColor: "#FF0000", name: "Red" },
@@ -12046,6 +14199,10 @@ export const mockProductData = {
               description: "High heel stilettos for a bold and glamorous look.",
               imageSrc: "/images/Shopping/Women/Stilettos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -12064,6 +14221,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-classic-pumps.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#8B0000", name: "Burgundy" },
@@ -12095,6 +14256,10 @@ export const mockProductData = {
               description: "Elegant leather oxfords for a refined look.",
               imageSrc: "/images/Shopping/Women/Oxfords_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -12113,6 +14278,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-lace-up-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -12143,6 +14312,10 @@ export const mockProductData = {
               description: "High heel stilettos for a bold and glamorous look.",
               imageSrc: "/images/Shopping/Women/Stilettos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
@@ -12161,6 +14334,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ankle-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -12192,6 +14369,10 @@ export const mockProductData = {
                 "Trendy Chelsea boots with an elastic side for easy wear.",
               imageSrc: "/images/Shopping/Women/Chelsea_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12210,6 +14391,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-desert-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#D2B48C", name: "Tan" },
             { bgColor: "#F5F5DC", name: "Beige" },
@@ -12240,6 +14425,10 @@ export const mockProductData = {
               description: "Stylish ankle boots for everyday wear.",
               imageSrc: "/images/Shopping/Women/Ankle_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12258,6 +14447,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-motorcycle-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F2F2F", name: "Charcoal" },
           ],
@@ -12288,6 +14481,10 @@ export const mockProductData = {
                 "Sturdy engineer boots with a vintage-inspired design.",
               imageSrc: "/images/Shopping/Women/Engineer_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12306,6 +14503,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-engineer-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
           ],
@@ -12337,6 +14538,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Motorcycle_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#2F2F2F", name: "Charcoal" },
               ],
@@ -12354,6 +14559,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-knee-high-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -12384,6 +14593,10 @@ export const mockProductData = {
               description: "Stylish ankle boots for everyday wear.",
               imageSrc: "/images/Shopping/Women/Ankle_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12402,6 +14615,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-chelsea-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -12432,6 +14649,10 @@ export const mockProductData = {
               description: "Stylish knee-high boots for a chic look.",
               imageSrc: "/images/Shopping/Women/Knee_High_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12449,6 +14670,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-combat-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Dark Slate" },
           ],
@@ -12479,6 +14704,10 @@ export const mockProductData = {
                 "Sturdy engineer boots with a vintage-inspired design.",
               imageSrc: "/images/Shopping/Women/Engineer_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12496,6 +14725,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-riding-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
           ],
@@ -12526,6 +14759,10 @@ export const mockProductData = {
                 "Trendy Chelsea boots with an elastic side for easy wear.",
               imageSrc: "/images/Shopping/Women/Chelsea_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12543,6 +14780,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-western-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Tan" },
@@ -12573,6 +14814,10 @@ export const mockProductData = {
               description: "Stylish ankle boots for everyday wear.",
               imageSrc: "/images/Shopping/Women/Ankle_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12590,6 +14835,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-suede-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#D2B48C", name: "Taupe" },
@@ -12620,6 +14869,10 @@ export const mockProductData = {
               description: "Classic desert boots with a soft, flexible sole.",
               imageSrc: "/images/Shopping/Women/Desert_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#D2B48C", name: "Tan" },
               ],
@@ -12637,6 +14890,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-hiking-boots.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#556B2F", name: "Olive" },
             { bgColor: "#8B4513", name: "Brown" },
@@ -12667,6 +14924,10 @@ export const mockProductData = {
               description: "Stylish ankle boots for everyday wear.",
               imageSrc: "/images/Shopping/Women/Ankle_Boots_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
@@ -12685,6 +14946,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-summer-sandals.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF7F50", name: "Coral" },
@@ -12717,6 +14982,10 @@ export const mockProductData = {
               description: "Easy-to-wear flip flops perfect for summer.",
               imageSrc: "/images/Shopping/Women/Flip_Flops_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
@@ -12735,6 +15004,10 @@ export const mockProductData = {
           description: "Classic pumps for formal events and office wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/women-pumps.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#F5F5DC", name: "Nude" },
@@ -12765,6 +15038,10 @@ export const mockProductData = {
               description: "Elegant leather oxfords for a refined look.",
               imageSrc: "/images/Shopping/Women/Oxfords_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -12784,6 +15061,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ballerina-flats.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Beige" },
             { bgColor: "#FFC0CB", name: "Pink" },
@@ -12815,6 +15096,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -12832,6 +15117,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ballerina-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Nude" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -12862,6 +15151,10 @@ export const mockProductData = {
               description: "High heel stilettos for a bold and glamorous look.",
               imageSrc: "/images/Shopping/Women/Stilettos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
@@ -12879,6 +15172,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-oxfords.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -12910,6 +15207,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -12927,6 +15228,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-stilettos.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -12959,6 +15264,10 @@ export const mockProductData = {
                 "Stylish ballerina heels for a chic and feminine look.",
               imageSrc: "/images/Shopping/Women/Ballerina_Heels_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#F5F5DC", name: "Nude" },
               ],
@@ -12976,6 +15285,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-block-heels.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -13006,6 +15319,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -13024,6 +15341,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-wedding-shoes.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#F5F5DC", name: "Nude" },
             { bgColor: "#C0C0C0", name: "Silver" },
@@ -13055,6 +15376,10 @@ export const mockProductData = {
               description: "Classic pumps for formal events and office wear.",
               imageSrc: "/images/Shopping/Women/Pumps_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -13071,6 +15396,10 @@ export const mockProductData = {
           description: "Stylish mules with an open back for formal wear.",
           imageSrc: "https://www.shutterstock.com/image-photo/women-mules.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -13101,6 +15430,10 @@ export const mockProductData = {
               description: "Elegant leather oxfords for a refined look.",
               imageSrc: "/images/Shopping/Women/Oxfords_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -13120,6 +15453,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-peep-toe-shoes.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#F5F5DC", name: "Nude" },
@@ -13150,6 +15487,10 @@ export const mockProductData = {
               description: "High heel stilettos for a bold and glamorous look.",
               imageSrc: "/images/Shopping/Women/Stilettos_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
@@ -13171,6 +15512,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#FFC0CB", name: "Blush" },
@@ -13201,6 +15546,10 @@ export const mockProductData = {
               description: "Soft and breathable top for all-day comfort.",
               imageSrc: "/images/Shopping/Women/Maternity_Top_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
@@ -13219,6 +15568,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-top.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -13249,6 +15602,10 @@ export const mockProductData = {
                 "Comfortable and stylish dress for expecting mothers.",
               imageSrc: "/images/Shopping/Women/Maternity_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFC0CB", name: "Blush" },
               ],
@@ -13266,6 +15623,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-pants.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -13296,6 +15657,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Maternity_Leggings_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
               ],
@@ -13313,6 +15678,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-jeans.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#00008B", name: "Dark Blue" },
             { bgColor: "#ADD8E6", name: "Light Blue" },
@@ -13342,6 +15711,10 @@ export const mockProductData = {
               description: "Flattering skirt designed for maternity comfort.",
               imageSrc: "/images/Shopping/Women/Maternity_Skirt_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B0000", name: "Burgundy" },
               ],
@@ -13359,6 +15732,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-skirt.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#8B0000", name: "Burgundy" },
@@ -13389,6 +15766,10 @@ export const mockProductData = {
                 "Comfortable and stylish dress for expecting mothers.",
               imageSrc: "/images/Shopping/Women/Maternity_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFC0CB", name: "Blush" },
               ],
@@ -13406,6 +15787,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-leggings.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -13437,6 +15822,10 @@ export const mockProductData = {
                 "Stretchy maternity pants with an adjustable waistband.",
               imageSrc: "/images/Shopping/Women/Maternity_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
               ],
@@ -13454,6 +15843,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-blouse.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#ADD8E6", name: "Light Blue" },
@@ -13485,6 +15878,10 @@ export const mockProductData = {
                 "Comfortable and stylish dress for expecting mothers.",
               imageSrc: "/images/Shopping/Women/Maternity_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFC0CB", name: "Blush" },
               ],
@@ -13501,6 +15898,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maternity-jacket.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#556B2F", name: "Olive" },
@@ -13531,6 +15932,10 @@ export const mockProductData = {
                 "Comfortable and stylish dress for expecting mothers.",
               imageSrc: "/images/Shopping/Women/Maternity_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFC0CB", name: "Blush" },
               ],
@@ -13549,6 +15954,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-maxi-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#1E90FF", name: "Dodger Blue" },
             { bgColor: "#B22222", name: "Firebrick" },
@@ -13582,6 +15991,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Floral_Midi_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FF69B4", name: "Hot Pink" },
                 { bgColor: "#32CD32", name: "Lime Green" },
                 { bgColor: "#FFD700", name: "Gold" },
@@ -13601,6 +16014,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-silk-pajama-set.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFF0", name: "Ivory" },
             { bgColor: "#800020", name: "Burgundy" },
@@ -13634,6 +16051,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Satin_Sleepwear_Set_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000000", name: "Black" },
               ],
@@ -13651,6 +16072,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-evening-gown.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -13683,6 +16108,10 @@ export const mockProductData = {
                 "Stylish cocktail dress perfect for evening parties.",
               imageSrc: "/images/Shopping/Women/Cocktail_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#FFFFFF", name: "White" },
@@ -13700,6 +16129,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-cardigan-coat.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#000080", name: "Navy" },
@@ -13731,6 +16164,10 @@ export const mockProductData = {
               description: "Elegant evening gown for special occasions.",
               imageSrc: "/images/Shopping/Women/Evening_Gown_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -13747,6 +16184,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-cocktail-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -13777,6 +16218,10 @@ export const mockProductData = {
               description: "Elegant evening gown for special occasions.",
               imageSrc: "/images/Shopping/Women/Evening_Gown_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -13794,6 +16239,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-sheath-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#808080", name: "Gray" },
@@ -13825,6 +16274,10 @@ export const mockProductData = {
                 "Stylish blazer dress perfect for formal meetings or dinner dates.",
               imageSrc: "/images/Shopping/Women/Blazer_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
               ],
@@ -13842,6 +16295,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-ball-gown.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF0000", name: "Red" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -13873,6 +16330,10 @@ export const mockProductData = {
               description: "Elegant evening gown for special occasions.",
               imageSrc: "/images/Shopping/Women/Evening_Gown_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -13890,6 +16351,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-blazer-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#808080", name: "Gray" },
@@ -13920,6 +16385,10 @@ export const mockProductData = {
                 "Chic sheath dress, ideal for business meetings or formal dinners.",
               imageSrc: "/images/Shopping/Women/Sheath_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#000080", name: "Navy" },
               ],
@@ -13937,6 +16406,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-lace-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -13967,6 +16440,10 @@ export const mockProductData = {
                 "Stylish cocktail dress perfect for evening parties.",
               imageSrc: "/images/Shopping/Women/Cocktail_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
@@ -13984,6 +16461,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/women-halter-dress.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#000080", name: "Navy" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -14014,6 +16495,10 @@ export const mockProductData = {
                 "Chic sheath dress, ideal for business meetings or formal dinners.",
               imageSrc: "/images/Shopping/Women/Sheath_Dress_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#808080", name: "Gray" },
               ],
@@ -14032,6 +16517,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/womens-sports-bra.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF1493", name: "Deep Pink" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -14064,6 +16553,10 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Athletic_Tank_Top_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
@@ -14082,6 +16575,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/womens-yoga-pants.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2E8B57", name: "Sea Green" },
             { bgColor: "#FF69B4", name: "Hot Pink" },
@@ -14113,8 +16610,13 @@ export const mockProductData = {
                 "Comfortable and supportive sports bra for active women.",
               imageSrc: "/images/Shopping/Women/Sports_Bra_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF1493", name: "Deep Pink" },
+
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               material: "Breathable Mesh",
@@ -14131,6 +16633,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/womens-athletic-tank-top.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF4500", name: "Orange" },
@@ -14162,6 +16668,10 @@ export const mockProductData = {
                 "Stretchable yoga pants perfect for workouts or yoga sessions.",
               imageSrc: "/images/Shopping/Women/Yoga_Pants_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#2E8B57", name: "Sea Green" },
                 { bgColor: "#FF69B4", name: "Hot Pink" },
@@ -14180,6 +16690,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/womens-compression-leggings.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Gray" },
             { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
@@ -14210,6 +16724,10 @@ export const mockProductData = {
                 "Comfortable and supportive sports bra for active women.",
               imageSrc: "/images/Shopping/Women/Sports_Bra_Front_View.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF1493", name: "Deep Pink" },
               ],
@@ -14227,9 +16745,22 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/womens-zip-up-jacket.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF4500", name: "Orange" },
+            { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+            { bgColor: "#2E8B57", name: "Sea Green" },
+            { bgColor: "#FF69B4", name: "Hot Pink" },
+            { bgColor: "#696969", name: "Dim Gray" },
+            { bgColor: "#FF1493", name: "Deep Pink" },
+            { bgColor: "#FF0000", name: "Red" },
+            { bgColor: "#000080", name: "Navy" },
+            { bgColor: "#808080", name: "Gray" },
+            { bgColor: "#FFFFFF", name: "White" },
           ],
           images: [
             "/images/Shopping/Women/Zip_Up_Jacket_Front_View.jpg",
@@ -14258,7 +16789,16 @@ export const mockProductData = {
               imageSrc:
                 "/images/Shopping/Women/Athletic_Tank_Top_Front_View.jpg",
               colors: [
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#2E8B57", name: "Sea Green" },
+                { bgColor: "#FF69B4", name: "Hot Pink" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF1493", name: "Deep Pink" },
+                { bgColor: "#FF4500", name: "Orange" },
+                { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#000000", name: "Black" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               material: "Moisture-Wicking Fabric",
@@ -14275,6 +16815,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cotton-briefs-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#000080", name: "Navy" },
@@ -14307,9 +16851,23 @@ export const mockProductData = {
                 "High-waist briefs that offer full coverage and support.",
               imageSrc: "/images/Shopping/Women/High_Waist_Briefs_Front.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF4500", name: "Orange" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#2E8B57", name: "Sea Green" },
+                { bgColor: "#FF69B4", name: "Hot Pink" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF1493", name: "Deep Pink" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
               ],
               // Additional properties for related product
               material: "100% Cotton",
@@ -14326,6 +16884,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waist-briefs-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#800080", name: "Purple" },
@@ -14357,7 +16919,16 @@ export const mockProductData = {
               description: "Soft cotton briefs for everyday comfort.",
               imageSrc: "/images/Shopping/Women/Cotton_Briefs_Front.jpg",
               colors: [
-                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF4500", name: "Orange" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#2E8B57", name: "Sea Green" },
+                { bgColor: "#FF69B4", name: "Hot Pink" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF1493", name: "Deep Pink" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               material: "100% Cotton",
@@ -14373,6 +16944,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bikini-briefs-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -14404,6 +16979,10 @@ export const mockProductData = {
               description: "Sexy lace thong for special occasions.",
               imageSrc: "/images/Shopping/Women/Lace_Thong_Front.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
@@ -14421,6 +17000,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/silk-panties-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -14452,6 +17035,10 @@ export const mockProductData = {
               description: "Comfortable bikini briefs for daily wear.",
               imageSrc: "/images/Shopping/Women/Bikini_Briefs_Front.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -14468,6 +17055,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-thong-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -14498,6 +17089,10 @@ export const mockProductData = {
               description: "Luxurious silk panties for a smooth and soft feel.",
               imageSrc: "/images/Shopping/Women/Silk_Panties_Front.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -14516,6 +17111,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/skinny-jeans-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Grey" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -14540,11 +17139,38 @@ export const mockProductData = {
               name: "Women Denim Jacket",
               price: "$75",
               imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+              colors: [
+                { bgColor: "#800080", name: "Purple" },
+                { bgColor: "#008080", name: "Teal" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF4500", name: "Orange" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#2E8B57", name: "Sea Green" },
+                { bgColor: "#FF69B4", name: "Hot Pink" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF1493", name: "Deep Pink" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#FFC0CB", name: "Pink" },
+              ],
             },
             {
               name: "Women Casual Sneakers",
               price: "$50",
               imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
+              colors: [
+                { bgColor: "#800080", name: "Purple" },
+                { bgColor: "#008080", name: "Teal" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#FFC0CB", name: "Pink" },
+              ],
             },
           ],
         },
@@ -14556,6 +17182,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-jeans-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Dark Slate" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -14580,11 +17210,30 @@ export const mockProductData = {
               name: "Women Skinny Jeans",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Casual Sneakers",
               price: "$50",
               imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
+              colors: [
+                { bgColor: "#008080", name: "Teal" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+                { bgColor: "#FFC0CB", name: "Pink" },
+              ],
             },
           ],
         },
@@ -14596,6 +17245,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wide-leg-pants-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#696969", name: "Dim Grey" },
           ],
@@ -14619,6 +17272,14 @@ export const mockProductData = {
               name: "Women Blazer",
               price: "$60",
               imageSrc: "/images/Shopping/Women/Blazer.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14630,6 +17291,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/paperbag-waist-pants-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B4513", name: "Brown" },
           ],
@@ -14653,6 +17318,14 @@ export const mockProductData = {
               name: "Women Crop Top",
               price: "$25",
               imageSrc: "/images/Shopping/Women/Crop_Top.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14664,6 +17337,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/culottes-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#708090", name: "Slate Gray" },
           ],
@@ -14687,6 +17364,14 @@ export const mockProductData = {
               name: "Women Blouse",
               price: "$35",
               imageSrc: "/images/Shopping/Women/Blouse.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14698,6 +17383,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/palazzo-pants-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -14722,6 +17411,14 @@ export const mockProductData = {
               name: "Women Off Shoulder Top",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Off_Shoulder_Top.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14733,6 +17430,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/leggings-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#696969", name: "Grey" },
             { bgColor: "#FF4500", name: "Orange" },
@@ -14757,6 +17458,15 @@ export const mockProductData = {
               name: "Women Sports Bra",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Sports_Bra.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14768,6 +17478,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/cargo-pants-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#556B2F", name: "Olive" },
           ],
@@ -14791,6 +17505,15 @@ export const mockProductData = {
               name: "Women Casual Sneakers",
               price: "$50",
               imageSrc: "/images/Shopping/Women/Casual_Sneakers.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
+                { bgColor: "#696969", name: "Dim Gray" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14802,6 +17525,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/tailored-trousers-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#808080", name: "Grey" },
           ],
@@ -14825,6 +17552,13 @@ export const mockProductData = {
               name: "Women Blazer",
               price: "$60",
               imageSrc: "/images/Shopping/Women/Blazer.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14836,6 +17570,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/jogger-pants-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Dark Slate" },
           ],
@@ -14859,6 +17597,13 @@ export const mockProductData = {
               name: "Women Sports Bra",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Sports_Bra.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14872,6 +17617,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/floral-top-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -14896,11 +17645,26 @@ export const mockProductData = {
               name: "Women's Sandals",
               price: "$30",
               imageSrc: "/images/Shopping/Women/Sandals.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women's Denim Shorts",
               price: "$25",
               imageSrc: "/images/Shopping/Women/Denim_Shorts.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14912,6 +17676,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-blouse-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFDAB9", name: "Peach" },
@@ -14936,6 +17704,15 @@ export const mockProductData = {
               name: "Women Midi Skirt",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Midi_Skirt.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FFDAB9", name: "Peach" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14947,6 +17724,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/crop-tank-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF4500", name: "Orange" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -14971,6 +17752,13 @@ export const mockProductData = {
               name: "Women High Waisted Shorts",
               price: "$28",
               imageSrc: "/images/Shopping/Women/High_Waisted_Shorts.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -14982,6 +17770,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/striped-tshirt-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -15006,6 +17798,14 @@ export const mockProductData = {
               name: "Women Skinny Jeans",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15017,6 +17817,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peplum-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B0000", name: "Burgundy" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -15041,6 +17845,14 @@ export const mockProductData = {
               name: "Women Skinny Jeans",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Skinny_Jeans.jpg",
+              colors: [
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15052,6 +17864,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bandeau-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFC0CB", name: "Pink" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -15076,6 +17892,16 @@ export const mockProductData = {
               name: "Women Swim Cover-Up",
               price: "$30",
               imageSrc: "/images/Shopping/Women/Swim_CoverUp.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15087,6 +17913,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/ruffled-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -15111,6 +17941,16 @@ export const mockProductData = {
               name: "Women High Waist Skirt",
               price: "$50",
               imageSrc: "/images/Shopping/Women/High_Waist_Skirt.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#556B2F", name: "Olive" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15122,6 +17962,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sleeveless-jersey-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#808080", name: "Grey" },
@@ -15146,6 +17990,16 @@ export const mockProductData = {
               name: "Women Jogger Pants",
               price: "$30",
               imageSrc: "/images/Shopping/Women/Jogger_Pants.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15157,6 +18011,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puff-sleeve-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -15181,6 +18039,16 @@ export const mockProductData = {
               name: "Women Crop Tank Top",
               price: "$25",
               imageSrc: "/images/Shopping/Women/Crop_Tank_1.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15192,6 +18060,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/graphic-tee-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF0000", name: "Red" },
@@ -15216,6 +18088,16 @@ export const mockProductData = {
               name: "Women Denim Shorts",
               price: "$30",
               imageSrc: "/images/Shopping/Women/Denim_Shorts.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15227,6 +18109,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/v-neck-blouse-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -15251,6 +18137,16 @@ export const mockProductData = {
               name: "Women Midi Skirt",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Midi_Skirt.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15262,6 +18158,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peasant-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF6347", name: "Tomato" },
@@ -15286,6 +18186,16 @@ export const mockProductData = {
               name: "Women Culottes",
               price: "$38",
               imageSrc: "/images/Shopping/Women/Culottes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15297,6 +18207,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/halter-neck-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFD700", name: "Gold" },
@@ -15321,6 +18235,16 @@ export const mockProductData = {
               name: "Women Off Shoulder Top",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Off_Shoulder_Top.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15332,6 +18256,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/off-shoulder-top-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#87CEEB", name: "Sky Blue" },
@@ -15356,6 +18284,16 @@ export const mockProductData = {
               name: "Women High Waist Skirt",
               price: "$50",
               imageSrc: "/images/Shopping/Women/High_Waist_Skirt.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15369,6 +18307,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lace-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -15403,6 +18345,10 @@ export const mockProductData = {
                 "A stylish bralette offering a relaxed fit for everyday comfort.",
               imageSrc: "/images/Shopping/Women/Bralette.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF69B4", name: "Pink" },
@@ -15415,6 +18361,10 @@ export const mockProductData = {
                 "Enhance your curves with this supportive push-up bra.",
               imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -15426,6 +18376,10 @@ export const mockProductData = {
                 "A classic underwire bra providing firm support and natural lift.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
@@ -15440,6 +18394,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/mesh-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFB6C1", name: "Light Pink" },
@@ -15466,6 +18424,10 @@ export const mockProductData = {
               description: "Elegant lace bras designed for a chic look.",
               imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF69B4", name: "Pink" },
               ],
@@ -15475,7 +18437,13 @@ export const mockProductData = {
               price: "$35",
               description: "Classic underwire bra providing firm support.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
           ],
         },
@@ -15487,6 +18455,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/pushup-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FFC0CB", name: "Pink" },
@@ -15513,6 +18485,10 @@ export const mockProductData = {
               description: "Elegant lace bras with intricate detailing.",
               imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
@@ -15522,7 +18498,13 @@ export const mockProductData = {
               price: "$35",
               description: "A classic underwire bra for a natural lift.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
           ],
         },
@@ -15534,6 +18516,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/sports-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#1E90FF", name: "Blue" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -15562,14 +18548,26 @@ export const mockProductData = {
               price: "$38",
               description: "A breathable mesh bra with elegant details.",
               imageSrc: "/images/Shopping/Women/Mesh_Bra_1.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
             {
               name: "Underwire Bra",
               price: "$35",
               description: "A classic underwire bra offering firm support.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
           ],
         },
@@ -15580,6 +18578,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bralette-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFDAB9", name: "Peach" },
             { bgColor: "#FFFFFF", name: "White" },
@@ -15609,14 +18611,29 @@ export const mockProductData = {
               price: "$25",
               description: "Elegant lace bras with intricate detailing.",
               imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Push-up Bra",
               price: "$35",
               description: "Supportive push-up bra for enhancing curves.",
               imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
           ],
         },
@@ -15628,6 +18645,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/underwire-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFD700", name: "Gold" },
           ],
@@ -15653,14 +18674,29 @@ export const mockProductData = {
               description:
                 "Enhance your curves with this supportive push-up bra.",
               imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Mesh Bra",
               price: "$38",
               description: "Breathable mesh bra with elegant details.",
               imageSrc: "/images/Shopping/Women/Mesh_Bra_1.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
+                { bgColor: "#000000", name: "Black" },
+              ],
             },
           ],
         },
@@ -15672,6 +18708,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/nursing-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFC0CB", name: "Pink" },
           ],
@@ -15696,7 +18736,16 @@ export const mockProductData = {
               price: "$35",
               description: "Classic underwire bra for everyday support.",
               imageSrc: "/images/Shopping/Women/Underwire_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15707,6 +18756,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/plunge-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
           ],
@@ -15731,7 +18784,16 @@ export const mockProductData = {
               price: "$35",
               description: "Enhance your curves with a supportive push-up bra.",
               imageSrc: "/images/Shopping/Women/Pushup_Bra.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15743,6 +18805,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/lingerie-bra-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B0000", name: "Maroon" },
           ],
@@ -15767,7 +18833,16 @@ export const mockProductData = {
               price: "$25",
               description: "Elegant lace bras for a refined look.",
               imageSrc: "/images/Shopping/Women/Lace_Bra_1.jpg",
-              colors: [{ bgColor: "#000000", name: "Black" }],
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15780,7 +18855,13 @@ export const mockProductData = {
             "Sophisticated trench coat for layering over formal wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/trench-coat-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Women/Trench_Coat_1.jpg",
             "/images/Shopping/Women/Trench_Coat_2.jpg",
@@ -15801,11 +18882,31 @@ export const mockProductData = {
               name: "Women Denim Jacket",
               price: "$85",
               imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Wool Coat",
               price: "$180",
               imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15816,6 +18917,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/denim-jacket-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#1C1C1C", name: "Dark Blue" },
           ],
@@ -15839,11 +18944,31 @@ export const mockProductData = {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Bomber Jacket",
               price: "$75",
               imageSrc: "/images/Shopping/Women/Bomber_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15854,6 +18979,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/puffer-jacket-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2E8B57", name: "Olive" },
           ],
@@ -15877,11 +19006,31 @@ export const mockProductData = {
               name: "Women Wool Coat",
               price: "$180",
               imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15892,6 +19041,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/wool-coat-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#696969", name: "Grey" },
           ],
@@ -15915,11 +19068,31 @@ export const mockProductData = {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Puffer Jacket",
               price: "$100",
               imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15930,6 +19103,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bomber-jacket-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF6347", name: "Tomato" },
           ],
@@ -15953,11 +19130,31 @@ export const mockProductData = {
               name: "Women Denim Jacket",
               price: "$85",
               imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Windbreaker",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Windbreaker.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -15968,6 +19165,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/peacoat-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Charcoal" },
           ],
@@ -15991,11 +19192,31 @@ export const mockProductData = {
               name: "Women Wool Coat",
               price: "$180",
               imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16006,6 +19227,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/faux-fur-coat-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#8B0000", name: "Burgundy" },
           ],
@@ -16029,11 +19254,31 @@ export const mockProductData = {
               name: "Women Wool Coat",
               price: "$180",
               imageSrc: "/images/Shopping/Women/Wool_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Peacoat",
               price: "$140",
               imageSrc: "/images/Shopping/Women/Peacoat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16044,6 +19289,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/raincoat-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#1E90FF", name: "Blue" },
           ],
@@ -16067,11 +19316,32 @@ export const mockProductData = {
               name: "Women Windbreaker",
               price: "$40",
               imageSrc: "/images/Shopping/Women/Windbreaker.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#FFD700", name: "Gold" },
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16083,6 +19353,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/parka-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#2F4F4F", name: "Charcoal" },
           ],
@@ -16106,11 +19380,33 @@ export const mockProductData = {
               name: "Women Puffer Jacket",
               price: "$100",
               imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Trench Coat",
               price: "$130",
               imageSrc: "/images/Shopping/Women/Trench_Coat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16122,6 +19418,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/windbreaker-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FF4500", name: "Orange" },
           ],
@@ -16145,11 +19445,33 @@ export const mockProductData = {
               name: "Women Puffer Jacket",
               price: "$100",
               imageSrc: "/images/Shopping/Women/Puffer_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Raincoat",
               price: "$60",
               imageSrc: "/images/Shopping/Women/Raincoat.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16159,7 +19481,13 @@ export const mockProductData = {
           description: "Classic leather jacket for women.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Women/Leather_Jacket_1.jpg",
             "/images/Shopping/Women/Leather_Jacket_2.jpg",
@@ -16183,11 +19511,33 @@ export const mockProductData = {
               name: "Women Denim Jacket",
               price: "$85",
               imageSrc: "/images/Shopping/Women/Denim_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
             {
               name: "Women Bomber Jacket",
               price: "$75",
               imageSrc: "/images/Shopping/Women/Bomber_Jacket.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
             },
           ],
         },
@@ -16201,6 +19551,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/bikini-set-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             { bgColor: "#000000", name: "Black" },
             { bgColor: "#FFFFFF", name: "White" },
             { bgColor: "#FF69B4", name: "Pink" },
@@ -16235,6 +19589,10 @@ export const mockProductData = {
                 "Elegant one-piece swimsuit with a flattering design.",
               imageSrc: "/images/Shopping/Women/One_Piece_Swimsuit.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FF4500", name: "Orange" },
                 { bgColor: "#008080", name: "Teal" },
@@ -16247,6 +19605,10 @@ export const mockProductData = {
                 "Retro-inspired high-waisted bikini for extra coverage and style.",
               imageSrc: "/images/Shopping/Women/High_Waisted_Bikini.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#FF1493", name: "Deep Pink" },
@@ -16259,6 +19621,10 @@ export const mockProductData = {
                 "Comfortable tankini set with a matching top and bottoms.",
               imageSrc: "/images/Shopping/Women/Tankini.jpg",
               colors: [
+                {
+                  bgColor: "#000000",
+                  name: "Black",
+                },
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#1E90FF", name: "Blue" },
@@ -16273,6 +19639,10 @@ export const mockProductData = {
           imageSrc:
             "https://www.shutterstock.com/image-photo/one-piece-swimsuit-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000",
               name: "Black",
@@ -16306,6 +19676,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16322,7 +19703,13 @@ export const mockProductData = {
           description: "Retro-inspired high-waisted bikini for extra coverage.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/high-waisted-bikini-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16351,6 +19738,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16367,7 +19765,13 @@ export const mockProductData = {
           description: "Comfortable tankini top with matching bottoms.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/tankini-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16396,6 +19800,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16412,7 +19827,13 @@ export const mockProductData = {
           description: "Flattering swim dress with built-in support.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-dress-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16441,6 +19862,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16457,7 +19889,13 @@ export const mockProductData = {
           description: "Lightweight swim cover-up for sun protection.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-cover-up-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16486,6 +19924,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16502,7 +19951,13 @@ export const mockProductData = {
           description: "Performance swimsuit for active beach days.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/sport-swimsuit-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16531,6 +19986,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16547,7 +20013,13 @@ export const mockProductData = {
           description: "Strapless bikini with supportive structure.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/strapless-bikini-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16576,6 +20048,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16592,7 +20075,13 @@ export const mockProductData = {
           description: "Sexy monokini with cutout details.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/monokini-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16621,6 +20110,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16637,7 +20137,13 @@ export const mockProductData = {
           description: "Comfortable swim shorts for active swimmers.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/swim-shorts-600nw-92008067.jpg",
-          colors: [{ bgColor: "#000", name: "Black" }],
+          colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            { bgColor: "#000", name: "Black" },
+          ],
           images: [
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
@@ -16666,6 +20172,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16688,6 +20205,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/gold-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -16720,6 +20241,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16731,12 +20263,16 @@ export const mockProductData = {
           ],
         },
         "women-silver-necklace": {
-          name: "Silver Necklace",
+          name: "Women Silver Necklace",
           price: "$80",
           description: "Stylish silver necklace for daily wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/silver-necklace-600nw-92008067.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000",
               name: "Black",
@@ -16770,6 +20306,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16781,13 +20328,17 @@ export const mockProductData = {
           ],
         },
         "women-gold-chain-necklace": {
-          name: "Gold Chain Necklace",
+          name: "Women Gold Chain Necklace",
           price: "$85",
           description:
             "A refined gold chain necklace perfect for everyday wear.",
           imageSrc:
             "https://www.shutterstock.com/image-photo/gold-chain-necklace-example.jpg",
           colors: [
+            {
+              bgColor: "#000000",
+              name: "Black",
+            },
             {
               bgColor: "#000",
               name: "Black",
@@ -16821,6 +20372,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16840,6 +20402,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/choker-necklace-example.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -16872,6 +20438,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16891,6 +20468,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/statement-necklace-example.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -16923,6 +20504,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16941,6 +20533,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/pearl-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -16973,6 +20569,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -16991,6 +20598,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/heart-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17023,6 +20634,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17041,6 +20663,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/diamond-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17073,6 +20699,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17091,6 +20728,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/silver-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17123,6 +20764,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17141,6 +20793,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/gold-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17173,6 +20829,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17192,6 +20859,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chain-bracelet-example.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17224,6 +20895,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17242,6 +20924,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/bangle-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17274,6 +20960,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17292,6 +20989,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/beaded-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17324,6 +21025,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17342,6 +21054,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/gemstone-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17374,6 +21090,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17392,6 +21119,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/cuff-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17424,6 +21155,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17444,6 +21186,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/round-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17476,6 +21222,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17494,6 +21251,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/aviator-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17526,6 +21287,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17544,6 +21316,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/cat-eye-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17576,6 +21352,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17594,6 +21381,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/oversized-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17626,6 +21417,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17644,6 +21446,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/square-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17676,6 +21482,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17694,6 +21511,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/polarized-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17726,6 +21547,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17744,6 +21576,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/color-block-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17776,6 +21612,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17794,6 +21641,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/gradient-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17826,6 +21677,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17845,6 +21707,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/round-metal-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17877,6 +21743,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17895,6 +21772,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chic-sunglasses-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17927,6 +21808,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17947,6 +21839,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -17979,6 +21875,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -17997,6 +21904,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18029,6 +21940,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18047,6 +21969,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18079,6 +22005,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18097,6 +22034,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/gold-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18129,6 +22070,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18147,6 +22099,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/silver-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18179,6 +22135,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18197,6 +22164,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/leather-strap-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18229,6 +22200,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18247,6 +22229,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/diamond-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18279,6 +22265,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18298,6 +22295,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/fitness-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18330,6 +22331,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18348,6 +22360,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/minimalist-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18380,6 +22396,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18398,6 +22425,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18430,6 +22461,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18448,6 +22490,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/rose-gold-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18480,6 +22526,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18500,6 +22557,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18532,6 +22593,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18550,6 +22622,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18582,6 +22658,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18600,6 +22687,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/zip-around-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18632,6 +22723,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18651,6 +22753,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/cardholder-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18683,6 +22789,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18701,6 +22818,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/coin-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18733,6 +22854,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18752,6 +22884,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/wristlet-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18784,6 +22920,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18802,6 +22949,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/fold-over-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18834,6 +22985,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18853,6 +23015,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/checkbook-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18885,6 +23051,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18903,6 +23080,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chain-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18935,6 +23116,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -18953,6 +23145,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/card-case-wallet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -18985,6 +23181,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19005,6 +23212,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19037,6 +23248,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19055,6 +23277,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19087,6 +23313,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19105,6 +23342,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chiffon-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19137,6 +23378,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19156,6 +23408,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/floral-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19188,6 +23444,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19206,6 +23473,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/animal-print-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19238,6 +23509,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19256,6 +23538,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/knitted-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19288,6 +23574,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19306,6 +23603,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/pashmina-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19338,6 +23639,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19358,6 +23670,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/leather-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19390,6 +23706,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19408,6 +23735,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/skinny-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19440,6 +23771,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19458,6 +23800,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/wide-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19490,6 +23836,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19508,6 +23865,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chain-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19540,6 +23901,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19558,6 +23930,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/braided-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19590,6 +23966,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19609,6 +23996,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/reversible-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19641,6 +24032,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19659,6 +24061,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/cummerbund-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19691,6 +24097,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19711,6 +24128,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/elegant-handbag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19743,6 +24164,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19761,6 +24193,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19793,6 +24229,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19811,6 +24258,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19843,6 +24294,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19861,6 +24323,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/shoulder-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19893,6 +24359,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19911,6 +24388,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/fashion-backpack-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19943,6 +24424,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -19961,6 +24453,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/crossbody-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -19993,6 +24489,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20012,6 +24519,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/canvas-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20044,6 +24555,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20064,6 +24586,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/fedora-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20096,6 +24622,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20114,6 +24651,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sun-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20146,6 +24687,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20164,6 +24716,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/beret-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20196,6 +24752,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20214,6 +24781,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/beanie-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20246,6 +24817,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20264,6 +24846,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/bucket-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20296,6 +24882,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20314,6 +24911,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/cloche-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20346,6 +24947,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20364,6 +24976,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/wide-brim-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20396,6 +25012,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20421,6 +25048,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-buckle-shoes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20453,6 +25084,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20472,6 +25114,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sparkle-formal-shoes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20504,6 +25150,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20523,6 +25180,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/mini-loafers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20555,6 +25216,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20574,6 +25246,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/elegant-derby-shoes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20606,6 +25282,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20625,6 +25312,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/mini-mary-janes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20657,6 +25348,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20676,6 +25378,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/refined-moccasins-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20708,6 +25414,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20727,6 +25444,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-brogues-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20759,6 +25480,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20778,6 +25510,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/polished-dress-shoes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20810,6 +25546,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20829,6 +25576,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sleek-formal-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20861,6 +25612,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20880,6 +25642,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/tuxedo-kids-shoes.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20912,6 +25678,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20931,6 +25708,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-formal-kids-shoes.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -20963,6 +25744,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -20982,6 +25774,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/royal-formal-kids-shoes.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21014,6 +25810,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21033,6 +25840,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/smart-dress-shoes-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21065,6 +25876,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21084,6 +25906,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/oxford-shoes-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21116,6 +25942,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21135,6 +25972,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/tan-dress-shoes-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21167,6 +26008,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21186,6 +26038,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/leather-dress-shoes-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21218,6 +26074,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21238,6 +26105,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/summer-sandals-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21270,6 +26141,18 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21289,6 +26172,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/flip-flops-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21321,6 +26208,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21340,6 +26238,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/closed-toe-sandals-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21372,6 +26274,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21391,6 +26304,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/velcro-sandals-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21423,6 +26340,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21442,6 +26370,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sport-sandals-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21474,6 +26406,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21495,6 +26438,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/snow-boots-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21527,6 +26474,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21546,6 +26504,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-leather-boots-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21578,6 +26540,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21597,6 +26570,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/insulated-winter-boots-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21629,6 +26606,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21648,6 +26636,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/rain-boots-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21680,6 +26672,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21699,6 +26702,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/suede-ankle-boots-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21731,6 +26738,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21750,6 +26768,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/fuzzy-booties-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21782,6 +26804,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21801,6 +26834,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/velcro-sneaker-boots-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21833,6 +26870,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21851,6 +26899,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/combat-boots-for-kids-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21883,6 +26935,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21902,6 +26965,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/chelsea-boots-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21934,6 +27001,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -21952,6 +27030,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/hiking-boots-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -21984,6 +27066,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22005,6 +27098,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/classic-canvas-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22037,6 +27134,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22056,6 +27164,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sporty-runner-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22088,6 +27200,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22107,6 +27230,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/high-top-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22139,6 +27266,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22158,6 +27296,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/velcro-fastening-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22190,6 +27332,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22209,6 +27362,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/colorful-pattern-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22241,6 +27398,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22260,6 +27428,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/eco-friendly-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22292,6 +27464,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22311,6 +27494,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/water-resistant-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22343,6 +27530,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22362,6 +27560,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/retro-inspired-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22394,6 +27596,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22413,6 +27626,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/mesh-breathable-sneakers-kids.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22445,6 +27662,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22463,6 +27691,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/light-up-sneakers-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22495,6 +27727,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22518,6 +27761,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/boys-suit-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22550,6 +27797,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22569,6 +27827,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/girls-formal-dress-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22601,6 +27863,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22620,6 +27893,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/boys-dress-shirt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22652,6 +27929,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22671,6 +27959,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/girls-formal-jacket-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22703,6 +27995,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22721,6 +28024,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/boys-formal-pants-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22753,6 +28060,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22772,6 +28090,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/girls-formal-shoes-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22804,6 +28126,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22823,6 +28156,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/boys-tuxedo-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22855,6 +28192,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22875,6 +28223,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22907,6 +28259,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22925,6 +28288,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-gym-shorts-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -22957,6 +28324,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -22975,6 +28353,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/active-t-shirt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23007,6 +28389,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23026,6 +28419,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-tracksuit-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23058,6 +28455,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23076,6 +28484,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sport-jacket-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23108,6 +28520,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23127,6 +28550,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/athletic-pants-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23159,6 +28586,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23177,6 +28615,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23209,6 +28651,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23230,6 +28683,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-pajama-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23262,6 +28719,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23280,6 +28748,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/flannel-pajamas-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23312,6 +28784,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23330,6 +28813,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sleeping-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23362,6 +28849,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23380,6 +28878,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/princess-nightgown-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23412,6 +28914,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23430,6 +28943,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/superhero-pajamas-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23462,6 +28979,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23480,6 +29008,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/boys-pajama-bottoms-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23512,6 +29044,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23530,6 +29073,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/girls-pajama-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23562,6 +29109,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23582,6 +29140,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23614,6 +29176,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23632,6 +29205,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23664,6 +29241,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23682,6 +29270,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-chinos-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23714,6 +29306,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23733,6 +29336,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-cargo-pants-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23765,6 +29372,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23785,6 +29403,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23817,6 +29439,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23835,6 +29468,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-polo-shirt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23867,6 +29504,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23886,6 +29534,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-long-sleeve-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23918,6 +29570,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23938,6 +29601,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-winter-coat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -23970,6 +29637,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -23988,6 +29666,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-vest-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24020,6 +29702,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24038,6 +29731,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24070,6 +29767,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24088,6 +29796,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24120,6 +29832,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24140,6 +29863,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24172,6 +29899,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24190,6 +29928,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-swim-trunks-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24222,6 +29964,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24240,6 +29993,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-bikini-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24272,6 +30029,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24290,6 +30058,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-swimshirt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24322,6 +30094,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24342,6 +30125,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-boxers-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24374,6 +30161,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24392,6 +30190,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-briefs-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24424,6 +30226,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24442,6 +30255,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-girls-briefs-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24474,6 +30291,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24492,6 +30320,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-girls-panties-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24524,6 +30356,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24546,6 +30389,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24578,6 +30425,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24596,6 +30454,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-silver-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24628,6 +30490,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24646,6 +30519,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-beaded-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24678,6 +30555,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24696,6 +30584,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-gold-necklace-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24728,6 +30620,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24746,6 +30649,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-charm-bracelet-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24778,6 +30685,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24798,6 +30716,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/vintage-red-shoes-on-white-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24830,6 +30752,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24848,6 +30781,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-sunglasses-aviator-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24880,6 +30817,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24900,6 +30848,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-analog-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24932,6 +30884,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -24950,6 +30913,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-digital-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -24982,6 +30949,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25000,6 +30978,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-smartwatch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25032,6 +31014,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25050,6 +31043,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-printed-watch-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25082,6 +31079,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25102,6 +31110,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-winter-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25134,6 +31146,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25152,6 +31175,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-summer-scarf-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25184,6 +31211,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25204,6 +31242,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-leather-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25236,6 +31278,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25254,6 +31307,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-denim-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25286,6 +31343,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25304,6 +31372,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-colorful-belt-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25336,6 +31408,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25356,6 +31439,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-backpack-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25388,6 +31475,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25406,6 +31504,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-tote-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25438,6 +31540,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25457,6 +31570,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-drawstring-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25489,6 +31606,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25507,6 +31635,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-lunch-bag-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25539,6 +31671,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25559,6 +31702,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-baseball-cap-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25591,6 +31738,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25609,6 +31767,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-beanie-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25641,6 +31803,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25659,6 +31832,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-sun-hat-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25691,6 +31868,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25709,6 +31897,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/kids-visor-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25741,6 +31933,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25761,6 +31964,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/silk-teddy-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25793,6 +32000,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25812,6 +32030,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/lego-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25844,6 +32066,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25862,6 +32095,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/plush-teddy-bear-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25894,6 +32131,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25912,6 +32160,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-car-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25944,6 +32196,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -25962,6 +32225,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/doll-house-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -25994,6 +32261,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26013,6 +32291,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/building-blocks-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26045,6 +32327,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26064,6 +32357,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/action-figure-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26096,6 +32393,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26115,6 +32423,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/puzzle-game-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26147,6 +32459,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26165,6 +32488,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/play-doh-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26197,6 +32524,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26216,6 +32554,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/remote-control-car-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26248,6 +32590,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26267,6 +32620,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/baby-doll-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26299,6 +32656,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26317,6 +32685,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/magic-marker-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26349,6 +32721,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26368,6 +32751,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-piano-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26400,6 +32787,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26418,6 +32816,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/play-kitchen-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26450,6 +32852,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26468,6 +32881,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-dinosaur-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26500,6 +32917,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26518,6 +32946,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/sports-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26550,6 +32982,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26568,6 +33011,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/bouncing-ball-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26600,6 +33047,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26618,6 +33076,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/puzzle-toys-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26650,6 +33112,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26668,6 +33141,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/water-gun-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26700,6 +33177,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26718,6 +33206,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-guitar-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26750,6 +33242,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26768,6 +33271,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/jump-rope-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26800,6 +33307,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26818,6 +33336,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/animal-figurines-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26850,6 +33372,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26868,6 +33401,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-fishing-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26900,6 +33437,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
@@ -26919,6 +33467,10 @@ export const mockProductData = {
             "https://www.shutterstock.com/image-photo/toy-train-set-600nw-92008067.jpg",
           colors: [
             {
+              bgColor: "#000000",
+              name: "Black",
+            },
+            {
               bgColor: "#000",
               name: "Black",
             },
@@ -26951,6 +33503,17 @@ export const mockProductData = {
               material: "leather",
               fit: "fitted",
               imageSrc: "/images/Shopping/Men/Oxford Shoes.jpg",
+              colors: [
+                { bgColor: "#000000", name: "Black" },
+                { bgColor: "#800000", name: "Maroon" },
+                { bgColor: "#FF0000", name: "Red" },
+                { bgColor: "#FF69B4", name: "Pink" },
+                { bgColor: "#1E90FF", name: "Blue" },
+
+                { bgColor: "#000080", name: "Navy" },
+                { bgColor: "#808080", name: "Gray" },
+                { bgColor: "#FFFFFF", name: "White" },
+              ],
               imageAlt: "Mens shoes",
               items: [
                 "Brogue Shoes",
