@@ -1,11 +1,10 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
-import {
-  CategoryDetails,
-  FeaturedDetails,
-  LengthType,
-  SectionDetails,
-} from "./types";
+import { FeaturedDetails, LengthType, SectionDetails } from "./types";
+
+export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+  text?: string;
+}
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
