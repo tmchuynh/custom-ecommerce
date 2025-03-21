@@ -75,6 +75,7 @@ const ProductPage = (): JSX.Element => {
      *   indicate that the loading process has completed.
      */
     const fetchProduct = async () => {
+      console.log(gender, category, item, slug);
       try {
         // Flatten the mock data to make it easier to work with
         const categoryData = (mockProductData as any)[gender as string]?.[
