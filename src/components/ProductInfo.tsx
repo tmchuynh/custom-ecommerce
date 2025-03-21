@@ -10,6 +10,8 @@ import {
 } from "./ui/tooltip";
 import { ProductType, Color } from "@/lib/types";
 import { Button } from "./ui/button";
+import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -41,6 +43,26 @@ const ProductInfo = ({
   selectedColor: Color;
   setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
 }): JSX.Element => {
+  const { addToCart } = useCart();
+
+  /**
+   * Handles adding a product to the cart.
+   *
+   * @param {any} product - The product to add to the cart.
+   * @param {number} id - The ID of the product (using index as fallback).
+   * @returns {void}
+   */
+  const handleAddToCart = (product: any, id: number): void => {
+    addToCart({
+      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
+      name: product.name,
+      description: product.description,
+      price: parseFloat(product.price.replace("$", "")),
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    });
+    toast.success(`${product.name} added to cart!`);
+  };
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
       <h1 className="text-4xl font-extrabold mb-8">{product.name}</h1>
@@ -59,44 +81,50 @@ const ProductInfo = ({
             className="flex items-center gap-x-3"
           >
             {product.colors.map((color: Color, index: number) => (
-              <TooltipProvider key={index}>
-                <Tooltip>
-                  <TooltipTrigger>
-                    <Radio
-                      key={index}
-                      value={color}
-                      aria-label={color.name}
-                      className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="bg-dynamic size-8 rounded-full border"
-                        style={
-                          { "--bg-color": color.bgColor } as React.CSSProperties
-                        }
-                      />
-                    </Radio>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{color.name}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <div key={index} className="flex flex-col items-start">
+                <TooltipProvider key={index}>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Radio
+                        key={index}
+                        value={color}
+                        aria-label={color.name}
+                        className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="bg-dynamic size-8 rounded-full border"
+                          style={
+                            {
+                              "--bg-color": color.bgColor,
+                            } as React.CSSProperties
+                          }
+                        />
+                      </Radio>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{color.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+
+                <div className="mt-10 flex gap-5">
+                  <Button
+                    onClick={() => handleAddToCart(product, index)}
+                    type="submit"
+                  >
+                    Add to Cart
+                  </Button>
+
+                  <Button type="button" variant={"ghost"}>
+                    <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
+                    <span className="sr-only">Add to favorites</span>
+                  </Button>
+                </div>
+              </div>
             ))}
           </RadioGroup>
         </fieldset>
-      </div>
-
-      <div className="mt-10 flex">
-        <Button type="submit">Add to bag</Button>
-
-        <button
-          type="button"
-          className="ml-4 flex items-center justify-center rounded-md px-3 py-3 text-gray-400 hover:bg-gray-100 hover:text-gray-500"
-        >
-          <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
-          <span className="sr-only">Add to favorites</span>
-        </button>
       </div>
     </div>
   );
