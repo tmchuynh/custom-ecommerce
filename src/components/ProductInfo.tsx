@@ -9,6 +9,8 @@ import {
   TooltipTrigger,
 } from "./ui/tooltip";
 import { ProductType, Color } from "@/lib/types";
+import { Button } from "./ui/button";
+import { HandleAddToCart } from "@/lib/utils";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -71,7 +73,7 @@ const ProductInfo = ({
                     >
                       <span
                         aria-hidden="true"
-                        className="bg-dynamic size-8 rounded-full border border-black/10"
+                        className="bg-dynamic size-8 rounded-full border"
                         style={
                           { "--bg-color": color.bgColor } as React.CSSProperties
                         }
@@ -89,12 +91,10 @@ const ProductInfo = ({
       </div>
 
       <div className="mt-10 flex">
-        <button
-          type="submit"
-          className="flex max-w-xs flex-1 items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700"
-        >
-          Add to bag
-        </button>
+        <Button onClick={() => HandleAddToCart(product, product.name)}>
+          Add to Cart
+          <span className="sr-only">, {product.name}</span>
+        </Button>
 
         <button
           type="button"
