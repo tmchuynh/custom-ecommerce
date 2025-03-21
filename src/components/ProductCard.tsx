@@ -93,14 +93,7 @@ const ProductCard = ({
       <CardContent className="flex flex-col justify-between h-1/2">
         <div>
           <h3 className="text-lg font-semibold mt-4">
-            <a
-              href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
-                .toLowerCase()
-                .replaceAll(" ", "-")
-                .replaceAll("'s", "")}`}
-            >
-              {product.name}
-            </a>
+            <a href={productLink}>{product.name}</a>
           </h3>
           <p className="text-sm mt-2">{product.description}</p>
         </div>
