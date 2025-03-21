@@ -75,9 +75,7 @@ const ProductInfo = ({ product }: { product: ProductType }): JSX.Element => {
   };
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-      <h1 className="text-4xl font-extrabold text-center mb-8">
-        {product.name}
-      </h1>
+      <h1 className="text-4xl font-extrabold mb-8">{product.name}</h1>
 
       <div className="mt-3">
         <h2 className="sr-only">Product information</h2>
@@ -128,19 +126,10 @@ const ProductInfo = ({ product }: { product: ProductType }): JSX.Element => {
           <span className="sr-only">, {product.name}</span>
         </Button>
 
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger>
-              <Button type="button" variant={"ghost"} size={"icon"}>
-                <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
-                <span className="sr-only">Add to favorites</span>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>Add to favorites</p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <Button type="button" variant={"ghost"} size={"icon"}>
+          <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
+          <span className="sr-only">Add to favorites</span>
+        </Button>
       </div>
     </div>
   );
