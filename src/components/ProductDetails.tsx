@@ -21,8 +21,8 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
             return (
               <AccordionItem key={index} value={`detail-${index}`}>
                 <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
-                  <span className="text-sm font-medium group-data-open:">
-                    Details
+                  <span className="text-lg font-medium group-data-open:">
+                    Additional details
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="pb-6">
@@ -31,18 +31,31 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
                     const key = Object.keys(item);
                     const value = Object.values(item);
 
-                    console.log(key, value);
-
                     return (
                       <ul
                         key={idx}
                         role="list"
-                        className="list-disc space-y-1 pl-5 text-sm/6 marker:text-gray-300"
+                        className="list-disc space-y-1 pl-5 text-sm/6 marker:text-primary"
                       >
                         {value.map((v, i) => {
                           return (
                             <li key={i} className="pl-2">
-                              {capitalize(key[i])}: {v}
+                              <p>
+                                {capitalize(key[i]).toUpperCase()}:{" "}
+                                <span>
+                                  {typeof v === "string"
+                                    ? v
+                                    : v.map((val, idx) => {
+                                        return (
+                                          <span key={idx}>
+                                            {val}
+                                            {idx < v.length - 1 && ", "}
+                                            {idx === v.length - 2 && "and "}
+                                          </span>
+                                        );
+                                      })}
+                                </span>
+                              </p>
                             </li>
                           );
                         })}
