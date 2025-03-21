@@ -1,4 +1,6 @@
+import { useCart } from "@/app/context/cartContext";
 import { clsx, type ClassValue } from "clsx";
+import { toast } from "sonner";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
@@ -176,3 +178,36 @@ export function toTitle(issuer: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
 }
+
+/**
+ * Handles adding a product to the shopping cart.
+ *
+ * @param product - The product object containing details about the item to be added.
+ * @param id - The unique identifier for the product.
+ *
+ * The function processes the product's price to ensure it is a number,
+ * constructs a cart item object, and adds it to the cart using the `addToCart` function.
+ * If the product already exists in the cart, the cart context will handle updating the quantity.
+ * A success toast notification is displayed upon successful addition.
+ */
+export const HandleAddToCart = (product: any, id: string) => {
+  const { addToCart } = useCart();
+
+  const price =
+    typeof product.price === "string"
+      ? parseFloat(product.price.replace("$", ""))
+      : product.price;
+
+  const cartItem = {
+    id: id,
+    name: product.name,
+    description: product.description,
+    price: price,
+    quantity: 1,
+    imageSrc: product.imageSrc,
+  };
+
+  // Directly call addToCart. The cart context will update quantity if it already exists.
+  addToCart(cartItem);
+  toast.success(`${product.name} added to cart!`);
+};
