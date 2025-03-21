@@ -69,7 +69,7 @@ const CartPage = (): JSX.Element => {
                     width={175}
                     height={175}
                   /> */}
-                <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
+                <Skeleton className="h-full w-full rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
                 <div className="flex flex-col justify-center gap-y-3 col-span-2 xl:col-span-5">
                   <p className="text-lg font-medium">{item.name}</p>
                   <p className="text-sm font-medium">{item.description}</p>
