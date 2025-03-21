@@ -1,11 +1,9 @@
 "use client";
-import { useCart } from "@/app/context/cartContext";
 import ComingSoonMessage from "@/components/ComingSoon";
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
-import { toast } from "sonner"; // Import the toast function
 
 /**
  * @description CategoryPage is a functional component that fetches and displays products based on the provided gender, category, and item parameters from the URL.
