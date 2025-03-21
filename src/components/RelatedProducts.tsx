@@ -13,7 +13,7 @@ import {
 import { Color } from "@/lib/types";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { generateRandomNumberArray } from "@/lib/utils";
-import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
   const { addToCart } = useCart();
@@ -48,6 +48,9 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
   );
   const total = randomArray.length;
   const [selectedIndex, setSelectedIndex] = useState(0);
+  console.log("total", total);
+  console.log("selectedIndex", selectedIndex);
+  console.log(randomArray);
 
   // Compute the indices of skeleton items to display (showing three items).
   const visibleIndices = () => {
@@ -101,21 +104,22 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
                 ))}
                 {/* Arrow Navigation Buttons */}
                 <Button
+                  variant="outline"
+                  size="icon"
                   onClick={goToPrevious}
-                  variant={"ghost"}
-                  size={"lg"}
-                  className="absolute top-1/2 left-2 transform -translate-y-1/2 p-2 rounded-full"
+                  className="absolute top-1/2 left-2 transform -translate-y-1/2"
                   aria-label="Previous"
                 >
-                  <FaArrowAltCircleLeft className="text-secondary text-9xl" />
+                  <FiArrowLeft />
                 </Button>
                 <Button
+                  variant="outline"
+                  size="icon"
                   onClick={goToNext}
-                  variant={"ghost"}
-                  className="absolute top-1/2 right-2 transform -translate-y-1/2 p-2 rounded-full"
+                  className="absolute top-1/2 right-2 transform -translate-y-1/2"
                   aria-label="Next"
                 >
-                  <FaArrowAltCircleRight className="text-secondary" />
+                  <FiArrowRight />
                 </Button>
               </div>
               <div className="relative mt-4">
