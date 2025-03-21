@@ -1,32 +1,10 @@
 // components/RelatedProducts.tsx
 import React from "react";
-import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
+import { HandleAddToCart } from "@/lib/utils";
 
 const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
-  const { addToCart, cartItems } = useCart();
-
-  const handleAddToCart = (product: any, id: number) => {
-    const price =
-      typeof product.price === "string"
-        ? parseFloat(product.price.replace("$", ""))
-        : product.price;
-
-    const cartItem = {
-      id: id,
-      name: product.name,
-      description: product.description,
-      price: price,
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    };
-
-    // Directly call addToCart. The cart context will update quantity if it already exists.
-    addToCart(cartItem);
-    toast.success(`${product.name} added to cart!`);
-  };
   return (
     <section
       aria-labelledby="related-heading"
@@ -67,7 +45,7 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
               </div>
             </div>
             <div className="mt-6">
-              <Button onClick={() => handleAddToCart(product, index)}>
+              <Button onClick={() => HandleAddToCart(product, product.name)}>
                 Add to Cart
                 <span className="sr-only">, {product.name}</span>
               </Button>
