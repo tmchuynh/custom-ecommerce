@@ -73,7 +73,7 @@ const CategoryPage = (): JSX.Element => {
        * // Example usage:
        * fetchItemsData();
        */
-      const fetchItemsData = async () => {
+      const fetchItemsData = async (): Promise<void> => {
         try {
           // Flatten the mock data to make it easier to work with
           const categoryData = (mockProductData as any)[gender as string]?.[
