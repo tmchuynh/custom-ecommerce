@@ -116,11 +116,7 @@ const ProductPage = (): JSX.Element => {
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
           <ProductGallery images={product.images} />
           <div>
-            <ProductInfo
-              product={product}
-              selectedColor={product.colors} // Example, you can handle dynamic color selection here
-              setSelectedColor={() => {}}
-            />
+            <ProductInfo product={product} />
             <ProductDetails details={product.details} />
           </div>
         </div>
