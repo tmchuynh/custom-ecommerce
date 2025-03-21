@@ -91,7 +91,7 @@ export interface ProductItem {
 }
 
 export interface CartItem extends ProductItem {
-  id: number;
+  id: string;
   quantity: number;
 }
 
