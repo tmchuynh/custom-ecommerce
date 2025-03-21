@@ -1,10 +1,10 @@
 import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 import { JSX } from "react";
 import QuantityButtons from "./Quantity";
 import { Card, CardContent, CardFooter } from "./ui/card";
+import { HandleAddToCart } from "@/lib/utils";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -46,27 +46,8 @@ const ProductCard = ({
   selectedCategory: string;
   selectedItem: string;
 }): JSX.Element => {
-  const { addToCart, cartItems } = useCart();
-  const foundItem = cartItems.find((item) => item.id === index);
-
-  /**
-   * Handles adding a product to the cart.
-   *
-   * @param {any} product - The product to add to the cart.
-   * @param {number} id - The ID of the product (using index as fallback).
-   * @returns {void}
-   */
-  const handleAddToCart = (product: any, id: number): void => {
-    addToCart({
-      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
-      name: product.name,
-      description: product.description,
-      price: parseFloat(product.price.replace("$", "")),
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    });
-    toast.success(`${product.name} added to cart!`);
-  };
+  const { cartItems } = useCart();
+  const foundItem = cartItems.find((item) => item.id === product.namw);
 
   const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
     .toLowerCase()
@@ -110,7 +91,7 @@ const ProductCard = ({
         {foundItem && foundItem.quantity > 0 ? (
           <QuantityButtons itemId={index} />
         ) : (
-          <Button onClick={() => handleAddToCart(product, index)}>
+          <Button onClick={() => HandleAddToCart(product, product.name)}>
             Add to Cart
             <span className="sr-only">, {product.name}</span>
           </Button>
