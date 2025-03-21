@@ -53,7 +53,10 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
                   priority
                   className="object-cover object-bottom"
                 /> */}
-                <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
+                <Skeleton
+                  text={index.toString()}
+                  className="h-full w-full rounded-xl hidden md:flex col-span-1 xl:col-span-2"
+                />
               </span>
               <span
                 aria-hidden="true"
@@ -86,7 +89,10 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover sm:rounded-lg"
               /> */}
-              <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
+              <Skeleton
+                text={index.toString()}
+                className="h-full w-full rounded-xl hidden md:flex col-span-1 xl:col-span-2"
+              />
             </TabPanel>
           );
         })}
