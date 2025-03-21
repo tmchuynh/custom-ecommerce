@@ -44,7 +44,7 @@ export const navigations: NavigationDetails = {
           {
             id: "clothing",
             name: "Clothing",
-            href: "",
+            href: "/shopping/women/clothing",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -114,7 +114,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shoes",
             name: "Shoes",
-            href: "",
+            href: "/shopping/women/shoes",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -162,7 +162,7 @@ export const navigations: NavigationDetails = {
           {
             id: "accessories",
             name: "Accessories",
-            href: "",
+            href: "/shopping/women/accessories",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -175,7 +175,7 @@ export const navigations: NavigationDetails = {
               },
               {
                 name: "Necklaces & Bracelets",
-                href: "/shopping/kids/accessories/necklaces_and_braceslets",
+                href: "/shopping/women/accessories/necklaces_and_braceslets",
                 imageSrc:
                   "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
               },
@@ -222,7 +222,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shop-collection",
             name: "Shop by Collection",
-            href: "",
+            href: "/shopping/women/collections",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -319,7 +319,7 @@ export const navigations: NavigationDetails = {
           {
             id: "clothing",
             name: "Clothing",
-            href: "",
+            href: "/shopping/men/clothing",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -371,7 +371,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shoes",
             name: "Shoes",
-            href: "",
+            href: "/shopping/men/shoes",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -409,7 +409,7 @@ export const navigations: NavigationDetails = {
           {
             id: "accessories",
             name: "Accessories",
-            href: "",
+            href: "/shopping/men/accessories",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -469,7 +469,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shop-collection",
             name: "Shop by Collection",
-            href: "",
+            href: "/shopping/men/collections",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -513,7 +513,7 @@ export const navigations: NavigationDetails = {
         },
         {
           name: "Best Sellers",
-          href: "/shopping/mencollections//best_sellers",
+          href: "/shopping/men/collections//best_sellers",
           imageSrc:
             "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-02.jpg",
           imageAlt: "Stylish dresses for all occasions, from formal to casual.",
@@ -566,7 +566,7 @@ export const navigations: NavigationDetails = {
           {
             id: "clothing",
             name: "Clothing",
-            href: "",
+            href: "/shopping/kids/clothing",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -624,7 +624,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shoes",
             name: "Shoes",
-            href: "",
+            href: "/shopping/kids/shoes",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -662,7 +662,7 @@ export const navigations: NavigationDetails = {
           {
             id: "accessories",
             name: "Accessories",
-            href: "",
+            href: "/shopping/kids/accessories",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",
@@ -722,7 +722,7 @@ export const navigations: NavigationDetails = {
           {
             id: "shop-collection",
             name: "Shop by Collection",
-            href: "",
+            href: "/shopping/kids/collections",
             imageSrc:
               "https://tailwindcss.com/plus-assets/img/ecommerce-images/mega-menu-category-03.jpg",
             imageAlt: "",

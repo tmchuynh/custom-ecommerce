@@ -2,7 +2,19 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { useCart } from "../context/cartContext";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import { TiWarning } from "react-icons/ti";
 import { JSX } from "react";
 
 /**
@@ -55,15 +67,54 @@ const CartPage = (): JSX.Element => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-4xl font-extrabold text-center mb-8">Your Cart</h1>
       {cartItems.length === 0 ? (
-        <p className="text-xl text-center">Your cart is empty.</p>
+        <div className="h-[20rem] lg:h-[40rem] 2xl:h-[60rem] flex flex-col justify-center items-center">
+          <h1 className="text-4xl font-extrabold text-center mb-8">
+            Your Cart
+          </h1>
+          <p className="text-xl text-center">Your cart is empty.</p>
+        </div>
       ) : (
         <>
-          <div>
-            <Button variant={"destructive"} onClick={() => clearCart()}>
-              Remove
-            </Button>
+          <h1 className="text-4xl font-extrabold text-center mb-8">
+            Your Cart
+          </h1>
+          <div className="w-full flex justify-end">
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="destructive" className="uppercase">
+                  <TiWarning />
+                  Remove All Items
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <div className="flex gap-5">
+                  <TiWarning
+                    size={65}
+                    className="self-center text-destructive"
+                  />
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>
+                      Are you absolutely sure?
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete
+                      all items in the cart.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </div>
+
+                <AlertDialogFooter className="flex sm:flex-col md:flex-row gap-3 sm:justify-start md:w-2/5 mx-auto pt-2">
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction
+                    className={buttonVariants({ variant: "destructive" })}
+                    onClick={() => clearCart()}
+                  >
+                    Continue
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
           <div className="space-y-8">
             {cartItems.map((item, index) => (
