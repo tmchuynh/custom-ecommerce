@@ -82,26 +82,6 @@ const CategoryPage = (): JSX.Element => {
     }
   }, [gender, category, item]);
 
-  const handleAddToCart = (product: any, id: number) => {
-    const price =
-      typeof product.price === "string"
-        ? parseFloat(product.price.replace("$", ""))
-        : product.price;
-
-    const cartItem = {
-      id: id,
-      name: product.name,
-      description: product.description,
-      price: price,
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    };
-
-    // Directly call addToCart. The cart context will update quantity if it already exists.
-    addToCart(cartItem);
-    toast.success(`${product.name} added to cart!`);
-  };
-
   if (loading) return <div>Loading...</div>;
 
   if (products.length === 0) {
