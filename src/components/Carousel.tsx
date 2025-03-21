@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,16 +8,22 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-export function Carousels() {
+interface CarouselsProps {
+  array: any[];
+  renderContent: (index: number) => React.ReactNode;
+}
+
+export function Carousels({ array, renderContent }: CarouselsProps) {
+  console.log(array, renderContent);
   return (
     <Carousel className="w-full md:w-10/12 mx-auto max-w-7xl">
       <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
+        {array.map((_, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
               <Card>
-                <CardContent className="flex items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
+                <CardContent className="flex items-center justify-center p-6 text-primary">
+                  {renderContent(index)}
                 </CardContent>
               </Card>
             </div>
