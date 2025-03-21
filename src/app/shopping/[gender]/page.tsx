@@ -5,7 +5,15 @@ import { CategoryCardData } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
-// Wrapper for CategoryCard to handle the component's unusual parameter structure
+/**
+ * A wrapper component for rendering a `CategoryCard` with additional props.
+ *
+ * @param category - The data for the category card, adhering to the `CategoryCardData` type.
+ * @param gender - A string representing the gender category (e.g., "men", "women").
+ * @param [key: string] - Additional optional properties that can be passed to the component.
+ *
+ * @returns The rendered `CategoryCard` component with the provided category and gender.
+ */
 const CategoryCardWrapper = ({
   category,
   gender,
@@ -27,27 +35,30 @@ const GenderPage = (): JSX.Element => {
     /**
      * Fetches and processes product data based on the gender parameter.
      *
-     * This function validates the gender parameter, retrieves the corresponding
-     * product data, and generates category cards for display. It also handles
-     * errors and ensures proper state updates.
+     * This function validates the `gender` parameter to ensure it matches one of the
+     * allowed values ("men", "women", "kids"). It then retrieves the corresponding
+     * product data, processes it to generate category cards, and updates the state
+     * with the resulting data.
+     *
+     * The category cards include a representative product's description and image
+     * for each top-level category. If no representative product is available, default
+     * values are used.
      *
      * @async
      * @function fetchItemsData
-     * @throws Will log an error if the gender parameter is invalid or if there is an issue fetching product data.
+     * @throws Will log an error if there is an issue fetching or processing the product data.
      *
      * @remarks
-     * - The `gender` parameter must be one of the following values: "men", "women", or "kids".
-     * - The function uses mock product data to generate category cards.
-     * - Each category card includes a slug, name, description, and image source.
-     * - If no representative product is found for a category, default values are used for the description and image source.
+     * - This function assumes the presence of a `mockProductData` object containing
+     *   product data categorized by gender.
+     * - The function updates the following states:
+     *   - `setGenderCategory` with the validated gender.
+     *   - `setCategories` with the generated category cards.
+     *   - `setLoading` to indicate the loading state.
      *
      * @example
      * // Example usage:
      * fetchItemsData();
-     *
-     * @see {@link setGenderCategory} for setting the gender category state.
-     * @see {@link setCategories} for updating the category cards state.
-     * @see {@link setLoading} for managing the loading state.
      */
     const fetchItemsData = async () => {
       try {
