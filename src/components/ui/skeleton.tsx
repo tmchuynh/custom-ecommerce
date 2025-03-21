@@ -5,10 +5,15 @@ import React from "react";
 function Skeleton({ className, text, ...props }: SkeletonProps) {
   return (
     <div
-      className={cn("flex justify-center items-center text-5xl", className)}
+      className={cn(
+        "flex justify-center items-center text-5xl bg-muted",
+        className
+      )}
       {...props}
     >
-      {text && <span className="skeleton-text font-Dosis">{text}</span>}
+      {text && (
+        <span className="skeleton-text font-Ruthie text-center">{text}</span>
+      )}
     </div>
   );
 }
