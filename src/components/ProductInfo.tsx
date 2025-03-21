@@ -1,4 +1,6 @@
-import React, { JSX } from "react";
+"use client";
+
+import React, { JSX, useState } from "react";
 import { RadioGroup, Radio } from "@headlessui/react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import {
@@ -9,7 +11,8 @@ import {
 } from "./ui/tooltip";
 import { ProductType, Color } from "@/lib/types";
 import { Button } from "./ui/button";
-import { HandleAddToCart } from "@/lib/utils";
+import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -32,15 +35,44 @@ import { HandleAddToCart } from "@/lib/utils";
  * />
  * ```
  */
-const ProductInfo = ({
-  product,
-  selectedColor,
-  setSelectedColor,
-}: {
-  product: ProductType;
-  selectedColor: Color;
-  setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
-}): JSX.Element => {
+const ProductInfo = ({ product }: { product: ProductType }): JSX.Element => {
+  const { addToCart } = useCart();
+  const [selectedColor, setSelectedColor] = useState<Color>(product.colors[0]);
+
+  const handleSelectColor = (color: Color) => {
+    console.log("Selected color:", color);
+    setSelectedColor(color);
+  };
+  /**
+   * Handles adding a product to the shopping cart.
+   *
+   * @param product - The product object containing details about the item to be added.
+   * @param id - The unique identifier for the product.
+   *
+   * The function processes the product's price to ensure it is a number,
+   * constructs a cart item object, and adds it to the cart using the `addToCart` function.
+   * If the product already exists in the cart, the cart context will handle updating the quantity.
+   * A success toast notification is displayed upon successful addition.
+   */
+  const handleAddToCart = (product: any, id: string) => {
+    const price =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace("$", ""))
+        : product.price;
+
+    const cartItem = {
+      id: id,
+      name: product.name,
+      description: product.description,
+      price: price,
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    };
+
+    // Directly call addToCart. The cart context will update quantity if it already exists.
+    addToCart(cartItem);
+    toast.success(`${product.name} added to cart!`);
+  };
   return (
     <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
       <h1 className="text-4xl font-extrabold text-center mb-8">
@@ -67,6 +99,7 @@ const ProductInfo = ({
                     <Radio
                       key={index}
                       value={color}
+                      onClick={() => handleSelectColor(color)}
                       aria-label={color.name}
                       className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
                     >
@@ -90,7 +123,7 @@ const ProductInfo = ({
       </div>
 
       <div className="mt-10 flex">
-        <Button onClick={() => HandleAddToCart(product, product.name)}>
+        <Button onClick={() => handleAddToCart(product, product.name)}>
           Add to Cart
           <span className="sr-only">, {product.name}</span>
         </Button>

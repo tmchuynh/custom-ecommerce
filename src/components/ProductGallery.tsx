@@ -1,6 +1,7 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import Image from "next/image";
 import { JSX } from "react";
+import { Skeleton } from "./ui/skeleton";
 
 /**
  * A React component that displays a gallery of product images using tabs.
@@ -44,14 +45,15 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
               className="group relative flex text-center align-middle h-36 cursor-pointer items-center justify-center rounded-md bg-muted/40 text-sm font-medium text-foreground/50 uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden"
             >
               <span className="absolute inset-0 overflow-hidden rounded-md">
-                <Image
+                {/* <Image
                   alt={cleanAlt}
                   src={image}
                   width={260}
                   height={120}
                   priority
                   className="object-cover object-bottom"
-                />
+                /> */}
+                <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
               </span>
               <span
                 aria-hidden="true"
@@ -75,7 +77,7 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
               key={index}
               className="relative aspect-square border rounded-2xl"
             >
-              <Image
+              {/* <Image
                 alt={cleanAlt}
                 src={image}
                 width={1920}
@@ -83,7 +85,8 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
                 height={1080}
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover sm:rounded-lg"
-              />
+              /> */}
+              <Skeleton className="h-42 xl:h-57 w-42 xl:w-57 rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
             </TabPanel>
           );
         })}
