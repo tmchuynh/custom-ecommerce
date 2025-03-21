@@ -90,18 +90,18 @@ export interface ProductItem {
 }
 
 export interface CartItem extends ProductItem {
-  id: string;
+  id: number;
   quantity: number;
 }
 
 export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, quantity: number) => void;
+  removeFromCart: (id: number) => void;
+  updateQuantity: (id: number, quantity: number) => void;
   getTotalPrice: () => number;
   getTotalItems: () => number;
-  itemExistsInCart: (id: string) => boolean;
+  itemExistsInCart: (id: number) => boolean;
 }
 
 export interface WishlistItem {

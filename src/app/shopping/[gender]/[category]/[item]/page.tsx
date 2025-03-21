@@ -1,9 +1,15 @@
 "use client";
+import { useCart } from "@/app/context/cartContext";
 import ComingSoonMessage from "@/components/ComingSoon";
 import ProductCard from "@/components/ProductCard";
+import QuantityButtons from "@/components/Quantity";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 import { mockProductData } from "@/lib/mockProductData";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
+import { toast } from "sonner"; // Import the toast function
 
 /**
  * @description CategoryPage is a functional component that fetches and displays products based on the provided gender, category, and item parameters from the URL.
@@ -19,8 +25,10 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const [selectedGender, setSelectedGender] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<string>("");
   const section = item as string;
   const overhead = gender as string;
+  const { addToCart, cartItems } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
@@ -55,6 +63,8 @@ const CategoryPage = (): JSX.Element => {
 
           setSelectedCategory(category as string);
 
+          setSelectedItem(item as string);
+
           if (categoryData) {
             const productsArray = Object.values(categoryData);
             setProducts(productsArray);
@@ -71,6 +81,26 @@ const CategoryPage = (): JSX.Element => {
       fetchProductData();
     }
   }, [gender, category, item]);
+
+  const handleAddToCart = (product: any, id: number) => {
+    const price =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace("$", ""))
+        : product.price;
+
+    const cartItem = {
+      id: id,
+      name: product.name,
+      description: product.description,
+      price: price,
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    };
+
+    // Directly call addToCart. The cart context will update quantity if it already exists.
+    addToCart(cartItem);
+    toast.success(`${product.name} added to cart!`);
+  };
 
   if (loading) return <div>Loading...</div>;
 

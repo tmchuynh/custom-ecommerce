@@ -19,7 +19,7 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
    * If the product already exists in the cart, the cart context will handle updating the quantity.
    * A success toast notification is displayed upon successful addition.
    */
-  const handleAddToCart = (product: any, id: string) => {
+  const handleAddToCart = (product: any, id: number) => {
     const price =
       typeof product.price === "string"
         ? parseFloat(product.price.replace("$", ""))
@@ -79,7 +79,7 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
               </div>
             </div>
             <div className="mt-6">
-              <Button onClick={() => handleAddToCart(product, product.name)}>
+              <Button onClick={() => handleAddToCart(product, index)}>
                 Add to Cart
                 <span className="sr-only">, {product.name}</span>
               </Button>

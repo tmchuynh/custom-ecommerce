@@ -66,7 +66,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    *
    * @param id - The ID of the item to remove.
    */
-  const removeFromCart = (id: string) => {
+  const removeFromCart = (id: number) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
@@ -77,7 +77,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    * @param id The ID of the item to update.
    * @param quantity The new quantity for the item.
    */
-  const updateQuantity = (id: string, quantity: number) => {
+  const updateQuantity = (id: number, quantity: number) => {
     if (quantity < 1) {
       removeFromCart(id);
       return;
@@ -114,8 +114,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    * @param id - The ID of the item to check.
    * @returns {boolean} True if the item exists in the cart, false otherwise.
    */
-  const itemExistsInCart = (id: string): boolean => {
-    return cartItems.some((item) => item.name === id);
+  const itemExistsInCart = (id: number): boolean => {
+    return cartItems.some((item) => item.id === id);
   };
 
   return (

@@ -1,10 +1,10 @@
 import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Skeleton } from "./ui/skeleton";
 import { JSX } from "react";
 import QuantityButtons from "./Quantity";
 import { Card, CardContent, CardFooter } from "./ui/card";
-import { toast } from "sonner";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -46,44 +46,32 @@ const ProductCard = ({
   selectedCategory: string;
   selectedItem: string;
 }): JSX.Element => {
-  const { cartItems, addToCart } = useCart();
-  const foundItem = cartItems.find((item) => item.id === product.name);
+  const { addToCart, cartItems } = useCart();
+  const foundItem = cartItems.find((item) => item.id === index);
+
+  /**
+   * Handles adding a product to the cart.
+   *
+   * @param {any} product - The product to add to the cart.
+   * @param {number} id - The ID of the product (using index as fallback).
+   * @returns {void}
+   */
+  const handleAddToCart = (product: any, id: number): void => {
+    addToCart({
+      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
+      name: product.name,
+      description: product.description,
+      price: parseFloat(product.price.replace("$", "")),
+      quantity: 1,
+      imageSrc: product.imageSrc,
+    });
+    toast.success(`${product.name} added to cart!`);
+  };
 
   const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
     .toLowerCase()
     .replaceAll(" ", "-")
     .replaceAll("'s", "")}`;
-
-  /**
-   * Handles adding a product to the shopping cart.
-   *
-   * @param product - The product object containing details about the item to be added.
-   * @param id - The unique identifier for the product.
-   *
-   * The function processes the product's price to ensure it is a number,
-   * constructs a cart item object, and adds it to the cart using the `addToCart` function.
-   * If the product already exists in the cart, the cart context will handle updating the quantity.
-   * A success toast notification is displayed upon successful addition.
-   */
-  const handleAddToCart = (product: any, id: string) => {
-    const price =
-      typeof product.price === "string"
-        ? parseFloat(product.price.replace("$", ""))
-        : product.price;
-
-    const cartItem = {
-      id: id,
-      name: product.name,
-      description: product.description,
-      price: price,
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    };
-
-    // Directly call addToCart. The cart context will update quantity if it already exists.
-    addToCart(cartItem);
-    toast.success(`${product.name} added to cart!`);
-  };
 
   return (
     <Card
@@ -105,7 +93,14 @@ const ProductCard = ({
       <CardContent className="flex flex-col justify-between h-1/2">
         <div>
           <h3 className="text-lg font-semibold mt-4">
-            <a href={productLink}>{product.name}</a>
+            <a
+              href={`/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
+                .toLowerCase()
+                .replaceAll(" ", "-")
+                .replaceAll("'s", "")}`}
+            >
+              {product.name}
+            </a>
           </h3>
           <p className="text-sm mt-2">{product.description}</p>
         </div>
@@ -115,7 +110,7 @@ const ProductCard = ({
         {foundItem && foundItem.quantity > 0 ? (
           <QuantityButtons itemId={index} />
         ) : (
-          <Button onClick={() => handleAddToCart(product, product.name)}>
+          <Button onClick={() => handleAddToCart(product, index)}>
             Add to Cart
             <span className="sr-only">, {product.name}</span>
           </Button>
