@@ -1,7 +1,7 @@
 "use client";
 import CategoryCard from "@/components/CategoryCard";
 import { mockProductData } from "@/lib/mockProductData";
-import { CategoryCardData, GenderCategories } from "@/lib/types";
+import { CategoryCardData } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
@@ -9,7 +9,6 @@ import { JSX, useEffect, useState } from "react";
 const CategoryCardWrapper = ({
   category,
   gender,
-  ...props
 }: {
   category: CategoryCardData;
   gender: string;
