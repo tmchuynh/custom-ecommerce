@@ -52,7 +52,7 @@ const ProductInfo = ({
    * @param {number} id - The ID of the product (using index as fallback).
    * @returns {void}
    */
-  const handleAddToCart = (product: any, id: number): void => {
+  const handleAddToCart = (product: any, id: string): void => {
     addToCart({
       id: id, // using the index as a fallback ID; consider using a unique product identifier if available
       name: product.name,
@@ -110,7 +110,7 @@ const ProductInfo = ({
 
                 <div className="mt-10 flex gap-5">
                   <Button
-                    onClick={() => handleAddToCart(product, index)}
+                    onClick={() => handleAddToCart(product, product.name)}
                     type="submit"
                   >
                     Add to Cart

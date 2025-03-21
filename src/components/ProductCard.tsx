@@ -47,7 +47,7 @@ const ProductCard = ({
   selectedItem: string;
 }): JSX.Element => {
   const { addToCart, cartItems } = useCart();
-  const foundItem = cartItems.find((item) => item.id === index);
+  const foundItem = cartItems.find((item) => item.id === index.toString());
 
   /**
    * Handles adding a product to the cart.
@@ -56,7 +56,7 @@ const ProductCard = ({
    * @param {number} id - The ID of the product (using index as fallback).
    * @returns {void}
    */
-  const handleAddToCart = (product: any, id: number): void => {
+  const handleAddToCart = (product: any, id: string): void => {
     addToCart({
       id: id, // using the index as a fallback ID; consider using a unique product identifier if available
       name: product.name,
@@ -110,7 +110,7 @@ const ProductCard = ({
         {foundItem && foundItem.quantity > 0 ? (
           <QuantityButtons itemId={index} />
         ) : (
-          <Button onClick={() => handleAddToCart(product, index)}>
+          <Button onClick={() => handleAddToCart(product, product.name)}>
             Add to Cart
             <span className="sr-only">, {product.name}</span>
           </Button>

@@ -41,15 +41,15 @@ const CartPage = (): JSX.Element => {
    * @param id - The ID of the item to update.
    * @param quantity - The new quantity for the item.
    */
-  const handleUpdateQuantity = (id: number, quantity: number) => {
+  const handleUpdateQuantity = (id: string, quantity: number) => {
     updateQuantity(id, quantity);
   };
 
   /**
    * Handles the removal of an item from the shopping cart.
-   * @param {number} id - The ID of the item to remove.
+   * @param {string} id - The ID of the item to remove.
    */
-  const handleRemoveItem = (id: number) => {
+  const handleRemoveItem = (id: string) => {
     removeFromCart(id);
   };
 

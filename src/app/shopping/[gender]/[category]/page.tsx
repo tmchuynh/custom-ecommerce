@@ -148,7 +148,7 @@ const CategoryPage = (): JSX.Element => {
               selectedGender={selectedGender}
               selectedCategory={selectedCategory}
               selectedItem={product.itemType} // Use the item type instead of product name
-              index={index}
+              index={product.name}
             />
           );
         })}
