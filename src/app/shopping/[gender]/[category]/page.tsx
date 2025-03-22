@@ -141,13 +141,17 @@ const CategoryPage = (): JSX.Element => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => {
+          const productLink = `/shopping/${selectedGender}/${selectedCategory}/${
+            product.name
+          }/${product.name
+            .toLowerCase()
+            .replaceAll(" ", "-")
+            .replaceAll("'s", "")}`;
           return (
             <ProductCard
               key={index}
               product={product}
-              selectedGender={selectedGender}
-              selectedCategory={selectedCategory}
-              selectedItem={product.itemType} // Use the item type instead of product name
+              page={true}
               index={product.name}
             />
           );
