@@ -1,15 +1,12 @@
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { useMemo, useState } from "react";
-import { JSX } from "react";
-import { Skeleton } from "./ui/skeleton";
 import { generateRandomNumberArray } from "@/lib/utils";
+import { JSX, useMemo, useState } from "react";
 import { Button } from "./ui/button";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
-import { Color } from "@/lib/types";
+import { Button } from "./ui/button";
 
 const ProductGallery = ({
   images,
-  selectedColor,
+  selectedColor = { bgColor: "#919191", name: "Grey" },
   panelsVisibility = true,
 }: {
   images: string[];
