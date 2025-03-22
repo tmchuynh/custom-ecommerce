@@ -10,6 +10,7 @@ import {
 } from "./ui/tooltip";
 import { mockProductData } from "@/lib/mockProductData";
 import { useCart } from "@/app/context/cartContext";
+import components from "./ProductDetails";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
