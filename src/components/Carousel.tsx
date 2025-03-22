@@ -14,7 +14,6 @@ interface CarouselsProps {
 }
 
 export function Carousels({ array, renderContent }: CarouselsProps) {
-  console.log(array, renderContent);
   return (
     <Carousel className="w-full md:w-10/12 mx-auto max-w-7xl">
       <CarouselContent>
