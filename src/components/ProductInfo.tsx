@@ -41,7 +41,6 @@ const ProductInfo = ({
   selectedGender = "",
   selectedCategory = "",
   selectedItem = "",
-  setSelectedColor,
 }: {
   product: ProductType;
   titleSize?: string;
@@ -77,97 +76,41 @@ const ProductInfo = ({
   }, [product.name, selectedItem, getProductByName]);
 
   return (
-    <div className="mt-5 px-4">
-      <div
-        className={cn("flex flex-col", {
-          "w-11/12 mx-auto": relatedProduct,
-        })}
-      >
-        <div
-          className={cn("mb-5 ", {
-            "flex items-start mt-8 justify-between": relatedProduct,
+    <div
+      className={cn("mt-5 px-4 mb-5 grid grid-rows-4 h-[20em]", {
+        "bg-accent w-10/12 mx-auto mt-8": relatedProduct,
+      })}
+    >
+      <div className="flex flex-col justify-start row-span-3">
+        <h2 className="sr-only">Product information</h2>
+        <h1
+          className={cn(`${titleSize} font-extrabold pt-10`, {
+            "font-bold w-10/12 pr-2 text-pretty text-2xl": relatedProduct,
           })}
         >
-          <h1
-            className={cn(`${titleSize} font-extrabold`, {
-              "font-bold w-10/12 pr-2 text-pretty text-2xl": relatedProduct,
-            })}
-          >
-            <a href={url}>{product.name}</a>
-          </h1>
-          <div
-            className={cn("mt-3", {
-              "mt-0": relatedProduct,
-            })}
-          >
-            <p
-              className={cn("", {
-                hidden: relatedProduct,
-              })}
-            >
-              {product.description}
-            </p>
-            <h2 className="sr-only">Product information</h2>
-            <p
-              className={cn(`${priceSize} tracking-tight mt-4`, {
-                "mt-0": relatedProduct,
-              })}
-            >
-              {product.price}
-            </p>
-          </div>
-        </div>
+          <a href={url}>{product.name}</a>
+        </h1>
+        <p
+          className={cn("mt-3", {
+            "hidden mt-0": relatedProduct,
+          })}
+        >
+          {product.description}
+        </p>
+      </div>
 
-        <div>
-          {product.colors.length > 0 && (
-            <div className="mt-6">
-              <h3
-                className={cn("text-lg font-medium mb-4", {
-                  hidden: relatedProduct,
-                })}
-              >
-                Color
-              </h3>
-              <fieldset aria-label="Choose a color" className="mt-2">
-                <RadioGroup
-                  value={selectedColor}
-                  onChange={(value: Color) => setSelectedColor(value)}
-                  className="flex flex-wrap items-center gap-3"
-                >
-                  {product.colors.map((color: Color, index: number) => (
-                    <div key={index} className="flex flex-col items-start">
-                      <TooltipProvider key={index}>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Radio
-                              key={index}
-                              value={color}
-                              aria-label={color.name}
-                              className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="bg-dynamic size-8 rounded-full border"
-                                style={
-                                  {
-                                    "--bg-color": color.bgColor,
-                                  } as React.CSSProperties
-                                }
-                              />
-                            </Radio>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{color.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </fieldset>
-            </div>
-          )}
-        </div>
+      <div
+        className={cn("mt-3 row-span-1", {
+          "mt-0": relatedProduct,
+        })}
+      >
+        <p
+          className={cn(`${priceSize} tracking-tight mt-4`, {
+            "mt-0": relatedProduct,
+          })}
+        >
+          {product.price}
+        </p>
       </div>
     </div>
   );
