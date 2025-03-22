@@ -1,5 +1,5 @@
 import { Color } from "@/lib/types";
-import { generateRandomNumberArray, getAccessibleColor } from "@/lib/utils";
+import { cn, generateRandomNumberArray, getAccessibleColor } from "@/lib/utils";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
@@ -67,7 +67,7 @@ const ProductGallery = ({
           {randomArray.map((_, index) => (
             <Tab
               key={index}
-              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic text-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
+              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic opacity-50 text-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
                 visibleIndices().includes(index) ? "" : "hidden"
               }`}
               style={
@@ -80,7 +80,12 @@ const ProductGallery = ({
               <span className="absolute inset-0 overflow-hidden rounded-md">
                 {/* Pass the index as text to the Skeleton */}
                 <div
-                  className={`h-full w-full rounded-xl flex justify-center items-center text-5xl`}
+                  className={cn(
+                    "h-full w-full rounded-xl opacity-90 flex justify-center items-center text-5xl",
+                    {
+                      "opacity-100": page,
+                    }
+                  )}
                 >
                   {(index + 1).toString()}
                 </div>
@@ -100,9 +105,23 @@ const ProductGallery = ({
           {randomArray.map((_, index) => (
             <TabPanel
               key={index}
-              className="relative aspect-square border rounded-2xl overflow-hidden"
+              className="relative aspect-square border text-dynamic rounded-2xl overflow-hidden"
+              style={
+                {
+                  "--bg-color": selectedColor.bgColor,
+                  "--text-color": accessibleColor,
+                } as React.CSSProperties
+              }
             >
-              <div className="h-full w-full rounded-xl flex justify-center items-center text-5xl bg-muted">
+              <div
+                className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted"
+                style={
+                  {
+                    "--bg-color": selectedColor.bgColor,
+                    "--text-color": accessibleColor,
+                  } as React.CSSProperties
+                }
+              >
                 {(index + 1).toString()}
               </div>
             </TabPanel>
