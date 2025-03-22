@@ -45,6 +45,7 @@ const ProductCard = ({
   product: ProductType;
   index: number;
   page?: boolean;
+  relatedProduct?: boolean;
   showColors?: boolean;
   showButtons?: boolean;
 }): JSX.Element => {
