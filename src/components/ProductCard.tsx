@@ -39,6 +39,9 @@ const ProductCard = ({
   product,
   index,
   page = true,
+  titleSize = "text-2xl",
+  priceSize = "text-xl",
+  minHeight = "md:min-h-[40em]",
   showColors = true,
   showButtons = true,
 }: {
@@ -46,6 +49,9 @@ const ProductCard = ({
   index: number;
   page?: boolean;
   relatedProduct?: boolean;
+  titleSize?: string;
+  priceSize?: string;
+  minHeight?: string;
   showColors?: boolean;
   showButtons?: boolean;
 }): JSX.Element => {
@@ -77,6 +83,17 @@ const ProductCard = ({
             "border-b border-x rounded-2xl shadow-md": page,
           })}
         >
+          <div className="row-span-2">
+            <ProductInfo
+              product={product}
+              titleSize={titleSize}
+              priceSize={priceSize}
+              relatedProduct={relatedProduct}
+              selectedGender={selectedGender}
+              selectedCategory={selectedCategory}
+              selectedItem={selectedItem}
+            />
+          </div>
           {(showColors || showButtons) && (
             <div className={`${colorsContainerClassName} row-span-1`}>
               {showColors && (
