@@ -20,7 +20,7 @@ const RelatedProducts = ({
           <ProductCard
             product={product}
             index={prodIndex}
-            page={false}
+            page={true}
             key={prodIndex}
           />
         ))}
