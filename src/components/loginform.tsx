@@ -95,7 +95,6 @@ const LoginPage: React.FC = () => {
       }
 
       const userData = await userResponse.json();
-      console.log("User data:", userData);
 
       showToast("success", "Login successful! Redirecting...");
       router.push("/quiz");
