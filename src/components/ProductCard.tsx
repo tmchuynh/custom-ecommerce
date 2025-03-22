@@ -6,6 +6,7 @@ import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import { Card, CardContent } from "./ui/card";
+import components from "./ProductDetails";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -70,21 +71,12 @@ const ProductCard = ({
             "border-b border-x rounded-2xl shadow-md": page,
           })}
         >
-          <ProductInfo
-            product={product}
-            titleSize="text-2xl"
-            priceSize="text-xl"
-            selectedGender={selectedGender}
-            selectedCategory={selectedCategory}
-            selectedItem={selectedItem}
-            relatedProduct={true}
-            selectedColor={selectedColor}
-            setSelectedColor={(e) => {
-              setSelectedColor(e);
-              console.log(selectedColor);
-            }}
-          />
-          <CartAndFavoritesButtons product={product} page={true} />
+                <components.ProductColors
+                  product={product}
+                  selectedColor={selectedColor}
+                  relatedProduct={relatedProduct}
+                  setSelectedColor={setSelectedColor}
+                />
         </div>
       </CardContent>
     </Card>
