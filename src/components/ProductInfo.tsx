@@ -1,17 +1,15 @@
-// components/ProductInfo.tsx
-import React, { JSX } from "react";
-import { RadioGroup, Radio } from "@headlessui/react";
-import { HeartIcon } from "@heroicons/react/24/outline";
+import { Color, ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { Radio, RadioGroup } from "@headlessui/react";
+import React, { JSX, useState, useEffect } from "react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
-import { ProductType, Color } from "@/lib/types";
-import { Button } from "./ui/button";
+import { mockProductData } from "@/lib/mockProductData";
 import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -37,97 +35,141 @@ import { toast } from "sonner";
 const ProductInfo = ({
   product,
   selectedColor,
+  titleSize = "text-4xl",
+  priceSize = "text-3xl",
+  relatedProduct = false,
+  selectedGender = "",
+  selectedCategory = "",
+  selectedItem = "",
   setSelectedColor,
 }: {
   product: ProductType;
   selectedColor: Color;
+  titleSize?: string;
+  priceSize?: string;
+  relatedProduct?: boolean;
+  selectedGender?: string;
+  selectedCategory?: string;
+  selectedItem?: string;
   setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
 }): JSX.Element => {
-  const { addToCart } = useCart();
+  const { getProductByName } = useCart();
+  const [url, setURL] = useState(
+    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
+      .toLowerCase()
+      .replaceAll(" ", "-")
+      .replaceAll("'s", "")}`
+  );
 
-  /**
-   * Handles adding a product to the cart.
-   *
-   * @param {any} product - The product to add to the cart.
-   * @param {number} id - The ID of the product (using index as fallback).
-   * @returns {void}
-   */
-  const handleAddToCart = (product: any, id: string): void => {
-    addToCart({
-      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
-      name: product.name,
-      description: product.description,
-      price: parseFloat(product.price.replace("$", "")),
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    });
-    toast.success(`${product.name} added to cart!`);
-  };
+  // Use useEffect to handle URL updates to prevent infinite renders
+  useEffect(() => {
+    if (!selectedItem) {
+      const productDetails = getProductByName(product.name);
+      if (productDetails) {
+        setURL(
+          `/shopping/${productDetails.gender}/${productDetails.category}/${
+            productDetails.subcategory
+          }/${productDetails.name
+            .toLowerCase()
+            .replaceAll(" ", "-")
+            .replaceAll("'s", "")}`
+        );
+      }
+    }
+  }, [product.name, selectedItem, getProductByName]);
+
   return (
-    <div className="mt-10 px-4 sm:mt-16 sm:px-0 lg:mt-0">
-      <h1 className="text-4xl font-extrabold mb-8">{product.name}</h1>
-
-      <div className="mt-3">
-        <h3>{product.description}</h3>
-        <h2 className="sr-only">Product information</h2>
-        <p className="text-3xl tracking-tight">{product.price}</p>
-      </div>
-
-      {product.colors.length > 0 && (
-        <div className="mt-6">
-          <h3 className="text-lg font-medium mb-4">Color</h3>
-          <fieldset aria-label="Choose a color" className="mt-2">
-            <RadioGroup
-              value={selectedColor}
-              onChange={setSelectedColor}
-              className="flex items-center gap-x-3"
-            >
-              {product.colors.map((color: Color, index: number) => (
-                <div key={index} className="flex flex-col items-start">
-                  <TooltipProvider key={index}>
-                    <Tooltip>
-                      <TooltipTrigger>
-                        <Radio
-                          key={index}
-                          value={color}
-                          aria-label={color.name}
-                          className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                        >
-                          <span
-                            aria-hidden="true"
-                            className="bg-dynamic size-8 rounded-full border"
-                            style={
-                              {
-                                "--bg-color": color.bgColor,
-                              } as React.CSSProperties
-                            }
-                          />
-                        </Radio>
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{color.name}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </div>
-              ))}
-            </RadioGroup>
-          </fieldset>
-        </div>
-      )}
-
-      <div className="mt-10 flex gap-5">
-        <Button
-          onClick={() => handleAddToCart(product, product.name)}
-          type="submit"
+    <div className="mt-5 px-4">
+      <div
+        className={cn("flex flex-col", {
+          "w-11/12 mx-auto": relatedProduct,
+        })}
+      >
+        <div
+          className={cn("mb-5 ", {
+            "flex items-start mt-8 justify-between": relatedProduct,
+          })}
         >
-          Add to Cart
-        </Button>
+          <h1
+            className={cn(`${titleSize} font-extrabold`, {
+              "font-bold w-10/12 pr-2 text-pretty text-2xl": relatedProduct,
+            })}
+          >
+            <a href={url}>{product.name}</a>
+          </h1>
+          <div
+            className={cn("mt-3", {
+              "mt-0": relatedProduct,
+            })}
+          >
+            <p
+              className={cn("", {
+                hidden: relatedProduct,
+              })}
+            >
+              {product.description}
+            </p>
+            <h2 className="sr-only">Product information</h2>
+            <p
+              className={cn(`${priceSize} tracking-tight mt-4`, {
+                "mt-0": relatedProduct,
+              })}
+            >
+              {product.price}
+            </p>
+          </div>
+        </div>
 
-        <Button type="button" variant={"ghost"}>
-          <HeartIcon aria-hidden="true" className="size-6 shrink-0" />
-          <span className="sr-only">Add to favorites</span>
-        </Button>
+        <div>
+          {product.colors.length > 0 && (
+            <div className="mt-6">
+              <h3
+                className={cn("text-lg font-medium mb-4", {
+                  hidden: relatedProduct,
+                })}
+              >
+                Color
+              </h3>
+              <fieldset aria-label="Choose a color" className="mt-2">
+                <RadioGroup
+                  value={selectedColor}
+                  onChange={(value: Color) => setSelectedColor(value)}
+                  className="flex flex-wrap items-center gap-3"
+                >
+                  {product.colors.map((color: Color, index: number) => (
+                    <div key={index} className="flex flex-col items-start">
+                      <TooltipProvider key={index}>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <Radio
+                              key={index}
+                              value={color}
+                              aria-label={color.name}
+                              className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                            >
+                              <span
+                                aria-hidden="true"
+                                className="bg-dynamic size-8 rounded-full border"
+                                style={
+                                  {
+                                    "--bg-color": color.bgColor,
+                                  } as React.CSSProperties
+                                }
+                              />
+                            </Radio>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>{color.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </fieldset>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
