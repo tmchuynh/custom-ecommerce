@@ -60,7 +60,11 @@ const ProductCard = ({
       })}
     >
       <CardContent className={cn("p-0 relative", { "md:h-[40em]": page })}>
-        <ProductGallery images={product.images} panelsVisibility={false} />
+        <ProductGallery
+          images={product.images}
+          panelsVisibility={false}
+          selectedColor={selectedColor}
+        />
         <div
           className={cn(" flex flex-col justify-between h-1/2 lg:h-1/2 -mt-6", {
             "border-b border-x rounded-2xl shadow-md": page,
@@ -75,7 +79,10 @@ const ProductCard = ({
             selectedItem={selectedItem}
             relatedProduct={true}
             selectedColor={selectedColor}
-            setSelectedColor={setSelectedColor}
+            setSelectedColor={(e) => {
+              setSelectedColor(e);
+              console.log(selectedColor);
+            }}
           />
           <CartAndFavoritesButtons product={product} page={true} />
         </div>

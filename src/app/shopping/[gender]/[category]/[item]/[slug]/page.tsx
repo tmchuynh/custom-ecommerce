@@ -119,12 +119,18 @@ const ProductPage = (): JSX.Element => {
       <div className="mx-auto max-w-2xl lg:max-w-none">
         {/* Product Section */}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
-          <ProductGallery images={product.images} />
+          <ProductGallery
+            images={product.images}
+            selectedColor={selectedColor}
+          />
           <div>
             <ProductInfo
               titleSize="text-4xl"
               product={product}
-              setSelectedColor={setSelectedColor}
+              setSelectedColor={(e) => {
+                setSelectedColor(e);
+                console.log(selectedColor);
+              }}
               selectedColor={selectedColor}
             />
             <CartAndFavoritesButtons product={product} page={false} />
