@@ -70,10 +70,9 @@ const ProductGallery = ({
             >
               <span className="absolute inset-0 overflow-hidden rounded-md">
                 {/* Pass the index as text to the Skeleton */}
-                <Skeleton
-                  text={(index + 1).toString()}
-                  className="h-full w-full rounded-xl hidden md:flex"
-                />
+                <div className="h-full w-full rounded-xl flex justify-center items-center text-5xl bg-muted">
+                  {(index + 1).toString()}
+                </div>
               </span>
               <span
                 aria-hidden="true"
@@ -92,10 +91,9 @@ const ProductGallery = ({
               key={index}
               className="relative aspect-square border rounded-2xl overflow-hidden"
             >
-              <Skeleton
-                text={(selectedIndex + 1).toString()}
-                className="h-full w-full rounded-xl hidden md:flex"
-              />
+              <div className="h-full w-full rounded-xl flex justify-center items-center text-5xl bg-muted">
+                {(index + 1).toString()}
+              </div>
             </TabPanel>
           ))}
         </TabPanels>
