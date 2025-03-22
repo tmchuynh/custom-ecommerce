@@ -13,6 +13,7 @@ const ProductGallery = ({
   images: string[];
   selectedColor: Color;
   panelsVisibility?: boolean;
+  page: boolean;
 }): JSX.Element => {
   // For demo purposes, we generate an array of numbers (you can replace this with your actual image array)
   const randomArray = useMemo(() => {
