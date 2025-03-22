@@ -68,6 +68,7 @@ const ProductInfo = ({
       <h1 className="text-4xl font-extrabold mb-8">{product.name}</h1>
 
       <div className="mt-3">
+        <h3>{product.description}</h3>
         <h2 className="sr-only">Product information</h2>
         <p className="text-3xl tracking-tight">{product.price}</p>
       </div>
