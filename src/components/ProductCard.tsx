@@ -39,10 +39,13 @@ const ProductCard = ({
   product,
   index,
   page = true,
+  showColors = true,
+  showButtons = true,
 }: {
   product: ProductType;
   index: number;
-  page: boolean;
+  showColors?: boolean;
+  showButtons?: boolean;
 }): JSX.Element => {
   const segments = window.location.pathname.split("/");
   const selectedGender = segments[2];
@@ -71,12 +74,26 @@ const ProductCard = ({
             "border-b border-x rounded-2xl shadow-md": page,
           })}
         >
+          {(showColors || showButtons) && (
+            <div className={`${colorsContainerClassName} row-span-1`}>
+              {showColors && (
                 <components.ProductColors
                   product={product}
                   selectedColor={selectedColor}
                   relatedProduct={relatedProduct}
                   setSelectedColor={setSelectedColor}
                 />
+              )}
+              {showButtons && (
+                <CartAndFavoritesButtons
+                  product={product}
+                  page={page}
+                  selectedColor={selectedColor}
+                  setSelectedColor={setSelectedColor}
+                />
+              )}
+            </div>
+          )}
         </div>
       </CardContent>
     </Card>
