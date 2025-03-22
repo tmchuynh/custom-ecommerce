@@ -10,12 +10,21 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
-import { Color } from "@/lib/types";
+import { Color, ProductType } from "@/lib/types";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { generateRandomNumberArray } from "@/lib/utils";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import ProductInfo from "./ProductInfo";
+import ProductGallery from "./ProductGallery";
+import { Card, CardContent, CardFooter } from "./ui/card";
+import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
+import ProductCard from "./ProductCard";
 
-const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
+const RelatedProducts = ({
+  relatedProducts,
+}: {
+  relatedProducts: ProductType[];
+}) => {
   const { addToCart } = useCart();
 
   const handleAddToCart = (product: any, id: string) => {
@@ -46,9 +55,6 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
   }, []);
   const total = randomArray.length;
   const [selectedIndex, setSelectedIndex] = useState(0);
-  console.log("total", total);
-  console.log("selectedIndex", selectedIndex);
-  console.log(randomArray);
 
   // Compute the indices of skeleton items to display (showing three items).
   const visibleIndices = () => {
@@ -83,89 +89,12 @@ const RelatedProducts = ({ relatedProducts }: { relatedProducts: any[] }) => {
 
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {relatedProducts.map((product, prodIndex) => (
-          <div key={prodIndex}>
-            <div className="relative">
-              <div className="relative h-72 w-full  overflow-hidden rounded-lg">
-                {/* Carousel Container (displayed as a horizontal flexbox) */}
-                {randomArray.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`relative aspect-square w-full h-full overflow-hidden border rounded-2xl ${
-                      visibleIndices().includes(index) ? "block" : "hidden"
-                    }`}
-                  >
-                    <Skeleton
-                      text={(selectedIndex + 1).toString()}
-                      className="h-full w-full rounded-xl hidden md:flex"
-                    />
-                  </div>
-                ))}
-                {/* Arrow Navigation Buttons */}
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={goToPrevious}
-                  className="absolute top-1/2 left-2 transform -translate-y-1/2"
-                  aria-label="Previous"
-                >
-                  <FiArrowLeft />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={goToNext}
-                  className="absolute top-1/2 right-2 transform -translate-y-1/2"
-                  aria-label="Next"
-                >
-                  <FiArrowRight />
-                </Button>
-              </div>
-              <div className="relative mt-4">
-                <h3 className="text-lg font-medium mb-4">{product.name}</h3>
-                <p className="mt-1 text-sm">{product.color}</p>
-                <p className="relative text-lg font-semibold">
-                  {product.price}
-                </p>
-                <fieldset aria-label="Choose a color" className="mt-2">
-                  <RadioGroup className="flex items-center gap-x-3">
-                    {product.colors.map((color: Color, index: number) => (
-                      <TooltipProvider key={index}>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Radio
-                              key={index}
-                              value={color}
-                              aria-label={color.name}
-                              className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="bg-dynamic size-8 rounded-full border"
-                                style={
-                                  {
-                                    "--bg-color": color.bgColor,
-                                  } as React.CSSProperties
-                                }
-                              />
-                            </Radio>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>{color.name}</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    ))}
-                  </RadioGroup>
-                </fieldset>
-              </div>
-            </div>
-            <div className="mt-6">
-              <Button onClick={() => handleAddToCart(product, product.name)}>
-                Add to Cart
-                <span className="sr-only">, {product.name}</span>
-              </Button>
-            </div>
-          </div>
+          <ProductCard
+            product={product}
+            index={prodIndex}
+            page={false}
+            key={prodIndex}
+          />
         ))}
       </div>
     </section>
