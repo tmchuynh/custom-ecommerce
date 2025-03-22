@@ -163,6 +163,12 @@ export type Color = {
 export type ProductType = {
   name: string;
   description: string;
+  gender: string;
+  category: string;
+  subcategory: string;
+  images: string[];
+  imageSrc: string;
+  quantity: number;
   price: string;
   colors: Color[];
 };
