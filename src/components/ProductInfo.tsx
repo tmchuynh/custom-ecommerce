@@ -35,7 +35,6 @@ import components from "./ProductDetails";
  */
 const ProductInfo = ({
   product,
-  selectedColor,
   titleSize = "text-4xl",
   priceSize = "text-3xl",
   relatedProduct = false,
@@ -45,14 +44,12 @@ const ProductInfo = ({
   setSelectedColor,
 }: {
   product: ProductType;
-  selectedColor: Color;
   titleSize?: string;
   priceSize?: string;
   relatedProduct?: boolean;
   selectedGender?: string;
   selectedCategory?: string;
   selectedItem?: string;
-  setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
 }): JSX.Element => {
   const { getProductByName } = useCart();
   const [url, setURL] = useState(
