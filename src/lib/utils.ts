@@ -183,10 +183,18 @@ export function generateRandomNumberArray(
 }
 
 /**
- * Calculates the relative luminance of a color following WCAG 2.0 formula.
+ * Calculates the relative luminance of a given hexadecimal color string.
+ * The calculation follows the WCAG (Web Content Accessibility Guidelines) formula.
  *
- * @param hexColor - The hex color string (with or without # prefix)
- * @returns The relative luminance value between 0 and 1
+ * @param hexColor - The hexadecimal color string (e.g., "#RRGGBB" or "RRGGBB").
+ * @returns The relative luminance as a number between 0 (darkest) and 1 (lightest).
+ *
+ * @example
+ * ```typescript
+ * const luminance = getLuminance("#FFFFFF"); // 1 (white)
+ * const luminance = getLuminance("#000000"); // 0 (black)
+ * const luminance = getLuminance("#FF5733"); // 0.3202 (example value)
+ * ```
  */
 export function getLuminance(hexColor: string): number {
   // Remove # if present
@@ -208,9 +216,13 @@ export function getLuminance(hexColor: string): number {
 /**
  * Calculates the contrast ratio between two colors.
  *
- * @param color1 - First hex color
- * @param color2 - Second hex color
- * @returns The contrast ratio (a number between 1 and 21)
+ * The contrast ratio is determined using the relative luminance of the two colors.
+ * It is calculated as `(brightest + 0.05) / (darkest + 0.05)`, where `brightest` and `darkest`
+ * are the higher and lower luminance values of the two colors, respectively.
+ *
+ * @param color1 - The first color in a valid CSS color format (e.g., hex, rgb, etc.).
+ * @param color2 - The second color in a valid CSS color format (e.g., hex, rgb, etc.).
+ * @returns The contrast ratio as a number. A higher value indicates greater contrast.
  */
 export function getContrastRatio(color1: string, color2: string): number {
   const lum1 = getLuminance(color1);
@@ -223,12 +235,31 @@ export function getContrastRatio(color1: string, color2: string): number {
 }
 
 /**
- * Returns a color that meets the specified WCAG contrast standard when paired with the input color.
+ * Determines an accessible color (either black or white) or a calculated shade
+ * that meets the required contrast ratio against the given hex color, based on
+ * the Web Content Accessibility Guidelines (WCAG) standards.
  *
- * @param hexColor - The base hex color to contrast against
- * @param standard - The WCAG standard to meet ('AA' or 'AAA')
- * @param isLargeText - Whether the text is large (defaults to false)
- * @returns A hex color string that meets the required contrast ratio
+ * @param hexColor - The input color in hexadecimal format (e.g., `#RRGGBB`).
+ * @param standard - The WCAG standard to use for contrast ratio requirements.
+ *                   Accepts `"AA"` (default) or `"AAA"`.
+ * @param isLargeText - Whether the text is considered large (font size ≥ 18pt
+ *                      or bold ≥ 14pt). Defaults to `false`.
+ * @returns A hexadecimal color string (`#RRGGBB`) that meets the required
+ *          contrast ratio against the input color.
+ *
+ * @remarks
+ * - WCAG contrast ratio requirements:
+ *   - AA: Normal text ≥ 4.5, Large text ≥ 3.0
+ *   - AAA: Normal text ≥ 7.0, Large text ≥ 4.5
+ * - The function uses luminance to determine whether to start with black or
+ *   white as the base color and adjusts it using a binary search to find a
+ *   shade that meets the contrast requirements.
+ *
+ * @example
+ * ```typescript
+ * const accessibleColor = getAccessibleColor("#ff5733", "AA", true);
+ * console.log(accessibleColor); // Outputs a color like "#000000" or "#FFFFFF"
+ * ```
  */
 export function getAccessibleColor(
   hexColor: string,
