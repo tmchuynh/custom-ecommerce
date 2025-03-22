@@ -39,6 +39,11 @@ const ProductCard = ({
   product,
   index,
   page = true,
+  relatedProduct = false,
+  cardClassName = "border-none shadow-none",
+  contentClassName = "p-0 relative",
+  infoContainerClassName = "-mt-9",
+  colorsContainerClassName = "flex flex-col items-center justify-between md:h-1/2",
   titleSize = "text-2xl",
   priceSize = "text-xl",
   minHeight = "md:min-h-[40em]",
@@ -49,6 +54,10 @@ const ProductCard = ({
   index: number;
   page?: boolean;
   relatedProduct?: boolean;
+  cardClassName?: string;
+  contentClassName?: string;
+  infoContainerClassName?: string;
+  colorsContainerClassName?: string;
   titleSize?: string;
   priceSize?: string;
   minHeight?: string;
@@ -67,11 +76,11 @@ const ProductCard = ({
   return (
     <Card
       key={index}
-      className={cn("border-none shadow-none", {
+      className={cn(cardClassName, {
         "p-0": page,
       })}
     >
-      <CardContent className={cn("p-0 relative", { "md:h-[40em]": page })}>
+      <CardContent className={cn(contentClassName, { [`${minHeight}`]: page })}>
         <ProductGallery
           page={page}
           images={product.images}
@@ -79,8 +88,9 @@ const ProductCard = ({
           selectedColor={selectedColor}
         />
         <div
-          className={cn(" flex flex-col justify-between h-1/2 lg:h-1/2 -mt-6", {
-            "border-b border-x rounded-2xl shadow-md": page,
+          className={cn(infoContainerClassName, {
+            "border-b border-x rounded-2xl shadow-md h-[30em] grid grid-rows-2 grid-flow-row-dense":
+              page,
           })}
         >
           <div className="row-span-2">
@@ -94,6 +104,7 @@ const ProductCard = ({
               selectedItem={selectedItem}
             />
           </div>
+
           {(showColors || showButtons) && (
             <div className={`${colorsContainerClassName} row-span-1`}>
               {showColors && (
