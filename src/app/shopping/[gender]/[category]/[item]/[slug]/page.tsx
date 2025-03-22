@@ -1,7 +1,6 @@
 "use client";
-
 import CartAndFavoritesButtons from "@/components/CartAndFavoriteButtons";
-import ProductDetails from "@/components/ProductDetails";
+import components from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
