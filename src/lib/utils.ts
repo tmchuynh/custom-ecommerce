@@ -18,10 +18,13 @@ function generateIV() {
 }
 
 /**
- * Generates a new CryptoKey for AES-GCM encryption and decryption.
+ * Generates a new encryption key using the AES-GCM algorithm.
  *
- * @returns A promise that resolves to the generated CryptoKey.
- * @throws Will throw an error if the key generation fails.
+ * The generated key is 256 bits in length and can be used for both encryption
+ * and decryption operations. The key is marked as extractable, allowing it to
+ * be exported if needed.
+ *
+ * @returns {Promise<CryptoKey>} A promise that resolves to the generated CryptoKey.
  */
 async function generateEncryptionKey(): Promise<CryptoKey> {
   return window.crypto.subtle.generateKey(
@@ -35,15 +38,15 @@ async function generateEncryptionKey(): Promise<CryptoKey> {
 }
 
 /**
- * Encrypts a passkey using AES-GCM encryption.
+ * Encrypts a given passkey using the AES-GCM encryption algorithm and returns the result as a Base64-encoded string.
  *
- * This function generates a random initialization vector (IV), creates an encryption key,
- * encrypts the passkey, and combines the IV with the encrypted data.
+ * The function generates a random initialization vector (IV) and a cryptographic key for encryption.
+ * The IV and the encrypted data are combined into a single buffer, which is then Base64-encoded for storage or transmission.
  *
- * @param passkey - The string to be encrypted.
- * @returns A promise that resolves to the encrypted passkey as a base64 encoded string.
- *          This string includes both the IV and the encrypted data.
- * @throws Will throw an error if encryption fails.
+ * @param {string} passkey - The plaintext passkey to be encrypted.
+ * @returns {Promise<string>} A promise that resolves to the Base64-encoded encrypted passkey.
+ *
+ * @throws {Error} Throws an error if encryption fails.
  */
 export async function encryptKey(passkey: string): Promise<string> {
   const iv = generateIV();
@@ -76,12 +79,15 @@ export async function encryptKey(passkey: string): Promise<string> {
 }
 
 /**
- * Decrypts an encrypted passkey using the provided CryptoKey.
+ * Decrypts an encrypted passkey using the AES-GCM algorithm.
  *
- * @param encryptedPasskey - The encrypted passkey as a base64 encoded string.
- * @param key - The CryptoKey used for decryption.
- * @returns A promise that resolves to the decrypted passkey as a string.
- * @throws Will throw an error if decryption fails.
+ * This function takes an encrypted passkey (as a base64-encoded string) and a cryptographic key,
+ * then decrypts the passkey and returns the original string.
+ *
+ * @param {string} encryptedPasskey - The base64-encoded encrypted passkey.
+ * @param {CryptoKey} key - The cryptographic key used for decryption.
+ * @returns {Promise<string>} A promise that resolves to the decrypted passkey as a string.
+ * @throws {Error} Throws an error if decryption fails.
  */
 export async function decryptKey(
   encryptedPasskey: string,
@@ -119,10 +125,10 @@ export async function decryptKey(
 }
 
 /**
- * Formats a number as a currency string.
+ * Formats a numeric value into a currency string.
  *
  * @param value - The numeric value to format.
- * @returns The formatted currency string. If the value is not a number, returns "$0.00".
+ * @returns A string representing the formatted currency. If the input is not a valid number, it returns "$0.00".
  */
 export const formatCurrency = (value: number) => {
   if (isNaN(value)) return "$0.00";
@@ -131,10 +137,16 @@ export const formatCurrency = (value: number) => {
 };
 
 /**
- * Capitalizes the first letter of each word in a string and replaces hyphens with spaces.
+ * Capitalizes the first letter of each word in a given string and replaces hyphens with spaces.
  *
- * @param str - The string to be transformed.
- * @returns The transformed string with capitalized words and spaces instead of hyphens.
+ * @param str - The input string to be transformed.
+ * @returns A new string with the first letter of each word capitalized and hyphens replaced by spaces.
+ *
+ * @example
+ * ```typescript
+ * capitalize("hello-world"); // "Hello World"
+ * capitalize("custom-ecommerce"); // "Custom Ecommerce"
+ * ```
  */
 export const capitalize = (str: string) => {
   function replaceChar(char: string): string {
@@ -144,40 +156,19 @@ export const capitalize = (str: string) => {
 };
 
 /**
- * Converts a given title string into a URL-friendly slug.
+ * Generates an array of random numbers within a specified range.
  *
- * This function performs the following transformations:
- * - Converts the string to lowercase.
- * - Removes special characters such as !, @, #, $, ?, %, ,, :, /, ^, &, *.
- * - Replaces spaces and hyphens with a single hyphen.
+ * @param length - The number of random numbers to generate.
+ * @param min - The minimum value (inclusive) for the random numbers.
+ * @param max - The maximum value (inclusive) for the random numbers.
+ * @returns An array of random numbers of the specified length, each within the given range.
  *
- * @param title - The title string to be converted into a slug.
- * @returns The URL-friendly slug.
+ * @example
+ * ```typescript
+ * const randomNumbers = generateRandomNumberArray(5, 1, 10);
+ * console.log(randomNumbers); // Example output: [3, 7, 1, 9, 5]
+ * ```
  */
-export function setSlug(title: string): string {
-  const slug = title
-    .toLowerCase()
-    .replace(/[!@#$?%,:/^&*]/g, "")
-    .replace(/[\s-]+/g, "-");
-  return slug;
-}
-
-/**
- * Converts a given string to title case. It replaces underscores with spaces,
- * splits the string into words, capitalizes the first letter of each word,
- * and converts the rest of the letters to lowercase.
- *
- * @param issuer - The string to be converted to title case.
- * @returns The converted string in title case.
- */
-export function toTitle(issuer: string): string {
-  return issuer
-    .replace("_", " ")
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(" ");
-}
-
 export function generateRandomNumberArray(
   length: RandomNumberArrayOptions["length"],
   min: RandomNumberArrayOptions["min"],
