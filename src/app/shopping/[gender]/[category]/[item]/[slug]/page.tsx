@@ -119,6 +119,7 @@ const ProductPage = (): JSX.Element => {
         {/* Product Section */}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
           <ProductGallery
+            page={false}
             images={product.images}
             selectedColor={selectedColor}
           />
@@ -132,8 +133,7 @@ const ProductPage = (): JSX.Element => {
               }}
               selectedColor={selectedColor}
             />
-            <CartAndFavoritesButtons product={product} page={false} />
-            <ProductDetails details={product.details} />
+            <components.ProductDetails details={product.details} />
           </div>
         </div>
 
