@@ -1,6 +1,7 @@
+import { Color } from "@/lib/types";
 import { generateRandomNumberArray } from "@/lib/utils";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
-import { Button } from "./ui/button";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { Button } from "./ui/button";
 
