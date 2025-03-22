@@ -72,7 +72,9 @@ const ProductGallery = ({
             >
               <span className="absolute inset-0 overflow-hidden rounded-md">
                 {/* Pass the index as text to the Skeleton */}
-                <div className="h-full w-full rounded-xl flex justify-center items-center text-5xl bg-muted">
+                <div
+                  className={`h-full w-full rounded-xl flex justify-center items-center text-5xl`}
+                >
                   {(index + 1).toString()}
                 </div>
               </span>
