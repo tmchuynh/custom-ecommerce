@@ -1,6 +1,11 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
-import { FeaturedDetails, LengthType, SectionDetails } from "./types";
+import {
+  FeaturedDetails,
+  LengthType,
+  ProductType,
+  SectionDetails,
+} from "./types";
 
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   text?: string;
@@ -97,6 +102,12 @@ export interface CartItem extends ProductItem {
 export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
+  getCartItem: (name: string) => CartItem | undefined;
+  getProductByName: (
+    name: string
+  ) =>
+    | { gender: string; category: string; subcategory: string; name: string }
+    | undefined;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
   updateQuantity: (id: string, quantity: number) => void;
