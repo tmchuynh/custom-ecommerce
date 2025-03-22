@@ -1,10 +1,11 @@
-import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
-import { Button } from "./ui/button";
-import { Skeleton } from "./ui/skeleton";
-import { JSX } from "react";
-import QuantityButtons from "./Quantity";
-import { Card, CardContent, CardFooter } from "./ui/card";
+"use client";
+import { Color, ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { JSX, useState } from "react";
+import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
+import ProductGallery from "./ProductGallery";
+import ProductInfo from "./ProductInfo";
+import { Card, CardContent } from "./ui/card";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -36,79 +37,49 @@ import { Card, CardContent, CardFooter } from "./ui/card";
 const ProductCard = ({
   product,
   index,
-  selectedGender,
-  selectedCategory,
-  selectedItem,
+  page = true,
 }: {
-  product: any;
+  product: ProductType;
   index: number;
-  selectedGender: string;
-  selectedCategory: string;
-  selectedItem: string;
+  page: boolean;
 }): JSX.Element => {
-  const { addToCart, cartItems } = useCart();
-  const foundItem = cartItems.find((item) => item.id === index.toString());
-
-  /**
-   * Handles adding a product to the cart.
-   *
-   * @param {any} product - The product to add to the cart.
-   * @param {number} id - The ID of the product (using index as fallback).
-   * @returns {void}
-   */
-  const handleAddToCart = (product: any, id: string): void => {
-    addToCart({
-      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
-      name: product.name,
-      description: product.description,
-      price: parseFloat(product.price.replace("$", "")),
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    });
-    toast.success(`${product.name} added to cart!`);
-  };
-
-  const productLink = `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
-    .toLowerCase()
-    .replaceAll(" ", "-")
-    .replaceAll("'s", "")}`;
+  const segments = window.location.pathname.split("/");
+  const selectedGender = segments[2];
+  const selectedCategory = segments[3];
+  const selectedItem = segments[4];
+  const [selectedColor, setSelectedColor] = useState<Color>({
+    bgColor: "#000000",
+    name: "Black",
+  });
 
   return (
     <Card
       key={index}
-      className="p-4 rounded-lg shadow-lg flex flex-col justify-around"
+      className={cn("border-none shadow-none", {
+        "p-0": page,
+      })}
     >
-      {product.imageSrc ? (
-        // <Image
-        //   src={product.imageSrc}
-        //   alt={product.name} // Use a meaningful alt description
-        //   width={400}
-        //   height={400}
-        //   className="w-full h-64 object-cover"
-        // />
-        <Skeleton className="h-[175] w-full rounded-xl" />
-      ) : (
-        <div className="w-full h-[175]" />
-      )}
-      <CardContent className="flex flex-col justify-between h-1/2">
-        <div>
-          <h3 className="text-lg font-semibold mt-4">
-            <a href={productLink}>{product.name}</a>
-          </h3>
-          <p className="text-sm mt-2">{product.description}</p>
+      <CardContent className={cn("p-0 relative", { "md:h-[40em]": page })}>
+        <ProductGallery images={product.images} panelsVisibility={false} />
+        <div
+          className={cn(" flex flex-col justify-between h-1/2 lg:h-1/2 -mt-6", {
+            "border-b border-x rounded-2xl shadow-md": page,
+          })}
+        >
+          <ProductInfo
+            product={product}
+            titleSize="text-2xl"
+            priceSize="text-xl"
+            selectedGender={selectedGender}
+            selectedCategory={selectedCategory}
+            selectedItem={selectedItem}
+            relatedProduct={true}
+            selectedColor={selectedColor}
+            setSelectedColor={setSelectedColor}
+          />
+          <CartAndFavoritesButtons product={product} page={true} />
         </div>
-        <p className="text-md mt-2">{product.price}</p>
       </CardContent>
-      <CardFooter>
-        {foundItem && foundItem.quantity > 0 ? (
-          <QuantityButtons itemId={index} />
-        ) : (
-          <Button onClick={() => handleAddToCart(product, product.name)}>
-            Add to Cart
-            <span className="sr-only">, {product.name}</span>
-          </Button>
-        )}
-      </CardFooter>
     </Card>
   );
 };
