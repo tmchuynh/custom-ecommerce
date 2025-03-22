@@ -9,6 +9,7 @@ const ProductGallery = ({
   images,
   selectedColor = { bgColor: "#919191", name: "Grey" },
   panelsVisibility = true,
+  page = true,
 }: {
   images: string[];
   selectedColor: Color;
