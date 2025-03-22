@@ -60,14 +60,21 @@ export const mockProductData = {
                   name: "Black",
                 },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Premium leather",
-              style: "Modern and versatile",
             },
             {
               name: "Men's Brogue Shoes",
@@ -85,14 +92,21 @@ export const mockProductData = {
                   name: "Brown",
                 },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Premium leather",
-              style: "Intricate detailing",
             },
           ],
         },
@@ -140,14 +154,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -197,14 +218,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -257,14 +285,21 @@ export const mockProductData = {
                 { bgColor: "#FF4500", name: "Orange" },
                 { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -320,14 +355,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -391,14 +433,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -469,14 +518,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -547,14 +603,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -610,14 +673,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -679,14 +749,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -739,14 +816,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -801,14 +885,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -861,14 +952,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -916,14 +1014,21 @@ export const mockProductData = {
                 { bgColor: "#696969", name: "Grey" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -975,14 +1080,21 @@ export const mockProductData = {
                 { bgColor: "#696969", name: "Grey" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1038,14 +1150,21 @@ export const mockProductData = {
                 { bgColor: "#696969", name: "Grey" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1104,14 +1223,21 @@ export const mockProductData = {
                 { bgColor: "#696969", name: "Grey" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1159,14 +1285,21 @@ export const mockProductData = {
                 { bgColor: "#696969", name: "Grey" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1224,14 +1357,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#556B2F", name: "Olive" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1278,14 +1418,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#556B2F", name: "Olive" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1337,14 +1484,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#556B2F", name: "Olive" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1402,14 +1556,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#556B2F", name: "Olive" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1465,14 +1626,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1532,14 +1700,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1602,14 +1777,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1670,14 +1852,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1735,14 +1924,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1798,14 +1994,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1872,14 +2075,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1936,14 +2146,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -1995,14 +2212,21 @@ export const mockProductData = {
                 { bgColor: "#FF4500", name: "Orange" },
                 { bgColor: "#2F4F4F", name: "Dark Slate" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2055,14 +2279,21 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2120,14 +2351,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2179,14 +2417,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2245,14 +2490,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2320,14 +2572,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2394,14 +2653,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2456,14 +2722,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2514,14 +2787,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2583,14 +2863,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2641,14 +2928,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2705,14 +2999,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2769,14 +3070,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2845,14 +3153,21 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFC0CB", name: "Pink" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2903,14 +3218,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -2960,14 +3282,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3021,14 +3350,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3089,14 +3425,21 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3168,14 +3511,21 @@ export const mockProductData = {
                   name: "Green",
                 },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3239,14 +3589,21 @@ export const mockProductData = {
                   name: "Black",
                 },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3303,14 +3660,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3357,14 +3721,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3411,14 +3782,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3475,14 +3853,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3532,14 +3917,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#8B4513", name: "Brown" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3595,14 +3987,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#708090", name: "Slate Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3647,14 +4046,21 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#708090", name: "Slate Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3712,14 +4118,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#708090", name: "Slate Gray" },
               ],
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Leather",
-              style: "Fitted",
             },
           ],
         },
@@ -3773,14 +4185,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#708090", name: "Slate Gray" },
               ],
-              items: [
-                "Moisture-wicking",
-                "Breathable",
-                "Lightweight",
-                "Quick-dry",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Performance",
             },
             {
               name: "Men's Gym Pants",
@@ -3796,9 +4214,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -3854,9 +4283,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Quick-dry", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Compression Shirt",
@@ -3872,14 +4312,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: [
-                "Supportive",
-                "Moisture-wicking",
-                "Lightweight",
-                "Ergonomic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Athletic",
             },
           ],
         },
@@ -3935,9 +4381,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Quick-dry", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Track Jacket",
@@ -3952,9 +4409,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Comfortable", "Casual"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4021,14 +4489,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Moisture-wicking",
-                "Breathable",
-                "Lightweight",
-                "Quick-dry",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Performance",
             },
             {
               name: "Men's Base Layer Shirt",
@@ -4047,14 +4521,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Moisture-wicking",
-                "Breathable",
-                "Lightweight",
-                "Comfortable",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Athletic",
             },
           ],
         },
@@ -4102,9 +4582,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Sweat-Wicking Jacket",
@@ -4124,14 +4615,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Sweat-wicking",
-                "Breathable",
-                "Lightweight",
-                "Comfortable",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Performance",
             },
           ],
         },
@@ -4181,9 +4678,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Athletic Shorts",
@@ -4202,9 +4710,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Breathable", "Flexible", "Lightweight", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4254,14 +4773,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Moisture-wicking",
-                "Breathable",
-                "Lightweight",
-                "Quick-dry",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Performance",
             },
             {
               name: "Men's Gym Pants",
@@ -4280,9 +4805,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Flexible", "Durable", "Lightweight", "Quick-dry"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4334,14 +4870,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Moisture-wicking",
-                "Breathable",
-                "Lightweight",
-                "Comfortable",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Athletic",
             },
             {
               name: "Men's Track Jacket",
@@ -4359,9 +4901,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Lightweight", "Breathable", "Comfortable", "Casual"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4410,14 +4963,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Supportive",
-                "Moisture-wicking",
-                "Lightweight",
-                "Ergonomic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Athletic",
             },
             {
               name: "Men's Sweat-Wicking Jacket",
@@ -4437,14 +4996,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: [
-                "Sweat-wicking",
-                "Breathable",
-                "Lightweight",
-                "Comfortable",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
               ],
-              material: "Polyester",
-              style: "Performance",
             },
           ],
         },
@@ -4495,9 +5060,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Lightweight", "Breathable", "Quick-dry", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Sports Leggings",
@@ -4512,9 +5088,20 @@ export const mockProductData = {
                 { bgColor: "#008080", name: "Teal" },
                 { bgColor: "#008000", name: "Green" },
               ],
-              items: ["Flexible", "Breathable", "Lightweight", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4565,9 +5152,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Breathable", "Soft", "Comfortable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Silk Robes",
@@ -4582,9 +5180,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Luxurious", "Comfortable", "Elegant"],
-              material: "Silk",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4648,9 +5257,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Luxurious", "Smooth", "Elegant"],
-              material: "Silk",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Silk Robes",
@@ -4665,9 +5285,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Luxurious", "Comfortable", "Elegant"],
-              material: "Silk",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4724,9 +5355,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
-              items: ["Luxurious", "Smooth", "Elegant"],
-              material: "Silk",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Cotton Pajamas",
@@ -4738,9 +5380,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FFD700", name: "Gold" },
               ],
-              items: ["Breathable", "Soft", "Comfortable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4797,9 +5450,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Snug fit", "Comfortable", "Breathable"],
-              material: "Cotton",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Boxer Briefs",
@@ -4818,9 +5482,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Soft", "Secure fit"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4876,9 +5551,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Breathable", "Soft", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Boxer Briefs",
@@ -4897,9 +5583,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Snug", "Secure"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -4953,9 +5650,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Breathable", "Performance"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Boxer Briefs",
@@ -4974,9 +5682,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Secure", "Snug", "Comfortable"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5033,9 +5752,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Snug", "Comfortable", "Breathable"],
-              material: "Cotton",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Cotton Boxers",
@@ -5054,9 +5784,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Soft", "Casual", "Breathable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5110,9 +5851,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Soft", "Secure"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Classic Briefs",
@@ -5131,9 +5883,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Comfortable", "Breathable", "Classic"],
-              material: "Cotton",
-              style: "Traditional",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5188,9 +5951,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Breathable", "Performance"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Cotton Boxers",
@@ -5209,9 +5983,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Soft", "Casual", "Breathable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5265,9 +6050,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Secure", "Soft", "Comfortable"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Thermal Briefs",
@@ -5286,9 +6082,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Warm", "Cozy", "Comfortable"],
-              material: "Cotton",
-              style: "Performance",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5341,9 +6148,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Breathable", "Soft", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Slim Fit Boxers",
@@ -5362,9 +6180,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Snug", "Comfortable", "Modern"],
-              material: "Cotton",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5420,9 +6249,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Breathable", "Performance"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Luxury Briefs",
@@ -5441,9 +6281,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Premium", "Soft", "Luxurious"],
-              material: "Cotton",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5498,9 +6349,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Warm", "Cozy", "Comfortable"],
-              material: "Cotton",
-              style: "Performance",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Boxer Briefs",
@@ -5519,9 +6381,20 @@ export const mockProductData = {
                 },
                 { bgColor: "#800000", name: "Maroon" },
               ],
-              items: ["Supportive", "Soft", "Secure"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5572,9 +6445,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Casual", "Timeless", "Modern fit"],
-              material: "Denim",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Bomber Jacket",
@@ -5587,9 +6471,20 @@ export const mockProductData = {
                 { bgColor: "#800000", name: "Maroon" },
                 { bgColor: "#000080", name: "Navy" },
               ],
-              items: ["Trendy", "Casual", "Ribbed cuffs"],
-              material: "Polyester with leather accents",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5637,9 +6532,20 @@ export const mockProductData = {
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Lightweight", "Sporty"],
-              material: "Nylon/Polyester",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Leather Jacket",
@@ -5652,9 +6558,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Rugged", "Stylish"],
-              material: "Leather",
-              style: "Rugged",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5707,9 +6624,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Insulated", "Adjustable hood"],
-              material: "Polyester",
-              style: "Durable",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Denim Jacket",
@@ -5726,9 +6654,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Timeless", "Modern fit"],
-              material: "Denim",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5780,9 +6719,20 @@ export const mockProductData = {
                 { bgColor: "#800000", name: "Maroon" },
                 { bgColor: "#000080", name: "Navy" },
               ],
-              items: ["Trendy", "Casual"],
-              material: "Polyester with leather accents",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Leather Jacket",
@@ -5795,9 +6745,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Rugged", "Stylish"],
-              material: "Leather",
-              style: "Rugged",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5851,9 +6812,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Timeless", "Modern fit"],
-              material: "Denim",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Windbreaker",
@@ -5867,9 +6839,20 @@ export const mockProductData = {
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Lightweight", "Sporty"],
-              material: "Nylon/Polyester",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5919,9 +6902,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: ["Casual", "Quick-dry", "Comfortable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Swim Briefs",
@@ -5934,9 +6928,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Streamlined", "Snug", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -5986,9 +6991,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Comfortable", "Breathable", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Swim Briefs",
@@ -6001,9 +7017,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Streamlined", "Snug", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6052,9 +7079,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Comfortable", "Casual", "Breathable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Board Shorts",
@@ -6067,9 +7105,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: ["Lightweight", "Quick-dry", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6121,9 +7170,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Streamlined", "Flexible", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Swim Trunks",
@@ -6136,9 +7196,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Casual", "Breathable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6185,9 +7256,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Streamlined", "Snug", "Sporty"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6236,9 +7318,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#0000FF", name: "Blue" },
               ],
-              items: ["Protective", "Lightweight"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Swim Trunks",
@@ -6251,9 +7344,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Casual", "Breathable"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6307,9 +7411,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Timeless", "Comfortable", "Versatile"],
-              material: "Denim",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Chinos",
@@ -6327,9 +7442,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6378,9 +7504,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim-fit", "Stylish"],
-              material: "Denim",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Cargo Pants",
@@ -6393,9 +7530,20 @@ export const mockProductData = {
                 { bgColor: "#C3B091", name: "Khaki" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Functional", "Durable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6446,9 +7594,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#00008B", name: "Dark Blue" },
               ],
-              items: ["Casual", "Comfortable", "Flexible"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Khaki Pants",
@@ -6466,9 +7625,20 @@ export const mockProductData = {
                 { bgColor: "#808000", name: "Olive" },
                 { bgColor: "#000000", name: "Black" },
               ],
-              items: ["Timeless", "Versatile", "Comfortable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6519,9 +7689,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Tailored", "Formal", "Modern"],
-              material: "Wool blend",
-              style: "Formal",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Skinny Jeans",
@@ -6534,9 +7715,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim-fit", "Stylish"],
-              material: "Denim",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6588,9 +7780,20 @@ export const mockProductData = {
                 { bgColor: "#C3B091", name: "Khaki" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Functional", "Durable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Athletic Pants",
@@ -6604,9 +7807,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
-              items: ["Athletic", "Flexible", "Lightweight"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6661,9 +7875,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Slim Fit Jeans",
@@ -6676,9 +7901,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim-fit", "Stylish"],
-              material: "Denim",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6728,9 +7964,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#00008B", name: "Dark Blue" },
               ],
-              items: ["Casual", "Comfortable", "Flexible"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Sports Leggings",
@@ -6744,9 +7991,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Flexible", "Breathable", "Athletic"],
-              material: "Polyester",
-              style: "Athletic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6800,9 +8058,20 @@ export const mockProductData = {
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#808000", name: "Olive" },
               ],
-              items: ["Versatile", "Durable", "Comfortable"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Chinos",
@@ -6819,9 +8088,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6873,9 +8153,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Tailored", "Formal", "Modern"],
-              material: "Wool blend",
-              style: "Formal",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Linen Pants",
@@ -6892,9 +8183,20 @@ export const mockProductData = {
                 { bgColor: "#000080", name: "Navy" },
                 { bgColor: "#000000", name: "Black" },
               ],
-              items: ["Lightweight", "Breathable", "Casual"],
-              material: "Linen",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -6948,9 +8250,20 @@ export const mockProductData = {
                 { bgColor: "#C3B091", name: "Khaki" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Functional", "Durable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Chinos",
@@ -6967,9 +8280,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Lightweight", "Breathable", "Casual"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7022,9 +8346,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
               ],
-              items: ["Breathable", "Classic", "Versatile"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's V-Neck Shirt",
@@ -7036,9 +8371,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Modern", "Slim fit", "Trendy"],
-              material: "Cotton",
-              style: "Trendy",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7087,9 +8433,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Casual", "Versatile"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Button-Down Shirt",
@@ -7102,9 +8459,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#87CEEB", name: "Sky Blue" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7154,9 +8522,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Casual", "Everyday"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Henley Shirt",
@@ -7169,9 +8548,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF4500", name: "Orange" },
               ],
-              items: ["Relaxed", "Trendy"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7222,9 +8612,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#000080", name: "Navy" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's V-Neck Shirt",
@@ -7235,9 +8636,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim fit"],
-              material: "Cotton",
-              style: "Trendy",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7285,9 +8697,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Casual", "Versatile"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's V-Neck Shirt",
@@ -7298,9 +8721,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim fit"],
-              material: "Cotton",
-              style: "Trendy",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7350,9 +8784,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Relaxed", "Trendy"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Button-Down Shirt",
@@ -7364,9 +8809,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7416,9 +8872,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Casual", "Everyday"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's V-Neck Shirt",
@@ -7429,9 +8896,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Modern", "Slim fit"],
-              material: "Cotton",
-              style: "Trendy",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7481,9 +8959,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#87CEEB", name: "Sky Blue" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Henley Shirt",
@@ -7495,9 +8984,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Relaxed", "Trendy"],
-              material: "Cotton",
-              style: "Casual",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7557,9 +9057,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
               ],
-              items: ["Refined", "Polished", "Versatile"],
-              material: "Gold",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Leather Bracelet",
@@ -7572,9 +9083,20 @@ export const mockProductData = {
                 { bgColor: "#D2B48C", name: "Tan" },
                 { bgColor: "#696969", name: "Gray" },
               ],
-              items: ["Rugged", "Handcrafted", "Adjustable"],
-              material: "Leather",
-              style: "Rugged",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7632,9 +9154,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Elegant", "Timeless"],
-              material: "Sterling Silver",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Gold Chain",
@@ -7786,9 +9319,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Elegant", "Timeless"],
-              material: "Sterling Silver",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7853,9 +9397,20 @@ export const mockProductData = {
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Sleek", "Modern"],
-              material: "Stainless Steel",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7910,9 +9465,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Luxury", "Intricate"],
-              material: "Gold",
-              style: "Luxury",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Leather Bracelet",
@@ -7925,9 +9491,20 @@ export const mockProductData = {
                 { bgColor: "#D2B48C", name: "Tan" },
                 { bgColor: "#696969", name: "Gray" },
               ],
-              items: ["Rugged", "Handcrafted"],
-              material: "Leather",
-              style: "Rugged",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -7991,9 +9568,20 @@ export const mockProductData = {
                 { bgColor: "#000000", name: "Black" },
                 { bgColor: "#C0C0C0", name: "Silver" },
               ],
-              items: ["Refined", "Polished"],
-              material: "Gold",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Chain Bracelet",
@@ -8007,9 +9595,20 @@ export const mockProductData = {
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Sleek", "Modern"],
-              material: "Stainless Steel",
-              style: "Elegant",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8079,9 +9678,20 @@ export const mockProductData = {
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Iconic", "Versatile", "Trendy"],
-              material: "Acetate",
-              style: "Timeless",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8129,9 +9739,20 @@ export const mockProductData = {
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#0000FF", name: "Blue" },
               ],
-              items: ["Retro-inspired", "Lightweight"],
-              material: "Acetate/Metal",
-              style: "Retro",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Polarized Sunglasses",
@@ -8146,9 +9767,20 @@ export const mockProductData = {
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
               ],
-              items: ["Functional", "Stylish"],
-              material: "Polycarbonate/Metal",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8198,9 +9830,20 @@ export const mockProductData = {
                 { bgColor: "#FFD700", name: "Gold" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Acetate",
-              style: "Timeless",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Sport Sunglasses",
@@ -8213,9 +9856,20 @@ export const mockProductData = {
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Sporty", "Dynamic"],
-              material: "Polycarbonate",
-              style: "Sporty",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8267,9 +9921,20 @@ export const mockProductData = {
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#8B4513", name: "Tortoise" },
               ],
-              items: ["Iconic", "Lightweight"],
-              material: "Metal/Acetate",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Round Sunglasses",
@@ -8282,9 +9947,20 @@ export const mockProductData = {
                 { bgColor: "#C0C0C0", name: "Silver" },
                 { bgColor: "#0000FF", name: "Blue" },
               ],
-              items: ["Retro-inspired", "Durable"],
-              material: "Acetate/Metal",
-              style: "Retro",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8351,9 +10027,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
                 { bgColor: "#FF0000", name: "Red" },
               ],
-              items: ["Bold", "Modern"],
-              material: "Plastic/Metal",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8403,9 +10090,20 @@ export const mockProductData = {
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
               ],
-              items: ["Functional", "Stylish"],
-              material: "Polycarbonate/Metal",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Tactical Sunglasses",
@@ -8419,9 +10117,20 @@ export const mockProductData = {
                 { bgColor: "#556B2F", name: "Olive" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Rugged", "Tactical"],
-              material: "Polycarbonate/Nylon",
-              style: "Tactical",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8472,9 +10181,20 @@ export const mockProductData = {
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
               ],
-              items: ["Functional", "Stylish"],
-              material: "Polycarbonate/Metal",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Sport Sunglasses",
@@ -8487,9 +10207,20 @@ export const mockProductData = {
                 { bgColor: "#FF0000", name: "Red" },
                 { bgColor: "#808080", name: "Gray" },
               ],
-              items: ["Sporty", "Dynamic"],
-              material: "Polycarbonate",
-              style: "Sporty",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -8627,9 +10358,20 @@ export const mockProductData = {
                 { bgColor: "#0000FF", name: "Blue" },
                 { bgColor: "#008000", name: "Green" },
               ],
-              items: ["Functional", "Stylish"],
-              material: "Polycarbonate/Metal",
-              style: "Modern",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
           ],
         },
@@ -10328,9 +12070,20 @@ export const mockProductData = {
                 { bgColor: "#808080", name: "Gray" },
                 { bgColor: "#FFFFFF", name: "White" },
               ],
-              items: ["Classic", "Versatile"],
-              material: "Cotton",
-              style: "Classic",
+              details: [
+                {
+                  name: "Shopping",
+                  size: "9",
+                  material: "leather",
+                  fit: "fitted",
+                  items: [
+                    "Retro Inspired Sneakers",
+                    "Mesh Breathable Sneakers",
+                    "High Performance Sneakers",
+                    "Color Block Sneakers",
+                  ],
+                },
+              ],
             },
             {
               name: "Men's Knitted Scarf",
@@ -12914,7 +14667,6 @@ export const mockProductData = {
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -12927,11 +14679,20 @@ export const mockProductData = {
                 { bgColor: "#2F4F4F", name: "Dark Slate Gray" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -17948,25 +19709,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -17983,11 +19728,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18009,25 +19763,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18044,11 +19782,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18070,25 +19817,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18105,11 +19836,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18131,25 +19871,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18166,11 +19890,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18192,25 +19925,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18227,11 +19944,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18253,25 +19979,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18288,11 +19998,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18314,25 +20033,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18349,11 +20052,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18375,25 +20087,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18410,11 +20106,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18436,25 +20141,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18471,11 +20160,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18500,25 +20198,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18535,11 +20217,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18558,25 +20249,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18593,11 +20268,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18620,25 +20304,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18655,11 +20323,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18681,25 +20358,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18716,11 +20377,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18742,25 +20412,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18777,11 +20431,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18802,25 +20465,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18837,11 +20484,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18862,25 +20518,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18897,11 +20537,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18920,25 +20569,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -18955,11 +20588,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -18980,25 +20622,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19015,11 +20641,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19040,25 +20675,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19075,11 +20694,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19101,25 +20729,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19136,11 +20748,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19161,25 +20782,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19196,11 +20801,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19221,25 +20835,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19256,11 +20854,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19281,25 +20888,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19316,11 +20907,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19341,25 +20941,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19376,11 +20960,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19403,25 +20996,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19438,11 +21015,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19463,25 +21049,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19498,11 +21068,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19523,25 +21102,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19558,11 +21121,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19583,25 +21155,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19618,11 +21174,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19643,25 +21208,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19678,11 +21227,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19703,25 +21261,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19738,11 +21280,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19763,25 +21314,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19798,11 +21333,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19823,25 +21367,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19858,11 +21386,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19884,25 +21421,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19919,11 +21440,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -19944,25 +21474,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -19979,11 +21493,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20006,25 +21529,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20041,11 +21548,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20066,25 +21582,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20101,11 +21601,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20126,25 +21635,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20161,11 +21654,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20186,25 +21688,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20221,11 +21707,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20246,25 +21741,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20281,11 +21760,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20306,25 +21794,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20341,11 +21813,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20366,25 +21847,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20401,11 +21866,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20427,25 +21901,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20462,11 +21920,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20487,25 +21954,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20522,11 +21973,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20547,25 +22007,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20582,11 +22026,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20607,25 +22060,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20642,11 +22079,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20669,25 +22115,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20704,11 +22134,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20729,25 +22168,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20764,11 +22187,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20789,25 +22221,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20824,11 +22240,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20850,25 +22275,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20885,11 +22294,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20910,25 +22328,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -20945,11 +22347,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -20971,25 +22382,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21006,11 +22401,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21031,25 +22435,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21066,11 +22454,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21092,25 +22489,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21127,11 +22508,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21152,25 +22542,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21187,11 +22561,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21212,25 +22595,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21247,11 +22614,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21274,25 +22650,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21309,11 +22669,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21334,25 +22703,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21369,11 +22722,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21394,25 +22756,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21429,11 +22775,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21455,25 +22810,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21490,11 +22829,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21515,25 +22863,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21550,11 +22882,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21575,25 +22916,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21610,11 +22935,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21635,25 +22969,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21670,11 +22988,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21697,25 +23024,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21732,11 +23043,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21757,25 +23077,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21792,11 +23096,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21817,25 +23130,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21852,11 +23149,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21877,25 +23183,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21912,11 +23202,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21937,25 +23236,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -21972,11 +23255,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -21998,25 +23290,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22033,11 +23309,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22058,25 +23343,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22093,11 +23362,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22120,25 +23398,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22155,11 +23417,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22180,25 +23451,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22215,11 +23470,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22240,25 +23504,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22275,11 +23523,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22300,25 +23557,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22335,11 +23576,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22360,25 +23610,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22395,11 +23629,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22420,25 +23663,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22455,11 +23682,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22481,25 +23717,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22516,11 +23736,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22543,25 +23772,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22578,11 +23791,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22603,25 +23825,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22638,11 +23844,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22663,25 +23878,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22698,11 +23897,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22723,25 +23931,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22758,11 +23950,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22783,25 +23984,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22818,11 +24003,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22843,25 +24037,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22878,11 +24056,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22903,25 +24090,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -22938,11 +24109,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -22970,25 +24150,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23005,11 +24169,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23031,25 +24204,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23066,11 +24223,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23092,25 +24258,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23127,11 +24277,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23153,25 +24312,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23188,11 +24331,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23214,25 +24366,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23249,11 +24385,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23275,25 +24420,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23310,11 +24439,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23336,25 +24474,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23371,11 +24493,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23397,25 +24528,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23432,11 +24547,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23458,25 +24582,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23493,11 +24601,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23519,25 +24636,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23554,11 +24655,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23580,25 +24690,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23615,11 +24709,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23641,25 +24744,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23676,11 +24763,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23702,25 +24798,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23737,11 +24817,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23763,25 +24852,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23798,11 +24871,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23824,25 +24906,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23859,11 +24925,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23885,25 +24960,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23920,11 +24979,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -23947,25 +25015,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -23982,11 +25034,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24008,25 +25069,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24043,11 +25088,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24069,25 +25123,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24104,11 +25142,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24130,25 +25177,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24165,11 +25196,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24191,25 +25231,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24226,11 +25250,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24254,25 +25287,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24289,11 +25306,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24315,25 +25341,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24350,11 +25360,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24376,25 +25395,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24411,11 +25414,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24437,25 +25449,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24472,11 +25468,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24498,25 +25503,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24533,11 +25522,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24559,25 +25557,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24594,11 +25576,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24620,25 +25611,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24655,11 +25630,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24680,25 +25664,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24715,11 +25683,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24741,25 +25718,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24776,11 +25737,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24801,25 +25771,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24836,11 +25790,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24864,25 +25827,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24899,11 +25846,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24925,25 +25881,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -24960,11 +25900,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -24986,25 +25935,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25021,11 +25954,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25047,25 +25989,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25082,11 +26008,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25108,25 +26043,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25143,11 +26062,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25169,25 +26097,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25204,11 +26116,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25230,25 +26151,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25265,11 +26170,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25291,25 +26205,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25326,11 +26224,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25352,25 +26259,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25387,11 +26278,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25412,25 +26312,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25447,11 +26331,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25477,25 +26370,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25512,11 +26389,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25538,25 +26424,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25573,11 +26443,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25599,25 +26478,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25634,11 +26497,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25660,25 +26532,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25695,11 +26551,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25720,25 +26585,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25755,11 +26604,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25781,25 +26639,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25816,11 +26658,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25842,25 +26693,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25877,11 +26712,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25904,25 +26748,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25939,11 +26767,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -25964,25 +26801,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -25999,11 +26820,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26024,25 +26854,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26059,11 +26873,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26085,25 +26908,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26120,11 +26927,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26145,25 +26961,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26180,11 +26980,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26206,25 +27015,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26241,11 +27034,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26266,25 +27068,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26301,11 +27087,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26329,25 +27124,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26364,11 +27143,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26389,25 +27177,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26424,11 +27196,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26449,25 +27230,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26484,11 +27249,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26509,25 +27283,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26544,11 +27302,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26569,25 +27336,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26604,11 +27355,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26629,25 +27389,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26664,11 +27408,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26689,25 +27442,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26724,11 +27461,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26751,25 +27497,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26786,11 +27516,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26811,25 +27550,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26846,11 +27569,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26871,25 +27603,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26906,11 +27622,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26932,25 +27657,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -26967,11 +27676,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -26994,25 +27712,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27029,11 +27731,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27054,25 +27765,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27089,11 +27784,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27115,25 +27819,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27150,11 +27838,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27177,25 +27874,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27212,11 +27893,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27237,25 +27927,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27272,11 +27946,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27297,25 +27980,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27332,11 +27999,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27357,25 +28033,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27392,11 +28052,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27419,25 +28088,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27454,11 +28107,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27479,25 +28141,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27514,11 +28160,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27539,25 +28194,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27574,11 +28213,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27599,25 +28247,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27634,11 +28266,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27661,25 +28302,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27696,11 +28321,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27721,25 +28355,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27756,11 +28374,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27781,25 +28408,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27816,11 +28427,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27841,25 +28461,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27876,11 +28480,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27905,25 +28518,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -27940,11 +28537,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -27965,25 +28571,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28000,11 +28590,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28025,25 +28624,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28060,11 +28643,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28085,25 +28677,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28120,11 +28696,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28145,25 +28730,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28180,11 +28749,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28207,25 +28785,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28242,11 +28804,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28267,25 +28838,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28302,11 +28857,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28329,25 +28893,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28364,11 +28912,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28389,25 +28946,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28424,11 +28965,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28449,25 +28999,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28484,11 +29018,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28509,25 +29052,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28544,11 +29071,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28571,25 +29107,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28606,11 +29126,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28631,25 +29160,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28666,11 +29179,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28693,25 +29215,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28728,11 +29234,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28753,25 +29268,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28788,11 +29287,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28813,25 +29321,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28848,11 +29340,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28875,25 +29376,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28910,11 +29395,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28935,25 +29429,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -28970,11 +29448,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -28996,25 +29483,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29031,11 +29502,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29056,25 +29536,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29091,11 +29555,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29118,25 +29591,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29153,11 +29610,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29178,25 +29644,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29213,11 +29663,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29238,25 +29697,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29273,11 +29716,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29298,25 +29750,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29333,11 +29769,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29360,25 +29805,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29395,11 +29824,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29421,25 +29859,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29456,11 +29878,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29481,25 +29912,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29516,11 +29931,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29541,25 +29965,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29576,11 +29984,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29601,25 +30018,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29636,11 +30037,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29662,25 +30072,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29697,11 +30091,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29723,25 +30126,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29758,11 +30145,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29784,25 +30180,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29819,11 +30199,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29844,25 +30233,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29879,11 +30252,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29905,25 +30287,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -29940,11 +30306,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -29966,25 +30341,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30001,11 +30360,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30026,25 +30394,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30061,11 +30413,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30087,25 +30448,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30122,11 +30467,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30147,25 +30501,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30182,11 +30520,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30207,25 +30554,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30242,11 +30573,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30267,25 +30607,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30302,11 +30626,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30327,25 +30660,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30362,11 +30679,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30387,25 +30713,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30422,11 +30732,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30447,25 +30766,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30482,11 +30785,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30507,25 +30819,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30542,11 +30838,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30567,25 +30872,9 @@ export const mockProductData = {
             "/images/Shopping/Men/Brogue Shoes.jpg",
             "/images/Shopping/Men/Derby Shoes.jpg",
           ],
-          details: [
-            {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
-              items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
-              ],
-            },
-          ],
           relatedProducts: [
             {
               name: "Men's Shoes",
-
               size: "9",
               price: "$36",
               material: "leather",
@@ -30602,11 +30891,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30629,16 +30927,16 @@ export const mockProductData = {
           ],
           details: [
             {
-              name: "Shopping",
-
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Genuine Leather"],
+                  construction: ["Slim design", "RFID blocking"],
+                  sole: "N/A",
+                  insole: "N/A",
+                  style: "Minimalist and modern",
+                  care: ["Wipe with soft cloth"],
+                },
               ],
             },
           ],
@@ -30663,11 +30961,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30690,15 +30997,16 @@ export const mockProductData = {
           ],
           details: [
             {
-              name: "Shopping",
-              size: "9",
-              material: "leather",
-              fit: "fitted",
+              name: "Product Features",
               items: [
-                "Retro Inspired Sneakers",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+                {
+                  material: ["Genuine Leather"],
+                  construction: ["Slim design", "RFID blocking"],
+                  sole: "N/A",
+                  insole: "N/A",
+                  style: "Minimalist and modern",
+                  care: ["Wipe with soft cloth"],
+                },
               ],
             },
           ],
@@ -30721,11 +31029,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
@@ -30780,11 +31097,20 @@ export const mockProductData = {
                 { bgColor: "#FFFFFF", name: "White" },
               ],
               imageAlt: "Mens shoes",
-              items: [
-                "Brogue Shoes",
-                "Mesh Breathable Sneakers",
-                "High Performance Sneakers",
-                "Color Block Sneakers",
+              details: [
+                {
+                  name: "Product Features",
+                  items: [
+                    {
+                      material: ["Genuine Leather"],
+                      construction: ["Slim design", "RFID blocking"],
+                      sole: "N/A",
+                      insole: "N/A",
+                      style: "Minimalist and modern",
+                      care: ["Wipe with soft cloth"],
+                    },
+                  ],
+                },
               ],
             },
           ],
