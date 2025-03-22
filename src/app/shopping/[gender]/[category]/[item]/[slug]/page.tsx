@@ -124,14 +124,22 @@ const ProductPage = (): JSX.Element => {
             selectedColor={selectedColor}
           />
           <div>
-            <ProductInfo
-              titleSize="text-4xl"
+            <ProductInfo titleSize="text-4xl" product={product} />
+
+            <div>
+              <components.ProductColors
+                product={product}
+                selectedColor={selectedColor}
+                relatedProduct={false}
+                setSelectedColor={setSelectedColor}
+              />
+            </div>
+
+            <CartAndFavoritesButtons
               product={product}
-              setSelectedColor={(e) => {
-                setSelectedColor(e);
-                console.log(selectedColor);
-              }}
+              page={false}
               selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
             />
             <components.ProductDetails details={product.details} />
           </div>
