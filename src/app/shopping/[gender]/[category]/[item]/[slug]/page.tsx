@@ -1,10 +1,12 @@
 "use client";
 
+import CartAndFavoritesButtons from "@/components/CartAndFavoriteButtons";
 import ProductDetails from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
 import { mockProductData } from "@/lib/mockProductData";
+import { Color } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
@@ -52,6 +54,10 @@ const ProductPage = (): JSX.Element => {
 
   const [product, setProduct] = useState<any | null>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
+  const [selectedColor, setSelectedColor] = useState<Color>({
+    bgColor: "#000000",
+    name: "Black",
+  });
 
   useEffect(() => {
     /**
@@ -75,7 +81,6 @@ const ProductPage = (): JSX.Element => {
      *   indicate that the loading process has completed.
      */
     const fetchProduct = async () => {
-      console.log(gender, category, item, slug);
       try {
         // Flatten the mock data to make it easier to work with
         const categoryData = (mockProductData as any)[gender as string]?.[
@@ -86,7 +91,6 @@ const ProductPage = (): JSX.Element => {
         if (categoryData) {
           setProduct(categoryData); // Set the products state to the array
           setRelatedProducts(categoryData.relatedProducts); // Set the related products state to the array
-          console.log(categoryData);
         } else {
           console.error("Product data not found");
         }
@@ -111,17 +115,19 @@ const ProductPage = (): JSX.Element => {
   }
 
   return (
-    <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
+    <main className="mx-auto sm:px-6 pt-16 lg:px-8 w-11/12 md:w-full">
       <div className="mx-auto max-w-2xl lg:max-w-none">
         {/* Product Section */}
-        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
           <ProductGallery images={product.images} />
           <div>
             <ProductInfo
+              titleSize="text-4xl"
               product={product}
-              selectedColor={product.colors} // Example, you can handle dynamic color selection here
-              setSelectedColor={() => {}}
+              setSelectedColor={setSelectedColor}
+              selectedColor={selectedColor}
             />
+            <CartAndFavoritesButtons product={product} page={false} />
             <ProductDetails details={product.details} />
           </div>
         </div>
