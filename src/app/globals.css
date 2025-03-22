@@ -249,6 +249,10 @@
   background-color: var(--bg-color);
 }
 
+.text-dynamic {
+  color: var(--text-color);
+}
+
 /* 
 .bg-\[\$\{color\.bgColor\}\] {
   background-color: ${color.bgColor};
