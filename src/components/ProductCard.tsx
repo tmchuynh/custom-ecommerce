@@ -44,6 +44,7 @@ const ProductCard = ({
 }: {
   product: ProductType;
   index: number;
+  page?: boolean;
   showColors?: boolean;
   showButtons?: boolean;
 }): JSX.Element => {
@@ -65,6 +66,7 @@ const ProductCard = ({
     >
       <CardContent className={cn("p-0 relative", { "md:h-[40em]": page })}>
         <ProductGallery
+          page={page}
           images={product.images}
           panelsVisibility={false}
           selectedColor={selectedColor}
