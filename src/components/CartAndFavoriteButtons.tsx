@@ -1,13 +1,12 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
-import { Button } from "./ui/button";
 import { ProductType } from "@/lib/types";
-import QuantityButtons from "./Quantity";
 import { cn } from "@/lib/utils";
 import { IoHeartCircle } from "react-icons/io5";
-import { useTheme } from "next-themes";
+import { toast } from "sonner";
+import QuantityButtons from "./Quantity";
+import { Button } from "./ui/button";
 
 export default function CartAndFavoritesButtons({
   product,
@@ -16,9 +15,8 @@ export default function CartAndFavoritesButtons({
   product: ProductType;
   page?: boolean;
 }) {
-  const { addToCart, cartItems, itemExistsInCart, getCartItem } = useCart();
+  const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);
-  const { theme } = useTheme();
 
   /**
    * Handles adding a product to the cart.
@@ -41,8 +39,8 @@ export default function CartAndFavoritesButtons({
 
   return (
     <div
-      className={cn("mt-5 flex items-center", {
-        "mt-0 flex-col-reverse items-start": page,
+      className={cn("mt-5 flex items-center pt-4", {
+        "mt-0 flex-col-reverse items-start pt-9 w-11/12 mx-auto": page,
       })}
     >
       <div className="flex gap-5">
