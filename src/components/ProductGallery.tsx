@@ -5,12 +5,15 @@ import { Skeleton } from "./ui/skeleton";
 import { generateRandomNumberArray } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { Color } from "@/lib/types";
 
 const ProductGallery = ({
   images,
+  selectedColor,
   panelsVisibility = true,
 }: {
   images: string[];
+  selectedColor: Color;
   panelsVisibility?: boolean;
 }): JSX.Element => {
   // For demo purposes, we generate an array of numbers (you can replace this with your actual image array)
