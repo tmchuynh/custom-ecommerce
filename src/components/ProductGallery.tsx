@@ -61,7 +61,7 @@ const ProductGallery = ({
           {randomArray.map((_, index) => (
             <Tab
               key={index}
-              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-muted/40 text-sm font-medium text-foreground/50 uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
+              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
                 visibleIndices().includes(index) ? "" : "hidden"
               }`}
             >
