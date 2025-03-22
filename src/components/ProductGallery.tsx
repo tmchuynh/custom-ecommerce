@@ -64,6 +64,11 @@ const ProductGallery = ({
               className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
                 visibleIndices().includes(index) ? "" : "hidden"
               }`}
+              style={
+                {
+                  "--bg-color": selectedColor.bgColor,
+                } as React.CSSProperties
+              }
             >
               <span className="absolute inset-0 overflow-hidden rounded-md">
                 {/* Pass the index as text to the Skeleton */}
