@@ -2,6 +2,8 @@
 "use client";
 
 import { CartContextType, CartItem } from "@/lib/interfaces";
+import { mockProductData } from "@/lib/mockProductData";
+import { ProductType } from "@/lib/types";
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -95,6 +97,48 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
+   * Retrieves a cart item based on its name.
+   *
+   * @param name - The name of the item to retrieve.
+   * @returns {CartItem | undefined} The cart item if found, otherwise undefined.
+   */
+  const getCartItem = (name: string): CartItem | undefined => {
+    return cartItems.find((item) => item.name === name);
+  };
+
+  /**
+   * Retrieves a product from the mockProductData based on its name and returns its gender, category, subcategory, and name.
+   *
+   * @param name - The name of the product to retrieve.
+   * @returns {object | undefined} An object containing the gender, category, subcategory, and name of the product if found, otherwise undefined.
+   */
+  const getProductByName = (
+    name: string
+  ):
+    | { gender: string; category: string; subcategory: string; name: string }
+    | undefined => {
+    for (const [gender, categoryData] of Object.entries(mockProductData)) {
+      for (const [category, subCategoryData] of Object.entries(categoryData)) {
+        for (const [subcategory, products] of Object.entries(subCategoryData)) {
+          for (const product of Object.values(
+            products as Record<string, ProductType>
+          )) {
+            if ((product as ProductType).name === name) {
+              return {
+                gender,
+                category,
+                subcategory,
+                name: (product as ProductType).name,
+              };
+            }
+          }
+        }
+      }
+    }
+    return undefined;
+  };
+
+  /**
    * Calculates the total price of all items in the cart.
    *
    * @returns {number} The total price of the items in the cart.
@@ -132,7 +176,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         addToCart,
         removeFromCart,
         clearCart,
+        getCartItem,
         updateQuantity,
+        getProductByName,
         getTotalPrice,
         getTotalItems,
         itemExistsInCart,
