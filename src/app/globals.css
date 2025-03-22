@@ -253,7 +253,14 @@
 .bg-\[\$\{color\.bgColor\}\] {
   background-color: ${color.bgColor};
 }
+
+.bg-\[\$\{selectedColor\}\] {
+  background-color: ${selectedColor};
+}
 */
+
+
+
 
 @layer base {
   * {
