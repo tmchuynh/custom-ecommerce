@@ -6,7 +6,13 @@ import { generateRandomNumberArray } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
+const ProductGallery = ({
+  images,
+  panelsVisibility = true,
+}: {
+  images: string[];
+  panelsVisibility?: boolean;
+}): JSX.Element => {
   // For demo purposes, we generate an array of numbers (you can replace this with your actual image array)
   const randomArray = useMemo(() => {
     const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
@@ -50,28 +56,30 @@ const ProductGallery = ({ images }: { images: any[] }): JSX.Element => {
       className="space-y-8"
     >
       {/* TabList: render all tabs but hide those not in our visible window */}
-      <TabList className="grid grid-cols-3 gap-6">
-        {randomArray.map((_, index) => (
-          <Tab
-            key={index}
-            className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-muted/40 text-sm font-medium text-foreground/50 uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
-              visibleIndices().includes(index) ? "" : "hidden"
-            }`}
-          >
-            <span className="absolute inset-0 overflow-hidden rounded-md">
-              {/* Pass the index as text to the Skeleton */}
-              <Skeleton
-                text={(index + 1).toString()}
-                className="h-full w-full rounded-xl hidden md:flex"
+      {panelsVisibility && (
+        <TabList className="grid grid-cols-3 gap-6">
+          {randomArray.map((_, index) => (
+            <Tab
+              key={index}
+              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-muted/40 text-sm font-medium text-foreground/50 uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
+                visibleIndices().includes(index) ? "" : "hidden"
+              }`}
+            >
+              <span className="absolute inset-0 overflow-hidden rounded-md">
+                {/* Pass the index as text to the Skeleton */}
+                <Skeleton
+                  text={(index + 1).toString()}
+                  className="h-full w-full rounded-xl hidden md:flex"
+                />
+              </span>
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
               />
-            </span>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
-            />
-          </Tab>
-        ))}
-      </TabList>
+            </Tab>
+          ))}
+        </TabList>
+      )}
 
       {/* TabPanels (all panels remain rendered) */}
       <div className="relative">
