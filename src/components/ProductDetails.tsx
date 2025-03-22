@@ -4,8 +4,15 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
-import { ProductDetailsProps } from "@/lib/types";
-import { capitalize } from "@/lib/utils";
+import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
+import { capitalize, cn } from "@/lib/utils";
+import { Radio, RadioGroup } from "@headlessui/react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 const ProductDetails = ({ details }: ProductDetailsProps) => {
   return (
@@ -72,4 +79,70 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
   );
 };
 
-export default ProductDetails;
+const ProductColors = ({
+  product,
+  selectedColor,
+  relatedProduct,
+  setSelectedColor,
+}: {
+  product: ProductType;
+  relatedProduct?: boolean;
+  setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
+  selectedColor: Color;
+}) => {
+  return (
+    <div className={cn("w-7/8 mx-auto", { "": relatedProduct })}>
+      {product.colors.length > 0 && (
+        <div className={cn("", { "mt-6": relatedProduct })}>
+          <h3
+            className={cn("text-md font-medium mb-4", {
+              hidden: relatedProduct,
+            })}
+          >
+            Color
+          </h3>
+          <fieldset aria-label="Choose a color">
+            <RadioGroup
+              value={selectedColor}
+              onChange={(value: Color) => setSelectedColor(value)}
+              className="flex flex-wrap items-center gap-3"
+            >
+              {product.colors.map((color: Color, index: number) => (
+                <div key={index} className="flex flex-col items-start">
+                  <TooltipProvider key={index}>
+                    <Tooltip>
+                      <TooltipTrigger>
+                        <Radio
+                          key={index}
+                          value={color}
+                          aria-label={color.name}
+                          className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="bg-dynamic size-8 rounded-full border"
+                            style={
+                              {
+                                "--bg-color": color.bgColor,
+                              } as React.CSSProperties
+                            }
+                          />
+                        </Radio>
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{color.name}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </div>
+              ))}
+            </RadioGroup>
+          </fieldset>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const components = { ProductDetails, ProductColors };
+export default components;
