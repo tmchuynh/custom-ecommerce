@@ -162,6 +162,7 @@ export type Color = {
 
 export type ProductType = {
   name: string;
+  description: string;
   price: string;
   colors: Color[];
 };
