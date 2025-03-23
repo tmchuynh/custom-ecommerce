@@ -7,12 +7,41 @@ import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
 /**
- * @description CategorySectionPage is a functional component that fetches and displays products based on the provided gender, category, and item parameters from the URL.
- * It utilizes the `useParams` hook from 'next/navigation' to extract these parameters and then fetches the corresponding product data from a mock data source.
- * The component manages loading state and displays a loading indicator while fetching data. If no products are found, it renders a `ComingSoonMessage` component.
- * Otherwise, it displays the products in a grid layout, allowing users to add products to their cart using the `useCart` hook.
+ * Component representing a category section page for displaying products.
  *
- * @returns {JSX.Element} - A JSX element representing the category page with products or a loading/coming soon message.
+ * This component fetches and displays a list of products based on the selected
+ * gender, category, and item from the URL parameters. It also handles loading
+ * states and displays a "Coming Soon" message if no products are available.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered category section page.
+ *
+ * @remarks
+ * - The component uses `useParams` to extract URL parameters (`gender`, `category`, and `item`).
+ * - It fetches product data from a mock data source (`mockProductData`) and updates the state.
+ * - The component displays a loading indicator while fetching data.
+ * - If no products are found, a `ComingSoonMessage` component is displayed.
+ * - If products are found, they are displayed in a grid layout using `ProductCard` components.
+ *
+ * @example
+ * // Example usage:
+ * <CategorySectionPage />
+ *
+ * @hook
+ * - `useState` is used to manage the state of products, loading, and selected parameters.
+ * - `useEffect` is used to fetch product data when the URL parameters change.
+ * - `useParams` is used to extract URL parameters.
+ * - `useCart` is used to access cart-related functionality.
+ *
+ * @dependencies
+ * - `ComingSoonMessage`: A component to display a "Coming Soon" message.
+ * - `ProductCard`: A component to display individual product details.
+ *
+ * @throws
+ * - Logs an error to the console if there is an issue fetching product data.
+ *
+ * @see {@link useParams} for extracting URL parameters.
+ * @see {@link useCart} for cart-related functionality.
  */
 const CategorySectionPage = (): JSX.Element => {
   const [products, setProducts] = useState<any[]>([]);
@@ -20,10 +49,9 @@ const CategorySectionPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const [selectedGender, setSelectedGender] = useState<string>("");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [selectedItem, setSelectedItem] = useState<string>("");
+  const [selectedItem, setSelectedItem] = useState<string[]>([]);
   const section = item as string;
   const overhead = gender as string;
-  const { addToCart, cartItems } = useCart();
 
   useEffect(() => {
     if (gender && category && item) {
@@ -58,23 +86,12 @@ const CategorySectionPage = (): JSX.Element => {
 
           setSelectedCategory(category as string);
 
-          let formattedItem = (item as string)
-            .replaceAll("_", " ")
-            .replace("clothing", "");
-          const indexOfSpace = formattedItem.indexOf(" ");
+          const formattedItem = (item as string).split("_");
 
-          console.log("formattedItem", formattedItem);
+          formattedItem.map((item: string, index: number): void => {
+            formattedItem[index] = item.charAt(0).toUpperCase() + item.slice(1);
+          });
 
-          console.log("indexOfSpace", indexOfSpace);
-
-          formattedItem =
-            formattedItem.charAt(0).toUpperCase() +
-            formattedItem.slice(1, indexOfSpace) +
-            " " +
-            formattedItem.charAt(indexOfSpace + 1).toUpperCase() +
-            formattedItem.slice(indexOfSpace + 2);
-
-          console.log("formattedItem", formattedItem);
           setSelectedItem(formattedItem);
 
           if (categoryData) {
@@ -112,9 +129,7 @@ const CategorySectionPage = (): JSX.Element => {
           <h1 className="text-4xl font-extrabold text-center mb-8">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
-            's {typeof item === "string" && selectedItem}{" "}
-            {typeof category === "string" &&
-              category.charAt(0).toUpperCase() + category.slice(1)}
+            's {typeof item === "string" && selectedItem.join(" ")}{" "}
           </h1>
         )}
       </div>
