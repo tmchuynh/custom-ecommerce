@@ -1,10 +1,12 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useEffect, useMemo, useState } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
 import ProductRate from "./ProductRate";
 import ProductHighlights from "./ProductHighlights";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 /**
  * Component for displaying detailed information about a product.
@@ -78,6 +80,13 @@ const ProductInfo = ({
     product.highlights || []
   );
 
+  const pathname = usePathname();
+
+  const pathSegments = useMemo(
+    () => pathname.split("/").filter(Boolean),
+    [pathname]
+  );
+
   // Use useEffect to handle URL updates and fetch highlights if needed
   useEffect(() => {
     if (!selectedItem || highlights.length === 0) {
@@ -108,16 +117,24 @@ const ProductInfo = ({
         "w-full": !page,
       })}
     >
-      <div className="grid grid-cols-subgrid grid-col-7 grid-flow-row h-full">
+      <div
+        className={cn(
+          "grid grid-cols-subgrid grid-col-7 grid-flow-row h-full",
+          {
+            "gap-2": pathSegments.length === 2,
+            "gap-0": pathSegments.length === 3,
+          }
+        )}
+      >
         <h2 className="sr-only">Product information</h2>
         <h1
           className={cn(`${titleSize} text-pretty`, {
             "font-bold w-10/12 pr-2": relatedProduct,
           })}
         >
-          <a href={url} className="hover:underline underline-offset-2">
+          <Link href={url} className="hover:underline underline-offset-2">
             {product.name}
-          </a>
+          </Link>
         </h1>
 
         {typeof window !== "undefined" &&
