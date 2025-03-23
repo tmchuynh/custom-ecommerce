@@ -243,8 +243,6 @@
     --sidebar-border: #2A2A3A;
     --sidebar-ring: #BB58C9;
   }
-
-  
 }
 
 .bg-dynamic {
@@ -273,9 +271,6 @@
   background-color: ${selectedColor};
 }
 */
-
-
-
 
 @layer base {
   * {
