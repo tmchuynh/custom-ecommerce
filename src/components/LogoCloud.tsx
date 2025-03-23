@@ -56,10 +56,10 @@ export default function LogoCloud() {
             <span className="hidden md:inline">
               Over 2500 companies use our tools to better their business.
             </span>
-            <Button href="#" className="font-semibold">
+            <a href="#" className="font-semibold inline-flex items-center">
               <span aria-hidden="true" className="absolute inset-0" /> Read our
               customer stories <span aria-hidden="true">&rarr;</span>
-            </Button>
+            </a>
           </p>
         </div>
       </div>
