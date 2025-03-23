@@ -103,10 +103,14 @@ export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   getCartItem: (name: string) => CartItem | undefined;
-  getProductByName: (
-    name: string
-  ) =>
-    | { gender: string; category: string; subcategory: string; name: string }
+  getProductByName: (name: string) =>
+    | {
+        gender: string;
+        category: string;
+        subcategory: string;
+        name: string;
+        highlights: string[];
+      }
     | undefined;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
@@ -114,6 +118,10 @@ export interface CartContextType {
   getTotalPrice: () => number;
   getTotalItems: () => number;
   itemExistsInCart: (name: string) => boolean;
+}
+
+export interface ProductBadgesProps {
+  highlights: string[];
 }
 
 export interface WishlistItem {

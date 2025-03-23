@@ -115,7 +115,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const getProductByName = (
     name: string
   ):
-    | { gender: string; category: string; subcategory: string; name: string }
+    | {
+        gender: string;
+        category: string;
+        subcategory: string;
+        name: string;
+        highlights: string[];
+      }
     | undefined => {
     for (const [gender, categoryData] of Object.entries(mockProductData)) {
       for (const [category, subCategoryData] of Object.entries(categoryData)) {
@@ -124,10 +130,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
             products as Record<string, ProductType>
           )) {
             if ((product as ProductType).name === name) {
+              const highlights = (product as ProductType).highlights || [];
               return {
                 gender,
                 category,
                 subcategory,
+                highlights,
                 name: (product as ProductType).name,
               };
             }

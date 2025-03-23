@@ -165,6 +165,7 @@ export type ProductType = {
   description: string;
   gender: string;
   category: string;
+  highlights?: string[];
   subcategory: string;
   images: string[];
   imageSrc: string;

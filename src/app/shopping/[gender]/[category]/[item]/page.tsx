@@ -138,6 +138,7 @@ const CategorySectionPage = (): JSX.Element => {
           return (
             <ProductCard
               key={index}
+              badge={product.badge}
               product={product}
               relatedProduct={false}
               page={true}

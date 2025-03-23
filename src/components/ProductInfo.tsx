@@ -74,11 +74,16 @@ const ProductInfo = ({
       .replaceAll(" ", "-")
       .replaceAll("'s", "")}`
   );
+  const [highlights, setHighlights] = useState<string[]>([]);
 
   // Use useEffect to handle URL updates to prevent infinite renders
   useEffect(() => {
     if (!selectedItem) {
       const productDetails = getProductByName(product.name);
+      console.log(productDetails);
+      setHighlights(productDetails?.highlights || []);
+
+      console.log(highlights);
       if (productDetails) {
         setURL(
           `/shopping/${productDetails.gender}/${productDetails.category}/${
@@ -120,9 +125,9 @@ const ProductInfo = ({
           </p>
           <ProductRate />
         </div>
-        <ProductBadges />
+        {highlights.length > 0 && <ProductBadges highlights={highlights} />}
         <p
-          className={cn("mt-3", {
+          className={cn("my-5", {
             "hidden mt-0": relatedProduct,
           })}
         >

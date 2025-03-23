@@ -38,7 +38,16 @@ const ProductGallery = ({
   panelsVisibility?: boolean;
   page: boolean;
 }): JSX.Element => {
-  // For demo purposes, we generate an array of numbers (you can replace this with your actual image array)
+  /**
+   * A memoized array of random numbers generated using the `generateRandomNumberArray` function.
+   *
+   * The array is created with the following parameters:
+   * - `randomLength`: A random integer between 3 and 10 (inclusive), representing the length of the array.
+   * - `randomMin`: A random integer between 1 and 4 (inclusive), representing the minimum value for the numbers in the array.
+   * - `randomMax`: A random integer between 3 and 10 (inclusive), representing the maximum value for the numbers in the array.
+   *
+   * The values are recalculated only when the component is re-rendered.
+   */
   const randomArray = useMemo(() => {
     const randomLength = Math.floor(Math.random() * (10 - 3 + 1)) + 3;
     const randomMin = Math.floor(Math.random() * (4 - 1 + 1)) + 1;

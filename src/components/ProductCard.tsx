@@ -35,6 +35,7 @@ const ProductCard = ({
   product,
   index,
   page = true,
+  badge = "",
   relatedProduct = false,
   cardClassName = "shadow-none rounded-3xl shadow-sm h-full mb-15 relative overflow-hidden",
   titleSize = "text-2xl",
@@ -43,6 +44,7 @@ const ProductCard = ({
   product: ProductType;
   index: number;
   page?: boolean;
+  badge?: string;
   relatedProduct?: boolean;
   cardClassName?: string;
   titleSize?: string;
@@ -100,24 +102,26 @@ const ProductCard = ({
             panelsVisibility={false}
           />
 
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <Badge
-              variant={"secondary"}
-              className={cn("mb-0 mx-8 hover:bg-dynamic", {
-                "absolute top-5 left-5 mx-0": page,
-              })}
-              style={
-                selectedColor && accessibleColor
-                  ? ({
-                      "--bg-color": selectedColor.bgColor,
-                      "--text-color": accessibleColor,
-                    } as React.CSSProperties)
-                  : undefined
-              }
-            >
-              Up to 15% off
-            </Badge>
-          </div>
+          {badge && (
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <Badge
+                variant={"secondary"}
+                className={cn("mb-0 mx-8 hover:bg-dynamic", {
+                  "absolute top-5 left-5 mx-0": page,
+                })}
+                style={
+                  selectedColor && accessibleColor
+                    ? ({
+                        "--bg-color": selectedColor.bgColor,
+                        "--text-color": accessibleColor,
+                      } as React.CSSProperties)
+                    : undefined
+                }
+              >
+                {badge}
+              </Badge>
+            </div>
+          )}
           <QuickLookAndFavoriteButtons page={page} />
 
           <ProductInfo
