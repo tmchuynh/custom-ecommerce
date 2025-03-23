@@ -119,6 +119,7 @@ const ProductInfo = ({
             {product.name}
           </a>
         </h1>
+        <ProductBadges highlights={highlights} />
         <div className="mt-2 flex items-center gap-2">
           <p
             className={cn(`${priceSize} tracking-tight pr-4`, {
