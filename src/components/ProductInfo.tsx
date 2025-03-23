@@ -3,8 +3,8 @@ import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { JSX, useEffect, useState } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import ProductBadges from "./ProductBadges";
 import ProductRate from "./ProductRate";
+import ProductHighlights from "./ProductHighlights";
 
 /**
  * Component for displaying detailed information about a product.
@@ -103,12 +103,12 @@ const ProductInfo = ({
 
   return (
     <div
-      className={cn("mt-5 px-1 w-11/12 mx-auto grid grid-cols-1", {
+      className={cn("mt-5 px-1 grid grid-cols-1 w-11/12 mx-auto", {
         "bg-accent mt-8": relatedProduct,
         "w-full": !page,
       })}
     >
-      <div className="grid grid-cols-subgrid grid-col-7 grid-flow-row">
+      <div className="grid grid-cols-subgrid grid-col-7 grid-flow-row h-full">
         <h2 className="sr-only">Product information</h2>
         <h1
           className={cn(`${titleSize} text-pretty`, {
@@ -119,19 +119,23 @@ const ProductInfo = ({
             {product.name}
           </a>
         </h1>
-        <ProductBadges highlights={highlights} />
-        <div className="mt-2 flex items-center gap-2">
-          <p
-            className={cn(`${priceSize} tracking-tight pr-4`, {
-              "mt-0": relatedProduct,
-            })}
-          >
-            {product.price}
-          </p>
-          <ProductRate />
-        </div>
+
+        {typeof window !== "undefined" &&
+          window.location.pathname.split("/").filter(Boolean).length > 2 &&
+          window.location.pathname.startsWith("/shopping/") && (
+            <div className="flex items-center gap-2 my-2">
+              <p
+                className={cn(`${priceSize} tracking-tight pr-4`, {
+                  "mt-0": relatedProduct,
+                })}
+              >
+                {product.price}
+              </p>
+              <ProductRate />
+            </div>
+          )}
         <p
-          className={cn("my-5", {
+          className={cn("mb-5", {
             "hidden mt-0": relatedProduct,
           })}
         >
@@ -141,10 +145,18 @@ const ProductInfo = ({
 
       <div className="row-span-1 h-full">
         {(showColors || showButtons) && (
-          <div className={cn("absolute bottom-5", { relative: !page })}>
-            {showButtons && (
-              <CartAndFavoritesButtons product={product} page={page} />
-            )}
+          <div
+            className={cn("absolute bottom-5 grid grid-cols-1 gap-2", {
+              relative: !page,
+            })}
+          >
+            {showButtons &&
+              typeof window !== "undefined" &&
+              window.location.pathname.split("/").filter(Boolean).length > 2 &&
+              window.location.pathname.startsWith("/shopping/") && (
+                <CartAndFavoritesButtons product={product} page={page} />
+              )}
+            <ProductHighlights highlights={highlights} />
           </div>
         )}
       </div>
