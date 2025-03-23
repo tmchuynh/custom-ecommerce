@@ -46,8 +46,6 @@ const CategoryPage = (): JSX.Element => {
 
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [selectedGender, setSelectedGender] = useState<string>("");
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
 
   useEffect(() => {
     if (gender && category) {
@@ -79,10 +77,6 @@ const CategoryPage = (): JSX.Element => {
           const categoryData = (mockProductData as any)[gender as string]?.[
             category as string
           ];
-          console.log(Object.keys(categoryData));
-
-          setSelectedGender(gender as string);
-          setSelectedCategory(category as string);
 
           // Check if the category data exists and flatten it
           if (categoryData) {
@@ -141,12 +135,6 @@ const CategoryPage = (): JSX.Element => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => {
-          const productLink = `/shopping/${selectedGender}/${selectedCategory}/${
-            product.name
-          }/${product.name
-            .toLowerCase()
-            .replaceAll(" ", "-")
-            .replaceAll("'s", "")}`;
           return (
             <ProductCard
               key={index}
