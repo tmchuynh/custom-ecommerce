@@ -148,3 +148,8 @@ export interface RandomNumberArrayOptions {
   min: number;
   max: number;
 }
+
+export interface FormattedItem {
+  name: string;
+  url: string;
+}
