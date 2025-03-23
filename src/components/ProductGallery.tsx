@@ -67,7 +67,7 @@ const ProductGallery = ({
           {randomArray.map((_, index) => (
             <Tab
               key={index}
-              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic opacity-50 text-dynamic border-transparent text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:outline-hidden ${
+              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-xl bg-dynamic opacity-50 text-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:outline-hidden ${
                 visibleIndices().includes(index) ? "" : "hidden"
               }`}
               style={
@@ -77,7 +77,7 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <span className="absolute inset-0 overflow-hidden rounded-md">
+              <span className="absolute inset-0 overflow-hidden rounded-xl">
                 {/* Pass the index as text to the Skeleton */}
                 <div
                   className={cn(
@@ -92,7 +92,7 @@ const ProductGallery = ({
               </span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-md ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
+                className="pointer-events-none absolute inset-0 rounded-xl ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
               />
             </Tab>
           ))}
