@@ -2,16 +2,8 @@
 import { Color, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { JSX, useEffect, useState } from "react";
-import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
-import { Card, CardContent } from "./ui/card";
-import components from "./ProductDetails";
-import { Button } from "./ui/button";
-import { Badge } from "./ui/badge";
-import { IoHeartCircle } from "react-icons/io5";
-import { useTheme } from "next-themes";
-import { FaHeart } from "react-icons/fa";
 import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
 
 /**
@@ -47,28 +39,16 @@ const ProductCard = ({
   page = true,
   relatedProduct = false,
   cardClassName = "shadow-none rounded-3xl shadow-sm h-full mb-15 relative overflow-hidden",
-  contentClassName = "p-0 relative",
-  infoContainerClassName = "-mt-9",
-  colorsContainerClassName = "",
   titleSize = "text-2xl",
   priceSize = "text-xl",
-  minHeight = "md:min-h-[40em]",
-  showColors = true,
-  showButtons = true,
 }: {
   product: ProductType;
   index: number;
   page?: boolean;
   relatedProduct?: boolean;
   cardClassName?: string;
-  contentClassName?: string;
-  infoContainerClassName?: string;
-  colorsContainerClassName?: string;
   titleSize?: string;
   priceSize?: string;
-  minHeight?: string;
-  showColors?: boolean;
-  showButtons?: boolean;
 }): JSX.Element => {
   const segments = window.location.pathname.split("/");
   const selectedGender = segments[2];
