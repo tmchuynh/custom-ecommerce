@@ -118,7 +118,11 @@ const ProductPage = (): JSX.Element => {
       <div className="mx-auto max-w-2xl lg:max-w-none">
         {/* Product Section */}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
-          <ProductGallery page={false} selectedColor={selectedColor} />
+          <ProductGallery
+            product={product}
+            page={false}
+            selectedColor={selectedColor}
+          />
           <div className="relative">
             <QuickLookAndFavoriteButtons page={false} />
 
