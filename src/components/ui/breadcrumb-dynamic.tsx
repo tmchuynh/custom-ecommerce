@@ -1,22 +1,31 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import { usePathname } from "next/navigation";
+import React, { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbList,
   BreadcrumbLink,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { capitalize } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
-import { Separator } from "./separator";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./dropdown-menu";
+import { Button } from "./button";
+import { mockProductData } from "@/lib/mockProductData";
 
 const DynamicBreadcrumb = () => {
   const pathname = usePathname();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [categories, setCategories] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   const pathSegments = useMemo(
     () => pathname.split("/").filter((segment) => segment),
@@ -31,16 +40,48 @@ const DynamicBreadcrumb = () => {
     [pathSegments]
   );
 
+  useEffect(() => {
+    const fetchItemsData = async () => {
+      if (pathSegments.length > 2) {
+        try {
+          const gender = pathSegments[1]?.toLowerCase();
+          const category = pathSegments[2]?.toLowerCase();
+          const categoryData = (mockProductData as any)[gender]?.[category];
+
+          if (categoryData) {
+            const subpages: any[] = [];
+
+            // Extract subpages from the category data
+            Object.entries(categoryData).forEach(
+              ([itemType, subCategory]: [string, any]) => {
+                subpages.push({
+                  name: capitalize(itemType),
+                  href: `/${gender}/${category}/${itemType}`,
+                });
+              }
+            );
+
+            setCategories(subpages);
+          } else {
+            console.error("Product data not found");
+          }
+        } catch (error) {
+          console.error("Error fetching product data", error);
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchItemsData();
+  }, [pathSegments]);
+
   const breadcrumbItems = useMemo(() => {
     if (pathname === "/") {
       return null; // Do not render breadcrumb on the homepage
     }
 
-    const items = [];
-    const firstSegment = capitalizedSegments[0];
-    const lastSegment = capitalizedSegments[capitalizedSegments.length - 1];
-
-    items.push(
+    const items = [
       <BreadcrumbItem key="home">
         <BreadcrumbLink
           href="/"
@@ -48,120 +89,66 @@ const DynamicBreadcrumb = () => {
         >
           Home
         </BreadcrumbLink>
-      </BreadcrumbItem>
-    );
+      </BreadcrumbItem>,
+    ];
 
-    if (firstSegment === lastSegment) {
+    pathSegments.forEach((segment, index) => {
+      const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
+      const capitalizedSegment = capitalizedSegments[index];
+      const isLast = index === pathSegments.length - 1;
+
       items.push(
-        <>
+        <React.Fragment key={href}>
           <BreadcrumbSeparator />
-          <BreadcrumbItem key={lastSegment}>
-            <BreadcrumbLink
-              href="/"
-              className="bg-muted px-3 py-2 rounded-lg cursor-default"
-            >
-              {lastSegment}
-            </BreadcrumbLink>
+          <BreadcrumbItem>
+            {isLast ? (
+              // Render dropdown on the last segment
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                  >
+                    {capitalizedSegment}
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuGroup>
+                    {categories.map((item) => (
+                      <DropdownMenuItem
+                        key={item.href}
+                        onClick={() => router.push(item.href)}
+                      >
+                        {item.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <BreadcrumbLink
+                href={href}
+                className="bg-muted px-3 py-2 rounded-lg cursor-default"
+              >
+                {capitalizedSegment}
+              </BreadcrumbLink>
+            )}
           </BreadcrumbItem>
-        </>
+        </React.Fragment>
       );
-    }
-
-    // On larger screens, add the full breadcrumb trail
-    if (pathSegments.length > 1) {
-      pathSegments.slice(1).forEach((segment, index) => {
-        const href = `/${pathSegments.slice(0, index + 2).join("/")}`;
-        const capitalizedSegment = capitalizedSegments[index + 1];
-        const isLast = index === pathSegments.length - 2;
-        items.push(
-          <React.Fragment key={href}>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              {isLast ? (
-                <BreadcrumbPage className="bg-muted px-3 py-2 rounded-lg cursor-default">
-                  {capitalizedSegment}
-                </BreadcrumbPage>
-              ) : (
-                <BreadcrumbLink
-                  href={href}
-                  className="bg-muted px-3 py-2 rounded-lg cursor-default"
-                >
-                  {capitalizedSegment}
-                </BreadcrumbLink>
-              )}
-            </BreadcrumbItem>
-          </React.Fragment>
-        );
-      });
-    }
+    });
 
     return items;
-  }, [pathname, capitalizedSegments, pathSegments]);
+  }, [pathname, capitalizedSegments, pathSegments, categories, router]);
 
   if (breadcrumbItems === null) {
     return null;
   }
 
-  const handleDropdownToggle = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
   return (
-    <Breadcrumb className="mx-auto pt-9 z-30 w-full md:w-11/12">
-      {/* On small screens, show only the first and last breadcrumb item */}
-
-      {/* On small screens, show the dropdown for pages in between */}
-      <BreadcrumbList className="md:hidden flex items-center w-11/12 mx-auto">
-        <BreadcrumbSeparator />
-        {breadcrumbItems[0]} {/* Home */}
-        <BreadcrumbSeparator />
-        {pathSegments.length > 2 && (
-          <div className="relative">
-            <button
-              onClick={handleDropdownToggle}
-              className="bg-muted px-3 py-2 rounded-lg cursor-pointer flex items-center"
-            >
-              <span className="text-gray-500">...</span>
-              <ChevronDown className="ml-1 h-4 w-4" />
-            </button>
-            {dropdownOpen && (
-              <div className="absolute bg-background rounded-md shadow-lg mt-2 z-10 -right-20 w-48">
-                <ul className="text-sm">
-                  {pathSegments
-                    .slice(1, pathSegments.length - 1)
-                    .map((_segment, index) => {
-                      const href = `/${pathSegments
-                        .slice(0, index + 2)
-                        .join("/")}`;
-                      const capitalizedSegment = capitalizedSegments[index + 1];
-                      return (
-                        <>
-                          {index !== 0 && <Separator className="my-1" />}
-                          <li key={href}>
-                            <BreadcrumbItem>
-                              <BreadcrumbLink
-                                href={href}
-                                className="block px-4 py-2"
-                              >
-                                {capitalizedSegment}
-                              </BreadcrumbLink>
-                            </BreadcrumbItem>
-                          </li>
-                        </>
-                      );
-                    })}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
-        {breadcrumbItems[breadcrumbItems.length - 1]}{" "}
-        {/* Last item (current page) */}
-      </BreadcrumbList>
-
-      {/* On larger screens, show the full breadcrumb */}
-      <BreadcrumbList className="hidden md:flex w-10/12 lg:w-11/12 mx-auto">
-        <BreadcrumbSeparator />
+    <Breadcrumb className="mx-auto pt-9 z-30 w-full flex flex-row md:w-11/12">
+      <BreadcrumbList className="flex flex-row items-center w-11/12 mx-auto">
         {breadcrumbItems}
       </BreadcrumbList>
     </Breadcrumb>
