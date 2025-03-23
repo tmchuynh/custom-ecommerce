@@ -1,3 +1,4 @@
+import { useCart } from "@/app/context/cartContext";
 import { Color, ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Radio, RadioGroup } from "@headlessui/react";
@@ -13,7 +14,8 @@ import { useCart } from "@/app/context/cartContext";
 import components from "./ProductDetails";
 import { Button } from "./ui/button";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import { CardContent } from "./ui/card";
+import ProductBadges from "./ProductBadges";
+import ProductRate from "./ProductRate";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -91,7 +93,7 @@ const ProductInfo = ({
 
   return (
     <div
-      className={cn("mt-5 px-1 mb-5 w-11/12 mx-auto grid grid-cols-1 p-2", {
+      className={cn("mt-5 px-1 w-11/12 mx-auto grid grid-cols-1 p-2", {
         "bg-accent mt-8": relatedProduct,
         "w-full": !page,
       })}

@@ -100,7 +100,7 @@ const ProductGallery = ({
       )}
 
       {/* TabPanels (all panels remain rendered) */}
-      <div className="relative overflow-hidden">
+      <div className="relative">
         <TabPanels>
           {!page ? (
             randomArray.map((_, index) => (
