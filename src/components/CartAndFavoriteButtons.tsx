@@ -2,7 +2,7 @@
 
 import { useCart } from "@/app/context/cartContext";
 import { Color, ProductType } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, getAccessibleColor } from "@/lib/utils";
 import { IoHeartCircle } from "react-icons/io5";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
@@ -21,6 +21,12 @@ export default function CartAndFavoritesButtons({
 }) {
   const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);
+
+  const accessibleColor = getAccessibleColor(
+    `${selectedColor.bgColor}`,
+    "AAA",
+    true
+  );
 
   /**
    * Handles adding a product to the cart.
@@ -43,8 +49,8 @@ export default function CartAndFavoritesButtons({
 
   return (
     <div
-      className={cn("mt-5 flex items-center pt-4", {
-        "mt-0 flex-col-reverse items-start pt-9 w-11/12 mx-auto": page,
+      className={cn("mt-5 pt-4 col-span-2", {
+        "mt-0 w-11/12 mx-auto": page,
       })}
     >
       <div className="flex gap-5">
@@ -52,8 +58,25 @@ export default function CartAndFavoritesButtons({
           <QuantityButtons product={product} />
         ) : (
           <Button onClick={() => handleAddToCart(product, product.name)}>
+            <svg
+              className="-ms-2 me-2 h-5 w-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
+              />
+            </svg>
             Add to Cart
-            <span className="sr-only">, {product.name}</span>
+            <span className="sr-only">Add {product.name} to Cart</span>
           </Button>
         )}
       </div>
@@ -61,17 +84,25 @@ export default function CartAndFavoritesButtons({
         type="button"
         variant={"ghost"}
         size={"icon"}
-        className={cn("mb-0 mx-8 dark:hover:bg-red-700 hover:bg-primary", {
+        className={cn("mb-0 mx-8 hover:bg-dynamic", {
           "absolute top-5 right-5 mx-0": page,
         })}
+        style={
+          {
+            "--bg-color": accessibleColor,
+          } as React.CSSProperties
+        }
       >
         <IoHeartCircle
-          className="rounded-full text-foreground"
+          className="rounded-full text-dynamic"
           aria-hidden="true"
-          style={{
-            width: page ? "50px" : "35px",
-            height: page ? "50px" : "35px",
-          }}
+          style={
+            {
+              "--text-color": accessibleColor,
+              width: page ? "50px" : "35px",
+              height: page ? "50px" : "35px",
+            } as React.CSSProperties
+          }
         />
 
         <span className="sr-only">Add to favorites</span>
