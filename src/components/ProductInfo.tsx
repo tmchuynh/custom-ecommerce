@@ -130,7 +130,6 @@ const ProductInfo = ({
           </p>
           <ProductRate />
         </div>
-        {highlights.length > 0 && <ProductBadges highlights={highlights} />}
         <p
           className={cn("my-5", {
             "hidden mt-0": relatedProduct,
