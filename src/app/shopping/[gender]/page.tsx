@@ -1,7 +1,8 @@
 "use client";
 import CategoryCard from "@/components/CategoryCard";
+import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
-import { CategoryCardData } from "@/lib/types";
+import { CategoryCardData, GenderCategories } from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
@@ -27,7 +28,7 @@ const CategoryCardWrapper = ({
 
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender is string | string[]
-  const [categories, setCategories] = useState<CategoryCardData[]>([]);
+  const [categories, setCategories] = useState<any[]>([]);
   const [genderCategory, setGenderCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -76,29 +77,35 @@ const GenderPage = (): JSX.Element => {
         if (categoryData) {
           // The keys represent top-level categories (e.g. "shoes", "accessories", etc.)
           const categoryKeys = Object.keys(categoryData);
-          const categoryCards: CategoryCardData[] = categoryKeys.map(
-            (catKey) => {
-              // Get all subcategories for the current category key
-              const subCategories =
-                categoryData[catKey as keyof typeof categoryData];
-              // Flatten the subcategories to get an array of products for this category
-              const productsInCategory = Object.values(subCategories).flatMap(
-                (subCategory: any) => Object.values(subCategory)
-              );
-              // Pick the first product as a representative (if available)
-              const representativeProduct = productsInCategory[0] as {
-                description?: string;
-                imageSrc?: string;
-              };
-              return {
-                slug: catKey,
-                name: catKey.charAt(0).toUpperCase() + catKey.slice(1),
-                description:
-                  representativeProduct?.description || `Explore our ${catKey}`,
-                imageSrc: representativeProduct?.imageSrc || "/default.jpg",
-              };
-            }
-          );
+          const categoryCards = categoryKeys.map((catKey) => {
+            // Get all subcategories for the current category key
+            const subCategories =
+              categoryData[catKey as keyof typeof categoryData];
+            // Flatten the subcategories to get an array of products for this category
+            const productsInCategory = Object.values(subCategories).flatMap(
+              (subCategory: any) => Object.values(subCategory)
+            );
+            // Pick the first product as a representative (if available)
+            const representativeProduct = productsInCategory[0] as {
+              description?: string;
+              imageSrc?: string;
+            };
+            return {
+              slug: catKey,
+              name: catKey.charAt(0).toUpperCase() + catKey.slice(1),
+              description:
+                representativeProduct?.description || `Explore our ${catKey}`,
+              imageSrc: representativeProduct?.imageSrc || "/default.jpg",
+              gender: validGender as "men" | "women" | "kids",
+              category: catKey,
+              subcategory: "",
+              images: [representativeProduct?.imageSrc || "/default.jpg"],
+              price: "0",
+              quantity: 0,
+              sizes: [],
+              colors: [],
+            };
+          });
           setCategories(categoryCards);
         } else {
           console.error("Product data not found");
@@ -135,12 +142,15 @@ const GenderPage = (): JSX.Element => {
           {gender && (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-                {categories.map((category) => (
-                  <CategoryCardWrapper
-                    key={category.slug}
-                    category={category}
-                    gender={genderCategory}
-                  />
+                {categories.map((category, index) => (
+                  <>
+                    <ProductCard
+                      key={index}
+                      product={category}
+                      page={true}
+                      index={category.name}
+                    />
+                  </>
                 ))}
               </div>
             </>
