@@ -3,6 +3,7 @@ import {
   LockClosedIcon,
   ServerIcon,
 } from "@heroicons/react/20/solid";
+import Image from "next/image";
 
 export default function Example() {
   return (
@@ -54,79 +55,79 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <img
-            alt=""
-            src="https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
-            className="w-[48rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]"
-          />
-        </div>
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-          <div className="lg:pr-4">
-            <div className="max-w-xl text-base/7 lg:max-w-lg">
-              <p>
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
-                risus enim. Mattis mauris semper sed amet vitae sed turpis id.
-                Id dolor praesent donec est. Odio penatibus risus viverra tellus
-                varius sit neque erat velit. Faucibus commodo massa rhoncus,
-                volutpat. Dignissim sed eget risus enim. Mattis mauris semper
-                sed amet vitae sed turpis id.
-              </p>
-              <ul role="list" className="mt-8 space-y-8">
-                <li className="flex gap-x-3">
-                  <CloudArrowUpIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none"
-                  />
-                  <span>
-                    <strong className="font-semibold">Push to deploy.</strong>{" "}
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
-                  </span>
-                </li>
-                <li className="flex gap-x-3">
-                  <LockClosedIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none"
-                  />
-                  <span>
-                    <strong className="font-semibold">SSL certificates.</strong>{" "}
-                    Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                    qui lorem cupidatat commodo.
-                  </span>
-                </li>
-                <li className="flex gap-x-3">
-                  <ServerIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none"
-                  />
-                  <span>
-                    <strong className="font-semibold">Database backups.</strong>{" "}
-                    Ac tincidunt sapien vehicula erat auctor pellentesque
-                    rhoncus. Et magna sit morbi lobortis.
-                  </span>
-                </li>
-              </ul>
-              <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-                odio id et. Id blandit molestie auctor fermentum dignissim.
-                Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate
-                et ultrices hac adipiscing egestas. Iaculis convallis ac tempor
-                et ut. Ac lorem vel integer orci.
-              </p>
-              <h2 className="text-2xl font-semibold mb-4">
-                No server? No problem.
-              </h2>
-              <p className="mt-6">
-                Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam
-                consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod
-                vitae interdum mauris enim, consequat vulputate nibh. Maecenas
-                pellentesque id sed tellus mauris, ultrices mauris. Tincidunt
-                enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam
-                turpis ipsum eu a sed convallis diam.
-              </p>
-            </div>
+        <Image
+          alt="Dark project app screenshot"
+          src="https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+          width={912} // Adjust width as needed
+          height={512} // Adjust height as needed
+          className="w-[48rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]"
+        />
+      </div>
+      <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:pr-4">
+          <div className="max-w-xl text-base/7 lg:max-w-lg">
+            <p>
+              Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
+              enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
+              praesent donec est. Odio penatibus risus viverra tellus varius sit
+              neque erat velit. Faucibus commodo massa rhoncus, volutpat.
+              Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
+              sed turpis id.
+            </p>
+            <ul role="list" className="mt-8 space-y-8">
+              <li className="flex gap-x-3">
+                <CloudArrowUpIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none"
+                />
+                <span>
+                  <strong className="font-semibold">Push to deploy.</strong>{" "}
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Maiores impedit perferendis suscipit eaque, iste dolor
+                  cupiditate blanditiis ratione.
+                </span>
+              </li>
+              <li className="flex gap-x-3">
+                <LockClosedIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none"
+                />
+                <span>
+                  <strong className="font-semibold">SSL certificates.</strong>{" "}
+                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
+                  qui lorem cupidatat commodo.
+                </span>
+              </li>
+              <li className="flex gap-x-3">
+                <ServerIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none"
+                />
+                <span>
+                  <strong className="font-semibold">Database backups.</strong>{" "}
+                  Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.
+                  Et magna sit morbi lobortis.
+                </span>
+              </li>
+            </ul>
+            <p className="mt-8">
+              Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
+              odio id et. Id blandit molestie auctor fermentum dignissim. Lacus
+              diam tincidunt ac cursus in vel. Mauris varius vulputate et
+              ultrices hac adipiscing egestas. Iaculis convallis ac tempor et
+              ut. Ac lorem vel integer orci.
+            </p>
+            <h2 className="text-2xl font-semibold mb-4">
+              No server? No problem.
+            </h2>
+            <p className="mt-6">
+              Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam
+              consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod
+              vitae interdum mauris enim, consequat vulputate nibh. Maecenas
+              pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim
+              cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis
+              ipsum eu a sed convallis diam.
+            </p>
           </div>
         </div>
       </div>
