@@ -63,10 +63,9 @@ const QuickLookAndFavoriteButtons = ({
 
   return (
     <div
-      className={cn(
-        "flex items-center justify-between w-11/12 mx-auto gap-1 p-2 mt-4",
-        { "w-full": !page }
-      )}
+      className={cn("flex items-center justify-between mx-2 gap-1 p-2 mt-4", {
+        "w-full": !page,
+      })}
     >
       <Button className={cn("", { hidden: !page })}>
         <span> Quick look </span>
