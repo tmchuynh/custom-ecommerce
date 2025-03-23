@@ -10,6 +10,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -109,6 +110,46 @@ export default function HomePage() {
           </section>
         </section>
 
+        {/* Testimonials */}
+        <section
+          aria-labelledby="testimonial-heading"
+          className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+        >
+          <div className="mx-auto max-w-2xl lg:max-w-none">
+            <h2
+              id="testimonial-heading"
+              className="text-2xl font-semibold mb-4"
+            >
+              What are people saying?
+            </h2>
+
+            <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
+              {testimonials.map((testimonial) => (
+                <blockquote key={testimonial.id} className="sm:flex lg:block">
+                  <svg
+                    width={24}
+                    height={18}
+                    viewBox="0 0 24 18"
+                    aria-hidden="true"
+                    className="shrink-0"
+                  >
+                    <path
+                      d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  <div className="mt-8 sm:mt-0 sm:ml-6 lg:mt-10 lg:ml-0">
+                    <p className="text-lg">{testimonial.quote}</p>
+                    <cite className="mt-4 block font-semibold not-italic">
+                      {testimonial.attribution}
+                    </cite>
+                  </div>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Collection section */}
         <section
           aria-labelledby="collection-heading"
@@ -126,22 +167,24 @@ export default function HomePage() {
             <div className="-my-2">
               {navigations.categories.map((category, index) => {
                 return (
-                  <>
-                    <div className="flex items-center" key={index}>
+                  <div key={index}>
+                    <div className="flex items-center">
                       <div className="w-full">
                         <h2 className="text-2xl font-semibold mb-4">
-                          {category.name}
+                          <Link
+                            href={`/shopping/${category.name.toLowerCase()}`}
+                            className="hover:underline underline-offset-2"
+                          >
+                            {category.name}
+                          </Link>
                         </h2>
-                        <div
-                          className="mt-10 space-y-12 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-x-8"
-                          key={index}
-                        >
+                        <div className="mt-10 space-y-12 md:grid md:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
                           {category.collections.map((section, indexS) => {
                             return (
                               <a
                                 key={indexS}
                                 href={section.href}
-                                className="relative flex h-60 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
+                                className="relative flex h-96 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
                               >
                                 <span
                                   aria-hidden="true"
@@ -159,7 +202,7 @@ export default function HomePage() {
                                   aria-hidden="true"
                                   className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
                                 />
-                                <span className="relative mt-auto text-center text-xl font-bold">
+                                <span className="relative mt-auto text-center text-xl text-background font-bold">
                                   {section.name}
                                 </span>
                               </a>
@@ -168,10 +211,7 @@ export default function HomePage() {
                         </div>
                       </div>
                     </div>
-                    {index !== category.sections.length - 1 && (
-                      <Separator className="mb-10" />
-                    )}{" "}
-                  </>
+                  </div>
                 );
               })}
             </div>
@@ -203,87 +243,6 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Category section */}
-        <section
-          aria-labelledby="category-heading"
-          className="sm:pt-20 xl:mx-auto xl:max-w-7xl xl:px-8"
-        >
-          <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-            <h2 id="category-heading" className="text-2xl font-semibold mb-4">
-              Shop by Category
-            </h2>
-            <Button>
-              Browse all categories
-              <span aria-hidden="true"> &rarr;</span>
-            </Button>
-          </div>
-
-          <div className="mt-4 flow-root">
-            <div className="-my-2 lg:grid lg:grid-cols-3 lg:gap-x-8">
-              {navigations.categories.map((category, index) => {
-                return (
-                  <div className="flex items-center" key={index}>
-                    <div className="mt-10 w-full">
-                      <h2 className="text-2xl font-semibold mb-4">
-                        {category.name}
-                      </h2>
-                      {category.sections.map((section, index) => {
-                        return (
-                          <div className="flex flex-col" key={index}>
-                            <div className="flex flex-col">
-                              {section.map((section) => {
-                                if (section.id !== "shop-collection") {
-                                  return (
-                                    <a
-                                      key={section.name}
-                                      href={section.href}
-                                      className="relative flex h-60 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto my-5"
-                                    >
-                                      <span
-                                        aria-hidden="true"
-                                        className="absolute inset-0"
-                                      >
-                                        <Image
-                                          width={1920}
-                                          height={1080}
-                                          alt=""
-                                          src={section.imageSrc}
-                                          className="size-full object-cover object-center"
-                                        />
-                                      </span>
-                                      <span
-                                        aria-hidden="true"
-                                        className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
-                                      />
-                                      <span className="relative mt-auto text-center text-xl font-bold">
-                                        {category.name}'s {section.name}
-                                      </span>
-                                    </a>
-                                  );
-                                }
-                              })}
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    {index !== category.sections.length - 1 && (
-                      <Separator orientation="vertical" className="ml-8" />
-                    )}{" "}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mt-6 px-4 sm:hidden">
-            <Button>
-              Browse all categories
-              <span aria-hidden="true"> &rarr;</span>
-            </Button>
           </div>
         </section>
 
@@ -369,43 +328,86 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* Category section */}
         <section
-          aria-labelledby="testimonial-heading"
-          className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
+          aria-labelledby="category-heading"
+          className="sm:pt-20 xl:mx-auto xl:max-w-7xl xl:px-8"
         >
-          <div className="mx-auto max-w-2xl lg:max-w-none">
-            <h2
-              id="testimonial-heading"
-              className="text-2xl font-semibold mb-4"
-            >
-              What are people saying?
+          <div className="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
+            <h2 id="category-heading" className="text-2xl font-semibold mb-4">
+              Shop by Category
             </h2>
+            <Button>
+              Browse all categories
+              <span aria-hidden="true"> &rarr;</span>
+            </Button>
+          </div>
 
-            <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-              {testimonials.map((testimonial) => (
-                <blockquote key={testimonial.id} className="sm:flex lg:block">
-                  <svg
-                    width={24}
-                    height={18}
-                    viewBox="0 0 24 18"
-                    aria-hidden="true"
-                    className="shrink-0"
-                  >
-                    <path
-                      d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <div className="mt-8 sm:mt-0 sm:ml-6 lg:mt-10 lg:ml-0">
-                    <p className="text-lg">{testimonial.quote}</p>
-                    <cite className="mt-4 block font-semibold not-italic">
-                      {testimonial.attribution}
-                    </cite>
+          <div className="mt-4 flow-root">
+            <div className="-my-2 lg:grid lg:grid-cols-3 lg:gap-x-8">
+              {navigations.categories.map((category, index) => {
+                return (
+                  <div className="flex items-center" key={index}>
+                    <div className="mt-10 w-full">
+                      <h2 className="text-2xl font-semibold mb-4">
+                        <Link
+                          href={`/shopping/${category.name.toLowerCase()}`}
+                          className="hover:underline underline-offset-2"
+                        >
+                          {category.name}
+                        </Link>
+                      </h2>
+                      {category.sections.map((section, index) => {
+                        return (
+                          <div className="flex flex-col" key={index}>
+                            <div className="flex flex-col">
+                              {section.map((section) => {
+                                if (section.id !== "shop-collection") {
+                                  return (
+                                    <a
+                                      key={section.name}
+                                      href={section.href}
+                                      className="relative flex h-60 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto my-5"
+                                    >
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-0"
+                                      >
+                                        <Image
+                                          width={1920}
+                                          height={1080}
+                                          alt=""
+                                          src={section.imageSrc}
+                                          className="size-full object-cover object-center"
+                                        />
+                                      </span>
+                                      <span
+                                        aria-hidden="true"
+                                        className="absolute inset-x-0 bottom-0 h-2/3 bg-linear-to-t from-gray-800 opacity-50"
+                                      />
+                                      <span className="relative mt-auto text-center text-xl text-background font-bold">
+                                        {category.name}'s {section.name}
+                                      </span>
+                                    </a>
+                                  );
+                                }
+                              })}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                </blockquote>
-              ))}
+                );
+              })}
             </div>
+          </div>
+
+          <div className="mt-6 px-4 sm:hidden">
+            <Button>
+              Browse all categories
+              <span aria-hidden="true"> &rarr;</span>
+            </Button>
           </div>
         </section>
       </main>
