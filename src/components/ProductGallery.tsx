@@ -106,7 +106,7 @@ const ProductGallery = ({
             randomArray.map((_, index) => (
               <TabPanel
                 key={index}
-                className="relative aspect-square text-dynamic rounded-2xl overflow-hidden"
+                className="relative aspect-square text-dynamic rounded-3xl shadow-xl"
                 style={
                   {
                     "--bg-color": selectedColor.bgColor,
@@ -121,7 +121,7 @@ const ProductGallery = ({
             ))
           ) : (
             <TabPanel
-              className="relative aspect-square text-dynamic rounded-2xl overflow-hidden"
+              className="relative aspect-square text-dynamic rounded-t-2xl shadow-2xl"
               style={
                 {
                   "--bg-color": selectedColor.bgColor,
@@ -129,7 +129,7 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <div className="h-full w-full rounded-2xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+              <div className="h-full w-full rounded-t-2xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
                 1
               </div>
             </TabPanel>
