@@ -1,6 +1,17 @@
 import { ProductType } from "@/lib/types";
 import ProductCard from "./ProductCard";
 
+/**
+ * A React functional component that displays a list of related products
+ * in a grid layout. This component is typically used to showcase products
+ * that customers might also be interested in purchasing.
+ *
+ * @param {Object} props - The props object.
+ * @param {ProductType[]} props.relatedProducts - An array of related product
+ * objects to be displayed. Each product is rendered using the `ProductCard` component.
+ *
+ * @returns {JSX.Element} A section containing a heading and a grid of related products.
+ */
 const RelatedProducts = ({
   relatedProducts,
 }: {

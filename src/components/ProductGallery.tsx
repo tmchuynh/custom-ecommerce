@@ -5,6 +5,30 @@ import { JSX, useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "./ui/button";
 
+/**
+ * A React component that renders a product gallery with a tab-based interface.
+ * The gallery supports thumbnail navigation, looping behavior, and dynamic styling
+ * based on the selected color. It also provides options to toggle visibility of panels
+ * and customize the layout for different use cases.
+ *
+ * @param {Object} props - The props for the ProductGallery component.
+ * @param {Color} props.selectedColor - The selected color object containing `bgColor` and `name`.
+ * @param {string} props.selectedColor.bgColor - The background color for the gallery.
+ * @param {string} props.selectedColor.name - The name of the selected color.
+ * @param {boolean} [props.panelsVisibility=true] - Determines whether the tab panels are visible.
+ * @param {boolean} props.page - A flag to toggle between single-page and multi-page layouts.
+ *
+ * @returns {JSX.Element} The rendered ProductGallery component.
+ *
+ * @example
+ * ```tsx
+ * <ProductGallery
+ *   selectedColor={{ bgColor: "#FF5733", name: "Orange" }}
+ *   panelsVisibility={true}
+ *   page={false}
+ * />
+ * ```
+ */
 const ProductGallery = ({
   selectedColor = { bgColor: "#919191", name: "Grey" },
   panelsVisibility = true,

@@ -5,6 +5,27 @@ import { cn, getAccessibleColor } from "@/lib/utils";
 import { FaHeart } from "react-icons/fa";
 import { useTheme } from "next-themes";
 
+/**
+ * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
+ * The component dynamically adjusts its styles based on the current theme and accessibility requirements.
+ *
+ * @param {Object} props - The props object.
+ * @param {boolean} [props.page=true] - Determines the layout of the component. If `true`, the component
+ * will have a wider layout; otherwise, it will adjust to a smaller layout.
+ *
+ * @returns {JSX.Element} The rendered JSX element containing the buttons.
+ *
+ * @remarks
+ * - The "Quick Look" button is conditionally hidden based on the `page` prop.
+ * - The "Add to Favorites" button dynamically adjusts its background and text colors to ensure
+ *   accessibility compliance using the `getAccessibleColor` utility.
+ * - The component listens to the `theme` context and updates the background color accordingly.
+ *
+ * @example
+ * ```tsx
+ * <QuickLookAndFavoriteButtons page={true} />
+ * ```
+ */
 const QuickLookAndFavoriteButtons = ({
   page = true,
 }: {
