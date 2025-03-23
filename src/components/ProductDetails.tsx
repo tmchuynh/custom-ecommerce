@@ -82,21 +82,21 @@ const ProductDetails = ({ details }: ProductDetailsProps) => {
 const ProductColors = ({
   product,
   selectedColor,
-  relatedProduct,
+  page,
   setSelectedColor,
 }: {
   product: ProductType;
-  relatedProduct?: boolean;
+  page?: boolean;
   setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
   selectedColor: Color;
 }) => {
   return (
-    <div className={cn("w-7/8 mx-auto", { "": relatedProduct })}>
+    <div>
       {product.colors.length > 0 && (
-        <div className={cn("", { "mt-6": relatedProduct })}>
+        <div className={cn("", { "mt-6": page })}>
           <h3
             className={cn("text-md font-medium mb-4", {
-              hidden: relatedProduct,
+              hidden: page,
             })}
           >
             Color
