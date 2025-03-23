@@ -25,6 +25,7 @@ const StaticBreadcrumb: React.FC = () => {
   const router = useRouter();
   const [categories, setCategories] = useState<any[]>([]);
   const [parentCategories, setParentCategories] = useState<any[]>([]);
+  const [genders, setGenders] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -44,6 +45,13 @@ const StaticBreadcrumb: React.FC = () => {
 
   // Fetch both parent and child categories
   useEffect(() => {
+    // Get all available genders
+    const availableGenders = Object.keys(mockProductData).map((gender) => ({
+      name: capitalize(gender),
+      href: `/shopping/${gender}`,
+    }));
+    setGenders(availableGenders);
+
     const fetchItemsData = async (): Promise<void> => {
       if (pathSegments.length >= 3) {
         try {
@@ -114,14 +122,32 @@ const StaticBreadcrumb: React.FC = () => {
     if (pathSegments[0] === "shopping") {
       items.push(<BreadcrumbSeparator key="shopping-separator" />);
 
+      // Make Shopping a dropdown
       items.push(
         <BreadcrumbItem key="shopping">
-          <BreadcrumbLink
-            href="/shopping"
-            className="bg-muted px-3 py-2 rounded-lg cursor-default"
-          >
-            Shopping
-          </BreadcrumbLink>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="outline"
+                className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+              >
+                Shopping
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-56">
+              <DropdownMenuGroup>
+                {genders.map((item) => (
+                  <DropdownMenuItem
+                    key={item.href}
+                    onClick={() => router.push(item.href)}
+                  >
+                    {item.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuGroup>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </BreadcrumbItem>
       );
 
@@ -249,6 +275,7 @@ const StaticBreadcrumb: React.FC = () => {
     router,
     categories,
     parentCategories,
+    genders,
   ]);
 
   if (!breadcrumbItems) return null;
