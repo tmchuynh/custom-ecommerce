@@ -68,10 +68,16 @@ export type StoreItem = {
 
 export type ProductDetails = {
   name: string;
-  price: number;
   description: string;
-  slug: string;
+  gender: string;
+  category: string;
+  highlights?: string[];
+  subcategory: string;
+  images: string[];
   imageSrc: string;
+  quantity: number;
+  price: string;
+  colors: Color[];
 };
 
 export type CategoryItems = {
@@ -85,10 +91,17 @@ export type CategoryCardProps = {
 };
 
 export type CategoryCardData = {
-  slug: string;
   name: string;
   description: string;
+  gender: string;
+  category: string;
+  highlights?: string[];
+  subcategory: string;
+  images: string[];
   imageSrc: string;
+  quantity: number;
+  price: string;
+  colors: Color[];
 };
 
 export type GenderCategories = {
