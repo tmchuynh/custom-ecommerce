@@ -1,10 +1,13 @@
 "use client";
 import { Color, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import { JSX, useEffect, useState } from "react";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
+import { Badge } from "./ui/badge";
+import { Card } from "./ui/card";
 
 /**
  * A React component that renders a product card with details such as name, price, and an image.
@@ -90,6 +93,7 @@ const ProductCard = ({
   return (
     <>
       <Card
+        key={index}
         className={cn(cardClassName, {
           "border border-border": page,
         })}

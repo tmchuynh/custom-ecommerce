@@ -2,7 +2,7 @@ import { Color } from "@/lib/types";
 import { cn, generateRandomNumberArray, getAccessibleColor } from "@/lib/utils";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
-import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "./ui/button";
 
 const ProductGallery = ({
@@ -146,7 +146,7 @@ const ProductGallery = ({
               className="absolute top-1/2 left-2 transform -translate-y-1/2"
               aria-label="Previous"
             >
-              <FiArrowLeft />
+              <IoIosArrowBack
             </Button>
             <Button
               variant="outline"
@@ -155,7 +155,7 @@ const ProductGallery = ({
               className="absolute top-1/2 right-2 transform -translate-y-1/2"
               aria-label="Next"
             >
-              <FiArrowRight />
+              <IoIosArrowForward
             </Button>
           </>
         ) : null}
