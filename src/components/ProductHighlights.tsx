@@ -1,26 +1,35 @@
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { badgeData } from "@/lib/badgeConstant";
+import { ProductBadgesProps } from "@/lib/interfaces";
+import { JSX } from "react";
 
-interface ProductBadgesProps {
-  highlights?: string[]; // Make badges optional
-}
-
-export default function ProductBadges({ highlights = [] }: ProductBadgesProps) {
+/**
+ * ProductHighlights Component
+ *
+ * A component that displays up to two product highlights/badges with SVG icons.
+ * Each badge consists of an SVG icon and text.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<string>} [props.highlights=[]] - Array of highlight IDs to display
+ * @returns {JSX.Element} A list of product badges with icons and text
+ *
+ * @example
+ * ```tsx
+ * <ProductHighlights highlights={["organic", "free-shipping"]} />
+ * ```
+ *
+ * @remarks
+ * The component will only show up to two badges even if more are provided.
+ * Each highlight ID must correspond to an item in the badgeData array.
+ */
+export default function ProductHighlights({
+  highlights = [],
+}: ProductBadgesProps): JSX.Element {
   // Limit to only one or two highlights
   const selectedHighlights = highlights.slice(0, 2);
 
-  // 'badges' is an array of strings, e.g., ["Best Seller", "Best Price"]
-  const selectedBadges = badgeData
-    .filter((option) => highlights.includes(option.id))
-    .sort((a, b) => a.text.localeCompare(b.text));
-
   return (
-    <ul className="mt-2 flex items-center gap-4">
+    <ul className="my-2 flex items-center gap-4">
       {selectedHighlights.map((highlightId, index) => {
         const badge = badgeData.find((b) => b.id === highlightId);
         if (!badge) return null;
