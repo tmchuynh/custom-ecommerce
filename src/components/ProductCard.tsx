@@ -10,31 +10,26 @@ import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 
 /**
- * A React component that renders a product card with details such as name, price, and an image.
- * It also provides functionality to add the product to the cart.
+ * A React component that renders a product card with customizable styles,
+ * product information, and interactive elements such as a badge, quick look,
+ * and favorite buttons. It also adapts its background color based on the
+ * current theme.
  *
- * @component
- * @param {Object} props - The props object.
- * @param {any} props.product - The product object containing details like name, description, price, and image source.
- * @param {number} props.index - The index of the product in the list, used as a fallback ID.
- * @param {string} props.selectedGender - The selected gender category for filtering products.
- * @param {string} props.selectedCategory - The selected product category.
- * @param {string} props.selectedItem - The selected item type within the category.
+ * @param {Object} props - The props for the ProductCard component.
+ * @param {ProductType} props.product - The product data to display in the card.
+ * @param {number} props.index - The index of the product in the list.
+ * @param {boolean} [props.page=true] - Determines if the card is displayed on a page or as a related product.
+ * @param {boolean} [props.relatedProduct=false] - Indicates if the card is for a related product.
+ * @param {string} [props.cardClassName="shadow-none rounded-3xl shadow-sm h-full mb-15 relative overflow-hidden"] - Custom CSS class names for the card.
+ * @param {string} [props.titleSize="text-2xl"] - The CSS class for the product title size.
+ * @param {string} [props.priceSize="text-xl"] - The CSS class for the product price size.
+ *
  * @returns {JSX.Element} The rendered product card component.
  *
- * @example
- * <ProductCard
- *   product={{
- *     name: "T-Shirt",
- *     description: "A comfortable cotton t-shirt",
- *     price: "$19.99",
- *     imageSrc: "/images/tshirt.jpg"
- *   }}
- *   index={0}
- *   selectedGender="men"
- *   selectedCategory="clothing"
- *   selectedItem="t-shirts"
- * />
+ * @remarks
+ * - The component uses the `useTheme` hook to determine the current theme and adjusts the background color accordingly.
+ * - The `ProductGallery`, `QuickLookAndFavoriteButtons`, and `ProductInfo` components are used to display product details and interactive elements.
+ * - The badge displays a discount message and dynamically adjusts its background and text colors for accessibility.
  */
 const ProductCard = ({
   product,
