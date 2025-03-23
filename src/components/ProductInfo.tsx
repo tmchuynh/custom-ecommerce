@@ -13,6 +13,7 @@ import { useCart } from "@/app/context/cartContext";
 import components from "./ProductDetails";
 import { Button } from "./ui/button";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
+import { CardContent } from "./ui/card";
 
 /**
  * The `ProductInfo` component displays detailed information about a product,
@@ -51,7 +52,7 @@ const ProductInfo = ({
   page?: boolean;
   titleSize?: string;
   priceSize?: string;
-  relatedProduct?: boolean;
+  relatedProduct: boolean;
   selectedGender?: string;
   selectedCategory?: string;
   selectedItem?: string;
@@ -90,8 +91,9 @@ const ProductInfo = ({
 
   return (
     <div
-      className={cn("mt-5 px-1 mb-5 grid grid-cols-1 h-[20em] p-2", {
-        "bg-accent w-10/12 mx-auto mt-8": relatedProduct,
+      className={cn("mt-5 px-1 mb-5 w-11/12 mx-auto grid grid-cols-1 p-2", {
+        "bg-accent mt-8": relatedProduct,
+        "w-full": !page,
       })}
     >
       <div className="grid grid-cols-subgrid grid-col-7 grid-flow-row">
@@ -106,6 +108,13 @@ const ProductInfo = ({
           </a>
         </h1>
         <div className="mt-2 flex items-center gap-2">
+          <p
+            className={cn(`${priceSize} tracking-tight pr-4`, {
+              "mt-0": relatedProduct,
+            })}
+          >
+            {product.price}
+          </p>
           <div className="flex items-center">
             <svg
               className="h-4 w-4 text-yellow-400"
@@ -210,27 +219,14 @@ const ProductInfo = ({
         </p>
       </div>
 
-      <div className="row-span-1 w-full">
+      <div className="row-span-1 h-full">
         {(showColors || showButtons) && (
-          <div
-            className={cn(
-              "grid grid-cols-4 items-center justify-between w-full md:h-1/2 row-span-1",
-              {
-                "grid-flow-col": !page,
-              }
-            )}
-          >
-            <p
-              className={cn(`${priceSize} tracking-tight mt-4 col-span-2`, {
-                "mt-0": relatedProduct,
-              })}
-            >
-              {product.price}
-            </p>
+          <div className={cn("absolute bottom-5", { relative: !page })}>
             {showButtons && (
               <CartAndFavoritesButtons
                 product={product}
                 page={page}
+                relatedProduct={relatedProduct}
                 selectedColor={selectedColor}
                 setSelectedColor={setSelectedColor}
               />
