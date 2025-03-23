@@ -22,14 +22,12 @@ import NavMobileMenu from "./NavMobileMenu";
 import NavTopMenu from "./NavTopMenu";
 import { Button } from "./ui/button";
 import { FeaturedDetails, SectionDetails } from "@/lib/types";
-import { useRouter } from "next/navigation";
 import FeaturedCategory from "./FeaturedCategory";
 import CategoryList from "./CategoryList";
 import Link from "next/link";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
-  const router = useRouter();
   const [openPopovers, setOpenPopovers] = useState<{ [key: string]: boolean }>(
     {}
   );
