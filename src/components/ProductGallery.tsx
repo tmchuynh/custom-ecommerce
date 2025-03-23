@@ -142,6 +142,7 @@ const ProductGallery = ({
                   className="relative aspect-square text-dynamic rounded-3xl shadow-md"
                   style={
                     {
+                      "--bg-color": selectedColor.bgColor,
                       "--text-color": accessibleColor,
                     } as React.CSSProperties
                   }
