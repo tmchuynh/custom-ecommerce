@@ -10,15 +10,9 @@ import { Button } from "./ui/button";
 export default function CartAndFavoritesButtons({
   product,
   page = true,
-  relatedProduct = false,
-  selectedColor,
-  setSelectedColor,
 }: {
   product: ProductType;
   page?: boolean;
-  relatedProduct?: boolean;
-  setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
-  selectedColor: Color;
 }) {
   const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);

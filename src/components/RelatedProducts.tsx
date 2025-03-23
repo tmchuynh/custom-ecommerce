@@ -1,4 +1,5 @@
 import { ProductType } from "@/lib/types";
+import { JSX } from "react";
 import ProductCard from "./ProductCard";
 
 /**
@@ -16,7 +17,7 @@ const RelatedProducts = ({
   relatedProducts,
 }: {
   relatedProducts: ProductType[];
-}) => {
+}): JSX.Element => {
   return (
     <section
       aria-labelledby="related-heading"

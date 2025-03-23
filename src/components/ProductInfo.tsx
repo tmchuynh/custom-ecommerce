@@ -1,5 +1,5 @@
 import { useCart } from "@/app/context/cartContext";
-import { Color, ProductType } from "@/lib/types";
+import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { JSX, useEffect, useState } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
@@ -75,11 +75,6 @@ const ProductInfo = ({
       .replaceAll("'s", "")}`
   );
 
-  const [selectedColor, setSelectedColor] = useState<Color>({
-    bgColor: "#000000",
-    name: "Black",
-  });
-
   // Use useEffect to handle URL updates to prevent infinite renders
   useEffect(() => {
     if (!selectedItem) {
@@ -139,13 +134,7 @@ const ProductInfo = ({
         {(showColors || showButtons) && (
           <div className={cn("absolute bottom-5", { relative: !page })}>
             {showButtons && (
-              <CartAndFavoritesButtons
-                product={product}
-                page={page}
-                relatedProduct={relatedProduct}
-                selectedColor={selectedColor}
-                setSelectedColor={setSelectedColor}
-              />
+              <CartAndFavoritesButtons product={product} page={page} />
             )}
           </div>
         )}

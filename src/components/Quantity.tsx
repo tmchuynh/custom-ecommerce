@@ -1,8 +1,8 @@
 import { useCart } from "@/app/context/cartContext";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProductType } from "@/lib/types";
+import { JSX } from "react";
 
 /**
  * A React component that renders quantity control buttons for a product in a shopping cart.
@@ -24,7 +24,11 @@ import { ProductType } from "@/lib/types";
  * <QuantityButtons product={product} />
  * ```
  */
-function QuantityButtons({ product }: { product: ProductType }) {
+function QuantityButtons({
+  product,
+}: {
+  product: ProductType;
+}): JSX.Element | null {
   const { updateQuantity, removeFromCart, itemExistsInCart, getCartItem } =
     useCart();
   const foundItem = itemExistsInCart(product?.name);

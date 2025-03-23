@@ -1,12 +1,13 @@
 import {
   Accordion,
+  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AccordionContent,
 } from "@/components/ui/accordion";
 import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
 import { capitalize, cn } from "@/lib/utils";
 import { Radio, RadioGroup } from "@headlessui/react";
+import { JSX } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -36,7 +37,7 @@ import {
  * <ProductDetails details={details} />
  * ```
  */
-const ProductDetails = ({ details }: ProductDetailsProps) => {
+const ProductDetails = ({ details }: ProductDetailsProps): JSX.Element => {
   return (
     <section aria-labelledby="details-heading" className="mt-12">
       <h2 id="details-heading" className="sr-only">

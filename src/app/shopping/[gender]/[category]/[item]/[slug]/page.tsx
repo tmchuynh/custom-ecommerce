@@ -6,8 +6,6 @@ import QuickLookAndFavoriteButtons from "@/components/QuickLookAndFavoriteButton
 import RelatedProducts from "@/components/RelatedProducts";
 import { mockProductData } from "@/lib/mockProductData";
 import { Color } from "@/lib/types";
-import { getAccessibleColor } from "@/lib/utils";
-import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
@@ -59,34 +57,6 @@ const ProductPage = (): JSX.Element => {
     bgColor: "#000000",
     name: "Black",
   });
-  const [backgroundColor, setBackgroundColor] = useState<Color>({
-    bgColor: "#000000",
-    name: "Black",
-  });
-  const accessibleColor = getAccessibleColor(
-    `${backgroundColor.bgColor}`,
-    "AAA",
-    true
-  );
-
-  const { theme } = useTheme();
-
-  useEffect(() => {
-    // Only update when theme has a defined value
-    if (theme !== undefined) {
-      if (theme === "dark") {
-        setBackgroundColor({
-          bgColor: "#070707",
-          name: "Black",
-        });
-      } else {
-        setBackgroundColor({
-          bgColor: "#fff",
-          name: "White",
-        });
-      }
-    }
-  }, [theme]);
 
   useEffect(() => {
     /**

@@ -1,12 +1,9 @@
 "use client";
 
-"use client";
-
-import React from "react";
 import { CategoryCardProps } from "@/lib/types";
-import { Skeleton } from "./ui/skeleton";
 import { useRouter } from "next/navigation";
 import DynamicButton from "./ui/button-dynamic";
+import { Skeleton } from "./ui/skeleton";
 
 /**
  * A functional React component that renders a category card with an image, name, description,
