@@ -58,7 +58,24 @@ const CategorySectionPage = (): JSX.Element => {
 
           setSelectedCategory(category as string);
 
-          setSelectedItem(item as string);
+          let formattedItem = (item as string)
+            .replaceAll("_", " ")
+            .replace("clothing", "");
+          const indexOfSpace = formattedItem.indexOf(" ");
+
+          console.log("formattedItem", formattedItem);
+
+          console.log("indexOfSpace", indexOfSpace);
+
+          formattedItem =
+            formattedItem.charAt(0).toUpperCase() +
+            formattedItem.slice(1, indexOfSpace) +
+            " " +
+            formattedItem.charAt(indexOfSpace + 1).toUpperCase() +
+            formattedItem.slice(indexOfSpace + 2);
+
+          console.log("formattedItem", formattedItem);
+          setSelectedItem(formattedItem);
 
           if (categoryData) {
             const productsArray = Object.values(categoryData);
@@ -95,9 +112,7 @@ const CategorySectionPage = (): JSX.Element => {
           <h1 className="text-4xl font-extrabold text-center mb-8">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
-            's{" "}
-            {typeof item === "string" &&
-              item.charAt(0).toUpperCase() + item.slice(1)}{" "}
+            's {typeof item === "string" && selectedItem}{" "}
             {typeof category === "string" &&
               category.charAt(0).toUpperCase() + category.slice(1)}
           </h1>
