@@ -1,8 +1,9 @@
 import { Color } from "@/lib/types";
 import { Button } from "./ui/button";
-import { JSX, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { FaHeart } from "react-icons/fa";
+import { useTheme } from "next-themes";
 
 const QuickLookAndFavoriteButtons = ({
   page = true,
@@ -19,6 +20,25 @@ const QuickLookAndFavoriteButtons = ({
     "AAA",
     true
   );
+
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    // Only update when theme has a defined value
+    if (theme !== undefined) {
+      if (theme === "dark") {
+        setBackgroundColor({
+          bgColor: "#070707",
+          name: "Black",
+        });
+      } else {
+        setBackgroundColor({
+          bgColor: "#fff",
+          name: "White",
+        });
+      }
+    }
+  }, [theme]);
 
   return (
     <div
