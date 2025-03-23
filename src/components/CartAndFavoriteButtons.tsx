@@ -9,22 +9,27 @@ import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
 
 /**
- * A React component that renders buttons for adding a product to the cart or managing its quantity
- * if it is already in the cart. The layout adjusts based on the `page` prop.
+ * Renders buttons for managing a product in the cart and favorites.
+ *
+ * This component displays either:
+ * - A set of quantity control buttons if the product is already in the cart
+ * - An "Add to Cart" button if the product is not in the cart
  *
  * @component
- * @param {Object} props - The props object.
- * @param {ProductType} props.product - The product to be displayed and managed.
- * @param {boolean} [props.page=true] - Determines the layout styling of the component.
- * @returns {JSX.Element} The rendered component.
+ * @param {Object} props - Component props
+ * @param {ProductType} props.product - The product to be added to cart or favorites
+ * @param {boolean} [props.page=true] - Flag indicating whether the component is rendered on a product page
+ *                                      (affects styling)
+ *
+ * @returns {JSX.Element} A div containing cart interaction buttons
  *
  * @example
- * <CartAndFavoritesButtons product={product} page={true} />
+ * // Basic usage
+ * <CartAndFavoritesButtons product={myProduct} />
  *
- * @remarks
- * - If the product is already in the cart, the component renders quantity management buttons.
- * - If the product is not in the cart, it renders an "Add to Cart" button.
- * - The `handleAddToCart` function adds the product to the cart and displays a success toast.
+ * @example
+ * // Usage with page flag set to false (for use in cards or listings)
+ * <CartAndFavoritesButtons product={myProduct} page={false} />
  */
 export default function CartAndFavoritesButtons({
   product,
@@ -58,7 +63,7 @@ export default function CartAndFavoritesButtons({
   return (
     <div
       className={cn("mt-5 pt-4 col-span-2", {
-        "mt-0 w-11/12 mx-auto": page,
+        "mt-0": page,
       })}
     >
       <div className="flex gap-5">
