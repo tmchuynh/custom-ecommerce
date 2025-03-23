@@ -1,16 +1,18 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
-import { usePathname, useRouter } from "next/navigation";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbList,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { mockProductData } from "@/lib/mockProductData";
 import { capitalize } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import React, { JSX, useEffect, useMemo, useState } from "react";
+import { Button } from "./button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -18,10 +20,30 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./dropdown-menu";
-import { Button } from "./button";
-import { mockProductData } from "@/lib/mockProductData";
 
-const DynamicBreadcrumb = () => {
+/**
+ * DynamicBreadcrumb Component
+ *
+ * A responsive breadcrumb navigation component that dynamically generates
+ * breadcrumb items based on the current URL path. The last segment displays
+ * a dropdown menu with related subcategories when available.
+ *
+ * Features:
+ * - Automatically parses URL path segments into breadcrumb items
+ * - Capitalizes and formats path segments for display
+ * - Provides a dropdown menu for the current category showing available subcategories
+ * - Handles navigation between related pages
+ * - Does not render on the homepage
+ *
+ * Implementation details:
+ * - Uses React hooks (useState, useEffect, useMemo) for state management and performance
+ * - Fetches subcategory data from mockProductData based on the current path
+ * - Supports dynamic navigation through multiple levels of categories
+ * - Applies consistent styling to breadcrumb items
+ *
+ * @returns {JSX.Element|null} The rendered breadcrumb navigation or null if on homepage
+ */
+const DynamicBreadcrumb = (): JSX.Element | null => {
   const pathname = usePathname();
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -33,10 +55,7 @@ const DynamicBreadcrumb = () => {
   );
 
   const capitalizedSegments = useMemo(
-    () =>
-      pathSegments.map((segment) =>
-        capitalize(segment.replaceAll("_", " ").trim())
-      ),
+    () => pathSegments.map((segment) => capitalize(segment)),
     [pathSegments]
   );
 
@@ -120,7 +139,7 @@ const DynamicBreadcrumb = () => {
                         key={item.href}
                         onClick={() => router.push(item.href)}
                       >
-                        {item.name}
+                        {item.name.replaceAll("_", " ")}
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuGroup>
