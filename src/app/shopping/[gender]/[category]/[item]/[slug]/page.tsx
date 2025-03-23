@@ -118,29 +118,18 @@ const ProductPage = (): JSX.Element => {
       <div className="mx-auto max-w-2xl lg:max-w-none">
         {/* Product Section */}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
-          <ProductGallery
-            page={false}
-            images={product.images}
-            selectedColor={selectedColor}
-          />
+          <ProductGallery page={false} selectedColor={selectedColor} />
           <div>
-            <ProductInfo titleSize="text-4xl" product={product} />
+            <ProductInfo titleSize="text-4xl" product={product} page={false} />
 
-            <div>
+            <div className="w-full border">
               <components.ProductColors
                 product={product}
                 selectedColor={selectedColor}
-                relatedProduct={false}
+                page={false}
                 setSelectedColor={setSelectedColor}
               />
             </div>
-
-            <CartAndFavoritesButtons
-              product={product}
-              page={false}
-              selectedColor={selectedColor}
-              setSelectedColor={setSelectedColor}
-            />
             <components.ProductDetails details={product.details} />
           </div>
         </div>
