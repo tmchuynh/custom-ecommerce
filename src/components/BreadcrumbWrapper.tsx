@@ -96,7 +96,10 @@ const StaticBreadcrumb: React.FC = () => {
   const breadcrumbItems = useMemo(() => {
     if (pathname === "/") return null;
 
-    const items = [
+    const items = [];
+
+    // Home link
+    items.push(
       <BreadcrumbItem key="home">
         <BreadcrumbLink
           href="/"
@@ -104,23 +107,22 @@ const StaticBreadcrumb: React.FC = () => {
         >
           Home
         </BreadcrumbLink>
-      </BreadcrumbItem>,
-    ];
+      </BreadcrumbItem>
+    );
 
     // Add "Shopping" link after Home if we're on a shopping path
     if (pathSegments[0] === "shopping") {
+      items.push(<BreadcrumbSeparator key="shopping-separator" />);
+
       items.push(
-        <React.Fragment key="shopping-separator">
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              href="/shopping"
-              className="bg-muted px-3 py-2 rounded-lg cursor-default"
-            >
-              Shopping
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-        </React.Fragment>
+        <BreadcrumbItem key="shopping">
+          <BreadcrumbLink
+            href="/shopping"
+            className="bg-muted px-3 py-2 rounded-lg cursor-default"
+          >
+            Shopping
+          </BreadcrumbLink>
+        </BreadcrumbItem>
       );
     }
 
@@ -131,70 +133,71 @@ const StaticBreadcrumb: React.FC = () => {
         const isLast = index === pathSegments.length - 2;
         const isSecondToLast = index === pathSegments.length - 3;
 
+        // Add separator as a separate item
+        items.push(<BreadcrumbSeparator key={`sep-${href}`} />);
+
+        // Add the breadcrumb item
         items.push(
-          <div key={href} className="flex items-center gap-2">
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              {isLast ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="outline"
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-                    >
-                      {capitalizedSegment}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56">
-                    <DropdownMenuGroup>
-                      {categories.map((item) => (
-                        <DropdownMenuItem
-                          key={item.href}
-                          onClick={() => router.push(item.href)}
-                        >
-                          {item.name}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : isSecondToLast ? (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="outline"
-                      onClick={() => setDropdownOpen(!dropdownOpen)}
-                      className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-                    >
-                      {capitalizedSegment}
-                      <ChevronDown className="ml-1 h-4 w-4" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56">
-                    <DropdownMenuGroup>
-                      {parentCategories.map((item) => (
-                        <DropdownMenuItem
-                          key={item.href}
-                          onClick={() => router.push(item.href)}
-                        >
-                          {item.name}
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuGroup>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                <BreadcrumbLink
-                  href={href}
-                  className="bg-muted px-3 py-2 rounded-lg cursor-default"
-                >
-                  {capitalizedSegment}
-                </BreadcrumbLink>
-              )}
-            </BreadcrumbItem>
-          </div>
+          <BreadcrumbItem key={href}>
+            {isLast ? (
+              // Use a regular button for dropdown to avoid hydration mismatch
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                  >
+                    {capitalizedSegment}
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuGroup>
+                    {categories.map((item) => (
+                      <DropdownMenuItem
+                        key={item.href}
+                        onClick={() => router.push(item.href)}
+                      >
+                        {item.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : isSecondToLast ? (
+              // Use a regular button for dropdown to avoid hydration mismatch
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                  >
+                    {capitalizedSegment}
+                    <ChevronDown className="ml-1 h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56">
+                  <DropdownMenuGroup>
+                    {parentCategories.map((item) => (
+                      <DropdownMenuItem
+                        key={item.href}
+                        onClick={() => router.push(item.href)}
+                      >
+                        {item.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuGroup>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <BreadcrumbLink
+                href={href}
+                className="bg-muted px-3 py-2 rounded-lg cursor-default"
+              >
+                {capitalizedSegment}
+              </BreadcrumbLink>
+            )}
+          </BreadcrumbItem>
         );
       });
     }
@@ -207,7 +210,6 @@ const StaticBreadcrumb: React.FC = () => {
     router,
     categories,
     parentCategories,
-    dropdownOpen,
   ]);
 
   if (!breadcrumbItems) return null;
