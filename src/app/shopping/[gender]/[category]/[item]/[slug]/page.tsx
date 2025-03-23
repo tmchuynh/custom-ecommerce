@@ -3,11 +3,17 @@ import CartAndFavoritesButtons from "@/components/CartAndFavoriteButtons";
 import components from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
+import QuickLookAndFavoriteButtons from "@/components/QuickLookAndFavoriteButtons";
 import RelatedProducts from "@/components/RelatedProducts";
+import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
 import { Color } from "@/lib/types";
+import { getAccessibleColor } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
+import { FaHeart } from "react-icons/fa";
+import page from "../page";
 
 /**
  * ProductPage Component
@@ -57,6 +63,34 @@ const ProductPage = (): JSX.Element => {
     bgColor: "#000000",
     name: "Black",
   });
+  const [backgroundColor, setBackgroundColor] = useState<Color>({
+    bgColor: "#000000",
+    name: "Black",
+  });
+  const accessibleColor = getAccessibleColor(
+    `${backgroundColor.bgColor}`,
+    "AAA",
+    true
+  );
+
+  const { theme } = useTheme();
+
+  useEffect(() => {
+    // Only update when theme has a defined value
+    if (theme !== undefined) {
+      if (theme === "dark") {
+        setBackgroundColor({
+          bgColor: "#070707",
+          name: "Black",
+        });
+      } else {
+        setBackgroundColor({
+          bgColor: "#fff",
+          name: "White",
+        });
+      }
+    }
+  }, [theme]);
 
   useEffect(() => {
     /**
@@ -119,10 +153,17 @@ const ProductPage = (): JSX.Element => {
         {/* Product Section */}
         <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative">
           <ProductGallery page={false} selectedColor={selectedColor} />
-          <div>
-            <ProductInfo titleSize="text-4xl" product={product} page={false} />
+          <div className="relative">
+            <QuickLookAndFavoriteButtons page={false} />
 
-            <div className="w-full border">
+            <ProductInfo
+              titleSize="text-4xl"
+              product={product}
+              page={false}
+              relatedProduct={false}
+            />
+
+            <div className="mt-6">
               <components.ProductColors
                 product={product}
                 selectedColor={selectedColor}
