@@ -1,19 +1,15 @@
 "use client";
-import CartAndFavoritesButtons from "@/components/CartAndFavoriteButtons";
 import components from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import QuickLookAndFavoriteButtons from "@/components/QuickLookAndFavoriteButtons";
 import RelatedProducts from "@/components/RelatedProducts";
-import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
 import { Color } from "@/lib/types";
 import { getAccessibleColor } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
-import { FaHeart } from "react-icons/fa";
-import page from "../page";
 
 /**
  * ProductPage Component
