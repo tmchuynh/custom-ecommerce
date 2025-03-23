@@ -1,5 +1,6 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
+import { BreadcrumbLink } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,6 +15,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { FormattedItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { useParams, useRouter } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
@@ -179,66 +181,45 @@ const CategoryPage = (): JSX.Element => {
         )}
       </div>
 
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline">Open</Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 absolute -left-8">
-          <DropdownMenuGroup>
-            {categories.map((category, index) => {
-              interface FormattedItem {
-                name: string;
-                url: string;
-              }
+      <BreadcrumbLink>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+            >
+              Open
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56 absolute -left-8">
+            <DropdownMenuGroup>
+              {categories.map((category, index) => {
+                const formattedItems: FormattedItem[] = category.itemType
+                  .split("_")
+                  .map((n: string) => {
+                    return {
+                      name: n.charAt(0).toUpperCase() + n.slice(1),
+                      url: `/shopping/${gender}/clothing/${category.itemType}`,
+                    } as FormattedItem;
+                  });
 
-              const formattedItems: FormattedItem[] = category.itemType
-                .split("_")
-                .map((n: string, index: number) => {
-                  return {
-                    name: n.charAt(0).toUpperCase() + n.slice(1),
-                    url: `/shopping/${gender}/clothing/${category.itemType}`,
-                  } as FormattedItem;
-                });
-
-              return (
-                <DropdownMenuItem
-                  key={category.itemType}
-                  onClick={() => {
-                    router.push(formattedItems[0].url); // Example: using the first item's URL
-                  }}
-                >
-                  {formattedItems
-                    .map((item: { name: string; url: string }) => item.name)
-                    .join(" ")}
-                </DropdownMenuItem>
-              );
-            })}
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>Email</DropdownMenuItem>
-                  <DropdownMenuItem>Message</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>More...</DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuItem>
-              New Team
-              <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>GitHub</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-
+                return (
+                  <DropdownMenuItem
+                    key={`${category.itemType}_${index}`}
+                    onClick={() => {
+                      router.push(formattedItems[0].url); // Example: using the first item's URL
+                    }}
+                  >
+                    {formattedItems
+                      .map((item: { name: string; url: string }) => item.name)
+                      .join(" ")}
+                  </DropdownMenuItem>
+                );
+              })}
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </BreadcrumbLink>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => {
           return (
