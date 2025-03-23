@@ -11,11 +11,13 @@ import { Button } from "./ui/button";
 export default function CartAndFavoritesButtons({
   product,
   page = true,
+  relatedProduct = false,
   selectedColor,
   setSelectedColor,
 }: {
   product: ProductType;
   page?: boolean;
+  relatedProduct?: boolean;
   setSelectedColor: React.Dispatch<React.SetStateAction<Color>>;
   selectedColor: Color;
 }) {
@@ -80,33 +82,6 @@ export default function CartAndFavoritesButtons({
           </Button>
         )}
       </div>
-      <Button
-        type="button"
-        variant={"ghost"}
-        size={"icon"}
-        className={cn("mb-0 mx-8 hover:bg-dynamic", {
-          "absolute top-5 right-5 mx-0": page,
-        })}
-        style={
-          {
-            "--bg-color": accessibleColor,
-          } as React.CSSProperties
-        }
-      >
-        <IoHeartCircle
-          className="rounded-full text-dynamic"
-          aria-hidden="true"
-          style={
-            {
-              "--text-color": accessibleColor,
-              width: page ? "50px" : "35px",
-              height: page ? "50px" : "35px",
-            } as React.CSSProperties
-          }
-        />
-
-        <span className="sr-only">Add to favorites</span>
-      </Button>
     </div>
   );
 }
