@@ -124,82 +124,121 @@ const StaticBreadcrumb: React.FC = () => {
           </BreadcrumbLink>
         </BreadcrumbItem>
       );
-    }
 
-    if (pathSegments.length > 2) {
-      pathSegments.slice(1).forEach((segment, index) => {
-        const href = `/${pathSegments.slice(0, index + 2).join("/")}`;
-        const capitalizedSegment = capitalizedSegments[index + 1];
-        const isLast = index === pathSegments.length - 2;
-        const isSecondToLast = index === pathSegments.length - 3;
+      // Process gender segment if it exists
+      if (pathSegments.length > 1) {
+        const gender = pathSegments[1];
+        const genderPath = `/shopping/${gender}`;
 
-        // Add separator as a separate item
-        items.push(<BreadcrumbSeparator key={`sep-${href}`} />);
+        items.push(<BreadcrumbSeparator key={`sep-gender`} />);
 
-        // Add the breadcrumb item
         items.push(
-          <BreadcrumbItem key={href}>
-            {isLast ? (
-              // Use a regular button for dropdown to avoid hydration mismatch
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-                  >
-                    {capitalizedSegment}
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuGroup>
-                    {categories.map((item) => (
-                      <DropdownMenuItem
-                        key={item.href}
-                        onClick={() => router.push(item.href)}
-                      >
-                        {item.name}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : isSecondToLast ? (
-              // Use a regular button for dropdown to avoid hydration mismatch
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-                  >
-                    {capitalizedSegment}
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuGroup>
-                    {parentCategories.map((item) => (
-                      <DropdownMenuItem
-                        key={item.href}
-                        onClick={() => router.push(item.href)}
-                      >
-                        {item.name}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
+          <BreadcrumbItem key={genderPath}>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                >
+                  {capitalize(gender)}
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  {parentCategories.map((item) => (
+                    <DropdownMenuItem
+                      key={item.href}
+                      onClick={() => router.push(item.href)}
+                    >
+                      {item.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </BreadcrumbItem>
+        );
+      }
+
+      // Process category segment if it exists
+      if (pathSegments.length > 2) {
+        const category = pathSegments[2];
+        const categoryPath = `/shopping/${pathSegments[1]}/${category}`;
+
+        items.push(<BreadcrumbSeparator key={`sep-category`} />);
+
+        items.push(
+          <BreadcrumbItem key={categoryPath}>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                >
+                  {capitalize(category)}
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuGroup>
+                  {categories.map((item) => (
+                    <DropdownMenuItem
+                      key={item.href}
+                      onClick={() => router.push(item.href)}
+                    >
+                      {item.name}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </BreadcrumbItem>
+        );
+      }
+
+      // Process any remaining segments as regular links
+      if (pathSegments.length > 3) {
+        for (let i = 3; i < pathSegments.length; i++) {
+          const segment = pathSegments[i];
+          const href = `/${pathSegments.slice(0, i + 1).join("/")}`;
+
+          items.push(<BreadcrumbSeparator key={`sep-${href}`} />);
+
+          items.push(
+            <BreadcrumbItem key={href}>
+              <BreadcrumbLink
+                href={href}
+                className="bg-muted px-3 py-2 rounded-lg cursor-default"
+              >
+                {capitalize(segment)}
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+          );
+        }
+      }
+    } else {
+      // Handle non-shopping paths (original logic for other paths)
+      if (pathSegments.length > 0) {
+        pathSegments.forEach((segment, index) => {
+          if (index === 0) return; // Skip the first segment as it's already handled
+          const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
+          const capitalizedSegment = capitalizedSegments[index];
+
+          items.push(<BreadcrumbSeparator key={`sep-${href}`} />);
+
+          items.push(
+            <BreadcrumbItem key={href}>
               <BreadcrumbLink
                 href={href}
                 className="bg-muted px-3 py-2 rounded-lg cursor-default"
               >
                 {capitalizedSegment}
               </BreadcrumbLink>
-            )}
-          </BreadcrumbItem>
-        );
-      });
+            </BreadcrumbItem>
+          );
+        });
+      }
     }
 
     return items;
