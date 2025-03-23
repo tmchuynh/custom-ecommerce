@@ -213,7 +213,7 @@ const StaticBreadcrumb: React.FC = () => {
                       key={item.href}
                       onClick={() => router.push(item.href)}
                     >
-                      {item.name}
+                      {capitalize(item.name.replaceAll("_", " "))}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuGroup>
@@ -237,7 +237,7 @@ const StaticBreadcrumb: React.FC = () => {
                 href={href}
                 className="bg-muted px-3 py-2 rounded-lg cursor-default"
               >
-                {capitalize(segment)}
+                {capitalize(segment.replaceAll("_", " "))}
               </BreadcrumbLink>
             </BreadcrumbItem>
           );
