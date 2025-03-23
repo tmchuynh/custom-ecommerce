@@ -106,6 +106,8 @@ const ProductCard = ({
       >
         <div className="">
           <ProductGallery
+            product={product}
+            index={index}
             page={true}
             selectedColor={selectedColor}
             panelsVisibility={false}
