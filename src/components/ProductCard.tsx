@@ -2,7 +2,8 @@
 import { Color, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { useTheme } from "next-themes";
-import { JSX, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
+import { JSX, useEffect, useMemo, useState } from "react";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
@@ -37,7 +38,7 @@ const ProductCard = ({
   page = true,
   badge = "",
   relatedProduct = false,
-  cardClassName = "shadow-none rounded-3xl shadow-sm h-full mb-15 relative overflow-hidden",
+  cardClassName = "shadow-none rounded-3xl shadow-sm h-[40em] mb-15 relative overflow-hidden",
   titleSize = "text-2xl",
   priceSize = "text-xl",
 }: {
@@ -67,6 +68,12 @@ const ProductCard = ({
     "AAA",
     true
   );
+  const pathname = usePathname();
+
+  const pathSegments = useMemo(
+    () => pathname.split("/").filter(Boolean),
+    [pathname]
+  );
 
   const { theme } = useTheme();
 
@@ -93,17 +100,19 @@ const ProductCard = ({
         key={index}
         className={cn(cardClassName, {
           "border border-border": page,
+          " h-[30em] w-full": pathSegments.length === 2,
+          " h-[43em]": pathSegments.length === 3,
         })}
       >
-        <div>
+        <div className="">
           <ProductGallery
             page={true}
             selectedColor={selectedColor}
             panelsVisibility={false}
           />
 
-          {badge && (
-            <div className="mb-4 flex items-center justify-between gap-4">
+          {badge.length > 0 && (
+            <div className="my-4 flex items-center justify-between gap-4">
               <Badge
                 variant={"secondary"}
                 className={cn("mb-0 mx-8 hover:bg-dynamic", {
@@ -122,8 +131,9 @@ const ProductCard = ({
               </Badge>
             </div>
           )}
-          <QuickLookAndFavoriteButtons page={page} />
-
+          {pathSegments.length > 2 && pathSegments[0] === "shopping" && (
+            <QuickLookAndFavoriteButtons page={page} />
+          )}
           <ProductInfo
             product={product}
             titleSize={titleSize}
