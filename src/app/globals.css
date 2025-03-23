@@ -243,11 +243,18 @@
     --sidebar-border: #2A2A3A;
     --sidebar-ring: #BB58C9;
   }
+
+  
 }
 
 .bg-dynamic {
   background-color: var(--bg-color);
 }
+
+.bg-dynamic:hover {
+  background-color: var(--bg-color);
+}
+
 
 .text-dynamic {
   color: var(--text-color);
