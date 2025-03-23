@@ -107,6 +107,23 @@ const StaticBreadcrumb: React.FC = () => {
       </BreadcrumbItem>,
     ];
 
+    // Add "Shopping" link after Home if we're on a shopping path
+    if (pathSegments[0] === "shopping") {
+      items.push(
+        <React.Fragment key="shopping-separator">
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              href="/shopping"
+              className="bg-muted px-3 py-2 rounded-lg cursor-default"
+            >
+              Shopping
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </React.Fragment>
+      );
+    }
+
     if (pathSegments.length > 2) {
       pathSegments.slice(1).forEach((segment, index) => {
         const href = `/${pathSegments.slice(0, index + 2).join("/")}`;
