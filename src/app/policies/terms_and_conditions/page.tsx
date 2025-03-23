@@ -237,9 +237,12 @@ const TermsAndConditions = () => {
           </p>
           <p className="text-lg mt-2">
             Email:{" "}
-            <Button variant={"link"} href="mailto:support@yourcompany.com">
+            <a
+              className="text-blue-500 underline"
+              href="mailto:support@yourcompany.com"
+            >
               support@yourcompany.com
-            </Button>
+            </a>
           </p>
           <p className="text-lg mt-2">Phone: +1 (555) 123-4567</p>
         </section>
