@@ -1,10 +1,5 @@
 "use client";
 import ProductCard from "@/components/ProductCard";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { mockProductData } from "@/lib/mockProductData";
-import { useParams, useRouter } from "next/navigation";
-import { JSX, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,6 +14,9 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { mockProductData } from "@/lib/mockProductData";
+import { useParams, useRouter } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
 
 /**
  * The `CategoryPage` component is responsible for rendering a shopping category page
