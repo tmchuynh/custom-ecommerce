@@ -3,12 +3,12 @@ import { NotFoundProvider } from "./context/NotFoundContext";
 import { Providers } from "./providers";
 import NavMenu from "@/components/NavMenu";
 import BackToTop from "@/components/BackToTop";
-import DynamicBreadcrumb from "@/components/ui/breadcrumb-dynamic";
 import Footer from "@/components/Footer";
 import { CurrencyProvider } from "./context/CurrencyContext";
 import { CartProvider } from "./context/cartContext";
 import { WishlistProvider } from "./context/wishlistContext";
 import { Toaster } from "sonner";
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 
 export default function RootLayout({
   children,
@@ -18,13 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <NotFoundProvider>
-          <Providers>
+        <Providers>
+          <NotFoundProvider>
             <CartProvider>
               <CurrencyProvider>
-                <NavMenu />
                 <WishlistProvider>
-                  <MainContent>{children}</MainContent>
+                  <NavMenu />
+                  <main className="flex-grow">
+                    <BreadcrumbWrapper />
+                    {children}
+                    <Footer />
+                  </main>
                 </WishlistProvider>
               </CurrencyProvider>
             </CartProvider>
@@ -37,19 +41,9 @@ export default function RootLayout({
                 },
               }}
             />
-          </Providers>
-        </NotFoundProvider>
+          </NotFoundProvider>
+        </Providers>
       </body>
     </html>
   );
 }
-
-const MainContent = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <main className="flex-grow">
-      <DynamicBreadcrumb />
-      {children}
-      <Footer />
-    </main>
-  );
-};
