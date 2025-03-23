@@ -2,8 +2,7 @@
 
 import { useCart } from "@/app/context/cartContext";
 import { Color, ProductType } from "@/lib/types";
-import { cn, getAccessibleColor } from "@/lib/utils";
-import { IoHeartCircle } from "react-icons/io5";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
@@ -23,12 +22,6 @@ export default function CartAndFavoritesButtons({
 }) {
   const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);
-
-  const accessibleColor = getAccessibleColor(
-    `${selectedColor.bgColor}`,
-    "AAA",
-    true
-  );
 
   /**
    * Handles adding a product to the cart.

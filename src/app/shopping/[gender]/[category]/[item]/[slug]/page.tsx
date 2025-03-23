@@ -159,7 +159,7 @@ const ProductPage = (): JSX.Element => {
               relatedProduct={false}
             />
 
-            <div className="mt-6">
+            <div>
               <components.ProductColors
                 product={product}
                 selectedColor={selectedColor}
