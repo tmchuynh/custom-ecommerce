@@ -140,20 +140,16 @@ const GenderPage = (): JSX.Element => {
 
         <div className="mx-auto max-w-7xl">
           {gender && (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-                {categories.map((category, index) => (
-                  <>
-                    <ProductCard
-                      key={index}
-                      product={category}
-                      page={true}
-                      index={category.name}
-                    />
-                  </>
-                ))}
-              </div>
-            </>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+              {categories.map((category, index) => (
+                <ProductCard
+                  key={index}
+                  product={category}
+                  page={true}
+                  index={category.name}
+                />
+              ))}
+            </div>
           )}
         </div>
       </div>
