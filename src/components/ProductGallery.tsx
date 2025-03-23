@@ -4,6 +4,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 /**
  * A React component that renders a product gallery with a tab-based interface.
@@ -85,6 +86,13 @@ const ProductGallery = ({
     }
   };
 
+  const pathname = usePathname();
+
+  const pathSegments = useMemo(
+    () => pathname.split("/").filter(Boolean),
+    [pathname]
+  );
+
   // Functions to navigate with looping behavior.
   const goToPrevious = () => {
     setSelectedIndex((prev) => (prev - 1 + total) % total);
@@ -140,7 +148,7 @@ const ProductGallery = ({
 
       {/* TabPanels (all panels remain rendered) */}
       <div className="relative">
-        <TabPanels>
+        <TabPanels className={"w-full"}>
           {randomArray.map((_, index) => (
             <TabPanel
               key={index}
@@ -148,6 +156,7 @@ const ProductGallery = ({
                 "relative aspect-square text-dynamic shadow-lg overflow-clip",
                 {
                   "rounded-3xl": !page,
+                  " h-[15em] w-full": pathSegments.length === 2,
                 }
               )}
               style={
