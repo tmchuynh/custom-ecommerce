@@ -105,7 +105,7 @@ const ProductGallery = ({
                 {/* Pass the index as text to the Skeleton */}
                 <div
                   className={cn(
-                    "h-full w-full rounded-xl opacity-90 flex justify-center items-center text-5xl",
+                    "h-full w-full opacity-90 flex justify-center items-center text-5xl",
                     {
                       "opacity-100": page,
                     }
@@ -116,7 +116,7 @@ const ProductGallery = ({
               </span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-xl ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
+                className="pointer-events-none absolute inset-0 ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
               />
             </Tab>
           ))}
@@ -126,58 +126,50 @@ const ProductGallery = ({
       {/* TabPanels (all panels remain rendered) */}
       <div className="relative">
         <TabPanels>
-          {!page ? (
-            randomArray.map((_, index) => {
-              const accessibleBorderColor = getAccessibleColor(
-                `${selectedColor.bgColor}`,
-                "AAA",
-                true
-              );
-
-              return (
-                <TabPanel
-                  key={index}
-                  className="relative aspect-square text-dynamic rounded-3xl shadow-md"
-                  style={
-                    {
-                      "--bg-color": selectedColor.bgColor,
-                      "--text-color": accessibleColor,
-                    } as React.CSSProperties
-                  }
-                >
-                  <div
-                    className="h-full w-full rounded-3xl border border-dynamic flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted"
-                    style={
-                      {
-                        "--border-color": accessibleBorderColor,
-                      } as React.CSSProperties
-                    }
-                  >
-                    {(index + 1).toString()}
-                  </div>
-                </TabPanel>
-              );
-            })
-          ) : (
+          {randomArray.map((_, index) => (
             <TabPanel
-              className="relative aspect-square border border-dynamic text-dynamic rounded-t-2xl shadow-2xl"
+              key={index}
+              className={cn(
+                "relative aspect-square text-dynamic shadow-lg overflow-clip",
+                {
+                  "rounded-3xl": !page,
+                }
+              )}
               style={
                 {
                   "--bg-color": selectedColor.bgColor,
+                  "--text-color": accessibleColor,
                   "--border-color": getAccessibleColor(
                     `${selectedColor.bgColor}`,
                     "AAA",
                     true
                   ),
-                  "--text-color": accessibleColor,
                 } as React.CSSProperties
               }
             >
-              <div className="h-full w-full rounded-t-2xl flex  bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
-                1
+              <div
+                className={cn(
+                  "h-full w-full flex bg-dynamic opacity-80 justify-center items-center text-5xl ",
+                  {
+                    "border border-dynamic": !page,
+                  }
+                )}
+                style={
+                  {
+                    "--bg-color": selectedColor.bgColor,
+                    "--text-color": accessibleColor,
+                    "--border-color": getAccessibleColor(
+                      `${selectedColor.bgColor}`,
+                      "AAA",
+                      true
+                    ),
+                  } as React.CSSProperties
+                }
+              >
+                {page && index === 0 ? "1" : (index + 1).toString()}
               </div>
             </TabPanel>
-          )}
+          ))}
         </TabPanels>
 
         {/* Arrow Navigation Buttons over the TabPanels */}
