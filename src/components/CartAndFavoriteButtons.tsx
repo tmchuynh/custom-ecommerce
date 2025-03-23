@@ -1,19 +1,38 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
-import { Color, ProductType } from "@/lib/types";
+import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { JSX } from "react";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
 
+/**
+ * A React component that renders buttons for adding a product to the cart or managing its quantity
+ * if it is already in the cart. The layout adjusts based on the `page` prop.
+ *
+ * @component
+ * @param {Object} props - The props object.
+ * @param {ProductType} props.product - The product to be displayed and managed.
+ * @param {boolean} [props.page=true] - Determines the layout styling of the component.
+ * @returns {JSX.Element} The rendered component.
+ *
+ * @example
+ * <CartAndFavoritesButtons product={product} page={true} />
+ *
+ * @remarks
+ * - If the product is already in the cart, the component renders quantity management buttons.
+ * - If the product is not in the cart, it renders an "Add to Cart" button.
+ * - The `handleAddToCart` function adds the product to the cart and displays a success toast.
+ */
 export default function CartAndFavoritesButtons({
   product,
   page = true,
 }: {
   product: ProductType;
   page?: boolean;
-}) {
+}): JSX.Element {
   const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);
 
