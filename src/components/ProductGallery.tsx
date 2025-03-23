@@ -6,12 +6,10 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { Button } from "./ui/button";
 
 const ProductGallery = ({
-  images,
   selectedColor = { bgColor: "#919191", name: "Grey" },
   panelsVisibility = true,
   page = true,
 }: {
-  images: string[];
   selectedColor: Color;
   panelsVisibility?: boolean;
   page: boolean;
@@ -104,9 +102,25 @@ const ProductGallery = ({
       {/* TabPanels (all panels remain rendered) */}
       <div className="relative">
         <TabPanels>
-          {randomArray.map((_, index) => (
+          {!page ? (
+            randomArray.map((_, index) => (
+              <TabPanel
+                key={index}
+                className="relative aspect-square border text-dynamic rounded-2xl overflow-hidden"
+                style={
+                  {
+                    "--bg-color": selectedColor.bgColor,
+                    "--text-color": accessibleColor,
+                  } as React.CSSProperties
+                }
+              >
+                <div className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+                  {(index + 1).toString()}
+                </div>
+              </TabPanel>
+            ))
+          ) : (
             <TabPanel
-              key={index}
               className="relative aspect-square border text-dynamic rounded-2xl overflow-hidden"
               style={
                 {
@@ -115,40 +129,36 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <div
-                className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted"
-                style={
-                  {
-                    "--bg-color": selectedColor.bgColor,
-                    "--text-color": accessibleColor,
-                  } as React.CSSProperties
-                }
-              >
-                {(index + 1).toString()}
+              <div className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+                1
               </div>
             </TabPanel>
-          ))}
+          )}
         </TabPanels>
 
         {/* Arrow Navigation Buttons over the TabPanels */}
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={goToPrevious}
-          className="absolute top-1/2 left-2 transform -translate-y-1/2"
-          aria-label="Previous"
-        >
-          <FiArrowLeft />
-        </Button>
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={goToNext}
-          className="absolute top-1/2 right-2 transform -translate-y-1/2"
-          aria-label="Next"
-        >
-          <FiArrowRight />
-        </Button>
+        {!page ? (
+          <>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={goToPrevious}
+              className="absolute top-1/2 left-2 transform -translate-y-1/2"
+              aria-label="Previous"
+            >
+              <FiArrowLeft />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={goToNext}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2"
+              aria-label="Next"
+            >
+              <FiArrowRight />
+            </Button>
+          </>
+        ) : null}
       </div>
     </TabGroup>
   );
