@@ -134,8 +134,6 @@ const ProductGallery = ({
                 true
               );
 
-              console.log("accessibleBorderColor", accessibleBorderColor);
-
               return (
                 <TabPanel
                   key={index}
