@@ -51,23 +51,30 @@ const StaticBreadcrumb: React.FC = () => {
           const category = pathSegments[2]?.toLowerCase();
 
           // Get parent categories (for the gender segment)
-          if (mockProductData[gender]) {
-            const parentOptions = Object.keys(mockProductData[gender]).map(
-              (cat) => ({
-                name: capitalize(cat),
-                href: `/${gender}/${cat}`,
-              })
-            );
+          if (gender && gender in mockProductData) {
+            const parentOptions = Object.keys(
+              mockProductData[gender as keyof typeof mockProductData]
+            ).map((cat) => ({
+              name: capitalize(cat),
+              href: `/shopping/${gender}/${cat}`,
+            }));
             setParentCategories(parentOptions);
           }
 
           // Get subcategories (for the category segment)
-          const categoryData = (mockProductData as any)[gender]?.[category];
+          const categoryData =
+            gender && gender in mockProductData && category
+              ? (
+                  mockProductData[
+                    gender as keyof typeof mockProductData
+                  ] as Record<string, any>
+                )?.[category]
+              : undefined;
           if (categoryData) {
             const subpages = Object.entries(categoryData).map(
               ([itemType, _]) => ({
                 name: capitalize(itemType),
-                href: `/${gender}/${category}/${itemType}`,
+                href: `/shopping/${gender}/${category}/${itemType}`,
               })
             );
             setCategories(subpages);
