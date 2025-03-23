@@ -67,7 +67,7 @@ const ProductGallery = ({
           {randomArray.map((_, index) => (
             <Tab
               key={index}
-              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic opacity-50 text-dynamic text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:ring-offset-4 focus:outline-hidden ${
+              className={`group relative flex items-center justify-center text-center h-36 cursor-pointer rounded-md bg-dynamic opacity-50 text-dynamic border-transparent text-sm font-medium uppercase hover:bg-muted/75 focus:ring-3 focus:ring/50 focus:outline-hidden ${
                 visibleIndices().includes(index) ? "" : "hidden"
               }`}
               style={
@@ -100,13 +100,13 @@ const ProductGallery = ({
       )}
 
       {/* TabPanels (all panels remain rendered) */}
-      <div className="relative">
+      <div className="relative overflow-hidden">
         <TabPanels>
           {!page ? (
             randomArray.map((_, index) => (
               <TabPanel
                 key={index}
-                className="relative aspect-square border text-dynamic rounded-2xl overflow-hidden"
+                className="relative aspect-square text-dynamic rounded-2xl overflow-hidden"
                 style={
                   {
                     "--bg-color": selectedColor.bgColor,
@@ -114,14 +114,14 @@ const ProductGallery = ({
                   } as React.CSSProperties
                 }
               >
-                <div className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+                <div className="h-full w-full rounded-3xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
                   {(index + 1).toString()}
                 </div>
               </TabPanel>
             ))
           ) : (
             <TabPanel
-              className="relative aspect-square border text-dynamic rounded-2xl overflow-hidden"
+              className="relative aspect-square text-dynamic rounded-2xl overflow-hidden"
               style={
                 {
                   "--bg-color": selectedColor.bgColor,
@@ -129,7 +129,7 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <div className="h-full w-full rounded-xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+              <div className="h-full w-full rounded-2xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
                 1
               </div>
             </TabPanel>
