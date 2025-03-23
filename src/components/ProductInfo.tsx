@@ -74,17 +74,21 @@ const ProductInfo = ({
       .replaceAll(" ", "-")
       .replaceAll("'s", "")}`
   );
-  const [highlights, setHighlights] = useState<string[]>([]);
+  const [highlights, setHighlights] = useState<string[]>(
+    product.highlights || []
+  );
 
-  // Use useEffect to handle URL updates to prevent infinite renders
+  // Use useEffect to handle URL updates and fetch highlights if needed
   useEffect(() => {
-    if (!selectedItem) {
+    if (!selectedItem || highlights.length === 0) {
       const productDetails = getProductByName(product.name);
-      console.log(productDetails);
-      setHighlights(productDetails?.highlights || []);
 
-      console.log(highlights);
       if (productDetails) {
+        // Only update highlights if we found some and current highlights are empty
+        if (productDetails.highlights && productDetails.highlights.length > 0) {
+          setHighlights(productDetails.highlights);
+        }
+
         setURL(
           `/shopping/${productDetails.gender}/${productDetails.category}/${
             productDetails.subcategory
@@ -95,7 +99,7 @@ const ProductInfo = ({
         );
       }
     }
-  }, [product.name, selectedItem, getProductByName]);
+  }, [product.name, selectedItem, getProductByName, highlights.length]);
 
   return (
     <div

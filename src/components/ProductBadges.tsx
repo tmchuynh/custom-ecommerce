@@ -13,21 +13,24 @@ import { JSX } from "react";
  *
  * @returns {JSX.Element} A list of badges rendered as an unordered list (`<ul>`), where each badge is represented
  * as a list item (`<li>`) containing an SVG icon and a text description.
- *
- * @example
- * // Example usage:
- * const highlights = ['badge1', 'badge2'];
- * <ProductBadges highlights={highlights} />
  */
 export default function ProductBadges({
   highlights = [],
 }: ProductBadgesProps): JSX.Element {
+  // Ensure highlights is always an array
   highlights = Array.isArray(highlights) ? highlights : [];
-  const badgesToShow = highlights
-    ? badgeData.filter((badge) => highlights.includes(badge.id))
-    : badgeData;
 
-  console.log(badgesToShow);
+  // If highlights is empty, don't show any badges
+  // Otherwise, filter badges that match the provided highlight IDs
+  const badgesToShow =
+    highlights.length > 0
+      ? badgeData.filter((badge) => highlights.includes(badge.id))
+      : [];
+
+  // If no badges to show, return null
+  if (badgesToShow.length === 0) {
+    return <></>;
+  }
 
   return (
     <ul className="mt-2 flex items-center gap-4">
