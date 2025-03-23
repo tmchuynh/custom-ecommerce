@@ -1,10 +1,11 @@
-import { Color } from "@/lib/types";
+import { Color, ProductType } from "@/lib/types";
 import { cn, generateRandomNumberArray, getAccessibleColor } from "@/lib/utils";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 /**
  * A React component that renders a product gallery with a tab-based interface.
@@ -31,10 +32,14 @@ import { usePathname } from "next/navigation";
  * ```
  */
 const ProductGallery = ({
+  product,
+  index,
   selectedColor = { bgColor: "#919191", name: "Grey" },
   panelsVisibility = true,
   page = true,
 }: {
+  product: ProductType;
+  index?: number;
   selectedColor: Color;
   panelsVisibility?: boolean;
   page: boolean;
@@ -171,27 +176,39 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <div
-                className={cn(
-                  "h-full w-full flex bg-dynamic opacity-80 justify-center items-center text-5xl ",
-                  {
-                    "border border-dynamic": !page,
+              {pathSegments.length === 2 ? (
+                <div>
+                  <Image
+                    src={product.images[index]}
+                    alt={product.name}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-3xl"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={cn(
+                    "h-full w-full flex bg-dynamic opacity-80 justify-center items-center text-5xl",
+                    {
+                      "border border-dynamic": !page,
+                    }
+                  )}
+                  style={
+                    {
+                      "--bg-color": selectedColor.bgColor,
+                      "--text-color": accessibleColor,
+                      "--border-color": getAccessibleColor(
+                        `${selectedColor.bgColor}`,
+                        "AAA",
+                        true
+                      ),
+                    } as React.CSSProperties
                   }
-                )}
-                style={
-                  {
-                    "--bg-color": selectedColor.bgColor,
-                    "--text-color": accessibleColor,
-                    "--border-color": getAccessibleColor(
-                      `${selectedColor.bgColor}`,
-                      "AAA",
-                      true
-                    ),
-                  } as React.CSSProperties
-                }
-              >
-                {page && index === 0 ? "1" : (index + 1).toString()}
-              </div>
+                >
+                  {page && index === 0 ? "1" : (index + 1).toString()}
+                </div>
+              )}
             </TabPanel>
           ))}
         </TabPanels>
