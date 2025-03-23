@@ -101,7 +101,7 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <span className="absolute inset-0 overflow-hidden rounded-xl">
+              <span className="absolute inset-0 overflow-hidden rounded-xl border">
                 {/* Pass the index as text to the Skeleton */}
                 <div
                   className={cn(
@@ -127,33 +127,54 @@ const ProductGallery = ({
       <div className="relative">
         <TabPanels>
           {!page ? (
-            randomArray.map((_, index) => (
-              <TabPanel
-                key={index}
-                className="relative aspect-square text-dynamic rounded-3xl shadow-xl"
-                style={
-                  {
-                    "--bg-color": selectedColor.bgColor,
-                    "--text-color": accessibleColor,
-                  } as React.CSSProperties
-                }
-              >
-                <div className="h-full w-full rounded-3xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
-                  {(index + 1).toString()}
-                </div>
-              </TabPanel>
-            ))
+            randomArray.map((_, index) => {
+              const accessibleBorderColor = getAccessibleColor(
+                `${selectedColor.bgColor}`,
+                "AAA",
+                true
+              );
+
+              console.log("accessibleBorderColor", accessibleBorderColor);
+
+              return (
+                <TabPanel
+                  key={index}
+                  className="relative aspect-square text-dynamic rounded-3xl shadow-md"
+                  style={
+                    {
+                      "--text-color": accessibleColor,
+                    } as React.CSSProperties
+                  }
+                >
+                  <div
+                    className="h-full w-full rounded-3xl border border-dynamic flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted"
+                    style={
+                      {
+                        "--border-color": accessibleBorderColor,
+                      } as React.CSSProperties
+                    }
+                  >
+                    {(index + 1).toString()}
+                  </div>
+                </TabPanel>
+              );
+            })
           ) : (
             <TabPanel
-              className="relative aspect-square text-dynamic rounded-t-2xl shadow-2xl"
+              className="relative aspect-square border border-dynamic text-dynamic rounded-t-2xl shadow-2xl"
               style={
                 {
                   "--bg-color": selectedColor.bgColor,
+                  "--border-color": getAccessibleColor(
+                    `${selectedColor.bgColor}`,
+                    "AAA",
+                    true
+                  ),
                   "--text-color": accessibleColor,
                 } as React.CSSProperties
               }
             >
-              <div className="h-full w-full rounded-t-2xl flex bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
+              <div className="h-full w-full rounded-t-2xl flex  bg-dynamic opacity-80 justify-center items-center text-5xl bg-muted">
                 1
               </div>
             </TabPanel>

@@ -251,6 +251,10 @@
   background-color: var(--bg-color);
 }
 
+.border-dynamic {
+  border: 1px solid var(--border-color);
+}
+
 .bg-dynamic:hover {
   background-color: var(--bg-color);
 }
