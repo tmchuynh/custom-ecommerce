@@ -141,21 +141,39 @@ const ProductGallery = ({
           <>
             <Button
               variant="outline"
-              size="icon"
               onClick={goToPrevious}
-              className="absolute top-1/2 left-2 transform -translate-y-1/2"
+              className="absolute top-1/2 left-5 px-2 py-5 transform -translate-y-1/2"
               aria-label="Previous"
             >
               <IoIosArrowBack
+                className="rounded-full"
+                aria-hidden="true"
+                style={
+                  {
+                    "--text-color": accessibleColor,
+                    width: "25px",
+                    height: "25px",
+                  } as React.CSSProperties
+                }
+              />
             </Button>
             <Button
               variant="outline"
-              size="icon"
               onClick={goToNext}
-              className="absolute top-1/2 right-2 transform -translate-y-1/2"
+              className="absolute top-1/2 right-5 px-2 py-5 transform -translate-y-1/2"
               aria-label="Next"
             >
               <IoIosArrowForward
+                className="rounded-full"
+                aria-hidden="true"
+                style={
+                  {
+                    "--text-color": accessibleColor,
+                    width: "25px",
+                    height: "25px",
+                  } as React.CSSProperties
+                }
+              />
             </Button>
           </>
         ) : null}
