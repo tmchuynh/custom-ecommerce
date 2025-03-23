@@ -53,11 +53,17 @@ const ProductGallery = ({
     true
   );
 
-  // Compute the indices for the visible thumbnails.
-  // If there are <= 3 images, show them all.
-  // Otherwise, if selected is near the start, show [0,1,2],
-  // if near the end, show the last three,
-  // else show [selectedIndex - 1, selectedIndex, selectedIndex + 1].
+  /**
+   * Determines the indices of items to be displayed in a gallery based on the total number of items
+   * and the currently selected index.
+   *
+   * - If the total number of items is less than or equal to 3, all indices are returned.
+   * - If the selected index is near the beginning (index 0 or 1), the first three indices are returned.
+   * - If the selected index is near the end (within the last two indices), the last three indices are returned.
+   * - Otherwise, the indices surrounding the selected index (one before, the selected index, and one after) are returned.
+   *
+   * @returns An array of indices representing the visible items in the gallery.
+   */
   const visibleIndices = () => {
     if (total <= 3) {
       return Array.from({ length: total }, (_, i) => i);
