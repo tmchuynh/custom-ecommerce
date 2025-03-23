@@ -24,6 +24,7 @@ const StaticBreadcrumb: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
   const [categories, setCategories] = useState<any[]>([]);
+  const [parentCategories, setParentCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
@@ -41,15 +42,27 @@ const StaticBreadcrumb: React.FC = () => {
     [pathSegments]
   );
 
-  // Move the asynchronous data fetching logic to useEffect
+  // Fetch both parent and child categories
   useEffect(() => {
     const fetchItemsData = async (): Promise<void> => {
       if (pathSegments.length >= 3) {
         try {
           const gender = pathSegments[1]?.toLowerCase();
           const category = pathSegments[2]?.toLowerCase();
-          const categoryData = (mockProductData as any)[gender]?.[category];
 
+          // Get parent categories (for the gender segment)
+          if (mockProductData[gender]) {
+            const parentOptions = Object.keys(mockProductData[gender]).map(
+              (cat) => ({
+                name: capitalize(cat),
+                href: `/${gender}/${cat}`,
+              })
+            );
+            setParentCategories(parentOptions);
+          }
+
+          // Get subcategories (for the category segment)
+          const categoryData = (mockProductData as any)[gender]?.[category];
           if (categoryData) {
             const subpages = Object.entries(categoryData).map(
               ([itemType, _]) => ({
@@ -92,6 +105,7 @@ const StaticBreadcrumb: React.FC = () => {
         const href = `/${pathSegments.slice(0, index + 2).join("/")}`;
         const capitalizedSegment = capitalizedSegments[index + 1];
         const isLast = index === pathSegments.length - 2;
+        const isSecondToLast = index === pathSegments.length - 3;
 
         items.push(
           <div key={href} className="flex items-center gap-2">
@@ -112,6 +126,31 @@ const StaticBreadcrumb: React.FC = () => {
                   <DropdownMenuContent className="w-56">
                     <DropdownMenuGroup>
                       {categories.map((item) => (
+                        <DropdownMenuItem
+                          key={item.href}
+                          onClick={() => router.push(item.href)}
+                        >
+                          {item.name}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : isSecondToLast ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                      className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                    >
+                      {capitalizedSegment}
+                      <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56">
+                    <DropdownMenuGroup>
+                      {parentCategories.map((item) => (
                         <DropdownMenuItem
                           key={item.href}
                           onClick={() => router.push(item.href)}
@@ -143,6 +182,7 @@ const StaticBreadcrumb: React.FC = () => {
     pathSegments,
     router,
     categories,
+    parentCategories,
     dropdownOpen,
   ]);
 
