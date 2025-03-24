@@ -106,10 +106,14 @@ export interface CartContextType {
   addToCart: (item: CartItem) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
-  updateQuantity: (id: string, quantity: number) => void;
   getCartItem: (name: string) => CartItem | undefined;
+  updateQuantity: (id: string, quantity: number) => void;
+  calculateTaxAmount: (total: number, taxRate?: number) => number;
   getTotalPrice: () => number;
+  getSubTotal: () => number;
   getTotalItems: () => number;
+
+  getShippingMethod: (getTotalItems: number) => ShippingMethod;
   itemExistsInCart: (name: string) => boolean;
   applyDiscount: (code: string) => boolean;
   getDiscountedTotal: () => number;

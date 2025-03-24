@@ -160,16 +160,44 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return cartItems.find((item) => item.name === name);
   };
 
+  const getSubTotal = (): number => {
+    const total = cartItems.reduce(
+      (total: number, item) => total + Number(item.price) * item.quantity,
+      0
+    );
+
+    return total;
+  };
+
   /**
    * Calculates the total price of all items in the cart.
    *
    * @returns {number} The total price of the items in the cart.
    */
   const getTotalPrice = (): number => {
-    return cartItems.reduce(
+    const total = cartItems.reduce(
       (total: number, item) => total + Number(item.price) * item.quantity,
       0
     );
+
+    const shipping = calculateShippingCost(getShippingMethod(getTotalItems()));
+
+    console.log("Total Price:", total);
+
+    // Calculate tax based on the total price
+    const taxAmount = calculateTaxAmount(total);
+
+    console.log("Tax Amount:", taxAmount);
+
+    return total + taxAmount + shipping;
+  };
+
+  const calculateTaxAmount = (
+    total: number,
+    taxRate: number = 0.08
+  ): number => {
+    const taxAmount = total * taxRate;
+    return taxAmount;
   };
 
   /**
@@ -278,6 +306,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const getShippingMethod = (getTotalItems: number): ShippingMethod => {
+    if (getTotalItems >= 6) {
+      return "standard";
+    } else if (getTotalItems < 4) {
+      return "overnight";
+    } else {
+      return "express";
+    }
+  };
+
   /**
    * Calculates the shipping cost based on the selected shipping method.
    *
@@ -366,6 +404,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     // - Verify inventory
     // - Reserve items
     // - Initialize payment gateway
+
+    // Calculate tax based on the total price
+    const taxRate = 0.08; // Example: 8% tax rate
+    const taxAmount = getSubTotal() * taxRate;
+    console.log("Tax Amount:", taxAmount);
+
+    console.log("Checkout process started");
+    // Example: Log the total price and items in the cart
+    console.log("Cart Items:", cartItems);
+
+    // Example: Simulate a checkout process
+    setTimeout(() => {
+      console.log("Checkout completed successfully!");
+      // Clear the cart after successful checkout
+      clearCart();
+      setCheckoutActive(false);
+    }, 2000); // Simulate a 2-second delay for the checkout process
   };
 
   /**
@@ -402,6 +457,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         clearCart,
         getCartItem,
         updateQuantity,
+        calculateTaxAmount,
+        getShippingMethod,
+        getSubTotal,
         getTotalPrice,
         getTotalItems,
         itemExistsInCart,

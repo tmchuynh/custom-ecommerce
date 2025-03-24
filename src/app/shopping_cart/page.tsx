@@ -1,6 +1,6 @@
 "use client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { cn } from "@/lib/utils";
+import { capitalize, cn } from "@/lib/utils";
 import { useCart } from "../context/cartContext";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -45,6 +45,11 @@ const CartPage = (): JSX.Element => {
     removeFromCart,
     getTotalPrice,
     clearCart,
+    calculateTaxAmount,
+    calculateShippingCost,
+    getTotalItems,
+    getShippingMethod,
+    getSubTotal,
   } = useCart(); // Access cart data
 
   /**
@@ -159,6 +164,33 @@ const CartPage = (): JSX.Element => {
                 </div>
               </div>
             ))}
+
+            <div className="flex justify-between items-center pt-2">
+              <div className="text-lg font-medium">Total:</div>
+              <div className="text-xl font-bold">
+                ${getSubTotal().toFixed(2)}
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center pt-2">
+              <div className="text-lg font-medium">Tax:</div>
+              <div className="text-xl font-bold">
+                ${calculateTaxAmount(getSubTotal()).toFixed(2)}
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center pt-2">
+              <div className="text-lg font-medium">
+                {capitalize(getShippingMethod(getTotalItems()))} Shipping
+              </div>
+              <div className="text-xl font-bold">
+                $
+                {calculateShippingCost(
+                  getShippingMethod(getTotalItems())
+                ).toFixed(2)}
+              </div>
+            </div>
+
             <div className="flex justify-between items-center pt-2">
               <div className="text-lg font-medium">Total:</div>
               <div className="text-xl font-bold">
