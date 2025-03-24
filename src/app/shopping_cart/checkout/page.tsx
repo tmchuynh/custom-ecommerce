@@ -19,7 +19,14 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Check, X } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { SiAmericanexpress } from "react-icons/si";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -32,6 +39,8 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
+import { FaCcDiscover, FaCcMastercard, FaCcVisa } from "react-icons/fa";
+import Image from "next/image";
 
 /**
  * The `CheckoutPage` component represents the checkout page of the e-commerce application.
@@ -246,7 +255,11 @@ const CheckoutPage = (): JSX.Element => {
    * Handles the submission of a discount code
    */
   const handleApplyDiscount = () => {
-    if (!discountCode.trim()) return;
+    if (!discountCode.trim()) {
+      setDiscountError(true);
+      setDiscountApplied(false);
+      return;
+    }
 
     const isValidDiscount = applyDiscount(discountCode);
 
@@ -257,7 +270,6 @@ const CheckoutPage = (): JSX.Element => {
     } else {
       setDiscountError(true);
       setDiscountApplied(false);
-      toast.error("Invalid discount code");
     }
 
     setDiscountCode("");
@@ -635,6 +647,21 @@ const CheckoutPage = (): JSX.Element => {
             <Card>
               <CardHeader>
                 <CardTitle>Payment Information</CardTitle>
+                <CardDescription className="pt-3 flex gap-3 items-center">
+                  {["discover", "mastercard", "visa", "americanexpress"].map(
+                    (card, index) => {
+                      return (
+                        <Image
+                          src={`/images/paymentInformation/${card}.svg`}
+                          alt={`${card}`}
+                          width={40}
+                          height={40}
+                          key={index}
+                        />
+                      );
+                    }
+                  )}
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
@@ -851,10 +878,7 @@ const CheckoutPage = (): JSX.Element => {
 
             {/* Bottom buttons */}
             <div className="flex flex-col gap-3 justify-between mt-4">
-              <Button
-                variant="outline"
-                onClick={() => handleNavigation("/products")}
-              >
+              <Button variant="outline" onClick={() => handleNavigation("/")}>
                 Continue Shopping
               </Button>
 
