@@ -1,4 +1,4 @@
-import { Color, ProductType } from "@/lib/types";
+import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { JSX, useEffect, useState } from "react";
@@ -17,6 +17,9 @@ import {
 } from "@/components/ui/alert-dialog";
 import { mockProductData } from "@/lib/mockProductData";
 import { useParams, usePathname } from "next/navigation";
+import ProductGallery from "./ProductGallery";
+import ProductInfo from "./ProductInfo";
+import components from "./ProductDetails";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -41,9 +44,11 @@ import { useParams, usePathname } from "next/navigation";
  */
 const QuickLookAndFavoriteButtons = ({
   product,
+  details,
   page = true,
 }: {
   page?: boolean;
+  details: ProductDetailsProps;
   product: ProductType;
 }): JSX.Element => {
   const { gender, category, item, slug } = useParams();
@@ -53,6 +58,10 @@ const QuickLookAndFavoriteButtons = ({
   const selectedGender = segments[2];
   const selectedCategory = segments[3];
   const selectedItem = segments[4];
+  const [selectedColor, setSelectedColor] = useState<Color>({
+    bgColor: "#000000",
+    name: "Black",
+  });
   const [backgroundColor, setBackgroundColor] = useState<Color>({
     bgColor: "#000000",
     name: "Black",
@@ -64,48 +73,6 @@ const QuickLookAndFavoriteButtons = ({
   );
 
   const { theme } = useTheme();
-
-  useEffect(() => {
-    /**
-     * Asynchronously fetches product data based on the provided parameters
-     * and updates the component's state with the fetched data.
-     *
-     * This function retrieves product details from a mock data source
-     * using the `gender`, `category`, `item`, and `slug` parameters.
-     * It sets the product and related products state if the data is found,
-     * or logs an error if the data is not available.
-     *
-     * @async
-     * @function fetchProduct
-     * @throws Will log an error if there is an issue fetching the product data.
-     * @remarks
-     * - The function assumes the existence of a `mockProductData` object
-     *   containing the product information.
-     * - The `setProduct` and `setRelatedProducts` functions are used to
-     *   update the component's state.
-     * - The `setLoading` function is called in the `finally` block to
-     *   indicate that the loading process has completed.
-     */
-    const fetchProduct = async () => {
-      try {
-        // Flatten the mock data to make it easier to work with
-        const categoryData = (mockProductData as any)[gender as string]?.[
-          category as string
-        ]?.[item as string]?.[slug as string];
-
-        // Check if the category data exists and flatten it
-        if (!product) {
-          console.error("Product data not found");
-        }
-      } catch (error) {
-        console.error("Error fetching product data", error);
-      }
-    };
-
-    if (gender && category && item && slug) {
-      fetchProduct();
-    }
-  }, [gender, category, item, slug]);
 
   useEffect(() => {
     // Only update when theme has a defined value
@@ -155,20 +122,41 @@ const QuickLookAndFavoriteButtons = ({
             />
           </svg>
         </AlertDialogTrigger>
-        <AlertDialogContent className="">
-          <AlertDialogHeader className="">
-            <AlertDialogTitle className="">
-              Are you absolutely sure?
-            </AlertDialogTitle>
-            <AlertDialogDescription className="">
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
+        <AlertDialogContent className="border-4 min-w-11/12">
           <AlertDialogFooter className="">
             <AlertDialogCancel className="">Cancel</AlertDialogCancel>
             <AlertDialogAction className="">Continue</AlertDialogAction>
           </AlertDialogFooter>
+          <AlertDialogTitle />
+          <div className="mx-auto">
+            {/* Product Section */}
+            <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative py-10">
+              <ProductGallery
+                product={product}
+                page={false}
+                selectedColor={selectedColor}
+              />
+              <div className="relative">
+                <ProductInfo
+                  titleSize="text-4xl"
+                  product={product}
+                  page={false}
+                  relatedProduct={false}
+                />
+
+                <div>
+                  <components.ProductColors
+                    product={product}
+                    selectedColor={selectedColor}
+                    page={false}
+                    setSelectedColor={setSelectedColor}
+                  />
+                </div>
+
+                <components.ProductDetails details={product.details} />
+              </div>
+            </div>
+          </div>
         </AlertDialogContent>
       </AlertDialog>
 

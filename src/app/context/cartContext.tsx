@@ -3,7 +3,7 @@
 
 import { CartContextType, CartItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
-import { ProductType } from "@/lib/types";
+import { Color, DetailItem, ProductType } from "@/lib/types";
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -107,10 +107,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Retrieves a product from the mockProductData based on its name and returns its gender, category, subcategory, and name.
+   * Retrieves a product from the mockProductData based on its name and returns its complete information.
    *
    * @param name - The name of the product to retrieve.
-   * @returns {object | undefined} An object containing the gender, category, subcategory, and name of the product if found, otherwise undefined.
+   * @returns {object | undefined} An object containing the complete product information if found, otherwise undefined.
    */
   const getProductByName = (
     name: string
@@ -121,6 +121,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         subcategory: string;
         name: string;
         highlights: string[];
+        details: DetailItem[];
+        images: string[];
+        colors: Color[];
+        imageSrc: string;
+        price: string | number;
+        badge?: string;
       }
     | undefined => {
     for (const [gender, categoryData] of Object.entries(mockProductData)) {
@@ -130,13 +136,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
             products as Record<string, ProductType>
           )) {
             if ((product as ProductType).name === name) {
-              const highlights = (product as ProductType).highlights || [];
+              const productData = product as ProductType;
               return {
                 gender,
                 category,
                 subcategory,
-                highlights,
-                name: (product as ProductType).name,
+                name: productData.name,
+                highlights: productData.highlights || [],
+                details: productData.details || [],
+                images: productData.images || [],
+                colors: productData.colors || [],
+                imageSrc: productData.imageSrc || "",
+                price: productData.price || 0,
+                badge: productData.badge,
               };
             }
           }
