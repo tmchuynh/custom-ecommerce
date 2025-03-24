@@ -71,7 +71,7 @@ const ProductInfo = ({
 }): JSX.Element => {
   const { getProductByName } = useCart();
   const [url, setURL] = useState(
-    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name}`
+    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${product.name.toLowerCase()}`
   );
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []

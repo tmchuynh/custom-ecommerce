@@ -14,6 +14,9 @@ export const navigations: NavigationDetails = {
     {
       id: "women",
       name: "Women",
+      imageSrc:
+        "https://media.istockphoto.com/id/1366475366/photo/business-woman-at-office.jpg?s=612x612&w=0&k=20&c=AeXxpYtRJPM85ZNNLrWKD_K_Y5sLfGd1xUQNQsQWwM8=",
+      imageAlt: "Women's fashion collection",
       featured: [
         {
           name: "New Arrivals",
@@ -289,6 +292,9 @@ export const navigations: NavigationDetails = {
     {
       id: "men",
       name: "Men",
+      imageSrc:
+        "https://media.istockphoto.com/id/1366475366/photo/business-woman-at-office.jpg?s=612x612&w=0&k=20&c=AeXxpYtRJPM85ZNNLrWKD_K_Y5sLfGd1xUQNQsQWwM8=",
+      imageAlt: "Women's fashion collection",
       featured: [
         {
           name: "New Arrivals",
@@ -535,6 +541,9 @@ export const navigations: NavigationDetails = {
     {
       id: "kids",
       name: "Kids",
+      imageSrc:
+        "https://media.istockphoto.com/id/1366475366/photo/business-woman-at-office.jpg?s=612x612&w=0&k=20&c=AeXxpYtRJPM85ZNNLrWKD_K_Y5sLfGd1xUQNQsQWwM8=",
+      imageAlt: "Women's fashion collection",
       featured: [
         {
           name: "New Arrivals",

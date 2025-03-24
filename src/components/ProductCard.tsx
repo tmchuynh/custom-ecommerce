@@ -75,7 +75,7 @@ const ProductCard = ({
     [pathname]
   );
 
-  // console.log("product from card", product);
+  console.log("product from card", product);
 
   const { theme } = useTheme();
 

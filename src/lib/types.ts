@@ -140,6 +140,8 @@ export type SectionDetails = {
 export type CategoryDetails = {
   id: string;
   name: string;
+  imageSrc: string;
+  imageAlt: string;
   featured: FeaturedDetails[];
   sections: SectionDetails[][];
   collections: FeaturedDetails[];

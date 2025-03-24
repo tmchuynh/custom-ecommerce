@@ -179,10 +179,7 @@ const ProductGallery = ({
               {pathSegments.length === 2 ? (
                 <div>
                   <Image
-                    src={
-                      product.imageSrc ||
-                      "https://media.istockphoto.com/id/2158155744/photo/beautiful-young-woman-trying-on-shoes.jpg?s=612x612&w=0&k=20&c=_beFGQxQKayGhEUdPK-CwV1pTSE1VIUZIXV4m7MQMrk="
-                    }
+                    src={product.imageSrc}
                     alt={product.name || product.gender || "female"}
                     layout="fill"
                     objectFit="cover"

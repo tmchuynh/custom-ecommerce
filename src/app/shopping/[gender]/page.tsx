@@ -2,8 +2,14 @@
 import { useCart } from "@/app/context/cartContext";
 import CategoryCard from "@/components/CategoryCard";
 import ProductCard from "@/components/ProductCard";
+import { navigations } from "@/lib/constants";
 import { mockProductData } from "@/lib/mockProductData";
-import { CategoryCardData, GenderCategories } from "@/lib/types";
+import {
+  CategoryCardData,
+  CategoryDetails,
+  GenderCategories,
+  NavigationDetails,
+} from "@/lib/types";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
@@ -48,25 +54,48 @@ const GenderPage = (): JSX.Element => {
           return;
         }
 
-        const enhancedCategories: any[] = [];
-
         // Get all top-level categories for this gender (clothing, shoes, accessories, etc.)
-        const genderData = (mockProductData as any)[gender as string];
-
-        Object.entries(genderData).forEach(
-          ([itemType, subCategory]: [string, any]) => {
-            // Add each product with its item type
-            Object.values(itemType).forEach((product: any) => {
-              enhancedCategories.push({
-                ...product,
-                itemType: subCategory, // Store the item type with each product
-              });
-            });
-          }
-        );
+        const genderKey = validGender as keyof NavigationDetails;
+        const genderData = navigations.categories;
 
         console.log("genderData: ", genderData);
-        console.log("enhancedCategories", enhancedCategories);
+
+        const enhancedGeneralCategories: any[] = [];
+
+        const generalCategories = Object.entries(genderData).map(
+          ([itemType, subCategory]: [string, any]) => {
+            if (itemType === itemType) {
+              return subCategory.sections.map((section: CategoryDetails[]) => {
+                return section.map((category) => {
+                  enhancedGeneralCategories.push({
+                    ...category,
+                    itemType: itemType,
+                  });
+
+                  return {
+                    name: category.name,
+                    href: category.id || "", // Using id instead of href
+                    description: `Browse our ${category.name} collection`,
+                    imageSrc: category.imageSrc,
+                    category: category.id,
+                    gender: validGender,
+                  } as ProcessedCategory;
+                });
+
+                interface ProcessedCategory {
+                  name: string;
+                  href: string;
+                  description: string;
+                  imageSrc: string;
+                  category: string;
+                  gender: string;
+                }
+              });
+            } else {
+              return null;
+            }
+          }
+        );
 
         if (!genderData) {
           setCategories([]);
@@ -74,50 +103,7 @@ const GenderPage = (): JSX.Element => {
           return;
         }
 
-        console.log(categories);
-
-        // Process each category into a displayable format
-        const processedCategories = Object.entries(genderData).map(
-          ([categoryName, categoryData]) => {
-            console.log("categoryName", categoryName);
-            console.log("categoryData", categoryData);
-
-            // Find a representative product image and description for this category
-            const subcategories = (mockProductData as any)[gender as string];
-            const firstSubcategory = subcategories;
-
-            console.log("subcategories", subcategories);
-            console.log("firstSubcategory", firstSubcategory);
-
-            const generalCategories = Object.entries(subcategories).forEach(
-              ([itemType, subCategory]: [string, any]) => {
-                console.log("itemType", itemType);
-                console.log("subCategory", subCategory);
-              }
-            );
-            console.log("generalCategories", generalCategories);
-
-            return {
-              name:
-                categoryName.charAt(0).toUpperCase() + categoryName.slice(1),
-              href: `/shopping/${gender}/${categoryName}`,
-              description:
-                (genderData as any).description ||
-                `Browse our ${categoryName} collection`,
-              imageSrc:
-                (categoryName as any).imageSrc ||
-                "https://media.istockphoto.com/id/2158155744/photo/beautiful-young-woman-trying-on-shoes.jpg?s=612x612&w=0&k=20&c=_beFGQxQKayGhEUdPK-CwV1pTSE1VIUZIXV4m7MQMrk=",
-              category: categoryName,
-              gender: validGender,
-            };
-          }
-        );
-
-        console.log("genderData", genderData);
-
-        setCategories(processedCategories);
-
-        console.log("processedCategories", processedCategories);
+        setCategories(generalCategories);
       } catch (error) {
         console.error("Error fetching product data", error);
         setCategories([]);
@@ -150,14 +136,43 @@ const GenderPage = (): JSX.Element => {
         <div className="mx-auto max-w-7xl">
           {gender && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-              {categories.map((category, index) => (
-                <ProductCard
-                  key={index}
-                  product={category}
-                  page={true}
-                  index={index}
-                />
-              ))}
+              {categories.map((category, index) => {
+                console.log("category", category);
+
+                // Define interfaces for the category structure
+                interface SubCategory {
+                  id?: string;
+                  name: string;
+                  imageSrc: string;
+                  [key: string]: any; // For any additional properties in product object
+                }
+
+                // Check if category[index] exists and map through its items
+                return Array.isArray(category[index])
+                  ? category[index]?.map(
+                      (subCat: SubCategory, subIndex: number) => (
+                        <ProductCard
+                          key={`${index}-${subIndex}`}
+                          product={{
+                            ...subCat,
+                            description:
+                              subCat.description ||
+                              `${subCat.name} description`,
+                            gender: typeof gender === "string" ? gender : "",
+                            category: subCat.id || "",
+                            subcategory: "",
+                            price: subCat.price || 0,
+                            colors: subCat.colors || [],
+                            images: subCat.images || [subCat.imageSrc],
+                            quantity: subCat.quantity || 1,
+                          }}
+                          page={true}
+                          index={subIndex}
+                        />
+                      )
+                    )
+                  : null;
+              })}
             </div>
           )}
         </div>
