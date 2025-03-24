@@ -83,13 +83,19 @@ const GenderPage = (): JSX.Element => {
             console.log("categoryData", categoryData);
 
             // Find a representative product image and description for this category
-            const subcategories = Object.keys(
-              categoryData as Record<string, any>
-            );
-            const firstSubcategory = subcategories[0];
+            const subcategories = (mockProductData as any)[gender as string];
+            const firstSubcategory = subcategories;
 
             console.log("subcategories", subcategories);
             console.log("firstSubcategory", firstSubcategory);
+
+            const generalCategories = Object.entries(subcategories).forEach(
+              ([itemType, subCategory]: [string, any]) => {
+                console.log("itemType", itemType);
+                console.log("subCategory", subCategory);
+              }
+            );
+            console.log("generalCategories", generalCategories);
 
             return {
               name:
