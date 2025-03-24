@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   capitalize,
+  cn,
   formatCreditCardNumber,
   formatPhoneNumber,
   getCardType,
@@ -453,6 +454,43 @@ const CheckoutPage = (): JSX.Element => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
 
+        {/* Order Items Section */}
+        <Card className="py-2 my-10">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>Order Items</CardTitle>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleNavigation("/shopping_cart")}
+            >
+              Edit Cart
+            </Button>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="max-h-60 overflow-y-auto space-y-4">
+              {cartItems.map((item, index) => (
+                <div
+                  key={item.id}
+                  className={cn("flex items-start space-x-4 pb-4 ", {
+                    "border-b": index !== cartItems.length - 1,
+                  })}
+                >
+                  <Skeleton className="h-12 w-12 rounded-md shrink-0" />
+                  <div className="flex-1 sm:max-w-1/2 max-w-9/12 md:max-w-10/12 lg:max-w-11/12 lg:pr-3 xl:pr-0">
+                    <h3 className="font-medium text-sm">{item.name}</h3>
+                    <div className="flex justify-between mt-1 text-sm text-gray-500">
+                      <span>Qty: {item.quantity}</span>
+                      <span>
+                        ${(Number(item.price) * item.quantity).toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Customer Information */}
           <div className="lg:col-span-2 space-y-8">
@@ -737,41 +775,6 @@ const CheckoutPage = (): JSX.Element => {
 
           {/* Right Column - Order Summary */}
           <div className="space-y-6">
-            {/* Order Items Section */}
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between">
-                <CardTitle>Order Items</CardTitle>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => handleNavigation("/shopping_cart")}
-                >
-                  Edit Cart
-                </Button>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="max-h-60 overflow-y-auto space-y-4">
-                  {cartItems.map((item) => (
-                    <div
-                      key={item.id}
-                      className="flex items-start space-x-4 pb-4 border-b"
-                    >
-                      <Skeleton className="h-12 w-12 rounded-md shrink-0" />
-                      <div className="flex-1">
-                        <h3 className="font-medium text-sm">{item.name}</h3>
-                        <div className="flex justify-between mt-1 text-sm text-gray-500">
-                          <span>Qty: {item.quantity}</span>
-                          <span>
-                            ${(Number(item.price) * item.quantity).toFixed(2)}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
             {/* Discount Code Section */}
             <Card>
               <CardHeader>
@@ -842,20 +845,12 @@ const CheckoutPage = (): JSX.Element => {
                     <span>Total</span>
                     <span>${discountedTotal.toFixed(2)}</span>
                   </div>
-
-                  <Button
-                    className="w-full py-3 mt-6"
-                    onClick={handleCheckout}
-                    disabled={!isFormValid}
-                  >
-                    Place Order
-                  </Button>
                 </div>
               </CardContent>
             </Card>
 
             {/* Bottom buttons */}
-            <div className="flex justify-between mt-4">
+            <div className="flex flex-col gap-3 justify-between mt-4">
               <Button
                 variant="outline"
                 onClick={() => handleNavigation("/products")}
