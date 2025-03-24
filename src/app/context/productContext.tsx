@@ -1,12 +1,8 @@
 "use client";
 
-import {
-  ProductContextType,
-  ProductFilters,
-  SortOption,
-} from "@/lib/interfaces";
+import { ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
-import { Color, DetailItem, ProductType } from "@/lib/types";
+import { ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, { createContext, useContext, useMemo } from "react";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
