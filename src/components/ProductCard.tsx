@@ -75,6 +75,8 @@ const ProductCard = ({
     [pathname]
   );
 
+  // console.log("product from card", product);
+
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -141,9 +143,9 @@ const ProductCard = ({
             titleSize={titleSize}
             priceSize={priceSize}
             relatedProduct={relatedProduct}
-            selectedGender={selectedGender}
-            selectedCategory={selectedCategory}
-            selectedItem={selectedItem}
+            selectedGender={selectedGender || ""}
+            selectedCategory={selectedCategory || ""}
+            selectedItem={selectedItem || ""}
           />
         </div>
       </Card>
