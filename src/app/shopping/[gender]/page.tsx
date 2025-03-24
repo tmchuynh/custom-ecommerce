@@ -1,5 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
+import CannotFind from "@/components/CannotFind";
+import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
 import { navigations } from "@/lib/constants";
 import { useParams } from "next/navigation";
@@ -96,11 +98,11 @@ const GenderPage = (): JSX.Element => {
   }, [gender, getProductsByCategory]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingIndicator />;
   }
 
   if (categories.length === 0) {
-    return <div>No categories found for this gender.</div>;
+    return <CannotFind />;
   }
 
   return (
