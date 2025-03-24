@@ -1,4 +1,5 @@
 "use client";
+import { useCart } from "@/app/context/cartContext";
 import CategoryCard from "@/components/CategoryCard";
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
@@ -29,96 +30,98 @@ const CategoryCardWrapper = ({
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender is string | string[]
   const [categories, setCategories] = useState<any[]>([]);
-  const [genderCategory, setGenderCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { getProductsByCategory } = useCart();
 
   useEffect(() => {
     /**
      * Fetches and processes product data based on the gender parameter.
-     *
-     * This function validates the `gender` parameter to ensure it matches one of the
-     * allowed values ("men", "women", "kids"). It then retrieves the corresponding
-     * product data, processes it to generate category cards, and updates the state
-     * with the resulting data.
-     *
-     * The category cards include a representative product's description and image
-     * for each top-level category. If no representative product is available, default
-     * values are used.
-     *
-     * @async
-     * @function fetchItemsData
-     * @throws Will log an error if there is an issue fetching or processing the product data.
-     *
-     * @remarks
-     * - This function assumes the presence of a `mockProductData` object containing
-     *   product data categorized by gender.
-     * - The function updates the following states:
-     *   - `setGenderCategory` with the validated gender.
-     *   - `setCategories` with the generated category cards.
-     *   - `setLoading` to indicate the loading state.
-     *
-     * @example
-     * // Example usage:
-     * fetchItemsData();
      */
     const fetchItemsData = async () => {
       try {
-        // Ensure we have a valid string value for gender
-        const validGender = Array.isArray(gender) ? gender[0] : gender;
+        // Validate gender and get all top-level categories for this gender
+        const validGender = typeof gender === "string" ? gender : "";
         if (!validGender || !["men", "women", "kids"].includes(validGender)) {
-          console.error("Invalid or missing gender parameter");
+          setCategories([]);
+          setLoading(false);
           return;
         }
-        setGenderCategory(validGender);
 
-        // After validation, we know validGender is one of the allowed values
-        const categoryData =
-          mockProductData[validGender as "men" | "women" | "kids"];
-        if (categoryData) {
-          // The keys represent top-level categories (e.g. "shoes", "accessories", etc.)
-          const categoryKeys = Object.keys(categoryData);
-          const categoryCards = categoryKeys.map((catKey) => {
-            // Get all subcategories for the current category key
-            const subCategories =
-              categoryData[catKey as keyof typeof categoryData];
-            // Flatten the subcategories to get an array of products for this category
-            const productsInCategory = Object.values(subCategories).flatMap(
-              (subCategory: any) => Object.values(subCategory)
-            );
-            // Pick the first product as a representative (if available)
-            const representativeProduct = productsInCategory[0] as {
-              description?: string;
-              imageSrc?: string;
-            };
-            return {
-              slug: catKey,
-              name: catKey.charAt(0).toUpperCase() + catKey.slice(1),
-              description:
-                representativeProduct?.description || `Explore our ${catKey}`,
-              imageSrc: representativeProduct?.imageSrc || "/default.jpg",
-              gender: validGender as "men" | "women" | "kids",
-              category: catKey,
-              subcategory: "",
-              images: [representativeProduct?.imageSrc || "/default.jpg"],
-              price: "0",
-              quantity: 0,
-              sizes: [],
-              colors: [],
-            };
-          });
-          setCategories(categoryCards);
-        } else {
-          console.error("Product data not found");
+        const enhancedCategories: any[] = [];
+
+        // Get all top-level categories for this gender (clothing, shoes, accessories, etc.)
+        const genderData = (mockProductData as any)[gender as string];
+
+        Object.entries(genderData).forEach(
+          ([itemType, subCategory]: [string, any]) => {
+            // Add each product with its item type
+            Object.values(itemType).forEach((product: any) => {
+              enhancedCategories.push({
+                ...product,
+                itemType: subCategory, // Store the item type with each product
+              });
+            });
+          }
+        );
+
+        console.log("genderData: ", genderData);
+        console.log("enhancedCategories", enhancedCategories);
+
+        if (!genderData) {
+          setCategories([]);
+          setLoading(false);
+          return;
         }
+
+        console.log(categories);
+
+        // Process each category into a displayable format
+        const processedCategories = Object.entries(genderData).map(
+          ([categoryName, categoryData]) => {
+            console.log("categoryName", categoryName);
+            console.log("categoryData", categoryData);
+
+            // Find a representative product image and description for this category
+            const subcategories = Object.keys(
+              categoryData as Record<string, any>
+            );
+            const firstSubcategory = subcategories[0];
+
+            console.log("subcategories", subcategories);
+            console.log("firstSubcategory", firstSubcategory);
+
+            return {
+              name:
+                categoryName.charAt(0).toUpperCase() + categoryName.slice(1),
+              href: `/shopping/${gender}/${categoryName}`,
+              description:
+                (genderData as any).description ||
+                `Browse our ${categoryName} collection`,
+              imageSrc:
+                (categoryName as any).imageSrc ||
+                "https://media.istockphoto.com/id/2158155744/photo/beautiful-young-woman-trying-on-shoes.jpg?s=612x612&w=0&k=20&c=_beFGQxQKayGhEUdPK-CwV1pTSE1VIUZIXV4m7MQMrk=",
+              category: categoryName,
+              gender: validGender,
+            };
+          }
+        );
+
+        console.log("genderData", genderData);
+
+        setCategories(processedCategories);
+
+        console.log("processedCategories", processedCategories);
       } catch (error) {
         console.error("Error fetching product data", error);
+        setCategories([]);
       } finally {
         setLoading(false);
       }
     };
 
     fetchItemsData();
-  }, [gender]);
+  }, [gender, getProductsByCategory]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -146,7 +149,7 @@ const GenderPage = (): JSX.Element => {
                   key={index}
                   product={category}
                   page={true}
-                  index={category.name}
+                  index={index}
                 />
               ))}
             </div>
