@@ -9,17 +9,30 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 /**
- * `CartProvider` is a React context provider component that manages the cart state for an e-commerce application.
- * It provides functionalities to add, remove, and update items in the cart, as well as calculate the total price.
- * The cart items are persisted in the localStorage to maintain the cart state across sessions.
+ * Cart Provider Component
  *
- * @param {React.FC<{ children: React.ReactNode }>} props - The props passed to the `CartProvider` component.
- * @param {React.ReactNode} props.children - The child components that will have access to the cart context.
+ * A React Context Provider that manages the shopping cart state and functionality
+ * across the application. It handles cart operations such as adding, removing, and
+ * updating items, as well as persisting the cart state to localStorage.
  *
- * @returns {React.ReactNode} A React context provider that wraps the children components and provides access to the cart context.
+ * The provider also includes utility functions for product retrieval and cart calculations.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <CartProvider>
+ *   <App />
+ * </CartProvider>
+ * ```
+ *
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components that will have access to the cart context
+ * @returns {React.ReactNode} The provider component with the cart context
  */
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
+}: {
+  children: React.ReactNode;
 }): React.ReactNode => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
