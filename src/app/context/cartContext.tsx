@@ -146,6 +146,64 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return undefined;
   };
 
+  const getProductsByCategory = (categoryObj: Record<string, any>) => {
+    // Find the first subcategory
+    const firstSubcategoryKey = Object.keys(categoryObj)[0];
+
+    console.log("firstSubcategory", firstSubcategoryKey);
+    if (!firstSubcategoryKey) return undefined;
+
+    // Get products from the first subcategory
+    const subcategoryProducts = categoryObj[firstSubcategoryKey];
+    console.log("subcategoryProducts", subcategoryProducts);
+
+    // If the subcategory has products and the first product is an array, get the first item
+    if (Array.isArray(subcategoryProducts) && subcategoryProducts.length > 0) {
+      return subcategoryProducts[0];
+    }
+
+    // Default return if no product is found
+    return {
+      description: "",
+      imageSrc: "/default.jpg",
+    };
+  };
+
+  /**
+   * Retrieves all subcategories that belong to a specific gender.
+   *
+   * @param gender - The gender to get subcategories for.
+   * @param category - Optional parameter to filter by category.
+   * @returns {string[]} An array of subcategory names.
+   */
+  const getSubcategoriesByGender = (
+    gender: string,
+    category?: string
+  ): string[] => {
+    const results: string[] = [];
+
+    if (!(gender in mockProductData)) return results;
+
+    for (const [productCategory, subCategoryData] of Object.entries(
+      mockProductData[gender as keyof typeof mockProductData]
+    )) {
+      // Skip this category if a category filter is provided and doesn't match
+      if (category && category !== productCategory) continue;
+
+      console.log("getSubcategoriesByGender", category);
+      console.log("productCategory", productCategory);
+      console.log("subCategoryData", subCategoryData);
+
+      for (const subcategory of Object.keys(subCategoryData)) {
+        if (!results.includes(subcategory)) {
+          results.push(subcategory);
+        }
+      }
+    }
+
+    return results;
+  };
+
   /**
    * Calculates the total price of all items in the cart.
    *
@@ -183,7 +241,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         cartItems,
         addToCart,
         removeFromCart,
+        getProductsByCategory,
         clearCart,
+        getSubcategoriesByGender,
         getCartItem,
         updateQuantity,
         getProductByName,
