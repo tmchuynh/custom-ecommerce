@@ -183,45 +183,6 @@ const CategoryPage = (): JSX.Element => {
         )}
       </div>
 
-      <BreadcrumbLink>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="outline"
-              className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-            >
-              Open
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56 absolute -left-8">
-            <DropdownMenuGroup>
-              {categories.map((category, index) => {
-                const formattedItems: FormattedItem[] = category.itemType
-                  .split("_")
-                  .map((n: string) => {
-                    return {
-                      name: n.charAt(0).toUpperCase() + n.slice(1),
-                      url: `/shopping/${gender}/clothing/${category.itemType}`,
-                    } as FormattedItem;
-                  });
-
-                return (
-                  <DropdownMenuItem
-                    key={`${category.itemType}_${index}`}
-                    onClick={() => {
-                      router.push(formattedItems[0].url); // Example: using the first item's URL
-                    }}
-                  >
-                    {formattedItems
-                      .map((item: { name: string; url: string }) => item.name)
-                      .join(" ")}
-                  </DropdownMenuItem>
-                );
-              })}
-            </DropdownMenuGroup>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </BreadcrumbLink>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8 w-10/12 md:w-11/12 mx-auto">
         {products.map((product, index) => {
           return (
