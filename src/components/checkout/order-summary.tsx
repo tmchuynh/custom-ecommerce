@@ -38,9 +38,10 @@ const OrderSummary = ({
       case "overnight":
         return formatDate(newDate);
       case "express":
-        return formatDate(newDate); // Fixed 3-day delivery
       case "standard":
-        return `${formatDate(newDate)} - ${formatDate(deliveryWindowEnd)}`; // Range
+        return `${formatDate(newDate)} - ${formatDate(deliveryWindowEnd)}`;
+      default:
+        return formatDate(newDate);
     }
   };
 
