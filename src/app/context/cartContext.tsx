@@ -1,7 +1,8 @@
 // cartContext.tsx
 "use client";
 
-import { CartContextType, CartItem, ShippingMethod } from "@/lib/interfaces";
+import { CartContextType, CartItem } from "@/lib/interfaces";
+import { ShippingMethod } from "@/lib/types";
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
