@@ -340,8 +340,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    *
    * @remarks
    * This function calculates delivery dates based on the shipping method:
-   * - standard: 5 business days (minimum)
-   * - express: 3 business days
+   * - standard: 5 business days (minimum of 5-7 range)
+   * - express: 2 business days (minimum of 2-4 range)
    * - overnight: next business day
    *
    * It also accounts for weekends by adjusting the date to skip Saturday and Sunday
@@ -356,7 +356,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         daysToAdd = 5; // 5 business days (minimum of the 5-7 range)
         break;
       case "express":
-        daysToAdd = 3; // 3 business days
+        daysToAdd = 2; // 2 business days (minimum of the 2-4 range)
         break;
       case "overnight":
         daysToAdd = 1; // Next business day
@@ -416,8 +416,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
           businessDaysAdded++;
         }
       }
+    } else if (method === "express") {
+      // For express shipping, the window is 2-4 business days
+      // So add 2 business days to the start date (which is already at 2 business days)
+      let businessDaysAdded = 0;
+      while (businessDaysAdded < 2) {
+        endDate.setDate(endDate.getDate() + 1);
+        const dayOfWeek = endDate.getDay();
+        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+          businessDaysAdded++;
+        }
+      }
     }
-    // For express and overnight, there's no window (single day delivery)
+    // For overnight, there's no window (single day delivery)
 
     return endDate;
   };

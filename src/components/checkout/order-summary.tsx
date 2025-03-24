@@ -50,7 +50,7 @@ const OrderSummary = ({
       case "overnight":
         return "Next business day";
       case "express":
-        return "3 business days";
+        return "2-4 business days";
       case "standard":
         return "5-7 business days";
     }
