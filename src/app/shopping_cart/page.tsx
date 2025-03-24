@@ -198,6 +198,13 @@ const CartPage = (): JSX.Element => {
                   ${getTotalPrice().toFixed(2)}
                 </div>
               </div>
+
+              {/* Add checkout button */}
+              <div className="mt-6 flex justify-end">
+                <Button className="w-full md:w-auto px-8 py-3 text-lg" asChild>
+                  <a href="/shopping_cart/checkout">Proceed to Checkout</a>
+                </Button>
+              </div>
             </div>
           </div>
         </>
