@@ -223,7 +223,6 @@ const CheckoutPage = () => {
     if (!discountCode.trim()) {
       setDiscountError(true);
       setDiscountApplied(false);
-      toast.error("Please enter a discount code");
       return;
     }
 
@@ -232,11 +231,9 @@ const CheckoutPage = () => {
     if (isValidDiscount) {
       setDiscountApplied(true);
       setDiscountError(false);
-      toast.success("Discount applied successfully!");
     } else {
       setDiscountError(true);
       setDiscountApplied(false);
-      toast.error("Invalid discount code");
     }
 
     setDiscountCode("");
