@@ -1,12 +1,13 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
 import {
-  Color,
-  DetailItem,
   FeaturedDetails,
   LengthType,
+  ProductFilters,
   ProductType,
   SectionDetails,
+  ShippingMethod,
+  SortOption,
 } from "./types";
 
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -125,8 +126,6 @@ export interface CartContextType {
   moveToWishlist: (itemId: string) => void;
 }
 
-export type ShippingMethod = "standard" | "express" | "overnight";
-
 export interface ProductContextType {
   getProductByName: (name: string) => ProductType | undefined;
   getProductsByCategory: (categoryObj: Record<string, any>) => any;
@@ -139,25 +138,6 @@ export interface ProductContextType {
   sortProducts: (products: ProductType[], sortBy: SortOption) => ProductType[];
   getProductsByPriceRange: (min: number, max: number) => ProductType[];
 }
-
-export interface ProductFilters {
-  gender?: string;
-  category?: string;
-  subcategory?: string;
-  priceRange?: {
-    min: number;
-    max: number;
-  };
-  colors?: string[];
-  sizes?: string[];
-  onSale?: boolean;
-}
-
-export type SortOption =
-  | "price-low-to-high"
-  | "price-high-to-low"
-  | "newest"
-  | "popular";
 
 export interface ProductBadgesProps {
   highlights: string[];
