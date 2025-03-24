@@ -14,6 +14,7 @@ import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
+  InputOTPSeparator,
 } from "@/components/ui/input-otp";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -74,6 +75,43 @@ function validateEmail(email: string): boolean {
 function validatePhone(phone: string): boolean {
   return phone.replace(/\D/g, "").length === 10;
 }
+
+/**
+ * Formats a phone number string into (xxx) xxx-xxxx format
+ * @param value - The raw phone number string
+ * @returns The formatted phone number
+ */
+const formatPhoneNumber = (value: string): string => {
+  // Strip all non-numeric characters
+  const numbers = value.replace(/\D/g, "");
+
+  // Format based on the length of the input
+  if (numbers.length === 0) {
+    return "";
+  } else if (numbers.length <= 3) {
+    return `(${numbers}`;
+  } else if (numbers.length <= 6) {
+    return `(${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
+  } else {
+    return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(
+      6,
+      10
+    )}`;
+  }
+};
+
+/**
+ * Formats a credit card number with spaces after every 4 digits
+ * @param value - The raw credit card number
+ * @returns The formatted credit card number
+ */
+const formatCreditCardNumber = (value: string): string => {
+  // Strip all non-numeric characters
+  const numbers = value.replace(/\D/g, "");
+
+  // Add a space after every 4 digits
+  return numbers.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
+};
 
 /**
  * The `CheckoutPage` component represents the checkout page of the e-commerce application.
@@ -190,6 +228,9 @@ const CheckoutPage = (): JSX.Element => {
     cardCvv: false,
     shippingAddress: false,
   });
+
+  // Add a new state for the fallback mode
+  const [useFallbackInputs, setUseFallbackInputs] = useState<boolean>(false);
 
   // Calculate values for order summary
   const subtotal = getSubTotal();
@@ -343,6 +384,26 @@ const CheckoutPage = (): JSX.Element => {
     window.location.href = "/";
   };
 
+  // Handle phone number change with formatting
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    const digitsOnly = inputValue.replace(/\D/g, "").slice(0, 10);
+    setPhoneNumber(digitsOnly);
+
+    // Set the formatted value back to the input
+    e.target.value = formatPhoneNumber(digitsOnly);
+  };
+
+  // Handle credit card number change with formatting
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    const digitsOnly = inputValue.replace(/\D/g, "").slice(0, 16);
+    setCardNumber(digitsOnly);
+
+    // Set the formatted value back to the input
+    e.target.value = formatCreditCardNumber(digitsOnly);
+  };
+
   // Calculate the discount amount
   const originalTotal = getTotalPrice();
   const discountedTotal = discountApplied
@@ -421,28 +482,17 @@ const CheckoutPage = (): JSX.Element => {
               <div>
                 <Label htmlFor="phone">Phone Number</Label>
                 <div className="mt-2">
-                  <InputOTP
-                    maxLength={10}
-                    value={phoneNumber}
-                    onChange={setPhoneNumber}
-                    onComplete={() => handleBlur("phone")}
-                    render={({ slots }) => (
-                      <InputOTPGroup>
-                        <div className="flex">
-                          {slots.map((slot, index) => (
-                            <InputOTPSlot
-                              key={index}
-                              index={index}
-                              className={
-                                touchedFields.phone && formErrors.phone
-                                  ? "border-red-500"
-                                  : ""
-                              }
-                            />
-                          ))}
-                        </div>
-                      </InputOTPGroup>
-                    )}
+                  <Input
+                    id="phone"
+                    value={formatPhoneNumber(phoneNumber)}
+                    onChange={handlePhoneChange}
+                    onBlur={() => handleBlur("phone")}
+                    className={
+                      touchedFields.phone && formErrors.phone
+                        ? "border-red-500"
+                        : ""
+                    }
+                    placeholder="(123) 456-7890"
                   />
                 </div>
                 {touchedFields.phone && formErrors.phone && (
@@ -525,29 +575,17 @@ const CheckoutPage = (): JSX.Element => {
               <div>
                 <Label htmlFor="cardNumber">Card Number</Label>
                 <div className="mt-2">
-                  <InputOTP
-                    maxLength={16}
-                    value={cardNumber}
-                    onChange={setCardNumber}
-                    onComplete={() => handleBlur("cardNumber")}
-                    render={({ slots }) => (
-                      <InputOTPGroup>
-                        <div className="flex flex-wrap gap-2">
-                          {slots.map((slot, index) => (
-                            <InputOTPSlot
-                              key={index}
-                              index={index}
-                              className={
-                                touchedFields.cardNumber &&
-                                formErrors.cardNumber
-                                  ? "border-red-500"
-                                  : ""
-                              }
-                            />
-                          ))}
-                        </div>
-                      </InputOTPGroup>
-                    )}
+                  <Input
+                    id="cardNumber"
+                    value={formatCreditCardNumber(cardNumber)}
+                    onChange={handleCardNumberChange}
+                    onBlur={() => handleBlur("cardNumber")}
+                    className={
+                      touchedFields.cardNumber && formErrors.cardNumber
+                        ? "border-red-500"
+                        : ""
+                    }
+                    placeholder="1234 5678 9012 3456"
                   />
                 </div>
                 {touchedFields.cardNumber && formErrors.cardNumber && (
