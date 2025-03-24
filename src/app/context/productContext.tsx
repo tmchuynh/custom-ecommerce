@@ -62,10 +62,25 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   }, []);
 
   /**
-   * Retrieves a product from the mockProductData based on its name and returns its complete information.
+   * Retrieves a product by its name from the list of all products.
    *
-   * @param name - The name of the product to retrieve.
-   * @returns {object | undefined} An object containing the complete product information if found, otherwise undefined.
+   * @param name - The name of the product to search for.
+   * @returns The product object if found, or `undefined` if no product matches the given name.
+   *
+   * The returned product object includes the following properties:
+   * - `name`: The name of the product.
+   * - `description`: A description of the product.
+   * - `gender`: The gender category of the product.
+   * - `category`: The main category of the product.
+   * - `highlights`: An array of highlight features for the product (default is an empty array).
+   * - `subcategory`: The subcategory of the product.
+   * - `images`: An array of image URLs for the product (default is an empty array).
+   * - `details`: An array of detailed information about the product (default is an empty array).
+   * - `colors`: An array of available colors for the product (default is an empty array).
+   * - `imageSrc`: The source URL of the main product image (default is an empty string).
+   * - `quantity`: The available quantity of the product.
+   * - `price`: The price of the product (default is an empty string).
+   * - `badge`: Any badge or label associated with the product.
    */
   const getProductByName = (name: string): ProductType | undefined => {
     // Use the flattened products array for more efficient lookup
@@ -90,6 +105,16 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     };
   };
 
+  /**
+   * Retrieves the first product from the first subcategory of a given category object.
+   *
+   * @param categoryObj - A record representing the category object, where keys are subcategory names
+   * and values are arrays of products or other data.
+   *
+   * @returns The first product from the first subcategory if available. If the subcategory has no products,
+   * returns a default product object with a placeholder description and image. Returns `undefined` if the
+   * category object has no subcategories.
+   */
   const getProductsByCategory = (categoryObj: Record<string, any>) => {
     // Find the first subcategory
     const firstSubcategoryKey = Object.keys(categoryObj)[0];
@@ -112,11 +137,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Retrieves all subcategories that belong to a specific gender.
+   * Retrieves a list of unique subcategories based on the specified gender and optional category filter.
    *
-   * @param gender - The gender to get subcategories for.
-   * @param category - Optional parameter to filter by category.
-   * @returns {string[]} An array of subcategory names.
+   * @param gender - The gender to filter the subcategories by (e.g., "male", "female").
+   * @param category - (Optional) A specific category to further filter the subcategories. If not provided, all categories for the given gender are considered.
+   * @returns An array of unique subcategory names that match the specified gender and optional category filter.
    */
   const getSubcategoriesByGender = (
     gender: string,
@@ -143,10 +168,14 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Searches products based on a query string.
+   * Searches for products that match the given query string.
    *
-   * @param query - The search query to match against product names and descriptions
-   * @returns An array of products that match the search query
+   * This function filters the list of all products by checking if the query string
+   * is included in the product's name or description. The search is case-insensitive
+   * and trims any leading or trailing whitespace from the query.
+   *
+   * @param query - The search term to filter products by. If the query is empty or only whitespace, an empty array is returned.
+   * @returns An array of products that match the search term in their name or description.
    */
   const searchProducts = (query: string): ProductType[] => {
     if (!query.trim()) return [];
@@ -163,10 +192,19 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Filters products based on various criteria.
+   * Filters a list of products based on the provided filter criteria.
    *
-   * @param filters - The filter criteria to apply
-   * @returns An array of products that match the filter criteria
+   * @param {ProductFilters} filters - The filter criteria to apply to the products.
+   *   - `gender` (optional): Filters products by gender (e.g., "male", "female").
+   *   - `category` (optional): Filters products by category (e.g., "clothing", "accessories").
+   *   - `subcategory` (optional): Filters products by subcategory (e.g., "shirts", "shoes").
+   *   - `priceRange` (optional): Filters products within a specific price range.
+   *     - `min`: The minimum price.
+   *     - `max`: The maximum price.
+   *   - `colors` (optional): Filters products by available colors. Matches color names (case-insensitive).
+   *   - `onSale` (optional): Filters products that are on sale. Matches products with a "sale" badge.
+   *
+   * @returns {ProductType[]} An array of products that match the specified filter criteria.
    */
   const filterProducts = (filters: ProductFilters): ProductType[] => {
     return allProducts.filter((product) => {
@@ -221,11 +259,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Gets related products based on a product name.
+   * Retrieves a list of related products based on the given product name.
+   * The related products are determined by matching the category and subcategory
+   * of the specified product, excluding the product itself. The results are shuffled
+   * to provide randomness and limited to a specified number.
    *
-   * @param productName - The name of the product to find related items for
-   * @param limit - Optional maximum number of related products to return
-   * @returns An array of related products
+   * @param productName - The name of the product to find related products for.
+   * @param limit - The maximum number of related products to return (default is 4).
+   * @returns An array of related products of type `ProductType`. Returns an empty array
+   *          if the product is not found or no related products exist.
    */
   const getRelatedProducts = (
     productName: string,
@@ -251,10 +293,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Gets featured products.
+   * Retrieves a list of featured products, either explicitly marked with a "featured" badge
+   * or randomly selected if no featured products are found.
    *
-   * @param limit - Optional maximum number of featured products to return
-   * @returns An array of featured products
+   * @param {number} [limit=8] - The maximum number of products to return. Defaults to 8.
+   * @returns {ProductType[]} An array of featured products, limited to the specified number.
    */
   const getFeaturedProducts = (limit = 8): ProductType[] => {
     // Get products with 'featured' badge or tag
@@ -272,10 +315,14 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Gets the newest products in the store.
+   * Retrieves a list of new arrival products, limited to a specified number.
    *
-   * @param limit - Optional maximum number of new arrivals to return
-   * @returns An array of the newest products
+   * This function filters the products that have a "new" badge (case-insensitive),
+   * sorts them (currently no specific sorting logic is applied beyond filtering),
+   * and returns a subset of the products based on the provided limit.
+   *
+   * @param {number} [limit=8] - The maximum number of products to return. Defaults to 8.
+   * @returns {ProductType[]} An array of products marked as "new", limited to the specified count.
    */
   const getNewArrivals = (limit = 8): ProductType[] => {
     // Get products with 'new' badge
@@ -290,11 +337,18 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Sorts an array of products based on the specified sort option.
+   * Sorts an array of products based on the specified sorting option.
    *
-   * @param products - The array of products to sort
-   * @param sortBy - The sorting criteria
-   * @returns A sorted array of products
+   * @param products - An array of products to be sorted. Each product should conform to the `ProductType` interface.
+   * @param sortBy - The sorting option to determine the order of the products.
+   *                 Possible values:
+   *                 - `"price-low-to-high"`: Sorts products by price in ascending order.
+   *                 - `"price-high-to-low"`: Sorts products by price in descending order.
+   *                 - `"newest"`: Sorts products by their "new" badge, prioritizing products marked as new.
+   *                 - `"popular"`: Returns the products as-is (no sorting applied).
+   *                 - Any other value will return the products as-is.
+   *
+   * @returns A new array of products sorted based on the specified sorting option.
    */
   const sortProducts = (
     products: ProductType[],
@@ -347,11 +401,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Gets products within a specific price range.
+   * Filters the list of products to return only those within the specified price range.
    *
-   * @param min - Minimum price
-   * @param max - Maximum price
-   * @returns An array of products within the specified price range
+   * @param min - The minimum price (inclusive) of the range.
+   * @param max - The maximum price (inclusive) of the range.
+   * @returns An array of products whose prices fall within the specified range.
+   *
+   * @remarks
+   * - If the product price is a string, it will be parsed into a number by removing any non-numeric characters.
+   * - If the product price is undefined or invalid, it defaults to 0.
    */
   const getProductsByPriceRange = (min: number, max: number): ProductType[] => {
     return allProducts.filter((product) => {
@@ -385,8 +443,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 
 /**
- * @returns {ProductContextType} The product context.
- * @throws {Error} If the hook is used outside of a ProductProvider.
+ * Custom hook to access the ProductContext.
+ *
+ * This hook provides access to the ProductContext, allowing components
+ * to consume the context's values. It ensures that the hook is used
+ * within a valid `ProductProvider` by throwing an error if the context
+ * is not available.
+ *
+ * @returns {ProductContextType} The current value of the ProductContext.
+ * @throws {Error} If the hook is used outside of a `ProductProvider`.
  */
 export const useProduct = (): ProductContextType => {
   const context = useContext(ProductContext);

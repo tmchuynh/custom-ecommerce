@@ -25,6 +25,33 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
  * @param {React.ReactNode} props.children - Child components that will have access to the cart context
  * @returns {React.ReactNode} The provider component with the cart context
  */
+/**
+ * CartProvider component that manages shopping cart state and functionality.
+ *
+ * This provider encapsulates all cart-related state and operations including:
+ * - Managing cart items (add, remove, update quantity)
+ * - Discount code application and calculation
+ * - Shipping cost calculation
+ * - Estimated delivery date calculation
+ * - Checkout process management
+ * - Cart persistence (save/load from localStorage)
+ *
+ * @component
+ * @example
+ * ```tsx
+ * function App() {
+ *   return (
+ *     <CartProvider>
+ *       <YourShopComponent />
+ *     </CartProvider>
+ *   );
+ * }
+ * ```
+ *
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Child components that will have access to the cart context
+ * @returns {React.ReactNode} The provider component with its children
+ */
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }: {
@@ -90,16 +117,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Removes an item from the cart based on its ID.
+   * Removes an item from the cart based on its unique identifier.
    *
-   * @param id - The ID of the item to remove.
+   * @param id - The unique identifier of the item to be removed from the cart.
    */
   const removeFromCart = (id: string) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   /**
-   * Removes all items from the cart.
+   * Clears all items from the cart by setting the cart items state to an empty array.
+   * This function is typically used to reset the cart to its initial state.
    */
   const clearCart = () => {
     setCartItems([]);
@@ -154,20 +182,27 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Checks if an item exists in the cart based on its name.
+   * Checks if an item with the specified name exists in the cart.
    *
-   * @param name - The name of the item to check.
-   * @returns {boolean} True if the item exists in the cart, false otherwise.
+   * @param name - The name of the item to check for in the cart.
+   * @returns A boolean indicating whether the item exists in the cart.
    */
   const itemExistsInCart = (name: string): boolean => {
     return cartItems.some((item) => item.name === name);
   };
 
   /**
-   * Applies a discount code to the cart.
+   * Applies a discount code to the cart if valid.
    *
-   * @param code - The discount code to apply
-   * @returns A boolean indicating whether the code was valid and applied
+   * @param code - The discount code entered by the user
+   * @returns A boolean indicating whether the discount code was valid and applied successfully
+   *
+   * @example
+   * // Returns true if "SUMMER20" is a valid code
+   * applyDiscount("SUMMER20");
+   *
+   * // Returns false for invalid codes
+   * applyDiscount("INVALID");
    */
   const applyDiscount = (code: string): boolean => {
     const normalizedCode = code.trim().toUpperCase();
@@ -182,9 +217,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Gets the total price after applying any active discount.
+   * Calculates the total price after applying any discount.
    *
-   * @returns The discounted total price
+   * @returns {number} The discounted total price if a discount is applied, otherwise the original subtotal.
+   *
+   * @example
+   * // If subtotal is $100 and discountAmount is 0.2 (20%)
+   * // Returns $80
+   * const discountedTotal = getDiscountedTotal();
    */
   const getDiscountedTotal = (): number => {
     const subtotal = getTotalPrice();
@@ -197,7 +237,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Saves the current cart to localStorage for later retrieval.
+   * Saves the current cart state to local storage for later retrieval.
+   *
+   * This function creates an object containing the current cart items,
+   * applied discount code, discount amount, and the current timestamp.
+   * The data is then saved to localStorage under the key "savedCart".
+   *
+   * @returns {void}
    */
   const saveCartForLater = (): void => {
     const savedCartData = {
@@ -211,7 +257,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Loads a previously saved cart from localStorage.
+   * Loads the user's saved cart data from localStorage
+   *
+   * Retrieves the "savedCart" item from localStorage, parses the JSON data,
+   * and updates the cart state with the retrieved values:
+   * - Sets cart items from the parsed data, defaulting to an empty array if not present
+   * - Sets discount code from the parsed data, defaulting to null if not present
+   * - Sets discount amount from the parsed data, defaulting to 0 if not present
+   *
+   * If no saved cart is found in localStorage, the function does nothing.
    */
   const loadSavedCart = (): void => {
     const savedCart = localStorage.getItem("savedCart");
@@ -227,8 +281,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   /**
    * Calculates the shipping cost based on the selected shipping method.
    *
-   * @param method - The shipping method
-   * @returns The shipping cost
+   * @param method - The shipping method to calculate the cost for
+   * @returns The shipping cost for the specified method, or 0 if the method is not found
    */
   const calculateShippingCost = (method: ShippingMethod): number => {
     return shippingRates[method] || 0;
@@ -237,8 +291,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   /**
    * Calculates the estimated delivery date based on the shipping method.
    *
-   * @param method - The shipping method
-   * @returns The estimated delivery date
+   * @param method - The shipping method to calculate delivery date for
+   * @returns A Date object representing the estimated delivery date
+   *
+   * @remarks
+   * This function calculates delivery dates by adding days based on the shipping method:
+   * - standard: 5 days
+   * - express: 2 days
+   * - overnight: 1 day
+   *
+   * It also accounts for weekends by adjusting the date to skip Saturday and Sunday
+   * deliveries, making the estimation more realistic.
    */
   const getEstimatedDeliveryDate = (method: ShippingMethod): Date => {
     const today = new Date();
@@ -275,7 +338,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Begins the checkout process.
+   * Initiates the checkout process if the cart contains items.
+   *
+   * This function performs the following actions:
+   * - Prevents checkout if the cart is empty.
+   * - Activates the checkout state by setting `checkoutActive` to `true`.
+   *
+   * In a real-world application, this function could also handle additional
+   * tasks such as:
+   * - Calculating taxes.
+   * - Verifying inventory availability.
+   * - Reserving items in the cart.
+   * - Initializing the payment gateway.
+   *
+   * @returns {void} This function does not return a value.
    */
   const startCheckout = (): void => {
     if (cartItems.length === 0) {
@@ -295,7 +371,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   /**
    * Moves an item from the cart to the wishlist.
    *
-   * @param itemId - The ID of the item to move
+   * @param itemId - The unique identifier of the item to be moved.
+   *
+   * This function performs the following steps:
+   * 1. Finds the item in the cart using the provided `itemId`.
+   * 2. If the item exists, it logs a message indicating the item has been added to the wishlist.
+   *    (In a real application, this would involve interacting with a wishlist context or API.)
+   * 3. Removes the item from the cart by calling the `removeFromCart` function.
    */
   const moveToWishlist = (itemId: string): void => {
     // Find the item in the cart
@@ -339,8 +421,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 };
 
 /**
- * @returns {CartContextType} The cart context.
- * @throws {Error} If the hook is used outside of a CartProvider.
+ * Custom hook to access the cart context.
+ *
+ * This hook provides access to the cart context, allowing components
+ * to interact with the cart state and actions. It ensures that the
+ * hook is used within a `CartProvider` by throwing an error if the
+ * context is not available.
+ *
+ * @returns {CartContextType} The current cart context value.
+ * @throws {Error} If the hook is used outside of a `CartProvider`.
  */
 export const useCart = (): CartContextType => {
   const context = useContext(CartContext);
