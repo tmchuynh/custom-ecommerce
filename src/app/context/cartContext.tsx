@@ -7,25 +7,6 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 /**
- * Cart Provider Component
- *
- * A React Context Provider that manages the shopping cart state and functionality
- * across the application. It handles cart operations such as adding, removing, and
- * updating items, as well as persisting the cart state to localStorage.
- *
- * @component
- * @example
- * ```tsx
- * <CartProvider>
- *   <App />
- * </CartProvider>
- * ```
- *
- * @param {Object} props - Component props
- * @param {React.ReactNode} props.children - Child components that will have access to the cart context
- * @returns {React.ReactNode} The provider component with the cart context
- */
-/**
  * CartProvider component that manages shopping cart state and functionality.
  *
  * This provider encapsulates all cart-related state and operations including:
@@ -160,6 +141,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return cartItems.find((item) => item.name === name);
   };
 
+  /**
+   * Calculates the subtotal of all items in the cart.
+   *
+   * The subtotal is calculated by summing the product of each item's price
+   * and quantity for all items in the cart.
+   *
+   * @returns {number} The total price of all items in the cart.
+   */
   const getSubTotal = (): number => {
     const total = cartItems.reduce(
       (total: number, item) => total + Number(item.price) * item.quantity,
@@ -170,9 +159,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Calculates the total price of all items in the cart.
+   * Calculates the total price of all items in the cart including tax and shipping.
    *
-   * @returns {number} The total price of the items in the cart.
+   * The total price is calculated in the following steps:
+   * 1. Sum the price of all items in the cart (price * quantity)
+   * 2. Calculate shipping cost based on the shipping method determined by the total number of items
+   * 3. Calculate tax amount based on the subtotal
+   * 4. Return the sum of subtotal, tax, and shipping
+   *
+   * @returns The total price including items, tax, and shipping as a number
    */
   const getTotalPrice = (): number => {
     const total = cartItems.reduce(
@@ -181,17 +176,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
 
     const shipping = calculateShippingCost(getShippingMethod(getTotalItems()));
-
-    console.log("Total Price:", total);
-
-    // Calculate tax based on the total price
     const taxAmount = calculateTaxAmount(total);
-
-    console.log("Tax Amount:", taxAmount);
 
     return total + taxAmount + shipping;
   };
 
+  /**
+   * Calculates the tax amount based on a total and tax rate.
+   *
+   * @param total - The total amount to calculate tax on
+   * @param taxRate - The tax rate to apply (default: 0.08 or 8%)
+   * @returns The calculated tax amount
+   */
   const calculateTaxAmount = (
     total: number,
     taxRate: number = 0.08
@@ -306,6 +302,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  /**
+   * Determines the shipping method based on the total number of items.
+   *
+   * @param getTotalItems - The total number of items in the cart.
+   * @returns The shipping method as a string:
+   * - "standard" if the total number of items is 6 or more.
+   * - "overnight" if the total number of items is less than 4.
+   * - "express" for all other cases.
+   */
   const getShippingMethod = (getTotalItems: number): ShippingMethod => {
     if (getTotalItems >= 6) {
       return "standard";
