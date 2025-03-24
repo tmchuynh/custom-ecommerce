@@ -72,7 +72,7 @@ const DynamicBreadcrumb = (): JSX.Element | null => {
 
             // Extract subpages from the category data
             Object.entries(categoryData).forEach(
-              ([itemType, subCategory]: [string, any]) => {
+              ([itemType]: [string, any]) => {
                 subpages.push({
                   name: capitalize(itemType),
                   href: `/${gender}/${category}/${itemType}`,
@@ -111,7 +111,7 @@ const DynamicBreadcrumb = (): JSX.Element | null => {
       </BreadcrumbItem>,
     ];
 
-    pathSegments.forEach((segment, index) => {
+    pathSegments.forEach((_segment, index) => {
       const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
       const capitalizedSegment = capitalizedSegments[index];
       const isLast = index === pathSegments.length - 1;

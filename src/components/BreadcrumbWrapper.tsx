@@ -36,10 +36,7 @@ const StaticBreadcrumb: React.FC = () => {
   );
 
   const capitalizedSegments = useMemo(
-    () =>
-      pathSegments.map((segment) =>
-        capitalize(segment.replaceAll("_", " ").trim())
-      ),
+    () => pathSegments.map((segment) => capitalize(segment)),
     [pathSegments]
   );
 
@@ -213,7 +210,7 @@ const StaticBreadcrumb: React.FC = () => {
                       key={item.href}
                       onClick={() => router.push(item.href)}
                     >
-                      {capitalize(item.name.replaceAll("_", " "))}
+                      {capitalize(item.name)}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuGroup>
@@ -237,7 +234,7 @@ const StaticBreadcrumb: React.FC = () => {
                 href={href}
                 className="bg-muted px-3 py-2 rounded-lg cursor-default"
               >
-                {capitalize(segment.replaceAll("_", " "))}
+                {capitalize(segment)}
               </BreadcrumbLink>
             </BreadcrumbItem>
           );
