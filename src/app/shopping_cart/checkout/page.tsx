@@ -258,6 +258,7 @@ const CheckoutPage = (): JSX.Element => {
     if (!discountCode.trim()) {
       setDiscountError(true);
       setDiscountApplied(false);
+      toast.error("Please enter a discount code");
       return;
     }
 
@@ -270,8 +271,11 @@ const CheckoutPage = (): JSX.Element => {
     } else {
       setDiscountError(true);
       setDiscountApplied(false);
+      // Make sure the toast is displayed
+      toast.error("Invalid discount code");
     }
 
+    // Clear the input field after trying to apply a code
     setDiscountCode("");
   };
 
@@ -820,6 +824,10 @@ const CheckoutPage = (): JSX.Element => {
                     value={discountCode}
                     onChange={(e) => {
                       setDiscountCode(e.target.value);
+                      // Only clear errors when user starts typing a new code
+                      if (discountError && e.target.value.trim() !== "") {
+                        setDiscountError(false);
+                      }
                     }}
                     className={discountError ? "border-red-500" : ""}
                   />
@@ -828,12 +836,24 @@ const CheckoutPage = (): JSX.Element => {
                   </Button>
                 </form>
 
-                {discountApplied && (
-                  <div className="flex items-center text-green-600 mt-2">
-                    <Check size={16} className="mr-1" />
-                    <span>Discount applied!</span>
-                  </div>
-                )}
+                {discountApplied ||
+                  (discountError && (
+                    <div className="mt-2 min-h-6">
+                      {discountApplied && (
+                        <div className="flex items-center text-green-600">
+                          <Check size={16} className="mr-1" />
+                          <span>Discount applied!</span>
+                        </div>
+                      )}
+                      {/* Make sure the error message shows when discountError is true */}
+                      {discountError && !discountApplied && (
+                        <div className="flex items-center text-red-500">
+                          <X size={16} className="mr-1" />
+                          <span>Invalid discount code</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
               </CardContent>
             </Card>
 
