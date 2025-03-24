@@ -51,6 +51,8 @@ const ProductCard = ({
   titleSize?: string;
   priceSize?: string;
 }): JSX.Element => {
+  const { theme } = useTheme();
+  const pathname = usePathname();
   const segments = window.location.pathname.split("/");
   const selectedGender = segments[2];
   const selectedCategory = segments[3];
@@ -68,16 +70,11 @@ const ProductCard = ({
     "AAA",
     true
   );
-  const pathname = usePathname();
 
   const pathSegments = useMemo(
     () => pathname.split("/").filter(Boolean),
     [pathname]
   );
-
-  console.log("product from card", product);
-
-  const { theme } = useTheme();
 
   useEffect(() => {
     // Only update when theme has a defined value
@@ -104,6 +101,7 @@ const ProductCard = ({
           "border border-border": page,
           " h-[30em] w-full": pathSegments.length === 2,
           " h-[43em]": pathSegments.length === 3,
+          " h-[45em]": pathSegments.length === 4,
         })}
       >
         <div className="">
@@ -116,24 +114,22 @@ const ProductCard = ({
           />
 
           {badge.length > 0 && (
-            <div className="my-4 flex items-center justify-between gap-4">
-              <Badge
-                variant={"secondary"}
-                className={cn("mb-0 mx-8 hover:bg-dynamic", {
-                  "absolute top-5 left-5 mx-0": page,
-                })}
-                style={
-                  selectedColor && accessibleColor
-                    ? ({
-                        "--bg-color": selectedColor.bgColor,
-                        "--text-color": accessibleColor,
-                      } as React.CSSProperties)
-                    : undefined
-                }
-              >
-                {badge}
-              </Badge>
-            </div>
+            <Badge
+              variant={"secondary"}
+              className={cn("mb-0 mx-8 hover:bg-dynamic", {
+                "absolute top-5 left-5 mx-0": page,
+              })}
+              style={
+                selectedColor && accessibleColor
+                  ? ({
+                      "--bg-color": selectedColor.bgColor,
+                      "--text-color": accessibleColor,
+                    } as React.CSSProperties)
+                  : undefined
+              }
+            >
+              {badge}
+            </Badge>
           )}
           {pathSegments.length > 2 && pathSegments[0] === "shopping" && (
             <QuickLookAndFavoriteButtons page={page} />

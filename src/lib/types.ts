@@ -184,7 +184,7 @@ export type ProductType = {
   subcategory: string;
   images: string[];
   imageSrc: string;
-  quantity: number;
-  price: string;
-  colors: Color[];
+  quantity?: number;
+  price?: string;
+  colors?: Color[];
 };
