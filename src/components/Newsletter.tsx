@@ -4,11 +4,20 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/alert-dialog";
 
 export default function Newsletter() {
   const [showForm, setShowForm] = useState(false);
   const [mounted, setMounted] = useState(false);
-
+  const [showWelcomeAlert, setShowWelcomeAlert] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -26,6 +35,22 @@ export default function Newsletter() {
 
   return (
     <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-30 gap-y-6 md:gap-y-8 w-11/12 lg:w-10/12 2xl:w-9/12 py-10 mx-auto">
+      <AlertDialog open={showWelcomeAlert} onOpenChange={setShowWelcomeAlert}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Welcome Discount Applied</AlertDialogTitle>
+            <AlertDialogDescription>
+              You have successfully applied the WELCOME10 discount code!
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => setShowWelcomeAlert(false)}>
+              OK
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
         <div className="mx-auto max-w-sm">
           <h3 className="text-lg font-medium mb-4">
@@ -34,7 +59,10 @@ export default function Newsletter() {
           <p className="mt-2 text-sm text-gray-500">
             The latest news, articles, and resources, sent to your inbox weekly.
           </p>
-          <form className="mt-4 sm:mt-6 sm:flex">
+          <form
+            className="mt-4 sm:mt-6 sm:flex"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <input
               id="email-address"
               type="text"
