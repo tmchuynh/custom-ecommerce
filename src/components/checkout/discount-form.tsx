@@ -44,20 +44,23 @@ const DiscountForm = ({
           </Button>
         </form>
 
-        <div className="mt-2 min-h-6">
-          {discountApplied && (
-            <div className="flex items-center text-green-600">
-              <Check size={16} className="mr-1" />
-              <span>Discount applied!</span>
+        {discountApplied ||
+          (discountError && (
+            <div className="mt-2 min-h-6">
+              {discountApplied && (
+                <div className="flex items-center text-green-600">
+                  <Check size={16} className="mr-1" />
+                  <span>Discount applied!</span>
+                </div>
+              )}
+              {discountError && !discountApplied && (
+                <div className="flex items-center text-red-500">
+                  <X size={16} className="mr-1" />
+                  <span>Invalid discount code</span>
+                </div>
+              )}
             </div>
-          )}
-          {discountError && !discountApplied && (
-            <div className="flex items-center text-red-500">
-              <X size={16} className="mr-1" />
-              <span>Invalid discount code</span>
-            </div>
-          )}
-        </div>
+          ))}
       </CardContent>
     </Card>
   );
