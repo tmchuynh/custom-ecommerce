@@ -1,32 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import {
-  capitalize,
-  cn,
-  formatCreditCardNumber,
-  formatPhoneNumber,
-  getCardType,
-  validateCreditCard,
-  validateEmail,
-  validatePhone,
-} from "@/lib/utils";
+import { validateCreditCard, validateEmail, validatePhone } from "@/lib/utils";
 import { useCart } from "../../context/cartContext";
-import { JSX, useState, useEffect, useRef } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Check, X } from "lucide-react";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
-import { SiAmericanexpress } from "react-icons/si";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import {
   AlertDialog,
@@ -39,52 +16,21 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
-import { FaCcDiscover, FaCcMastercard, FaCcVisa } from "react-icons/fa";
-import Image from "next/image";
+
+// Import our newly created components
+import CustomerInfoForm from "@/components/checkout/customer-info-form";
+import ShippingAddressForm from "@/components/checkout/shipping-address-form";
+import PaymentInfoForm from "@/components/checkout/payment-info-form";
+import OrderItems from "@/components/checkout/order-items";
+import DiscountForm from "@/components/checkout/discount-form";
+import OrderSummary from "@/components/checkout/order-summary";
 
 /**
  * The `CheckoutPage` component represents the checkout page of the e-commerce application.
  * It provides a summary of the user's cart, allows the application of discount codes,
  * and facilitates the checkout process.
- *
- * @component
- *
- * @returns {JSX.Element} The rendered checkout page.
- *
- * @remarks
- * - Displays the cart items, order summary, and discount code input.
- * - Handles discount code validation and application.
- * - Calculates subtotal, tax, shipping, and total amounts dynamically.
- * - Redirects to the home page upon successful checkout.
- *
- * @example
- * ```tsx
- * import CheckoutPage from './checkout/page';
- *
- * const App = () => {
- *   return <CheckoutPage />;
- * };
- * ```
- *
- * @dependencies
- * - `useCart`: Custom hook providing cart-related operations and data.
- * - `useState`: React state management for discount code and application status.
- * - `Button`, `Input`, `Skeleton`, `Separator`: UI components used for layout and styling.
- *
- * @hooks
- * - `useCart`: Provides cart items, subtotal, tax, shipping, discount, and checkout logic.
- * - `useState`: Manages local state for discount code, application status, and error handling.
- *
- * @functions
- * - `handleApplyDiscount`: Validates and applies the discount code.
- * - `handleCheckout`: Initiates the checkout process and redirects on success.
- *
- * @conditions
- * - If the cart is empty, a message is displayed prompting the user to continue shopping.
- * - If a discount code is invalid, an error message is shown.
- * - If a discount code is valid, the discount is applied to the total.
  */
-const CheckoutPage = (): JSX.Element => {
+const CheckoutPage = () => {
   const {
     cartItems,
     getSubTotal,
@@ -251,9 +197,6 @@ const CheckoutPage = (): JSX.Element => {
     setIsFormValid(Object.keys(errors).length === 0);
   };
 
-  /**
-   * Handles the submission of a discount code
-   */
   const handleApplyDiscount = () => {
     if (!discountCode.trim()) {
       setDiscountError(true);
@@ -271,17 +214,12 @@ const CheckoutPage = (): JSX.Element => {
     } else {
       setDiscountError(true);
       setDiscountApplied(false);
-      // Make sure the toast is displayed
       toast.error("Invalid discount code");
     }
 
-    // Clear the input field after trying to apply a code
     setDiscountCode("");
   };
 
-  /**
-   * Handles the checkout process
-   */
   const handleCheckout = () => {
     // Mark all fields as touched to show all validation errors
     setTouchedFields({
@@ -311,28 +249,6 @@ const CheckoutPage = (): JSX.Element => {
     window.location.href = "/";
   };
 
-  // Handle phone number change with formatting
-  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    const digitsOnly = inputValue.replace(/\D/g, "").slice(0, 10);
-    setPhoneNumber(digitsOnly);
-
-    // Set the formatted value back to the input
-    e.target.value = formatPhoneNumber(digitsOnly);
-  };
-
-  // Handle credit card number change with formatting
-  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputValue = e.target.value;
-    const digitsOnly = inputValue.replace(/\D/g, "").slice(0, 16);
-    setCardNumber(digitsOnly);
-
-    setCardType(getCardType(digitsOnly) || "");
-
-    // Set the formatted value back to the input
-    e.target.value = formatCreditCardNumber(digitsOnly);
-  };
-
   // Calculate the discount amount
   const originalTotal = getTotalPrice();
   const discountedTotal = discountApplied
@@ -340,6 +256,7 @@ const CheckoutPage = (): JSX.Element => {
     : originalTotal;
   const discountAmount = originalTotal - discountedTotal;
 
+  // Navigation state and functions
   const router = useRouter();
   const [showExitDialog, setShowExitDialog] = useState<boolean>(false);
   const [navigateTo, setNavigateTo] = useState<string | null>(null);
@@ -358,18 +275,15 @@ const CheckoutPage = (): JSX.Element => {
   }, [customerName, phoneNumber, email, shippingAddress, cardNumber]);
 
   const handleRouteChangeStart = (url: string) => {
-    // Only show dialog if we have data and not already navigating with permission
     if (hasInputData.current && !navigationBlocked.current) {
       setNavigateTo(url);
       setShowExitDialog(true);
-      // Reset to allow future navigation attempts
       navigationBlocked.current = false;
-      // Throw an error to prevent navigation and reset the URL
       throw new Error("Navigation prevented");
     }
   };
 
-  // Intercept navigation attempts from Next.js router
+  // Intercept navigation attempts
   useEffect(() => {
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (hasInputData.current) {
@@ -381,73 +295,46 @@ const CheckoutPage = (): JSX.Element => {
     const handlePopState = () => {
       if (hasInputData.current && !navigationBlocked.current) {
         setShowExitDialog(true);
-        // Prevent navigation
         history.pushState(null, "", window.location.href);
       }
     };
 
     window.addEventListener("popstate", handlePopState);
-    window.addEventListener("beforeunload", (e) => {
-      if (hasInputData.current) {
-        e.preventDefault();
-        e.returnValue =
-          "You have unsaved changes. Are you sure you want to leave?";
-      }
-    });
+    window.addEventListener("beforeunload", handleBeforeUnload);
 
     return () => {
       window.removeEventListener("popstate", handlePopState);
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [router]);
-
-  // Set up the beforeunload event listener
-  useEffect(() => {
-    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
-      if (hasInputData.current) {
-        e.preventDefault();
-        e.returnValue =
-          "You have unsaved information. Are you sure you want to leave?";
-        return e.returnValue;
-      }
-    };
-
-    window.addEventListener("beforeunload", handleBeforeUnload);
-    return () => {
-      window.removeEventListener("beforeunload", handleBeforeUnload);
-    };
   }, []);
 
-  // Handle internal navigation with our custom dialog
   const handleNavigation = (destination: string) => {
     handleRouteChangeStart(destination);
     if (hasInputData.current) {
       setNavigateTo(destination);
       setShowExitDialog(true);
-      return false; // Prevent immediate navigation
+      return false;
     } else {
-      // Safe to navigate directly if no data
-      navigationBlocked.current = true; // Set flag to allow next navigation
+      navigationBlocked.current = true;
       router.push(destination);
       return true;
     }
   };
 
-  // Process navigation after user's decision
   const confirmNavigation = () => {
     setShowExitDialog(false);
     if (navigateTo) {
-      navigationBlocked.current = true; // Prevent our handler from intercepting this navigation
-      window.location.href = navigateTo; // Use direct location change for reliability
+      navigationBlocked.current = true;
+      window.location.href = navigateTo;
     }
   };
 
-  // Cancel navigation
   const cancelNavigation = () => {
     setShowExitDialog(false);
     setNavigateTo(null);
   };
 
+  // Empty cart state
   if (cartItems.length === 0) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -470,433 +357,92 @@ const CheckoutPage = (): JSX.Element => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
 
-        {/* Order Items Section */}
-        <Card className="py-2 my-10">
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Order Items</CardTitle>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => handleNavigation("/shopping_cart")}
-            >
-              Edit Cart
-            </Button>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="max-h-60 overflow-y-auto space-y-4">
-              {cartItems.map((item, index) => (
-                <div
-                  key={item.id}
-                  className={cn("flex items-start space-x-4 pb-4 ", {
-                    "border-b": index !== cartItems.length - 1,
-                  })}
-                >
-                  <Skeleton className="h-12 w-12 rounded-md shrink-0" />
-                  <div className="flex-1 sm:max-w-1/2 max-w-9/12 md:max-w-10/12 lg:max-w-11/12 lg:pr-3 xl:pr-0">
-                    <h3 className="font-medium text-sm">{item.name}</h3>
-                    <div className="flex justify-between mt-1 text-sm text-gray-500">
-                      <span>Qty: {item.quantity}</span>
-                      <span>
-                        ${(Number(item.price) * item.quantity).toFixed(2)}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        {/* Order Items - now using the OrderItems component */}
+        <OrderItems cartItems={cartItems} handleNavigation={handleNavigation} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Column - Customer Information */}
+          {/* Left Column - Forms */}
           <div className="lg:col-span-2 space-y-8">
             {/* Customer Information Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Customer Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <Label htmlFor="name">Full Name</Label>
-                  <Input
-                    id="name"
-                    value={customerName}
-                    onChange={(e) => setCustomerName(e.target.value)}
-                    onBlur={() => handleBlur("name")}
-                    className={
-                      touchedFields.name && formErrors.name
-                        ? "border-red-500"
-                        : ""
-                    }
-                    placeholder="John Doe"
-                  />
-                  {touchedFields.name && formErrors.name && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {formErrors.name}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email Address</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onBlur={() => handleBlur("email")}
-                    className={
-                      touchedFields.email && formErrors.email
-                        ? "border-red-500"
-                        : ""
-                    }
-                    placeholder="john.doe@example.com"
-                  />
-                  {touchedFields.email && formErrors.email && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {formErrors.email}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <div className="mt-2">
-                    <Input
-                      id="phone"
-                      value={formatPhoneNumber(phoneNumber)}
-                      onChange={handlePhoneChange}
-                      onBlur={() => handleBlur("phone")}
-                      className={
-                        touchedFields.phone && formErrors.phone
-                          ? "border-red-500"
-                          : ""
-                      }
-                      placeholder="(123) 456-7890"
-                    />
-                  </div>
-                  {touchedFields.phone && formErrors.phone && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {formErrors.phone}
-                    </p>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+            <CustomerInfoForm
+              customerName={customerName}
+              setCustomerName={setCustomerName}
+              email={email}
+              setEmail={setEmail}
+              phoneNumber={phoneNumber}
+              setPhoneNumber={setPhoneNumber}
+              touchedFields={touchedFields}
+              formErrors={formErrors}
+              handleBlur={handleBlur}
+            />
 
             {/* Shipping Address Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Shipping Address</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <Label htmlFor="shippingAddress">Street Address</Label>
-                  <Input
-                    id="shippingAddress"
-                    value={shippingAddress}
-                    onChange={(e) => setShippingAddress(e.target.value)}
-                    onBlur={() => handleBlur("shippingAddress")}
-                    className={
-                      touchedFields.shippingAddress &&
-                      formErrors.shippingAddress
-                        ? "border-red-500"
-                        : ""
-                    }
-                    placeholder="123 Main St"
-                  />
-                  {touchedFields.shippingAddress &&
-                    formErrors.shippingAddress && (
-                      <p className="text-sm text-red-500 mt-1">
-                        {formErrors.shippingAddress}
-                      </p>
-                    )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="shippingCity">City</Label>
-                    <Input
-                      id="shippingCity"
-                      value={shippingCity}
-                      onChange={(e) => setShippingCity(e.target.value)}
-                      placeholder="Anytown"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="shippingState">State</Label>
-                    <Input
-                      id="shippingState"
-                      value={shippingState}
-                      onChange={(e) => setShippingState(e.target.value)}
-                      placeholder="CA"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="shippingZip">ZIP Code</Label>
-                  <Input
-                    id="shippingZip"
-                    value={shippingZip}
-                    onChange={(e) => setShippingZip(e.target.value)}
-                    placeholder="12345"
-                  />
-                </div>
-              </CardContent>
-            </Card>
+            <ShippingAddressForm
+              shippingAddress={shippingAddress}
+              setShippingAddress={setShippingAddress}
+              shippingCity={shippingCity}
+              setShippingCity={setShippingCity}
+              shippingState={shippingState}
+              setShippingState={setShippingState}
+              shippingZip={shippingZip}
+              setShippingZip={setShippingZip}
+              touchedFields={touchedFields}
+              formErrors={formErrors}
+              handleBlur={handleBlur}
+            />
 
             {/* Payment Information Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Payment Information</CardTitle>
-                <CardDescription className="pt-3 flex gap-3 items-center">
-                  {["discover", "mastercard", "visa", "americanexpress"].map(
-                    (card, index) => {
-                      return (
-                        <Image
-                          src={`/images/paymentInformation/${card}.svg`}
-                          alt={`${card}`}
-                          width={40}
-                          height={40}
-                          key={index}
-                        />
-                      );
-                    }
-                  )}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <Label htmlFor="cardNumber">Card Number</Label>
-                  <div className="mt-2">
-                    <Input
-                      id="cardNumber"
-                      value={formatCreditCardNumber(cardNumber)}
-                      onChange={handleCardNumberChange}
-                      onBlur={() => handleBlur("cardNumber")}
-                      className={
-                        touchedFields.cardNumber && formErrors.cardNumber
-                          ? "border-red-500"
-                          : ""
-                      }
-                      placeholder="1234 5678 9012 3456"
-                    />
-                  </div>
-                  {!formErrors.cardNumber && cardType && (
-                    <p className="text-sm text-gray-500 mt-3 mx-2">
-                      {cardType}
-                    </p>
-                  )}
-                  {touchedFields.cardNumber && formErrors.cardNumber && (
-                    <p className="text-sm text-red-500 mt-1">
-                      {formErrors.cardNumber}
-                    </p>
-                  )}
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="cardExpiry">Expiration Date (MM/YY)</Label>
-                    <Input
-                      id="cardExpiry"
-                      value={cardExpiry}
-                      onChange={(e) => setCardExpiry(e.target.value)}
-                      onBlur={() => handleBlur("cardExpiry")}
-                      className={
-                        touchedFields.cardExpiry && formErrors.cardExpiry
-                          ? "border-red-500"
-                          : ""
-                      }
-                      placeholder="MM/YY"
-                    />
-                    {touchedFields.cardExpiry && formErrors.cardExpiry && (
-                      <p className="text-sm text-red-500 mt-1">
-                        {formErrors.cardExpiry}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <Label htmlFor="cardCvv">CVV</Label>
-                    <Input
-                      id="cardCvv"
-                      value={cardCvv}
-                      onChange={(e) => setCardCvv(e.target.value)}
-                      onBlur={() => handleBlur("cardCvv")}
-                      className={
-                        touchedFields.cardCvv && formErrors.cardCvv
-                          ? "border-red-500"
-                          : ""
-                      }
-                      placeholder="123"
-                    />
-                    {touchedFields.cardCvv && formErrors.cardCvv && (
-                      <p className="text-sm text-red-500 mt-1">
-                        {formErrors.cardCvv}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div className="flex items-center space-x-2 py-2">
-                  <Checkbox
-                    id="sameAsShipping"
-                    checked={sameAsShipping}
-                    onCheckedChange={(checked) =>
-                      setSameAsShipping(checked as boolean)
-                    }
-                  />
-                  <Label htmlFor="sameAsShipping">
-                    Billing address same as shipping address
-                  </Label>
-                </div>
-
-                {!sameAsShipping && (
-                  <div className="space-y-4 pt-4 border-t">
-                    <h3 className="text-md font-medium">Billing Address</h3>
-
-                    <div>
-                      <Label htmlFor="billingAddress">Street Address</Label>
-                      <Input
-                        id="billingAddress"
-                        value={billingAddress}
-                        onChange={(e) => setBillingAddress(e.target.value)}
-                        placeholder="123 Main St"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="billingCity">City</Label>
-                        <Input
-                          id="billingCity"
-                          value={billingCity}
-                          onChange={(e) => setBillingCity(e.target.value)}
-                          placeholder="Anytown"
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="billingState">State</Label>
-                        <Input
-                          id="billingState"
-                          value={billingState}
-                          onChange={(e) => setBillingState(e.target.value)}
-                          placeholder="CA"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="billingZip">ZIP Code</Label>
-                      <Input
-                        id="billingZip"
-                        value={billingZip}
-                        onChange={(e) => setBillingZip(e.target.value)}
-                        placeholder="12345"
-                      />
-                    </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+            <PaymentInfoForm
+              cardNumber={cardNumber}
+              setCardNumber={setCardNumber}
+              cardType={cardType}
+              setCardType={setCardType}
+              cardExpiry={cardExpiry}
+              setCardExpiry={setCardExpiry}
+              cardCvv={cardCvv}
+              setCardCvv={setCardCvv}
+              billingAddress={billingAddress}
+              setBillingAddress={setBillingAddress}
+              billingCity={billingCity}
+              setBillingCity={setBillingCity}
+              billingState={billingState}
+              setBillingState={setBillingState}
+              billingZip={billingZip}
+              setBillingZip={setBillingZip}
+              sameAsShipping={sameAsShipping}
+              setSameAsShipping={setSameAsShipping}
+              touchedFields={touchedFields}
+              formErrors={formErrors}
+              handleBlur={handleBlur}
+            />
           </div>
 
           {/* Right Column - Order Summary */}
           <div className="space-y-6">
             {/* Discount Code Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Discount Code</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form
-                  className="flex space-x-2"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    handleApplyDiscount();
-                  }}
-                >
-                  <Input
-                    placeholder="Enter discount code"
-                    value={discountCode}
-                    onChange={(e) => {
-                      setDiscountCode(e.target.value);
-                      // Only clear errors when user starts typing a new code
-                      if (discountError && e.target.value.trim() !== "") {
-                        setDiscountError(false);
-                      }
-                    }}
-                    className={discountError ? "border-red-500" : ""}
-                  />
-                  <Button type="submit" variant="outline">
-                    Apply
-                  </Button>
-                </form>
-
-                {discountApplied ||
-                  (discountError && (
-                    <div className="mt-2 min-h-6">
-                      {discountApplied && (
-                        <div className="flex items-center text-green-600">
-                          <Check size={16} className="mr-1" />
-                          <span>Discount applied!</span>
-                        </div>
-                      )}
-                      {/* Make sure the error message shows when discountError is true */}
-                      {discountError && !discountApplied && (
-                        <div className="flex items-center text-red-500">
-                          <X size={16} className="mr-1" />
-                          <span>Invalid discount code</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-              </CardContent>
-            </Card>
+            <DiscountForm
+              discountCode={discountCode}
+              setDiscountCode={setDiscountCode}
+              discountApplied={discountApplied}
+              discountError={discountError}
+              setDiscountError={setDiscountError}
+              handleApplyDiscount={handleApplyDiscount}
+            />
 
             {/* Order Summary Section */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex justify-between">
-                    <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
-                  </div>
+            <OrderSummary
+              subtotal={subtotal}
+              tax={tax}
+              shippingMethod={shippingMethod}
+              shipping={shipping}
+              discountApplied={discountApplied}
+              discountAmount={discountAmount}
+              discountedTotal={discountedTotal}
+              isFormValid={isFormValid}
+              handleCheckout={handleCheckout}
+            />
 
-                  {discountApplied && (
-                    <div className="flex justify-between text-green-600">
-                      <span>Discount</span>
-                      <span>-${discountAmount.toFixed(2)}</span>
-                    </div>
-                  )}
-
-                  <div className="flex justify-between">
-                    <span>Tax</span>
-                    <span>${tax.toFixed(2)}</span>
-                  </div>
-
-                  <div className="flex justify-between">
-                    <span>{capitalize(shippingMethod)} Shipping</span>
-                    <span>${shipping.toFixed(2)}</span>
-                  </div>
-
-                  <Separator />
-
-                  <div className="flex justify-between text-lg font-bold">
-                    <span>Total</span>
-                    <span>${discountedTotal.toFixed(2)}</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Bottom buttons */}
+            {/* Navigation Buttons */}
             <div className="flex flex-col gap-3 justify-between mt-4">
               <Button variant="outline" onClick={() => handleNavigation("/")}>
                 Continue Shopping
@@ -914,13 +460,11 @@ const CheckoutPage = (): JSX.Element => {
         </div>
       </div>
 
-      {/* Use a more imperative approach with the dialog */}
+      {/* Navigation Alert Dialog */}
       <AlertDialog
         open={showExitDialog}
         onOpenChange={(open) => {
-          // Only allow dialog to close via our explicit handlers
           if (!open) {
-            // Prevent automatic closing
             setShowExitDialog(true);
           }
         }}
