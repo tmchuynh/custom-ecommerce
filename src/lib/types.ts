@@ -183,8 +183,10 @@ export type ProductType = {
   highlights?: string[];
   subcategory: string;
   images: string[];
+  details: DetailItem[];
+  colors: Color[];
   imageSrc: string;
   quantity?: number;
   price?: string;
-  colors?: Color[];
+  badge?: string;
 };

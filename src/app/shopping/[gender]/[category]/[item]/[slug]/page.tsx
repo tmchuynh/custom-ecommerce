@@ -126,7 +126,11 @@ const ProductPage = (): JSX.Element => {
             selectedColor={selectedColor}
           />
           <div className="relative">
-            <QuickLookAndFavoriteButtons page={false} product={product} />
+            <QuickLookAndFavoriteButtons
+              page={false}
+              product={product}
+              details={product.details}
+            />
 
             <ProductInfo
               titleSize="text-4xl"
