@@ -7,6 +7,7 @@ import ProductRate from "./ProductRate";
 import ProductHighlights from "./ProductHighlights";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useProduct } from "@/app/context/productContext";
 
 /**
  * Component for displaying detailed information about a product.
@@ -69,7 +70,7 @@ const ProductInfo = ({
   showColors?: boolean;
   showButtons?: boolean;
 }): JSX.Element => {
-  const { getProductByName } = useCart();
+  const { getProductByName } = useProduct();
   const [url, setURL] = useState(
     `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${formatURL(
       product.name

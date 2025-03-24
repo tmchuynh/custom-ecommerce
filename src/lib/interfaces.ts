@@ -1,6 +1,8 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
 import {
+  Color,
+  DetailItem,
   FeaturedDetails,
   LengthType,
   ProductType,
@@ -106,6 +108,12 @@ export interface CartContextType {
   clearCart: () => void;
   updateQuantity: (id: string, quantity: number) => void;
   getCartItem: (name: string) => CartItem | undefined;
+  getTotalPrice: () => number;
+  getTotalItems: () => number;
+  itemExistsInCart: (name: string) => boolean;
+}
+
+export interface ProductContextType {
   getProductByName: (name: string) =>
     | {
         gender: string;
@@ -113,13 +121,16 @@ export interface CartContextType {
         subcategory: string;
         name: string;
         highlights: string[];
+        details: DetailItem[];
+        images: string[];
+        colors: Color[];
+        imageSrc: string;
+        price: string | number;
+        badge?: string;
       }
     | undefined;
   getProductsByCategory: (categoryObj: Record<string, any>) => any;
   getSubcategoriesByGender: (gender: string, category?: string) => string[];
-  getTotalPrice: () => number;
-  getTotalItems: () => number;
-  itemExistsInCart: (name: string) => boolean;
 }
 
 export interface ProductBadgesProps {

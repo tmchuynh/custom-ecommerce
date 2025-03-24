@@ -9,6 +9,7 @@ import { CartProvider } from "./context/cartContext";
 import { WishlistProvider } from "./context/wishlistContext";
 import { Toaster } from "sonner";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import { ProductProvider } from "./context/productContext";
 
 export default function RootLayout({
   children,
@@ -20,18 +21,20 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <NotFoundProvider>
-            <CartProvider>
-              <CurrencyProvider>
-                <WishlistProvider>
-                  <NavMenu />
-                  <main className="flex-grow">
-                    <BreadcrumbWrapper />
-                    {children}
-                    <Footer />
-                  </main>
-                </WishlistProvider>
-              </CurrencyProvider>
-            </CartProvider>
+            <ProductProvider>
+              <CartProvider>
+                <CurrencyProvider>
+                  <WishlistProvider>
+                    <NavMenu />
+                    <main className="flex-grow">
+                      <BreadcrumbWrapper />
+                      {children}
+                      <Footer />
+                    </main>
+                  </WishlistProvider>
+                </CurrencyProvider>
+              </CartProvider>
+            </ProductProvider>
             <BackToTop />
             <Toaster
               position="top-center"
