@@ -89,6 +89,10 @@ const ProductInfo = ({
     if (!selectedItem || highlights.length === 0) {
       const productDetails = getProductByName(product.name);
 
+      console.log("selectedCategory", selectedCategory);
+      console.log("selectedItem", selectedItem);
+      console.log("productDetails", productDetails);
+
       if (productDetails) {
         // Only update highlights if we found some and current highlights are empty
         if (productDetails.highlights && productDetails.highlights.length > 0) {

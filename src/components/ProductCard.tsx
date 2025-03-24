@@ -141,7 +141,7 @@ const ProductCard = ({
             </Badge>
           )}
           {pathSegments.length > 2 && pathSegments[0] === "shopping" && (
-            <QuickLookAndFavoriteButtons page={page} />
+            <QuickLookAndFavoriteButtons page={page} product={product} />
           )}
           <ProductInfo
             product={product}
