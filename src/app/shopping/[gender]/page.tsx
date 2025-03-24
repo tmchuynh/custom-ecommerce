@@ -1,5 +1,6 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
+import { useProduct } from "@/app/context/productContext";
 import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
@@ -28,7 +29,7 @@ const GenderPage = (): JSX.Element => {
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const { getProductsByCategory } = useCart();
+  const { getProductsByCategory } = useProduct();
 
   useEffect(() => {
     /**

@@ -1,5 +1,5 @@
 "use client";
-import { Color, ProductType } from "@/lib/types";
+import { Color, DetailItem, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { usePathname } from "next/navigation";
@@ -15,6 +15,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { useProduct } from "@/app/context/productContext";
 
 /**
  * A React component that renders a product card with customizable styles,
@@ -59,6 +60,7 @@ const ProductCard = ({
 }): JSX.Element => {
   const { theme } = useTheme();
   const pathname = usePathname();
+  const { getProductByName } = useProduct();
   const segments = window.location.pathname.split("/");
   const selectedGender = segments[2];
   const selectedCategory = segments[3];
@@ -76,6 +78,7 @@ const ProductCard = ({
     "AAA",
     true
   );
+  const [productDetails, setProductDetails] = useState<DetailItem[]>([]);
 
   const pathSegments = useMemo(
     () => pathname.split("/").filter(Boolean),
@@ -99,6 +102,13 @@ const ProductCard = ({
     }
   }, [theme]);
 
+  useEffect(() => {
+    const productInfo = getProductByName(product.name);
+    if (productInfo) {
+      setProductDetails(productInfo.details);
+    }
+  }, [product.details]);
+
   return (
     <>
       <Card
@@ -108,6 +118,7 @@ const ProductCard = ({
           " h-[30em] w-full": pathSegments.length === 2,
           " h-[43em]": pathSegments.length === 3,
           " h-[45em]": pathSegments.length === 4,
+          " h-[44em]": pathSegments.length === 5,
         })}
       >
         <div className="">
@@ -141,7 +152,7 @@ const ProductCard = ({
             </Badge>
           )}
           {pathSegments.length > 2 && pathSegments[0] === "shopping" && (
-            <QuickLookAndFavoriteButtons page={page} product={product} />
+            <QuickLookAndFavoriteButtons page={false} product={product} />
           )}
           <ProductInfo
             product={product}
