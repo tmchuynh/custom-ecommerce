@@ -5,6 +5,8 @@ const imageHosts = [
   "images.unsplash.com",
   "plus.unsplash.com",
   "media.istockphoto.com",
+  "www.shutterstock.com",
+  "cdn.sanity.io",
 ];
 
 const nextConfig: NextConfig = {
