@@ -102,6 +102,9 @@ export interface CartItem extends ProductItem {
 export interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
+  removeFromCart: (id: string) => void;
+  clearCart: () => void;
+  updateQuantity: (id: string, quantity: number) => void;
   getCartItem: (name: string) => CartItem | undefined;
   getProductByName: (name: string) =>
     | {
@@ -112,9 +115,8 @@ export interface CartContextType {
         highlights: string[];
       }
     | undefined;
-  removeFromCart: (id: string) => void;
-  clearCart: () => void;
-  updateQuantity: (id: string, quantity: number) => void;
+  getProductsByCategory: (categoryObj: Record<string, any>) => any;
+  getSubcategoriesByGender: (gender: string, category?: string) => string[];
   getTotalPrice: () => number;
   getTotalItems: () => number;
   itemExistsInCart: (name: string) => boolean;
