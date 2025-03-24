@@ -1,5 +1,6 @@
 "use client";
 
+import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -18,9 +19,10 @@ const OrderSummary = ({
   isFormValid,
   handleCheckout,
 }: OrderSummaryProps) => {
-  // Calculate the delivery window end date (3 days after estimated delivery)
-  const deliveryWindowEnd = new Date(newDate);
-  deliveryWindowEnd.setDate(newDate.getDate() + 3);
+  const { getDeliveryWindowEndDate } = useCart();
+
+  // Calculate the delivery window end date based on shipping method
+  const deliveryWindowEnd = getDeliveryWindowEndDate(shippingMethod, newDate);
 
   // Format dates for display
   const formatDate = (date: Date) => {
@@ -28,6 +30,30 @@ const OrderSummary = ({
       month: "short",
       day: "numeric",
     });
+  };
+
+  // Generate the delivery estimate text based on shipping method
+  const getDeliveryEstimateText = () => {
+    switch (shippingMethod) {
+      case "overnight":
+        return formatDate(newDate);
+      case "express":
+        return formatDate(newDate); // Fixed 3-day delivery
+      case "standard":
+        return `${formatDate(newDate)} - ${formatDate(deliveryWindowEnd)}`; // Range
+    }
+  };
+
+  // Delivery description based on shipping method
+  const getDeliveryDescription = () => {
+    switch (shippingMethod) {
+      case "overnight":
+        return "Next business day";
+      case "express":
+        return "3 business days";
+      case "standard":
+        return "5-7 business days";
+    }
   };
 
   return (
@@ -62,9 +88,9 @@ const OrderSummary = ({
           <div className="flex justify-between items-start">
             <span>Estimated Delivery</span>
             <span className="text-right">
-              {formatDate(newDate)} - {formatDate(deliveryWindowEnd)}
+              {getDeliveryEstimateText()}
               <div className="text-xs text-muted-foreground mt-1">
-                ({shippingMethod} shipping)
+                {getDeliveryDescription()}
               </div>
             </span>
           </div>

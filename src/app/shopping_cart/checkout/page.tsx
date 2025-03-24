@@ -94,10 +94,7 @@ const CheckoutPage = () => {
       prevShippingMethod.current !== shippingMethod
     ) {
       const deliveryDate = getEstimatedDeliveryDate(shippingMethod);
-      const date = deliveryDate.getDate();
-      const newDate = new Date(deliveryDate);
-      newDate.setDate(date + 1);
-      setEstimatedDeliveryDate(newDate);
+      setEstimatedDeliveryDate(deliveryDate);
 
       // Track the shipping method to prevent unnecessary updates
       prevShippingMethod.current = shippingMethod;

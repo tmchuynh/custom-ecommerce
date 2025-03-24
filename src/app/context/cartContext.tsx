@@ -339,10 +339,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    * @returns A Date object representing the estimated delivery date
    *
    * @remarks
-   * This function calculates delivery dates by adding days based on the shipping method:
-   * - standard: 5 days
-   * - express: 2 days
-   * - overnight: 1 day
+   * This function calculates delivery dates based on the shipping method:
+   * - standard: 5 business days (minimum)
+   * - express: 3 business days
+   * - overnight: next business day
    *
    * It also accounts for weekends by adjusting the date to skip Saturday and Sunday
    * deliveries, making the estimation more realistic.
@@ -353,32 +353,73 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
     switch (method) {
       case "standard":
-        daysToAdd = 5;
+        daysToAdd = 5; // 5 business days (minimum of the 5-7 range)
         break;
       case "express":
-        daysToAdd = 2;
+        daysToAdd = 3; // 3 business days
         break;
       case "overnight":
-        daysToAdd = 1;
+        daysToAdd = 1; // Next business day
         break;
       default:
         daysToAdd = 5;
     }
 
     const deliveryDate = new Date(today);
+
+    // Add the base number of days
     deliveryDate.setDate(today.getDate() + daysToAdd);
 
-    // Skip weekends for more realistic delivery dates
-    const dayOfWeek = deliveryDate.getDay();
-    if (dayOfWeek === 0) {
-      // Sunday
-      deliveryDate.setDate(deliveryDate.getDate() + 1);
-    } else if (dayOfWeek === 6) {
-      // Saturday
-      deliveryDate.setDate(deliveryDate.getDate() + 2);
+    // Adjust for weekends to ensure business days
+    let businessDaysAdded = 0;
+    const targetBusinessDays = daysToAdd;
+    const iterationDate = new Date(today);
+
+    // Reset to today
+    while (businessDaysAdded < targetBusinessDays) {
+      // Move to next day
+      iterationDate.setDate(iterationDate.getDate() + 1);
+
+      // Check if it's a business day (not Saturday or Sunday)
+      const dayOfWeek = iterationDate.getDay();
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+        // 0 = Sunday, 6 = Saturday
+        businessDaysAdded++;
+      }
     }
 
-    return deliveryDate;
+    // Return the date after adding the correct number of business days
+    return iterationDate;
+  };
+
+  /**
+   * Calculates the end date of the delivery window based on shipping method
+   *
+   * @param method - The shipping method
+   * @param startDate - The estimated delivery start date
+   * @returns A Date object representing the end of the delivery window
+   */
+  const getDeliveryWindowEndDate = (
+    method: ShippingMethod,
+    startDate: Date
+  ): Date => {
+    const endDate = new Date(startDate);
+
+    if (method === "standard") {
+      // For standard shipping, the window is 5-7 business days
+      // So add 2 business days to the start date (which is already at 5 business days)
+      let businessDaysAdded = 0;
+      while (businessDaysAdded < 2) {
+        endDate.setDate(endDate.getDate() + 1);
+        const dayOfWeek = endDate.getDay();
+        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+          businessDaysAdded++;
+        }
+      }
+    }
+    // For express and overnight, there's no window (single day delivery)
+
+    return endDate;
   };
 
   /**
@@ -475,6 +516,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         loadSavedCart,
         calculateShippingCost,
         getEstimatedDeliveryDate,
+        getDeliveryWindowEndDate,
         startCheckout,
         moveToWishlist,
       }}
