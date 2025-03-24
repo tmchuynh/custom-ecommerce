@@ -1,4 +1,6 @@
 "use client";
+import CannotFind from "@/components/CannotFind";
+import LoadingIndicator from "@/components/Loading";
 import components from "@/components/ProductDetails";
 import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
@@ -106,11 +108,11 @@ const ProductPage = (): JSX.Element => {
   }, [gender, category, item, slug]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingIndicator />;
   }
 
   if (!product) {
-    return <div>Loading...</div>;
+    return <CannotFind />;
   }
 
   return (
@@ -124,7 +126,7 @@ const ProductPage = (): JSX.Element => {
             selectedColor={selectedColor}
           />
           <div className="relative">
-            <QuickLookAndFavoriteButtons page={false} />
+            <QuickLookAndFavoriteButtons page={false} product={product} />
 
             <ProductInfo
               titleSize="text-4xl"
