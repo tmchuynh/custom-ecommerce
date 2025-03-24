@@ -137,22 +137,40 @@ export const formatCurrency = (value: number) => {
 };
 
 /**
- * Capitalizes the first letter of each word in a given string and replaces hyphens with spaces.
+ * Capitalizes the first letter of each word in a string and replaces hyphens with spaces.
+ * Also replaces underscores with spaces and trims the result.
  *
- * @param str - The input string to be transformed.
- * @returns A new string with the first letter of each word capitalized and hyphens replaced by spaces.
+ * @param {string} str - The string to capitalize
+ * @returns {string} The formatted string with capitalized words
  *
  * @example
- * ```typescript
- * capitalize("hello-world"); // "Hello World"
- * capitalize("custom-ecommerce"); // "Custom Ecommerce"
- * ```
+ * capitalize("hello-world") // returns "Hello World"
+ * capitalize("hello_world") // returns "Hello World"
+ * capitalize("hello world") // returns "Hello World"
  */
-export const capitalize = (str: string) => {
+export const capitalize = (str: string): string => {
   function replaceChar(char: string): string {
     return char === "-" ? " " : char.toUpperCase();
   }
-  return str.replace(/-|\b\w/g, replaceChar);
+  return str
+    .replace(/-|\b\w/g, replaceChar)
+    .replaceAll("_", " ")
+    .trim();
+};
+
+/**
+ * Formats a URL string by converting it to lowercase, replacing spaces with hyphens,
+ * and removing possessive apostrophes (e.g., 's).
+ *
+ * @param {string} url - The URL string to format
+ * @returns {string} The formatted URL string
+ *
+ * @example
+ * formatURL("Product's Name"); // returns "product-name"
+ * formatURL("Hello World"); // returns "hello-world"
+ */
+export const formatURL = (url: string): string => {
+  return url.toLowerCase().replaceAll(" ", "-").replaceAll("'s", "");
 };
 
 /**
