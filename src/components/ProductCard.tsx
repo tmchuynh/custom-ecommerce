@@ -9,6 +9,12 @@ import ProductInfo from "./ProductInfo";
 import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 /**
  * A React component that renders a product card with customizable styles,
@@ -116,9 +122,12 @@ const ProductCard = ({
           {badge.length > 0 && (
             <Badge
               variant={"secondary"}
-              className={cn("mb-0 mx-8 hover:bg-dynamic", {
-                "absolute top-5 left-5 mx-0": page,
-              })}
+              className={cn(
+                "mb-0 mx-8 bg-background/80 text-foreground hover:bg-background/90 hover:bg-dynamic",
+                {
+                  "absolute top-5 left-5 mx-0": page,
+                }
+              )}
               style={
                 selectedColor && accessibleColor
                   ? ({
