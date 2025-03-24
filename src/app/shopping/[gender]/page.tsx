@@ -150,26 +150,31 @@ const GenderPage = (): JSX.Element => {
                 // Check if category[index] exists and map through its items
                 return Array.isArray(category[index])
                   ? category[index]?.map(
-                      (subCat: SubCategory, subIndex: number) => (
-                        <ProductCard
-                          key={`${index}-${subIndex}`}
-                          product={{
-                            ...subCat,
-                            description:
-                              subCat.description ||
-                              `${subCat.name} description`,
-                            gender: typeof gender === "string" ? gender : "",
-                            category: subCat.id || "",
-                            subcategory: "",
-                            price: subCat.price || 0,
-                            colors: subCat.colors || [],
-                            images: subCat.images || [subCat.imageSrc],
-                            quantity: subCat.quantity || 1,
-                          }}
-                          page={true}
-                          index={subIndex}
-                        />
-                      )
+                      (subCat: SubCategory, subIndex: number) => {
+                        console.log("subCat", subCat);
+
+                        return (
+                          <ProductCard
+                            key={`${index}-${subIndex}`}
+                            product={{
+                              ...subCat,
+                              description:
+                                subCat.description ||
+                                `${subCat.name} description`,
+                              gender: typeof gender === "string" ? gender : "",
+                              category: subCat.id || "",
+                              subcategory: "",
+                              price: subCat.price || 0,
+                              colors: subCat.colors || [],
+                              images: subCat.images || [],
+                              imageSrc: subCat.imageSrc,
+                              quantity: subCat.quantity || 1,
+                            }}
+                            page={true}
+                            index={subIndex}
+                          />
+                        );
+                      }
                     )
                   : null;
               })}
