@@ -227,11 +227,13 @@ export type SortOption =
   | "price-high-to-low"
   | "newest"
   | "popular";
+
 export type OrderSummaryProps = {
   subtotal: number;
   tax: number;
-  shippingMethod: string;
+  shippingMethod: ShippingMethod;
   shipping: number;
+  newDate: Date;
   discountApplied: boolean;
   discountAmount: number;
   discountedTotal: number;

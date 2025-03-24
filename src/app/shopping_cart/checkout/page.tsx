@@ -42,6 +42,7 @@ const CheckoutPage = () => {
     applyDiscount,
     getDiscountedTotal,
     startCheckout,
+    getEstimatedDeliveryDate,
   } = useCart();
 
   // Discount state
@@ -72,6 +73,36 @@ const CheckoutPage = () => {
 
   // State for the "same as shipping" checkbox
   const [sameAsShipping, setSameAsShipping] = useState<boolean>(false);
+
+  // Calculate values for order summary - moved this up before we use shippingMethod
+  const subtotal = getSubTotal();
+  const tax = calculateTaxAmount(subtotal);
+  const shippingMethod = getShippingMethod(getTotalItems());
+  const shipping = calculateShippingCost(shippingMethod);
+
+  // Add this ref to track previous shipping method - moved before useEffect
+  const prevShippingMethod = useRef(shippingMethod);
+
+  const [estimatedDeliveryDate, setEstimatedDeliveryDate] =
+    useState<Date | null>(null);
+
+  // Fix the infinite loop by adding proper dependencies and adding a condition
+  useEffect(() => {
+    // Only calculate the date if we don't already have one or if shipping method changes
+    if (
+      !estimatedDeliveryDate ||
+      prevShippingMethod.current !== shippingMethod
+    ) {
+      const deliveryDate = getEstimatedDeliveryDate(shippingMethod);
+      const date = deliveryDate.getDate();
+      const newDate = new Date(deliveryDate);
+      newDate.setDate(date + 1);
+      setEstimatedDeliveryDate(newDate);
+
+      // Track the shipping method to prevent unnecessary updates
+      prevShippingMethod.current = shippingMethod;
+    }
+  }, [shippingMethod, getEstimatedDeliveryDate, estimatedDeliveryDate]);
 
   // Validation states
   const [formErrors, setFormErrors] = useState<{
@@ -104,12 +135,6 @@ const CheckoutPage = () => {
     cardCvv: false,
     shippingAddress: false,
   });
-
-  // Calculate values for order summary
-  const subtotal = getSubTotal();
-  const tax = calculateTaxAmount(subtotal);
-  const shippingMethod = getShippingMethod(getTotalItems());
-  const shipping = calculateShippingCost(shippingMethod);
 
   // Update billing address when sameAsShipping changes
   useEffect(() => {
@@ -432,6 +457,7 @@ const CheckoutPage = () => {
               tax={tax}
               shippingMethod={shippingMethod}
               shipping={shipping}
+              newDate={estimatedDeliveryDate || new Date()}
               discountApplied={discountApplied}
               discountAmount={discountAmount}
               discountedTotal={discountedTotal}

@@ -14,9 +14,13 @@ const OrderSummary = ({
   discountApplied,
   discountAmount,
   discountedTotal,
+  newDate,
   isFormValid,
   handleCheckout,
 }: OrderSummaryProps) => {
+  // Remove the useCart hook - we're already receiving the date from props
+  // This was causing the infinite render loop
+
   return (
     <Card>
       <CardHeader>
@@ -44,6 +48,11 @@ const OrderSummary = ({
           <div className="flex justify-between">
             <span>{capitalize(shippingMethod)} Shipping</span>
             <span>${shipping.toFixed(2)}</span>
+          </div>
+
+          <div className="flex justify-between">
+            <span>Estimated Arrival</span>
+            <span>{newDate.toLocaleDateString()}</span>
           </div>
 
           <Separator />
