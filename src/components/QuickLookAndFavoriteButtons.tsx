@@ -1,4 +1,9 @@
-import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
+import {
+  Color,
+  DetailItem,
+  ProductDetailsProps,
+  ProductType,
+} from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
 import { useTheme } from "next-themes";
 import { JSX, useEffect, useState } from "react";
@@ -44,11 +49,9 @@ import components from "./ProductDetails";
  */
 const QuickLookAndFavoriteButtons = ({
   product,
-  details,
   page = true,
 }: {
   page?: boolean;
-  details: ProductDetailsProps;
   product: ProductType;
 }): JSX.Element => {
   const { gender, category, item, slug } = useParams();
@@ -93,13 +96,18 @@ const QuickLookAndFavoriteButtons = ({
 
   return (
     <div
-      className={cn("flex items-center justify-between mx-2 gap-1 p-2 mt-4", {
-        "w-full": !page,
-      })}
+      className={cn(
+        "flex items-center justify-between mx-2 gap-1 p-2 mt-4 w-11/12",
+        {
+          "w-full": page,
+        }
+      )}
     >
       <AlertDialog>
         <AlertDialogTrigger
-          className={cn(`flex gap-x-2 ${buttonVariants()}`, { hidden: !page })}
+          className={cn(`gap-x-2 border-2 hidden ${buttonVariants()}`, {
+            flex: !page,
+          })}
         >
           <span> Quick look </span>
           <svg
