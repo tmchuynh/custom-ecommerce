@@ -1,7 +1,6 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { OrderSummaryProps } from "@/lib/types";
@@ -16,8 +15,6 @@ const OrderSummary = ({
   discountAmount,
   discountedTotal,
   newDate,
-  isFormValid,
-  handleCheckout,
 }: OrderSummaryProps) => {
   const { getDeliveryWindowEndDate } = useCart();
 
@@ -102,14 +99,6 @@ const OrderSummary = ({
             <span>Total</span>
             <span>${discountedTotal.toFixed(2)}</span>
           </div>
-
-          <Button
-            className="w-full py-3 mt-6"
-            onClick={handleCheckout}
-            disabled={!isFormValid}
-          >
-            Place Order
-          </Button>
         </div>
       </CardContent>
     </Card>

@@ -237,8 +237,6 @@ export type OrderSummaryProps = {
   discountApplied: boolean;
   discountAmount: number;
   discountedTotal: number;
-  isFormValid: boolean;
-  handleCheckout: () => void;
 };
 
 export type CustomerInfoFormProps = {

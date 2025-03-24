@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { DiscountFormProps } from "@/lib/types";
 import { Check, X } from "lucide-react";
+import { useEffect } from "react";
 
 const DiscountForm = ({
   discountCode,
@@ -14,6 +15,23 @@ const DiscountForm = ({
   setDiscountError,
   handleApplyDiscount,
 }: DiscountFormProps) => {
+  // Add useEffect to clear the error after 4 seconds
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+
+    if (discountError) {
+      // Set a timer to clear the error message after 4 seconds
+      timer = setTimeout(() => {
+        setDiscountError(false);
+      }, 4000);
+    }
+
+    // Clean up the timer if the component unmounts or the error state changes
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [discountError, setDiscountError]);
+
   return (
     <Card>
       <CardHeader>
