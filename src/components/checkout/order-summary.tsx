@@ -18,8 +18,17 @@ const OrderSummary = ({
   isFormValid,
   handleCheckout,
 }: OrderSummaryProps) => {
-  // Remove the useCart hook - we're already receiving the date from props
-  // This was causing the infinite render loop
+  // Calculate the delivery window end date (3 days after estimated delivery)
+  const deliveryWindowEnd = new Date(newDate);
+  deliveryWindowEnd.setDate(newDate.getDate() + 3);
+
+  // Format dates for display
+  const formatDate = (date: Date) => {
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    });
+  };
 
   return (
     <Card>
@@ -50,9 +59,14 @@ const OrderSummary = ({
             <span>${shipping.toFixed(2)}</span>
           </div>
 
-          <div className="flex justify-between">
-            <span>Estimated Arrival</span>
-            <span>{newDate.toLocaleDateString()}</span>
+          <div className="flex justify-between items-start">
+            <span>Estimated Delivery</span>
+            <span className="text-right">
+              {formatDate(newDate)} - {formatDate(deliveryWindowEnd)}
+              <div className="text-xs text-muted-foreground mt-1">
+                ({shippingMethod} shipping)
+              </div>
+            </span>
           </div>
 
           <Separator />
