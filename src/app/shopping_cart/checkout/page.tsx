@@ -341,10 +341,7 @@ const CheckoutPage = () => {
         <div className="h-[20rem] lg:h-[40rem] 2xl:h-[60rem] flex flex-col justify-center items-center">
           <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
           <p className="text-xl text-center">Your cart is empty.</p>
-          <Button
-            className="mt-6"
-            onClick={() => handleNavigation("/products")}
-          >
+          <Button className="mt-6" onClick={() => handleNavigation("/")}>
             Continue Shopping
           </Button>
         </div>
