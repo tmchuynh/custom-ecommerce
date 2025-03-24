@@ -29,9 +29,17 @@ export default function ProductHighlights({
   const selectedHighlights = highlights.slice(0, 2);
 
   return (
-    <ul className="my-2 flex items-center gap-4">
+    <ul className="flex items-center gap-4">
       {selectedHighlights.map((highlightId, index) => {
         const badge = badgeData.find((b) => b.id === highlightId);
+        // Get corresponding badge objects and sort by text
+        const orderedHighlights = selectedHighlights
+          .map((highlightId) => badgeData.find((b) => b.id === highlightId))
+          .filter((badge) => badge !== undefined)
+          .sort((a, b) => a!.text.localeCompare(b!.text));
+
+        // Now find the badge based on the current highlight in the loop
+        const orderedBadges = orderedHighlights[index];
         if (!badge) return null;
         return (
           <li key={`${badge.id}_${index}`} className="flex items-center gap-2">
@@ -43,24 +51,24 @@ export default function ProductHighlights({
               fill="none"
               stroke="currentColor"
               strokeLinecap={
-                badge.svg.strokeLinecap as
+                orderedBadges.svg.strokeLinecap as
                   | "round"
                   | "butt"
                   | "square"
                   | "inherit"
               }
               strokeLinejoin={
-                badge.svg.strokeLinejoin as
+                orderedBadges.svg.strokeLinejoin as
                   | "round"
                   | "inherit"
                   | "miter"
                   | "bevel"
               }
-              strokeWidth={badge.svg.strokeWidth}
+              strokeWidth={orderedBadges.svg.strokeWidth}
             >
-              <path d={badge.svg.path} />
+              <path d={orderedBadges.svg.path} />
             </svg>
-            <p className="text-sm font-medium">{badge.text}</p>
+            <p className="text-sm font-medium">{orderedBadges.text}</p>
           </li>
         );
       })}
