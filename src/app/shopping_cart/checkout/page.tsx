@@ -707,8 +707,11 @@ const CheckoutPage = (): JSX.Element => {
         <div className="space-y-6">
           {/* Order Items Section */}
           <Card>
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Order Items</CardTitle>
+              <Button variant="outline" size="sm" asChild>
+                <a href="/shopping_cart">Edit Cart</a>
+              </Button>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="max-h-60 overflow-y-auto space-y-4">
