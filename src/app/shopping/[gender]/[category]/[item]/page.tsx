@@ -1,5 +1,7 @@
 "use client";
+import CannotFind from "@/components/CannotFind";
 import ComingSoonMessage from "@/components/ComingSoon";
+import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
 import { useParams } from "next/navigation";
@@ -110,15 +112,12 @@ const CategorySectionPage = (): JSX.Element => {
     }
   }, [gender, category, item]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return <LoadingIndicator />;
+  }
 
   if (products.length === 0) {
-    return (
-      <ComingSoonMessage
-        gender={overhead.charAt(0).toUpperCase() + overhead.slice(1)}
-        sectionName={section.charAt(0).toUpperCase() + section.slice(1)}
-      />
-    );
+    return <CannotFind />;
   }
 
   return (

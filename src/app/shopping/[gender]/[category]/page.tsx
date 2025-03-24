@@ -1,4 +1,6 @@
 "use client";
+import CannotFind from "@/components/CannotFind";
+import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
 import { BreadcrumbLink } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
@@ -160,11 +162,11 @@ const CategoryPage = (): JSX.Element => {
   }, [gender, category]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <LoadingIndicator />;
   }
 
   if (products.length === 0) {
-    return <div>No items found in this category.</div>;
+    return <CannotFind />;
   }
 
   return (
