@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { TiWarning } from "react-icons/ti";
 import { JSX } from "react";
+import { Separator } from "@/components/ui/separator";
 
 /**
  * Represents the shopping cart page of the e-commerce application.
@@ -165,36 +166,37 @@ const CartPage = (): JSX.Element => {
               </div>
             ))}
 
-            <div className="flex justify-between items-center pt-2">
-              <div className="text-lg font-medium">Total:</div>
-              <div className="text-xl font-bold">
-                ${getSubTotal().toFixed(2)}
+            <div className="flex flex-col justify-between gap-y-3">
+              <div className="flex justify-between items-center">
+                <div className="text-lg font-medium">Subtotal:</div>
+                <div className="text-xl font-bold">
+                  ${getSubTotal().toFixed(2)}
+                </div>
               </div>
-            </div>
+              <div className="flex justify-between items-center">
+                <div className="text-lg font-medium">Tax:</div>
+                <div className="text-xl font-bold">
+                  ${calculateTaxAmount(getSubTotal()).toFixed(2)}
+                </div>
+              </div>
 
-            <div className="flex justify-between items-center pt-2">
-              <div className="text-lg font-medium">Tax:</div>
-              <div className="text-xl font-bold">
-                ${calculateTaxAmount(getSubTotal()).toFixed(2)}
+              <div className="flex justify-between items-center">
+                <div className="text-lg font-medium">
+                  {capitalize(getShippingMethod(getTotalItems()))} Shipping
+                </div>
+                <div className="text-xl font-bold">
+                  $
+                  {calculateShippingCost(
+                    getShippingMethod(getTotalItems())
+                  ).toFixed(2)}
+                </div>
               </div>
-            </div>
-
-            <div className="flex justify-between items-center pt-2">
-              <div className="text-lg font-medium">
-                {capitalize(getShippingMethod(getTotalItems()))} Shipping
-              </div>
-              <div className="text-xl font-bold">
-                $
-                {calculateShippingCost(
-                  getShippingMethod(getTotalItems())
-                ).toFixed(2)}
-              </div>
-            </div>
-
-            <div className="flex justify-between items-center pt-2">
-              <div className="text-lg font-medium">Total:</div>
-              <div className="text-xl font-bold">
-                ${getTotalPrice().toFixed(2)}
+              <Separator />
+              <div className="flex justify-between items-center">
+                <div className="text-lg font-medium">Total:</div>
+                <div className="text-xl font-bold">
+                  ${getTotalPrice().toFixed(2)}
+                </div>
               </div>
             </div>
           </div>
