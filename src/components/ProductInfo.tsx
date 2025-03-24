@@ -71,10 +71,7 @@ const ProductInfo = ({
 }): JSX.Element => {
   const { getProductByName } = useCart();
   const [url, setURL] = useState(
-    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name
-      .toLowerCase()
-      .replaceAll(" ", "-")
-      .replaceAll("'s", "")}`
+    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem}/${product.name}`
   );
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
@@ -98,17 +95,26 @@ const ProductInfo = ({
           setHighlights(productDetails.highlights);
         }
 
-        setURL(
-          `/shopping/${productDetails.gender}/${productDetails.category}/${
-            productDetails.subcategory
-          }/${productDetails.name
-            .toLowerCase()
-            .replaceAll(" ", "-")
-            .replaceAll("'s", "")}`
-        );
+        if (selectedCategory !== "" && selectedItem !== "") {
+          setURL(
+            `/shopping/${productDetails.gender}/${productDetails.category}/${productDetails.subcategory}/${productDetails.name}`
+          );
+        } else {
+          setURL(`/shopping/${productDetails.gender}`);
+        }
+      } else if (product.gender && product.category) {
+        // If product has direct gender and category properties (for category cards)
+        setURL(`/shopping/${product.gender}/${product.category}`);
       }
     }
-  }, [product.name, selectedItem, getProductByName, highlights.length]);
+  }, [
+    product.name,
+    product.gender,
+    product.category,
+    selectedItem,
+    getProductByName,
+    highlights.length,
+  ]);
 
   return (
     <div
