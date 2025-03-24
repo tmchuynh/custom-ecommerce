@@ -458,8 +458,6 @@ const CheckoutPage = () => {
               discountApplied={discountApplied}
               discountAmount={discountAmount}
               discountedTotal={discountedTotal}
-              isFormValid={isFormValid}
-              handleCheckout={handleCheckout}
             />
 
             {/* Navigation Buttons */}
