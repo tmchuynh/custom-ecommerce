@@ -124,6 +124,20 @@ export async function decryptKey(
   }
 }
 
+/**
+ * Validates a credit card number using the Luhn algorithm.
+ *
+ * This function checks if the provided card number is a valid credit card number
+ * by performing the following steps:
+ * - Ensures the input is a non-empty string.
+ * - Removes spaces and non-digit characters from the input.
+ * - Verifies the length of the sanitized number is between 13 and 19 digits.
+ * - Determines the card type using a helper function.
+ * - Applies the Luhn algorithm to validate the card number.
+ *
+ * @param cardNumber - The credit card number as a string.
+ * @returns `true` if the card number is valid, otherwise `false`.
+ */
 export function validateCreditCard(cardNumber: string): boolean {
   if (typeof cardNumber !== "string" || cardNumber.trim() === "") {
     return false;
@@ -165,6 +179,19 @@ export function validateCreditCard(cardNumber: string): boolean {
   return sum % 10 === 0;
 }
 
+/**
+ * Determines the type of a credit card based on its number.
+ *
+ * @param sanitizedNumber - The credit card number as a string, stripped of any non-numeric characters.
+ * @returns The card type as a string ("Visa", "MasterCard", "American Express", "Discover"), or `null` if the type cannot be determined.
+ *
+ * @example
+ * ```typescript
+ * const cardType = getCardType("4111111111111111");
+ * console.log(cardType); // "Visa"
+ * ```
+ */
+
 export function getCardType(sanitizedNumber: string): string | null {
   // Check the first digit(s) to identify the card type
   const firstDigit = sanitizedNumber.charAt(0);
@@ -186,6 +213,12 @@ export function getCardType(sanitizedNumber: string): string | null {
   }
 }
 
+/**
+ * Validates whether a given string is a properly formatted email address.
+ *
+ * @param email - The email address to validate.
+ * @returns `true` if the input is a valid email address, otherwise `false`.
+ */
 export function validateEmail(email: string): boolean {
   if (typeof email !== "string") {
     return false;
@@ -194,6 +227,16 @@ export function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
+/**
+ * Validates a phone number to ensure it matches the expected format.
+ *
+ * The phone number can optionally include a country code (starting with `+`)
+ * and must contain between 10 to 15 digits. Non-digit characters are ignored
+ * during validation.
+ *
+ * @param phone - The phone number to validate as a string.
+ * @returns `true` if the phone number is valid, otherwise `false`.
+ */
 export function validatePhone(phone: string): boolean {
   // Validate phone numbers with an optional country code and 10-15 digits
   const phoneRegex = /^\+?[1-9]\d{1,14}$/;
@@ -201,6 +244,20 @@ export function validatePhone(phone: string): boolean {
   return phoneRegex.test(sanitizedPhone);
 }
 
+/**
+ * Formats a given phone number string into a standardized format.
+ *
+ * The function removes all non-numeric characters from the input string
+ * and formats it based on the number of digits:
+ * - If the input contains fewer than 10 digits, the original input is returned.
+ * - If the input contains 0 digits, an empty string is returned.
+ * - If the input contains 1-3 digits, it is formatted as "(XXX".
+ * - If the input contains 4-6 digits, it is formatted as "(XXX) XXX".
+ * - If the input contains 7 or more digits, it is formatted as "(XXX) XXX-XXXX".
+ *
+ * @param value - The phone number string to format.
+ * @returns The formatted phone number string.
+ */
 export const formatPhoneNumber = (value: string): string => {
   // Strip all non-numeric characters
   const numbers = value.replace(/\D/g, "");
@@ -225,6 +282,14 @@ export const formatPhoneNumber = (value: string): string => {
   }
 };
 
+/**
+ * Formats a credit card number by removing all non-numeric characters
+ * and adding a space after every 4 digits.
+ *
+ * @param value - The input string representing the credit card number.
+ * @returns A formatted credit card number with spaces after every 4 digits,
+ *          or an empty string if the input is invalid or empty.
+ */
 export const formatCreditCardNumber = (value: string): string => {
   // Validate input and strip all non-numeric characters
   if (typeof value !== "string" || value.trim() === "") {
