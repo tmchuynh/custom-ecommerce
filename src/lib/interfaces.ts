@@ -111,27 +111,49 @@ export interface CartContextType {
   getTotalPrice: () => number;
   getTotalItems: () => number;
   itemExistsInCart: (name: string) => boolean;
+  applyDiscount: (code: string) => boolean;
+  getDiscountedTotal: () => number;
+  saveCartForLater: () => void;
+  loadSavedCart: () => void;
+  calculateShippingCost: (method: ShippingMethod) => number;
+  getEstimatedDeliveryDate: (method: ShippingMethod) => Date;
+  startCheckout: () => void;
+  moveToWishlist: (itemId: string) => void;
 }
 
+export type ShippingMethod = "standard" | "express" | "overnight";
+
 export interface ProductContextType {
-  getProductByName: (name: string) =>
-    | {
-        gender: string;
-        category: string;
-        subcategory: string;
-        name: string;
-        highlights: string[];
-        details: DetailItem[];
-        images: string[];
-        colors: Color[];
-        imageSrc: string;
-        price: string | number;
-        badge?: string;
-      }
-    | undefined;
+  getProductByName: (name: string) => ProductType | undefined;
   getProductsByCategory: (categoryObj: Record<string, any>) => any;
   getSubcategoriesByGender: (gender: string, category?: string) => string[];
+  searchProducts: (query: string) => ProductType[];
+  filterProducts: (filters: ProductFilters) => ProductType[];
+  getRelatedProducts: (productName: string, limit?: number) => ProductType[];
+  getFeaturedProducts: (limit?: number) => ProductType[];
+  getNewArrivals: (limit?: number) => ProductType[];
+  sortProducts: (products: ProductType[], sortBy: SortOption) => ProductType[];
+  getProductsByPriceRange: (min: number, max: number) => ProductType[];
 }
+
+export interface ProductFilters {
+  gender?: string;
+  category?: string;
+  subcategory?: string;
+  priceRange?: {
+    min: number;
+    max: number;
+  };
+  colors?: string[];
+  sizes?: string[];
+  onSale?: boolean;
+}
+
+export type SortOption =
+  | "price-low-to-high"
+  | "price-high-to-low"
+  | "newest"
+  | "popular";
 
 export interface ProductBadgesProps {
   highlights: string[];

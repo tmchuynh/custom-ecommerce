@@ -1,7 +1,7 @@
 // cartContext.tsx
 "use client";
 
-import { CartContextType, CartItem } from "@/lib/interfaces";
+import { CartContextType, CartItem, ShippingMethod } from "@/lib/interfaces";
 import React, { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -31,6 +31,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children: React.ReactNode;
 }): React.ReactNode => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [discountCode, setDiscountCode] = useState<string | null>(null);
+  const [discountAmount, setDiscountAmount] = useState<number>(0);
+  const [checkoutActive, setCheckoutActive] = useState<boolean>(false);
+
+  // Discount codes table (in a real app this would come from a database)
+  const discountCodes: Record<string, number> = {
+    WELCOME10: 0.1, // 10% off
+    SUMMER25: 0.25, // 25% off
+    FREESHIP: 0.15, // 15% off
+  };
+
+  // Shipping rates table
+  const shippingRates: Record<ShippingMethod, number> = {
+    standard: 5.99,
+    express: 12.99,
+    overnight: 24.99,
+  };
 
   // Rehydrate cart items from localStorage on mount
   useEffect(() => {
@@ -146,6 +163,154 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return cartItems.some((item) => item.name === name);
   };
 
+  /**
+   * Applies a discount code to the cart.
+   *
+   * @param code - The discount code to apply
+   * @returns A boolean indicating whether the code was valid and applied
+   */
+  const applyDiscount = (code: string): boolean => {
+    const normalizedCode = code.trim().toUpperCase();
+
+    if (discountCodes[normalizedCode]) {
+      setDiscountCode(normalizedCode);
+      setDiscountAmount(discountCodes[normalizedCode]);
+      return true;
+    }
+
+    return false;
+  };
+
+  /**
+   * Gets the total price after applying any active discount.
+   *
+   * @returns The discounted total price
+   */
+  const getDiscountedTotal = (): number => {
+    const subtotal = getTotalPrice();
+
+    if (discountAmount > 0) {
+      return subtotal * (1 - discountAmount);
+    }
+
+    return subtotal;
+  };
+
+  /**
+   * Saves the current cart to localStorage for later retrieval.
+   */
+  const saveCartForLater = (): void => {
+    const savedCartData = {
+      items: cartItems,
+      discountCode,
+      discountAmount,
+      savedAt: new Date().toISOString(),
+    };
+
+    localStorage.setItem("savedCart", JSON.stringify(savedCartData));
+  };
+
+  /**
+   * Loads a previously saved cart from localStorage.
+   */
+  const loadSavedCart = (): void => {
+    const savedCart = localStorage.getItem("savedCart");
+
+    if (savedCart) {
+      const parsedCart = JSON.parse(savedCart);
+      setCartItems(parsedCart.items || []);
+      setDiscountCode(parsedCart.discountCode || null);
+      setDiscountAmount(parsedCart.discountAmount || 0);
+    }
+  };
+
+  /**
+   * Calculates the shipping cost based on the selected shipping method.
+   *
+   * @param method - The shipping method
+   * @returns The shipping cost
+   */
+  const calculateShippingCost = (method: ShippingMethod): number => {
+    return shippingRates[method] || 0;
+  };
+
+  /**
+   * Calculates the estimated delivery date based on the shipping method.
+   *
+   * @param method - The shipping method
+   * @returns The estimated delivery date
+   */
+  const getEstimatedDeliveryDate = (method: ShippingMethod): Date => {
+    const today = new Date();
+    let daysToAdd = 0;
+
+    switch (method) {
+      case "standard":
+        daysToAdd = 5;
+        break;
+      case "express":
+        daysToAdd = 2;
+        break;
+      case "overnight":
+        daysToAdd = 1;
+        break;
+      default:
+        daysToAdd = 5;
+    }
+
+    const deliveryDate = new Date(today);
+    deliveryDate.setDate(today.getDate() + daysToAdd);
+
+    // Skip weekends for more realistic delivery dates
+    const dayOfWeek = deliveryDate.getDay();
+    if (dayOfWeek === 0) {
+      // Sunday
+      deliveryDate.setDate(deliveryDate.getDate() + 1);
+    } else if (dayOfWeek === 6) {
+      // Saturday
+      deliveryDate.setDate(deliveryDate.getDate() + 2);
+    }
+
+    return deliveryDate;
+  };
+
+  /**
+   * Begins the checkout process.
+   */
+  const startCheckout = (): void => {
+    if (cartItems.length === 0) {
+      // Don't start checkout with empty cart
+      return;
+    }
+
+    setCheckoutActive(true);
+
+    // In a real app, you might:
+    // - Calculate taxes
+    // - Verify inventory
+    // - Reserve items
+    // - Initialize payment gateway
+  };
+
+  /**
+   * Moves an item from the cart to the wishlist.
+   *
+   * @param itemId - The ID of the item to move
+   */
+  const moveToWishlist = (itemId: string): void => {
+    // Find the item in the cart
+    const item = cartItems.find((item) => item.id === itemId);
+
+    if (item) {
+      // Add to wishlist (this would communicate with a wishlist context in a real app)
+      // For now, we'll just log a message
+      console.log(`Added ${item.name} to wishlist`);
+
+      // Remove from cart
+      removeFromCart(itemId);
+    }
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -158,6 +323,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         getTotalPrice,
         getTotalItems,
         itemExistsInCart,
+        applyDiscount,
+        getDiscountedTotal,
+        saveCartForLater,
+        loadSavedCart,
+        calculateShippingCost,
+        getEstimatedDeliveryDate,
+        startCheckout,
+        moveToWishlist,
       }}
     >
       {children}
