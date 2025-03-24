@@ -173,13 +173,14 @@ const ProductInfo = ({
               relative: !page,
             })}
           >
+            <ProductHighlights highlights={highlights} />
+
             {showButtons &&
               typeof window !== "undefined" &&
               window.location.pathname.split("/").filter(Boolean).length > 2 &&
               window.location.pathname.startsWith("/shopping/") && (
                 <CartAndFavoritesButtons product={product} page={page} />
               )}
-            <ProductHighlights highlights={highlights} />
           </div>
         )}
       </div>

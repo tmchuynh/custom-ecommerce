@@ -183,7 +183,6 @@ const ProductGallery = ({
                     alt={product.name || product.gender || "female"}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-3xl"
                   />
                 </div>
               ) : (
