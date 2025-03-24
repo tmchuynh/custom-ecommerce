@@ -1,6 +1,6 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn, formatURL } from "@/lib/utils";
 import { JSX, useEffect, useMemo, useState } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
 import ProductRate from "./ProductRate";
@@ -71,7 +71,9 @@ const ProductInfo = ({
 }): JSX.Element => {
   const { getProductByName } = useCart();
   const [url, setURL] = useState(
-    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${product.name.toLowerCase()}`
+    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${formatURL(
+      product.name
+    )}`
   );
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
@@ -99,13 +101,11 @@ const ProductInfo = ({
           setHighlights(productDetails.highlights);
         }
 
-        if (selectedCategory !== "" && selectedItem !== "") {
-          setURL(
-            `/shopping/${productDetails.gender}/${productDetails.category}/${productDetails.subcategory}/${productDetails.name}`
-          );
-        } else {
-          setURL(`/shopping/${productDetails.gender}`);
-        }
+        setURL(
+          `/shopping/${productDetails.gender}/${productDetails.category}/${
+            productDetails.subcategory
+          }/${formatURL(productDetails.name)}`
+        );
       } else if (product.gender && product.category) {
         // If product has direct gender and category properties (for category cards)
         setURL(`/shopping/${product.gender}/${product.category}`);
