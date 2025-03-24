@@ -3,19 +3,21 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { capitalize } from "@/lib/utils";
+import {
+  capitalize,
+  formatCreditCardNumber,
+  formatPhoneNumber,
+  getCardType,
+  validateCreditCard,
+  validateEmail,
+  validatePhone,
+} from "@/lib/utils";
 import { useCart } from "../../context/cartContext";
 import { JSX, useState, useEffect, useRef } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Check, X } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
-} from "@/components/ui/input-otp";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import {
@@ -29,101 +31,6 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
-
-/**
- * Validates if a credit card number is valid using the Luhn algorithm
- * @param cardNumber - The credit card number to validate
- * @returns boolean indicating if the card number is valid
- */
-function validateCreditCard(cardNumber: string): boolean {
-  // Remove spaces and non-digit characters
-  const sanitizedNumber = cardNumber.replace(/\D/g, "");
-
-  // Check if the number is of valid length (13-19 digits)
-  if (sanitizedNumber.length < 13 || sanitizedNumber.length > 19) {
-    return false;
-  }
-
-  // Luhn algorithm implementation
-  let sum = 0;
-  let doubleUp = false;
-
-  // Process digits from right to left
-  for (let i = sanitizedNumber.length - 1; i >= 0; i--) {
-    let digit = parseInt(sanitizedNumber.charAt(i));
-
-    // Double every second digit
-    if (doubleUp) {
-      digit *= 2;
-      if (digit > 9) {
-        digit -= 9;
-      }
-    }
-
-    sum += digit;
-    doubleUp = !doubleUp;
-  }
-
-  // Valid card numbers sum to a multiple of 10
-  return sum % 10 === 0;
-}
-
-/**
- * Validates if an email address is in the correct format
- * @param email - The email address to validate
- * @returns boolean indicating if the email is valid
- */
-function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-/**
- * Validates if a phone number contains the correct number of digits
- * @param phone - The phone number to validate
- * @returns boolean indicating if the phone number is valid
- */
-function validatePhone(phone: string): boolean {
-  return phone.replace(/\D/g, "").length === 10;
-}
-
-/**
- * Formats a phone number string into (xxx) xxx-xxxx format
- * @param value - The raw phone number string
- * @returns The formatted phone number
- */
-const formatPhoneNumber = (value: string): string => {
-  // Strip all non-numeric characters
-  const numbers = value.replace(/\D/g, "");
-
-  // Format based on the length of the input
-  if (numbers.length === 0) {
-    return "";
-  } else if (numbers.length <= 3) {
-    return `(${numbers}`;
-  } else if (numbers.length <= 6) {
-    return `(${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
-  } else {
-    return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(
-      6,
-      10
-    )}`;
-  }
-};
-
-/**
- * Formats a credit card number with spaces after every 4 digits
- * @param value - The raw credit card number
- * @returns The formatted credit card number
- */
-const formatCreditCardNumber = (value: string): string => {
-  // Strip all non-numeric characters
-  const numbers = value.replace(/\D/g, "");
-
-  // Add a space after every 4 digits
-  return numbers.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
-};
 
 /**
  * The `CheckoutPage` component represents the checkout page of the e-commerce application.
@@ -199,6 +106,7 @@ const CheckoutPage = (): JSX.Element => {
 
   // Form state for payment information
   const [cardNumber, setCardNumber] = useState<string>("");
+  const [cardType, setCardType] = useState<string>("");
   const [cardExpiry, setCardExpiry] = useState<string>("");
   const [cardCvv, setCardCvv] = useState<string>("");
   const [billingAddress, setBillingAddress] = useState<string>("");
@@ -241,9 +149,6 @@ const CheckoutPage = (): JSX.Element => {
     shippingAddress: false,
   });
 
-  // Add a new state for the fallback mode
-  const [useFallbackInputs, setUseFallbackInputs] = useState<boolean>(false);
-
   // Calculate values for order summary
   const subtotal = getSubTotal();
   const tax = calculateTaxAmount(subtotal);
@@ -279,10 +184,6 @@ const CheckoutPage = (): JSX.Element => {
     shippingAddress,
   ]);
 
-  /**
-   * Marks a field as touched when it loses focus
-   * @param field - The name of the field to mark as touched
-   */
   const handleBlur = (field: keyof typeof touchedFields) => {
     setTouchedFields((prev) => ({
       ...prev,
@@ -290,9 +191,6 @@ const CheckoutPage = (): JSX.Element => {
     }));
   };
 
-  /**
-   * Validates the form and updates the formErrors state
-   */
   const validateForm = () => {
     const errors: {
       name?: string;
@@ -412,6 +310,8 @@ const CheckoutPage = (): JSX.Element => {
     const digitsOnly = inputValue.replace(/\D/g, "").slice(0, 16);
     setCardNumber(digitsOnly);
 
+    setCardType(getCardType(digitsOnly) || "");
+
     // Set the formatted value back to the input
     e.target.value = formatCreditCardNumber(digitsOnly);
   };
@@ -440,20 +340,20 @@ const CheckoutPage = (): JSX.Element => {
     );
   }, [customerName, phoneNumber, email, shippingAddress, cardNumber]);
 
+  const handleRouteChangeStart = (url: string) => {
+    // Only show dialog if we have data and not already navigating with permission
+    if (hasInputData.current && !navigationBlocked.current) {
+      setNavigateTo(url);
+      setShowExitDialog(true);
+      // Reset to allow future navigation attempts
+      navigationBlocked.current = false;
+      // Throw an error to prevent navigation and reset the URL
+      throw new Error("Navigation prevented");
+    }
+  };
+
   // Intercept navigation attempts from Next.js router
   useEffect(() => {
-    const handleRouteChangeStart = (url: string) => {
-      // Only show dialog if we have data and not already navigating with permission
-      if (hasInputData.current && !navigationBlocked.current) {
-        setNavigateTo(url);
-        setShowExitDialog(true);
-        // Reset to allow future navigation attempts
-        navigationBlocked.current = false;
-        // Throw an error to prevent navigation and reset the URL
-        throw new Error("Navigation prevented");
-      }
-    };
-
     const handleBeforeUnload = (e: BeforeUnloadEvent) => {
       if (hasInputData.current) {
         e.preventDefault();
@@ -503,6 +403,7 @@ const CheckoutPage = (): JSX.Element => {
 
   // Handle internal navigation with our custom dialog
   const handleNavigation = (destination: string) => {
+    handleRouteChangeStart(destination);
     if (hasInputData.current) {
       setNavigateTo(destination);
       setShowExitDialog(true);
@@ -714,6 +615,11 @@ const CheckoutPage = (): JSX.Element => {
                       placeholder="1234 5678 9012 3456"
                     />
                   </div>
+                  {!formErrors.cardNumber && cardType && (
+                    <p className="text-sm text-gray-500 mt-3 mx-2">
+                      {cardType}
+                    </p>
+                  )}
                   {touchedFields.cardNumber && formErrors.cardNumber && (
                     <p className="text-sm text-red-500 mt-1">
                       {formErrors.cardNumber}
@@ -980,10 +886,7 @@ const CheckoutPage = (): JSX.Element => {
           }
         }}
       >
-        <AlertDialogContent
-          onPointerDownOutside={(e) => e.preventDefault()}
-          onEscapeKeyDown={(e) => e.preventDefault()}
-        >
+        <AlertDialogContent onEscapeKeyDown={(e) => e.preventDefault()}>
           <AlertDialogHeader>
             <AlertDialogTitle>Leave this page?</AlertDialogTitle>
             <AlertDialogDescription>

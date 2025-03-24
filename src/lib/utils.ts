@@ -124,6 +124,118 @@ export async function decryptKey(
   }
 }
 
+export function validateCreditCard(cardNumber: string): boolean {
+  if (typeof cardNumber !== "string" || cardNumber.trim() === "") {
+    return false;
+  }
+  // Remove spaces and non-digit characters
+  const sanitizedNumber = cardNumber.replace(/\D/g, "");
+
+  // Check if the number is of valid length (13-19 digits)
+  if (sanitizedNumber.length < 13 || sanitizedNumber.length > 19) {
+    return false;
+  }
+
+  const cardType = getCardType(sanitizedNumber);
+  if (!cardType) {
+    return false;
+  }
+
+  // Luhn algorithm implementation
+  let sum = 0;
+  let doubleUp = false;
+
+  // Process digits from right to left
+  for (let i = sanitizedNumber.length - 1; i >= 0; i--) {
+    let digit = parseInt(sanitizedNumber.charAt(i));
+
+    // Double every second digit
+    if (doubleUp) {
+      digit *= 2;
+      if (digit > 9) {
+        digit -= 9;
+      }
+    }
+
+    sum += digit;
+    doubleUp = !doubleUp;
+  }
+
+  // Valid card numbers sum to a multiple of 10
+  return sum % 10 === 0;
+}
+
+export function getCardType(sanitizedNumber: string): string | null {
+  // Check the first digit(s) to identify the card type
+  const firstDigit = sanitizedNumber.charAt(0);
+  const firstTwoDigits = sanitizedNumber.slice(0, 2);
+
+  if (firstDigit === "4") {
+    return "Visa";
+  } else if (firstTwoDigits >= "51" && firstTwoDigits <= "55") {
+    return "MasterCard";
+  } else if (firstTwoDigits === "34" || firstTwoDigits === "37") {
+    return "American Express";
+  } else if (
+    sanitizedNumber.startsWith("6011") ||
+    sanitizedNumber.startsWith("65")
+  ) {
+    return "Discover";
+  } else {
+    return null;
+  }
+}
+
+export function validateEmail(email: string): boolean {
+  if (typeof email !== "string") {
+    return false;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+export function validatePhone(phone: string): boolean {
+  // Validate phone numbers with an optional country code and 10-15 digits
+  const phoneRegex = /^\+?[1-9]\d{1,14}$/;
+  const sanitizedPhone = phone.replace(/\D/g, "");
+  return phoneRegex.test(sanitizedPhone);
+}
+
+export const formatPhoneNumber = (value: string): string => {
+  // Strip all non-numeric characters
+  const numbers = value.replace(/\D/g, "");
+
+  // Return the input as-is if it contains fewer than 10 digits
+  if (numbers.length < 10) {
+    return value;
+  }
+
+  // Format based on the length of the input
+  if (numbers.length === 0) {
+    return "";
+  } else if (numbers.length <= 3) {
+    return `(${numbers}`;
+  } else if (numbers.length <= 6) {
+    return `(${numbers.slice(0, 3)}) ${numbers.slice(3)}`;
+  } else {
+    return `(${numbers.slice(0, 3)}) ${numbers.slice(3, 6)}-${numbers.slice(
+      6,
+      10
+    )}`;
+  }
+};
+
+export const formatCreditCardNumber = (value: string): string => {
+  // Validate input and strip all non-numeric characters
+  if (typeof value !== "string" || value.trim() === "") {
+    return "";
+  }
+  const numbers = value.replace(/\D/g, "");
+
+  // Add a space after every 4 digits
+  return numbers.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
+};
+
 /**
  * Formats a numeric value into a currency string.
  *
