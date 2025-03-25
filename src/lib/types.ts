@@ -272,7 +272,7 @@ export type CustomerInfoFormProps = {
   ) => void;
 };
 
-export interface ShippingAddressFormProps {
+export type ShippingAddressFormProps = {
   shippingAddress: string;
   setShippingAddress: (value: string) => void;
   shippingCity: string;
@@ -291,8 +291,17 @@ export interface ShippingAddressFormProps {
     shippingAddress?: string;
     [key: string]: string | undefined;
   };
-  handleBlur: (field: string) => void;
-}
+  handleBlur: (
+    field:
+      | "phone"
+      | "email"
+      | "cardNumber"
+      | "cardExpiry"
+      | "cardCvv"
+      | "shippingAddress"
+      | "name"
+  ) => void;
+};
 
 export type PaymentInfoFormProps = {
   cardNumber: string;

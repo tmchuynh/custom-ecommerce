@@ -9,6 +9,17 @@ import { NavigationDetails } from "./types";
 
 export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
 
+export const countries = [
+  { value: "USA", label: "United States", distanceFactor: 0 },
+  { value: "CAN", label: "Canada", distanceFactor: 0.1 },
+  { value: "MEX", label: "Mexico", distanceFactor: 0.1 },
+  { value: "GBR", label: "United Kingdom", distanceFactor: 0.3 },
+  { value: "FRA", label: "France", distanceFactor: 0.3 },
+  { value: "DEU", label: "Germany", distanceFactor: 0.3 },
+  { value: "JPN", label: "Japan", distanceFactor: 0.5 },
+  { value: "AUS", label: "Australia", distanceFactor: 0.6 },
+];
+
 export const navigations: NavigationDetails = {
   categories: [
     {
