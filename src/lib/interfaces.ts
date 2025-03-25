@@ -125,6 +125,10 @@ export interface CartContextType {
   getDeliveryWindowEndDate: (method: ShippingMethod, startDate: Date) => Date;
   startCheckout: () => void;
   moveToWishlist: (itemId: string) => void;
+  calculateInternationalShippingFee: (
+    country: string,
+    method?: ShippingMethod
+  ) => number;
 }
 
 export interface ProductContextType {
