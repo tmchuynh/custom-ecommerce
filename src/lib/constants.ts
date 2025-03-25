@@ -7,7 +7,28 @@ import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
 import { NavigationDetails } from "./types";
 
-export const currencies = ["CAD", "USD", "AUD", "EUR", "GBP"];
+export const currencies = [
+  "CAD", // Canadian Dollar
+  "USD", // United States Dollar
+  "AUD", // Australian Dollar
+  "EUR", // Euro
+  "GBP", // British Pound
+  "JPY", // Japanese Yen
+  "CNY", // Chinese Yuan
+  "INR", // Indian Rupee
+  "BRL", // Brazilian Real
+  "ZAR", // South African Rand
+  "MXN", // Mexican Peso
+  "KRW", // South Korean Won
+  "SGD", // Singapore Dollar
+  "NZD", // New Zealand Dollar
+  "CHF", // Swiss Franc
+  "SEK", // Swedish Krona
+  "NOK", // Norwegian Krone
+  "DKK", // Danish Krone
+  "RUB", // Russian Ruble
+  "AED", // United Arab Emirates Dirham
+];
 
 export const countries = [
   { value: "USA", label: "United States", distanceFactor: 0 },
@@ -18,6 +39,36 @@ export const countries = [
   { value: "DEU", label: "Germany", distanceFactor: 0.3 },
   { value: "JPN", label: "Japan", distanceFactor: 0.5 },
   { value: "AUS", label: "Australia", distanceFactor: 0.6 },
+  { value: "IND", label: "India", distanceFactor: 0.4 },
+  { value: "BRA", label: "Brazil", distanceFactor: 0.5 },
+  { value: "ZAF", label: "South Africa", distanceFactor: 0.7 },
+  { value: "CHN", label: "China", distanceFactor: 0.5 },
+  { value: "RUS", label: "Russia", distanceFactor: 0.6 },
+  { value: "ITA", label: "Italy", distanceFactor: 0.3 },
+  { value: "ESP", label: "Spain", distanceFactor: 0.3 },
+  { value: "KOR", label: "South Korea", distanceFactor: 0.5 },
+  { value: "NZL", label: "New Zealand", distanceFactor: 0.6 },
+  { value: "ARG", label: "Argentina", distanceFactor: 0.5 },
+  { value: "SWE", label: "Sweden", distanceFactor: 0.4 },
+  { value: "NOR", label: "Norway", distanceFactor: 0.4 },
+  { value: "DNK", label: "Denmark", distanceFactor: 0.4 },
+  { value: "CHE", label: "Switzerland", distanceFactor: 0.3 },
+  { value: "NLD", label: "Netherlands", distanceFactor: 0.3 },
+  { value: "BEL", label: "Belgium", distanceFactor: 0.3 },
+  { value: "AUT", label: "Austria", distanceFactor: 0.3 },
+  { value: "IRL", label: "Ireland", distanceFactor: 0.3 },
+  { value: "SGP", label: "Singapore", distanceFactor: 0.5 },
+  { value: "THA", label: "Thailand", distanceFactor: 0.5 },
+  { value: "VNM", label: "Vietnam", distanceFactor: 0.5 },
+  { value: "PHL", label: "Philippines", distanceFactor: 0.5 },
+  { value: "IDN", label: "Indonesia", distanceFactor: 0.5 },
+  { value: "MYS", label: "Malaysia", distanceFactor: 0.5 },
+  { value: "SAU", label: "Saudi Arabia", distanceFactor: 0.6 },
+  { value: "ARE", label: "United Arab Emirates", distanceFactor: 0.6 },
+  { value: "ISR", label: "Israel", distanceFactor: 0.4 },
+  { value: "TUR", label: "Turkey", distanceFactor: 0.5 },
+  { value: "EGY", label: "Egypt", distanceFactor: 0.6 },
+  { value: "NGA", label: "Nigeria", distanceFactor: 0.7 },
 ];
 
 export const navigations: NavigationDetails = {
