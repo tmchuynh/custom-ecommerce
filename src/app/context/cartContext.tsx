@@ -1,6 +1,7 @@
 // cartContext.tsx
 "use client";
 
+import { countries } from "@/lib/constants";
 import { CartContextType, CartItem } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
 import React, { createContext, useState, useContext, useEffect } from "react";
@@ -342,22 +343,26 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Calculates the additional fee for international shipping based on shipping method
+   * Calculates the additional fee for international shipping based on the country and distance factor.
    *
    * @param country - The destination country
    * @param method - The shipping method
-   * @returns The additional fee for international shipping if the country is not USA, otherwise 0
+   * @returns The additional fee for international shipping based on distance factor
    */
   const calculateInternationalShippingFee = (
     country: string,
     method: ShippingMethod = "standard"
   ): number => {
-    const isInternational =
-      country.toLowerCase() !== "usa" &&
-      country.toLowerCase() !== "united states" &&
-      country.toLowerCase() !== "us";
+    const countryData = countries.find(
+      (c) => c.value.toLowerCase() === country.toLowerCase()
+    );
 
-    return isInternational ? internationalShippingFees[method] : 0;
+    if (!countryData || countryData.distanceFactor === 0) {
+      return 0; // No additional fee for USA or unknown countries
+    }
+
+    const baseFee = internationalShippingFees[method] || 0;
+    return baseFee + baseFee * countryData.distanceFactor;
   };
 
   /**
