@@ -66,36 +66,33 @@ const getDeliveryWindowDates = (
   const distanceFactor = countryData ? countryData.distanceFactor : 0;
   console.log("Country:", country, "Distance Factor:", distanceFactor);
 
+  // Define base delays (in business days) and window lengths
   let baseDelay: number, baseWindow: number;
-  let startDelayFactor = 3;
-  let windowDelayFactor = 3;
+  // Use multipliers that scale the distance factor into additional days
+  const multiplierStart = 2; // for example, a factor of 0.4 produces about 1 day extra delay
+  const multiplierWindow = 2;
 
   switch (method) {
     case "standard":
-      baseDelay = 5;
-      baseWindow = 5;
+      baseDelay = 2;
+      baseWindow = 3;
       break;
     case "express":
-      baseDelay = 4;
+      baseDelay = 1;
       baseWindow = 2;
-      startDelayFactor = 2;
-      windowDelayFactor = 3;
       break;
     case "overnight":
       baseDelay = 1;
       baseWindow = 0;
-      startDelayFactor = 1;
-      windowDelayFactor = 3;
       break;
     default:
       baseDelay = 2;
       baseWindow = 3;
   }
 
-  const additionalStartDelay = Math.ceil(
-    distanceFactor * 100 * startDelayFactor
-  );
-  const additionalWindow = Math.ceil(distanceFactor * 100 * windowDelayFactor);
+  // Instead of Math.ceil, try Math.round so that the additional days vary more gradually.
+  const additionalStartDelay = Math.round(distanceFactor * multiplierStart);
+  const additionalWindow = Math.round(distanceFactor * multiplierWindow);
 
   const windowStart = addBusinessDays(
     startDate,
@@ -103,8 +100,8 @@ const getDeliveryWindowDates = (
   );
   const windowEnd = addBusinessDays(windowStart, baseWindow + additionalWindow);
 
-  console.log("Window start:", formatDate(windowStart));
-  console.log("Window end:", formatDate(windowEnd));
+  console.log("Calculated window start:", formatDate(windowStart));
+  console.log("Calculated window end:", formatDate(windowEnd));
 
   return { windowStart, windowEnd };
 };
@@ -133,38 +130,6 @@ const getDeliveryDescription = (
     return `arriving in ${daysStart} day(s)`;
   }
   return `arriving in ${daysStart} to ${daysEnd} days`;
-};
-
-// Returns an estimated delivery date based on the shipping method (using a simple base value)
-const getEstimatedDeliveryDate = (method: ShippingMethod): Date => {
-  const today = new Date();
-  let daysToAdd = 0;
-  switch (method) {
-    case "standard":
-      daysToAdd = 5;
-      break;
-    case "express":
-      daysToAdd = 2;
-      break;
-    case "overnight":
-      daysToAdd = 1;
-      break;
-    default:
-      daysToAdd = 5;
-  }
-  return addBusinessDays(today, daysToAdd);
-};
-
-// Returns a delivery estimate text string (e.g., "Jun 15 - Jun 18") based on the selected shipping method and a default country (e.g., "USA").
-const getDeliveryEstimateText = (): string => {
-  const estimatedDate = getEstimatedDeliveryDate("standard");
-  // For delivery estimate text, you might use a default country (adjust as needed)
-  const { windowStart, windowEnd } = getDeliveryWindowDates(
-    "standard",
-    estimatedDate,
-    "USA"
-  );
-  return `${formatDate(windowStart)} - ${formatDate(windowEnd)}`;
 };
 
 // -------------------
@@ -399,13 +364,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Returns a delivery estimate text (e.g. "Jun 15 - Jun 18")
-  const getDeliveryEstimateText = (): string => {
+  const getDeliveryEstimateText = (shippingCountry: string): string => {
     const deliveryDate = getEstimatedDeliveryDate(selectedShippingMethod);
-    // For delivery estimate text, default country is "USA"; update as needed.
     const { windowStart, windowEnd } = getDeliveryWindowDates(
       selectedShippingMethod,
       deliveryDate,
-      "USA"
+      shippingCountry
     );
     return `${formatDate(windowStart)} - ${formatDate(windowEnd)}`;
   };

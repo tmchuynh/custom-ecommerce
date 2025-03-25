@@ -20,32 +20,24 @@ const OrderSummary = ({
   discountAmount,
   discountedTotal,
   newDate,
+  shippingCountry,
 }: OrderSummaryProps) => {
-  const {
-    getDeliveryWindowDates,
-    getDeliveryEstimateText,
-    getDeliveryDescription,
-  } = useCart();
+  const { getDeliveryDescription, getDeliveryEstimateText } = useCart();
+
+  const [deliveryInfo, setDeliveryInfo] = useState("");
   const { selectedCurrency } = useCurrency();
   const { convertPrice } = useProduct();
 
-  // State to trigger re-renders when shipping method or country changes
-  const [deliveryInfo, setDeliveryInfo] = useState("");
-
   // Update delivery info whenever shipping method or country changes
   useEffect(() => {
-    // Extract country from the selected currency
-    const countryCode = selectedCurrency.code || "USD";
-
-    // Update the description which will re-render the component
+    // Pass the actual shipping country code instead of selectedCurrency.code
     const description = getDeliveryDescription(
       shippingMethod,
       newDate,
-      countryCode
+      shippingCountry
     );
-
     setDeliveryInfo(description);
-  }, [shippingMethod, selectedCurrency.code, newDate, getDeliveryDescription]);
+  }, [shippingMethod, shippingCountry, newDate, getDeliveryDescription]);
 
   return (
     <Card>
@@ -89,8 +81,11 @@ const OrderSummary = ({
           <div className="flex justify-between items-start">
             <span>Estimated Delivery</span>
             <span className="text-right">
-              {getDeliveryEstimateText()}
-              <div className="text-xs text-muted-foreground mt-1">
+              {getDeliveryEstimateText(shippingCountry)}
+              <div
+                className="text-xs text-muted-foreground mt-1"
+                id="deliveryInfo"
+              >
                 {deliveryInfo}
               </div>
             </span>

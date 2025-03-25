@@ -473,6 +473,7 @@ const CheckoutPage = () => {
                 shippingCountry.toLowerCase() !== "united states" &&
                 shippingCountry.toLowerCase() !== "us"
               }
+              shippingCountry={shippingCountry}
             />
 
             {/* Navigation Buttons */}

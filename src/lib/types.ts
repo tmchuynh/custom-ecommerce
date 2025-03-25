@@ -240,6 +240,7 @@ export type OrderSummaryProps = {
   discountAmount: number;
   discountedTotal: number;
   newDate: Date;
+  shippingCountry: string;
 };
 
 export type CustomerInfoFormProps = {
