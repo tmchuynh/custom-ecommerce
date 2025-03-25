@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { PaymentInfoFormProps } from "@/lib/types";
+import ShippingMethodSelector from "@/components/ShippingMethodSelector";
+import { Separator } from "@/components/ui/separator";
 
 const PaymentInfoForm = ({
   cardNumber,
@@ -65,6 +67,14 @@ const PaymentInfoForm = ({
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
+        {/* Shipping Method Selector */}
+        <div className="mb-6">
+          <h3 className="text-md font-medium mb-2">Delivery Options</h3>
+          <ShippingMethodSelector />
+        </div>
+
+        <Separator className="my-4" />
+
         <div>
           <Label htmlFor="cardNumber">Card Number</Label>
           <div className="mt-2">

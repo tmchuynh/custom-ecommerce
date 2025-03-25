@@ -26,6 +26,7 @@ import OrderItems from "@/components/checkout/order-items";
 import DiscountForm from "@/components/checkout/discount-form";
 import OrderSummary from "@/components/checkout/order-summary";
 import { useProduct } from "@/app/context/productContext";
+import ShippingMethodSelector from "@/components/ShippingMethodSelector";
 
 const CheckoutPage = () => {
   const {
@@ -41,6 +42,7 @@ const CheckoutPage = () => {
     getDiscountedTotal,
     startCheckout,
     getEstimatedDeliveryDate,
+    selectedShippingMethod,
   } = useCart();
 
   const { convertPrice } = useProduct();
@@ -79,15 +81,15 @@ const CheckoutPage = () => {
   // Calculate values for order summary
   const subtotal = getSubTotal();
   const tax = calculateTaxAmount(subtotal);
-  const shippingMethod = getShippingMethod(getTotalItems());
-  const shipping = calculateShippingCost(shippingMethod);
+  // Use the selected shipping method instead of the auto-determined one
+  const shipping = calculateShippingCost(selectedShippingMethod);
   const internationalFee = calculateInternationalShippingFee(
     shippingCountry,
-    shippingMethod
-  ); // Pass shipping method
+    selectedShippingMethod
+  );
 
   // Add this ref to track previous shipping method
-  const prevShippingMethod = useRef(shippingMethod);
+  const prevShippingMethod = useRef(selectedShippingMethod);
 
   const [estimatedDeliveryDate, setEstimatedDeliveryDate] =
     useState<Date | null>(null);
@@ -96,15 +98,15 @@ const CheckoutPage = () => {
     // Only calculate the date if we don't already have one or if shipping method changes
     if (
       !estimatedDeliveryDate ||
-      prevShippingMethod.current !== shippingMethod
+      prevShippingMethod.current !== selectedShippingMethod
     ) {
-      const deliveryDate = getEstimatedDeliveryDate(shippingMethod);
+      const deliveryDate = getEstimatedDeliveryDate(selectedShippingMethod);
       setEstimatedDeliveryDate(deliveryDate);
 
       // Track the shipping method to prevent unnecessary updates
-      prevShippingMethod.current = shippingMethod;
+      prevShippingMethod.current = selectedShippingMethod;
     }
-  }, [shippingMethod, getEstimatedDeliveryDate, estimatedDeliveryDate]);
+  }, [selectedShippingMethod, getEstimatedDeliveryDate, estimatedDeliveryDate]);
 
   // Validation states
   const [formErrors, setFormErrors] = useState<{
@@ -458,11 +460,14 @@ const CheckoutPage = () => {
               handleApplyDiscount={handleApplyDiscount}
             />
 
+            {/* Shipping Method Selector */}
+            <ShippingMethodSelector />
+
             {/* Order Summary Section */}
             <OrderSummary
               subtotal={subtotal}
               tax={tax}
-              shippingMethod={shippingMethod}
+              shippingMethod={selectedShippingMethod}
               shipping={shipping}
               internationalFee={internationalFee}
               newDate={estimatedDeliveryDate || new Date()}

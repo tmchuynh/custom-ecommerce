@@ -1,16 +1,15 @@
 "use client";
 
-import {
-  formatPriceWithCurrency,
-  useCurrency,
-} from "@/app/context/CurrencyContext";
+import { useCurrency } from "@/app/context/CurrencyContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { OrderItemsProps } from "@/lib/types";
+import { useProduct } from "@/app/context/productContext";
 
 const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
   const { selectedCurrency } = useCurrency();
+  const { convertPrice } = useProduct();
 
   return (
     <Card className="mb-8">
@@ -40,7 +39,7 @@ const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
                 </div>
               </div>
               <div className="font-medium">
-                {formatPriceWithCurrency(
+                {convertPrice(
                   Number(item.price) * item.quantity,
                   selectedCurrency
                 )}

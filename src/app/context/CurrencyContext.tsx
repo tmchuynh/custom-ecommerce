@@ -101,37 +101,3 @@ export const useCurrency = (): CurrencyContextType => {
   }
   return context;
 };
-
-/**
- * Formats a price according to a given currency.
- *
- * @param {number|string} price - The price to format.
- * @param {Currency} currency - The currency to use for formatting.
- * @returns {string} The formatted price string with currency symbol.
- */
-export const formatPriceWithCurrency = (
-  price: number | string,
-  currency: Currency
-): string => {
-  const numericPrice = typeof price === "string" ? parseFloat(price) : price;
-  const convertedPrice = numericPrice * currency.rate;
-
-  // Format based on currency code
-  switch (currency.code) {
-    case "JPY":
-      // JPY typically doesn't use decimal places
-      return `¥${Math.round(convertedPrice)}`;
-    case "EUR":
-      // EUR uses € symbol and may use comma as decimal separator in some locales
-      return `€${convertedPrice.toFixed(2).replace(".", ",")}`;
-    case "GBP":
-      return `£${convertedPrice.toFixed(2)}`;
-    case "CAD":
-      return `C$${convertedPrice.toFixed(2)}`;
-    case "AUD":
-      return `A$${convertedPrice.toFixed(2)}`;
-    case "USD":
-    default:
-      return `$${convertedPrice.toFixed(2)}`;
-  }
-};

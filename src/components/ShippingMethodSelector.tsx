@@ -1,6 +1,8 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
+import { useCurrency } from "@/app/context/CurrencyContext";
+import { useProduct } from "@/app/context/productContext";
 import { ShippingMethod } from "@/lib/types";
 import React from "react";
 
@@ -10,6 +12,9 @@ const ShippingMethodSelector: React.FC = () => {
     updateShippingMethod,
     calculateShippingCost,
   } = useCart();
+  const { selectedCurrency } = useCurrency();
+
+  const { convertPrice } = useProduct();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateShippingMethod(e.target.value as ShippingMethod);
@@ -30,13 +35,16 @@ const ShippingMethodSelector: React.FC = () => {
         className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       >
         <option value="standard">
-          Standard Shipping (${calculateShippingCost("standard").toFixed(2)})
+          Standard Shipping (
+          {convertPrice(calculateShippingCost("standard"), selectedCurrency)})
         </option>
         <option value="express">
-          Express Shipping (${calculateShippingCost("express").toFixed(2)})
+          Express Shipping (
+          {convertPrice(calculateShippingCost("express"), selectedCurrency)})
         </option>
         <option value="overnight">
-          Overnight Shipping (${calculateShippingCost("overnight").toFixed(2)})
+          Overnight Shipping (
+          {convertPrice(calculateShippingCost("overnight"), selectedCurrency)})
         </option>
       </select>
     </div>
