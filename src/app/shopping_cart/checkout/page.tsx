@@ -25,11 +25,6 @@ import OrderItems from "@/components/checkout/order-items";
 import DiscountForm from "@/components/checkout/discount-form";
 import OrderSummary from "@/components/checkout/order-summary";
 
-/**
- * The `CheckoutPage` component represents the checkout page of the e-commerce application.
- * It provides a summary of the user's cart, allows the application of discount codes,
- * and facilitates the checkout process.
- */
 const CheckoutPage = () => {
   const {
     cartItems,
@@ -61,7 +56,7 @@ const CheckoutPage = () => {
   const [shippingCity, setShippingCity] = useState<string>("");
   const [shippingState, setShippingState] = useState<string>("");
   const [shippingZip, setShippingZip] = useState<string>("");
-  const [shippingCountry, setShippingCountry] = useState<string>("USA"); // Add country with USA as default
+  const [shippingCountry, setShippingCountry] = useState<string>("USA");
 
   // Form state for payment information
   const [cardNumber, setCardNumber] = useState<string>("");
@@ -76,7 +71,7 @@ const CheckoutPage = () => {
   // State for the "same as shipping" checkbox
   const [sameAsShipping, setSameAsShipping] = useState<boolean>(false);
 
-  // Calculate values for order summary - moved this up before we use shippingMethod
+  // Calculate values for order summary
   const subtotal = getSubTotal();
   const tax = calculateTaxAmount(subtotal);
   const shippingMethod = getShippingMethod(getTotalItems());
@@ -86,13 +81,12 @@ const CheckoutPage = () => {
     shippingMethod
   ); // Pass shipping method
 
-  // Add this ref to track previous shipping method - moved before useEffect
+  // Add this ref to track previous shipping method
   const prevShippingMethod = useRef(shippingMethod);
 
   const [estimatedDeliveryDate, setEstimatedDeliveryDate] =
     useState<Date | null>(null);
 
-  // Fix the infinite loop by adding proper dependencies and adding a condition
   useEffect(() => {
     // Only calculate the date if we don't already have one or if shipping method changes
     if (
@@ -282,7 +276,7 @@ const CheckoutPage = () => {
   };
 
   // Calculate the discount amount
-  const originalTotal = getTotalPrice(shippingCountry); // The country parameter is already included
+  const originalTotal = getTotalPrice();
   const discountedTotal = discountApplied
     ? getDiscountedTotal()
     : originalTotal;
@@ -385,7 +379,6 @@ const CheckoutPage = () => {
     <>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
-
         {/* Order Items - now using the OrderItems component */}
         <OrderItems cartItems={cartItems} handleNavigation={handleNavigation} />
 
@@ -406,7 +399,6 @@ const CheckoutPage = () => {
                 handleBlur(field as keyof typeof touchedFields)
               }
             />
-
             {/* Shipping Address Section */}
             <ShippingAddressForm
               shippingAddress={shippingAddress}
@@ -423,7 +415,6 @@ const CheckoutPage = () => {
               formErrors={formErrors}
               handleBlur={handleBlur}
             />
-
             {/* Payment Information Section */}
             <PaymentInfoForm
               cardNumber={cardNumber}
@@ -450,7 +441,6 @@ const CheckoutPage = () => {
               // Add any missing required props here
             />
           </div>
-
           {/* Right Column - Order Summary */}
           <div className="space-y-6">
             {/* Discount Code Section */}
