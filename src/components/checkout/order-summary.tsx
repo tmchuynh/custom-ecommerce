@@ -11,6 +11,8 @@ const OrderSummary = ({
   tax,
   shippingMethod,
   shipping,
+  internationalFee = 0,
+  isInternational = false,
   discountApplied,
   discountAmount,
   discountedTotal,
@@ -82,6 +84,14 @@ const OrderSummary = ({
             <span>{capitalize(shippingMethod)} Shipping</span>
             <span>${shipping.toFixed(2)}</span>
           </div>
+
+          {/* Only show international fee if it's applicable */}
+          {isInternational && internationalFee > 0 && (
+            <div className="flex justify-between">
+              <span>International Shipping Fee</span>
+              <span>${internationalFee.toFixed(2)}</span>
+            </div>
+          )}
 
           <div className="flex justify-between items-start">
             <span>Estimated Delivery</span>
