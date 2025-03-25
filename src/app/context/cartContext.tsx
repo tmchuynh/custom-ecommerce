@@ -58,6 +58,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     overnight: 24.99,
   };
 
+  // International shipping fee
+  const internationalShippingFee = 15.99;
+
   // Rehydrate cart items from localStorage on mount
   useEffect(() => {
     const storedCart = localStorage.getItem("cartItems");
@@ -75,9 +78,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    * Adds an item to the cart. If the item already exists in the cart, its quantity is updated.
    * If the item does not exist, it is added to the cart.
    *
-   * @param {CartItem} item - The item to add to the cart.
-   *                        If the item already exists in the cart, its quantity is updated.
-   *                        If the item does not exist, it is added to the cart.
+   * @param {CartItem} item - The item to add to the cart. If the item already exists in the cart, its quantity is updated. If the item does not exist, it is added to the cart.
    *
    * @returns {void}
    */
@@ -170,7 +171,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    *
    * @returns The total price including items, tax, and shipping as a number
    */
-  const getTotalPrice = (): number => {
+  const getTotalPrice = (country?: string): number => {
     const total = cartItems.reduce(
       (total: number, item) => total + Number(item.price) * item.quantity,
       0
@@ -178,8 +179,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
     const shipping = calculateShippingCost(getShippingMethod(getTotalItems()));
     const taxAmount = calculateTaxAmount(total);
+    const internationalFee = country
+      ? calculateInternationalShippingFee(country)
+      : 0;
 
-    return total + taxAmount + shipping;
+    return total + taxAmount + shipping + internationalFee;
   };
 
   /**
@@ -330,6 +334,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
    */
   const calculateShippingCost = (method: ShippingMethod): number => {
     return shippingRates[method] || 0;
+  };
+
+  /**
+   * Calculates the additional fee for international shipping
+   *
+   * @param country - The destination country
+   * @returns The additional fee for international shipping if the country is not USA, otherwise 0
+   */
+  const calculateInternationalShippingFee = (country: string): number => {
+    return country.toLowerCase() !== "usa" &&
+      country.toLowerCase() !== "united states" &&
+      country.toLowerCase() !== "us"
+      ? internationalShippingFee
+      : 0;
   };
 
   /**
@@ -526,6 +544,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         saveCartForLater,
         loadSavedCart,
         calculateShippingCost,
+        calculateInternationalShippingFee,
         getEstimatedDeliveryDate,
         getDeliveryWindowEndDate,
         startCheckout,
