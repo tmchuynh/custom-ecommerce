@@ -1,8 +1,7 @@
 "use client";
 
-import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -11,38 +10,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { FormItem, FormLabel, FormMessage } from "../ui/form";
-
-interface ShippingAddressFormProps {
-  shippingAddress: string;
-  setShippingAddress: (value: string) => void;
-  shippingCity: string;
-  setShippingCity: (value: string) => void;
-  shippingState: string;
-  setShippingState: (value: string) => void;
-  shippingZip: string;
-  setShippingZip: (value: string) => void;
-  shippingCountry: string;
-  setShippingCountry: (value: string) => void;
-  touchedFields: {
-    shippingAddress: boolean;
-    [key: string]: boolean;
-  };
-  formErrors: {
-    shippingAddress?: string;
-    [key: string]: string | undefined;
-  };
-  handleBlur: (
-    field:
-      | "phone"
-      | "email"
-      | "cardNumber"
-      | "cardExpiry"
-      | "cardCvv"
-      | "shippingAddress"
-      | "name"
-  ) => void;
-}
+import { ShippingAddressFormProps } from "@/lib/types";
+import { FormLabel, FormMessage } from "../ui/form";
+import { countries } from "@/lib/constants";
 
 const ShippingAddressForm = ({
   shippingAddress,
@@ -59,18 +29,6 @@ const ShippingAddressForm = ({
   formErrors,
   handleBlur,
 }: ShippingAddressFormProps) => {
-  // Common countries list
-  const countries = [
-    { value: "USA", label: "United States" },
-    { value: "CAN", label: "Canada" },
-    { value: "MEX", label: "Mexico" },
-    { value: "GBR", label: "United Kingdom" },
-    { value: "FRA", label: "France" },
-    { value: "DEU", label: "Germany" },
-    { value: "JPN", label: "Japan" },
-    { value: "AUS", label: "Australia" },
-  ];
-
   return (
     <Card>
       <CardHeader>
