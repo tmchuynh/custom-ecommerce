@@ -101,49 +101,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       currencyCountries.find((c) => c.code === currencyCode)?.symbol ||
       currencyCode;
 
-    switch (currencyCode) {
-      case "USD":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "CAD":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "AUD":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "SGD":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "NZD":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "EUR":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "GBP":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "JPY":
-        return `${currencySymbol}${Math.round(numericPrice)}`;
-      case "CNY":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "INR":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "BRL":
-      case "ZAR":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "MXN":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "KRW":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "SEK":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "NOK":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "DKK":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "RUB":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "AED":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      case "CHF":
-        return `${currencySymbol}${numericPrice.toFixed(2)}`;
-      default:
-        return `${numericPrice.toFixed(2)} ${currencySymbol}`;
-    }
+    return `${currencySymbol}${numericPrice.toFixed(2)}`;
   };
 
   // Convert mockProductData into a flat array for easier manipulation

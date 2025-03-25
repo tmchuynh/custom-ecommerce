@@ -132,7 +132,11 @@ export interface CartContextType {
   loadSavedCart: () => void;
   calculateShippingCost: (method: ShippingMethod) => number;
   getEstimatedDeliveryDate: (method: ShippingMethod) => Date;
-  getDeliveryWindowEndDate: (method: ShippingMethod, startDate: Date) => Date;
+  getDeliveryWindowDates: (
+    method: ShippingMethod,
+    startDate: Date,
+    country: string
+  ) => { windowStart: Date; windowEnd: Date };
   startCheckout: () => void;
   moveToWishlist: (itemId: string) => void;
   calculateInternationalShippingFee: (

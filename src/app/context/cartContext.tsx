@@ -191,7 +191,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       ? calculateInternationalShippingFee(country, shippingMethod)
       : 0;
 
-    return total + taxAmount + shipping + internationalFee;
+    if (internationalFee > 0) {
+      return total + taxAmount + internationalFee;
+    } else {
+      return total + taxAmount + shipping;
+    }
   };
 
   /**
@@ -430,45 +434,91 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return iterationDate;
   };
 
-  /**
-   * Calculates the end date of the delivery window based on shipping method
-   *
-   * @param method - The shipping method
-   * @param startDate - The estimated delivery start date
-   * @returns A Date object representing the end of the delivery window
-   */
-  const getDeliveryWindowEndDate = (
-    method: ShippingMethod,
-    startDate: Date
-  ): Date => {
-    const endDate = new Date(startDate);
-
-    if (method === "standard") {
-      // For standard shipping, the window is 5-7 business days
-      // So add 2 business days to the start date (which is already at 5 business days)
-      let businessDaysAdded = 0;
-      while (businessDaysAdded < 2) {
-        endDate.setDate(endDate.getDate() + 1);
-        const dayOfWeek = endDate.getDay();
-        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
-          businessDaysAdded++;
-        }
-      }
-    } else if (method === "express") {
-      // For express shipping, the window is 2-4 business days
-      // So add 2 business days to the start date (which is already at 2 business days)
-      let businessDaysAdded = 0;
-      while (businessDaysAdded < 2) {
-        endDate.setDate(endDate.getDate() + 1);
-        const dayOfWeek = endDate.getDay();
-        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
-          businessDaysAdded++;
-        }
+  const addBusinessDays = (date: Date, businessDays: number): Date => {
+    const result = new Date(date);
+    let addedDays = 0;
+    while (addedDays < businessDays) {
+      result.setDate(result.getDate() + 1);
+      const dayOfWeek = result.getDay();
+      // Skip weekends (0: Sunday, 6: Saturday)
+      if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+        addedDays++;
       }
     }
-    // For overnight, there's no window (single day delivery)
+    return result;
+  };
 
-    return endDate;
+  const getDeliveryWindowDates = (
+    method: ShippingMethod,
+    startDate: Date,
+    country?: string
+  ): { windowStart: Date; windowEnd: Date } => {
+    // Determine the distanceFactor from your currency data source.
+    // (Adjust this to use your actual data array—here we assume currencyData is in scope.)
+    let distanceFactor = 0;
+    if (country) {
+      const currencyObj = currencyCountries.find((c) =>
+        c.countries.some(
+          (countryObj) =>
+            countryObj.value.toLowerCase() === country.toLowerCase()
+        )
+      );
+      if (currencyObj) {
+        const matchedCountry = currencyObj.countries.find(
+          (countryObj) =>
+            countryObj.value.toLowerCase() === country.toLowerCase()
+        );
+        distanceFactor = matchedCountry ? matchedCountry.distanceFactor : 0;
+      }
+    }
+
+    // Set base delays (in business days) and window lengths for each shipping method.
+    let baseDelay: number, baseWindow: number;
+    let startDelayFactor = 1; // additional delay per distance unit for start date
+    let windowDelayFactor = 1; // additional delay per distance unit for window length
+
+    switch (method) {
+      case "standard":
+        // For standard shipping, assume a base delay of 2 business days
+        // and a window length of 3 business days (total 5-7 days delivery)
+        baseDelay = 2;
+        baseWindow = 3;
+        startDelayFactor = 0.5; // half a day per distance unit
+        windowDelayFactor = 0.5;
+        break;
+      case "express":
+        // For express shipping, shorter delays
+        baseDelay = 1;
+        baseWindow = 2;
+        startDelayFactor = 0.3;
+        windowDelayFactor = 0.3;
+        break;
+      case "overnight":
+        // For overnight, we assume a base of 1 business day delay; if international, add more.
+        baseDelay = 1;
+        baseWindow = 0; // no window (single-day delivery) for domestic; international may get a slight delay.
+        startDelayFactor = 0.5;
+        windowDelayFactor = 0;
+        break;
+      default:
+        baseDelay = 0;
+        baseWindow = 0;
+    }
+
+    // Compute additional delays based on the country's distance factor.
+    const additionalStartDelay = Math.ceil(distanceFactor * startDelayFactor);
+    const additionalWindow = Math.ceil(distanceFactor * windowDelayFactor);
+
+    const windowStart = addBusinessDays(
+      startDate,
+      baseDelay + additionalStartDelay
+    );
+    const windowEnd = addBusinessDays(
+      windowStart,
+      baseWindow + additionalWindow
+    );
+
+    return { windowStart, windowEnd };
   };
 
   /**
@@ -573,10 +623,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         getDiscountedTotal,
         saveCartForLater,
         loadSavedCart,
+        getDeliveryWindowDates,
         calculateShippingCost,
         calculateInternationalShippingFee,
         getEstimatedDeliveryDate,
-        getDeliveryWindowEndDate,
         startCheckout,
         moveToWishlist,
         selectedShippingMethod,

@@ -34,18 +34,9 @@ const ShippingMethodSelector: React.FC = () => {
         onChange={handleChange}
         className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       >
-        <option value="standard">
-          Standard Shipping (
-          {convertPrice(calculateShippingCost("standard"), selectedCurrency)})
-        </option>
-        <option value="express">
-          Express Shipping (
-          {convertPrice(calculateShippingCost("express"), selectedCurrency)})
-        </option>
-        <option value="overnight">
-          Overnight Shipping (
-          {convertPrice(calculateShippingCost("overnight"), selectedCurrency)})
-        </option>
+        <option value="standard">Standard Shipping</option>
+        <option value="express">Express Shipping</option>
+        <option value="overnight">Overnight Shipping</option>
       </select>
     </div>
   );

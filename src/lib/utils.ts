@@ -78,6 +78,9 @@ export async function encryptKey(passkey: string): Promise<string> {
   return btoa(String.fromCharCode(...combined));
 }
 
+export const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
 /**
  * Decrypts an encrypted passkey using the AES-GCM algorithm.
  *
