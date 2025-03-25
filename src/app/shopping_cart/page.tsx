@@ -55,8 +55,9 @@ const CartPage = (): JSX.Element => {
     getSubTotal,
   } = useCart(); // Access cart data
 
-  const { convertPrice } = useProduct();
   const { selectedCurrency } = useCurrency();
+
+  const { convertPrice } = useProduct();
 
   /**
    * Handles the update of an item's quantity in the shopping cart.
@@ -205,7 +206,9 @@ const CartPage = (): JSX.Element => {
               <Separator />
               <div className="flex justify-between items-center">
                 <div className="text-lg font-medium">Total:</div>
-                {convertPrice(getTotalPrice(), selectedCurrency)}
+                <div className="text-xl font-bold">
+                  {convertPrice(getTotalPrice(), selectedCurrency)}
+                </div>
               </div>
             </div>
 

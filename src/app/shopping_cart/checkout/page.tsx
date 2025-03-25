@@ -385,11 +385,7 @@ const CheckoutPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
         {/* Order Items - now using the OrderItems component */}
-        <OrderItems
-          cartItems={cartItems}
-          handleNavigation={handleNavigation}
-          convertPrice={convertPrice}
-        />
+        <OrderItems cartItems={cartItems} handleNavigation={handleNavigation} />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Forms */}
@@ -473,7 +469,6 @@ const CheckoutPage = () => {
               discountApplied={discountApplied}
               discountAmount={discountAmount}
               discountedTotal={discountedTotal}
-              formatPrice={convertPrice}
               isInternational={
                 shippingCountry.toLowerCase() !== "usa" &&
                 shippingCountry.toLowerCase() !== "united states" &&

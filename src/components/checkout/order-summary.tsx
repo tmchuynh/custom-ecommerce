@@ -1,7 +1,10 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
-import { useCurrency } from "@/app/context/CurrencyContext";
+import {
+  formatPriceWithCurrency,
+  useCurrency,
+} from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -22,7 +25,6 @@ const OrderSummary = ({
 }: OrderSummaryProps) => {
   const { getDeliveryWindowEndDate } = useCart();
   const { selectedCurrency } = useCurrency();
-  const { convertPrice } = useProduct();
 
   // Calculate the delivery window end date based on shipping method
   const deliveryWindowEnd = getDeliveryWindowEndDate(shippingMethod, newDate);
@@ -69,24 +71,26 @@ const OrderSummary = ({
         <div className="space-y-4">
           <div className="flex justify-between">
             <span>Subtotal</span>
-            <span>{convertPrice(subtotal, selectedCurrency)}</span>
+            <span>{formatPriceWithCurrency(subtotal, selectedCurrency)}</span>
           </div>
 
           {discountApplied && (
             <div className="flex justify-between text-green-600">
               <span>Discount</span>
-              <span>-{convertPrice(discountAmount, selectedCurrency)}</span>
+              <span>
+                -{formatPriceWithCurrency(discountAmount, selectedCurrency)}
+              </span>
             </div>
           )}
 
           <div className="flex justify-between">
             <span>Tax</span>
-            <span>{convertPrice(tax, selectedCurrency)}</span>
+            <span>{formatPriceWithCurrency(tax, selectedCurrency)}</span>
           </div>
 
           <div className="flex justify-between">
             <span>{capitalize(shippingMethod)} Shipping</span>
-            <span>{convertPrice(shipping, selectedCurrency)}</span>
+            <span>{formatPriceWithCurrency(shipping, selectedCurrency)}</span>
           </div>
 
           {/* Only show international fee if it's applicable */}
@@ -95,7 +99,9 @@ const OrderSummary = ({
               <span>
                 International {capitalize(shippingMethod)} Shipping Fee
               </span>
-              <span>{convertPrice(internationalFee, selectedCurrency)}</span>
+              <span>
+                {formatPriceWithCurrency(internationalFee, selectedCurrency)}
+              </span>
             </div>
           )}
 
@@ -113,7 +119,9 @@ const OrderSummary = ({
 
           <div className="flex justify-between text-lg font-bold">
             <span>Total</span>
-            <span>{convertPrice(discountedTotal, selectedCurrency)}</span>
+            <span>
+              {formatPriceWithCurrency(discountedTotal, selectedCurrency)}
+            </span>
           </div>
         </div>
       </CardContent>

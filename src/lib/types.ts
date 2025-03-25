@@ -217,12 +217,8 @@ export type DiscountFormProps = {
 };
 
 export type OrderItemsProps = {
-  cartItems: any[];
+  cartItems: CartItem[];
   handleNavigation: (destination: string) => boolean;
-  convertPrice: (
-    priceInUSD: number | string,
-    currencyOverride?: Currency
-  ) => string;
 };
 
 export type ShippingMethod = "standard" | "express" | "overnight";
@@ -244,7 +240,6 @@ export type OrderSummaryProps = {
   discountAmount: number;
   discountedTotal: number;
   newDate: Date;
-  formatPrice: (price: number) => string;
 };
 
 export type CustomerInfoFormProps = {
