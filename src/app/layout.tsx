@@ -24,16 +24,14 @@ export default function RootLayout({
             <CurrencyProvider>
               <ProductProvider>
                 <CartProvider>
-                  <CurrencyProvider>
-                    <WishlistProvider>
-                      <NavMenu />
-                      <main className="flex-grow">
-                        <BreadcrumbWrapper />
-                        {children}
-                        <Footer />
-                      </main>
-                    </WishlistProvider>
-                  </CurrencyProvider>
+                  <WishlistProvider>
+                    <NavMenu />
+                    <main className="flex-grow">
+                      <BreadcrumbWrapper />
+                      {children}
+                      <Footer />
+                    </main>
+                  </WishlistProvider>
                 </CartProvider>
               </ProductProvider>
               <BackToTop />

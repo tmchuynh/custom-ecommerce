@@ -2,6 +2,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { capitalize, cn } from "@/lib/utils";
 import { useCart } from "../context/cartContext";
+import { useCurrency } from "../context/CurrencyContext";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -17,6 +18,7 @@ import {
 import { TiWarning } from "react-icons/ti";
 import { JSX } from "react";
 import { Separator } from "@/components/ui/separator";
+import { useProduct } from "../context/productContext";
 
 /**
  * Represents the shopping cart page of the e-commerce application.
@@ -52,6 +54,9 @@ const CartPage = (): JSX.Element => {
     getShippingMethod,
     getSubTotal,
   } = useCart(); // Access cart data
+
+  const { convertPrice } = useProduct();
+  const { selectedCurrency } = useCurrency();
 
   /**
    * Handles the update of an item's quantity in the shopping cart.
@@ -154,7 +159,10 @@ const CartPage = (): JSX.Element => {
                     className="w-16 text-center border rounded-md"
                   />
                   <div className="text-lg font-medium">
-                    ${Number(item.price) * item.quantity}
+                    {convertPrice(
+                      Number(item.price) * item.quantity,
+                      selectedCurrency
+                    )}
                   </div>
                   <Button
                     variant={"destructive"}
@@ -170,13 +178,16 @@ const CartPage = (): JSX.Element => {
               <div className="flex justify-between items-center">
                 <div className="text-lg font-medium">Subtotal:</div>
                 <div className="text-xl font-bold">
-                  ${getSubTotal().toFixed(2)}
+                  {convertPrice(getSubTotal(), selectedCurrency)}
                 </div>
               </div>
               <div className="flex justify-between items-center">
                 <div className="text-lg font-medium">Tax:</div>
                 <div className="text-xl font-bold">
-                  ${calculateTaxAmount(getSubTotal()).toFixed(2)}
+                  {convertPrice(
+                    calculateTaxAmount(getSubTotal()),
+                    selectedCurrency
+                  )}
                 </div>
               </div>
 
@@ -185,26 +196,24 @@ const CartPage = (): JSX.Element => {
                   {capitalize(getShippingMethod(getTotalItems()))} Shipping
                 </div>
                 <div className="text-xl font-bold">
-                  $
-                  {calculateShippingCost(
-                    getShippingMethod(getTotalItems())
-                  ).toFixed(2)}
+                  {convertPrice(
+                    calculateShippingCost(getShippingMethod(getTotalItems())),
+                    selectedCurrency
+                  )}
                 </div>
               </div>
               <Separator />
               <div className="flex justify-between items-center">
                 <div className="text-lg font-medium">Total:</div>
-                <div className="text-xl font-bold">
-                  ${getTotalPrice().toFixed(2)}
-                </div>
+                {convertPrice(getTotalPrice(), selectedCurrency)}
               </div>
+            </div>
 
-              {/* Add checkout button */}
-              <div className="mt-6 flex justify-end">
-                <Button className="w-full md:w-auto px-8 py-3 text-lg" asChild>
-                  <a href="/shopping_cart/checkout">Proceed to Checkout</a>
-                </Button>
-              </div>
+            {/* Add checkout button */}
+            <div className="mt-6 flex justify-end">
+              <Button className="w-full md:w-auto px-8 py-3 text-lg" asChild>
+                <a href="/shopping_cart/checkout">Proceed to Checkout</a>
+              </Button>
             </div>
           </div>
         </>

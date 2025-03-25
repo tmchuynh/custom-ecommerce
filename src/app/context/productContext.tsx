@@ -562,6 +562,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         sortProducts,
         getProductsByPriceRange,
         convertPrice,
+        formatPrice: formatPriceWithCurrency,
       }}
     >
       {children}

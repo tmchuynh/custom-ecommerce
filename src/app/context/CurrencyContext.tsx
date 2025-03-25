@@ -40,7 +40,14 @@ export const CurrencyProvider = ({
   });
 
   return (
-    <CurrencyContext.Provider value={{ selectedCurrency, setSelectedCurrency }}>
+    <CurrencyContext.Provider
+      value={{
+        selectedCurrency,
+        setSelectedCurrency,
+        currency: selectedCurrency,
+        setCurrency: setSelectedCurrency,
+      }}
+    >
       {children}
     </CurrencyContext.Provider>
   );

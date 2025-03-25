@@ -41,9 +41,19 @@ export interface CommonProps
   speedMultiplier?: number;
 }
 
+export type CurrencyCode = string;
+
+export type Currency = {
+  code: CurrencyCode;
+  name: string;
+  rate: number;
+};
+
 export interface CurrencyContextType {
   selectedCurrency: Currency;
   setSelectedCurrency: (currency: Currency) => void;
+  currency: Currency;
+  setCurrency: (currency: Currency) => void;
 }
 
 export interface DynamicButtonProps {
@@ -146,13 +156,9 @@ export interface ProductContextType {
     priceInUSD: number | string,
     currencyOverride?: Currency
   ) => string;
+  formatPrice: (price: number, currencyCode: string) => string;
 }
 
-export interface Currency {
-  code: string;
-  name: string;
-  rate: number;
-}
 export interface ProductBadgesProps {
   highlights: string[];
 }

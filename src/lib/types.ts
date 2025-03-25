@@ -1,4 +1,4 @@
-import { CartItem } from "./interfaces";
+import { CartItem, Currency } from "./interfaces";
 
 export type LengthType = number | string;
 export type Gender = "men" | "women" | "children";
@@ -217,8 +217,12 @@ export type DiscountFormProps = {
 };
 
 export type OrderItemsProps = {
-  cartItems: CartItem[];
-  handleNavigation: (path: string) => void;
+  cartItems: any[];
+  handleNavigation: (destination: string) => boolean;
+  convertPrice: (
+    priceInUSD: number | string,
+    currencyOverride?: Currency
+  ) => string;
 };
 
 export type ShippingMethod = "standard" | "express" | "overnight";
@@ -240,6 +244,7 @@ export type OrderSummaryProps = {
   discountAmount: number;
   discountedTotal: number;
   newDate: Date;
+  formatPrice: (price: number) => string;
 };
 
 export type CustomerInfoFormProps = {
