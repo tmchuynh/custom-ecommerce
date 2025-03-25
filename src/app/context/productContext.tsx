@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductContextType } from "@/lib/interfaces";
+import { Currency, ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, {
@@ -48,28 +48,40 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   }, [selectedCurrency]);
 
   // Convert a price from USD to the selected currency
-  const convertPrice = (priceInUSD: number | string): string => {
+  const convertPrice = (
+    priceInUSD: number | string,
+    currencyOverride?: Currency
+  ): string => {
     // If the price is a string, extract the numeric value
     const numericPrice =
       typeof priceInUSD === "string"
         ? parseFloat(priceInUSD.replace(/[^0-9.-]+/g, ""))
         : priceInUSD || 0;
 
-    // Get the conversion rate for the selected currency
-    const conversionRate = selectedCurrency.rate || 1;
+    // Use overridden currency if provided, otherwise use the context's selectedCurrency
+    const currencyToUse = currencyOverride || selectedCurrency;
+
+    // Ensure currency and rate are valid
+    if (!currencyToUse || typeof currencyToUse.rate !== "number") {
+      console.error("Invalid currency or rate");
+      return `$${numericPrice.toFixed(2)}`; // Return formatted USD as fallback
+    }
+
+    // Get the conversion rate for the currency
+    const conversionRate = currencyToUse.rate;
 
     // Convert the price
     const convertedPrice = numericPrice * conversionRate;
 
     // Find the symbol for the current currency
     const currencySymbol =
-      currencies.find((c) => c.code === selectedCurrency.code)?.symbol ||
-      selectedCurrency.code;
+      currencies.find((c) => c.code === currencyToUse.code)?.symbol ||
+      currencyToUse.code;
 
-    // Format the price with the currency symbol from constants
+    // Format the price with the currency symbol
     return formatPriceWithCurrency(
       convertedPrice,
-      selectedCurrency.code,
+      currencyToUse.code,
       currencySymbol
     );
   };
@@ -91,9 +103,13 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
     switch (currencyCode) {
       case "USD":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "CAD":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "AUD":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "SGD":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "NZD":
         return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "EUR":
@@ -108,13 +124,21 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "BRL":
       case "ZAR":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "MXN":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "KRW":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "SEK":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "NOK":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "DKK":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "RUB":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "AED":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       case "CHF":
         return `${currencySymbol}${numericPrice.toFixed(2)}`;
       default:
@@ -171,15 +195,12 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
    * - `badge`: Any badge or label associated with the product.
    */
   const getProductByName = (name: string): ProductType | undefined => {
-    // Use the flattened products array for more efficient lookup
     const product = allProducts.find((p) => p.name === name);
-
     if (!product) return undefined;
 
-    // Create a copy of the product with converted price
     return {
       ...product,
-      price: product.price ? convertPrice(product.price) : "",
+      displayPrice: product.price ? convertPrice(product.price) : "",
       highlights: product.highlights || [],
       images: product.images || [],
       details: product.details || [],

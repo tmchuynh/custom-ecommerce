@@ -32,7 +32,9 @@ export default function CurrencyDebug() {
         {testPrices.map((price) => (
           <div key={price} className="flex justify-between">
             <span>${price.toFixed(2)} USD</span>
-            <span className="font-bold">{convertPrice(price)}</span>
+            <span className="font-bold">
+              {convertPrice(price, selectedCurrency)}
+            </span>
           </div>
         ))}
       </div>

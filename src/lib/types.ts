@@ -200,6 +200,7 @@ export type ProductType = {
   images: string[];
   details: DetailItem[];
   colors: Color[];
+  displayPrice: string;
   imageSrc: string;
   quantity: number;
   price?: string;

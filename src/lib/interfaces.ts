@@ -142,7 +142,10 @@ export interface ProductContextType {
   getNewArrivals: (limit?: number) => ProductType[];
   sortProducts: (products: ProductType[], sortBy: SortOption) => ProductType[];
   getProductsByPriceRange: (min: number, max: number) => ProductType[];
-  convertPrice: (priceInUSD: number | string) => string; // Add this new method
+  convertPrice: (
+    priceInUSD: number | string,
+    currencyOverride?: Currency
+  ) => string;
 }
 
 export interface Currency {

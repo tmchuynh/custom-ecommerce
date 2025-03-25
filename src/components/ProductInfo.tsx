@@ -72,7 +72,7 @@ const ProductInfo = ({
   showButtons?: boolean;
 }): JSX.Element => {
   const { getProductByName, convertPrice } = useProduct();
-  const { selectedCurrency } = useCurrency(); // Add this to trigger re-renders when currency changes
+  const { selectedCurrency } = useCurrency();
   const [url, setURL] = useState(
     `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${formatURL(
       product.name
@@ -85,12 +85,18 @@ const ProductInfo = ({
   // Calculate the display price directly in the render using the current currency
   // This ensures it's always up-to-date with the selected currency
   const displayPrice = useMemo(() => {
-    if (!product.price) return "";
+    if (!product?.price || typeof convertPrice !== "function") {
+      console.warn("Price or convertPrice function is unavailable.");
+      return "";
+    }
 
-    console.log(convertPrice(product.price));
-
-    return convertPrice(product.price);
-  }, [product.price, convertPrice, selectedCurrency]);
+    try {
+      return convertPrice(product.price, selectedCurrency);
+    } catch (error) {
+      console.error("Error converting price:", error);
+      return product.price?.toString() || ""; // Fallback to original price if conversion fails
+    }
+  }, [product?.price, convertPrice, selectedCurrency]);
 
   const pathname = usePathname();
 
@@ -165,7 +171,7 @@ const ProductInfo = ({
                   "mt-0": relatedProduct,
                 })}
               >
-                {displayPrice}
+                {product.displayPrice || displayPrice}
               </p>
               <ProductRate />
             </div>
