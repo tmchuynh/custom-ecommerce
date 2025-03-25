@@ -233,10 +233,12 @@ export type OrderSummaryProps = {
   tax: number;
   shippingMethod: ShippingMethod;
   shipping: number;
-  newDate: Date;
+  internationalFee?: number;
+  isInternational?: boolean;
   discountApplied: boolean;
   discountAmount: number;
   discountedTotal: number;
+  newDate: Date;
 };
 
 export type CustomerInfoFormProps = {
@@ -270,7 +272,7 @@ export type CustomerInfoFormProps = {
   ) => void;
 };
 
-export type ShippingAddressFormProps = {
+export interface ShippingAddressFormProps {
   shippingAddress: string;
   setShippingAddress: (value: string) => void;
   shippingCity: string;
@@ -279,6 +281,8 @@ export type ShippingAddressFormProps = {
   setShippingState: (value: string) => void;
   shippingZip: string;
   setShippingZip: (value: string) => void;
+  shippingCountry: string;
+  setShippingCountry: (value: string) => void;
   touchedFields: {
     shippingAddress: boolean;
     [key: string]: boolean;
@@ -287,17 +291,8 @@ export type ShippingAddressFormProps = {
     shippingAddress?: string;
     [key: string]: string | undefined;
   };
-  handleBlur: (
-    field:
-      | "phone"
-      | "email"
-      | "cardNumber"
-      | "cardExpiry"
-      | "cardCvv"
-      | "shippingAddress"
-      | "name"
-  ) => void;
-};
+  handleBlur: (field: string) => void;
+}
 
 export type PaymentInfoFormProps = {
   cardNumber: string;
