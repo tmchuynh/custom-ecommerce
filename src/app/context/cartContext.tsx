@@ -44,6 +44,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const [discountAmount, setDiscountAmount] = useState<number>(0);
   const [checkoutActive, setCheckoutActive] = useState<boolean>(false);
+  const [selectedShippingMethod, setSelectedShippingMethod] =
+    useState<ShippingMethod>("standard");
 
   // Discount codes table (in a real app this would come from a database)
   const discountCodes: Record<string, number> = {
@@ -539,6 +541,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  /**
+   * Updates the selected shipping method.
+   *
+   * @param method - The shipping method to set as selected
+   * @returns void
+   */
+  const updateShippingMethod = (method: ShippingMethod): void => {
+    setSelectedShippingMethod(method);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -564,6 +576,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         getDeliveryWindowEndDate,
         startCheckout,
         moveToWishlist,
+        selectedShippingMethod,
+        updateShippingMethod,
       }}
     >
       {children}

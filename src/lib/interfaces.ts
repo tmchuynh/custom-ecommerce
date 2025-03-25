@@ -139,6 +139,8 @@ export interface CartContextType {
     country: string,
     method?: ShippingMethod
   ) => number;
+  selectedShippingMethod: ShippingMethod;
+  updateShippingMethod: (method: ShippingMethod) => void;
 }
 
 export interface ProductContextType {
