@@ -36,6 +36,7 @@ const CheckoutPage = () => {
     getSubTotal,
     calculateTaxAmount,
     calculateShippingCost,
+    calculateInternationalShippingFee,
     getShippingMethod,
     getTotalItems,
     getTotalPrice,
@@ -60,6 +61,7 @@ const CheckoutPage = () => {
   const [shippingCity, setShippingCity] = useState<string>("");
   const [shippingState, setShippingState] = useState<string>("");
   const [shippingZip, setShippingZip] = useState<string>("");
+  const [shippingCountry, setShippingCountry] = useState<string>("USA"); // Add country with USA as default
 
   // Form state for payment information
   const [cardNumber, setCardNumber] = useState<string>("");
@@ -79,6 +81,10 @@ const CheckoutPage = () => {
   const tax = calculateTaxAmount(subtotal);
   const shippingMethod = getShippingMethod(getTotalItems());
   const shipping = calculateShippingCost(shippingMethod);
+  const internationalFee = calculateInternationalShippingFee(
+    shippingCountry,
+    shippingMethod
+  ); // Pass shipping method
 
   // Add this ref to track previous shipping method - moved before useEffect
   const prevShippingMethod = useRef(shippingMethod);
@@ -263,13 +269,20 @@ const CheckoutPage = () => {
     // Proceed with checkout
     startCheckout();
 
-    // In a real application, we would send the form data to a server
-    alert("Order placed successfully! Thank you for your purchase.");
-    window.location.href = "/";
+    // Instead of showing an alert, navigate to the thank you page
+    try {
+      // Set navigation block to false so we can navigate without confirmation dialog
+      navigationBlocked.current = true;
+      // Navigate to the confirmation page
+      router.push("/shopping_cart/checkout/thank_you");
+    } catch (error) {
+      // If there's an error during checkout, navigate to the error page
+      router.push("/shopping_cart/checkout/error");
+    }
   };
 
   // Calculate the discount amount
-  const originalTotal = getTotalPrice();
+  const originalTotal = getTotalPrice(shippingCountry); // The country parameter is already included
   const discountedTotal = discountApplied
     ? getDiscountedTotal()
     : originalTotal;
@@ -389,7 +402,9 @@ const CheckoutPage = () => {
               setPhoneNumber={setPhoneNumber}
               touchedFields={touchedFields}
               formErrors={formErrors}
-              handleBlur={handleBlur}
+              handleBlur={(field) =>
+                handleBlur(field as keyof typeof touchedFields)
+              }
             />
 
             {/* Shipping Address Section */}
@@ -402,6 +417,8 @@ const CheckoutPage = () => {
               setShippingState={setShippingState}
               shippingZip={shippingZip}
               setShippingZip={setShippingZip}
+              shippingCountry={shippingCountry}
+              setShippingCountry={setShippingCountry}
               touchedFields={touchedFields}
               formErrors={formErrors}
               handleBlur={handleBlur}
@@ -430,6 +447,7 @@ const CheckoutPage = () => {
               touchedFields={touchedFields}
               formErrors={formErrors}
               handleBlur={handleBlur}
+              // Add any missing required props here
             />
           </div>
 
@@ -451,10 +469,16 @@ const CheckoutPage = () => {
               tax={tax}
               shippingMethod={shippingMethod}
               shipping={shipping}
+              internationalFee={internationalFee}
               newDate={estimatedDeliveryDate || new Date()}
               discountApplied={discountApplied}
               discountAmount={discountAmount}
               discountedTotal={discountedTotal}
+              isInternational={
+                shippingCountry.toLowerCase() !== "usa" &&
+                shippingCountry.toLowerCase() !== "united states" &&
+                shippingCountry.toLowerCase() !== "us"
+              }
             />
 
             {/* Navigation Buttons */}
