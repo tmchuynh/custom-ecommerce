@@ -2,6 +2,7 @@
 
 import { Currency, CurrencyContextType } from "@/lib/interfaces";
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import { currencies } from "@/lib/constants";
 
 /**
  * Context for managing the current currency.
@@ -23,7 +24,11 @@ const CurrencyContext = createContext<CurrencyContextType | undefined>(
  * @returns {JSX.Element} A CurrencyContext.Provider component that wraps the children.
  */
 export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState("USD"); // Default currency
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>({
+    code: "USD",
+    name: "US Dollar",
+    rate: 1,
+  });
 
   return (
     <CurrencyContext.Provider value={{ selectedCurrency, setSelectedCurrency }}>
@@ -35,10 +40,11 @@ export const CurrencyProvider = ({ children }: { children: ReactNode }) => {
 /**
  * @returns {CurrencyContextType} The currency context.
  * @throws {Error} If the hook is used outside of a CurrencyProvider.
- */ export const useCurrency = () => {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>({
-    code: "USD",
-    name: "US Dollar",
-  });
-  return { selectedCurrency, setSelectedCurrency };
+ */
+export const useCurrency = () => {
+  const context = useContext(CurrencyContext);
+  if (!context) {
+    throw new Error("useCurrency must be used within a CurrencyProvider");
+  }
+  return context;
 };

@@ -3,7 +3,13 @@
 import { ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductFilters, ProductType, SortOption } from "@/lib/types";
-import React, { createContext, useContext, useMemo } from "react";
+import React, {
+  createContext,
+  useContext,
+  useMemo,
+  useEffect,
+  useState,
+} from "react";
 import { useCurrency } from "./CurrencyContext";
 import { currencies } from "@/lib/constants";
 
@@ -34,6 +40,12 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 }): React.ReactNode => {
   // Get the current currency from the CurrencyContext
   const { selectedCurrency } = useCurrency();
+  const [forceUpdate, setForceUpdate] = useState(0);
+
+  // Force update when currency changes
+  useEffect(() => {
+    setForceUpdate((prev) => prev + 1);
+  }, [selectedCurrency]);
 
   // Convert a price from USD to the selected currency
   const convertPrice = (priceInUSD: number | string): string => {
@@ -44,16 +56,13 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         : priceInUSD || 0;
 
     // Get the conversion rate for the selected currency (default to 1 if not found)
-    const conversionRate =
-      currencies.find(
-        (currency) => String(currency.code) === String(selectedCurrency)
-      )?.rate || 1;
+    const conversionRate = selectedCurrency.rate || 1;
 
     // Convert the price
-    const convertedPrice = numericPrice * (Number(conversionRate) || 1);
+    const convertedPrice = numericPrice * conversionRate;
 
     // Format the price with the currency symbol
-    return formatPriceWithCurrency(convertedPrice, String(selectedCurrency));
+    return formatPriceWithCurrency(convertedPrice, selectedCurrency.code);
   };
 
   // Format a price with the appropriate currency symbol and format

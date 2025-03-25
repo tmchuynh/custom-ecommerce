@@ -42,8 +42,8 @@ export interface CommonProps
 }
 
 export interface CurrencyContextType {
-  selectedCurrency: string;
-  setSelectedCurrency: (currency: string) => void;
+  selectedCurrency: Currency;
+  setSelectedCurrency: (currency: Currency) => void;
 }
 
 export interface DynamicButtonProps {
@@ -148,8 +148,8 @@ export interface ProductContextType {
 export interface Currency {
   code: string;
   name: string;
+  rate: number;
 }
-
 export interface ProductBadgesProps {
   highlights: string[];
 }

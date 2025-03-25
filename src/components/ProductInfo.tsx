@@ -8,6 +8,7 @@ import ProductHighlights from "./ProductHighlights";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useProduct } from "@/app/context/productContext";
+import { useCurrency } from "@/app/context/CurrencyContext";
 
 /**
  * Component for displaying detailed information about a product.
@@ -70,7 +71,8 @@ const ProductInfo = ({
   showColors?: boolean;
   showButtons?: boolean;
 }): JSX.Element => {
-  const { getProductByName } = useProduct();
+  const { getProductByName, convertPrice } = useProduct();
+  const { selectedCurrency } = useCurrency(); // Add this to trigger re-renders when currency changes
   const [url, setURL] = useState(
     `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${formatURL(
       product.name
@@ -79,6 +81,7 @@ const ProductInfo = ({
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
   );
+  const [displayPrice, setDisplayPrice] = useState(product.price || "");
 
   const pathname = usePathname();
 
@@ -86,6 +89,20 @@ const ProductInfo = ({
     () => pathname.split("/").filter(Boolean),
     [pathname]
   );
+
+  // Update the price when the currency changes
+  useEffect(() => {
+    if (product.price) {
+      // Extract the numeric price value from the product
+      const originalPrice =
+        typeof product.price === "string"
+          ? product.price
+          : String(product.price);
+
+      // Convert to the current selected currency
+      setDisplayPrice(convertPrice(originalPrice));
+    }
+  }, [product.price, selectedCurrency, convertPrice]);
 
   // Use useEffect to handle URL updates and fetch highlights if needed
   useEffect(() => {
@@ -153,7 +170,7 @@ const ProductInfo = ({
                   "mt-0": relatedProduct,
                 })}
               >
-                {product.price}
+                {displayPrice}
               </p>
               <ProductRate />
             </div>
