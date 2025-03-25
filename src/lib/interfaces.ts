@@ -120,11 +120,11 @@ export interface CartContextType {
   getCartItem: (name: string) => CartItem | undefined;
   updateQuantity: (id: string, quantity: number) => void;
   calculateTaxAmount: (total: number, taxRate?: number) => number;
-  getTotalPrice: () => number;
+  getTotalPrice: (country?: string) => number;
   getSubTotal: () => number;
   getTotalItems: () => number;
 
-  getShippingMethod: (getTotalItems: number) => ShippingMethod;
+  getShippingMethod: (totalItems: number) => ShippingMethod;
   itemExistsInCart: (name: string) => boolean;
   applyDiscount: (code: string) => boolean;
   getDiscountedTotal: () => number;

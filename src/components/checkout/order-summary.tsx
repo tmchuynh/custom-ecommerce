@@ -5,8 +5,9 @@ import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { OrderSummaryProps } from "@/lib/types";
+import { OrderSummaryProps, ShippingMethod } from "@/lib/types";
 import { capitalize } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 const OrderSummary = ({
   subtotal,
@@ -20,11 +21,31 @@ const OrderSummary = ({
   discountedTotal,
   newDate,
 }: OrderSummaryProps) => {
-  const { getDeliveryEstimateText, getDeliveryDescription } = useCart();
+  const {
+    getDeliveryWindowDates,
+    getDeliveryEstimateText,
+    getDeliveryDescription,
+  } = useCart();
   const { selectedCurrency } = useCurrency();
   const { convertPrice } = useProduct();
 
-  // Delivery description based on shipping method
+  // State to trigger re-renders when shipping method or country changes
+  const [deliveryInfo, setDeliveryInfo] = useState("");
+
+  // Update delivery info whenever shipping method or country changes
+  useEffect(() => {
+    // Extract country from the selected currency
+    const countryCode = selectedCurrency.code || "USD";
+
+    // Update the description which will re-render the component
+    const description = getDeliveryDescription(
+      shippingMethod,
+      newDate,
+      countryCode
+    );
+
+    setDeliveryInfo(description);
+  }, [shippingMethod, selectedCurrency.code, newDate, getDeliveryDescription]);
 
   return (
     <Card>
@@ -70,11 +91,7 @@ const OrderSummary = ({
             <span className="text-right">
               {getDeliveryEstimateText()}
               <div className="text-xs text-muted-foreground mt-1">
-                {getDeliveryDescription(
-                  shippingMethod,
-                  newDate,
-                  selectedCurrency.code // Default to "us" if no code
-                )}
+                {deliveryInfo}
               </div>
             </span>
           </div>
