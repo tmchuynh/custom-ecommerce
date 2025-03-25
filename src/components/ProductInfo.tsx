@@ -81,7 +81,16 @@ const ProductInfo = ({
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
   );
-  const [displayPrice, setDisplayPrice] = useState(product.price || "");
+
+  // Calculate the display price directly in the render using the current currency
+  // This ensures it's always up-to-date with the selected currency
+  const displayPrice = useMemo(() => {
+    if (!product.price) return "";
+
+    console.log(convertPrice(product.price));
+
+    return convertPrice(product.price);
+  }, [product.price, convertPrice, selectedCurrency]);
 
   const pathname = usePathname();
 
@@ -89,20 +98,6 @@ const ProductInfo = ({
     () => pathname.split("/").filter(Boolean),
     [pathname]
   );
-
-  // Update the price when the currency changes
-  useEffect(() => {
-    if (product.price) {
-      // Extract the numeric price value from the product
-      const originalPrice =
-        typeof product.price === "string"
-          ? product.price
-          : String(product.price);
-
-      // Convert to the current selected currency
-      setDisplayPrice(convertPrice(originalPrice));
-    }
-  }, [product.price, selectedCurrency, convertPrice]);
 
   // Use useEffect to handle URL updates and fetch highlights if needed
   useEffect(() => {

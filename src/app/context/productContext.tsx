@@ -55,38 +55,70 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         ? parseFloat(priceInUSD.replace(/[^0-9.-]+/g, ""))
         : priceInUSD || 0;
 
-    // Get the conversion rate for the selected currency (default to 1 if not found)
+    // Get the conversion rate for the selected currency
     const conversionRate = selectedCurrency.rate || 1;
 
     // Convert the price
     const convertedPrice = numericPrice * conversionRate;
 
-    // Format the price with the currency symbol
-    return formatPriceWithCurrency(convertedPrice, selectedCurrency.code);
+    // Find the symbol for the current currency
+    const currencySymbol =
+      currencies.find((c) => c.code === selectedCurrency.code)?.symbol ||
+      selectedCurrency.code;
+
+    // Format the price with the currency symbol from constants
+    return formatPriceWithCurrency(
+      convertedPrice,
+      selectedCurrency.code,
+      currencySymbol
+    );
   };
 
-  // Format a price with the appropriate currency symbol and format
-  const formatPriceWithCurrency = (price: number, currency: string): string => {
-    switch (currency) {
+  // Add debugging to the formatPriceWithCurrency function
+  const formatPriceWithCurrency = (
+    price: number,
+    currencyCode: string,
+    symbol?: string
+  ): string => {
+    // Ensure price is a number and currency is a string
+    const numericPrice = Number(price) || 0;
+
+    // Look up the symbol for this currency if not provided
+    const currencySymbol =
+      symbol ||
+      currencies.find((c) => c.code === currencyCode)?.symbol ||
+      currencyCode;
+
+    switch (currencyCode) {
       case "USD":
-        return `$${price.toFixed(2)}`;
-      case "EUR":
-        return `€${price.toFixed(2)}`;
-      case "GBP":
-        return `£${price.toFixed(2)}`;
-      case "JPY":
-        return `¥${Math.round(price)}`;
-      case "CNY":
-        return `¥${price.toFixed(2)}`;
-      case "INR":
-        return `₹${price.toFixed(2)}`;
       case "CAD":
       case "AUD":
-      case "NZD":
       case "SGD":
-        return `$${price.toFixed(2)} ${currency}`;
+      case "NZD":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
+      case "EUR":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
+      case "GBP":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
+      case "JPY":
+        return `${currencySymbol}${Math.round(numericPrice)}`;
+      case "CNY":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
+      case "INR":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
+      case "BRL":
+      case "ZAR":
+      case "MXN":
+      case "KRW":
+      case "SEK":
+      case "NOK":
+      case "DKK":
+      case "RUB":
+      case "AED":
+      case "CHF":
+        return `${currencySymbol}${numericPrice.toFixed(2)}`;
       default:
-        return `${price.toFixed(2)} ${currency}`;
+        return `${numericPrice.toFixed(2)} ${currencySymbol}`;
     }
   };
 

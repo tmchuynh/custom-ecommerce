@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import CurrencyDebug from "./CurrencyDebug";
 
 export default function NavTopMenu() {
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
@@ -23,9 +24,12 @@ export default function NavTopMenu() {
           <SelectGroup>
             <Select
               value={selectedCurrency.code}
-              onValueChange={(code) =>
-                setSelectedCurrency(currencies.find((c) => c.code === code)!)
-              }
+              onValueChange={(code) => {
+                const currency = currencies.find((c) => c.code === code);
+                if (currency) {
+                  setSelectedCurrency(currency);
+                }
+              }}
             >
               <SelectTrigger className="max-w-fit pr-7 pl-2 text-left text-base font-medium sm:text-sm/6 focus-visible:outline-none border-none focus-visible:ring-0">
                 <SelectValue placeholder="Select Currency" />
@@ -37,7 +41,7 @@ export default function NavTopMenu() {
                     key={currency.code}
                     value={currency.code}
                   >
-                    {currency.name}
+                    {currency.symbol} {currency.name}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -57,6 +61,10 @@ export default function NavTopMenu() {
           <ThemeToggle />
         </div>
       </div>
+
+      {/* Uncomment for debugging
+      <CurrencyDebug />
+      */}
     </div>
   );
 }
