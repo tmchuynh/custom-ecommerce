@@ -58,8 +58,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     overnight: 24.99,
   };
 
-  // International shipping fee
-  const internationalShippingFee = 15.99;
+  // International shipping fee rates by shipping method
+  const internationalShippingFees: Record<ShippingMethod, number> = {
+    standard: 15.99,
+    express: 27.99,
+    overnight: 49.99,
+  };
 
   // Rehydrate cart items from localStorage on mount
   useEffect(() => {
@@ -177,10 +181,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       0
     );
 
-    const shipping = calculateShippingCost(getShippingMethod(getTotalItems()));
+    const shippingMethod = getShippingMethod(getTotalItems());
+    const shipping = calculateShippingCost(shippingMethod);
     const taxAmount = calculateTaxAmount(total);
     const internationalFee = country
-      ? calculateInternationalShippingFee(country)
+      ? calculateInternationalShippingFee(country, shippingMethod)
       : 0;
 
     return total + taxAmount + shipping + internationalFee;
@@ -337,17 +342,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   /**
-   * Calculates the additional fee for international shipping
+   * Calculates the additional fee for international shipping based on shipping method
    *
    * @param country - The destination country
+   * @param method - The shipping method
    * @returns The additional fee for international shipping if the country is not USA, otherwise 0
    */
-  const calculateInternationalShippingFee = (country: string): number => {
-    return country.toLowerCase() !== "usa" &&
+  const calculateInternationalShippingFee = (
+    country: string,
+    method: ShippingMethod = "standard"
+  ): number => {
+    const isInternational =
+      country.toLowerCase() !== "usa" &&
       country.toLowerCase() !== "united states" &&
-      country.toLowerCase() !== "us"
-      ? internationalShippingFee
-      : 0;
+      country.toLowerCase() !== "us";
+
+    return isInternational ? internationalShippingFees[method] : 0;
   };
 
   /**
