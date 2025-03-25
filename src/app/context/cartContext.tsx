@@ -44,7 +44,6 @@ const findCountryByValue = (
       (country) => country.value.toLowerCase() === normalizedTarget
     );
     if (countryData) {
-      console.log("Found country data:", countryData);
       return {
         currencyCode: currency.code,
         value: countryData.value,
@@ -52,7 +51,6 @@ const findCountryByValue = (
       };
     }
   }
-  console.log("No country match found for:", targetValue);
   return null;
 };
 
@@ -64,7 +62,6 @@ const getDeliveryWindowDates = (
 ): { windowStart: Date; windowEnd: Date } => {
   const countryData = findCountryByValue(country);
   const distanceFactor = countryData ? countryData.distanceFactor : 0;
-  console.log("Country:", country, "Distance Factor:", distanceFactor);
 
   // Define base delays (in business days) and window lengths
   let baseDelay: number, baseWindow: number;
@@ -100,9 +97,6 @@ const getDeliveryWindowDates = (
   );
   const windowEnd = addBusinessDays(windowStart, baseWindow + additionalWindow);
 
-  console.log("Calculated window start:", formatDate(windowStart));
-  console.log("Calculated window end:", formatDate(windowEnd));
-
   return { windowStart, windowEnd };
 };
 
@@ -120,16 +114,53 @@ const getDeliveryDescription = (
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const diffInDays = (from: Date, to: Date) =>
+  const diffInDays = (from: Date, to: Date): number =>
     Math.ceil((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
 
   const daysStart = diffInDays(today, windowStart);
   const daysEnd = diffInDays(today, windowEnd);
 
+  const formatDays = (days: number): string => {
+    if (days > 30) {
+      // Convert to months, weeks, and days
+      const months = Math.floor(days / 30);
+      const remainderDays = days % 30;
+      const weeks = Math.floor(remainderDays / 7);
+      const daysLeft = remainderDays % 7;
+      let result = "";
+
+      if (months > 0) {
+        result += `${months} month${months > 1 ? "s" : ""} `;
+      }
+      if (weeks > 0) {
+        result += `${weeks} week${weeks > 1 ? "s" : ""} `;
+      }
+      if (daysLeft > 0) {
+        result += `${daysLeft} day${daysLeft > 1 ? "s" : ""}`;
+      }
+      return result.trim();
+    } else if (days > 7) {
+      // Convert to weeks and days
+      const weeks = Math.floor(days / 7);
+      const daysLeft = days % 7;
+      let result = "";
+
+      if (weeks > 0) {
+        result += `${weeks} week${weeks > 1 ? "s" : ""} `;
+      }
+      if (daysLeft > 0) {
+        result += `${daysLeft} day${daysLeft > 1 ? "s" : ""}`;
+      }
+      return result.trim();
+    }
+    // Return in days if 7 or fewer days
+    return `${days} day${days !== 1 ? "s" : ""}`;
+  };
+
   if (daysStart === daysEnd) {
-    return `arriving in ${daysStart} day(s)`;
+    return `arriving in ${formatDays(daysStart)}`;
   }
-  return `arriving in ${daysStart} to ${daysEnd} days`;
+  return `arriving in ${formatDays(daysStart)} to ${formatDays(daysEnd)}`;
 };
 
 // -------------------

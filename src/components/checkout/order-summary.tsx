@@ -80,10 +80,10 @@ const OrderSummary = ({
 
           <div className="flex justify-between items-start">
             <span>Estimated Delivery</span>
-            <span className="text-right">
+            <span className="text-right flex flex-col items-end">
               {getDeliveryEstimateText(shippingCountry)}
               <div
-                className="text-xs text-muted-foreground mt-1"
+                className="text-xs text-muted-foreground flex-wrap flex w-5/6 m-0 mt-1"
                 id="deliveryInfo"
               >
                 {deliveryInfo}
