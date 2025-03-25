@@ -4,7 +4,15 @@
 import { currencyCountries } from "@/lib/constants";
 import { CartContextType, CartItem } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  JSX,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { useCurrency } from "./CurrencyContext";
+import { formatDate } from "@/lib/utils";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -39,7 +47,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }: {
   children: React.ReactNode;
-}): React.ReactNode => {
+}): JSX.Element => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const [discountAmount, setDiscountAmount] = useState<number>(0);
@@ -348,6 +356,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return shippingRates[method] || 0;
   };
 
+  const findCountryByValue = (targetValue: string) => {
+    for (const currency of currencyCountries) {
+      const countryData = currency.countries.find(
+        (country) => country.value.toLowerCase() === targetValue.toLowerCase()
+      );
+      if (countryData) {
+        return { currencyCode: currency.code, ...countryData };
+      }
+    }
+    return null;
+  };
+
   /**
    * Calculates the additional fee for international shipping based on the country and distance factor.
    *
@@ -359,18 +379,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     country: string,
     method: ShippingMethod = "standard"
   ): number => {
-    const countryData = currencyCountries.find((c) =>
-      c.countries.some(
-        (countryObj) => countryObj.value.toLowerCase() === country.toLowerCase()
-      )
-    );
-
-    if (!countryData || countryData.countries[0]?.distanceFactor === 0) {
+    const countryData = findCountryByValue(country);
+    console.log("Country", country);
+    if (!countryData || countryData.distanceFactor === 0) {
+      console.log("Distance Factor", countryData?.distanceFactor);
       return 0; // No additional fee for USA or unknown countries
     }
+    console.log("Distance Factor", countryData?.distanceFactor);
 
     const baseFee = internationalShippingFees[method] || 0;
-    const distanceFactor = countryData.countries[0]?.distanceFactor || 0;
+    const distanceFactor = countryData?.distanceFactor || 1;
     return baseFee + baseFee * distanceFactor;
   };
 
@@ -451,11 +469,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const getDeliveryWindowDates = (
     method: ShippingMethod,
     startDate: Date,
-    country?: string
+    country: string
   ): { windowStart: Date; windowEnd: Date } => {
     // Determine the distanceFactor from your currency data source.
     // (Adjust this to use your actual data array—here we assume currencyData is in scope.)
-    let distanceFactor = 0;
+
+    const countryData = findCountryByValue(country);
+
+    let distanceFactor = countryData?.distanceFactor || 0;
     if (country) {
       const currencyObj = currencyCountries.find((c) =>
         c.countries.some(
@@ -519,6 +540,25 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
 
     return { windowStart, windowEnd };
+  };
+
+  const { selectedCurrency } = useCurrency();
+  const deliveryDate = getEstimatedDeliveryDate(selectedShippingMethod);
+
+  const deliveryWindow = getDeliveryWindowDates(
+    selectedShippingMethod,
+    deliveryDate,
+    selectedCurrency.code || selectedCurrency.toString()
+  );
+
+  const getDeliveryEstimateText = () => {
+    const { windowStart, windowEnd } = deliveryWindow;
+
+    if (selectedShippingMethod === "overnight") {
+      return formatDate(windowStart); // Single-day delivery
+    }
+
+    return `${formatDate(windowStart)} - ${formatDate(windowEnd)}`;
   };
 
   /**
@@ -631,6 +671,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         moveToWishlist,
         selectedShippingMethod,
         updateShippingMethod,
+        getDeliveryEstimateText,
       }}
     >
       {children}

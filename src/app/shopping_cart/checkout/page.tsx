@@ -25,7 +25,6 @@ import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import OrderItems from "@/components/checkout/order-items";
 import DiscountForm from "@/components/checkout/discount-form";
 import OrderSummary from "@/components/checkout/order-summary";
-import { useProduct } from "@/app/context/productContext";
 import ShippingMethodSelector from "@/components/ShippingMethodSelector";
 
 const CheckoutPage = () => {
@@ -35,8 +34,6 @@ const CheckoutPage = () => {
     calculateTaxAmount,
     calculateShippingCost,
     calculateInternationalShippingFee,
-    getShippingMethod,
-    getTotalItems,
     getTotalPrice,
     applyDiscount,
     getDiscountedTotal,
@@ -44,9 +41,6 @@ const CheckoutPage = () => {
     getEstimatedDeliveryDate,
     selectedShippingMethod,
   } = useCart();
-
-  const { convertPrice } = useProduct();
-  const { selectedCurrency } = useCurrency();
 
   // Discount state
   const [discountCode, setDiscountCode] = useState<string>("");

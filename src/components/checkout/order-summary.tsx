@@ -6,7 +6,7 @@ import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { OrderSummaryProps, ShippingMethod } from "@/lib/types";
-import { capitalize, formatDate } from "@/lib/utils";
+import { capitalize } from "@/lib/utils";
 
 const OrderSummary = ({
   subtotal,
@@ -20,26 +20,9 @@ const OrderSummary = ({
   discountedTotal,
   newDate,
 }: OrderSummaryProps) => {
-  const { getDeliveryWindowDates } = useCart();
+  const { getDeliveryWindowDates, getDeliveryEstimateText } = useCart();
   const { selectedCurrency } = useCurrency();
   const { convertPrice } = useProduct();
-
-  const deliveryWindow = getDeliveryWindowDates(
-    shippingMethod,
-    newDate,
-    selectedCurrency.code || selectedCurrency.toString()
-  );
-
-  // Generate the delivery estimate text based on shipping method
-  const getDeliveryEstimateText = () => {
-    const { windowStart, windowEnd } = deliveryWindow;
-
-    if (shippingMethod === "overnight") {
-      return formatDate(windowStart); // Single-day delivery
-    }
-
-    return `${formatDate(windowStart)} - ${formatDate(windowEnd)}`;
-  };
 
   // Delivery description based on shipping method
   const getDeliveryDescription = (

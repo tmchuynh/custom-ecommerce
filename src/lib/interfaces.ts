@@ -145,6 +145,7 @@ export interface CartContextType {
   ) => number;
   selectedShippingMethod: ShippingMethod;
   updateShippingMethod: (method: ShippingMethod) => void;
+  getDeliveryEstimateText: () => string;
 }
 
 export interface ProductContextType {
