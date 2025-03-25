@@ -1,6 +1,8 @@
 "use client";
 
+import { useCurrency } from "@/app/context/CurrencyContext";
 import { currencies } from "@/lib/constants";
+import { ThemeToggle } from "./ThemeToggle";
 import {
   Select,
   SelectContent,
@@ -9,8 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import { ThemeToggle } from "./ThemeToggle";
-import { useCurrency } from "@/app/context/CurrencyContext";
 
 export default function NavTopMenu() {
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
@@ -22,21 +22,22 @@ export default function NavTopMenu() {
         <div className="-ml-2 inline-grid grid-cols-1">
           <SelectGroup>
             <Select
-              value={selectedCurrency}
-              onValueChange={setSelectedCurrency}
+              value={selectedCurrency.code}
+              onValueChange={(code) =>
+                setSelectedCurrency(currencies.find((c) => c.code === code)!)
+              }
             >
               <SelectTrigger className="max-w-fit pr-7 pl-2 text-left text-base font-medium sm:text-sm/6 focus-visible:outline-none border-none focus-visible:ring-0">
                 <SelectValue placeholder="Select Currency" />
               </SelectTrigger>
-
               <SelectContent>
-                {currencies.map((currency) => (
+                {currencies.map((currency, index) => (
                   <SelectItem
                     className="focus:bg-muted focus:text-muted-foreground"
-                    key={currency}
-                    value={currency}
+                    key={currency.code}
+                    value={currency.code}
                   >
-                    {currency}
+                    {currency.name}
                   </SelectItem>
                 ))}
               </SelectContent>

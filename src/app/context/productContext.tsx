@@ -4,6 +4,8 @@ import { ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, { createContext, useContext, useMemo } from "react";
+import { useCurrency } from "./CurrencyContext";
+import { currencies } from "@/lib/constants";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
@@ -30,6 +32,55 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 }: {
   children: React.ReactNode;
 }): React.ReactNode => {
+  // Get the current currency from the CurrencyContext
+  const { selectedCurrency } = useCurrency();
+
+  // Convert a price from USD to the selected currency
+  const convertPrice = (priceInUSD: number | string): string => {
+    // If the price is a string, extract the numeric value
+    const numericPrice =
+      typeof priceInUSD === "string"
+        ? parseFloat(priceInUSD.replace(/[^0-9.-]+/g, ""))
+        : priceInUSD || 0;
+
+    // Get the conversion rate for the selected currency (default to 1 if not found)
+    const conversionRate =
+      currencies.find(
+        (currency) => String(currency.code) === String(selectedCurrency)
+      )?.rate || 1;
+
+    // Convert the price
+    const convertedPrice = numericPrice * (Number(conversionRate) || 1);
+
+    // Format the price with the currency symbol
+    return formatPriceWithCurrency(convertedPrice, String(selectedCurrency));
+  };
+
+  // Format a price with the appropriate currency symbol and format
+  const formatPriceWithCurrency = (price: number, currency: string): string => {
+    switch (currency) {
+      case "USD":
+        return `$${price.toFixed(2)}`;
+      case "EUR":
+        return `€${price.toFixed(2)}`;
+      case "GBP":
+        return `£${price.toFixed(2)}`;
+      case "JPY":
+        return `¥${Math.round(price)}`;
+      case "CNY":
+        return `¥${price.toFixed(2)}`;
+      case "INR":
+        return `₹${price.toFixed(2)}`;
+      case "CAD":
+      case "AUD":
+      case "NZD":
+      case "SGD":
+        return `$${price.toFixed(2)} ${currency}`;
+      default:
+        return `${price.toFixed(2)} ${currency}`;
+    }
+  };
+
   // Convert mockProductData into a flat array for easier manipulation
   const allProducts = useMemo(() => {
     const products: ProductType[] = [];
@@ -84,20 +135,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
     if (!product) return undefined;
 
+    // Create a copy of the product with converted price
     return {
-      name: product.name,
-      description: product.description,
-      gender: product.gender,
-      category: product.category,
+      ...product,
+      price: product.price ? convertPrice(product.price) : "",
       highlights: product.highlights || [],
-      subcategory: product.subcategory,
       images: product.images || [],
       details: product.details || [],
       colors: product.colors || [],
       imageSrc: product.imageSrc || "",
-      quantity: product.quantity,
-      price: product.price || "",
-      badge: product.badge,
     };
   };
 
@@ -203,7 +249,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
    * @returns {ProductType[]} An array of products that match the specified filter criteria.
    */
   const filterProducts = (filters: ProductFilters): ProductType[] => {
-    return allProducts.filter((product) => {
+    const filteredProducts = allProducts.filter((product) => {
       // Gender filter
       if (filters.gender && product.gender !== filters.gender) {
         return false;
@@ -252,6 +298,12 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
       return true;
     });
+
+    // Convert prices of filtered products to selected currency
+    return filteredProducts.map((product) => ({
+      ...product,
+      price: product.price ? convertPrice(product.price) : "",
+    }));
   };
 
   /**
@@ -284,8 +336,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     // Shuffle the array to get random related products
     const shuffled = [...relatedProducts].sort(() => 0.5 - Math.random());
 
-    // Return limited number of products
-    return shuffled.slice(0, limit);
+    // Return products with converted prices
+    return shuffled.slice(0, limit).map((product) => ({
+      ...product,
+      price: product.price ? convertPrice(product.price) : "",
+    }));
   };
 
   /**
@@ -307,7 +362,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       return shuffled.slice(0, limit);
     }
 
-    return featured.slice(0, limit);
+    // Return products with converted prices
+    return featured.slice(0, limit).map((product) => ({
+      ...product,
+      price: product.price ? convertPrice(product.price) : "",
+    }));
   };
 
   /**
@@ -329,7 +388,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     // Sort by newest first (in a real app, you'd sort by date added)
     const sorted = [...newProducts];
 
-    return sorted.slice(0, limit);
+    // Return products with converted prices
+    return sorted.slice(0, limit).map((product) => ({
+      ...product,
+      price: product.price ? convertPrice(product.price) : "",
+    }));
   };
 
   /**
@@ -408,14 +471,19 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
    * - If the product price is undefined or invalid, it defaults to 0.
    */
   const getProductsByPriceRange = (min: number, max: number): ProductType[] => {
-    return allProducts.filter((product) => {
-      const price =
-        typeof product.price === "string"
-          ? parseFloat(product.price.replace(/[^0-9.-]+/g, ""))
-          : product.price || 0;
+    return allProducts
+      .filter((product) => {
+        const price =
+          typeof product.price === "string"
+            ? parseFloat(product.price.replace(/[^0-9.-]+/g, ""))
+            : product.price || 0;
 
-      return price >= min && price <= max;
-    });
+        return price >= min && price <= max;
+      })
+      .map((product) => ({
+        ...product,
+        price: product.price ? convertPrice(product.price) : "",
+      }));
   };
 
   return (
@@ -431,6 +499,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         getNewArrivals,
         sortProducts,
         getProductsByPriceRange,
+        convertPrice,
       }}
     >
       {children}

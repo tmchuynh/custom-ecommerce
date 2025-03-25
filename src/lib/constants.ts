@@ -8,26 +8,31 @@ import { Fa500Px } from "react-icons/fa";
 import { NavigationDetails } from "./types";
 
 export const currencies = [
-  "CAD", // Canadian Dollar
-  "USD", // United States Dollar
-  "AUD", // Australian Dollar
-  "EUR", // Euro
-  "GBP", // British Pound
-  "JPY", // Japanese Yen
-  "CNY", // Chinese Yuan
-  "INR", // Indian Rupee
-  "BRL", // Brazilian Real
-  "ZAR", // South African Rand
-  "MXN", // Mexican Peso
-  "KRW", // South Korean Won
-  "SGD", // Singapore Dollar
-  "NZD", // New Zealand Dollar
-  "CHF", // Swiss Franc
-  "SEK", // Swedish Krona
-  "NOK", // Norwegian Krone
-  "DKK", // Danish Krone
-  "RUB", // Russian Ruble
-  "AED", // United Arab Emirates Dirham
+  { code: "CAD", name: "Canadian Dollar", symbol: "CA$", rate: 1.35 },
+  { code: "USD", name: "United States Dollar", symbol: "$", rate: 1 },
+  { code: "AUD", name: "Australian Dollar", symbol: "A$", rate: 1.51 },
+  { code: "EUR", name: "Euro", symbol: "€", rate: 0.92 },
+  { code: "GBP", name: "British Pound", symbol: "£", rate: 0.78 },
+  { code: "JPY", name: "Japanese Yen", symbol: "¥", rate: 149.82 },
+  { code: "CNY", name: "Chinese Yuan", symbol: "¥", rate: 7.23 },
+  { code: "INR", name: "Indian Rupee", symbol: "₹", rate: 83.14 },
+  { code: "BRL", name: "Brazilian Real", symbol: "R$", rate: 5.14 },
+  { code: "ZAR", name: "South African Rand", symbol: "R", rate: 18.33 },
+  { code: "MXN", name: "Mexican Peso", symbol: "MX$", rate: 16.87 },
+  { code: "KRW", name: "South Korean Won", symbol: "₩", rate: 1335.97 },
+  { code: "SGD", name: "Singapore Dollar", symbol: "S$", rate: 1.34 },
+  { code: "NZD", name: "New Zealand Dollar", symbol: "NZ$", rate: 1.63 },
+  { code: "CHF", name: "Swiss Franc", symbol: "CHF", rate: 0.88 },
+  { code: "SEK", name: "Swedish Krona", symbol: "kr", rate: 10.45 },
+  { code: "NOK", name: "Norwegian Krone", symbol: "kr", rate: 10.59 },
+  { code: "DKK", name: "Danish Krone", symbol: "kr", rate: 6.87 },
+  { code: "RUB", name: "Russian Ruble", symbol: "₽", rate: 90.86 },
+  {
+    code: "AED",
+    name: "United Arab Emirates Dirham",
+    symbol: "د.إ",
+    rate: 3.67,
+  },
 ];
 
 export const countries = [

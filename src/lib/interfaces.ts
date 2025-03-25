@@ -142,6 +142,12 @@ export interface ProductContextType {
   getNewArrivals: (limit?: number) => ProductType[];
   sortProducts: (products: ProductType[], sortBy: SortOption) => ProductType[];
   getProductsByPriceRange: (min: number, max: number) => ProductType[];
+  convertPrice: (priceInUSD: number | string) => string; // Add this new method
+}
+
+export interface Currency {
+  code: string;
+  name: string;
 }
 
 export interface ProductBadgesProps {
