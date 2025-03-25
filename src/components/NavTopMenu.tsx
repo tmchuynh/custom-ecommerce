@@ -15,7 +15,7 @@ export default function NavTopMenu() {
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
 
   return (
-    <div className="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div className="flex h-10 items-center justify-between sticky top-0 z-10 w-10/12 mx-auto py-4 bg-background">
       {/* Currency selector */}
       <form className="hidden md:block">
         <div className="-ml-2 inline-grid grid-cols-1">

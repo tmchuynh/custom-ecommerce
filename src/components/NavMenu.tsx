@@ -125,7 +125,6 @@ export default function NavMenu() {
 
       <nav>
         {/* Top navigations */}
-        <NavTopMenu />
 
         <div className="shadow-sm">
           <div className="bg-background text-foreground shadow-md z-10">

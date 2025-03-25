@@ -10,6 +10,7 @@ import { WishlistProvider } from "./context/wishlistContext";
 import { Toaster } from "sonner";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 import { ProductProvider } from "./context/productContext";
+import NavTopMenu from "@/components/NavTopMenu";
 
 export default function RootLayout({
   children,
@@ -25,6 +26,7 @@ export default function RootLayout({
               <ProductProvider>
                 <CartProvider>
                   <WishlistProvider>
+                    <NavTopMenu />
                     <NavMenu />
                     <main className="flex-grow">
                       <BreadcrumbWrapper />
