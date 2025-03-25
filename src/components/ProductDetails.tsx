@@ -37,7 +37,7 @@ import {
  * <ProductDetails details={details} />
  * ```
  */
-const ProductDetails = ({ details }: ProductDetailsProps): JSX.Element => {
+const ProductDetails = ({ details = [] }: ProductDetailsProps): JSX.Element => {
   return (
     <section aria-labelledby="details-heading" className="mt-12">
       <h2 id="details-heading" className="sr-only">
@@ -46,8 +46,8 @@ const ProductDetails = ({ details }: ProductDetailsProps): JSX.Element => {
 
       <div className="divide-y divide-gray-200 border-t">
         <Accordion type="single" collapsible>
-          {details.map((detail, index) => {
-            const items = Object.values(detail.items);
+          {details?.map((detail, index) => {
+            const items = Object.values(detail?.items || {});
             return (
               <AccordionItem key={index} value={`detail-${index}`}>
                 <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
