@@ -137,6 +137,12 @@ export interface CartContextType {
     startDate: Date,
     country: string
   ) => { windowStart: Date; windowEnd: Date };
+
+  getDeliveryDescription: (
+    shippingMethod: ShippingMethod,
+    startDate: Date,
+    country: string
+  ) => string;
   startCheckout: () => void;
   moveToWishlist: (itemId: string) => void;
   calculateInternationalShippingFee: (

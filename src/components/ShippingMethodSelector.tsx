@@ -1,20 +1,11 @@
 "use client";
 
 import { useCart } from "@/app/context/cartContext";
-import { useCurrency } from "@/app/context/CurrencyContext";
-import { useProduct } from "@/app/context/productContext";
 import { ShippingMethod } from "@/lib/types";
 import React from "react";
 
 const ShippingMethodSelector: React.FC = () => {
-  const {
-    selectedShippingMethod,
-    updateShippingMethod,
-    calculateShippingCost,
-  } = useCart();
-  const { selectedCurrency } = useCurrency();
-
-  const { convertPrice } = useProduct();
+  const { selectedShippingMethod, updateShippingMethod } = useCart();
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateShippingMethod(e.target.value as ShippingMethod);

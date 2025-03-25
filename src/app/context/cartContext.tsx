@@ -356,16 +356,25 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return shippingRates[method] || 0;
   };
 
-  const findCountryByValue = (targetValue: string) => {
+  const findCountryByValue = (
+    targetValue: string
+  ):
+    | { currencyCode: string; value: string; distanceFactor: number }
+    | undefined => {
     for (const currency of currencyCountries) {
       const countryData = currency.countries.find(
         (country) => country.value.toLowerCase() === targetValue.toLowerCase()
       );
       if (countryData) {
-        return { currencyCode: currency.code, ...countryData };
+        console.log(countryData);
+        return {
+          currencyCode: currency.code,
+          value: countryData.value,
+          distanceFactor: countryData.distanceFactor,
+        };
       }
     }
-    return null;
+    return undefined; // Explicitly return undefined if no country is found
   };
 
   /**
@@ -380,16 +389,17 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     method: ShippingMethod = "standard"
   ): number => {
     const countryData = findCountryByValue(country);
+
     console.log("Country", country);
     if (!countryData || countryData.distanceFactor === 0) {
       console.log("Distance Factor", countryData?.distanceFactor);
       return 0; // No additional fee for USA or unknown countries
     }
-    console.log("Distance Factor", countryData?.distanceFactor);
+    console.log("Distance Factor", countryData.distanceFactor);
 
     const baseFee = internationalShippingFees[method] || 0;
-    const distanceFactor = countryData?.distanceFactor || 1;
-    return baseFee + baseFee * distanceFactor;
+    const adjustedDistanceFactor = countryData.distanceFactor || 1;
+    return baseFee + baseFee * adjustedDistanceFactor;
   };
 
   /**
@@ -471,73 +481,31 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     startDate: Date,
     country: string
   ): { windowStart: Date; windowEnd: Date } => {
-    // Determine the distanceFactor from your currency data source.
-    // (Adjust this to use your actual data array—here we assume currencyData is in scope.)
-
     const countryData = findCountryByValue(country);
+    const distanceFactor = countryData?.distanceFactor || 0;
 
-    let distanceFactor = countryData?.distanceFactor || 0;
-    if (country) {
-      const currencyObj = currencyCountries.find((c) =>
-        c.countries.some(
-          (countryObj) =>
-            countryObj.value.toLowerCase() === country.toLowerCase()
-        )
-      );
-      if (currencyObj) {
-        const matchedCountry = currencyObj.countries.find(
-          (countryObj) =>
-            countryObj.value.toLowerCase() === country.toLowerCase()
-        );
-        distanceFactor = matchedCountry ? matchedCountry.distanceFactor : 0;
-      }
-    }
+    const shippingDelays: Record<
+      ShippingMethod,
+      { baseDelay: number; baseWindow: number }
+    > = {
+      standard: { baseDelay: 5, baseWindow: 2 },
+      express: { baseDelay: 2, baseWindow: 1 },
+      overnight: { baseDelay: 1, baseWindow: 0 },
+    };
 
-    // Set base delays (in business days) and window lengths for each shipping method.
-    let baseDelay: number, baseWindow: number;
-    let startDelayFactor = 1; // additional delay per distance unit for start date
-    let windowDelayFactor = 1; // additional delay per distance unit for window length
+    const { baseDelay, baseWindow } = shippingDelays[method] || {
+      baseDelay: 5,
+      baseWindow: 3,
+    };
 
-    switch (method) {
-      case "standard":
-        // For standard shipping, assume a base delay of 2 business days
-        // and a window length of 3 business days (total 5-7 days delivery)
-        baseDelay = 2;
-        baseWindow = 3;
-        startDelayFactor = 0.5; // half a day per distance unit
-        windowDelayFactor = 0.5;
-        break;
-      case "express":
-        // For express shipping, shorter delays
-        baseDelay = 1;
-        baseWindow = 2;
-        startDelayFactor = 0.3;
-        windowDelayFactor = 0.3;
-        break;
-      case "overnight":
-        // For overnight, we assume a base of 1 business day delay; if international, add more.
-        baseDelay = 1;
-        baseWindow = 0; // no window (single-day delivery) for domestic; international may get a slight delay.
-        startDelayFactor = 0.5;
-        windowDelayFactor = 0;
-        break;
-      default:
-        baseDelay = 0;
-        baseWindow = 0;
-    }
+    const adjustedStartDelay = Math.ceil(baseDelay + distanceFactor * 1000);
+    const adjustedWindow = Math.ceil(baseWindow + distanceFactor * 1000);
 
-    // Compute additional delays based on the country's distance factor.
-    const additionalStartDelay = Math.ceil(distanceFactor * startDelayFactor);
-    const additionalWindow = Math.ceil(distanceFactor * windowDelayFactor);
+    console.log("adjustedStartDelay: " + adjustedStartDelay);
+    console.log("adjustedWindow: " + adjustedWindow);
 
-    const windowStart = addBusinessDays(
-      startDate,
-      baseDelay + additionalStartDelay
-    );
-    const windowEnd = addBusinessDays(
-      windowStart,
-      baseWindow + additionalWindow
-    );
+    const windowStart = addBusinessDays(startDate, adjustedStartDelay);
+    const windowEnd = addBusinessDays(windowStart, adjustedWindow);
 
     return { windowStart, windowEnd };
   };
@@ -550,6 +518,35 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     deliveryDate,
     selectedCurrency.code || selectedCurrency.toString()
   );
+
+  const getDeliveryDescription = (
+    shippingMethod: ShippingMethod,
+    startDate: Date,
+    country: string
+  ): string => {
+    // Ensure we're using the correct country value - this should be a country code or value
+    const countryValue = country.toLowerCase();
+
+    const { windowStart, windowEnd } = getDeliveryWindowDates(
+      shippingMethod,
+      startDate,
+      countryValue
+    );
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const diffInDays = (from: Date, to: Date) =>
+      Math.ceil((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
+
+    const daysStart = diffInDays(today, windowStart);
+    const daysEnd = diffInDays(today, windowEnd);
+
+    if (daysStart === daysEnd) {
+      return `in ${daysStart} day(s)`;
+    }
+    return `in ${daysStart} to ${daysEnd} days`;
+  };
 
   const getDeliveryEstimateText = () => {
     const { windowStart, windowEnd } = deliveryWindow;
@@ -672,6 +669,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         selectedShippingMethod,
         updateShippingMethod,
         getDeliveryEstimateText,
+        getDeliveryDescription,
       }}
     >
       {children}

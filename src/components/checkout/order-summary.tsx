@@ -5,7 +5,7 @@ import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { OrderSummaryProps, ShippingMethod } from "@/lib/types";
+import { OrderSummaryProps } from "@/lib/types";
 import { capitalize } from "@/lib/utils";
 
 const OrderSummary = ({
@@ -20,40 +20,11 @@ const OrderSummary = ({
   discountedTotal,
   newDate,
 }: OrderSummaryProps) => {
-  const { getDeliveryWindowDates, getDeliveryEstimateText } = useCart();
+  const { getDeliveryEstimateText, getDeliveryDescription } = useCart();
   const { selectedCurrency } = useCurrency();
   const { convertPrice } = useProduct();
 
   // Delivery description based on shipping method
-  const getDeliveryDescription = (
-    shippingMethod: ShippingMethod,
-    startDate: Date,
-    country: string
-  ): string => {
-    // Get the delivery window start and end dates
-    const { windowStart, windowEnd } = getDeliveryWindowDates(
-      shippingMethod,
-      startDate,
-      country
-    );
-
-    // Calculate the number of days from today to each date
-    const today = new Date();
-    // Normalize today's time to midnight for an accurate day difference
-    today.setHours(0, 0, 0, 0);
-
-    const diffInDays = (from: Date, to: Date) =>
-      Math.ceil((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
-
-    const daysStart = diffInDays(today, windowStart);
-    const daysEnd = diffInDays(today, windowEnd);
-
-    if (daysStart === daysEnd) {
-      return `in ${daysStart} day(s)`;
-    }
-
-    return `in ${daysStart} to ${daysEnd} days`;
-  };
 
   return (
     <Card>
@@ -102,7 +73,7 @@ const OrderSummary = ({
                 {getDeliveryDescription(
                   shippingMethod,
                   newDate,
-                  selectedCurrency.code || selectedCurrency.toString()
+                  selectedCurrency.code // Default to "us" if no code
                 )}
               </div>
             </span>
