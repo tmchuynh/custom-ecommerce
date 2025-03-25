@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 import { ShippingAddressFormProps } from "@/lib/types";
 import { FormLabel, FormMessage } from "../ui/form";
-import { countries } from "@/lib/constants";
+import { currencyCountries } from "@/lib/constants";
 
 const ShippingAddressForm = ({
   shippingAddress,
@@ -95,11 +95,16 @@ const ShippingAddressForm = ({
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {countries.map((country) => (
-                      <SelectItem key={country.value} value={country.value}>
-                        {country.label}
-                      </SelectItem>
-                    ))}
+                    {currencyCountries
+                      .flatMap((country) => country.countries)
+                      .map((subCountry) => (
+                        <SelectItem
+                          key={subCountry.value}
+                          value={subCountry.value}
+                        >
+                          {subCountry.label}
+                        </SelectItem>
+                      ))}
                   </SelectGroup>
                 </SelectContent>
               </Select>

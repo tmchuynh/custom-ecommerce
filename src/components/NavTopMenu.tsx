@@ -1,7 +1,6 @@
 "use client";
-
 import { useCurrency } from "@/app/context/CurrencyContext";
-import { currencies } from "@/lib/constants";
+import { currencyCountries } from "@/lib/constants";
 import { ThemeToggle } from "./ThemeToggle";
 import {
   Select,
@@ -11,7 +10,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import CurrencyDebug from "./CurrencyDebug";
 
 export default function NavTopMenu() {
   const { selectedCurrency, setSelectedCurrency } = useCurrency();
@@ -25,7 +23,7 @@ export default function NavTopMenu() {
             <Select
               value={selectedCurrency.code}
               onValueChange={(code) => {
-                const currency = currencies.find((c) => c.code === code);
+                const currency = currencyCountries.find((c) => c.code === code);
                 if (currency) {
                   setSelectedCurrency(currency);
                 }
@@ -35,7 +33,7 @@ export default function NavTopMenu() {
                 <SelectValue placeholder="Select Currency" />
               </SelectTrigger>
               <SelectContent>
-                {currencies.map((currency, index) => (
+                {currencyCountries.map((currency, index) => (
                   <SelectItem
                     className="focus:bg-muted focus:text-muted-foreground"
                     key={currency.code}

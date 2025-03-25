@@ -1,17 +1,17 @@
 "use client";
 
+import { currencyCountries } from "@/lib/constants";
 import { Currency, ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, {
   createContext,
   useContext,
-  useMemo,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { useCurrency } from "./CurrencyContext";
-import { currencies } from "@/lib/constants";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
@@ -75,7 +75,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
     // Find the symbol for the current currency
     const currencySymbol =
-      currencies.find((c) => c.code === currencyToUse.code)?.symbol ||
+      currencyCountries.find((c) => c.code === currencyToUse.code)?.symbol ||
       currencyToUse.code;
 
     // Format the price with the currency symbol
@@ -98,7 +98,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     // Look up the symbol for this currency if not provided
     const currencySymbol =
       symbol ||
-      currencies.find((c) => c.code === currencyCode)?.symbol ||
+      currencyCountries.find((c) => c.code === currencyCode)?.symbol ||
       currencyCode;
 
     switch (currencyCode) {

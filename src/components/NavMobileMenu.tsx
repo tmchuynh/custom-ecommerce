@@ -1,6 +1,6 @@
 "use client";
 import { useCurrency } from "@/app/context/CurrencyContext";
-import { navigations, currencies } from "@/lib/constants";
+import { navigations, currencyCountries } from "@/lib/constants";
 import {
   Dialog,
   DialogBackdrop,
@@ -144,23 +144,27 @@ export default function NavMobileMenu() {
               <div className="-ml-2 inline-grid grid-cols-1">
                 <SelectGroup>
                   <Select
-                    value={selectedCurrency}
-                    onValueChange={setSelectedCurrency}
+                    value={selectedCurrency.code}
+                    onValueChange={(value) =>
+                      setSelectedCurrency(
+                        currencyCountries.find(
+                          (currency) => currency.code === value
+                        )!
+                      )
+                    }
                   >
-                    <SelectTrigger className="max-w-fit pr-7 pl-2 text-left text-base font-medium sm:text-sm/6 focus-visible:outline-none border-none focus-visible:ring-0">
-                      <SelectValue placeholder="Select Currency" />
-                    </SelectTrigger>
-
                     <SelectContent>
-                      {currencies.map((currency) => (
-                        <SelectItem
-                          className="focus:bg-muted focus:text-muted-foreground"
-                          key={currency}
-                          value={currency}
-                        >
-                          {currency}
-                        </SelectItem>
-                      ))}
+                      <SelectTrigger className="max-w-fit pr-7 pl-2 text-left text-base font-medium sm:text-sm/6 focus-visible:outline-none border-none focus-visible:ring-0">
+                        {currencyCountries.map((currency) => (
+                          <SelectItem
+                            className="focus:bg-muted focus:text-muted-foreground"
+                            key={currency.code}
+                            value={currency.code}
+                          >
+                            {currency.name}
+                          </SelectItem>
+                        ))}
+                      </SelectTrigger>
                     </SelectContent>
                   </Select>
                 </SelectGroup>

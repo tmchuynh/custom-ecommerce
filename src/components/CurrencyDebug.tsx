@@ -2,7 +2,7 @@
 
 import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { currencies } from "@/lib/constants";
+import { currencyCountries } from "@/lib/constants";
 
 /**
  * A debugging component to visualize currency conversions
@@ -16,7 +16,7 @@ export default function CurrencyDebug() {
   const testPrices = [10, 25, 50, 100, 999.99];
 
   // Find the selected currency details from the constants
-  const currencyDetails = currencies.find(
+  const currencyDetails = currencyCountries.find(
     (c) => c.code === selectedCurrency.code
   );
 

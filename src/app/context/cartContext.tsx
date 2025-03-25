@@ -1,10 +1,10 @@
 // cartContext.tsx
 "use client";
 
-import { countries } from "@/lib/constants";
+import { currencyCountries } from "@/lib/constants";
 import { CartContextType, CartItem } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -355,16 +355,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     country: string,
     method: ShippingMethod = "standard"
   ): number => {
-    const countryData = countries.find(
-      (c) => c.value.toLowerCase() === country.toLowerCase()
+    const countryData = currencyCountries.find((c) =>
+      c.countries.some(
+        (countryObj) => countryObj.value.toLowerCase() === country.toLowerCase()
+      )
     );
 
-    if (!countryData || countryData.distanceFactor === 0) {
+    if (!countryData || countryData.countries[0]?.distanceFactor === 0) {
       return 0; // No additional fee for USA or unknown countries
     }
 
     const baseFee = internationalShippingFees[method] || 0;
-    return baseFee + baseFee * countryData.distanceFactor;
+    const distanceFactor = countryData.countries[0]?.distanceFactor || 0;
+    return baseFee + baseFee * distanceFactor;
   };
 
   /**
