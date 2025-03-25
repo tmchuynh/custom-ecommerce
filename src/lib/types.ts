@@ -201,7 +201,7 @@ export type ProductType = {
   details: DetailItem[];
   colors: Color[];
   imageSrc: string;
-  quantity?: number;
+  quantity: number;
   price?: string;
   badge?: string;
 };
