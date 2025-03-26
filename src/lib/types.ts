@@ -221,7 +221,13 @@ export type OrderItemsProps = {
   handleNavigation: (destination: string) => boolean;
 };
 
-export type ShippingMethod = "standard" | "express" | "overnight";
+export type ShippingMethod =
+  | "standard"
+  | "economy"
+  | "twoDay"
+  | "express"
+  | "sameDay"
+  | "overnight";
 
 export type SortOption =
   | "price-low-to-high"

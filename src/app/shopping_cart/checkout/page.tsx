@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { validateCreditCard, validateEmail, validatePhone } from "@/lib/utils";
 import { useCart } from "../../context/cartContext";
-import { useCurrency } from "../../context/CurrencyContext";
 import { useState, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import {

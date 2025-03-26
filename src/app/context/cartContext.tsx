@@ -68,14 +68,29 @@ const getDeliveryWindowDates = (
 
   switch (method) {
     case "standard":
-      baseDelay = 2; // Base delay before delivery starts
-      baseWindowStart = 5; // Minimum delivery window (5 days)
-      baseWindowEnd = 7; // Maximum delivery window (7 days)
+      baseDelay = 9; // Base delay before delivery starts
+      baseWindowStart = 50; // Minimum delivery window (5 days)
+      baseWindowEnd = 55; // Maximum delivery window (7 days)
+      break;
+    case "economy":
+      baseDelay = 4; // Base delay before delivery starts
+      baseWindowStart = 10; // Minimum delivery window (5 days)
+      baseWindowEnd = 15; // Maximum delivery window (7 days)
       break;
     case "express":
-      baseDelay = 1; // Base delay before delivery starts
-      baseWindowStart = 2; // Minimum delivery window (2 days)
-      baseWindowEnd = 4; // Maximum delivery window (4 days)
+      baseDelay = 0; // Base delay before delivery starts
+      baseWindowStart = 1; // Minimum delivery window (2 days)
+      baseWindowEnd = 5; // Maximum delivery window (4 days)
+      break;
+    case "twoDay":
+      baseDelay = 0; // Base delay before delivery starts
+      baseWindowStart = 2; // Minimum delivery window (5 days)
+      baseWindowEnd = 2; // Maximum delivery window (7 days)
+      break;
+    case "sameDay":
+      baseDelay = -1; // Base delay before delivery starts
+      baseWindowStart = 0; // Minimum delivery window (5 days)
+      baseWindowEnd = 0; // Maximum delivery window (7 days)
       break;
     case "overnight":
       baseDelay = 0; // No delay for overnight shipping
@@ -210,14 +225,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   // Shipping rates table
   const shippingRates: Record<ShippingMethod, number> = {
     standard: 5.99,
+    economy: 3.99,
     express: 12.99,
+    twoDay: 14.99,
     overnight: 24.99,
+    sameDay: 29.99,
   };
 
   // International shipping fee rates
   const internationalShippingFees: Record<ShippingMethod, number> = {
     standard: 15.99,
+    economy: 9.99,
     express: 27.99,
+    twoDay: 29.99,
+    sameDay: 39.99,
     overnight: 49.99,
   };
 
@@ -362,11 +383,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     method: ShippingMethod = "standard"
   ): number => {
     const countryData = findCountryByValue(country);
-    console.log(
-      "countryData",
-      countryData,
-      "from calculateInternationalShippingFee"
-    );
     if (!countryData || countryData.distanceFactor === 0) {
       return 0;
     }
@@ -380,13 +396,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     let daysToAdd = 0;
     switch (method) {
       case "standard":
+        daysToAdd = 5;
+        break;
+      case "economy":
         daysToAdd = 4;
         break;
       case "express":
+        daysToAdd = 3;
+        break;
+      case "twoDay":
         daysToAdd = 2;
         break;
-      case "overnight":
+      case "sameDay":
         daysToAdd = 0;
+        break;
+      case "overnight":
+        daysToAdd = 1;
         break;
     }
     return addBusinessDays(today, daysToAdd);

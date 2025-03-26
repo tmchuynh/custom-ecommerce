@@ -13,8 +13,6 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { PaymentInfoFormProps } from "@/lib/types";
-import ShippingMethodSelector from "@/components/ShippingMethodSelector";
-import { Separator } from "@/components/ui/separator";
 
 const PaymentInfoForm = ({
   cardNumber,
