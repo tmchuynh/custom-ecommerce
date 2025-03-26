@@ -25,9 +25,12 @@ const ShippingMethodSelector: React.FC = () => {
         onChange={handleChange}
         className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       >
-        <option value="standard">Standard Shipping</option>
-        <option value="express">Express Shipping</option>
-        <option value="overnight">Overnight Shipping</option>
+        <option value="standard-ground">Standard Ground</option>
+        <option value="economy">Economy</option>
+        <option value="express">Expedited</option>
+        <option value="two-day">Two-Day</option>
+        <option value="same-day">Same-Day</option>
+        <option value="overnight">Overnight</option>
       </select>
     </div>
   );
