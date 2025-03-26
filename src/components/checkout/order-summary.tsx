@@ -6,7 +6,6 @@ import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { OrderSummaryProps } from "@/lib/types";
-import { capitalize } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
 const OrderSummary = ({
@@ -14,24 +13,22 @@ const OrderSummary = ({
   tax,
   shippingMethod,
   shipping,
-  internationalFee = 0,
+  vatTax,
+  importFees,
   isInternational = false,
   discountApplied,
   discountAmount,
-  discountedTotal,
   newDate,
   shippingCountry,
 }: OrderSummaryProps) => {
-  const {
-    getDeliveryDescription,
-    getDeliveryEstimateText,
-    getTotalPrice,
-    calculateInternationalShippingFee,
-  } = useCart();
+  const { getDeliveryDescription, getDeliveryEstimateText, getTotalPrice } =
+    useCart();
 
   const [deliveryInfo, setDeliveryInfo] = useState("");
   const { selectedCurrency } = useCurrency();
   const { convertPrice } = useProduct();
+
+  const totalPrice = getTotalPrice(shippingCountry);
 
   // Update delivery info whenever shipping method or country changes
   useEffect(() => {
@@ -63,23 +60,30 @@ const OrderSummary = ({
             </div>
           )}
 
-          <div className="flex justify-between">
-            <span>Tax</span>
-            <span>{convertPrice(tax, selectedCurrency)}</span>
-          </div>
-
-          {!isInternational && internationalFee === 0 && (
+          {!isInternational && (
             <div className="flex justify-between">
-              <span>{capitalize(shippingMethod)} Shipping Fee</span>
-              <span>{convertPrice(shipping, selectedCurrency)}</span>
+              <span>Tax</span>
+              <span>{convertPrice(tax, selectedCurrency)}</span>
             </div>
           )}
 
+          <div className="flex justify-between">
+            <span>Shipping Fee</span>
+            <span>{convertPrice(shipping, selectedCurrency)}</span>
+          </div>
+
           {/* Only show international fee if it's applicable */}
-          {isInternational && internationalFee > 0 && (
+          {isInternational && vatTax > 0 && (
             <div className="flex justify-between">
-              <span>International Shipping Fee</span>
-              <span>{convertPrice(internationalFee, selectedCurrency)}</span>
+              <span>International Tax</span>
+              <span>{convertPrice(vatTax, selectedCurrency)}</span>
+            </div>
+          )}
+
+          {isInternational && importFees > 0 && (
+            <div className="flex justify-between">
+              <span>International Importing Fee</span>
+              <span>{convertPrice(importFees, selectedCurrency)}</span>
             </div>
           )}
 
@@ -100,7 +104,7 @@ const OrderSummary = ({
 
           <div className="flex justify-between text-lg font-bold">
             <span>Total</span>
-            <span>{convertPrice(discountedTotal, selectedCurrency)}</span>
+            <span>{convertPrice(totalPrice, selectedCurrency)}</span>
           </div>
         </div>
       </CardContent>
