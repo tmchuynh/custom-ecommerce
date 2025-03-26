@@ -2,12 +2,15 @@
 
 import { useCart } from "@/app/context/cartContext";
 import { ShippingMethod } from "@/lib/types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   shippingCountry = "USA",
 }) => {
   const { selectedShippingMethod, updateShippingMethod } = useCart();
+  // Track the previous shipping country to handle changes
+  const [prevShippingCountry, setPrevShippingCountry] =
+    useState(shippingCountry);
 
   // Get the current hour (local time)
   const now = new Date();
@@ -25,6 +28,32 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   const isOvernightDisabledFinal = isOvernightDisabled || isInternational;
   const isSameDayDisabledFinal = isSameDayDisabled || isInternational;
 
+  // Handle shipping country changes
+  useEffect(() => {
+    if (prevShippingCountry !== shippingCountry) {
+      setPrevShippingCountry(shippingCountry);
+
+      // Check if current method is invalid with the new country
+      const isCurrentMethodInvalid =
+        (selectedShippingMethod === "overnight" && isOvernightDisabledFinal) ||
+        (selectedShippingMethod === "sameDay" && isSameDayDisabledFinal) ||
+        (selectedShippingMethod === "twoDay" && isTwoDayDisabled);
+
+      if (isCurrentMethodInvalid) {
+        updateShippingMethod("standard");
+      }
+    }
+  }, [
+    shippingCountry,
+    prevShippingCountry,
+    selectedShippingMethod,
+    updateShippingMethod,
+    isOvernightDisabledFinal,
+    isSameDayDisabledFinal,
+    isTwoDayDisabled,
+  ]);
+
+  // Original useEffect to handle invalid shipping methods but without shippingCountry dependency
   useEffect(() => {
     const isCurrentMethodInvalid =
       (selectedShippingMethod === "overnight" && isOvernightDisabledFinal) ||
@@ -40,7 +69,6 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
     isOvernightDisabledFinal,
     isSameDayDisabledFinal,
     isTwoDayDisabled,
-    shippingCountry, // Add dependency on shippingCountry to trigger re-evaluation
   ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
