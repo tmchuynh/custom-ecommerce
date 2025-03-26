@@ -29,7 +29,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "ASM",
         label: "American Samoa",
         distanceFactor: 0.2,
-        taxRate: 0,
+        taxRate: 0.1,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -303,7 +303,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "AUS",
         label: "Australia",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.1,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -504,7 +504,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "AUT",
         label: "Austria",
         distanceFactor: 0.7,
-        taxRate: 0,
+        taxRate: 0.2,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -520,7 +520,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BEL",
         label: "Belgium",
         distanceFactor: 0.7,
-        taxRate: 0,
+        taxRate: 0.21,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -728,7 +728,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "AND",
         label: "Andorra",
         distanceFactor: 0.8,
-        taxRate: 0,
+        taxRate: 0.045,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1742,7 +1742,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "ALB",
         label: "Albania",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.2,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1766,7 +1766,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "DZA",
         label: "Algeria",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.19,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1790,7 +1790,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "AGO",
         label: "Angola",
         distanceFactor: 0.2,
-        taxRate: 0,
+        taxRate: 0.14,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1814,7 +1814,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "ARG",
         label: "Argentina",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.21,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1838,7 +1838,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "ARM",
         label: "Armenia",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.2,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1862,7 +1862,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "ABW",
         label: "Aruba",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.07,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1886,7 +1886,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "AZE",
         label: "Azerbaijan",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.18,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1910,7 +1910,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BHS",
         label: "Bahamas",
         distanceFactor: 0.3,
-        taxRate: 0,
+        taxRate: 0.1,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1934,7 +1934,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BHR",
         label: "Bahrain",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.1,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -1982,7 +1982,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BRB",
         label: "Barbados",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.175,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -2006,7 +2006,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BLR",
         label: "Belarus",
         distanceFactor: 0.1,
-        taxRate: 0,
+        taxRate: 0.2,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {
@@ -2030,7 +2030,7 @@ export const currencyCountries: currencyCountriesInfo[] = [
         value: "BLZ",
         label: "Belize",
         distanceFactor: 0.8,
-        taxRate: 0,
+        taxRate: 0.125,
         shippingMultiplier: 0,
         shippingBase: 0,
         shippingRates: {

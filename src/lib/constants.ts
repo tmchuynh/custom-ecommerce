@@ -6,7 +6,6 @@ import {
 import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
 import { NavigationDetails } from "./types";
-import { currencyCountriesInfo } from "./interfaces";
 
 export const navigations: NavigationDetails = {
   categories: [
