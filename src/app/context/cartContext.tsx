@@ -60,66 +60,50 @@ const getDeliveryWindowDates = (
   const distanceFactor = countryData ? countryData.distanceFactor : 0;
 
   // Define base delays (in business days) and window lengths
-  let baseDelay: number,
-    baseWindowStart: number,
-    baseWindowEnd: number,
-    multiplierWindow: number,
-    multiplierStart: number;
+  let baseDelay: number, baseWindowStart: number, baseWindowEnd: number;
+
+  // Use multipliers that scale the distance factor into additional days
+  const multiplierStart = 0.1; // Adds extra delay based on distance
+  const multiplierWindow = 0.2; // Adds extra window length based on distance
 
   switch (method) {
     case "standard":
-      baseDelay = 4; // Base delay before delivery starts
+      baseDelay = 2; // Base delay before delivery starts
       baseWindowStart = 5; // Minimum delivery window (5 days)
-      baseWindowEnd = 5; // Maximum delivery window (7 days)
-      multiplierStart = 3; // Adjusted for standard shipping
-      multiplierWindow = 9; // Adjusted for standard shipping
+      baseWindowEnd = 7; // Maximum delivery window (7 days)
       break;
     case "express":
       baseDelay = 1; // Base delay before delivery starts
       baseWindowStart = 2; // Minimum delivery window (2 days)
       baseWindowEnd = 4; // Maximum delivery window (4 days)
-      multiplierStart = 2; // Adjusted for express shipping
-      multiplierWindow = 0.02; // Adjusted for express shipping
       break;
     case "overnight":
       baseDelay = 0; // No delay for overnight shipping
       baseWindowStart = 1; // Single-day delivery
       baseWindowEnd = 1; // Single-day delivery
-      multiplierStart = 0.05; // Adjusted for overnight shipping
-      multiplierWindow = 0.03; // Adjusted for overnight shipping
       break;
     default:
       baseDelay = 2; // Default to standard shipping
       baseWindowStart = 5;
       baseWindowEnd = 7;
-      multiplierStart = 0.02;
-      multiplierWindow = 0.01;
   }
 
   // Calculate additional delays and window adjustments based on distance factor
-  const additionalStartDelay = Math.round(
-    distanceFactor * multiplierStart * 100
-  );
+  const additionalStartDelay = Math.round(distanceFactor * multiplierStart);
   const additionalWindowAdjustment = Math.round(
-    distanceFactor * multiplierWindow * 100
+    distanceFactor * multiplierWindow
   );
-
-  console.log("additionalWindowAdjustment", additionalWindowAdjustment);
-  console.log("additionalStartDelay", additionalStartDelay);
-  console.log("baseDelay", baseDelay);
-  console.log("baseWindowEnd", baseWindowEnd);
-  console.log("baseWindowStart", baseWindowStart);
 
   // Calculate the start of the delivery window
   const windowStart = addBusinessDays(
     startDate,
-    baseDelay + additionalStartDelay - 3
+    baseDelay + additionalStartDelay
   );
 
   // Calculate the end of the delivery window
   const windowEnd = addBusinessDays(
     windowStart,
-    baseWindowEnd - baseWindowStart * additionalWindowAdjustment
+    baseWindowEnd - baseWindowStart + additionalWindowAdjustment
   );
 
   return { windowStart, windowEnd };
@@ -317,7 +301,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       (total, item) => total + Number(item.price) * item.quantity,
       0
     );
-    const shippingMethod = getShippingMethod(getTotalItems());
+    const shippingMethod = getShippingMethod();
     const shipping = calculateShippingCost(shippingMethod);
     const taxAmount = calculateTaxAmount(total);
     // For domestic, default country is assumed as "USA"
@@ -328,12 +312,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return (
       total + taxAmount + (internationalFee > 0 ? internationalFee : shipping)
     );
-  };
-
-  const getShippingMethod = (totalItems: number): ShippingMethod => {
-    if (totalItems >= 6) return "standard";
-    if (totalItems < 4) return "overnight";
-    return "express";
   };
 
   const itemExistsInCart = (name: string): boolean => {
@@ -434,6 +412,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const updateShippingMethod = (method: ShippingMethod): void => {
     setSelectedShippingMethod(method);
+  };
+
+  const getShippingMethod = (): ShippingMethod => {
+    return selectedShippingMethod;
   };
 
   // Returns a delivery estimate text (e.g. "Jun 15 - Jun 18")
