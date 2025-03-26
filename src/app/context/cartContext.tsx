@@ -2,7 +2,7 @@
 "use client";
 
 import { currencyCountries } from "@/lib/countriesConstant";
-import { CartContextType, CartItem } from "@/lib/interfaces";
+import { CartContextType, CartItem, CountryTaxInfo } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
 import React, {
   createContext,
@@ -12,6 +12,7 @@ import React, {
   JSX,
 } from "react";
 import { formatDate } from "@/lib/utils";
+import { countryTaxRates } from "@/lib/taxRatesConstant";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -34,10 +35,10 @@ const addBusinessDays = (date: Date, businessDays: number): Date => {
 const findCountryByValue = (
   targetValue: string
 ): { currencyCode: string; value: string; distanceFactor: number } | null => {
-  const normalizedTarget = targetValue.toLowerCase();
+  const normalizedTarget = targetValue.toUpperCase();
   for (const currency of currencyCountries) {
     const countryData = currency.countries.find(
-      (country) => country.value.toLowerCase() === normalizedTarget
+      (country) => country.value.toUpperCase() === normalizedTarget
     );
     if (countryData) {
       return {
@@ -201,6 +202,95 @@ const getDeliveryDescription = (
   return `arriving in ${formatDays(daysStart)} to ${formatDays(daysEnd)}`;
 };
 
+/**
+ * Get tax info for a country by its code
+ * @param countryCode The country code to look up
+ * @returns The tax information for the country, or a default tax structure
+ */
+export const getTaxInfoByCountryCode = (
+  countryCode: string
+): CountryTaxInfo => {
+  // Default to US tax info for safety
+  const defaultTaxInfo = countryTaxRates.find(
+    (country) => country.code === "USA"
+  ) || {
+    country: "Unknown",
+    code: "UNKNOWN",
+    vatRate: 0.0,
+    dutyRate: 0.0,
+    deMinimisDuty: 0,
+    deMinimisVAT: 0,
+    hasImportFees: false,
+  };
+
+  // Normalize the country code for comparison
+  const normalizedCode = countryCode.toUpperCase();
+
+  const taxInfo = countryTaxRates.find(
+    (country) => country.code.toUpperCase() === normalizedCode
+  ) || {
+    country: "Unknown",
+    code: "UNKNOWN",
+    vatRate: 0.0,
+    dutyRate: 0.0,
+    deMinimisDuty: 0,
+    deMinimisVAT: 0,
+    hasImportFees: false,
+  };
+
+  console.log("taxInfo", taxInfo);
+
+  // Find the country tax info
+  return taxInfo;
+};
+
+// Calculate import taxes for international orders
+const calculateImportTaxes = (
+  subtotal: number,
+  country: string
+): {
+  dutyAmount: number;
+  vatAmount: number;
+  totalImportCharges: number;
+  appliedDuty: boolean;
+  appliedVAT: boolean;
+} => {
+  // Get country tax info
+  const countryInfo = getTaxInfoByCountryCode(country);
+
+  // Default values
+  const result = {
+    dutyAmount: 0,
+    vatAmount: 0,
+    totalImportCharges: 0,
+    appliedDuty: false,
+    appliedVAT: false,
+  };
+
+  // If USA or unknown country, return default (no import taxes)
+  if (countryInfo.code === "USA" || countryInfo.code === "UNKNOWN") {
+    return result;
+  }
+
+  // Calculate duty if above de minimis threshold
+  if (subtotal > countryInfo.deMinimisDuty) {
+    result.dutyAmount = subtotal * countryInfo.dutyRate;
+    result.appliedDuty = true;
+  }
+
+  // Calculate VAT/GST if above de minimis threshold
+  if (subtotal > countryInfo.deMinimisVAT) {
+    // VAT is typically applied to (subtotal + duty)
+    result.vatAmount = subtotal * countryInfo.vatRate;
+    result.appliedVAT = true;
+  }
+
+  // Calculate total import charges
+  result.totalImportCharges = result.dutyAmount + result.vatAmount;
+
+  return result;
+};
+
 // -------------------
 // CartProvider Component
 // -------------------
@@ -305,39 +395,68 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
+  // Enhanced tax calculation with support for international rates
   const calculateTaxAmount = (
     total: number,
-    taxRate: number = 0.08
+    country: string = "USA"
   ): number => {
-    return total * taxRate;
+    // If USA, use standard domestic tax rate
+    if (country === "USA") {
+      const domesticTaxRate = 0.08; // 8% standard domestic tax rate
+      return total * domesticTaxRate;
+    }
+
+    // For international, calculate VAT/GST based on country-specific rates
+    const { vatAmount } = calculateImportTaxes(total, country);
+    return vatAmount;
   };
 
   const getTotalItems = (): number => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
-  // Returns total price (domestic version; modify if you want to pass a country)
-  const getTotalPrice = (shippingCountry: string): number => {
+  // Enhanced total price calculation with import taxes
+  const getTotalPrice = (shippingCountry: string = "USA"): number => {
     const countryData = findCountryByValue(shippingCountry);
     if (!countryData) {
       return 0;
     }
-    const total = cartItems.reduce(
+
+    // Calculate subtotal
+    const subtotal = cartItems.reduce(
       (total, item) => total + Number(item.price) * item.quantity,
       0
     );
+
+    // Get shipping method and costs
     const shippingMethod = getShippingMethod();
     const shipping = calculateShippingCost(shippingMethod);
-    // For domestic, default country is assumed as "USA"
+
+    // Get international fee if applicable
     const internationalFee = calculateInternationalShippingFee(
       shippingCountry,
       shippingMethod
     );
-    const taxAmount = calculateTaxAmount(total);
 
-    return (
-      total + taxAmount + (internationalFee > 0 ? internationalFee : shipping)
-    );
+    // Use appropriate shipping cost (domestic or international)
+    const shippingCost = internationalFee > 0 ? internationalFee : shipping;
+
+    // Calculate taxes and import charges
+    const isInternational = shippingCountry !== "USA" && shippingCountry !== "";
+
+    if (isInternational) {
+      // For international orders, calculate import taxes
+      const importTaxes = calculateImportFee(subtotal, shippingCountry);
+      if (importTaxes > 0) {
+        return subtotal + shippingCost + importTaxes;
+      } else {
+        return subtotal + shippingCost;
+      }
+    } else {
+      // For domestic orders, calculate normal sales tax
+      const taxAmount = calculateTaxAmount(subtotal, "USA");
+      return subtotal + shippingCost + taxAmount;
+    }
   };
 
   const itemExistsInCart = (name: string): boolean => {
@@ -388,7 +507,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     method: ShippingMethod = "standard"
   ): number => {
     const countryData = findCountryByValue(country);
-    if (!countryData || countryData.distanceFactor === 0) {
+    if (!countryData) {
       return 0;
     }
     const baseFee = internationalShippingFees[method] || 0;
@@ -471,6 +590,82 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return `${formattedWindowStart} - ${formattedWindowEnd}`; // Delivery window
   };
 
+  const calculateImportFee = (value: number, countryCode: string): number => {
+    // Find the country object from the array
+    console.log("Country Code Passed:", countryCode);
+    const defaultCountryData = {
+      country: "Unknown",
+      code: "UNKNOWN",
+      vatRate: 0.0,
+      dutyRate: 0.0,
+      deMinimisDuty: 0,
+      deMinimisVAT: 0,
+      hasImportFees: false,
+    };
+
+    const country =
+      countryTaxRates.find((rate) => rate.code === countryCode) ||
+      defaultCountryData;
+
+    if (!country) {
+      console.error("Country not found in countryTaxRates:", countryCode);
+      throw new Error("Country not found");
+    }
+
+    if (!country) {
+      throw new Error("Country not found");
+    }
+
+    // If the country doesn't apply import fees, return 0
+    if (!country.hasImportFees) {
+      return 0;
+    }
+
+    // Check if value is below the de minimis thresholds
+    if (value <= country.deMinimisVAT) {
+      return 0; // No VAT if value is below the VAT threshold
+    }
+
+    // Calculate VAT (GST)
+    const gst = value * country.vatRate;
+
+    // Calculate customs duty if applicable
+    const customsDuty =
+      value > country.deMinimisDuty ? value * country.dutyRate : 0;
+
+    // Total import fee is the sum of VAT and customs duty
+    return gst + customsDuty;
+  };
+
+  // Get detailed import tax breakdown
+  const getImportTaxBreakdown = (
+    country: string
+  ): {
+    duty: number;
+    vat: number;
+    total: number;
+    subtotal: number;
+    shipping: number;
+    grandTotal: number;
+  } => {
+    const subtotal = getSubTotal();
+    const { dutyAmount, vatAmount, totalImportCharges } = calculateImportTaxes(
+      subtotal,
+      country
+    );
+    const shippingMethod = getShippingMethod();
+    const shipping = calculateInternationalShippingFee(country, shippingMethod);
+
+    return {
+      duty: dutyAmount,
+      vat: vatAmount,
+      total: totalImportCharges,
+      subtotal: subtotal,
+      shipping: shipping,
+      grandTotal: subtotal + shipping + totalImportCharges,
+    };
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -500,6 +695,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         getDeliveryWindowDates,
         getDeliveryDescription,
         getDeliveryEstimateText,
+        getImportTaxBreakdown,
       }}
     >
       {children}

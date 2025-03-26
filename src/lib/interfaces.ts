@@ -119,7 +119,7 @@ export interface CartContextType {
   clearCart: () => void;
   getCartItem: (name: string) => CartItem | undefined;
   updateQuantity: (id: string, quantity: number) => void;
-  calculateTaxAmount: (total: number, taxRate?: number) => number;
+  calculateTaxAmount: (total: number, country: string) => number;
   getTotalPrice: (country: string) => number;
   getSubTotal: () => number;
   getTotalItems: () => number;
@@ -152,6 +152,26 @@ export interface CartContextType {
   selectedShippingMethod: ShippingMethod;
   updateShippingMethod: (method: ShippingMethod) => void;
   getDeliveryEstimateText: (shippingCountry: string) => string;
+
+  // Add the new import tax breakdown function
+  getImportTaxBreakdown: (country: string) => {
+    duty: number;
+    vat: number;
+    total: number;
+    subtotal: number;
+    shipping: number;
+    grandTotal: number;
+  };
+}
+
+export interface CountryTaxInfo {
+  country: string;
+  code: string;
+  vatRate: number; // VAT/GST rate in decimal (e.g., 0.19 for 19%)
+  dutyRate: number; // Duty rate in decimal
+  deMinimisDuty: number; // De minimis threshold for duty in USD
+  deMinimisVAT: number; // De minimis threshold for VAT/GST in USD
+  hasImportFees: boolean; // Whether the country applies additional import processing fees
 }
 
 export interface currencyCountriesInfo {
