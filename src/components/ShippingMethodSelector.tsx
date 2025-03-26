@@ -15,7 +15,7 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
 
   // Determine if specific shipping methods should be disabled
   const isOvernightDisabled = currentHour >= 21 || currentHour <= 5; // After 9 PM
-  const isSameDayDisabled = currentHour >= 0; // After 2 PM
+  const isSameDayDisabled = currentHour >= 14; // After 2 PM
 
   // Check if the shipping address is international (non-US)
   const isInternational = shippingCountry !== "USA" && shippingCountry !== "";
@@ -25,26 +25,21 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   const isOvernightDisabledFinal = isOvernightDisabled || isInternational;
   const isSameDayDisabledFinal = isSameDayDisabled || isInternational;
 
-  // If the currently selected shipping method becomes invalid,
-  // automatically update to a fallback option (here, "standard")
   useEffect(() => {
-    // Check if current shipping method is invalid for the current conditions
     const isCurrentMethodInvalid =
       (selectedShippingMethod === "overnight" && isOvernightDisabledFinal) ||
       (selectedShippingMethod === "sameDay" && isSameDayDisabledFinal) ||
       (selectedShippingMethod === "twoDay" && isTwoDayDisabled);
 
-    // Update to standard shipping if needed
     if (isCurrentMethodInvalid) {
       updateShippingMethod("standard");
     }
   }, [
     selectedShippingMethod,
     updateShippingMethod,
-    // Use a boolean for the combined conditions to maintain array size
-    isOvernightDisabledFinal && selectedShippingMethod === "overnight",
-    isSameDayDisabledFinal && selectedShippingMethod === "sameDay",
-    isTwoDayDisabled && selectedShippingMethod === "twoDay",
+    isOvernightDisabledFinal,
+    isSameDayDisabledFinal,
+    isTwoDayDisabled,
   ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -73,11 +68,15 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
           {isTwoDayDisabled && "(not available for international shipping)"}
         </option>
         <option value="overnight" disabled={isOvernightDisabledFinal}>
-          Overnight {isOvernightDisabled && "(not available after 9pm)"}
+          Overnight{" "}
+          {isOvernightDisabled &&
+            !isInternational &&
+            "(not available after 9pm)"}
           {isInternational && "(not available for international shipping)"}
         </option>
         <option value="sameDay" disabled={isSameDayDisabledFinal}>
-          Same-Day {isSameDayDisabled && "(not available after 2pm)"}
+          Same-Day{" "}
+          {isSameDayDisabled && !isInternational && "(not available after 2pm)"}
           {isInternational && "(not available for international shipping)"}
         </option>
       </select>
