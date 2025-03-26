@@ -221,31 +221,6 @@ export type OrderItemsProps = {
   handleNavigation: (destination: string) => boolean;
 };
 
-export type currencyCountries = {
-  code: string;
-  name: string;
-  symbol: string;
-  rate: number;
-  countries: CountriesInformation[];
-};
-
-export type CountriesInformation = {
-  value: string;
-  label: string;
-  distanceFactor: number;
-  taxRate: number;
-  shippingMultiplier: number;
-  shippingBase: number;
-  shippingRates: {
-    standard: number;
-    economy: number;
-    twoDay: number;
-    expedited: number;
-    sameDay: number;
-    overnight: number;
-  };
-};
-
 export type ShippingMethod =
   | "standard"
   | "economy"

@@ -6,7 +6,9 @@ import {
 import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
 import { Fa500Px } from "react-icons/fa";
 import { NavigationDetails } from "./types";
-export const currencyCountries = [
+import { currencyCountriesInfo } from "./interfaces";
+
+export const currencyCountries: currencyCountriesInfo[] = [
   // United States Dollar (USD)
   {
     code: "USD",

@@ -154,6 +154,31 @@ export interface CartContextType {
   getDeliveryEstimateText: (shippingCountry: string) => string;
 }
 
+export interface currencyCountriesInfo {
+  code: string;
+  name: string;
+  symbol: string;
+  rate: number;
+  countries: CountriesInformation[];
+}
+
+export interface CountriesInformation {
+  value: string;
+  label: string;
+  distanceFactor: number;
+  taxRate: number;
+  shippingMultiplier: number;
+  shippingBase: number;
+  shippingRates: {
+    standard: number;
+    economy: number;
+    twoDay: number;
+    expedited: number;
+    sameDay: number;
+    overnight: number;
+  };
+}
+
 export interface ProductContextType {
   getProductByName: (name: string) => ProductType | undefined;
   getProductsByCategory: (categoryObj: Record<string, any>) => any;
