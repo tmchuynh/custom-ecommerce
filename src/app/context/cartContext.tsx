@@ -62,60 +62,49 @@ const getDeliveryWindowDates = (
   const countryData = findCountryByValue(country);
   const distanceFactor = countryData ? countryData.distanceFactor : 0;
 
-  // Define base delays (in business days) and window lengths
-  let baseDelay: number,
-    baseWindowStart: number,
-    baseWindowEnd: number,
-    multiplierWindow: number,
-    multiplierStart: number;
+  // Set base delivery windows according to shipping method
+  let baseStartDays: number, baseEndDays: number;
 
   switch (method) {
     case "standard":
-      baseDelay = 1; // Base delay before delivery starts
-      baseWindowStart = 5; // Minimum delivery window (5 days)
-      baseWindowEnd = 7; // Maximum delivery window (7 days)
-      multiplierStart = 1.5; // Adjusted for standard shipping
-      multiplierWindow = 2; // Adjusted for standard shipping
+      // Standard: 5-10 days
+      baseStartDays = 5;
+      baseEndDays = 10;
       break;
     case "express":
-      baseDelay = 1; // Base delay before delivery starts
-      baseWindowStart = 2; // Minimum delivery window (2 days)
-      baseWindowEnd = 4; // Maximum delivery window (4 days)
-      multiplierStart = 0.03; // Adjusted for express shipping
-      multiplierWindow = 0.02; // Adjusted for express shipping
+      // Express: 4-6 days
+      baseStartDays = 4;
+      baseEndDays = 6;
       break;
     case "overnight":
-      baseDelay = 0; // No delay for overnight shipping
-      baseWindowStart = 1; // Single-day delivery
-      baseWindowEnd = 1; // Single-day delivery
-      multiplierStart = 0.05; // Adjusted for overnight shipping
-      multiplierWindow = 0.03; // Adjusted for overnight shipping
+      // Overnight: next day
+      baseStartDays = 1;
+      baseEndDays = 1;
       break;
     default:
-      baseDelay = 2; // Default to standard shipping
-      baseWindowStart = 5;
-      baseWindowEnd = 7;
-      multiplierStart = 0.02;
-      multiplierWindow = 0.01;
+      baseStartDays = 5;
+      baseEndDays = 10;
+      break;
   }
 
-  // Calculate additional delays and window adjustments based on distance factor
-  const additionalStartDelay = Math.round(distanceFactor * multiplierStart);
-  const additionalWindowAdjustment = Math.round(
-    distanceFactor * multiplierWindow
-  );
+  // Add distance factor impact - longer distance means more delivery time
+  // But don't apply distance factor to overnight shipping
+  if (method !== "overnight") {
+    // Apply stronger distance impact to standard shipping
+    const distanceImpact =
+      method === "standard"
+        ? Math.ceil(distanceFactor * 3)
+        : Math.ceil(distanceFactor * 1.5);
 
-  // Calculate the start of the delivery window
-  const windowStart = addBusinessDays(
-    startDate,
-    baseDelay + additionalStartDelay - 3
-  );
+    baseStartDays += distanceImpact;
+    baseEndDays += distanceImpact;
+  }
 
-  // Calculate the end of the delivery window
-  const windowEnd = addBusinessDays(
-    windowStart,
-    baseWindowEnd - baseWindowStart * additionalWindowAdjustment
-  );
+  // Calculate the window start date (from today)
+  const windowStart = addBusinessDays(startDate, baseStartDays - 1);
+
+  // Calculate the window end date (from windowStart)
+  const windowEnd = addBusinessDays(startDate, baseEndDays - 1);
 
   return { windowStart, windowEnd };
 };
@@ -126,75 +115,50 @@ const getDeliveryDescription = (
   startDate: Date,
   country: string
 ): string => {
+  // Calculate the delivery window dates (used for the date display)
   const { windowStart, windowEnd } = getDeliveryWindowDates(
     method,
     startDate,
     country
   );
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
 
-  // Calculate the exact number of milliseconds between dates
-  const diffInDays = (from: Date, to: Date): number => {
-    // Convert both dates to UTC midnight to avoid time zone issues
-    const fromUTC = new Date(
-      Date.UTC(from.getFullYear(), from.getMonth(), from.getDate())
-    );
-    const toUTC = new Date(
-      Date.UTC(to.getFullYear(), to.getMonth(), to.getDate())
-    );
-
-    // Calculate the difference in days (1000ms * 60s * 60min * 24hr = 86400000ms per day)
-    return Math.round((toUTC.getTime() - fromUTC.getTime()) / 86400000);
-  };
-
-  const daysStart = diffInDays(today, windowStart);
-  const daysEnd = diffInDays(today, windowEnd);
-
-  const formatDays = (days: number): string => {
-    if (days === 0) {
-      return "today";
-    } else if (days === 1) {
-      return "tomorrow";
-    } else if (days <= 7) {
-      // Simple days if less than or equal to a week
-      return `${days} days`;
-    } else if (days <= 30) {
-      // Calculate full weeks and remaining days
-      const weeks = Math.floor(days / 7);
-      const remainingDays = days % 7;
-
-      if (remainingDays === 0) {
-        return `${weeks} ${weeks === 1 ? "week" : "weeks"}`;
-      } else {
-        return `${weeks} ${
-          weeks === 1 ? "week" : "weeks"
-        } and ${remainingDays} ${remainingDays === 1 ? "day" : "days"}`;
-      }
-    } else {
-      // Calculate months, weeks for longer periods
-      const months = Math.floor(days / 30);
-      const remainingDays = days % 30;
-      const weeks = Math.floor(remainingDays / 7);
-
-      if (remainingDays === 0) {
-        return `${months} ${months === 1 ? "month" : "months"}`;
-      } else if (weeks === 0) {
-        return `${months} ${
-          months === 1 ? "month" : "months"
-        } and ${remainingDays} ${remainingDays === 1 ? "day" : "days"}`;
-      } else {
-        return `${months} ${months === 1 ? "month" : "months"} and ${weeks} ${
-          weeks === 1 ? "week" : "weeks"
-        }`;
-      }
-    }
-  };
-
-  if (daysStart === daysEnd) {
-    return `arriving in ${formatDays(daysStart)}`;
+  // Define the base shipping days (ignoring distance factor adjustments)
+  let baseStartDays: number, baseEndDays: number;
+  switch (method) {
+    case "standard":
+      baseStartDays = 5;
+      baseEndDays = 10;
+      break;
+    case "express":
+      baseStartDays = 4;
+      baseEndDays = 6;
+      break;
+    case "overnight":
+      baseStartDays = 1;
+      baseEndDays = 1;
+      break;
+    default:
+      baseStartDays = 5;
+      baseEndDays = 10;
+      break;
   }
-  return `arriving in ${formatDays(daysStart)} to ${formatDays(daysEnd)}`;
+
+  // Helper to format the day count into a descriptive string.
+  // Returns "today" if 0, "tomorrow" if 1, or "X days" otherwise.
+  const formatDays = (days: number): string => {
+    if (days === 0) return "today";
+    if (days === 1) return "tomorrow";
+    return `${days} day${days !== 1 ? "s" : ""}`;
+  };
+
+  // If both start and end are the same, return a single value;
+  // otherwise, return a range.
+  if (baseStartDays === baseEndDays) {
+    return `arriving in ${formatDays(baseStartDays)}`;
+  }
+  return `arriving in ${formatDays(baseStartDays)} to ${formatDays(
+    baseEndDays
+  )}`;
 };
 
 // -------------------
