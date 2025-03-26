@@ -2,7 +2,7 @@
 
 import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { currencyCountries } from "@/lib/constants";
+import { currencyCountries } from "@/lib/countriesConstant";
 
 /**
  * A debugging component to visualize currency conversions

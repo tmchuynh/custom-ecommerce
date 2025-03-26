@@ -1,7 +1,7 @@
 // cartContext.tsx
 "use client";
 
-import { currencyCountries } from "@/lib/constants";
+import { currencyCountries } from "@/lib/countriesConstant";
 import { CartContextType, CartItem } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
 import React, {

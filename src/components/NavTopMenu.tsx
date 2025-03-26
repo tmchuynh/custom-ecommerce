@@ -1,6 +1,6 @@
 "use client";
 import { useCurrency } from "@/app/context/CurrencyContext";
-import { currencyCountries } from "@/lib/constants";
+import { currencyCountries } from "@/lib/countriesConstant";
 import { ThemeToggle } from "./ThemeToggle";
 import {
   Select,
