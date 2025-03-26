@@ -328,12 +328,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     );
     const shippingMethod = getShippingMethod();
     const shipping = calculateShippingCost(shippingMethod);
-    const taxAmount = calculateTaxAmount(total);
     // For domestic, default country is assumed as "USA"
     const internationalFee = calculateInternationalShippingFee(
       shippingCountry,
       shippingMethod
     );
+    const taxAmount = calculateTaxAmount(total);
+
     return (
       total + taxAmount + (internationalFee > 0 ? internationalFee : shipping)
     );
