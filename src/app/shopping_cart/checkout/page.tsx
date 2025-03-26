@@ -39,6 +39,7 @@ const CheckoutPage = () => {
     startCheckout,
     getEstimatedDeliveryDate,
     selectedShippingMethod,
+    getImportTaxBreakdown,
   } = useCart();
 
   // Discount state
@@ -73,13 +74,11 @@ const CheckoutPage = () => {
 
   // Calculate values for order summary
   const subtotal = getSubTotal();
-  const tax = calculateTaxAmount(subtotal);
+  const tax = calculateTaxAmount(subtotal, shippingCountry);
+  const internationalTax = getImportTaxBreakdown(shippingCountry);
+
+  console.log("internationalTax", internationalTax);
   // Use the selected shipping method instead of the auto-determined one
-  const shipping = calculateShippingCost(selectedShippingMethod);
-  const internationalFee = calculateInternationalShippingFee(
-    shippingCountry,
-    selectedShippingMethod
-  );
 
   // Add this ref to track previous shipping method
   const prevShippingMethod = useRef(selectedShippingMethod);
@@ -461,12 +460,12 @@ const CheckoutPage = () => {
               subtotal={subtotal}
               tax={tax}
               shippingMethod={selectedShippingMethod}
-              shipping={shipping}
-              internationalFee={internationalFee}
+              shipping={internationalTax.shipping}
+              vatTax={internationalTax.vat}
+              importFees={internationalTax.duty}
               newDate={estimatedDeliveryDate || new Date()}
               discountApplied={discountApplied}
               discountAmount={discountAmount}
-              discountedTotal={discountedTotal}
               isInternational={
                 shippingCountry.toLowerCase() !== "usa" &&
                 shippingCountry.toLowerCase() !== "united states" &&
