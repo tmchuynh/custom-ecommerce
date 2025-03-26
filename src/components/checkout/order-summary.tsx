@@ -65,7 +65,7 @@ const OrderSummary = ({
 
           {!isInternational && internationalFee === 0 && (
             <div className="flex justify-between">
-              <span>{capitalize(shippingMethod)} Shipping</span>
+              <span>{capitalize(shippingMethod)} Shipping Fee</span>
               <span>{convertPrice(shipping, selectedCurrency)}</span>
             </div>
           )}
