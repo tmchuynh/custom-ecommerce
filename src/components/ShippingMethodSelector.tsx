@@ -2,10 +2,34 @@
 
 import { useCart } from "@/app/context/cartContext";
 import { ShippingMethod } from "@/lib/types";
-import React from "react";
+import React, { useEffect } from "react";
 
 const ShippingMethodSelector: React.FC = () => {
   const { selectedShippingMethod, updateShippingMethod } = useCart();
+
+  // Get the current hour (local time)
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  // Determine if specific shipping methods should be disabled
+  const isOvernightDisabled = currentHour >= 21; // After 9 PM
+  const isSameDayDisabled = currentHour >= 14; // After 2 PM
+
+  // If the currently selected shipping method becomes invalid,
+  // automatically update to a fallback option (here, "standard")
+  useEffect(() => {
+    if (selectedShippingMethod === "overnight" && isOvernightDisabled) {
+      updateShippingMethod("standard");
+    }
+    if (selectedShippingMethod === "sameDay" && isSameDayDisabled) {
+      updateShippingMethod("standard");
+    }
+  }, [
+    selectedShippingMethod,
+    isOvernightDisabled,
+    isSameDayDisabled,
+    updateShippingMethod,
+  ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     updateShippingMethod(e.target.value as ShippingMethod);
@@ -29,8 +53,12 @@ const ShippingMethodSelector: React.FC = () => {
         <option value="economy">Economy</option>
         <option value="express">Expedited</option>
         <option value="twoDay">Two-Day</option>
-        <option value="sameDay">Same-Day</option>
-        <option value="overnight">Overnight</option>
+        <option value="overnight" disabled={isOvernightDisabled}>
+          Overnight {isOvernightDisabled && "(not available after 9pm)"}
+        </option>
+        <option value="sameDay" disabled={isSameDayDisabled}>
+          Same-Day {isSameDayDisabled && "(not available after 2pm)"}
+        </option>
       </select>
     </div>
   );
