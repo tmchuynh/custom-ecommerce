@@ -453,7 +453,7 @@ const CheckoutPage = () => {
             />
 
             {/* Shipping Method Selector */}
-            <ShippingMethodSelector />
+            <ShippingMethodSelector shippingCountry={shippingCountry} />
 
             {/* Order Summary Section */}
             <OrderSummary
