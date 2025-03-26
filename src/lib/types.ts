@@ -225,7 +225,7 @@ export type ShippingMethod =
   | "standard"
   | "economy"
   | "twoDay"
-  | "express"
+  | "expedited"
   | "sameDay"
   | "overnight";
 

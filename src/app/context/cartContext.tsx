@@ -77,7 +77,7 @@ const getDeliveryWindowDates = (
       baseWindowStart = 10; // Minimum delivery window (5 days)
       baseWindowEnd = 15; // Maximum delivery window (7 days)
       break;
-    case "express":
+    case "expedited":
       baseDelay = 0; // Base delay before delivery starts
       baseWindowStart = 1; // Minimum delivery window (2 days)
       baseWindowEnd = 5; // Maximum delivery window (4 days)
@@ -224,22 +224,22 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Shipping rates table
   const shippingRates: Record<ShippingMethod, number> = {
-    standard: 5.99,
-    economy: 3.99,
-    express: 12.99,
-    twoDay: 14.99,
-    overnight: 24.99,
-    sameDay: 29.99,
+    standard: 5.25,
+    economy: 8.0,
+    expedited: 15.0,
+    twoDay: 20.0,
+    overnight: 35.0,
+    sameDay: 100.0,
   };
 
   // International shipping fee rates
   const internationalShippingFees: Record<ShippingMethod, number> = {
-    standard: 15.99,
-    economy: 9.99,
-    express: 27.99,
-    twoDay: 29.99,
-    sameDay: 39.99,
-    overnight: 49.99,
+    standard: 35.0,
+    economy: 50.0,
+    expedited: 70.0,
+    twoDay: 85.0,
+    sameDay: 500.0,
+    overnight: 150.0,
   };
 
   // Rehydrate cart items from localStorage on mount
@@ -401,7 +401,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       case "economy":
         daysToAdd = 4;
         break;
-      case "express":
+      case "expedited":
         daysToAdd = 3;
         break;
       case "twoDay":
@@ -461,9 +461,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
     // Return the delivery estimate text
     if (formattedWindowStart === formattedWindowEnd) {
-      return `Estimated delivery: ${formattedWindowStart}`; // Single-day delivery
+      return `${formattedWindowStart}`; // Single-day delivery
     }
-    return `Estimated delivery: ${formattedWindowStart} - ${formattedWindowEnd}`; // Delivery window
+    return `${formattedWindowStart} - ${formattedWindowEnd}`; // Delivery window
   };
 
   return (
