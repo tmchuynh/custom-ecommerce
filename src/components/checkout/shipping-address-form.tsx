@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/select";
 import { ShippingAddressFormProps } from "@/lib/types";
 import { FormLabel, FormMessage } from "../ui/form";
-import { currencyCountries } from "@/lib/constants";
 import ShippingMethodSelector from "@/components/ShippingMethodSelector";
+import { currencyCountries } from "@/lib/countriesConstant";
 
 const ShippingAddressForm = ({
   shippingAddress,
