@@ -240,11 +240,11 @@ export type OrderSummaryProps = {
   tax: number;
   shippingMethod: ShippingMethod;
   shipping: number;
-  internationalFee?: number;
+  vatTax: number;
+  importFees: number;
   isInternational?: boolean;
   discountApplied: boolean;
   discountAmount: number;
-  discountedTotal: number;
   newDate: Date;
   shippingCountry: string;
 };
