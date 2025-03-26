@@ -276,9 +276,9 @@ const CheckoutPage = () => {
   };
 
   // Calculate the discount amount
-  const originalTotal = getTotalPrice();
+  const originalTotal = getTotalPrice(shippingCountry);
   const discountedTotal = discountApplied
-    ? getDiscountedTotal()
+    ? getDiscountedTotal(shippingCountry)
     : originalTotal;
   const discountAmount = originalTotal - discountedTotal;
 

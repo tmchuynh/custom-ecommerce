@@ -28,19 +28,23 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   // If the currently selected shipping method becomes invalid,
   // automatically update to a fallback option (here, "standard")
   useEffect(() => {
-    if (
+    // Check if current shipping method is invalid for the current conditions
+    const isCurrentMethodInvalid =
       (selectedShippingMethod === "overnight" && isOvernightDisabledFinal) ||
       (selectedShippingMethod === "sameDay" && isSameDayDisabledFinal) ||
-      (selectedShippingMethod === "twoDay" && isTwoDayDisabled)
-    ) {
+      (selectedShippingMethod === "twoDay" && isTwoDayDisabled);
+
+    // Update to standard shipping if needed
+    if (isCurrentMethodInvalid) {
       updateShippingMethod("standard");
     }
   }, [
     selectedShippingMethod,
-    isOvernightDisabledFinal,
-    isSameDayDisabledFinal,
-    isTwoDayDisabled,
     updateShippingMethod,
+    // Use a boolean for the combined conditions to maintain array size
+    isOvernightDisabledFinal && selectedShippingMethod === "overnight",
+    isSameDayDisabledFinal && selectedShippingMethod === "sameDay",
+    isTwoDayDisabled && selectedShippingMethod === "twoDay",
   ]);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

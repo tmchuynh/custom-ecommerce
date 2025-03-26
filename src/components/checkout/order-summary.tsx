@@ -22,7 +22,12 @@ const OrderSummary = ({
   newDate,
   shippingCountry,
 }: OrderSummaryProps) => {
-  const { getDeliveryDescription, getDeliveryEstimateText } = useCart();
+  const {
+    getDeliveryDescription,
+    getDeliveryEstimateText,
+    getTotalPrice,
+    calculateInternationalShippingFee,
+  } = useCart();
 
   const [deliveryInfo, setDeliveryInfo] = useState("");
   const { selectedCurrency } = useCurrency();

@@ -317,7 +317,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Returns total price (domestic version; modify if you want to pass a country)
-  const getTotalPrice = (): number => {
+  const getTotalPrice = (shippingCountry: string): number => {
+    const countryData = findCountryByValue(shippingCountry);
+    if (!countryData) {
+      return 0;
+    }
     const total = cartItems.reduce(
       (total, item) => total + Number(item.price) * item.quantity,
       0
@@ -327,7 +331,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     const taxAmount = calculateTaxAmount(total);
     // For domestic, default country is assumed as "USA"
     const internationalFee = calculateInternationalShippingFee(
-      "USA",
+      shippingCountry,
       shippingMethod
     );
     return (
@@ -349,8 +353,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return false;
   };
 
-  const getDiscountedTotal = (): number => {
-    const subtotal = getTotalPrice();
+  const getDiscountedTotal = (shippingCountry: string): number => {
+    const subtotal = getTotalPrice(shippingCountry);
     return discountAmount > 0 ? subtotal * (1 - discountAmount) : subtotal;
   };
 
