@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { OrderItemsProps } from "@/lib/types";
 import { useProduct } from "@/app/context/productContext";
+import { cn } from "@/lib/utils";
 
 const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
   const { selectedCurrency } = useCurrency();
@@ -27,7 +28,10 @@ const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex justify-between items-center border-b pb-4"
+              className={cn("flex justify-between items-center pb-4", {
+                "border-b border-divider":
+                  item.id !== cartItems[cartItems.length - 1].id,
+              })}
             >
               <div className="flex gap-4 items-center">
                 <Skeleton className="h-16 w-16 rounded-md" />

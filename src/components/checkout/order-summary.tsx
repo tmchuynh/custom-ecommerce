@@ -5,7 +5,7 @@ import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { OrderSummaryProps, ShippingMethod } from "@/lib/types";
+import { OrderSummaryProps } from "@/lib/types";
 import { capitalize } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
