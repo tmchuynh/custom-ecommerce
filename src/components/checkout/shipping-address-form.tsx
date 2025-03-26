@@ -13,6 +13,7 @@ import {
 import { ShippingAddressFormProps } from "@/lib/types";
 import { FormLabel, FormMessage } from "../ui/form";
 import { currencyCountries } from "@/lib/constants";
+import ShippingMethodSelector from "@/components/ShippingMethodSelector";
 
 const ShippingAddressForm = ({
   shippingAddress,
@@ -109,6 +110,10 @@ const ShippingAddressForm = ({
                 </SelectContent>
               </Select>
             </div>
+          </div>
+
+          <div className="mt-4">
+            <ShippingMethodSelector shippingCountry={shippingCountry} />
           </div>
         </div>
       </CardContent>
