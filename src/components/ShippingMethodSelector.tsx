@@ -14,8 +14,8 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   const currentHour = now.getHours();
 
   // Determine if specific shipping methods should be disabled
-  const isOvernightDisabled = currentHour >= 21; // After 9 PM
-  const isSameDayDisabled = currentHour >= 14; // After 2 PM
+  const isOvernightDisabled = currentHour >= 21 || currentHour <= 5; // After 9 PM
+  const isSameDayDisabled = currentHour >= 0; // After 2 PM
 
   // Check if the shipping address is international (non-US)
   const isInternational = shippingCountry !== "USA" && shippingCountry !== "";
@@ -74,15 +74,11 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
         </option>
         <option value="overnight" disabled={isOvernightDisabledFinal}>
           Overnight {isOvernightDisabled && "(not available after 9pm)"}
-          {!isOvernightDisabled &&
-            isInternational &&
-            "(not available for international shipping)"}
+          {isInternational && "(not available for international shipping)"}
         </option>
         <option value="sameDay" disabled={isSameDayDisabledFinal}>
           Same-Day {isSameDayDisabled && "(not available after 2pm)"}
-          {!isSameDayDisabled &&
-            isInternational &&
-            "(not available for international shipping)"}
+          {isInternational && "(not available for international shipping)"}
         </option>
       </select>
       {isInternational &&
