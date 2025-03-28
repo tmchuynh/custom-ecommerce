@@ -1,22 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import {
-  HelpCircle,
-  ShoppingBag,
-  Clock,
   CreditCard,
-  Truck,
-  RefreshCw,
-  MessageSquare,
-  User,
-  Package,
-  Shield,
+  HelpCircle,
   Mail,
+  MessageSquare,
   Phone,
+  RefreshCw,
+  ShoppingBag,
+  Truck,
+  User,
 } from "lucide-react";
+import Link from "next/link";
+import { useRef, useState } from "react";
 
 const faqCategories = [
   {
