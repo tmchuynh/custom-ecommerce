@@ -1,115 +1,227 @@
 "use client";
 
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  ChevronDown,
+  ChevronUp,
+  Check,
+  Clock,
+  Info,
+  ArrowRight,
+} from "lucide-react";
+import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
-import { useCurrency } from "@/app/context/CurrencyContext";
-import { useProduct } from "@/app/context/productContext";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { OrderSummaryProps } from "@/lib/types";
-import { useEffect, useState } from "react";
+import { formatCurrency } from "@/lib/utils";
 
-const OrderSummary = ({
+interface OrderSummaryProps {
+  subtotal: number;
+  tax: number;
+  shipping: number;
+  discount?: number;
+  total: number;
+  itemCount: number;
+  estimatedDelivery?: string;
+  onApplyDiscount?: (code: string) => void;
+}
+
+export default function OrderSummary({
   subtotal,
   tax,
-  shippingMethod,
   shipping,
-  vatTax,
-  importFees,
-  isInternational = false,
-  discountApplied,
-  discountAmount,
-  newDate,
-  shippingCountry,
-}: OrderSummaryProps) => {
-  const { getDeliveryDescription, getDeliveryEstimateText, getTotalPrice } =
-    useCart();
+  discount = 0,
+  total,
+  itemCount,
+  estimatedDelivery,
+  onApplyDiscount,
+}: OrderSummaryProps) {
+  const { applyDiscount } = useCart();
 
-  const [deliveryInfo, setDeliveryInfo] = useState("");
-  const { selectedCurrency } = useCurrency();
-  const { convertPrice } = useProduct();
+  const [showDiscount, setShowDiscount] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
+  const [discountApplied, setDiscountApplied] = useState<boolean>(false);
+  const [discountError, setDiscountError] = useState<boolean>(false);
+  const [discountCode, setDiscountCode] = useState<string>("");
 
-  const totalPrice = getTotalPrice(shippingCountry);
+  const handleApplyDiscount = () => {
+    if (!discountCode.trim()) {
+      setDiscountError(true);
+      setDiscountApplied(false);
+      return;
+    }
 
-  // Update delivery info whenever shipping method or country changes
-  useEffect(() => {
-    // Pass the actual shipping country code instead of selectedCurrency.code
-    const description = getDeliveryDescription(
-      shippingMethod,
-      newDate,
-      shippingCountry
-    );
-    setDeliveryInfo(description);
-  }, [shippingMethod, shippingCountry, newDate, getDeliveryDescription]);
+    const isValidDiscount = applyDiscount(discountCode);
+
+    if (isValidDiscount) {
+      setDiscountApplied(true);
+      setDiscountError(false);
+    } else {
+      setDiscountError(true);
+      setDiscountApplied(false);
+    }
+
+    setDiscountCode("");
+  };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Order Summary</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div className="flex justify-between">
-            <span>Subtotal</span>
-            <span>{convertPrice(subtotal, selectedCurrency)}</span>
-          </div>
+    <div className="bg-white rounded-xl shadow-md overflow-hidden sticky top-8">
+      <div className="p-6 border-b border-gray-200">
+        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+          Order Summary
+        </h2>
+        <p className="text-sm text-gray-600">
+          {itemCount} {itemCount === 1 ? "item" : "items"}
+        </p>
+      </div>
 
-          {discountApplied && (
-            <div className="flex justify-between text-green-600">
-              <span>Discount</span>
-              <span>-{convertPrice(discountAmount, selectedCurrency)}</span>
-            </div>
+      <div className="p-6">
+        <button
+          onClick={() => setShowDetails(!showDetails)}
+          className="flex items-center justify-between w-full text-left mb-4 text-gray-800 font-medium"
+        >
+          <span>Order Details</span>
+          {showDetails ? (
+            <ChevronUp className="h-5 w-5 text-gray-500" />
+          ) : (
+            <ChevronDown className="h-5 w-5 text-gray-500" />
           )}
+        </button>
 
-          {!isInternational && (
-            <div className="flex justify-between">
+        {showDetails && (
+          <div className="space-y-3 mb-6">
+            <div className="flex justify-between text-gray-600">
+              <span>Subtotal</span>
+              <span>{formatCurrency(subtotal)}</span>
+            </div>
+
+            <div className="flex justify-between text-gray-600">
+              <span>Shipping</span>
+              <span>
+                {shipping === 0 ? (
+                  <span className="text-green-600">Free</span>
+                ) : (
+                  formatCurrency(shipping)
+                )}
+              </span>
+            </div>
+
+            <div className="flex justify-between text-gray-600">
               <span>Tax</span>
-              <span>{convertPrice(tax, selectedCurrency)}</span>
+              <span>{formatCurrency(tax)}</span>
             </div>
-          )}
 
-          <div className="flex justify-between">
-            <span>Shipping Fee</span>
-            <span>{convertPrice(shipping, selectedCurrency)}</span>
-          </div>
-
-          {/* Only show international fee if it's applicable */}
-          {isInternational && vatTax > 0 && (
-            <div className="flex justify-between">
-              <span>International Tax</span>
-              <span>{convertPrice(vatTax, selectedCurrency)}</span>
-            </div>
-          )}
-
-          {isInternational && importFees > 0 && (
-            <div className="flex justify-between">
-              <span>International Importing Fee</span>
-              <span>{convertPrice(importFees, selectedCurrency)}</span>
-            </div>
-          )}
-
-          <div className="flex justify-between items-start">
-            <span>Estimated Delivery</span>
-            <span className="text-right flex flex-col items-end">
-              {getDeliveryEstimateText(shippingCountry)}
-              <div
-                className="text-xs text-muted-foreground flex-wrap flex w-5/6 m-0 mt-1"
-                id="deliveryInfo"
-              >
-                {deliveryInfo}
+            {discount > 0 && (
+              <div className="flex justify-between text-green-600">
+                <span>Discount</span>
+                <span>-{formatCurrency(discount)}</span>
               </div>
-            </span>
+            )}
+
+            <div className="border-t border-gray-200 pt-3 mt-3">
+              <div className="flex justify-between font-semibold text-lg">
+                <span>Total</span>
+                <span>{formatCurrency(total)}</span>
+              </div>
+            </div>
           </div>
+        )}
 
-          <Separator />
+        {estimatedDelivery && (
+          <div className="flex items-start space-x-3 bg-blue-50 rounded-lg p-3 mb-4">
+            <Clock className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
+            <div>
+              <p className="text-sm font-medium text-blue-800">
+                Estimated Delivery
+              </p>
+              <p className="text-sm text-blue-600">{estimatedDelivery}</p>
+            </div>
+          </div>
+        )}
 
-          <div className="flex justify-between text-lg font-bold">
-            <span>Total</span>
-            <span>{convertPrice(totalPrice, selectedCurrency)}</span>
+        <button
+          onClick={() => setShowDiscount(!showDiscount)}
+          className="flex items-center justify-between w-full text-left mb-4 text-blue-600 font-medium"
+        >
+          <span>{discount > 0 ? "Promo code applied" : "Add promo code"}</span>
+          {showDiscount ? (
+            <ChevronUp className="h-5 w-5" />
+          ) : (
+            <ChevronDown className="h-5 w-5" />
+          )}
+        </button>
+
+        {showDiscount && onApplyDiscount && (
+          <div className="mb-4">
+            <DiscountForm
+              discountCode={discountCode}
+              setDiscountCode={setDiscountCode}
+              discountApplied={discountApplied}
+              discountError={discountError}
+              setDiscountError={setDiscountError}
+              handleApplyDiscount={handleApplyDiscount}
+            />
+          </div>
+        )}
+
+        {discount > 0 && !showDiscount && (
+          <div className="flex items-center mb-4 bg-green-50 p-2 rounded-lg">
+            <Check className="h-4 w-4 text-green-500 mr-2" />
+            <p className="text-sm text-green-700">
+              Promo code applied: -{formatCurrency(discount)}
+            </p>
+          </div>
+        )}
+
+        <div className="flex items-start space-x-2 mb-6 bg-gray-50 p-3 rounded-lg">
+          <Info className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+          <div>
+            <p className="text-sm text-gray-700">
+              By placing your order, you agree to our{" "}
+              <a
+                href="/policies/terms_and_conditions"
+                className="text-blue-600 hover:underline"
+              >
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a
+                href="/policies/privacy_policy"
+                className="text-blue-600 hover:underline"
+              >
+                Privacy Policy
+              </a>
+            </p>
           </div>
         </div>
-      </CardContent>
-    </Card>
-  );
-};
 
-export default OrderSummary;
+        <div className="space-y-3">
+          <a
+            href="/cart"
+            className="flex items-center justify-center text-blue-600 text-sm hover:underline"
+          >
+            <ChevronLeft className="h-4 w-4 mr-1" />
+            Return to cart
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Helper icon component
+const ChevronLeft = (props: any) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M15 18l-6-6 6-6" />
+  </svg>
+);
