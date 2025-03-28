@@ -3,10 +3,11 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { JSX } from "react";
+import { JSX, useState } from "react";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
+import { ShoppingCart } from "lucide-react";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -40,6 +41,7 @@ export default function CartAndFavoritesButtons({
 }): JSX.Element {
   const { addToCart, getCartItem } = useCart();
   const foundItem = getCartItem(product.name);
+  const [hovered, setHovered] = useState(false);
 
   /**
    * Handles adding a product to the cart.
@@ -70,27 +72,26 @@ export default function CartAndFavoritesButtons({
         {foundItem ? (
           <QuantityButtons product={product} />
         ) : (
-          <Button onClick={() => handleAddToCart(product, product.name)}>
-            <svg
-              className="-ms-2 me-2 h-5 w-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
+          <div
+            className={cn(
+              "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 transition-transform duration-300",
+              {
+                "translate-y-0": hovered,
+                "translate-y-full": !hovered,
+              }
+            )}
+          >
+            <button
+              className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleAddToCart(product, product.name);
+              }}
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6"
-              />
-            </svg>
-            Add to Cart
-            <span className="sr-only">Add {product.name} to Cart</span>
-          </Button>
+              <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+            </button>
+          </div>
         )}
       </div>
     </div>
