@@ -2,6 +2,7 @@
 import { useProduct } from "@/app/context/productContext";
 import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { navigations } from "@/lib/constants";
 import { ArrowRight, Filter, ShoppingBag } from "lucide-react";
@@ -106,13 +107,13 @@ const GenderPage = (): JSX.Element => {
       : "";
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
+          <h1 className="text-3xl font-extrabold mb-4">
             {genderDisplay} Collection
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Explore our latest {genderDisplay.toLowerCase()} products crafted
             with quality and style.
           </p>
@@ -124,11 +125,7 @@ const GenderPage = (): JSX.Element => {
             <Button
               onClick={() => setActiveFilter("all")}
               variant={activeFilter === "all" ? "default" : "outline"}
-              className={`capitalize ${
-                activeFilter === "all"
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "text-gray-700 hover:text-blue-600"
-              }`}
+              className={`capitalize ${activeFilter === "all" ? "" : ""}`}
             >
               <Filter className="h-4 w-4 mr-2" /> All Categories
             </Button>
@@ -139,9 +136,7 @@ const GenderPage = (): JSX.Element => {
                 onClick={() => setActiveFilter(subcategory)}
                 variant={activeFilter === subcategory ? "default" : "outline"}
                 className={`capitalize ${
-                  activeFilter === subcategory
-                    ? "bg-blue-600 hover:bg-blue-700 text-white"
-                    : "text-gray-700 hover:text-blue-600"
+                  activeFilter === subcategory ? "" : ""
                 }`}
               >
                 {subcategory}
@@ -156,7 +151,7 @@ const GenderPage = (): JSX.Element => {
             <Link
               key={index}
               href={category.href}
-              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
             >
               <div className="relative overflow-hidden aspect-square">
                 <Image
@@ -169,26 +164,22 @@ const GenderPage = (): JSX.Element => {
 
                 {/* Category Badge */}
                 <div className="absolute top-4 left-4">
-                  <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded">
-                    {category.subcategory}
-                  </span>
+                  <Badge variant={"secondary"}>{category.subcategory}</Badge>
                 </div>
 
                 {/* Shop Now Button - Appears on Hover */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <button className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <Button>
                     <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
-                  </button>
+                  </Button>
                 </div>
               </div>
 
               <div className="p-4">
-                <h3 className="text-gray-800 font-medium text-lg mb-1 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-medium text-lg mb-1 group-hover:text-teritary transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-sm text-gray-500 line-clamp-2">
-                  {category.description}
-                </p>
+                <p className="text-sm line-clamp-2">{category.description}</p>
               </div>
             </Link>
           ))}
@@ -198,7 +189,7 @@ const GenderPage = (): JSX.Element => {
         <div className="mt-12 text-center">
           <Link
             href={`/shopping`}
-            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
+            className="inline-flex items-center font-medium"
           >
             View All Collections
             <ArrowRight className="ml-2 h-4 w-4" />
