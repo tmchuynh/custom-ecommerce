@@ -1,10 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { validateCreditCard, validateEmail, validatePhone } from "@/lib/utils";
-import { useCart } from "../../context/cartContext";
-import { useState, useEffect, useRef } from "react";
-import { toast } from "sonner";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,16 +10,20 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { validateCreditCard, validateEmail, validatePhone } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
+import { useCart } from "../../context/cartContext";
 
 // Import our newly created components
 import CustomerInfoForm from "@/components/checkout/customer-info-form";
-import ShippingAddressForm from "@/components/checkout/shipping-address-form";
-import PaymentInfoForm from "@/components/checkout/payment-info-form";
-import OrderItems from "@/components/checkout/order-items";
 import DiscountForm from "@/components/checkout/discount-form";
+import OrderItems from "@/components/checkout/order-items";
 import OrderSummary from "@/components/checkout/order-summary";
-import ShippingMethodSelector from "@/components/ShippingMethodSelector";
+import PaymentInfoForm from "@/components/checkout/payment-info-form";
+import ShippingAddressForm from "@/components/checkout/shipping-address-form";
 
 const CheckoutPage = () => {
   const {
