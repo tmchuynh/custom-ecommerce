@@ -1,24 +1,22 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
-  Star,
-  MessageSquare,
-  ThumbsUp,
   Filter,
-  SlidersHorizontal,
-  Users,
-  Search,
   Mail,
+  MessageSquare,
   Phone,
-  Award,
+  Search,
+  SlidersHorizontal,
+  Star,
+  ThumbsUp,
 } from "lucide-react";
+import { useRef, useState } from "react";
 
 const CustomerReviews = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
