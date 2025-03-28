@@ -196,6 +196,9 @@ export type ProductType = {
   description: string;
   gender: string;
   category: string;
+  itemType: string;
+  rating: number;
+  reviewCount: number;
   highlights?: string[];
   subcategory: string;
   images: string[];
