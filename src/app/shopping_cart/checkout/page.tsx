@@ -426,7 +426,7 @@ const CheckoutPage = () => {
               setPhoneNumber={setPhoneNumber}
               touchedFields={touchedFields}
               formErrors={formErrors}
-              handleBlur={(field) =>
+              handleBlur={(field: string) =>
                 handleBlur(field as keyof typeof touchedFields)
               }
             />
