@@ -70,91 +70,119 @@ export default function Newsletter() {
   }
 
   return (
-    <div className="lg:grid lg:grid-cols-2 lg:gap-x-6 xl:gap-x-8 2xl:gap-x-30 gap-y-6 md:gap-y-8 w-11/12 lg:w-10/12 2xl:w-9/12 py-10 mx-auto">
-      <AlertDialog open={showWelcomeAlert} onOpenChange={setShowWelcomeAlert}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Welcome to Our Newsletter!</AlertDialogTitle>
-            <AlertDialogDescription>
-              Thank you for subscribing! Use code <strong>WELCOME10</strong> for
-              10% off your first purchase.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction onClick={() => setShowWelcomeAlert(false)}>
-              OK
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+    <section className="w-full bg-muted/40 py-12 md:py-16">
+      <div className="container max-w-7xl mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+          Stay Connected
+        </h2>
 
-      <div className="flex items-center rounded-lg border-2 p-6 sm:p-10">
-        <div className="mx-auto max-w-sm text-foreground">
-          <h3 className="text-lg font-medium mb-4">
-            Sign up for our newsletter
-          </h3>
-          <p className="mt-2 text-sm">
-            The latest news, articles, and resources, sent to your inbox weekly.
-          </p>
-          <form
-            className="mt-4 sm:mt-6 sm:flex flex-col sm:flex-row"
-            onSubmit={handleSubmit}
+        <div className="lg:grid lg:grid-cols-2 lg:gap-8 gap-y-8 w-full">
+          <AlertDialog
+            open={showWelcomeAlert}
+            onOpenChange={setShowWelcomeAlert}
           >
-            <div className="w-full">
-              <Input
-                id="email-address"
-                type="email"
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  if (emailError) validateEmail(e.target.value);
-                }}
-                required
-                autoComplete="email"
-                aria-label="Email address"
-                placeholder="Enter your email"
-                className={emailError ? "border-red-500" : ""}
-              />
-              {emailError && (
-                <p className="text-red-500 text-xs mt-1">{emailError}</p>
-              )}
-            </div>
-            <div className="mt-3 sm:mt-0 sm:ml-4 sm:shrink-0">
-              <Button variant={"outline"} type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Signing up..." : "Sign up"}
-              </Button>
-            </div>
-          </form>
-        </div>
-      </div>
+            <AlertDialogContent className="bg-white dark:bg-gray-900">
+              <AlertDialogHeader>
+                <AlertDialogTitle className="text-xl font-semibold">
+                  Welcome to Our Newsletter!
+                </AlertDialogTitle>
+                <AlertDialogDescription className="text-muted-foreground">
+                  Thank you for subscribing! Use code{" "}
+                  <span className="font-medium text-primary">WELCOME10</span>{" "}
+                  for 10% off your first purchase.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogAction
+                  className="bg-primary hover:bg-primary/90 text-white"
+                  onClick={() => setShowWelcomeAlert(false)}
+                >
+                  Got it
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
 
-      <div className="relative mt-6 flex items-center px-6 py-12 sm:px-10 sm:py-16 lg:mt-0">
-        <div className="absolute inset-0 overflow-hidden rounded-lg">
-          <Image
-            width={1920}
-            height={1080}
-            alt=""
-            src="https://tailwindcss.com/plus-assets/img/ecommerce-images/footer-02-exclusive-sale.jpg"
-            className="saturate-0 filter"
-          />
-          <div className="absolute inset-0 bg-indigo-600/90" />
-        </div>
-        <div className="relative mx-auto max-w-sm text-center">
-          <h3 className="text-lg font-medium mb-4 text-background">
-            Get early access
-          </h3>
-          <p className="mt-2 text-gray-200">
-            Did you sign up to the newsletter? If so, use the keyword we sent
-            you to get access.{" "}
-            <Button
-              variant={"ghost"}
-              onClick={() => router.push("/early-access")}
-            >
-              Go now<span aria-hidden="true"> &rarr;</span>
-            </Button>
-          </p>
+          <div className="flex items-center rounded-xl border border-muted-foreground/20 bg-card p-8 shadow-sm transition-all">
+            <div className="w-full max-w-lg mx-auto">
+              <h3 className="text-xl font-semibold text-card-foreground mb-3">
+                Join Our Newsletter
+              </h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Subscribe to receive updates, exclusive offers, and the latest
+                product news.
+              </p>
+              <form
+                className="space-y-4 md:space-y-0 md:flex md:gap-4"
+                onSubmit={handleSubmit}
+              >
+                <div className="flex-1">
+                  <Input
+                    id="email-address"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (emailError) validateEmail(e.target.value);
+                    }}
+                    required
+                    autoComplete="email"
+                    aria-label="Email address"
+                    placeholder="Your email address"
+                    className={`h-11 ${
+                      emailError ? "border-red-500" : "border-input"
+                    } focus:border-primary`}
+                  />
+                  {emailError && (
+                    <p className="text-red-500 text-xs mt-1">{emailError}</p>
+                  )}
+                </div>
+                <Button
+                  className="w-full md:w-auto bg-primary hover:bg-primary/90 text-white h-11 px-6"
+                  type="submit"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Subscribing..." : "Subscribe"}
+                </Button>
+              </form>
+            </div>
+          </div>
+
+          <div className="relative rounded-xl overflow-hidden border border-muted-foreground/20 shadow-sm h-[280px] md:h-auto mt-8 lg:mt-0">
+            <div className="absolute inset-0">
+              <Image
+                width={1920}
+                height={1080}
+                alt="Exclusive promotions background"
+                src="https://tailwindcss.com/plus-assets/img/ecommerce-images/footer-02-exclusive-sale.jpg"
+                className="object-cover w-full h-full brightness-75 filter"
+              />
+              <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
+            </div>
+            <div className="relative flex items-center justify-center h-full p-8 md:p-12">
+              <div className="text-center">
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-4">
+                  Exclusive Benefits
+                </h3>
+                <p className="text-white/90 text-sm md:text-base mb-6">
+                  Already subscribed? Use the exclusive code we've sent to
+                  unlock special offers and early access.
+                </p>
+                <Button
+                  variant="outline"
+                  className="bg-white/10 text-white border-white/30 hover:bg-white/20 transition-all"
+                  onClick={() => router.push("/early-access")}
+                >
+                  Access Now{" "}
+                  <span aria-hidden="true" className="ml-2">
+                    →
+                  </span>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
