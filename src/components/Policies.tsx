@@ -1,14 +1,13 @@
-import React from "react";
-import Link from "next/link";
 import {
   ArrowRight,
+  Book,
+  CreditCard,
   FileText,
   Key,
-  Shield,
-  CreditCard,
-  Book,
   RefreshCw,
+  Shield,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Policies() {
   const policyLinks = [
