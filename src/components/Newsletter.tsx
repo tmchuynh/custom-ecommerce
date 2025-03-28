@@ -13,6 +13,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "./ui/alert-dialog";
+import { Input } from "./ui/input";
 
 export default function Newsletter() {
   const [showForm, setShowForm] = useState(false);
@@ -52,27 +53,26 @@ export default function Newsletter() {
       </AlertDialog>
 
       <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
-        <div className="mx-auto max-w-sm">
+        <div className="mx-auto max-w-sm text-muted">
           <h3 className="text-lg font-medium mb-4">
             Sign up for our newsletter
           </h3>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-2 text-sm">
             The latest news, articles, and resources, sent to your inbox weekly.
           </p>
           <form
             className="mt-4 sm:mt-6 sm:flex"
             onSubmit={(e) => handleSubmit(e)}
           >
-            <input
+            <Input
               id="email-address"
               type="text"
               required
               autoComplete="email"
               aria-label="Email address"
-              className="block w-full rounded-md bg-white px-4 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
             />
             <div className="mt-3 sm:mt-0 sm:ml-4 sm:shrink-0">
-              <Button variant={"secondary"} type="submit">
+              <Button variant={"outline"} type="submit">
                 Sign up
               </Button>
             </div>

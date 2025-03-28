@@ -9,7 +9,7 @@ export default function Footer() {
       <Newsletter />
       <footer
         aria-labelledby="footer-heading"
-        className="bg-gray-900 text-background"
+        className="bg-gray-900 text-foreground"
       >
         <h2 id="footer-heading" className="sr-only">
           Footer
