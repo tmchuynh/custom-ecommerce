@@ -1,31 +1,22 @@
 "use client";
-import {
-  navigations,
-  offers,
-  policies,
-  testimonials,
-  trendingProducts,
-} from "@/lib/constants";
-import { useState } from "react";
-import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import ShopByCollection from "@/components/ShopByCollection";
-import Policies from "@/components/Policies";
-import TrendingProducts from "@/components/TrendingProducts";
 import Categories from "@/components/Categories";
+import Policies from "@/components/Policies";
+import ShopByCollection from "@/components/ShopByCollection";
+import TrendingProducts from "@/components/TrendingProducts";
+import { offers, testimonials } from "@/lib/constants";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <div>
-      <nav aria-label="Offers" className="order-last lg:order-first">
+      <nav aria-label="Offers" className="order-last border-t-2 lg:order-first">
         <div className="mx-auto lg:px-8">
           <ul
             role="list"
-            className="grid grid-cols-1 divide-y divide-gray-200 lg:grid-cols-3 lg:divide-x lg:divide-y-0"
+            className="grid grid-cols-1 divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0"
           >
             {offers.map((offer) => (
               <li key={offer.name} className="flex flex-col">
@@ -75,45 +66,6 @@ export default function HomePage() {
       </div>
 
       <main>
-        {/* Sale section */}
-        <section className="relative overflow-clip">
-          {/* Decorative background image and gradient */}
-          <div aria-hidden="true" className="absolute inset-0">
-            <div className="absolute inset-0 mx-auto">
-              <Image
-                width={1920}
-                height={1080}
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-02-sale-full-width.jpg"
-                objectFit="cover"
-              />
-            </div>
-            <div className="absolute inset-0/75" />
-            <div className="absolute inset-0 bg-linear-to-t from-white via-white" />
-          </div>
-
-          <section
-            aria-labelledby="sale-heading"
-            className="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-32 text-center sm:px-6 lg:px-8"
-          >
-            <div className="mx-auto max-w-2xl lg:max-w-none">
-              <h2 id="sale-heading" className="text-2xl font-semibold mb-4">
-                Get 25% off during our one-time sale
-              </h2>
-              <p className="mx-auto mt-4 max-w-xl text-xl">
-                Most of our products are limited releases that won't come back.
-                Get your favorite items while they're in stock.
-              </p>
-            </div>
-            <a
-              href="#"
-              className="mt-6 inline-block w-full rounded-md border border-transparent px-8 py-3 font-medium sm:w-auto"
-            >
-              Get access to our one-time sale
-            </a>
-          </section>
-        </section>
-
         {/* Testimonials */}
         <section
           aria-labelledby="testimonial-heading"
