@@ -186,7 +186,7 @@ const CartPage = (): JSX.Element => {
                 <div className="text-lg font-medium">Tax:</div>
                 <div className="text-xl font-bold">
                   {convertPrice(
-                    calculateTaxAmount(getSubTotal()),
+                    calculateTaxAmount(getSubTotal(), "US"),
                     selectedCurrency
                   )}
                 </div>
@@ -207,7 +207,7 @@ const CartPage = (): JSX.Element => {
               <div className="flex justify-between items-center">
                 <div className="text-lg font-medium">Total:</div>
                 <div className="text-xl font-bold">
-                  {convertPrice(getTotalPrice(), selectedCurrency)}
+                  {convertPrice(getTotalPrice("US"), selectedCurrency)}
                 </div>
               </div>
             </div>

@@ -136,6 +136,7 @@ export type SectionDetails = {
   href: string;
   imageSrc: string;
   imageAlt: string;
+  subcategory: string;
   items: ItemDetails[];
 };
 
