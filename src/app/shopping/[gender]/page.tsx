@@ -1,49 +1,30 @@
 "use client";
-import { useCart } from "@/app/context/cartContext";
 import { useProduct } from "@/app/context/productContext";
 import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
-import ProductCard from "@/components/ProductCard";
+import { Button } from "@/components/ui/button";
 import { navigations } from "@/lib/constants";
+import { ArrowRight, Filter, ShoppingBag } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
 /**
  * A page component that displays product categories based on the gender parameter.
- *
- * The component handles dynamic routing through the gender parameter in the URL path.
- * It fetches and displays relevant product categories for men, women, or kids.
- *
- * Features:
- * - Validates the gender parameter against allowed values (men, women, kids)
- * - Fetches categories specific to the selected gender from navigation data
- * - Transforms category data into a standardized format for display
- * - Renders a grid of product category cards with appropriate metadata
- * - Displays a loading state while fetching data
- * - Shows an appropriate message when no categories are found
- *
- * @returns {JSX.Element} A rendered page with category cards or appropriate status message
  */
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender is string | string[]
   const [categories, setCategories] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [uniqueSubcategories, setUniqueSubcategories] = useState<string[]>([]);
 
   const { getProductsByCategory } = useProduct();
 
   useEffect(() => {
     /**
      * Fetches and processes category data based on the specified gender.
-     *
-     * This async function performs the following steps:
-     * 1. Validates the gender parameter (must be 'men', 'women', or 'kids')
-     * 2. Finds the corresponding gender category in the navigations data
-     * 3. Processes all sections within the gender category to extract top-level categories
-     * 4. Transforms each category into a standardized format with required metadata
-     * 5. Updates state with the processed categories
-     *
-     * @throws {Error} Logs the error to console if category data fetching fails
-     * @returns {Promise<void>} No return value, updates state via setCategories and setLoading
      */
     const fetchItemsData = async (): Promise<void> => {
       try {
@@ -76,15 +57,23 @@ const GenderPage = (): JSX.Element => {
             processedCategories.push({
               name: section.name,
               description: `Browse our ${section.name} collection`,
-              imageSrc: section.imageSrc || "https://via.placeholder.com/400",
+              imageSrc:
+                section.imageSrc ||
+                "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1411&auto=format&fit=crop",
               href: section.href,
               id: section.id,
               gender: validGender,
               category: section.id,
-              subcategory: "",
+              subcategory: section.subcategory || "general",
             });
           });
         });
+
+        // Extract unique subcategories for filtering
+        const subcategories = [
+          ...new Set(processedCategories.map((item) => item.subcategory)),
+        ];
+        setUniqueSubcategories(subcategories);
 
         setCategories(processedCategories);
       } catch (error) {
@@ -98,6 +87,11 @@ const GenderPage = (): JSX.Element => {
     fetchItemsData();
   }, [gender, getProductsByCategory]);
 
+  const filteredCategories =
+    activeFilter === "all"
+      ? categories
+      : categories.filter((category) => category.subcategory === activeFilter);
+
   if (loading) {
     return <LoadingIndicator />;
   }
@@ -106,32 +100,112 @@ const GenderPage = (): JSX.Element => {
     return <CannotFind />;
   }
 
+  const genderDisplay =
+    typeof gender === "string"
+      ? gender.charAt(0).toUpperCase() + gender.slice(1)
+      : "";
+
   return (
-    <main className="mx-auto sm:px-6 sm:pt-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
-        {gender && (
-          <h1 className="text-4xl font-extrabold text-center mb-8">
-            {typeof gender === "string" &&
-              gender.charAt(0).toUpperCase() + gender.slice(1)}
+    <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
+            {genderDisplay} Collection
           </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Explore our latest {genderDisplay.toLowerCase()} products crafted
+            with quality and style.
+          </p>
+        </div>
+
+        {/* Category Filters */}
+        {uniqueSubcategories.length > 1 && (
+          <div className="flex justify-center flex-wrap gap-2 mb-12">
+            <Button
+              onClick={() => setActiveFilter("all")}
+              variant={activeFilter === "all" ? "default" : "outline"}
+              className={`capitalize ${
+                activeFilter === "all"
+                  ? "bg-blue-600 hover:bg-blue-700 text-white"
+                  : "text-gray-700 hover:text-blue-600"
+              }`}
+            >
+              <Filter className="h-4 w-4 mr-2" /> All Categories
+            </Button>
+
+            {uniqueSubcategories.map((subcategory) => (
+              <Button
+                key={subcategory}
+                onClick={() => setActiveFilter(subcategory)}
+                variant={activeFilter === subcategory ? "default" : "outline"}
+                className={`capitalize ${
+                  activeFilter === subcategory
+                    ? "bg-blue-600 hover:bg-blue-700 text-white"
+                    : "text-gray-700 hover:text-blue-600"
+                }`}
+              >
+                {subcategory}
+              </Button>
+            ))}
+          </div>
         )}
 
-        <div className="mx-auto max-w-7xl">
-          {gender && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
-              {categories.map((category, index) => (
-                <ProductCard
-                  key={index}
-                  product={category}
-                  page={true}
-                  index={index}
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {filteredCategories.map((category, index) => (
+            <Link
+              key={index}
+              href={category.href}
+              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+            >
+              <div className="relative overflow-hidden aspect-square">
+                <Image
+                  src={category.imageSrc}
+                  alt={category.name}
+                  width={400}
+                  height={400}
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                 />
-              ))}
-            </div>
-          )}
+
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded">
+                    {category.subcategory}
+                  </span>
+                </div>
+
+                {/* Shop Now Button - Appears on Hover */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <button className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
+                    <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
+                  </button>
+                </div>
+              </div>
+
+              <div className="p-4">
+                <h3 className="text-gray-800 font-medium text-lg mb-1 group-hover:text-blue-600 transition-colors">
+                  {category.name}
+                </h3>
+                <p className="text-sm text-gray-500 line-clamp-2">
+                  {category.description}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* View All Link */}
+        <div className="mt-12 text-center">
+          <Link
+            href={`/shopping`}
+            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
+          >
+            View All Collections
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 
