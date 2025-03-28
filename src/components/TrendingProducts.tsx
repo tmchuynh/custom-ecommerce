@@ -1,20 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
+  ArrowRight,
+  Clock,
+  Eye,
+  Filter,
   Heart,
   ShoppingCart,
-  Eye,
-  TrendingUp,
-  Clock,
-  Filter,
   Star,
   StarHalf,
-  ArrowRight,
+  TrendingUp,
 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 // Mock trending product data - replace with your actual data
 const trendingProducts = [
