@@ -165,7 +165,6 @@ const CategorySectionPage = (): JSX.Element => {
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
-              className="border-gray-300 rounded-md text-sm focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="featured">Featured</option>
               <option value="newest">Newest</option>
