@@ -137,7 +137,7 @@ const ProductInfo = ({
 
   return (
     <div
-      className={cn("mt-5 px-1 grid grid-cols-1 w-11/12 mx-auto", {
+      className={cn("mt-10 px-2 grid grid-cols-1 w-11/12 mx-auto", {
         "bg-accent mt-8": relatedProduct,
         "w-full": !page,
       })}
