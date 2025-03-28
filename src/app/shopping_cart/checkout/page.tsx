@@ -109,6 +109,10 @@ const CheckoutPage = () => {
     cardExpiry?: string;
     cardCvv?: string;
     shippingAddress?: string;
+    shippingCity?: string;
+    shippingState?: string;
+    shippingZip?: string;
+    shippingCountry?: string;
   }>({});
 
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
@@ -122,6 +126,10 @@ const CheckoutPage = () => {
     cardExpiry: boolean;
     cardCvv: boolean;
     shippingAddress: boolean;
+    shippingCity: boolean;
+    shippingState: boolean;
+    shippingZip: boolean;
+    shippingCountry: boolean;
   }>({
     name: false,
     phone: false,
@@ -130,6 +138,10 @@ const CheckoutPage = () => {
     cardExpiry: false,
     cardCvv: false,
     shippingAddress: false,
+    shippingCity: false,
+    shippingState: false,
+    shippingZip: false,
+    shippingCountry: false,
   });
 
   // Update billing address when sameAsShipping changes
@@ -177,6 +189,10 @@ const CheckoutPage = () => {
       cardExpiry?: string;
       cardCvv?: string;
       shippingAddress?: string;
+      shippingCity?: string;
+      shippingState?: string;
+      shippingZip?: string;
+      shippingCountry?: string;
     } = {};
 
     // Validate customer name
@@ -214,6 +230,19 @@ const CheckoutPage = () => {
       errors.shippingAddress = "Shipping address is required";
     }
 
+    if (!shippingCity.trim()) {
+      errors.shippingCity = "Shipping city is required";
+    }
+    if (!shippingState.trim()) {
+      errors.shippingState = "Shipping state is required";
+    }
+    if (!shippingZip.trim()) {
+      errors.shippingZip = "Shipping ZIP code is required";
+    }
+    if (!shippingCountry.trim()) {
+      errors.shippingCountry = "Shipping country is required";
+    }
+
     setFormErrors(errors);
     setIsFormValid(Object.keys(errors).length === 0);
   };
@@ -248,6 +277,10 @@ const CheckoutPage = () => {
       cardExpiry: true,
       cardCvv: true,
       shippingAddress: true,
+      shippingCity: true,
+      shippingState: true,
+      shippingZip: true,
+      shippingCountry: true,
     });
 
     validateForm();
@@ -451,9 +484,6 @@ const CheckoutPage = () => {
               setDiscountError={setDiscountError}
               handleApplyDiscount={handleApplyDiscount}
             />
-
-            {/* Shipping Method Selector */}
-            <ShippingMethodSelector shippingCountry={shippingCountry} />
 
             {/* Order Summary Section */}
             <OrderSummary
