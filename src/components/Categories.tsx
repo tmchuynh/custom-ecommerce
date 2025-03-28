@@ -1,7 +1,7 @@
 import { navigations } from "@/lib/constants";
-import { Button } from "./ui/button";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function Categories() {
   return (
