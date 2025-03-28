@@ -293,21 +293,27 @@ export type ShippingAddressFormProps = {
   setShippingCountry: (value: string) => void;
   touchedFields: {
     shippingAddress: boolean;
+    shippingCity: boolean;
+    shippingState: boolean;
+    shippingZip: boolean;
+    shippingCountry: boolean;
     [key: string]: boolean;
   };
   formErrors: {
     shippingAddress?: string;
+    shippingCity?: string;
+    shippingState?: string;
+    shippingZip?: string;
+    shippingCountry?: string;
     [key: string]: string | undefined;
   };
   handleBlur: (
     field:
-      | "phone"
-      | "email"
-      | "cardNumber"
-      | "cardExpiry"
-      | "cardCvv"
+      | "shippingCity"
+      | "shippingState"
+      | "shippingZip"
       | "shippingAddress"
-      | "name"
+      | "shippingCountry"
   ) => void;
 };
 
