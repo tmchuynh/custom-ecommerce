@@ -93,7 +93,7 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
     <div className="shipping-method-selector">
       <label
         htmlFor="shipping-method"
-        className="block text-sm font-medium text-gray-700 mb-1"
+        className="block text-sm font-medium my-2 ml-2"
       >
         Shipping Method {isInternational ? `(to ${shippingCountry})` : ""}
       </label>
@@ -101,7 +101,7 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
         id="shipping-method"
         value={selectedShippingMethod}
         onChange={handleChange}
-        className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        className="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none sm:text-sm bg-background"
       >
         <option value="standard">
           Standard Ground {isInternational && "(International)"}
@@ -136,7 +136,7 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
         </option>
       </select>
       {isInternational && (
-        <p className="text-amber-600 text-xs mt-1">
+        <p className="text-destructive text-xs mt-3 mx-2">
           International shipping to {shippingCountry} may include import fees
           and taxes.
         </p>
@@ -145,7 +145,7 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
         (selectedShippingMethod === "twoDay" ||
           selectedShippingMethod === "overnight" ||
           selectedShippingMethod === "sameDay") && (
-          <p className="text-amber-600 text-xs mt-1">
+          <p className="text-destructive text-xs mt-3 mx-2">
             Premium shipping options are not available for international
             addresses.
           </p>
