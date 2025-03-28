@@ -52,8 +52,8 @@ export default function Newsletter() {
         </AlertDialogContent>
       </AlertDialog>
 
-      <div className="flex items-center rounded-lg bg-gray-100 p-6 sm:p-10">
-        <div className="mx-auto max-w-sm text-muted">
+      <div className="flex items-center rounded-lg border-2 p-6 sm:p-10">
+        <div className="mx-auto max-w-sm text-foreground">
           <h3 className="text-lg font-medium mb-4">
             Sign up for our newsletter
           </h3>
@@ -92,7 +92,9 @@ export default function Newsletter() {
           <div className="absolute inset-0 bg-indigo-600/90" />
         </div>
         <div className="relative mx-auto max-w-sm text-center">
-          <h3 className="text-lg font-medium mb-4">Get early access</h3>
+          <h3 className="text-lg font-medium mb-4 text-background">
+            Get early access
+          </h3>
           <p className="mt-2 text-gray-200">
             Did you sign up to the newsletter? If so, use the keyword we sent
             you to get access.{" "}
