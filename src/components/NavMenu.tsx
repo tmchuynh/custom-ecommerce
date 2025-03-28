@@ -241,20 +241,22 @@ export default function NavMenu() {
                           className="absolute inset-x-0 top-full -z-10 bg-background pt-16 ring-1 shadow-lg ring-gray-900/5 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
                         >
                           <div className="mx-auto max-w-7xl gap-x-8 gap-y-10 px-6 pb-10 lg:px-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-4">
                               {about.map((item) => (
                                 <a
                                   key={item.name}
                                   href={item.href}
-                                  className="flex py-2 text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center"
+                                  className="flex text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center hover:bg-muted"
                                   onClick={closeAllPopovers}
                                 >
                                   <item.icon
                                     aria-hidden="true"
-                                    className="size-7 flex-none group-hover:text-primary"
+                                    className="size-10 flex-none bg-muted group-hover:bg-accent p-2 rounded-lg"
                                   />
                                   <div className="gap-y-3 flex flex-col">
-                                    <p className="flex gap-x-4"> {item.name}</p>
+                                    <p className="flex gap-x-4 group-hover:underline underline-offset-4">
+                                      {item.name}
+                                    </p>
                                     <p>{item.description}</p>
                                   </div>
                                 </a>
