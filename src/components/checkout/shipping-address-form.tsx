@@ -1,172 +1,554 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ShippingAddressFormProps } from "@/lib/types";
-import { FormLabel, FormMessage } from "../ui/form";
-import ShippingMethodSelector from "@/components/ShippingMethodSelector";
-import { currencyCountries } from "@/lib/countriesConstant";
+import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Badge } from "@/components/ui/badge";
+import {
+  AlertCircle,
+  MapPin,
+  Home,
+  Building,
+  Truck,
+  Package,
+} from "lucide-react";
 
-const ShippingAddressForm = ({
-  shippingAddress,
-  setShippingAddress,
-  shippingCity,
-  setShippingCity,
-  shippingState,
-  setShippingState,
-  shippingZip,
-  setShippingZip,
-  shippingCountry,
-  setShippingCountry,
-  touchedFields,
-  formErrors,
-  handleBlur,
-}: ShippingAddressFormProps) => {
+interface ShippingAddressFormProps {
+  onSubmit: (data: ShippingAddressData) => void;
+  defaultValues?: ShippingAddressData;
+}
+
+export interface ShippingAddressData {
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  addressType: "residential" | "business";
+  saveAddress: boolean;
+  shippingMethod: "standard" | "express" | "overnight";
+}
+
+// List of US states
+const usStates = [
+  { code: "AL", name: "Alabama" },
+  { code: "AK", name: "Alaska" },
+  { code: "AZ", name: "Arizona" },
+  { code: "AR", name: "Arkansas" },
+  { code: "CA", name: "California" },
+  { code: "CO", name: "Colorado" },
+  { code: "CT", name: "Connecticut" },
+  { code: "DE", name: "Delaware" },
+  { code: "FL", name: "Florida" },
+  { code: "GA", name: "Georgia" },
+  { code: "HI", name: "Hawaii" },
+  { code: "ID", name: "Idaho" },
+  { code: "IL", name: "Illinois" },
+  { code: "IN", name: "Indiana" },
+  { code: "IA", name: "Iowa" },
+  { code: "KS", name: "Kansas" },
+  { code: "KY", name: "Kentucky" },
+  { code: "LA", name: "Louisiana" },
+  { code: "ME", name: "Maine" },
+  { code: "MD", name: "Maryland" },
+  { code: "MA", name: "Massachusetts" },
+  { code: "MI", name: "Michigan" },
+  { code: "MN", name: "Minnesota" },
+  { code: "MS", name: "Mississippi" },
+  { code: "MO", name: "Missouri" },
+  { code: "MT", name: "Montana" },
+  { code: "NE", name: "Nebraska" },
+  { code: "NV", name: "Nevada" },
+  { code: "NH", name: "New Hampshire" },
+  { code: "NJ", name: "New Jersey" },
+  { code: "NM", name: "New Mexico" },
+  { code: "NY", name: "New York" },
+  { code: "NC", name: "North Carolina" },
+  { code: "ND", name: "North Dakota" },
+  { code: "OH", name: "Ohio" },
+  { code: "OK", name: "Oklahoma" },
+  { code: "OR", name: "Oregon" },
+  { code: "PA", name: "Pennsylvania" },
+  { code: "RI", name: "Rhode Island" },
+  { code: "SC", name: "South Carolina" },
+  { code: "SD", name: "South Dakota" },
+  { code: "TN", name: "Tennessee" },
+  { code: "TX", name: "Texas" },
+  { code: "UT", name: "Utah" },
+  { code: "VT", name: "Vermont" },
+  { code: "VA", name: "Virginia" },
+  { code: "WA", name: "Washington" },
+  { code: "WV", name: "West Virginia" },
+  { code: "WI", name: "Wisconsin" },
+  { code: "WY", name: "Wyoming" },
+];
+
+// List of shipping methods
+const shippingMethods = [
+  {
+    id: "standard",
+    title: "Standard Shipping",
+    description: "3-5 business days",
+    price: "Free",
+    icon: <Truck className="h-5 w-5" />,
+    estimatedDelivery: "Jul 27 - Jul 29",
+  },
+  {
+    id: "express",
+    title: "Express Shipping",
+    description: "2-3 business days",
+    price: "$9.99",
+    icon: <Truck className="h-5 w-5" />,
+    estimatedDelivery: "Jul 25 - Jul 26",
+  },
+  {
+    id: "overnight",
+    title: "Overnight Shipping",
+    description: "Next business day",
+    price: "$19.99",
+    icon: <Package className="h-5 w-5" />,
+    estimatedDelivery: "Jul 24",
+  },
+];
+
+export default function ShippingAddressForm({
+  onSubmit,
+  defaultValues,
+}: ShippingAddressFormProps) {
+  const [formData, setFormData] = useState<ShippingAddressData>(
+    defaultValues || {
+      addressLine1: "",
+      addressLine2: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      country: "US",
+      addressType: "residential",
+      saveAddress: true,
+      shippingMethod: "standard",
+    }
+  );
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+
+  const validateField = (name: string, value: string) => {
+    switch (name) {
+      case "addressLine1":
+        return value.trim() === "" ? "Address is required" : "";
+      case "city":
+        return value.trim() === "" ? "City is required" : "";
+      case "state":
+        return value.trim() === "" ? "State is required" : "";
+      case "postalCode":
+        if (value.trim() === "") return "Postal code is required";
+        const zipPattern = /^\d{5}(-\d{4})?$/;
+        return !zipPattern.test(value)
+          ? "Please enter a valid postal code (e.g., 12345 or 12345-6789)"
+          : "";
+      default:
+        return "";
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target;
+    const newValue = type === "checkbox" ? checked : value;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: newValue,
+    }));
+
+    if (type !== "checkbox") {
+      const error = validateField(name, value);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    const error = validateField(name, value);
+    setErrors((prev) => ({ ...prev, [name]: error }));
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Validate all required fields
+    const formErrors: Record<string, string> = {};
+    let isValid = true;
+
+    // Only validate required fields
+    const requiredFields = ["addressLine1", "city", "state", "postalCode"];
+
+    requiredFields.forEach((field) => {
+      const error = validateField(
+        field,
+        formData[field as keyof ShippingAddressData] as string
+      );
+      if (error) {
+        formErrors[field] = error;
+        isValid = false;
+      }
+    });
+
+    setErrors(formErrors);
+
+    // Mark all required fields as touched
+    const touchedFields: Record<string, boolean> = {};
+    requiredFields.forEach((field) => {
+      touchedFields[field] = true;
+    });
+    setTouched(touchedFields);
+
+    if (isValid) {
+      onSubmit(formData);
+    }
+  };
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Shipping Address</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div>
-            <FormLabel className="my-2 ml-2">Street Address</FormLabel>
+    <div className="bg-white rounded-xl shadow-md p-6">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          Shipping Address
+        </h2>
+        <p className="text-sm text-gray-600">
+          Please enter the address where you would like your order to be
+          delivered.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="space-y-5">
+        <div className="space-y-2">
+          <Label htmlFor="addressLine1" className="text-sm font-medium">
+            Address <span className="text-red-500">*</span>
+          </Label>
+          <div className="relative">
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <MapPin className="h-4 w-4" />
+            </div>
             <Input
+              id="addressLine1"
+              name="addressLine1"
+              value={formData.addressLine1}
+              onChange={handleChange}
+              onBlur={handleBlur}
               placeholder="123 Main St"
-              value={shippingAddress}
-              onChange={(e) => setShippingAddress(e.target.value)}
-              onBlur={() => handleBlur("shippingAddress")}
-              className={
-                touchedFields.shippingAddress && formErrors.shippingAddress
-                  ? "border-red-500"
-                  : "border border-border"
-              }
+              className={`pl-10 ${
+                touched.addressLine1 && errors.addressLine1
+                  ? "border-red-500 focus-visible:ring-red-500"
+                  : ""
+              }`}
             />
-            {touchedFields.shippingAddress && formErrors.shippingAddress && (
-              <FormMessage className="mt-3 mx-2">
-                {formErrors.shippingAddress}
-              </FormMessage>
+            {touched.addressLine1 && errors.addressLine1 && (
+              <div className="flex items-center mt-1 text-red-500 text-xs">
+                <AlertCircle className="h-3 w-3 mr-1" />
+                {errors.addressLine1}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="addressLine2" className="text-sm font-medium">
+            Apartment, suite, etc.
+            <Badge className="ml-2 bg-gray-100 text-gray-800 hover:bg-gray-100">
+              Optional
+            </Badge>
+          </Label>
+          <Input
+            id="addressLine2"
+            name="addressLine2"
+            value={formData.addressLine2}
+            onChange={handleChange}
+            placeholder="Apt 4B, Floor 2, etc."
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="city" className="text-sm font-medium">
+              City <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="city"
+              name="city"
+              value={formData.city}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder="New York"
+              className={`${
+                touched.city && errors.city
+                  ? "border-red-500 focus-visible:ring-red-500"
+                  : ""
+              }`}
+            />
+            {touched.city && errors.city && (
+              <div className="flex items-center mt-1 text-red-500 text-xs">
+                <AlertCircle className="h-3 w-3 mr-1" />
+                {errors.city}
+              </div>
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <FormLabel className="my-2 ml-2">City</FormLabel>
-              <Input
-                placeholder="City"
-                value={shippingCity}
-                onChange={(e) => setShippingCity(e.target.value)}
-                onBlur={() => handleBlur("shippingCity")}
-                className={
-                  touchedFields.shippingCity && formErrors.shippingCity
-                    ? "border-red-500"
-                    : "border border-border"
-                }
-              />
-              {touchedFields.shippingCity && formErrors.shippingCity && (
-                <FormMessage className="mt-3 mx-2">
-                  {formErrors.shippingCity}
-                </FormMessage>
-              )}
-            </div>
-
-            <div>
-              <FormLabel className="my-2 ml-2">State/Province</FormLabel>
-              <Input
-                placeholder="State/Province"
-                value={shippingState}
-                onChange={(e) => setShippingState(e.target.value)}
-                onBlur={() => handleBlur("shippingState")}
-                className={
-                  touchedFields.shippingState && formErrors.shippingState
-                    ? "border-red-500"
-                    : "border border-border"
-                }
-              />
-              {touchedFields.shippingState && formErrors.shippingState && (
-                <FormMessage className="mt-3 mx-2">
-                  {formErrors.shippingState}
-                </FormMessage>
-              )}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <FormLabel className="my-2 ml-2">ZIP/Postal Code</FormLabel>
-              <Input
-                placeholder="ZIP/Postal Code"
-                value={shippingZip}
-                onChange={(e) => setShippingZip(e.target.value)}
-                onBlur={() => handleBlur("shippingZip")}
-                className={
-                  touchedFields.shippingZip && formErrors.shippingZip
-                    ? "border-red-500"
-                    : "border border-border"
-                }
-              />
-              {touchedFields.shippingZip && formErrors.shippingZip && (
-                <FormMessage className="mt-3 mx-2">
-                  {formErrors.shippingZip}
-                </FormMessage>
-              )}
-            </div>
-
-            <div>
-              <FormLabel className="my-2 ml-2">Country</FormLabel>
-              <Select
-                value={shippingCountry}
-                onValueChange={setShippingCountry}
+          <div className="space-y-2">
+            <Label htmlFor="state" className="text-sm font-medium">
+              State <span className="text-red-500">*</span>
+            </Label>
+            <Select
+              value={formData.state}
+              onValueChange={(value) => handleSelectChange("state", value)}
+            >
+              <SelectTrigger
+                id="state"
+                className={`${
+                  touched.state && errors.state
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : ""
+                }`}
               >
-                <SelectTrigger
-                  onBlur={() => handleBlur("shippingCountry")}
-                  className={
-                    touchedFields.shippingCountry && formErrors.shippingCountry
-                      ? "border-red-500"
-                      : "border border-border"
-                  }
-                >
-                  <SelectValue placeholder="Select a country" />
-                </SelectTrigger>
-                {touchedFields.shippingCountry &&
-                  formErrors.shippingCountry && (
-                    <FormMessage className="mt-3 mx-2">
-                      {formErrors.shippingCountry}
-                    </FormMessage>
-                  )}
-                <SelectContent>
-                  <SelectGroup>
-                    {currencyCountries
-                      .flatMap((country) => country.countries)
-                      .map((subCountry) => (
-                        <SelectItem
-                          key={subCountry.value}
-                          value={subCountry.value}
-                        >
-                          {subCountry.label}
-                        </SelectItem>
-                      ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          <div className="mt-4">
-            <ShippingMethodSelector shippingCountry={shippingCountry} />
+                <SelectValue placeholder="Select state" />
+              </SelectTrigger>
+              <SelectContent>
+                {usStates.map((state) => (
+                  <SelectItem key={state.code} value={state.code}>
+                    {state.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {touched.state && errors.state && (
+              <div className="flex items-center mt-1 text-red-500 text-xs">
+                <AlertCircle className="h-3 w-3 mr-1" />
+                {errors.state}
+              </div>
+            )}
           </div>
         </div>
-      </CardContent>
-    </Card>
-  );
-};
 
-export default ShippingAddressForm;
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <Label htmlFor="postalCode" className="text-sm font-medium">
+              ZIP / Postal Code <span className="text-red-500">*</span>
+            </Label>
+            <Input
+              id="postalCode"
+              name="postalCode"
+              value={formData.postalCode}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder="10001"
+              className={`${
+                touched.postalCode && errors.postalCode
+                  ? "border-red-500 focus-visible:ring-red-500"
+                  : ""
+              }`}
+            />
+            {touched.postalCode && errors.postalCode && (
+              <div className="flex items-center mt-1 text-red-500 text-xs">
+                <AlertCircle className="h-3 w-3 mr-1" />
+                {errors.postalCode}
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="country" className="text-sm font-medium">
+              Country <span className="text-red-500">*</span>
+            </Label>
+            <Select
+              value={formData.country}
+              onValueChange={(value) => handleSelectChange("country", value)}
+              disabled // Currently only shipping to US
+            >
+              <SelectTrigger id="country">
+                <SelectValue placeholder="Select country" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="US">United States</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        <div className="space-y-2 pt-2">
+          <Label className="text-sm font-medium">Address Type</Label>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+            <button
+              type="button"
+              onClick={() =>
+                setFormData({ ...formData, addressType: "residential" })
+              }
+              className={`flex items-center p-3 rounded-lg border ${
+                formData.addressType === "residential"
+                  ? "bg-blue-50 border-blue-200"
+                  : "bg-white border-gray-200 hover:bg-gray-50"
+              }`}
+            >
+              <Home
+                className={`h-5 w-5 mr-2 ${
+                  formData.addressType === "residential"
+                    ? "text-blue-500"
+                    : "text-gray-400"
+                }`}
+              />
+              <div className="text-left">
+                <div
+                  className={`font-medium ${
+                    formData.addressType === "residential"
+                      ? "text-blue-700"
+                      : "text-gray-700"
+                  }`}
+                >
+                  Residential
+                </div>
+                <div className="text-xs text-gray-500">Home or apartment</div>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                setFormData({ ...formData, addressType: "business" })
+              }
+              className={`flex items-center p-3 rounded-lg border ${
+                formData.addressType === "business"
+                  ? "bg-blue-50 border-blue-200"
+                  : "bg-white border-gray-200 hover:bg-gray-50"
+              }`}
+            >
+              <Building
+                className={`h-5 w-5 mr-2 ${
+                  formData.addressType === "business"
+                    ? "text-blue-500"
+                    : "text-gray-400"
+                }`}
+              />
+              <div className="text-left">
+                <div
+                  className={`font-medium ${
+                    formData.addressType === "business"
+                      ? "text-blue-700"
+                      : "text-gray-700"
+                  }`}
+                >
+                  Business
+                </div>
+                <div className="text-xs text-gray-500">
+                  Office or retail location
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div className="space-y-2 pt-4">
+          <Label className="text-sm font-medium">Shipping Method</Label>
+          <RadioGroup
+            value={formData.shippingMethod}
+            onValueChange={(value) =>
+              setFormData({ ...formData, shippingMethod: value as any })
+            }
+            className="mt-2"
+          >
+            <div className="space-y-3">
+              {shippingMethods.map((method) => (
+                <div
+                  key={method.id}
+                  className={`flex items-center space-x-3 rounded-lg border p-4 ${
+                    formData.shippingMethod === method.id
+                      ? "bg-blue-50 border-blue-200"
+                      : "border-gray-200"
+                  }`}
+                >
+                  <RadioGroupItem
+                    value={method.id}
+                    id={method.id}
+                    className="mt-0.5"
+                  />
+                  <Label htmlFor={method.id} className="flex-1 cursor-pointer">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <span
+                          className={`mr-2 ${
+                            formData.shippingMethod === method.id
+                              ? "text-blue-500"
+                              : "text-gray-400"
+                          }`}
+                        >
+                          {method.icon}
+                        </span>
+                        <div>
+                          <div className="font-medium">{method.title}</div>
+                          <div className="text-sm text-gray-500">
+                            {method.description}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-semibold">{method.price}</div>
+                        <div className="text-xs text-gray-500">
+                          Est. delivery: {method.estimatedDelivery}
+                        </div>
+                      </div>
+                    </div>
+                  </Label>
+                </div>
+              ))}
+            </div>
+          </RadioGroup>
+        </div>
+
+        <div className="flex items-start space-x-2 pt-3">
+          <Checkbox
+            id="saveAddress"
+            checked={formData.saveAddress}
+            onCheckedChange={(checked) =>
+              setFormData({ ...formData, saveAddress: checked as boolean })
+            }
+            className="mt-1"
+          />
+          <div className="grid gap-1.5 leading-none">
+            <Label
+              htmlFor="saveAddress"
+              className="text-sm font-normal text-gray-700 leading-snug"
+            >
+              Save this address for future orders
+            </Label>
+          </div>
+        </div>
+
+        <div className="pt-4">
+          <Button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          >
+            Continue to Payment
+          </Button>
+        </div>
+      </form>
+    </div>
+  );
+}
