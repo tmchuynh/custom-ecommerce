@@ -34,24 +34,30 @@ const CustomerInfoForm = ({
       </CardHeader>
       <CardContent className="space-y-4">
         <div>
-          <Label htmlFor="name">Full Name</Label>
+          <Label htmlFor="name" className="my-2 ml-2">
+            Full Name
+          </Label>
           <Input
             id="name"
             value={customerName}
             onChange={(e) => setCustomerName(e.target.value)}
             onBlur={() => handleBlur("name")}
             className={
-              touchedFields.name && formErrors.name ? "border-red-500" : ""
+              touchedFields.name && formErrors.name
+                ? "border-red-500"
+                : "border border-border"
             }
             placeholder="John Doe"
           />
           {touchedFields.name && formErrors.name && (
-            <p className="text-sm text-red-500 mt-1">{formErrors.name}</p>
+            <p className="text-sm text-red-500 mt-3 mx-2">{formErrors.name}</p>
           )}
         </div>
 
         <div>
-          <Label htmlFor="email">Email Address</Label>
+          <Label htmlFor="email" className="my-2 ml-2">
+            Email Address
+          </Label>
           <Input
             id="email"
             type="email"
@@ -59,17 +65,21 @@ const CustomerInfoForm = ({
             onChange={(e) => setEmail(e.target.value)}
             onBlur={() => handleBlur("email")}
             className={
-              touchedFields.email && formErrors.email ? "border-red-500" : ""
+              touchedFields.email && formErrors.email
+                ? "border-red-500"
+                : "border border-border"
             }
             placeholder="john.doe@example.com"
           />
           {touchedFields.email && formErrors.email && (
-            <p className="text-sm text-red-500 mt-1">{formErrors.email}</p>
+            <p className="text-sm text-red-500 mt-3 mx-2">{formErrors.email}</p>
           )}
         </div>
 
         <div>
-          <Label htmlFor="phone">Phone Number</Label>
+          <Label htmlFor="phone" className="my-2 ml-2">
+            Phone Number
+          </Label>
           <div className="mt-2">
             <Input
               id="phone"
@@ -77,13 +87,15 @@ const CustomerInfoForm = ({
               onChange={handlePhoneChange}
               onBlur={() => handleBlur("phone")}
               className={
-                touchedFields.phone && formErrors.phone ? "border-red-500" : ""
+                touchedFields.phone && formErrors.phone
+                  ? "border-red-500"
+                  : "border border-border"
               }
               placeholder="(123) 456-7890"
             />
           </div>
           {touchedFields.phone && formErrors.phone && (
-            <p className="text-sm text-red-500 mt-1">{formErrors.phone}</p>
+            <p className="text-sm text-red-500 mt-3 mx-2">{formErrors.phone}</p>
           )}
         </div>
       </CardContent>
