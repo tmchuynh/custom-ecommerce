@@ -7,6 +7,8 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { OrderItemsProps } from "@/lib/types";
 import { useProduct } from "@/app/context/productContext";
 import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
   const { selectedCurrency } = useCurrency();
@@ -25,31 +27,36 @@ const OrderItems = ({ cartItems, handleNavigation }: OrderItemsProps) => {
       </CardHeader>
       <CardContent>
         <div className="space-y-6">
-          {cartItems.map((item) => (
-            <div
-              key={item.id}
-              className={cn("flex justify-between items-center pb-4", {
-                "border-b border-divider":
-                  item.id !== cartItems[cartItems.length - 1].id,
-              })}
-            >
-              <div className="flex gap-4 items-center">
-                <Skeleton className="h-16 w-16 rounded-md" />
-                <div>
-                  <div className="font-medium">{item.name}</div>
-                  <div className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
+          <ScrollArea className="h-72 w-full rounded-md">
+            <div className="p-6">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className={cn("flex justify-between items-center", {
+                    "border-b border-divider pb-4":
+                      item.id !== cartItems[cartItems.length - 1].id,
+                    "py-4": item.id !== cartItems[0].id,
+                  })}
+                >
+                  <div className="flex gap-4 items-center">
+                    <Skeleton className="h-16 w-16 rounded-md" />
+                    <div>
+                      <div className="font-medium">{item.name}</div>
+                      <div className="text-sm text-muted-foreground">
+                        Qty: {item.quantity}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="font-medium">
+                    {convertPrice(
+                      Number(item.price) * item.quantity,
+                      selectedCurrency
+                    )}
                   </div>
                 </div>
-              </div>
-              <div className="font-medium">
-                {convertPrice(
-                  Number(item.price) * item.quantity,
-                  selectedCurrency
-                )}
-              </div>
+              ))}
             </div>
-          ))}
+          </ScrollArea>
         </div>
       </CardContent>
     </Card>

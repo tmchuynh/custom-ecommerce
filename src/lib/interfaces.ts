@@ -125,7 +125,7 @@ export interface CartContextType {
   getTotalItems: () => number;
 
   getShippingMethod: (totalItems: number) => ShippingMethod;
-  itemExistsInCart: (name: string) => boolean;
+  itemExistsInCart: (name: string) => CartItem | undefined;
   applyDiscount: (code: string) => boolean;
   getDiscountedTotal: (country: string) => number;
   saveCartForLater: () => void;

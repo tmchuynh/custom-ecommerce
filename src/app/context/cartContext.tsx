@@ -375,12 +375,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const updateQuantity = (id: string, quantity: number) => {
-    if (quantity < 1) {
+    if (quantity === 0) {
       removeFromCart(id);
       return;
     }
     setCartItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity } : item))
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: quantity } : item
+      )
     );
   };
 
@@ -459,8 +461,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
-  const itemExistsInCart = (name: string): boolean => {
-    return cartItems.some((item) => item.name === name);
+  const itemExistsInCart = (name: string): CartItem | undefined => {
+    return cartItems.find((item) => item.name === name);
   };
 
   const applyDiscount = (code: string): boolean => {
