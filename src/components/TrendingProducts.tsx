@@ -1,6 +1,6 @@
 import { trendingProducts } from "@/lib/constants";
-import { Button } from "./ui/button";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 export default function TrendingProducts() {
   return (
