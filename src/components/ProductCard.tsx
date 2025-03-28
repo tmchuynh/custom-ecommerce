@@ -1,4 +1,12 @@
-import { Heart, Eye, ShoppingCart, Star, Trash } from "lucide-react";
+import {
+  Heart,
+  Eye,
+  ShoppingCart,
+  Star,
+  Trash,
+  Clock,
+  TrendingUp,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { JSX, useState } from "react";
@@ -68,14 +76,10 @@ const ProductCard = ({
 
   return (
     <div
+      key={product.id}
       className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
-      <Link
-        href={`/shopping/${gender}/${category}/${product.itemType}`}
-        className="relative overflow-hidden aspect-square"
-      >
+      <div className="relative overflow-hidden aspect-square">
         <Image
           src={
             product.imageSrc ||
@@ -88,15 +92,7 @@ const ProductCard = ({
         />
 
         {/* Quick Action Buttons */}
-        <div
-          className={cn(
-            "absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300",
-            {
-              "opacity-100": hovered,
-              "opacity-0": !hovered,
-            }
-          )}
-        >
+        <div className="absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
           <button
             onClick={(e) => toggleWishlist(product.id, e)}
             className="p-2 bg-white rounded-full shadow-md hover:bg-red-50 transition-colors"
@@ -109,31 +105,44 @@ const ProductCard = ({
               }`}
             />
           </button>
-          <button
-            className="p-2 bg-white rounded-full shadow-md hover:bg-blue-50 transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-            }}
-          >
+          <button className="p-2 bg-white rounded-full shadow-md hover:bg-blue-50 transition-colors">
             <Eye className="h-5 w-5 text-gray-600" />
           </button>
         </div>
 
-        {/* Item Type Badge */}
-        <div className="absolute top-4 left-4">
-          <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded">
-            {formatItemType(product.itemType)}
-          </span>
+        {/* Product Badges */}
+        <div className="absolute top-4 left-4 flex flex-col gap-2">
+          {product.isNew && (
+            <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded">
+              New
+            </span>
+          )}
+          {product.isSale && (
+            <span className="px-2 py-1 bg-red-500 text-white text-xs font-medium rounded">
+              Sale
+            </span>
+          )}
+          {product.isLimited && (
+            <span className="px-2 py-1 bg-amber-500 text-white text-xs font-medium rounded flex items-center">
+              <Clock className="h-3 w-3 mr-1" /> Limited
+            </span>
+          )}
         </div>
-      </Link>
+
+        {/* Add to Cart Button - Appears on Hover */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+          <button className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
+            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+          </button>
+        </div>
+      </div>
 
       <div className="p-4">
-        <h3 className="text-gray-800 font-medium text-lg mb-1 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-gray-800 font-medium text-lg mb-1 hover:text-blue-600 transition-colors">
           {product.name}
         </h3>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <div className="flex items-center">
               {Array.from({ length: 5 }).map((_, i) => (
@@ -151,50 +160,28 @@ const ProductCard = ({
               ({product.reviewCount || 12})
             </span>
           </div>
-          <span className="text-lg font-semibold text-blue-600">
-            {formatCurrency(product.price || 99.99)}
-          </span>
+          <div className="flex items-center gap-2">
+            {product.originalPrice && (
+              <span className="text-sm text-gray-500 line-through">
+                {formatCurrency(product.originalPrice)}
+              </span>
+            )}
+            <span className="text-lg font-semibold text-blue-600">
+              {formatCurrency(product.price)}
+            </span>
+          </div>
         </div>
 
-        {/* Cart Actions */}
-        {cartItem ? (
-          <div className="flex items-center justify-between mt-4">
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleDecreaseQuantity}
-                className="bg-gray-200 text-gray-800 px-2 py-1 rounded hover:bg-gray-300"
-              >
-                -
-              </button>
-              <span className="text-gray-800 font-medium">
-                {cartItem.quantity}
-              </span>
-              <button
-                onClick={handleIncreaseQuantity}
-                className="bg-gray-200 text-gray-800 px-2 py-1 rounded hover:bg-gray-300"
-              >
-                +
-              </button>
-            </div>
-            <button
-              onClick={handleRemoveFromCart}
-              className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 flex items-center"
-            >
-              <Trash className="h-4 w-4 mr-1" /> Remove
-            </button>
-          </div>
-        ) : (
-          <button
-            className="w-full bg-blue-600 text-white py-2 rounded-full font-medium flex items-center justify-center hover:bg-blue-700 transition-colors mt-4"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleAddToCart();
-            }}
-          >
-            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-          </button>
-        )}
+        <div className="text-sm text-gray-500 capitalize flex items-center">
+          <span className="bg-gray-100 px-2 py-1 rounded text-xs">
+            {category as string}
+          </span>
+          {product.isLimited && (
+            <span className="ml-2 text-amber-600 flex items-center text-xs">
+              <TrendingUp className="h-3 w-3 mr-1" /> Trending
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
