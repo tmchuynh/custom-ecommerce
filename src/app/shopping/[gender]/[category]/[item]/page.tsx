@@ -3,6 +3,7 @@ import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
+import { formatCurrency } from "@/lib/utils";
 import {
   ArrowRight,
   Filter,
@@ -15,17 +16,19 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
 /**
  * Component representing a category section page for displaying products.
  */
 const CategorySectionPage = (): JSX.Element => {
+  const { gender, category, item } = useParams();
+  const router = useRouter();
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const { gender, category, item } = useParams();
   const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
 
@@ -43,6 +46,12 @@ const CategorySectionPage = (): JSX.Element => {
     });
   };
 
+  const updateURL = (itemName: string): string => {
+    const url = `/shopping/${gender}/${category}/${itemName.toLowerCase()}`;
+    router.push(url);
+    return url;
+  };
+
   useEffect(() => {
     if (gender && category && item) {
       const fetchProductData = async () => {
@@ -53,6 +62,7 @@ const CategorySectionPage = (): JSX.Element => {
           ]?.[item as string];
 
           if (categoryData) {
+            const itemTypes: Set<string> = new Set();
             // Convert object to array and add IDs
             const productsArray = Object.values(categoryData).map(
               (product: any, index) => ({
@@ -64,9 +74,46 @@ const CategorySectionPage = (): JSX.Element => {
                 originalPrice: Math.random() > 0.7 ? product.price * 1.2 : null,
               })
             );
+            setUniqueItemTypes(Array.from(itemTypes));
             setProducts(productsArray);
           } else {
             console.error("Product data not found for category:", category);
+          }
+
+          try {
+            const categoryData = (mockProductData as any)[gender as string]?.[
+              category as string
+            ];
+
+            if (categoryData) {
+              const enhancedProducts: any[] = [];
+              const itemTypes: Set<string> = new Set();
+
+              Object.entries(categoryData).forEach(
+                ([itemType, subCategory]: [string, any]) => {
+                  // Add each product with its item type
+                  Object.values(subCategory).forEach((product: any) => {
+                    enhancedProducts.push({
+                      ...product,
+                      itemType: itemType,
+                      id: `${itemType}-${product.name
+                        .replace(/\s+/g, "-")
+                        .toLowerCase()}`,
+                    });
+                  });
+                  itemTypes.add(itemType);
+                }
+              );
+
+              setUniqueItemTypes(Array.from(itemTypes));
+              setProducts(enhancedProducts);
+            } else {
+              console.error("Product data not found");
+            }
+          } catch (error) {
+            console.error("Error fetching product data", error);
+          } finally {
+            setLoading(false);
           }
         } catch (error) {
           console.error("Error fetching product data", error);
@@ -95,6 +142,12 @@ const CategorySectionPage = (): JSX.Element => {
         return filtered.sort((a, b) => a.price - b.price);
       case "price-high-low":
         return filtered.sort((a, b) => b.price - a.price);
+      case "name-a-z":
+        return filtered.sort((a, b) => a.name.localeCompare(b.name));
+      case "name-z-a":
+        return filtered.sort((a, b) => b.name.localeCompare(a.name));
+      case "rating":
+        return filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
       case "newest":
         return filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
       case "featured":
@@ -120,56 +173,62 @@ const CategorySectionPage = (): JSX.Element => {
       .join(" ");
   };
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
-  };
-
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+    <section className=" py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
+          <h1 className="text-3xl font-extrabold mb-4">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
             's {formatItemName(item as string)}
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Discover our premium collection of {formatItemName(item as string)}{" "}
             designed for style and comfort.
           </p>
         </div>
 
         {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          <div className="flex flex-wrap gap-2 mb-4 md:mb-0">
-            {/* Example filter buttons - you could generate these dynamically */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-4">
+          {/* Category Filters */}
+          <div className="flex justify-center flex-wrap gap-2 mb-12">
             <Button
               onClick={() => setActiveFilter("all")}
               variant={activeFilter === "all" ? "default" : "outline"}
-              className={`${
-                activeFilter === "all"
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "text-gray-700 hover:text-blue-600"
-              }`}
+              className={`capitalize ${activeFilter === "all" ? "" : ""}`}
             >
               <Filter className="h-4 w-4 mr-2" /> All Items
             </Button>
-            {/* Additional filter buttons would go here */}
+
+            {uniqueItemTypes.map((itemType) => (
+              <Button
+                key={itemType}
+                onClick={() => {
+                  setActiveFilter(itemType);
+                  updateURL(itemType);
+                }}
+                variant={activeFilter === itemType ? "default" : "outline"}
+                className={`capitalize ${activeFilter === itemType ? "" : ""}`}
+              >
+                {formatItemName(itemType)}
+              </Button>
+            ))}
           </div>
 
-          <div className="flex items-center">
-            <span className="text-sm text-gray-600 mr-2">Sort by:</span>
+          <div className="flex items-center mb-6">
+            <span className="text-sm mr-2">Sort by:</span>
             <select
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
+              className="border rounded-md p-2"
             >
               <option value="featured">Featured</option>
               <option value="newest">Newest</option>
               <option value="price-low-high">Price: Low to High</option>
               <option value="price-high-low">Price: High to Low</option>
+              <option value="name-a-z">Name: A to Z</option>
+              <option value="name-z-a">Name: Z to A</option>
+              <option value="rating">Rating</option>
             </select>
           </div>
         </div>
@@ -179,7 +238,7 @@ const CategorySectionPage = (): JSX.Element => {
           {filteredProducts.map((product, index) => (
             <div
               key={product.id || index}
-              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
             >
               <div className="relative overflow-hidden aspect-square">
                 <Image
@@ -197,7 +256,7 @@ const CategorySectionPage = (): JSX.Element => {
                 <div className="absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
                   <button
                     onClick={(e) => toggleWishlist(product.id, e)}
-                    className="p-2 bg-white rounded-full shadow-md hover:bg-red-50 transition-colors"
+                    className="p-2 rounded-full shadow-md hover:bg-red-50 transition-colors"
                   >
                     <Heart
                       className={`h-5 w-5 ${
@@ -207,7 +266,7 @@ const CategorySectionPage = (): JSX.Element => {
                       }`}
                     />
                   </button>
-                  <button className="p-2 bg-white rounded-full shadow-md hover:bg-blue-50 transition-colors">
+                  <button className="p-2 rounded-full shadow-md hover:bg-blue-50 transition-colors">
                     <Eye className="h-5 w-5 text-gray-600" />
                   </button>
                 </div>
@@ -233,14 +292,14 @@ const CategorySectionPage = (): JSX.Element => {
 
                 {/* Add to Cart Button - Appears on Hover */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <button className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
+                  <button className="w-full text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
                     <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
                   </button>
                 </div>
               </div>
 
               <div className="p-4">
-                <h3 className="text-gray-800 font-medium text-lg mb-1 hover:text-blue-600 transition-colors">
+                <h3 className="font-medium text-lg mb-1 transition-colors">
                   {product.name}
                 </h3>
 
@@ -258,28 +317,28 @@ const CategorySectionPage = (): JSX.Element => {
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500 ml-1">
+                    <span className="text-xs ml-1">
                       ({product.reviewCount || 12})
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     {product.originalPrice && (
-                      <span className="text-sm text-gray-500 line-through">
-                        {formatPrice(product.originalPrice)}
+                      <span className="text-sm line-through">
+                        {formatCurrency(product.originalPrice)}
                       </span>
                     )}
-                    <span className="text-lg font-semibold text-blue-600">
-                      {formatPrice(product.price)}
+                    <span className="text-lg font-semibold">
+                      {formatCurrency(product.price)}
                     </span>
                   </div>
                 </div>
 
-                <div className="text-sm text-gray-500 capitalize flex items-center">
-                  <span className="bg-gray-100 px-2 py-1 rounded text-xs">
+                <div className="text-sm capitalize flex items-center">
+                  <span className="px-2 py-1 rounded text-xs">
                     {category as string}
                   </span>
                   {product.isLimited && (
-                    <span className="ml-2 text-amber-600 flex items-center text-xs">
+                    <span className="ml-2 flex items-center text-xs">
                       <TrendingUp className="h-3 w-3 mr-1" /> Trending
                     </span>
                   )}
@@ -293,7 +352,7 @@ const CategorySectionPage = (): JSX.Element => {
         <div className="mt-12 text-center">
           <Link
             href={`/shopping/${gender}/${category}`}
-            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
+            className="inline-flex items-center font-medium"
           >
             Browse More {formatItemName(category as string)}
             <ArrowRight className="ml-2 h-4 w-4" />

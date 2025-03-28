@@ -141,44 +141,41 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="bg-white">
+    <div className="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <nav className="mb-6 text-sm">
           <ol className="flex items-center space-x-2">
             <li>
-              <Link href="/" className="text-gray-500 hover:text-gray-700">
+              <Link href="/" className="">
                 Home
               </Link>
             </li>
-            <li className="text-gray-500">/</li>
+            <li className="">/</li>
             <li>
-              <Link
-                href={`/shopping/${gender}`}
-                className="text-gray-500 hover:text-gray-700 capitalize"
-              >
+              <Link href={`/shopping/${gender}`} className=" capitalize">
                 {gender}
               </Link>
             </li>
-            <li className="text-gray-500">/</li>
+            <li className="">/</li>
             <li>
               <Link
                 href={`/shopping/${gender}/${category}`}
-                className="text-gray-500 hover:text-gray-700 capitalize"
+                className=" capitalize"
               >
                 {category}
               </Link>
             </li>
-            <li className="text-gray-500">/</li>
+            <li className="">/</li>
             <li>
               <Link
                 href={`/shopping/${gender}/${category}/${item}`}
-                className="text-gray-500 hover:text-gray-700 capitalize"
+                className=" capitalize"
               >
                 {item}
               </Link>
             </li>
-            <li className="text-gray-500">/</li>
+            <li className="">/</li>
             <li className="text-gray-900 font-medium truncate">
               {product.name}
             </li>
@@ -229,7 +226,7 @@ export default function ProductPage() {
               <div className="mt-2 flex items-center">
                 <div className="flex items-center gap-1">
                   {renderStars(product.reviews.averageRating)}
-                  <span className="text-sm text-gray-500 ml-2">
+                  <span className="text-sm ml-2">
                     {product.reviews.count} reviews
                   </span>
                 </div>
@@ -242,7 +239,7 @@ export default function ProductPage() {
                   {formatPrice(product.price)}
                 </p>
                 {product.originalPrice && (
-                  <p className="ml-3 text-lg text-gray-500 line-through">
+                  <p className="ml-3 text-lg line-through">
                     {formatPrice(product.originalPrice)}
                   </p>
                 )}
@@ -258,7 +255,7 @@ export default function ProductPage() {
                   </span>
                 )}
               </div>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm">
                 Tax included. Shipping calculated at checkout.
               </p>
             </div>
@@ -373,7 +370,7 @@ export default function ProductPage() {
 
             {/* Product Meta Info */}
             <div className="mt-6 border-t border-gray-200 pt-6 space-y-4">
-              <div className="flex items-center text-sm text-gray-500">
+              <div className="flex items-center text-sm">
                 <Truck className="h-5 w-5 mr-2 text-green-500" />
                 {product.inStock ? (
                   <span>In stock and ready to ship</span>
@@ -381,11 +378,11 @@ export default function ProductPage() {
                   <span className="text-red-500">Out of stock</span>
                 )}
               </div>
-              <div className="flex items-center text-sm text-gray-500">
+              <div className="flex items-center text-sm">
                 <Clock className="h-5 w-5 mr-2 text-blue-500" />
                 <span>Ships in 1-2 business days</span>
               </div>
-              <div className="flex items-center text-sm text-gray-500">
+              <div className="flex items-center text-sm">
                 <Share2 className="h-5 w-5 mr-2" />
                 <span>Share this product</span>
               </div>

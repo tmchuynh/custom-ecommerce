@@ -6,17 +6,24 @@ import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
 import { ArrowRight, Filter } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { JSX, useEffect, useState } from "react";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { JSX, useEffect, useMemo, useState } from "react";
 
 const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
-  const [products, setProducts] = useState<any[]>([]);
-  const [sortOrder, setSortOrder] = useState<string>("featured");
   const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
+  const [products, setProducts] = useState<any[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
-  const [wishlist, setWishlist] = useState<Set<string>>(new Set());
+  const [sortOrder, setSortOrder] = useState<string>("featured");
+
+  const pathname = usePathname();
+
+  const pathSegments = useMemo(
+    () => pathname.split("/").filter(Boolean),
+    [pathname]
+  );
 
   const toggleWishlist = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -30,6 +37,14 @@ const CategoryPage = (): JSX.Element => {
       }
       return newWishlist;
     });
+  };
+
+  const [wishlist, setWishlist] = useState<Set<string>>(new Set());
+
+  const updateURL = (itemName: string): string => {
+    const url = `/shopping/${gender}/${category}/${itemName.toLowerCase()}`;
+    router.push(url);
+    return url;
   };
 
   useEffect(() => {
@@ -76,32 +91,36 @@ const CategoryPage = (): JSX.Element => {
     }
   }, [gender, category]);
 
-  const filteredProducts =
-    activeFilter === "all"
-      ? products
-      : products.filter((product) => product.itemType === activeFilter);
+  const getFilteredAndSortedProducts = () => {
+    const filtered = [...products];
 
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
+    // Apply active filter if not "all"
+    if (activeFilter !== "all") {
+      // Example: filter by a product property like color or material
+      // filtered = filtered.filter(product => product.color === activeFilter);
+    }
+
+    // Apply sorting
     switch (sortOrder) {
       case "price-low-high":
-        return a.price - b.price;
+        return filtered.sort((a, b) => a.price - b.price);
       case "price-high-low":
-        return b.price - a.price;
+        return filtered.sort((a, b) => b.price - a.price);
       case "name-a-z":
-        return a.name.localeCompare(b.name);
+        return filtered.sort((a, b) => a.name.localeCompare(b.name));
       case "name-z-a":
-        return b.name.localeCompare(a.name);
-      case "newest":
-        if (a.isNew && !b.isNew) return -1;
-        if (!a.isNew && b.isNew) return 1;
-        return 0;
+        return filtered.sort((a, b) => b.name.localeCompare(a.name));
       case "rating":
-        return (b.rating || 0) - (a.rating || 0);
+        return filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      case "newest":
+        return filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
       case "featured":
       default:
-        return 0; // Keep original order for featured
+        return filtered;
     }
-  });
+  };
+
+  const filteredProducts = getFilteredAndSortedProducts();
 
   if (loading) {
     return <LoadingIndicator />;
@@ -111,82 +130,82 @@ const CategoryPage = (): JSX.Element => {
     return <CannotFind />;
   }
 
-  const formatItemType = (itemType: string) => {
-    return itemType
+  const formatItemName = (itemName: string) => {
+    return (itemName as string)
       .split("_")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16">
+    <section className=" py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
+          <h1 className="text-3xl font-extrabold mb-4">
             {typeof gender === "string" &&
               gender.charAt(0).toUpperCase() + gender.slice(1)}
             's{" "}
             {typeof category === "string" &&
               category.charAt(0).toUpperCase() + category.slice(1)}
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Shop our wide selection of {category} designed for quality and
             style.
           </p>
         </div>
 
-        {/* Category Filters */}
-        {uniqueItemTypes.length > 1 && (
-          <div className="flex justify-center flex-wrap gap-2 mb-12">
-            <Button
-              onClick={() => setActiveFilter("all")}
-              variant={activeFilter === "all" ? "default" : "outline"}
-              className={`capitalize ${
-                activeFilter === "all"
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "text-gray-700 hover:text-blue-600"
-              }`}
-            >
-              <Filter className="h-4 w-4 mr-2" /> All Items
-            </Button>
-
-            {uniqueItemTypes.map((itemType) => (
+        {/* Filters and Sorting */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-4">
+          {/* Category Filters */}
+          {uniqueItemTypes.length > 1 && (
+            <div className="flex justify-center flex-wrap gap-2 mb-12">
               <Button
-                key={itemType}
-                onClick={() => setActiveFilter(itemType)}
-                variant={activeFilter === itemType ? "default" : "outline"}
-                className={`capitalize ${
-                  activeFilter === itemType
-                    ? "bg-blue-600 hover:bg-blue-700 text-white"
-                    : "text-gray-700 hover:text-blue-600"
-                }`}
+                onClick={() => setActiveFilter("all")}
+                variant={activeFilter === "all" ? "default" : "outline"}
+                className={`capitalize ${activeFilter === "all" ? "" : ""}`}
               >
-                {formatItemType(itemType)}
+                <Filter className="h-4 w-4 mr-2" /> All Items
               </Button>
-            ))}
-          </div>
-        )}
 
-        <div className="flex items-center mb-6">
-          <span className="text-sm text-gray-600 mr-2">Sort by:</span>
-          <select
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="border border-gray-300 rounded-md p-2"
-          >
-            <option value="featured">Featured</option>
-            <option value="newest">Newest</option>
-            <option value="price-low-high">Price: Low to High</option>
-            <option value="price-high-low">Price: High to Low</option>
-            <option value="name-a-z">Name: A to Z</option>
-            <option value="name-z-a">Name: Z to A</option>
-            <option value="rating">Rating</option>
-          </select>
+              {uniqueItemTypes.map((itemType) => (
+                <Button
+                  key={itemType}
+                  onClick={() => {
+                    setActiveFilter(itemType);
+                    updateURL(itemType);
+                  }}
+                  variant={activeFilter === itemType ? "default" : "outline"}
+                  className={`capitalize ${
+                    activeFilter === itemType ? "" : ""
+                  }`}
+                >
+                  {formatItemName(itemType)}
+                </Button>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-center mb-6">
+            <span className="text-sm mr-2">Sort by:</span>
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="border rounded-md p-2"
+            >
+              <option value="featured">Featured</option>
+              <option value="newest">Newest</option>
+              <option value="price-low-high">Price: Low to High</option>
+              <option value="price-high-low">Price: High to Low</option>
+              <option value="name-a-z">Name: A to Z</option>
+              <option value="name-z-a">Name: Z to A</option>
+              <option value="rating">Rating</option>
+            </select>
+          </div>
         </div>
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {sortedProducts.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <ProductCard
               key={product.id || index}
               product={product}
@@ -202,7 +221,7 @@ const CategoryPage = (): JSX.Element => {
         <div className="mt-12 text-center">
           <Link
             href={`/shopping/${gender}`}
-            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
+            className="inline-flex items-center font-medium"
           >
             Browse More Categories
             <ArrowRight className="ml-2 h-4 w-4" />
