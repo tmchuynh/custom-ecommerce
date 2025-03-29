@@ -69,30 +69,28 @@ export default function CartAndFavoritesButtons({
       })}
     >
       <div className="flex gap-5">
-        {foundItem ? (
-          <QuantityButtons product={product} />
-        ) : (
-          <div
-            className={cn(
-              "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 transition-transform duration-300",
-              {
-                "translate-y-0": hovered,
-                "translate-y-full": !hovered,
-              }
-            )}
+        <QuantityButtons product={product} />
+
+        <div
+          className={cn(
+            "absolute bottom-0 left-0 right-0 p-4 transition-transform duration-300",
+            {
+              "translate-y-0": hovered,
+              "translate-y-full": !hovered,
+            }
+          )}
+        >
+          <button
+            className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleAddToCart(product, product.name);
+            }}
           >
-            <button
-              className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleAddToCart(product, product.name);
-              }}
-            >
-              <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-            </button>
-          </div>
-        )}
+            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+          </button>
+        </div>
       </div>
     </div>
   );

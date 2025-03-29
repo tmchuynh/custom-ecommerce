@@ -3,6 +3,7 @@ import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
+import { formatURL } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -31,15 +32,13 @@ const CategoryPage = (): JSX.Element => {
             Object.entries(categoryData).forEach(
               ([itemType, subCategory]: [string, any]) => {
                 console.log("itemType", itemType);
-                console.log("subCategory", subCategory);
                 // Add each product with its item type
                 Object.values(subCategory).forEach((product: any) => {
+                  console.log("product", product);
                   enhancedProducts.push({
                     ...product,
                     itemType: itemType,
-                    id: `${itemType}-${product.name
-                      .replace(/\s+/g, "-")
-                      .toLowerCase()}`,
+                    id: formatURL(`${product.name}`),
                   });
                 });
                 itemTypes.add(itemType);
@@ -107,6 +106,8 @@ const CategoryPage = (): JSX.Element => {
   };
 
   const filteredProducts = getFilteredAndSortedProducts();
+
+  console.log("filteredProducts", filteredProducts);
 
   if (loading) {
     return <LoadingIndicator />;
@@ -179,16 +180,21 @@ const CategoryPage = (): JSX.Element => {
           {/* Products Section */}
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product, index) => (
-                <ProductCard
-                  key={product.id || index}
-                  product={product}
-                  gender={gender as string}
-                  category={category as string}
-                  toggleWishlist={() => {}}
-                  wishlist={new Set()}
-                />
-              ))}
+              {filteredProducts.map((product, index) => {
+                console.log("product", product);
+                console.log("product.id", product.id);
+                console.log("itemType", product.itemType);
+                return (
+                  <ProductCard
+                    key={`${product.id}-${index}`}
+                    product={product}
+                    gender={gender as string}
+                    category={category as string}
+                    toggleWishlist={() => {}}
+                    wishlist={new Set()}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

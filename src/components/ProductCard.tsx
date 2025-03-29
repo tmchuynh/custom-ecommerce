@@ -139,7 +139,7 @@ const ProductCard = ({
 
       <div className="p-4">
         <h3 className="text-gray-800 font-medium text-lg mb-1 transition-colors">
-          <Link href={`/shopping/${gender}/${category}/${product.id}/`}>
+          <Link href={`/shopping/${gender}/${category}/${product.id}`}>
             {product.name}
           </Link>
         </h3>

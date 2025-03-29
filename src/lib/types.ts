@@ -76,6 +76,15 @@ export type ProductDetails = {
   highlights?: string[];
   subcategory: string;
   images: string[];
+  availableSizes: string[];
+  availableColors: string[];
+  features: string[];
+  inStock: boolean;
+  reviews: {
+    rating: number;
+    reviewCount: number;
+    averageRating: number;
+  };
   imageSrc: string;
   quantity: number;
   price: string;

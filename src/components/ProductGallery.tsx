@@ -40,7 +40,7 @@ const ProductGallery = ({
 }: {
   product: ProductType;
   index?: number;
-  selectedColor: Color;
+  selectedColor?: Color;
   panelsVisibility?: boolean;
   page: boolean;
 }): JSX.Element => {

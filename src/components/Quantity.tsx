@@ -2,6 +2,7 @@ import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ProductType } from "@/lib/types";
+import { Minus, Plus } from "lucide-react";
 import { JSX } from "react";
 
 /**
@@ -33,12 +34,6 @@ function QuantityButtons({
     useCart();
   const foundItem = itemExistsInCart(product.name);
 
-  console.log(foundItem);
-
-  if (!foundItem) {
-    return null;
-  }
-
   const cartItem = getCartItem(product.name);
 
   const handleIncrement = () => {
@@ -59,15 +54,27 @@ function QuantityButtons({
 
   return (
     <div className="flex items-center gap-3">
-      <Button onClick={handleDecrement}>-</Button>
-      <Input readOnly value={quantity} className="w-12 text-center" />
-      <Button onClick={handleIncrement}>+</Button>
-      <Button
-        variant="destructive"
-        onClick={() => removeFromCart(product.name)}
-      >
-        Remove
-      </Button>
+      {/* Quantity Selector */}
+      <div>
+        <h3 className="text-sm font-medium">Quantity</h3>
+        <div className="mt-2 flex items-center border border-gray-300 rounded-md">
+          <button type="button" onClick={handleDecrement} className="p-2">
+            <Minus className="h-4 w-4" />
+          </button>
+          <span className="w-12 text-center">{quantity}</span>
+          <button type="button" onClick={handleIncrement} className="p-2">
+            <Plus className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      {foundItem && (
+        <Button
+          variant="destructive"
+          onClick={() => removeFromCart(product.name)}
+        >
+          Remove
+        </Button>
+      )}
     </div>
   );
 }

@@ -74,9 +74,7 @@ const ProductInfo = ({
   const { getProductByName, convertPrice } = useProduct();
   const { selectedCurrency } = useCurrency();
   const [url, setURL] = useState(
-    `/shopping/${selectedGender}/${selectedCategory}/${selectedItem.toLowerCase()}/${formatURL(
-      product.name
-    )}`
+    `/shopping/${selectedGender}/${selectedCategory}/${formatURL(product.name)}`
   );
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
@@ -117,8 +115,8 @@ const ProductInfo = ({
         }
 
         setURL(
-          `/shopping/${productDetails.gender}/${productDetails.category}/${
-            productDetails.subcategory
+          `/shopping/${productDetails.gender}/${
+            productDetails.category
           }/${formatURL(productDetails.name)}`
         );
       } else if (product.gender && product.category) {
@@ -185,7 +183,7 @@ const ProductInfo = ({
         </p>
       </div>
 
-      <div className="row-span-1 h-full">
+      <div className="row-span-1 h-full my-5">
         {(showColors || showButtons) && (
           <div
             className={cn("absolute bottom-5 grid grid-cols-1 gap-2", {
