@@ -2,9 +2,8 @@
 import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
-import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
-import { ArrowRight, Filter } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
@@ -13,7 +12,7 @@ const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<any[]>([]);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
+  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
 
@@ -61,13 +60,25 @@ const CategoryPage = (): JSX.Element => {
     }
   }, [gender, category]);
 
+  const handleFilterChange = (itemType: string) => {
+    setActiveFilters((prevFilters) => {
+      const newFilters = new Set(prevFilters);
+      if (newFilters.has(itemType)) {
+        newFilters.delete(itemType);
+      } else {
+        newFilters.add(itemType);
+      }
+      return newFilters;
+    });
+  };
+
   const getFilteredAndSortedProducts = () => {
     let filtered = [...products];
 
-    // Apply active filter if not "all"
-    if (activeFilter !== "all") {
-      filtered = filtered.filter(
-        (product) => product.itemType === activeFilter
+    // Apply active filters
+    if (activeFilters.size > 0) {
+      filtered = filtered.filter((product) =>
+        activeFilters.has(product.itemType)
       );
     }
 
@@ -125,66 +136,57 @@ const CategoryPage = (): JSX.Element => {
           </p>
         </div>
 
-        {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-          {/* Category Filters */}
-          {uniqueItemTypes.length > 1 && (
-            <div className="flex justify-center flex-wrap gap-2 mb-12">
-              <Button
-                onClick={() => setActiveFilter("all")}
-                variant={activeFilter === "all" ? "default" : "outline"}
-                className={`capitalize ${
-                  activeFilter === "all" ? "bg-blue-600 text-white" : ""
-                }`}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Filters Section */}
+          <aside className="w-full lg:w-1/4">
+            <div className="mb-6">
+              <span className="text-sm mr-2">Sort by:</span>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="border rounded-md p-2"
               >
-                <Filter className="h-4 w-4 mr-2" /> All Items
-              </Button>
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-low-high">Price: Low to High</option>
+                <option value="price-high-low">Price: High to Low</option>
+                <option value="name-a-z">Name: A to Z</option>
+                <option value="name-z-a">Name: Z to A</option>
+                <option value="rating">Rating</option>
+              </select>
+            </div>
 
+            <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
+            <div className="space-y-2">
               {uniqueItemTypes.map((itemType) => (
-                <Button
-                  key={itemType}
-                  onClick={() => setActiveFilter(itemType)}
-                  variant={activeFilter === itemType ? "default" : "outline"}
-                  className={`capitalize ${
-                    activeFilter === itemType ? "bg-blue-600 text-white" : ""
-                  }`}
-                >
-                  {formatItemName(itemType)}
-                </Button>
+                <label key={itemType} className="flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    checked={activeFilters.has(itemType)}
+                    onChange={() => handleFilterChange(itemType)}
+                    className="form-checkbox h-5 w-5 text-blue-600"
+                  />
+                  <span className="capitalize">{formatItemName(itemType)}</span>
+                </label>
               ))}
             </div>
-          )}
+          </aside>
 
-          <div className="flex items-center mb-6">
-            <span className="text-sm mr-2">Sort by:</span>
-            <select
-              value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
-              className="border rounded-md p-2"
-            >
-              <option value="featured">Featured</option>
-              <option value="newest">Newest</option>
-              <option value="price-low-high">Price: Low to High</option>
-              <option value="price-high-low">Price: High to Low</option>
-              <option value="name-a-z">Name: A to Z</option>
-              <option value="name-z-a">Name: Z to A</option>
-              <option value="rating">Rating</option>
-            </select>
+          {/* Products Section */}
+          <div className="w-full lg:w-3/4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product, index) => (
+                <ProductCard
+                  key={product.id || index}
+                  product={product}
+                  gender={gender as string}
+                  category={category as string}
+                  toggleWishlist={() => {}}
+                  wishlist={new Set()}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredProducts.map((product, index) => (
-            <ProductCard
-              key={product.id || index}
-              product={product}
-              gender={gender as string}
-              category={category as string}
-              toggleWishlist={() => {}}
-              wishlist={new Set()}
-            />
-          ))}
         </div>
 
         {/* Browse More Link */}
