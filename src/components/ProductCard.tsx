@@ -14,6 +14,8 @@ import { cn, formatCurrency } from "@/lib/utils";
 import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
 import ProductHighlights from "./ProductHighlights";
+import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
+import { useProduct } from "@/app/context/productContext";
 
 const ProductCard = ({
   product,
@@ -28,52 +30,11 @@ const ProductCard = ({
   toggleWishlist: (id: string, e: React.MouseEvent) => void;
   wishlist: Set<string>;
 }): JSX.Element => {
-  const { addToCart, updateQuantity, removeFromCart, getCartItem } = useCart();
-
   const [hovered, setHovered] = useState(false);
-  const cartItem = getCartItem(product.id);
+  const { getProductByName, convertPrice } = useProduct();
 
-  const handleAddToCart = (): void => {
-    addToCart({
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      price: parseFloat(product.price.replace("$", "")),
-      quantity: 1,
-      imageSrc: product.imageSrc,
-    });
-    toast.success(`${product.name} added to cart!`);
-  };
-
-  const handleIncreaseQuantity = (): void => {
-    if (cartItem) {
-      updateQuantity(cartItem.id, cartItem.quantity + 1);
-      toast.success(`Increased quantity of ${product.name}`);
-    }
-  };
-
-  const handleDecreaseQuantity = (): void => {
-    if (cartItem && cartItem.quantity > 1) {
-      updateQuantity(cartItem.id, cartItem.quantity - 1);
-      toast.success(`Decreased quantity of ${product.name}`);
-    } else if (cartItem && cartItem.quantity === 1) {
-      handleRemoveFromCart();
-    }
-  };
-
-  const handleRemoveFromCart = (): void => {
-    if (cartItem) {
-      removeFromCart(cartItem.id);
-      toast.success(`${product.name} removed from cart!`);
-    }
-  };
-
-  const formatItemType = (itemType: string) => {
-    return itemType
-      .split("_")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
+  const foundItem = getProductByName(product.name);
+  console.log("foundItem", foundItem);
 
   return (
     <div
@@ -129,13 +90,6 @@ const ProductCard = ({
             </span>
           )}
         </div>
-
-        {/* Add to Cart Button - Appears on Hover */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-          <button className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
-            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-          </button>
-        </div>
       </div>
 
       <div className="p-4">
@@ -187,6 +141,11 @@ const ProductCard = ({
             </span>
           )}
         </div>
+
+        {/* Add to Cart Button - Appears on Hover */}
+        {foundItem && (
+          <CartAndFavoritesButtons product={foundItem} page={false} />
+        )}
       </div>
     </div>
   );
