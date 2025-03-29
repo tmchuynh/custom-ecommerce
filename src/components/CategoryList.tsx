@@ -60,7 +60,7 @@ export default function CategoryList({
         {section.name !== "Shop by Collection" && (
           <li>
             <a
-              href={`/shopping/${section.name}`}
+              href={`/shopping/${category.id}/${formatURL(section.name)}`}
               className="p-0 my-0 text-foreground hover:underline underline-offset-4"
               onClick={() => {
                 closePopovers?.();
