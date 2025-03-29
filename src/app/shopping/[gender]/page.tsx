@@ -192,6 +192,7 @@ const GenderPage = (): JSX.Element => {
                   product={product}
                   gender={gender as string}
                   category={product.category}
+                  item={product.itemType}
                   toggleWishlist={() => {}}
                   wishlist={new Set()}
                 />
