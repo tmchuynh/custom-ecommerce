@@ -13,6 +13,7 @@ import { JSX, useState } from "react";
 import { cn, formatCurrency } from "@/lib/utils";
 import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
+import ProductHighlights from "./ProductHighlights";
 
 const ProductCard = ({
   product,
@@ -173,6 +174,8 @@ const ProductCard = ({
             </span>
           </div>
         </div>
+
+        <ProductHighlights highlights={product.highlights} />
 
         <div className="text-sm text-gray-500 capitalize flex items-center">
           <span className="bg-gray-100 px-2 py-1 rounded text-xs">

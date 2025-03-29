@@ -5,6 +5,7 @@ import LoadingIndicator from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
+import { formatURL } from "@/lib/utils";
 import { ArrowRight, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +18,7 @@ const GenderPage = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
 
   const { getProductsByGender } = useProduct();
@@ -36,6 +38,33 @@ const GenderPage = (): JSX.Element => {
         }
 
         const genderData = (mockProductData as any)[validGender];
+
+        console.log("genderData", genderData);
+
+        if (genderData) {
+          const enhancedProducts: any[] = [];
+          const itemTypes: Set<string> = new Set();
+
+          Object.entries(genderData).forEach(
+            ([itemType, subCategory]: [string, any]) => {
+              console.log("itemType", itemType);
+              // Add each product with its item type
+              Object.values(subCategory).forEach((product: any) => {
+                console.log("product", product);
+                enhancedProducts.push({
+                  ...product,
+                  itemType: itemType,
+                  id: formatURL(`${product.name}`),
+                });
+              });
+              itemTypes.add(itemType);
+            }
+          );
+          console.log("enhancedProducts", enhancedProducts);
+          setUniqueItemTypes(Array.from(itemTypes));
+          setProducts(enhancedProducts);
+        }
+
         if (genderData) {
           setCategories(Object.keys(genderData));
         } else {
@@ -164,7 +193,7 @@ const GenderPage = (): JSX.Element => {
               {getFilteredAndSortedProducts().map((product, index) => (
                 <div
                   key={product.id || `prod-${index}`}
-                  className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+                  className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative"
                 >
                   <div className="relative overflow-hidden aspect-square">
                     <Image
@@ -177,7 +206,7 @@ const GenderPage = (): JSX.Element => {
 
                     {/* Product Badge */}
                     <div className="absolute top-4 left-4">
-                      <Badge variant={"secondary"}>{product.itemType}</Badge>
+                      <Badge variant="secondary">{product.itemType}</Badge>
                     </div>
 
                     {/* Shop Now Button - Appears on Hover */}
