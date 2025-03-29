@@ -27,8 +27,12 @@ import { JSX } from "react";
  */
 function QuantityButtons({
   product,
+  localQuantity,
+  setLocalQuantity,
 }: {
   product: ProductType;
+  localQuantity: number;
+  setLocalQuantity: React.Dispatch<React.SetStateAction<number>>;
 }): JSX.Element | null {
   const { updateQuantity, removeFromCart, itemExistsInCart, getCartItem } =
     useCart();
@@ -36,16 +40,22 @@ function QuantityButtons({
 
   const cartItem = getCartItem(product.name);
 
+  const displayQuantity =
+    foundItem && cartItem ? cartItem.quantity : localQuantity;
+
   const handleIncrement = () => {
-    if (cartItem) {
-      console.log(product.name, cartItem.quantity);
+    if (foundItem && cartItem) {
       updateQuantity(product.name, cartItem.quantity + 1);
+    } else {
+      setLocalQuantity(localQuantity + 1);
     }
   };
 
   const handleDecrement = () => {
-    if (cartItem && cartItem.quantity > 1) {
+    if (foundItem && cartItem && cartItem.quantity > 1) {
       updateQuantity(product.name, cartItem.quantity - 1);
+    } else if (!foundItem && localQuantity > 1) {
+      setLocalQuantity(localQuantity - 1);
     }
   };
 
@@ -61,7 +71,7 @@ function QuantityButtons({
           <button type="button" onClick={handleDecrement} className="p-2">
             <Minus className="h-4 w-4" />
           </button>
-          <span className="w-12 text-center">{quantity}</span>
+          <span className="w-12 text-center">{String(displayQuantity)}</span>
           <button type="button" onClick={handleIncrement} className="p-2">
             <Plus className="h-4 w-4" />
           </button>

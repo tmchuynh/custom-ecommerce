@@ -40,6 +40,7 @@ export default function CartAndFavoritesButtons({
   page?: boolean;
 }): JSX.Element {
   const { addToCart, getCartItem } = useCart();
+  const [localQuantity, setLocalQuantity] = useState(1);
   const foundItem = getCartItem(product.name);
   const [hovered, setHovered] = useState(false);
 
@@ -56,7 +57,7 @@ export default function CartAndFavoritesButtons({
       name: product.name,
       description: product.description,
       price: parseFloat(product.price.replace("$", "")),
-      quantity: 1,
+      quantity: localQuantity,
       imageSrc: product.imageSrc,
     });
     toast.success(`${product.name} added to cart!`);
@@ -69,28 +70,33 @@ export default function CartAndFavoritesButtons({
       })}
     >
       <div className="flex gap-5">
-        <QuantityButtons product={product} />
-
-        <div
-          className={cn(
-            "absolute bottom-0 left-0 right-0 p-4 transition-transform duration-300",
-            {
-              "translate-y-0": hovered,
-              "translate-y-full": !hovered,
-            }
-          )}
-        >
-          <button
-            className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors"
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleAddToCart(product, product.name);
-            }}
+        <QuantityButtons
+          product={product}
+          localQuantity={localQuantity}
+          setLocalQuantity={setLocalQuantity}
+        />
+        {!foundItem && (
+          <div
+            className={cn(
+              "absolute bottom-0 left-0 right-0 p-4 transition-transform duration-300",
+              {
+                "translate-y-0": hovered,
+                "translate-y-full": !hovered,
+              }
+            )}
           >
-            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-          </button>
-        </div>
+            <button
+              className="w-full bg-white text-gray-900 py-2 rounded-full font-medium flex items-center justify-center hover:bg-gray-100 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleAddToCart(product, product.name);
+              }}
+            >
+              <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
