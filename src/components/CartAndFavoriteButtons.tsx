@@ -9,6 +9,7 @@ import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
 import { useProduct } from "@/app/context/productContext";
+import { FaPlus } from "react-icons/fa";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -44,6 +45,7 @@ export default function CartAndFavoritesButtons({
   const { getProductByName } = useProduct();
   const [localQuantity, setLocalQuantity] = useState(1);
   const foundItem = getProductByName(product.name);
+  const cartItem = getCartItem(product.name);
   const [hovered, setHovered] = useState(false);
 
   console.log("product", product);
@@ -69,29 +71,44 @@ export default function CartAndFavoritesButtons({
 
   return (
     <div
-      className={cn("mt-5 pt-4 col-span-2 w-fit h-fit border", {
+      className={cn("mt-5 pt-4 col-span-2 w-fit h-fit", {
         "mt-0": page,
       })}
     >
       <div
         className={cn("flex items-end gap-5", {
-          "flex-col items-start": !page,
+          "flex items-end": !page,
         })}
       >
         <QuantityButtons
           product={product}
+          page={page}
           localQuantity={localQuantity}
           setLocalQuantity={setLocalQuantity}
         />
-        <Button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            handleAddToCart(product, product.name);
-          }}
-        >
-          <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-        </Button>
+        {!cartItem &&
+          (page ? (
+            <Button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleAddToCart(product, product.name);
+              }}
+            >
+              <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+            </Button>
+          ) : (
+            <Button
+              size={"sm"}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleAddToCart(product, product.name);
+              }}
+            >
+              <FaPlus /> Buy
+            </Button>
+          ))}
       </div>
     </div>
   );
