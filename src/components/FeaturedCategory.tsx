@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { Button } from "./ui/button";
+import DynamicButton from "./ui/button-dynamic";
 
 interface FeaturedCategoryProps {
   item: any;
@@ -31,21 +33,22 @@ export default function FeaturedCategory({
         )}
       />
       <div className="absolute inset-0 flex flex-col justify-end overflow-hidden">
-        <div className="bg-white/55 px-4 py-8 text-sm h-96 absolute w-full top-[50%] transition-transform duration-700 ease-in-out flex flex-col justify-start transform group-hover:-translate-y-2/12">
-          <a
-            href={item.href}
-            className="font-bold tracking-wider uppercase"
-            onClick={closePopovers}
-          >
-            <span aria-hidden="true" className="absolute inset-0" />
-            {item.name}
-          </a>
-          <p
-            aria-hidden="true"
-            className="mt-0.5 sm:mt-5 group-hover:underline underline-offset-4"
-          >
-            Shop now
-          </p>
+        <div className="bg-white/55 px-4 py-8 text-sm h-96 absolute w-full top-[50%] transition-transform duration-700 ease-in-out transform group-hover:-translate-y-2/12">
+          <div className="flex items-center gap-5 text-2xl font-bold">
+            <a
+              href={item.href}
+              className="font-bold tracking-wider uppercase text-teritary"
+              onClick={closePopovers}
+            >
+              <span aria-hidden="true" className="absolute inset-0" />
+              {item.name}
+            </a>
+            <DynamicButton
+              variant="link"
+              text="Shop Now"
+              className="w-fit p-0 text-background m-0"
+            />
+          </div>
         </div>
       </div>
     </div>
