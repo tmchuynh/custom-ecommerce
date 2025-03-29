@@ -110,7 +110,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/1357329192/photo/lifestyle-portrait-of-fashionable-woman-wearing-winter-or-spring-outfit-felt-hat-gray-wool.jpg?s=612x612&w=0&k=20&c=e8eNsDBNHsgph5g2kSOceAFeTjwgbHLuGGeeyhcgIR0=",
               },
             ],
-            subcategory: "",
           },
           {
             id: "shoes",
@@ -157,7 +156,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/690303248/photo/woman-shopping-for-shoes.jpg?s=612x612&w=0&k=20&c=qVPbxWvS_fKRbMvWM80jP58DIXo5siT26hds8qvJYN8=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -218,7 +216,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/928866976/photo/woman-wearing-black-hat-at-beach.jpg?s=612x612&w=0&k=20&c=8iHDGjAzUmwlmGJyBKbWyIQjYAXpjvuY2yIcBQRrakg=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -255,7 +252,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/1131097418/photo/beautiful-woman-with-shopping-bags-in-the-city-sale-shopping-tourism-and-happy-people-concept.jpg?s=612x612&w=0&k=20&c=XzAFRIbtsDn4hRYNMyiNn88CuO76vqyKLFANzRzUBzE=",
               },
             ],
-            subcategory: "",
           },
         ],
       ],
@@ -373,7 +369,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/643902794/photo/modern-man-in-winter-coat.jpg?s=612x612&w=0&k=20&c=lbx_OvqzEqThcSXaQKtcDKSvdvMyrIvPFUYrslHznxk=",
               },
             ],
-            subcategory: "",
           },
           {
             id: "shoes",
@@ -410,7 +405,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/1191174327/photo/fashion-model-wearing-jeans-and-brown-boots-with-zipper.jpg?s=612x612&w=0&k=20&c=oSPZltRJ6J1mGVFHHoUevqha47n0Ipaucr341OS7gRs=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -471,7 +465,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/858160872/photo/hipster-handsome-male-model-with-beard-wearing-black-blank-baseball-cap-with-space-for-your.jpg?s=612x612&w=0&k=20&c=FPNExCl2yoVKK0kSX0V9SoPnBy3hjkJ57RGWLTxsIvk=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -508,7 +501,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/870572130/photo/man-enjoyig-shopping.jpg?s=612x612&w=0&k=20&c=aC7aNJV3WBVAaPmRCg4yF6ItrBJ3CLOmq8yP3bzIKPA=",
               },
             ],
-            subcategory: "",
           },
         ],
       ],
@@ -632,7 +624,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/459320471/photo/playing-outside.jpg?s=612x612&w=0&k=20&c=PwzwMSLXYQaKCSKeok0WMNjugg7c-OSJmhILANRn0gY=",
               },
             ],
-            subcategory: "",
           },
           {
             id: "shoes",
@@ -669,7 +660,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/835991656/photo/feet-of-child-in-yellow-rubber-boots-jumping-over-puddle-in-rain.jpg?s=612x612&w=0&k=20&c=lq_QfbFoUU2f4Fb1RHsaEUMdUOLZvgBONneAzCnlJaU=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -730,7 +720,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/175622348/photo/boy-in-sunglasses-and-hat-eating-popsicle-outdoors.jpg?s=612x612&w=0&k=20&c=qV8o1QnJdsU39-VFv-vxamiCvJj1Yc0PuPx1EVKI3Cs=",
               },
             ],
-            subcategory: "",
           },
         ],
         [
@@ -767,7 +756,6 @@ export const navigations: NavigationDetails = {
                   "https://media.istockphoto.com/id/664966806/photo/superheroes-cheerful-kids-expressing-positivity-concept.jpg?s=612x612&w=0&k=20&c=72nkiK5d_Te_v-7cnda4qy-4Vb188JjpgpwmE4s3GF8=",
               },
             ],
-            subcategory: "",
           },
         ],
       ],
