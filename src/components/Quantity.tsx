@@ -59,11 +59,8 @@ function QuantityButtons({
     }
   };
 
-  // Ensure quantity is a valid number and convert to string
-  const quantity = cartItem?.quantity ? String(cartItem.quantity) : "";
-
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-end gap-3">
       {/* Quantity Selector */}
       <div>
         <h3 className="text-sm font-medium">Quantity</h3>
