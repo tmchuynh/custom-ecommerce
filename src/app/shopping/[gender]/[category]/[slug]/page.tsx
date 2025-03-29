@@ -29,9 +29,6 @@ import ProductInfo from "@/components/ProductInfo";
 
 export default function ProductPage() {
   const { gender, category, slug } = useParams();
-  console.log("gender", gender);
-  console.log("category", category);
-  console.log("slug", slug);
 
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -53,17 +50,13 @@ export default function ProductPage() {
         const productData = genderData?.[category as keyof typeof genderData];
 
         if (productData) {
-          console.log("productData", productData);
           const enhancedProducts: any[] = [];
           const itemTypes: Set<string> = new Set();
 
           Object.entries(productData).forEach(
             ([itemType, subCategory]: [string, any]) => {
-              console.log("itemType", itemType);
               // Add each product with its item type
               Object.values(subCategory).forEach((product: any) => {
-                console.log("product", product);
-
                 const url = formatURL(`${product.name}`);
                 if (url === slug) {
                   setProduct(product);
