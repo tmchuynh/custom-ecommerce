@@ -5,47 +5,40 @@ import { cn, formatURL } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useEffect, useMemo, useState } from "react";
-import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import ProductHighlights from "./ProductHighlights";
+import AddToCartButtons from "./AddToCartButtons";
 import ProductRate from "./ProductRate";
+import { Button } from "./ui/button";
+import { Heart, ShoppingCart } from "lucide-react";
+import { useCart } from "@/app/context/cartContext";
+import { toast } from "sonner";
+import QuantityButtons from "./Quantity";
 
 /**
- * Component for displaying detailed information about a product.
+ * A component that displays detailed information about a product.
  *
- * @param {Object} props - The props object.
- * @param {ProductType} props.product - The product data to display.
- * @param {boolean} [props.page=true] - Determines if the component is displayed on a full page or as part of a smaller section.
- * @param {string} [props.titleSize="text-4xl"] - The CSS class for the product title's font size.
- * @param {string} [props.priceSize="text-3xl"] - The CSS class for the product price's font size.
- * @param {boolean} props.relatedProduct - Indicates if the product is being displayed as a related product.
- * @param {string} [props.selectedGender=""] - The selected gender category for the product.
- * @param {string} [props.selectedCategory=""] - The selected category for the product.
- * @param {string} [props.selectedItem=""] - The selected subcategory or item for the product.
- * @param {boolean} [props.showColors=true] - Determines if the color options for the product should be displayed.
- * @param {boolean} [props.showButtons=true] - Determines if the action buttons (e.g., add to cart, add to favorites) should be displayed.
+ * @component
+ * @param {Object} props - The component props
+ * @param {ProductType} props.product - The product object containing details to display
+ * @param {boolean} [props.page=true] - Whether this is displayed on a full product page
+ * @param {string} [props.titleSize="text-4xl"] - CSS class for title text size
+ * @param {string} [props.priceSize="text-3xl"] - CSS class for price text size
+ * @param {boolean} props.relatedProduct - Whether this is displayed as a related product
+ * @param {string} [props.selectedGender=""] - Currently selected gender filter
+ * @param {string} [props.selectedCategory=""] - Currently selected category filter
+ * @param {string} [props.selectedItem=""] - Currently selected item
+ * @param {boolean} [props.showColors=true] - Whether to show color options
+ * @param {boolean} [props.showButtons=true] - Whether to show add to cart buttons
  *
- * @returns {JSX.Element} The rendered ProductInfo component.
- *
- * @remarks
- * - The component dynamically generates a URL for the product based on its properties.
- * - If `selectedItem` is not provided, the URL is derived using the `getProductByName` function.
- * - The component conditionally renders color options and action buttons based on the `showColors` and `showButtons` props.
+ * @returns {JSX.Element} A product information card containing name, price, description,
+ * highlights, and optional add to cart functionality
  *
  * @example
- * ```tsx
  * <ProductInfo
  *   product={productData}
- *   page={true}
- *   titleSize="text-2xl"
- *   priceSize="text-xl"
  *   relatedProduct={false}
- *   selectedGender="men"
- *   selectedCategory="shoes"
- *   selectedItem="sneakers"
  *   showColors={true}
  *   showButtons={true}
  * />
- * ```
  */
 const ProductInfo = ({
   product,
@@ -71,6 +64,8 @@ const ProductInfo = ({
   showButtons?: boolean;
 }): JSX.Element => {
   const { getProductByName, convertPrice } = useProduct();
+  const { addToCart, getCartItem } = useCart();
+  const cartItem = getCartItem(product.name);
   const { selectedCurrency } = useCurrency();
   const [url, setURL] = useState(
     `/shopping/${selectedGender}/${selectedCategory}/${formatURL(product.name)}`
@@ -78,9 +73,25 @@ const ProductInfo = ({
   const [highlights, setHighlights] = useState<string[]>(
     product.highlights || []
   );
+  const [localQuantity, setLocalQuantity] = useState(1);
+  const [inWishlist, setInWishlist] = useState(false);
 
-  // Calculate the display price directly in the render using the current currency
-  // This ensures it's always up-to-date with the selected currency
+  const toggleWishlist = () => {
+    setInWishlist(!inWishlist);
+  };
+
+  /**
+   * Memoized value that converts and formats the product price based on the selected currency.
+   *
+   * @returns {string} The formatted price in the selected currency.
+   * If price conversion fails, returns the original price as a string.
+   * Returns empty string if price or conversion function is unavailable.
+   *
+   * @remarks
+   * - Recalculates when product price, currency converter, or selected currency changes
+   * - Logs warning if price/converter is unavailable
+   * - Logs error if price conversion fails
+   */
   const displayPrice = useMemo(() => {
     if (!product?.price || typeof convertPrice !== "function") {
       console.warn("Price or convertPrice function is unavailable.");
@@ -102,7 +113,6 @@ const ProductInfo = ({
     [pathname]
   );
 
-  // Use useEffect to handle URL updates and fetch highlights if needed
   useEffect(() => {
     if (!selectedItem || highlights.length === 0) {
       const productDetails = getProductByName(product.name);
@@ -131,6 +141,26 @@ const ProductInfo = ({
     getProductByName,
     highlights.length,
   ]);
+
+  /**
+   * Handles adding a product to the cart.
+   *
+   * @param {any} product - The product to add to the cart.
+   * @param {number} id - The ID of the product (using index as fallback).
+   * @returns {void}
+   */
+  const handleAddToCart = (product: any, id: string): void => {
+    addToCart({
+      id: id,
+      name: product.name,
+      description: product.description,
+      highlights: product.highlights,
+      price: parseFloat(product.price.replace("$", "")),
+      quantity: localQuantity,
+      imageSrc: product.imageSrc,
+    });
+    toast.success(`${product.name} added to cart!`);
+  };
 
   return (
     <div
@@ -170,7 +200,7 @@ const ProductInfo = ({
               >
                 {product.displayPrice || displayPrice}
               </p>
-              <ProductRate />
+              <ProductRate page={page} />
             </div>
           )}
         <p
@@ -182,21 +212,54 @@ const ProductInfo = ({
         </p>
       </div>
 
-      <div className="row-span-1 h-full my-5">
-        {(showColors || showButtons) && (
+      <div className="row-span-1 h-full">
+        {page ? (
           <div
             className={cn("absolute bottom-5 grid grid-cols-1 gap-2", {
               relative: !page,
             })}
           >
-            <ProductHighlights highlights={highlights} />
-
-            {showButtons &&
-              typeof window !== "undefined" &&
+            {typeof window !== "undefined" &&
               window.location.pathname.split("/").filter(Boolean).length > 2 &&
               window.location.pathname.startsWith("/shopping/") && (
-                <CartAndFavoritesButtons product={product} page={page} />
+                <AddToCartButtons product={product} page={page} />
               )}
+          </div>
+        ) : (
+          <div className="mt-8 flex flex-col items-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <QuantityButtons
+              product={product}
+              page={page}
+              localQuantity={localQuantity}
+              setLocalQuantity={setLocalQuantity}
+            />
+            {!cartItem && (
+              <Button
+                className="flex-1 flex items-center justify-center"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleAddToCart(product, product.name);
+                }}
+              >
+                <ShoppingCart className="h-5 w-5 mr-2" />
+                Add to Cart
+              </Button>
+            )}
+            <Button
+              variant="outline"
+              onClick={toggleWishlist}
+              className={`flex-1 flex items-center justify-center ${
+                inWishlist ? "bg-pink-50 border-pink-200 text-pink-700" : ""
+              }`}
+            >
+              <Heart
+                className={`h-5 w-5 mr-2 ${
+                  inWishlist ? "fill-pink-500 text-pink-500" : ""
+                }`}
+              />
+              {inWishlist ? "Added to Wishlist" : "Add to Wishlist"}
+            </Button>
           </div>
         )}
       </div>

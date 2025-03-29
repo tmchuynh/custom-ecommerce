@@ -8,28 +8,25 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 /**
- * A React component that renders a product gallery with a tab-based interface.
- * The gallery supports thumbnail navigation, looping behavior, and dynamic styling
- * based on the selected color. It also provides options to toggle visibility of panels
- * and customize the layout for different use cases.
+ * A component that displays a gallery of product images or numbered panels with navigation controls.
  *
- * @param {Object} props - The props for the ProductGallery component.
- * @param {Color} props.selectedColor - The selected color object containing `bgColor` and `name`.
- * @param {string} props.selectedColor.bgColor - The background color for the gallery.
- * @param {string} props.selectedColor.name - The name of the selected color.
- * @param {boolean} [props.panelsVisibility=true] - Determines whether the tab panels are visible.
- * @param {boolean} props.page - A flag to toggle between single-page and multi-page layouts.
+ * @component
+ * @param {Object} props - The component props
+ * @param {ProductType} props.product - The product object containing image and details
+ * @param {number} [props.index] - Optional index for keying multiple galleries
+ * @param {Color} [props.selectedColor] - Selected color object with bgColor and name properties, defaults to grey
+ * @param {boolean} [props.panelsVisibility=true] - Controls visibility of the tab panel navigation
+ * @param {boolean} props.page - Determines if component is rendered in page or preview mode
  *
- * @returns {JSX.Element} The rendered ProductGallery component.
+ * @returns {JSX.Element} A tab group containing either product images or numbered panels with navigation
  *
- * @example
- * ```tsx
- * <ProductGallery
- *   selectedColor={{ bgColor: "#FF5733", name: "Orange" }}
- *   panelsVisibility={true}
- *   page={false}
- * />
- * ```
+ * Features:
+ * - Responsive grid layout of 3 visible panels at a time
+ * - Circular navigation through panels using arrow buttons (in preview mode)
+ * - Dynamic color theming based on selectedColor
+ * - Accessible color contrast handling
+ * - Different styling for page vs preview modes
+ * - Random panel generation for demo/placeholder purposes
  */
 const ProductGallery = ({
   product,
@@ -112,6 +109,7 @@ const ProductGallery = ({
       selectedIndex={selectedIndex}
       onChange={setSelectedIndex}
       className="space-y-8"
+      key={index}
     >
       {/* TabList: render all tabs but hide those not in our visible window */}
       {panelsVisibility && (

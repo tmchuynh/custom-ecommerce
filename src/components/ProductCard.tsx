@@ -1,17 +1,21 @@
+import { useCurrency } from "@/app/context/CurrencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { formatCurrency, formatURL } from "@/lib/utils";
-import { Clock, Eye, Heart, Star, TrendingUp } from "lucide-react";
+import { formatCurrency, formatItemName, formatURL } from "@/lib/utils";
+import { Clock, Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { JSX } from "react";
-import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import ProductHighlights from "./ProductHighlights";
+import { JSX, useMemo } from "react";
+import AddToCartButtons from "./AddToCartButtons";
+import { Badge } from "./ui/badge";
+import ProductRate from "./ProductRate";
+import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
 
 const ProductCard = ({
   product,
   gender,
   category,
   item,
+  page,
   toggleWishlist,
   wishlist,
 }: {
@@ -19,13 +23,28 @@ const ProductCard = ({
   gender: string;
   category: string;
   item: string;
+  page: boolean;
   toggleWishlist: (id: string, e: React.MouseEvent) => void;
   wishlist: Set<string>;
 }): JSX.Element => {
-  const { getProductByName } = useProduct();
+  const { getProductByName, convertPrice } = useProduct();
+  const { selectedCurrency } = useCurrency();
 
   const foundItem = getProductByName(product.name);
-  console.log("foundItem", foundItem);
+
+  const displayPrice = useMemo(() => {
+    if (!product?.price || typeof convertPrice !== "function") {
+      console.warn("Price or convertPrice function is unavailable.");
+      return "";
+    }
+
+    try {
+      return convertPrice(product.price, selectedCurrency);
+    } catch (error) {
+      console.error("Error converting price:", error);
+      return product.price?.toString() || ""; // Fallback to original price if conversion fails
+    }
+  }, [product?.price, convertPrice, selectedCurrency]);
 
   return (
     <div
@@ -46,25 +65,23 @@ const ProductCard = ({
 
         {/* Quick Action Buttons */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-          <button
-            onClick={(e) => toggleWishlist(product.id, e)}
-            className="p-2 bg-white rounded-full shadow-md hover:bg-red-50 transition-colors"
-          >
-            <Heart
-              className={`h-5 w-5 ${
-                wishlist.has(product.id)
-                  ? "fill-red-500 text-red-500"
-                  : "text-gray-600"
-              }`}
-            />
-          </button>
-          <button className="p-2 bg-white rounded-full shadow-md hover:bg-blue-50 transition-colors">
-            <Eye className="h-5 w-5 text-gray-600" />
-          </button>
+          <QuickLookAndFavoriteButtons
+            product={product}
+            page={page}
+            toggleWishlist={toggleWishlist}
+            wishlist={wishlist}
+          />
         </div>
 
         {/* Product Badges */}
         <div className="absolute top-4 left-4 flex flex-col gap-2">
+          <Badge variant={"secondary"} className="px-2 py-1 rounded text-xs">
+            {item ? (
+              <>{formatItemName(item as string)}</>
+            ) : (
+              <>{formatItemName(category as string)}</>
+            )}
+          </Badge>
           {product.isNew && (
             <span className="px-2 py-1 bg-blue-600 text-white text-xs font-medium rounded">
               New
@@ -84,7 +101,7 @@ const ProductCard = ({
       </div>
 
       <div className="p-4">
-        <h3 className="text-gray-800 font-medium text-lg mb-1 transition-colors">
+        <h3 className="font-medium text-lg mb-1 transition-colors">
           <Link
             href={`/shopping/${gender}/${category}/${formatURL(product.name)}`}
           >
@@ -92,53 +109,25 @@ const ProductCard = ({
           </Link>
         </h3>
 
-        <div className="flex items-center justify-between mb-2">
-          <div className="flex items-center">
-            <div className="flex items-center">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star
-                  key={i}
-                  className={`h-4 w-4 ${
-                    i < Math.floor(product.rating || 4)
-                      ? "text-yellow-400 fill-yellow-400"
-                      : "text-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-            <span className="text-xs text-gray-500 ml-1">
-              ({product.reviewCount || 12})
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            {product.originalPrice && (
-              <span className="text-sm text-gray-500 line-through">
-                {formatCurrency(product.originalPrice)}
-              </span>
-            )}
-            <span className="text-lg font-semibold text-blue-600">
-              {formatCurrency(product.price)}
-            </span>
-          </div>
-        </div>
-
-        <ProductHighlights highlights={product.highlights} />
-
-        <div className="text-sm text-gray-500 capitalize flex items-center">
-          <span className="bg-gray-100 px-2 py-1 rounded text-xs">
-            {item ? <>{item as string}</> : <>{category as string}</>}
-          </span>
-          {product.isLimited && (
-            <span className="ml-2 text-amber-600 flex items-center text-xs">
-              <TrendingUp className="h-3 w-3 mr-1" /> Trending
+        <div className="flex items-center gap-2">
+          {product.originalPrice && (
+            <span className="text-sm line-through">
+              {formatCurrency(product.originalPrice)}
             </span>
           )}
+          <span className="text-lg font-semibold text-blue-600">
+            {product.displayPrice || displayPrice}
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center">
+            <ProductRate page={page} />
+          </div>
         </div>
 
         {/* Add to Cart Button - Appears on Hover */}
-        {foundItem && (
-          <CartAndFavoritesButtons product={foundItem} page={false} />
-        )}
+        {foundItem && <AddToCartButtons product={foundItem} page={true} />}
       </div>
     </div>
   );

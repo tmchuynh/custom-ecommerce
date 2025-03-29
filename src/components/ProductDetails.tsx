@@ -16,26 +16,27 @@ import {
 } from "./ui/tooltip";
 
 /**
- * The `ProductDetails` component renders a section containing additional details
- * about a product. It uses an accordion to display the details in a collapsible format.
+ * A component that renders product details in an accordion format.
  *
- * @param {ProductDetailsProps} props - The props for the component.
- * @param {Array<{ items: Record<string, string | string[]> }>} props.details -
- * An array of detail objects, where each object contains an `items` property.
- * The `items` property is a record where keys are strings and values can be
- * either strings or arrays of strings.
- *
- * @returns {JSX.Element} A section element containing the product details.
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<Detail>} [props.details=[]] - Array of product details to display
+ * 
+ * interface Detail {
+ *    items: Object;
+ * }
+
+ * @returns {JSX.Element} A section containing an accordion of product details
  *
  * @example
- * ```tsx
- * const details = [
- *   { items: { color: "Red", size: ["Small", "Medium", "Large"] } },
- *   { items: { material: "Cotton", care: ["Machine wash", "Do not bleach"] } },
- * ];
+ * const details = [{
+ *   items: {
+ *     detail1: { key1: "value1" },
+ *     detail2: { key2: ["value2", "value3"] }
+ *   }
+ * }];
  *
  * <ProductDetails details={details} />
- * ```
  */
 const ProductDetails = ({ details = [] }: ProductDetailsProps): JSX.Element => {
   return (
