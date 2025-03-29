@@ -26,9 +26,14 @@ import { ProductDetails, ProductType } from "@/lib/types";
 import ProductGallery from "@/components/ProductGallery";
 import components from "@/components/ProductDetails";
 import ProductInfo from "@/components/ProductInfo";
+import RelatedProducts from "@/components/RelatedProducts";
+import { useProduct } from "@/app/context/productContext";
 
 export default function ProductPage() {
   const { gender, category, slug } = useParams();
+
+  const { getRelatedProducts } = useProduct();
+  const [relatedProducts, setRelatedProducts] = useState<ProductType[]>([]);
 
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
@@ -60,6 +65,8 @@ export default function ProductPage() {
                 const url = formatURL(`${product.name}`);
                 if (url === slug) {
                   setProduct(product);
+                  setRelatedProducts(getRelatedProducts(product.name));
+
                   enhancedProducts.push({
                     ...product,
                     itemType: itemType,
@@ -218,6 +225,15 @@ export default function ProductPage() {
                 ))}
               </ul>
             </div> */}
+
+            {/* Related Products */}
+            <RelatedProducts
+              gender={gender as string}
+              category={category as string}
+              toggleWishlist={toggleWishlist}
+              relatedProducts={relatedProducts}
+              wishlist={new Set()}
+            />
           </div>
         </div>
 

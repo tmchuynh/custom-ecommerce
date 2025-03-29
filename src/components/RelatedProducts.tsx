@@ -14,8 +14,16 @@ import ProductCard from "./ProductCard";
  * @returns {JSX.Element} A section containing a heading and a grid of related products.
  */
 const RelatedProducts = ({
+  gender,
+  category,
+  toggleWishlist,
+  wishlist,
   relatedProducts,
 }: {
+  gender: string;
+  category: string;
+  toggleWishlist: () => void;
+  wishlist: Set<string>;
   relatedProducts: ProductType[];
 }): JSX.Element => {
   return (
@@ -30,10 +38,12 @@ const RelatedProducts = ({
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
         {relatedProducts.map((product, prodIndex) => (
           <ProductCard
+            category={category}
+            gender={gender}
             product={product}
-            index={prodIndex}
-            page={true}
             key={prodIndex}
+            toggleWishlist={toggleWishlist}
+            wishlist={wishlist}
           />
         ))}
       </div>
