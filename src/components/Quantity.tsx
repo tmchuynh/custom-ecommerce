@@ -27,11 +27,13 @@ import { JSX } from "react";
  */
 function QuantityButtons({
   product,
+  page,
   localQuantity,
   setLocalQuantity,
 }: {
   product: ProductType;
   localQuantity: number;
+  page: boolean;
   setLocalQuantity: React.Dispatch<React.SetStateAction<number>>;
 }): JSX.Element | null {
   const { updateQuantity, removeFromCart, itemExistsInCart, getCartItem } =
@@ -67,24 +69,42 @@ function QuantityButtons({
         <h3 className="text-sm font-medium">Quantity</h3>
         <input
           type="number"
-          value={product.quantity}
-          onChange={(e) =>
-            handleUpdateQuantity(product.name, parseInt(e.target.value))
-          }
-          className="w-16 text-center border rounded-md"
+          min={1}
+          value={localQuantity}
+          onChange={(e) => {
+            const newQty = parseInt(e.target.value, 10);
+            if (foundItem && cartItem) {
+              updateQuantity(product.name, newQty);
+            } else {
+              setLocalQuantity(newQty);
+            }
+          }}
+          className="w-16 text-center border-2 rounded-md"
         />
       </div>
-      {foundItem && (
-        <Button
-          variant="destructive"
-          onClick={() => {
-            removeFromCart(product.name);
-            setLocalQuantity(1);
-          }}
-        >
-          Remove
-        </Button>
-      )}
+      {foundItem &&
+        (page ? (
+          <Button
+            variant="destructive"
+            onClick={() => {
+              removeFromCart(product.name);
+              setLocalQuantity(1);
+            }}
+          >
+            Remove
+          </Button>
+        ) : (
+          <Button
+            size={"sm"}
+            variant="destructive"
+            onClick={() => {
+              removeFromCart(product.name);
+              setLocalQuantity(1);
+            }}
+          >
+            Remove
+          </Button>
+        ))}
     </div>
   );
 }
