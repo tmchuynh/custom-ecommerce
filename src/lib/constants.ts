@@ -1156,36 +1156,112 @@ export const policies = [
   },
 ];
 
-export const reviews = {
-  average: 4,
-  featured: [
-    {
-      id: 1,
-      rating: 5,
-      content: `
-        <p>This icon pack is just what I need for my latest project. There's an icon for just about anything I could ever need. Love the playful look!</p>
-      `,
-      date: "July 16, 2021",
-      datetime: "2021-07-16",
-      author: "Emily Selman",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
-    },
-    {
-      id: 2,
-      rating: 5,
-      content: `
-        <p>Blown away by how polished this icon pack is. Everything looks so consistent and each SVG is optimized out of the box so I can use it directly with confidence. It would take me several hours to create a single icon this good, so it's a steal at this price.</p>
-      `,
-      date: "July 12, 2021",
-      datetime: "2021-07-12",
-      author: "Hector Gibbons",
-      avatarSrc:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
-    },
-    // More reviews...
-  ],
-};
+export const reviews = [
+  {
+    name: "John Doe",
+    review:
+      "Great product! I absolutely love it. The quality exceeded my expectations.",
+    rating: 5,
+    date: "March 15, 2023",
+  },
+  {
+    name: "Jane Smith",
+    review:
+      "Good quality but took longer to arrive than expected. Still satisfied.",
+    rating: 4,
+    date: "March 12, 2023",
+  },
+  {
+    name: "Samuel Lee",
+    review:
+      "The product is okay, but I had issues with the sizing. Will exchange for a different size.",
+    rating: 3,
+    date: "March 10, 2023",
+  },
+  {
+    name: "Alex Johnson",
+    review:
+      "Awesome service! The team was very responsive and helped with my order.",
+    rating: 5,
+    date: "March 9, 2023",
+  },
+  {
+    name: "Maria Gonzales",
+    review:
+      "Love the design, but the material could be better. Otherwise, very happy with the purchase.",
+    rating: 4,
+    date: "March 5, 2023",
+  },
+  {
+    name: "Chris Wong",
+    review:
+      "Good value for the price. Shipping was quick and the product is as described.",
+    rating: 4,
+    date: "March 3, 2023",
+  },
+  {
+    name: "Sophia Miller",
+    review:
+      "The product quality is exceptional! I will definitely be purchasing from here again.",
+    rating: 5,
+    date: "March 1, 2023",
+  },
+  {
+    name: "David Kim",
+    review:
+      "Disappointed with the material, it didn't match what was shown in the photos.",
+    rating: 2,
+    date: "February 28, 2023",
+  },
+  {
+    name: "Emily Davis",
+    review: "Amazing fit and color. Will recommend this product to my friends.",
+    rating: 5,
+    date: "February 25, 2023",
+  },
+  {
+    name: "Ryan O'Connor",
+    review:
+      "Not as good as expected. The product was fine but not as comfortable as advertised.",
+    rating: 3,
+    date: "February 22, 2023",
+  },
+  {
+    name: "Olivia Robinson",
+    review:
+      "Perfect size and fit. Delivery was on time, and I'm very happy with the quality.",
+    rating: 5,
+    date: "February 19, 2023",
+  },
+  {
+    name: "Michael Harris",
+    review:
+      "It's a decent product, but the price is a bit high for what you get.",
+    rating: 3,
+    date: "February 17, 2023",
+  },
+  {
+    name: "Isabella Green",
+    review:
+      "Absolutely fantastic! It arrived in perfect condition, and I am very impressed.",
+    rating: 5,
+    date: "February 15, 2023",
+  },
+  {
+    name: "Liam Patel",
+    review:
+      "The product didn't fit right, and I had to return it. Customer service was helpful though.",
+    rating: 2,
+    date: "February 10, 2023",
+  },
+  {
+    name: "Charlotte Walker",
+    review:
+      "Really loved it! The fit is perfect, and the fabric feels premium. Will buy more.",
+    rating: 5,
+    date: "February 8, 2023",
+  },
+];
 
 export const faqs = [
   {
