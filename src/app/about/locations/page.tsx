@@ -109,25 +109,21 @@ const LocationsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
-            Our Locations
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-5xl font-extrabold mb-4">Our Locations</h1>
+          <p className="text-xl max-w-2xl mx-auto">
             Find a store near you! Below are our locations with their addresses,
             store hours, and a map.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 bg-white rounded-xl shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">
-                Store Locations
-              </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+          {/* Table of Contents Sidebar */}
+          <div className="lg:col-span-2">
+            <div className="sticky top-8 rounded-xl shadow-md border p-6">
+              <h2 className="text-xl font-bold mb-4">Store Locations</h2>
               <ul className="space-y-2">
                 {locations.map((location) => (
                   <li key={location.id}>
@@ -136,7 +132,7 @@ const LocationsPage = () => {
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeLocation === location.id
                           ? "bg-blue-100 text-blue-700"
-                          : "hover:bg-gray-100 text-gray-700"
+                          : "hover:bg-gray-100 "
                       }`}
                     >
                       <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
@@ -148,18 +144,18 @@ const LocationsPage = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 bg-blue-50 p-4 rounded-lg space-y-2">
-                <h3 className="font-medium text-blue-800 flex items-center">
+              <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
+                <h3 className="font-medium flex items-center">
                   <Info className="h-4 w-4 mr-2" />
                   Store Information
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm ">
                   All our stores offer product returns, exchanges, and expert
                   advice from our staff.
                 </p>
                 <div className="mt-4">
                   <Link href="/customer_service">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button className="">
                       <Navigation className="h-4 w-4 mr-2" /> Learn About Our
                       Services
                     </Button>
@@ -170,17 +166,17 @@ const LocationsPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-5 space-y-8">
             {locations.map((location) => (
               <div
                 key={location.id}
                 ref={(el) => {
                   sectionRefs.current[location.id] = el;
                 }}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
+                className="rounded-xl border-2 overflow-hidden"
               >
-                <div className="p-6 border-b border-gray-200">
-                  <h2 className="text-2xl font-semibold text-gray-800 flex items-center">
+                <div className="p-6 border-b">
+                  <h2 className="text-2xl font-semibold flex items-center">
                     <MapPin className="h-6 w-6 text-blue-600 mr-2" />
                     {location.name}
                   </h2>
@@ -190,10 +186,8 @@ const LocationsPage = () => {
                     <div className="flex items-start">
                       <MapPin className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-gray-800 mb-1">
-                          Address
-                        </h3>
-                        <p className="text-gray-700">{location.address}</p>
+                        <h3 className="font-medium mb-1">Address</h3>
+                        <p className="">{location.address}</p>
                         <a
                           href={`https://maps.google.com/?q=${encodeURIComponent(
                             location.address
@@ -210,10 +204,8 @@ const LocationsPage = () => {
                     <div className="flex items-start">
                       <Clock className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-gray-800 mb-1">
-                          Store Hours
-                        </h3>
-                        <ul className="text-gray-700 space-y-1">
+                        <h3 className="font-medium mb-1">Store Hours</h3>
+                        <ul className=" space-y-1">
                           {location.hours.map((hour, i) => (
                             <li key={i}>{hour}</li>
                           ))}
@@ -224,10 +216,8 @@ const LocationsPage = () => {
                     <div className="flex items-start">
                       <Phone className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-gray-800 mb-1">
-                          Contact
-                        </h3>
-                        <p className="text-gray-700">
+                        <h3 className="font-medium mb-1">Contact</h3>
+                        <p className="">
                           Phone:{" "}
                           <a
                             href={`tel:${location.phone}`}
@@ -236,7 +226,7 @@ const LocationsPage = () => {
                             {location.phone}
                           </a>
                         </p>
-                        <p className="text-gray-700">
+                        <p className="">
                           Email:{" "}
                           <a
                             href={`mailto:${location.email}`}
@@ -251,10 +241,8 @@ const LocationsPage = () => {
                     <div className="flex items-start">
                       <Info className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium text-gray-800 mb-1">
-                          Store Features
-                        </h3>
-                        <ul className="text-gray-700 space-y-1">
+                        <h3 className="font-medium mb-1">Store Features</h3>
+                        <ul className=" space-y-1">
                           {location.features.map((feature, i) => (
                             <li key={i} className="flex items-center">
                               {feature.includes("parking") ? (
@@ -272,7 +260,7 @@ const LocationsPage = () => {
                     </div>
                   </div>
 
-                  <div className="h-full w-full rounded-lg overflow-hidden border border-gray-200">
+                  <div className="h-full w-full rounded-lg overflow-hidden border">
                     {isLoaded ? (
                       <GoogleMap
                         mapContainerStyle={containerStyle}
@@ -291,12 +279,12 @@ const LocationsPage = () => {
                     )}
                   </div>
                 </div>
-                <div className="p-4 bg-gray-50 border-t border-gray-200">
+                <div className="p-4 border-t">
                   <Button
                     onClick={() =>
                       window.open(`tel:${location.phone}`, "_self")
                     }
-                    className="bg-blue-600 hover:bg-blue-700 text-white w-full md:w-auto"
+                    className=" w-full md:w-auto"
                   >
                     <Phone className="h-4 w-4 mr-2" /> Call This Location
                   </Button>
@@ -308,21 +296,19 @@ const LocationsPage = () => {
       </div>
 
       {/* Fixed Contact Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 border-t border-gray-200">
+      <div className="fixed bottom-0 left-0 right-0 shadow-md p-4 border-t">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm text-gray-600">
-            Need more information about our locations?
-          </p>
+          <p className="text-sm">Need more information about our locations?</p>
           <div className="flex space-x-3">
             <a
               href="mailto:info@yourcompany.com"
-              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md"
+              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md"
             >
               <Mail className="h-4 w-4 mr-2" /> Email Us
             </a>
             <a
               href="tel:+15551234567"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
+              className="inline-flex items-center  px-4 py-2 rounded-md"
             >
               <Phone className="h-4 w-4 mr-2" /> Call Us
             </a>
