@@ -16,7 +16,7 @@ const CategoryPage = (): JSX.Element => {
   const [products, setProducts] = useState<any[]>([]);
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
-  const [sortOrder, setSortOrder] = useState<string>("featured");
+  const [sortOrder, setSortOrder] = useState<string>("name-a-z");
 
   useEffect(() => {
     if (gender && category) {
