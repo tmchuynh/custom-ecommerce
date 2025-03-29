@@ -1,6 +1,7 @@
 import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { JSX } from "react";
 
 /**
@@ -42,7 +43,7 @@ function QuantityButtons({
   return (
     <div className="flex items-end gap-3">
       {/* Quantity Selector */}
-      <div>
+      <div className="flex flex-col items-center">
         <h3 className="text-sm font-medium">Quantity</h3>
         <input
           type="number"
@@ -55,7 +56,9 @@ function QuantityButtons({
               setLocalQuantity(newQty);
             }
           }}
-          className="w-16 text-center border rounded-md"
+          className={cn("w-3/4 border rounded-md py-1 mt-1 text-center", {
+            "flex-1 mt-3": !page,
+          })}
         />
       </div>
       {foundItem &&

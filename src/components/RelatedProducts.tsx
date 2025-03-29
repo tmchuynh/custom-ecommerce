@@ -29,7 +29,7 @@ const RelatedProducts = ({
   return (
     <section
       aria-labelledby="related-heading"
-      className="mt-10 px-4 py-16 sm:px-0"
+      className="mt-10 px-4 py-16 sm:px-0 w-full"
     >
       <h3 id="related-heading" className="text-lg font-medium mb-4">
         Customers also bought
