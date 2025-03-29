@@ -6,11 +6,12 @@ import { mockProductData } from "@/lib/mockProductData";
 import { formatURL } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
 const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState<boolean>(true);
   const [products, setProducts] = useState<any[]>([]);
   const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
@@ -62,6 +63,13 @@ const CategoryPage = (): JSX.Element => {
       fetchItemsData();
     }
   }, [gender, category]);
+
+  useEffect(() => {
+    const paramFilter = searchParams.get("filter");
+    if (!loading && paramFilter && uniqueItemTypes.includes(paramFilter)) {
+      setActiveFilters(new Set([paramFilter]));
+    }
+  }, [loading, uniqueItemTypes]);
 
   const handleFilterChange = (itemType: string) => {
     setActiveFilters((prevFilters) => {

@@ -74,7 +74,9 @@ export default function CategoryList({
         {section.items.map((item) => (
           <li key={item.name} className="">
             <a
-              href={`/shopping/${category.id}/${formatURL(section.name)}`}
+              href={`/shopping/${category.id}/${formatURL(
+                section.name
+              )}?filter=${formatURL(item.name)}`}
               className="p-0 my-0 text-foreground hover:underline underline-offset-4"
               onClick={closePopovers}
             >
