@@ -21,6 +21,8 @@ const GenderPage = (): JSX.Element => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [subcategories, setSubCategories] = useState<string[] | null>(null);
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
+  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
+  const [sortOrder, setSortOrder] = useState<string>("featured");
 
   const { getProductsByGender } = useProduct();
 
@@ -137,15 +139,48 @@ const GenderPage = (): JSX.Element => {
     setSelectedItem(null); // Reset selected item when category changes
   }, [selectedCategory, products]);
 
-  const filteredProducts = products.filter((product) => {
-    if (selectedCategory && product.category !== selectedCategory) {
-      return false;
+  const handleFilterChange = (itemType: string) => {
+    setActiveFilters((prevFilters) => {
+      const newFilters = new Set(prevFilters);
+      if (newFilters.has(itemType)) {
+        newFilters.delete(itemType);
+      } else {
+        newFilters.add(itemType);
+      }
+      return newFilters;
+    });
+  };
+
+  const getFilteredAndSortedProducts = () => {
+    const filtered = products.filter((product) => {
+      if (selectedCategory && product.category !== selectedCategory) {
+        return false;
+      }
+      // If filters exist, ensure the product's itemType is included
+      if (activeFilters.size > 0 && !activeFilters.has(product.itemType)) {
+        return false;
+      }
+      return true;
+    });
+
+    switch (sortOrder) {
+      case "price-low-high":
+        return filtered.sort((a, b) => a.price - b.price);
+      case "price-high-low":
+        return filtered.sort((a, b) => b.price - a.price);
+      case "name-a-z":
+        return filtered.sort((a, b) => a.name.localeCompare(b.name));
+      case "name-z-a":
+        return filtered.sort((a, b) => b.name.localeCompare(a.name));
+      case "rating":
+        return filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      case "newest":
+        return filtered.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
+      case "featured":
+      default:
+        return filtered;
     }
-    if (selectedItem && product.itemType !== selectedItem) {
-      return false;
-    }
-    return true;
-  });
+  };
 
   if (loading) {
     return <LoadingIndicator />;
@@ -178,6 +213,24 @@ const GenderPage = (): JSX.Element => {
           <aside className="w-full lg:w-1/4">
             <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
 
+            {/* Sort dropdown */}
+            <div className="mb-6">
+              <span className="text-sm mr-2">Sort by:</span>
+              <select
+                value={sortOrder}
+                onChange={(e) => setSortOrder(e.target.value)}
+                className="border rounded-md p-2"
+              >
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-low-high">Price: Low to High</option>
+                <option value="price-high-low">Price: High to Low</option>
+                <option value="name-a-z">Name: A to Z</option>
+                <option value="name-z-a">Name: Z to A</option>
+                <option value="rating">Rating</option>
+              </select>
+            </div>
+
             {/* Categories */}
             <div className="mb-6">
               <h3 className="text-md font-medium mb-2">Categories</h3>
@@ -201,7 +254,7 @@ const GenderPage = (): JSX.Element => {
               </div>
             </div>
 
-            {/* Items */}
+            {/* Items (converted to checkboxes) */}
             {selectedCategory && items.length > 0 && (
               <div className="mb-6">
                 <h3 className="text-md font-medium mb-2">Items</h3>
@@ -209,13 +262,10 @@ const GenderPage = (): JSX.Element => {
                   {items.map((item) => (
                     <label key={item} className="flex items-center space-x-2">
                       <input
-                        type="radio"
-                        name="item"
-                        checked={selectedItem === item}
-                        onChange={() =>
-                          setSelectedItem(selectedItem === item ? null : item)
-                        }
-                        className="form-radio h-5 w-5 text-blue-600"
+                        type="checkbox"
+                        checked={activeFilters.has(item)}
+                        onChange={() => handleFilterChange(item)}
+                        className="form-checkbox h-5 w-5 text-blue-600"
                       />
                       <span className="capitalize">{item}</span>
                     </label>
@@ -228,7 +278,7 @@ const GenderPage = (): JSX.Element => {
           {/* Products Section */}
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
+              {getFilteredAndSortedProducts().map((product) => (
                 <div
                   key={product.id}
                   className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
