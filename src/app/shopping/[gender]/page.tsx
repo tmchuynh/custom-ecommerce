@@ -2,6 +2,7 @@
 import { useProduct } from "@/app/context/productContext";
 import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
+import ProductCard from "@/components/ProductCard";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
@@ -191,43 +192,54 @@ const GenderPage = (): JSX.Element => {
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {getFilteredAndSortedProducts().map((product, index) => (
-                <div
-                  key={`${product.id}-prod-${index}`}
-                  className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative"
-                >
-                  <div className="relative overflow-hidden aspect-square">
-                    {/* <Image
-                      src={product.imageSrc}
-                      alt={product.name}
-                      width={400}
-                      height={400}
-                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    /> */}
+                <ProductCard
+                  key={`${product.id}-${index}`}
+                  product={product}
+                  gender={gender as string}
+                  category={product.category as string}
+                  toggleWishlist={() => {}}
+                  wishlist={new Set()}
+                />
+                // <div
+                //   key={product.id || `prod-${index}`}
+                //   className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative"
+                // >
+                //   <div className="relative overflow-hidden aspect-square">
+                //     <Image
+                //       src={product.imageSrc}
+                //       alt={product.name}
+                //       width={400}
+                //       height={400}
+                //       className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                //     />
 
-                    <Skeleton />
+                //     {/* Product Badge */}
+                //     <div className="absolute top-4 left-4">
+                //       <Badge variant="secondary">
+                //         {uniqueItemTypes[product.itemType]}
+                //       </Badge>
+                //     </div>
 
-                    {/* Product Badge */}
-                    <div className="absolute top-4 left-4">
-                      <Badge variant="secondary">{product.itemType}</Badge>
-                    </div>
+                //     {/* Shop Now Button - Appears on Hover */}
+                //     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                //       <Button>
+                //         <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
+                //       </Button>
+                //     </div>
+                //   </div>
 
-                    {/* Shop Now Button - Appears on Hover */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                      <Button>
-                        <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div className="p-4">
-                    <h3 className="font-medium text-lg mb-1 group-hover:text-teritary transition-colors">
-                      {product.name}
-                    </h3>
-                    <p className="text-sm line-clamp-2">
-                      {product.description}
-                    </p>
-                  </div>
-                </div>
+                //   <div className="p-4">
+                //     <h3 className="font-medium text-lg mb-1 group-hover:text-teritary transition-colors">
+                //       {product.name}
+                //     </h3>
+                //     <p className="text-sm line-clamp-2">
+                //       {product.description}
+                //     </p>
+                //     <p className="text-xs mt-1">
+                //       Item type: {product.itemType}
+                //     </p>
+                //   </div>
+                // </div>
               ))}
             </div>
           </div>
