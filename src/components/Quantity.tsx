@@ -69,8 +69,7 @@ function QuantityButtons({
         <h3 className="text-sm font-medium">Quantity</h3>
         <input
           type="number"
-          min={1}
-          value={localQuantity}
+          value={foundItem && cartItem ? cartItem.quantity ?? 1 : localQuantity}
           onChange={(e) => {
             const newQty = parseInt(e.target.value, 10);
             if (foundItem && cartItem) {
@@ -79,7 +78,7 @@ function QuantityButtons({
               setLocalQuantity(newQty);
             }
           }}
-          className="w-16 text-center border-2 rounded-md"
+          className="w-16 text-center border rounded-md"
         />
       </div>
       {foundItem &&
