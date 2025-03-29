@@ -117,16 +117,14 @@ export default function NavMenu() {
   };
 
   return (
-    <div className="relative z-20 shadow-sm">
+    <div className="relative z-20">
       <div className="relative z-40 lg:hidden">
         <NavMobileMenu />
       </div>
 
       <nav>
-        {/* Top navigations */}
-
-        <div className="shadow-sm">
-          <div className="bg-background text-foreground shadow-md z-10">
+        <div className="">
+          <div className="bg-background text-foreground z-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">
                 {/* Logo (lg+) */}
@@ -144,6 +142,12 @@ export default function NavMenu() {
                   {/* Flyout menus */}
                   <PopoverGroup className="inset-x-0 bottom-0 px-4">
                     <div className="flex h-full justify-center space-x-8">
+                      <Link
+                        href={"/"}
+                        className="flex items-center text-sm font-medium hover:underline underline-offset-4"
+                      >
+                        Home
+                      </Link>
                       {sortedCategories.map((category) => (
                         <Popover key={category.name} className="flex">
                           <div className="relative flex">
@@ -269,7 +273,7 @@ export default function NavMenu() {
                         <Link
                           key={page.name}
                           href={page.href}
-                          className="flex items-center text-sm font-medium"
+                          className="flex items-center text-sm font-medium hover:underline underline-offset-4"
                           onClick={closeAllPopovers}
                         >
                           {page.name}
