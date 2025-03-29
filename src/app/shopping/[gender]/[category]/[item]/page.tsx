@@ -294,7 +294,7 @@ const CategorySectionPage = (): JSX.Element => {
           {filteredProducts.map((product, index) => (
             <div
               key={product.id || index}
-              className="group rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group rounded-xl border-2 shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
             >
               <div className="relative overflow-hidden aspect-square">
                 <Image

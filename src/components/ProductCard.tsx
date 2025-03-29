@@ -77,7 +77,7 @@ const ProductCard = ({
   return (
     <div
       key={product.id}
-      className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+      className="group border-2 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
     >
       <div className="relative overflow-hidden aspect-square">
         <Image
@@ -138,7 +138,7 @@ const ProductCard = ({
       </div>
 
       <div className="p-4">
-        <h3 className="text-gray-800 font-medium text-lg mb-1 hover:text-blue-600 transition-colors">
+        <h3 className="text-gray-800 font-medium text-lg mb-1 transition-colors">
           {product.name}
         </h3>
 
