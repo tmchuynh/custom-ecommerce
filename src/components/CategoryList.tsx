@@ -1,4 +1,5 @@
 import { CategoryProps } from "@/lib/interfaces";
+import { formatURL } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { JSX } from "react";
 
@@ -45,7 +46,7 @@ export default function CategoryList({
     <div key={index} className="space-y-4">
       <div className="flex items-center justify-between">
         <p
-          id={`${category.id}-${section.id}-heading`}
+          id={`${category.id}-heading`}
           className="font-bold tracking-wider uppercase"
         >
           {section.name}
@@ -53,17 +54,17 @@ export default function CategoryList({
       </div>
       <ul
         role="list"
-        aria-labelledby={`${category.id}-${section.id}-heading`}
+        aria-labelledby={`${category.id}-heading`}
         className="mt-4 space-y-4"
       >
         {section.name !== "Shop by Collection" && (
           <li>
             <a
-              href={`/shopping/${category.id}/${section.id}`}
+              href={`/shopping/${section.name}`}
               className="p-0 my-0 text-foreground hover:underline underline-offset-4"
               onClick={() => {
                 closePopovers?.();
-                router.push(`/shopping/${category.id}/${section.id}`);
+                router.push(`/shopping/${category.id}`);
               }}
             >
               Shop All {section.name}
@@ -73,7 +74,7 @@ export default function CategoryList({
         {section.items.map((item) => (
           <li key={item.name} className="">
             <a
-              href={item.href}
+              href={`/shopping/${category.id}/${formatURL(section.name)}`}
               className="p-0 my-0 text-foreground hover:underline underline-offset-4"
               onClick={closePopovers}
             >
