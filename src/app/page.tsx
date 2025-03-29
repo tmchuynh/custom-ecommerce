@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <nav aria-label="Offers" className="order-last border-t-2 lg:order-first">
+      <nav aria-label="Offers" className="order-last border-t lg:order-first">
         <div className="mx-auto lg:px-8">
           <ul
             role="list"
