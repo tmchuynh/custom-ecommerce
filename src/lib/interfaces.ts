@@ -105,18 +105,20 @@ export interface ProductItem {
   price: string | number;
   description: string;
   imageSrc: string;
+  highlights: string[];
+  isLimited?: boolean;
+  isNew?: boolean;
+  isOnSale?: boolean;
+  featured?: boolean;
+  originalPrice?: number;
+  options?: { name: string; value: string }[];
 }
 
 export interface CartItem extends ProductItem {
   id: string;
   quantity: number;
-  originalPrice?: number;
   color?: string;
   size?: string;
-  isOnSale?: boolean;
-  isNew?: boolean;
-  isLimited?: boolean;
-  options?: { name: string; value: string }[];
 }
 
 export interface CartContextType {
