@@ -40,18 +40,14 @@ const GenderPage = (): JSX.Element => {
 
         const genderData = (mockProductData as any)[validGender];
 
-        console.log("genderData", genderData);
-
         if (genderData) {
           const enhancedProducts: any[] = [];
           const itemTypes: Set<string> = new Set();
 
           Object.entries(genderData).forEach(
             ([itemType, subCategory]: [string, any]) => {
-              console.log("itemType", itemType);
               // Add each product with its item type
               Object.values(subCategory).forEach((product: any) => {
-                console.log("product", product);
                 enhancedProducts.push({
                   ...product,
                   category: itemType,
@@ -61,7 +57,6 @@ const GenderPage = (): JSX.Element => {
               itemTypes.add(itemType);
             }
           );
-          console.log("enhancedProducts", enhancedProducts);
           setUniqueItemTypes(Array.from(itemTypes));
           setProducts(enhancedProducts);
         }
