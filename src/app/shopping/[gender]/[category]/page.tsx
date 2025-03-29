@@ -3,7 +3,7 @@ import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import ProductCard from "@/components/ProductCard";
 import { mockProductData } from "@/lib/mockProductData";
-import { formatURL } from "@/lib/utils";
+import { formatItemName, formatURL } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
@@ -32,6 +32,8 @@ const CategoryPage = (): JSX.Element => {
 
             Object.entries(categoryData).forEach(
               ([itemType, subCategory]: [string, any]) => {
+                console.log("subCategory", subCategory);
+                console.log("itemType", itemType);
                 // Add each product with its item type
                 Object.values(subCategory).forEach((product: any) => {
                   enhancedProducts.push({
@@ -119,13 +121,6 @@ const CategoryPage = (): JSX.Element => {
     return <CannotFind />;
   }
 
-  const formatItemName = (itemName: string) => {
-    return (itemName as string)
-      .split("_")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
   return (
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -165,17 +160,23 @@ const CategoryPage = (): JSX.Element => {
 
             <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
             <div className="space-y-2">
-              {uniqueItemTypes.map((itemType) => (
-                <label key={itemType} className="flex items-center space-x-2">
-                  <input
-                    type="checkbox"
-                    checked={activeFilters.has(itemType)}
-                    onChange={() => handleFilterChange(itemType)}
-                    className="form-checkbox h-5 w-5 text-blue-600"
-                  />
-                  <span className="capitalize">{formatItemName(itemType)}</span>
-                </label>
-              ))}
+              {uniqueItemTypes.map((itemType) => {
+                const formattedItemType = formatItemName(
+                  itemType.toLowerCase()
+                );
+
+                return (
+                  <label key={itemType} className="flex items-center space-x-2">
+                    <input
+                      type="checkbox"
+                      checked={activeFilters.has(itemType)}
+                      onChange={() => handleFilterChange(itemType)}
+                      className="form-checkbox h-5 w-5 text-blue-600"
+                    />
+                    <span>{formattedItemType}</span> {/* No capitalize class */}
+                  </label>
+                );
+              })}
             </div>
           </aside>
 
@@ -190,6 +191,7 @@ const CategoryPage = (): JSX.Element => {
                     gender={gender as string}
                     category={category as string}
                     item={product.itemType}
+                    page={true}
                     toggleWishlist={() => {}}
                     wishlist={new Set()}
                   />
@@ -197,17 +199,6 @@ const CategoryPage = (): JSX.Element => {
               })}
             </div>
           </div>
-        </div>
-
-        {/* Browse More Link */}
-        <div className="mt-12 text-center">
-          <Link
-            href={`/shopping/${gender}`}
-            className="inline-flex items-center font-medium"
-          >
-            Browse More Categories
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

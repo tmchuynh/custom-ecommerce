@@ -7,6 +7,7 @@ import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
 import { Button } from "@/components/ui/button";
+import { ProductItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductType } from "@/lib/types";
 import { formatURL } from "@/lib/utils";
@@ -37,7 +38,7 @@ export default function ProductPage() {
         const productData = genderData?.[category as keyof typeof genderData];
 
         if (productData) {
-          const enhancedProducts: any[] = [];
+          const enhancedProducts: ProductItem[] = [];
           const itemTypes: Set<string> = new Set();
 
           Object.entries(productData).forEach(
@@ -85,7 +86,7 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="border-4">
+    <div className="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Images */}
@@ -93,20 +94,6 @@ export default function ProductPage() {
 
           {/* Product Details */}
           <div className="space-y-6">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                {product.name}
-              </h1>
-              {/* <div className="mt-2 flex items-center">
-                <div className="flex items-center gap-1">
-                  {renderStars(product.reviews.averageRating)}
-                  <span className="text-sm ml-2">
-                    {product.reviews.reviewCount} reviews
-                  </span>
-                </div>
-              </div> */}
-            </div>
-
             <ProductInfo
               titleSize="text-4xl"
               product={product}
@@ -117,28 +104,6 @@ export default function ProductPage() {
             {/* Product Options */}
             <div className="space-y-6">
               <components.ProductDetails details={product.details} />
-            </div>
-
-            {/* Action Buttons */}
-            <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button className="flex-1 flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white">
-                <ShoppingCart className="h-5 w-5 mr-2" />
-                Add to Cart
-              </Button>
-              <Button
-                variant="outline"
-                onClick={toggleWishlist}
-                className={`flex-1 flex items-center justify-center ${
-                  inWishlist ? "bg-pink-50 border-pink-200 text-pink-700" : ""
-                }`}
-              >
-                <Heart
-                  className={`h-5 w-5 mr-2 ${
-                    inWishlist ? "fill-pink-500 text-pink-500" : ""
-                  }`}
-                />
-                {inWishlist ? "Added to Wishlist" : "Add to Wishlist"}
-              </Button>
             </div>
 
             {/* Product Meta Info */}
@@ -173,17 +138,16 @@ export default function ProductPage() {
                 ))}
               </ul>
             </div> */}
-
-            {/* Related Products */}
-            <RelatedProducts
-              gender={gender as string}
-              category={category as string}
-              toggleWishlist={toggleWishlist}
-              relatedProducts={relatedProducts}
-              wishlist={new Set()}
-            />
           </div>
         </div>
+        {/* Related Products */}
+        <RelatedProducts
+          gender={gender as string}
+          category={category as string}
+          toggleWishlist={toggleWishlist}
+          relatedProducts={relatedProducts}
+          wishlist={new Set()}
+        />
 
         {/* Back to collection link */}
         <div className="mt-16 border-t border-gray-200 pt-8">
