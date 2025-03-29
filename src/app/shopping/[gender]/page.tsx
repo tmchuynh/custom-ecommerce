@@ -40,6 +40,13 @@ const GenderPage = (): JSX.Element => {
           return;
         }
 
+        const genderData = (mockProductData as any)[validGender];
+        if (genderData) {
+          setCategories(Object.keys(genderData));
+        } else {
+          console.error("No mock data for:", validGender);
+        }
+
         // Fetch all products for the gender
         const genderProducts = await getProductsByGender(validGender);
 
@@ -48,14 +55,6 @@ const GenderPage = (): JSX.Element => {
           setLoading(false);
           return;
         }
-
-        // Extract unique categories and items
-        const uniqueCategories = [
-          ...new Set(
-            genderProducts.map((product: { category: any }) => product.category)
-          ),
-        ];
-        setCategories(uniqueCategories);
 
         setProducts(genderProducts);
       } catch (error) {
@@ -68,52 +67,34 @@ const GenderPage = (): JSX.Element => {
 
     const fetchItemsData = async (): Promise<void> => {
       try {
-        const categoryData = (mockProductData as any)[gender as string]?.[
-          selectedCategory as string
-        ];
+        const categoryData = (mockProductData as any)[gender as string];
+        console.log("Category Data:", categoryData);
 
-        if (categoryData) {
-          const enhancedProducts: any[] = [];
-          const itemTypes: Set<string> = new Set();
-          const subCategories =
-            selectedCategory === "shoes"
-              ? [
-                  ...new Set(
-                    Object.values(categoryData.shoes)
-                      .flatMap((product: any) => product.subCategory)
-                      .filter(Boolean)
-                  ),
-                ]
-              : [];
+        if (categoryData && selectedCategory) {
+          // Get the subcategories for the selected category
+          const subcategoryData = categoryData[selectedCategory];
+          if (subcategoryData) {
+            // Get unique item types (subcategories) from the selected category
+            const itemTypes = Object.keys(subcategoryData);
+            setUniqueItemTypes(itemTypes);
 
-          Object.entries(categoryData).forEach(
-            ([itemType, subCategory]: [string, any]) => {
-              // Add each product with its item type and subcategory
-              Object.values(subCategory).forEach((product: any) => {
-                const productData = {
-                  ...product,
-                  itemType: itemType,
-                  id: `${itemType}-${product.name
-                    .replace(/\s+/g, "-")
-                    .toLowerCase()}`,
-                  subCategory:
-                    itemType === "shoes"
-                      ? product.subCategory || "Casual"
-                      : null, // Add subcategory for shoes
-                };
-                enhancedProducts.push(productData);
-              });
-              itemTypes.add(itemType);
-            }
-          );
-
-          setUniqueItemTypes(Array.from(itemTypes));
-          setProducts(enhancedProducts);
-
-          // Add shoe subcategories to state if shoes is selected
-          setSubCategories(subCategories);
-        } else {
-          console.error("Product data not found");
+            // Process products
+            const enhancedProducts: any[] = [];
+            Object.entries(subcategoryData).forEach(
+              ([itemType, products]: [string, any]) => {
+                Object.entries(products).forEach(
+                  ([id, product]: [string, any]) => {
+                    enhancedProducts.push({
+                      ...product,
+                      id,
+                      itemType,
+                    });
+                  }
+                );
+              }
+            );
+            setProducts(enhancedProducts);
+          }
         }
       } catch (error) {
         console.error("Error fetching product data", error);
@@ -138,6 +119,13 @@ const GenderPage = (): JSX.Element => {
     }
     setSelectedItem(null); // Reset selected item when category changes
   }, [selectedCategory, products]);
+
+  const formatItemName = (itemName: string) => {
+    return (itemName as string)
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  };
 
   const handleFilterChange = (itemType: string) => {
     setActiveFilters((prevFilters) => {
@@ -257,17 +245,22 @@ const GenderPage = (): JSX.Element => {
             {/* Items (converted to checkboxes) */}
             {selectedCategory && items.length > 0 && (
               <div className="mb-6">
-                <h3 className="text-md font-medium mb-2">Items</h3>
+                <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
                 <div className="space-y-2">
-                  {items.map((item) => (
-                    <label key={item} className="flex items-center space-x-2">
+                  {uniqueItemTypes.map((itemType) => (
+                    <label
+                      key={itemType}
+                      className="flex items-center space-x-2"
+                    >
                       <input
                         type="checkbox"
-                        checked={activeFilters.has(item)}
-                        onChange={() => handleFilterChange(item)}
+                        checked={activeFilters.has(itemType)}
+                        onChange={() => handleFilterChange(itemType)}
                         className="form-checkbox h-5 w-5 text-blue-600"
                       />
-                      <span className="capitalize">{item}</span>
+                      <span className="capitalize">
+                        {formatItemName(itemType)}
+                      </span>
                     </label>
                   ))}
                 </div>
@@ -278,9 +271,9 @@ const GenderPage = (): JSX.Element => {
           {/* Products Section */}
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {getFilteredAndSortedProducts().map((product) => (
+              {getFilteredAndSortedProducts().map((product, index) => (
                 <div
-                  key={product.id}
+                  key={product.id || `prod-${index}`}
                   className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
                 >
                   <div className="relative overflow-hidden aspect-square">
