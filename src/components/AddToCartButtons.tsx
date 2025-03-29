@@ -26,13 +26,13 @@ import { Button } from "./ui/button";
  *
  * @example
  * // Basic usage
- * <CartAndFavoritesButtons product={myProduct} />
+ * <AddToCartButtons product={myProduct} />
  *
  * @example
  * // Usage with page flag set to false (for use in cards or listings)
- * <CartAndFavoritesButtons product={myProduct} page={false} />
+ * <AddToCartButtons product={myProduct} page={false} />
  */
-export default function CartAndFavoritesButtons({
+export default function AddToCartButtons({
   product,
   page,
 }: {
@@ -43,8 +43,6 @@ export default function CartAndFavoritesButtons({
   const [localQuantity, setLocalQuantity] = useState(1);
   const cartItem = getCartItem(product.name);
 
-  console.log("product", product);
-
   /**
    * Handles adding a product to the cart.
    *
@@ -54,9 +52,10 @@ export default function CartAndFavoritesButtons({
    */
   const handleAddToCart = (product: any, id: string): void => {
     addToCart({
-      id: id, // using the index as a fallback ID; consider using a unique product identifier if available
+      id: id,
       name: product.name,
       description: product.description,
+      highlights: product.highlights,
       price: parseFloat(product.price.replace("$", "")),
       quantity: localQuantity,
       imageSrc: product.imageSrc,
@@ -70,11 +69,7 @@ export default function CartAndFavoritesButtons({
         "mt-0": page,
       })}
     >
-      <div
-        className={cn("flex items-end gap-5", {
-          "flex items-end": !page,
-        })}
-      >
+      <div className={"flex items-end gap-5"}>
         <QuantityButtons
           product={product}
           page={page}
@@ -82,7 +77,7 @@ export default function CartAndFavoritesButtons({
           setLocalQuantity={setLocalQuantity}
         />
         {!cartItem &&
-          (page ? (
+          (!page ? (
             <Button
               onClick={(e) => {
                 e.preventDefault();
