@@ -339,6 +339,51 @@ export const capitalize = (str: string): string => {
 };
 
 /**
+ * Formats an item name by converting underscore-separated words into a properly capitalized string.
+ * Follows title case rules where certain common words (articles, conjunctions, prepositions) remain lowercase
+ * unless they appear at the start of the string.
+ *
+ * @param itemName - The string to format, with words separated by underscores
+ * @returns A formatted string with proper title case capitalization and spaces between words
+ *
+ * @example
+ * formatItemName("the_quick_brown_fox") // Returns "The Quick Brown Fox"
+ * formatItemName("a_tale_of_two_cities") // Returns "A Tale of Two Cities"
+ */
+export const formatItemName = (itemName: string) => {
+  // List of words to not capitalize
+  const exceptions = [
+    "and",
+    "or",
+    "a",
+    "an",
+    "as",
+    "at",
+    "but",
+    "by",
+    "for",
+    "in",
+    "nor",
+    "of",
+    "on",
+    "the",
+    "up",
+  ];
+
+  return itemName
+    .split("_") // Split the item name by underscores
+    .map((word, index) => {
+      // Capitalize the first word, or any word that's not an exception
+      if (index === 0 || !exceptions.includes(word.toLowerCase())) {
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      }
+      // Keep the word in lowercase if it's in the exceptions list
+      return word.toLowerCase();
+    })
+    .join(" "); // Join the words back into a string
+};
+
+/**
  * Formats a URL string by converting it to lowercase, replacing spaces with hyphens,
  * and removing possessive apostrophes (e.g., 's).
  *
