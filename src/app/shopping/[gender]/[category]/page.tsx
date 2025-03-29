@@ -6,46 +6,16 @@ import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
 import { ArrowRight, Filter } from "lucide-react";
 import Link from "next/link";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import { JSX, useEffect, useMemo, useState } from "react";
+import { useParams } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
 
 const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
   const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
   const [products, setProducts] = useState<any[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
-
-  const pathname = usePathname();
-
-  const pathSegments = useMemo(
-    () => pathname.split("/").filter(Boolean),
-    [pathname]
-  );
-
-  const toggleWishlist = (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setWishlist((prev) => {
-      const newWishlist = new Set(prev);
-      if (newWishlist.has(id)) {
-        newWishlist.delete(id);
-      } else {
-        newWishlist.add(id);
-      }
-      return newWishlist;
-    });
-  };
-
-  const [wishlist, setWishlist] = useState<Set<string>>(new Set());
-
-  const updateURL = (itemName: string): string => {
-    const url = `/shopping/${gender}/${category}/${itemName.toLowerCase()}`;
-    router.push(url);
-    return url;
-  };
 
   useEffect(() => {
     if (gender && category) {
@@ -92,12 +62,13 @@ const CategoryPage = (): JSX.Element => {
   }, [gender, category]);
 
   const getFilteredAndSortedProducts = () => {
-    const filtered = [...products];
+    let filtered = [...products];
 
     // Apply active filter if not "all"
     if (activeFilter !== "all") {
-      // Example: filter by a product property like color or material
-      // filtered = filtered.filter(product => product.color === activeFilter);
+      filtered = filtered.filter(
+        (product) => product.itemType === activeFilter
+      );
     }
 
     // Apply sorting
@@ -138,7 +109,7 @@ const CategoryPage = (): JSX.Element => {
   };
 
   return (
-    <section className=" py-16">
+    <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl font-extrabold mb-4">
@@ -155,14 +126,16 @@ const CategoryPage = (): JSX.Element => {
         </div>
 
         {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-4">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           {/* Category Filters */}
           {uniqueItemTypes.length > 1 && (
             <div className="flex justify-center flex-wrap gap-2 mb-12">
               <Button
                 onClick={() => setActiveFilter("all")}
                 variant={activeFilter === "all" ? "default" : "outline"}
-                className={`capitalize ${activeFilter === "all" ? "" : ""}`}
+                className={`capitalize ${
+                  activeFilter === "all" ? "bg-blue-600 text-white" : ""
+                }`}
               >
                 <Filter className="h-4 w-4 mr-2" /> All Items
               </Button>
@@ -170,13 +143,10 @@ const CategoryPage = (): JSX.Element => {
               {uniqueItemTypes.map((itemType) => (
                 <Button
                   key={itemType}
-                  onClick={() => {
-                    setActiveFilter(itemType);
-                    updateURL(itemType);
-                  }}
+                  onClick={() => setActiveFilter(itemType)}
                   variant={activeFilter === itemType ? "default" : "outline"}
                   className={`capitalize ${
-                    activeFilter === itemType ? "" : ""
+                    activeFilter === itemType ? "bg-blue-600 text-white" : ""
                   }`}
                 >
                   {formatItemName(itemType)}
@@ -211,8 +181,8 @@ const CategoryPage = (): JSX.Element => {
               product={product}
               gender={gender as string}
               category={category as string}
-              toggleWishlist={toggleWishlist}
-              wishlist={wishlist}
+              toggleWishlist={() => {}}
+              wishlist={new Set()}
             />
           ))}
         </div>
