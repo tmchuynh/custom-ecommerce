@@ -169,7 +169,7 @@ const StaticBreadcrumb: React.FC = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">
                 <DropdownMenuGroup>
-                  {parentCategories.map((item) => (
+                  {genders.map((item) => (
                     <DropdownMenuItem
                       key={item.href}
                       onClick={() => router.push(item.href)}
@@ -193,29 +193,12 @@ const StaticBreadcrumb: React.FC = () => {
 
         items.push(
           <BreadcrumbItem key={categoryPath}>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
-                >
-                  {capitalize(category)}
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56">
-                <DropdownMenuGroup>
-                  {categories.map((item) => (
-                    <DropdownMenuItem
-                      key={item.href}
-                      onClick={() => router.push(item.href)}
-                    >
-                      {capitalize(item.name)}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <BreadcrumbLink
+              href={categoryPath}
+              className="bg-muted px-3 py-2 rounded-lg cursor-default"
+            >
+              {capitalize(category)}
+            </BreadcrumbLink>
           </BreadcrumbItem>
         );
       }
