@@ -190,6 +190,7 @@ const GenderPage = (): JSX.Element => {
                 <ProductCard
                   key={`${product.id}-${index}`}
                   product={product}
+                  page={true}
                   gender={gender as string}
                   category={product.category}
                   item={product.itemType}
@@ -199,17 +200,6 @@ const GenderPage = (): JSX.Element => {
               ))}
             </div>
           </div>
-        </div>
-
-        {/* View All Link */}
-        <div className="mt-12 text-center">
-          <Link
-            href={`/shopping`}
-            className="inline-flex items-center font-medium"
-          >
-            View All Collections
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>
