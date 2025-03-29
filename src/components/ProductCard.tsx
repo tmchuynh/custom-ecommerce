@@ -1,21 +1,11 @@
-import {
-  Heart,
-  Eye,
-  ShoppingCart,
-  Star,
-  Trash,
-  Clock,
-  TrendingUp,
-} from "lucide-react";
+import { useProduct } from "@/app/context/productContext";
+import { formatCurrency, formatURL } from "@/lib/utils";
+import { Clock, Eye, Heart, Star, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { JSX, useState } from "react";
-import { cn, formatCurrency, formatURL } from "@/lib/utils";
-import { useCart } from "@/app/context/cartContext";
-import { toast } from "sonner";
-import ProductHighlights from "./ProductHighlights";
+import { JSX } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import { useProduct } from "@/app/context/productContext";
+import ProductHighlights from "./ProductHighlights";
 
 const ProductCard = ({
   product,
@@ -32,8 +22,7 @@ const ProductCard = ({
   toggleWishlist: (id: string, e: React.MouseEvent) => void;
   wishlist: Set<string>;
 }): JSX.Element => {
-  const [hovered, setHovered] = useState(false);
-  const { getProductByName, convertPrice } = useProduct();
+  const { getProductByName } = useProduct();
 
   const foundItem = getProductByName(product.name);
   console.log("foundItem", foundItem);

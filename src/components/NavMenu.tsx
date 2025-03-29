@@ -1,6 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
 import { about, navigations } from "@/lib/constants";
+import { FeaturedDetails, SectionDetails } from "@/lib/types";
 import {
   Popover,
   PopoverButton,
@@ -16,15 +17,13 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/20/solid";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import NavMobileMenu from "./NavMobileMenu";
-import NavTopMenu from "./NavTopMenu";
-import { Button } from "./ui/button";
-import { FeaturedDetails, SectionDetails } from "@/lib/types";
-import FeaturedCategory from "./FeaturedCategory";
 import CategoryList from "./CategoryList";
-import Link from "next/link";
+import FeaturedCategory from "./FeaturedCategory";
+import NavMobileMenu from "./NavMobileMenu";
+import { Button } from "./ui/button";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);

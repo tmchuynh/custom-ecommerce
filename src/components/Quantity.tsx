@@ -1,8 +1,6 @@
 import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { ProductType } from "@/lib/types";
-import { Minus, Plus } from "lucide-react";
 import { JSX } from "react";
 
 /**
@@ -39,28 +37,7 @@ function QuantityButtons({
   const { updateQuantity, removeFromCart, itemExistsInCart, getCartItem } =
     useCart();
   const foundItem = itemExistsInCart(product.name);
-
   const cartItem = getCartItem(product.name);
-
-  const handleUpdateQuantity = (id: string, quantity: number) => {
-    updateQuantity(id, quantity);
-  };
-
-  const handleIncrement = () => {
-    if (foundItem && cartItem) {
-      updateQuantity(product.name, cartItem.quantity + 1);
-    } else {
-      setLocalQuantity(localQuantity + 1);
-    }
-  };
-
-  const handleDecrement = () => {
-    if (foundItem && cartItem && cartItem.quantity > 1) {
-      updateQuantity(product.name, cartItem.quantity - 1);
-    } else if (!foundItem && localQuantity > 1) {
-      setLocalQuantity(localQuantity - 1);
-    }
-  };
 
   return (
     <div className="flex items-end gap-3">

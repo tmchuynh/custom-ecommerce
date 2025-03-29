@@ -1,14 +1,13 @@
-import { useCart } from "@/app/context/cartContext";
+import { useCurrency } from "@/app/context/CurrencyContext";
+import { useProduct } from "@/app/context/productContext";
 import { ProductType } from "@/lib/types";
 import { cn, formatURL } from "@/lib/utils";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { JSX, useEffect, useMemo, useState } from "react";
 import CartAndFavoritesButtons from "./CartAndFavoriteButtons";
-import ProductRate from "./ProductRate";
 import ProductHighlights from "./ProductHighlights";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { useProduct } from "@/app/context/productContext";
-import { useCurrency } from "@/app/context/CurrencyContext";
+import ProductRate from "./ProductRate";
 
 /**
  * Component for displaying detailed information about a product.

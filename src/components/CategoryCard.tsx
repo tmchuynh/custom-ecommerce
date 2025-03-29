@@ -2,6 +2,7 @@
 
 import { CategoryCardProps } from "@/lib/types";
 import { useRouter } from "next/navigation";
+import { JSX } from "react";
 import DynamicButton from "./ui/button-dynamic";
 import { Skeleton } from "./ui/skeleton";
 
@@ -18,7 +19,10 @@ import { Skeleton } from "./ui/skeleton";
  *
  * @returns {JSX.Element} The rendered category card component.
  */
-const CategoryCard = ({ category }: CategoryCardProps, gender: string) => {
+const CategoryCard = (
+  { category }: CategoryCardProps,
+  gender: string
+): JSX.Element => {
   const router = useRouter();
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-lg border shadow-md hover:shadow-lg">

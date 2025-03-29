@@ -1,15 +1,13 @@
 "use client";
-
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { ShoppingCart } from "lucide-react";
 import { JSX, useState } from "react";
+import { FaPlus } from "react-icons/fa";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
-import { ShoppingCart } from "lucide-react";
-import { useProduct } from "@/app/context/productContext";
-import { FaPlus } from "react-icons/fa";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -42,11 +40,8 @@ export default function CartAndFavoritesButtons({
   page: boolean;
 }): JSX.Element {
   const { addToCart, getCartItem } = useCart();
-  const { getProductByName } = useProduct();
   const [localQuantity, setLocalQuantity] = useState(1);
-  const foundItem = getProductByName(product.name);
   const cartItem = getCartItem(product.name);
-  const [hovered, setHovered] = useState(false);
 
   console.log("product", product);
 
