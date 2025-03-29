@@ -127,18 +127,6 @@ export default function OrderSummary({
           </div>
         )}
 
-        {estimatedDelivery && (
-          <div className="flex items-start space-x-3 bg-blue-50 rounded-lg p-3 mb-4">
-            <Clock className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
-            <div>
-              <p className="text-sm font-medium text-blue-800">
-                Estimated Delivery
-              </p>
-              <p className="text-sm text-blue-600">{estimatedDelivery}</p>
-            </div>
-          </div>
-        )}
-
         <button
           onClick={() => setShowDiscount(!showDiscount)}
           className="flex items-center justify-between w-full text-left mb-4 text-blue-600 font-medium"

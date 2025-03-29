@@ -230,7 +230,10 @@ export type DiscountFormProps = {
 
 export type OrderItemsProps = {
   cartItems: CartItem[];
+  editable?: boolean;
   handleNavigation: (destination: string) => boolean;
+  onUpdateQuantity?: (id: string, quantity: number) => void;
+  onRemoveItem?: (id: string) => void;
 };
 
 export type ShippingMethod =

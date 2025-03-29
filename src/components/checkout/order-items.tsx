@@ -12,39 +12,18 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import { formatCurrency } from "@/lib/utils";
-
-export interface OrderItem {
-  id: string;
-  name: string;
-  price: number;
-  originalPrice?: number;
-  quantity: number;
-  image: string;
-  color?: string;
-  size?: string;
-  isOnSale?: boolean;
-  isNew?: boolean;
-  isLimited?: boolean;
-  estimatedDelivery?: string;
-  options?: { name: string; value: string }[];
-}
-
-interface OrderItemsProps {
-  items: OrderItem[];
-  editable?: boolean;
-  onUpdateQuantity?: (id: string, quantity: number) => void;
-  onRemoveItem?: (id: string) => void;
-}
+import { CartItem } from "@/lib/interfaces";
+import { OrderItemsProps } from "@/lib/types";
 
 export default function OrderItems({
-  items,
+  cartItems,
   editable = false,
   onUpdateQuantity,
   onRemoveItem,
 }: OrderItemsProps) {
   const [showItems, setShowItems] = useState(true);
 
-  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
@@ -55,7 +34,7 @@ export default function OrderItems({
               <span className="hidden sm:inline">Order</span> Items
               <span className="ml-2 text-gray-500">({totalItems})</span>
             </h2>
-            {items.some((item) => item.isLimited) && (
+            {cartItems.some((item) => item.isLimited) && (
               <p className="text-sm text-amber-600 flex items-center mt-1">
                 <Clock className="h-4 w-4 mr-1" />
                 Some items in your order have limited availability
@@ -77,12 +56,12 @@ export default function OrderItems({
 
       {showItems && (
         <div className="divide-y divide-gray-200">
-          {items.map((item) => (
+          {cartItems.map((item) => (
             <div key={item.id} className="p-4 sm:p-6">
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                   <Image
-                    src={item.image}
+                    src={item.imageSrc}
                     alt={item.name}
                     width={96}
                     height={96}
@@ -115,18 +94,18 @@ export default function OrderItems({
                     <div className="flex flex-col items-end">
                       <div className="flex items-center">
                         {item.originalPrice &&
-                        item.originalPrice > item.price ? (
+                        Number(item.originalPrice) > Number(item.price) ? (
                           <>
                             <p className="text-sm line-through text-gray-500 mr-2">
                               {formatCurrency(item.originalPrice)}
                             </p>
                             <p className="text-base font-medium text-red-600">
-                              {formatCurrency(item.price)}
+                              {formatCurrency(Number(item.price))}
                             </p>
                           </>
                         ) : (
                           <p className="text-base font-medium text-gray-900">
-                            {formatCurrency(item.price)}
+                            {formatCurrency(Number(item.price))}
                           </p>
                         )}
                       </div>
@@ -152,15 +131,6 @@ export default function OrderItems({
                           className="text-blue-600 border-blue-200 bg-blue-50 hover:bg-blue-100"
                         >
                           New Arrival
-                        </Badge>
-                      )}
-                      {item.estimatedDelivery && (
-                        <Badge
-                          variant="outline"
-                          className="text-green-600 border-green-200 bg-green-50 hover:bg-green-100 flex items-center"
-                        >
-                          <Gift className="h-3 w-3 mr-1" />{" "}
-                          {item.estimatedDelivery}
                         </Badge>
                       )}
                     </div>
@@ -213,9 +183,9 @@ export default function OrderItems({
         </div>
       )}
 
-      {!showItems && items.length > 2 && (
+      {!showItems && cartItems.length > 2 && (
         <div className="px-6 py-4 text-center text-sm text-gray-500">
-          {items.length} items in your order.
+          {cartItems.length} items in your order.
           <button
             onClick={() => setShowItems(true)}
             className="ml-1 text-blue-600 hover:underline"
@@ -225,7 +195,7 @@ export default function OrderItems({
         </div>
       )}
 
-      {items.length === 0 && (
+      {cartItems.length === 0 && (
         <div className="p-6 text-center">
           <div className="flex flex-col items-center">
             <AlertTriangle className="h-10 w-10 text-gray-400 mb-4" />

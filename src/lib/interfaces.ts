@@ -110,6 +110,13 @@ export interface ProductItem {
 export interface CartItem extends ProductItem {
   id: string;
   quantity: number;
+  originalPrice?: number;
+  color?: string;
+  size?: string;
+  isOnSale?: boolean;
+  isNew?: boolean;
+  isLimited?: boolean;
+  options?: { name: string; value: string }[];
 }
 
 export interface CartContextType {
