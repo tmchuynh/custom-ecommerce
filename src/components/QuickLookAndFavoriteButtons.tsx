@@ -25,6 +25,7 @@ import { useParams, usePathname } from "next/navigation";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import components from "./ProductDetails";
+import { Eye, Heart } from "lucide-react";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -50,9 +51,13 @@ import components from "./ProductDetails";
 const QuickLookAndFavoriteButtons = ({
   product,
   page = true,
+  toggleWishlist,
+  wishlist,
 }: {
   page?: boolean;
   product: ProductType;
+  toggleWishlist: (id: string, e: React.MouseEvent) => void;
+  wishlist: Set<string>;
 }): JSX.Element => {
   const { gender, category, item, slug } = useParams();
 
@@ -97,38 +102,16 @@ const QuickLookAndFavoriteButtons = ({
   return (
     <div
       className={cn(
-        "flex items-center justify-between mx-2 gap-1 p-2 mt-4 w-11/12",
+        "flex flex-col items-center justify-between mx-2 gap-1 p-2 mt-4 w-11/12",
         {
           "w-full": page,
         }
       )}
     >
       <AlertDialog>
-        <AlertDialogTrigger
-          className={cn(`gap-x-2 border-2 hidden ${buttonVariants()}`, {
-            flex: !page,
-          })}
-        >
-          <span> Quick look </span>
-          <svg
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="none"
-            viewBox="1 0 23 20"
-          >
-            <path
-              stroke="currentColor"
-              strokeWidth="2"
-              d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-            />
-            <path
-              stroke="currentColor"
-              strokeWidth="2"
-              d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-            />
-          </svg>
+        <AlertDialogTrigger className="p-2 rounded-full shadow-md transition-colors">
+          <span className="sr-only"> Quick look </span>
+          <Eye className="h-5 w-5 text-gray-600" />
         </AlertDialogTrigger>
         <AlertDialogContent className="border-4 min-w-11/12">
           <AlertDialogFooter className="">
@@ -168,33 +151,19 @@ const QuickLookAndFavoriteButtons = ({
         </AlertDialogContent>
       </AlertDialog>
 
-      <Button
-        type="button"
-        variant={"ghost"}
-        size={"icon"}
-        className={cn("mb-0", {
-          "mx-3": page,
-        })}
-        style={
-          {
-            "--bg-color": accessibleColor,
-          } as React.CSSProperties
-        }
+      <button
+        onClick={(e) => toggleWishlist(product.name, e)}
+        className="p-2 rounded-full shadow-md transition-colors"
       >
-        <FaHeart
-          className="rounded-full"
-          aria-hidden="true"
-          style={
-            {
-              "--text-color": accessibleColor,
-              width: "25px",
-              height: "25px",
-            } as React.CSSProperties
-          }
+        <Heart
+          className={`h-5 w-5 ${
+            wishlist.has(product.name)
+              ? "fill-red-500 text-red-500"
+              : "text-gray-600"
+          }`}
         />
-
         <span className="sr-only">Add to favorites</span>
-      </Button>
+      </button>
     </div>
   );
 };
