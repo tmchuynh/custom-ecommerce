@@ -32,10 +32,8 @@ const CategoryPage = (): JSX.Element => {
 
             Object.entries(categoryData).forEach(
               ([itemType, subCategory]: [string, any]) => {
-                console.log("itemType", itemType);
                 // Add each product with its item type
                 Object.values(subCategory).forEach((product: any) => {
-                  console.log("product", product);
                   enhancedProducts.push({
                     ...product,
                     itemType: itemType,
@@ -45,8 +43,6 @@ const CategoryPage = (): JSX.Element => {
                 itemTypes.add(itemType);
               }
             );
-
-            console.log("enhancedProducts", enhancedProducts);
 
             setUniqueItemTypes(Array.from(itemTypes));
             setProducts(enhancedProducts);
@@ -114,8 +110,6 @@ const CategoryPage = (): JSX.Element => {
   };
 
   const filteredProducts = getFilteredAndSortedProducts();
-
-  console.log("filteredProducts", filteredProducts);
 
   if (loading) {
     return <LoadingIndicator />;
@@ -189,9 +183,6 @@ const CategoryPage = (): JSX.Element => {
           <div className="w-full lg:w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {filteredProducts.map((product, index) => {
-                console.log("product", product);
-                console.log("product.id", product.id);
-                console.log("itemType", product.itemType);
                 return (
                   <ProductCard
                     key={`${product.id}-${index}`}
