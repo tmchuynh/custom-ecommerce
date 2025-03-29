@@ -506,6 +506,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
   };
 
+  const getProductsByGender = (gender: string): ProductType[] => {
+    return allProducts
+      .filter((product) => product.gender === gender)
+      .map((product) => ({
+        ...product,
+        price: product.price ? convertPrice(product.price) : "",
+      }));
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -521,6 +530,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         getProductsByPriceRange,
         convertPrice,
         formatPrice: formatPriceWithCurrency,
+        getProductsByGender,
       }}
     >
       {children}
