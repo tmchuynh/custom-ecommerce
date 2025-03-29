@@ -30,6 +30,8 @@ const CategoryPage = (): JSX.Element => {
 
             Object.entries(categoryData).forEach(
               ([itemType, subCategory]: [string, any]) => {
+                console.log("itemType", itemType);
+                console.log("subCategory", subCategory);
                 // Add each product with its item type
                 Object.values(subCategory).forEach((product: any) => {
                   enhancedProducts.push({
@@ -43,6 +45,8 @@ const CategoryPage = (): JSX.Element => {
                 itemTypes.add(itemType);
               }
             );
+
+            console.log("enhancedProducts", enhancedProducts);
 
             setUniqueItemTypes(Array.from(itemTypes));
             setProducts(enhancedProducts);
