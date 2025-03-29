@@ -188,7 +188,7 @@ const CategoryPage = (): JSX.Element => {
                     key={`${product.id}-${index}`}
                     product={product}
                     gender={gender as string}
-                    category={category as string}
+                    category={product.itemType}
                     toggleWishlist={() => {}}
                     wishlist={new Set()}
                   />
