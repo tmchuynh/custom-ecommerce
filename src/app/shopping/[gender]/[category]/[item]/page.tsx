@@ -13,11 +13,18 @@ import {
   Eye,
   TrendingUp,
   Clock,
+  ChevronsUpDown,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 /**
  * Component representing a category section page for displaying products.
@@ -25,12 +32,14 @@ import { JSX, useEffect, useState } from "react";
 const CategorySectionPage = (): JSX.Element => {
   const { gender, category, item } = useParams();
   const router = useRouter();
+  const isMobile = useIsMobile();
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
   const [sortOrder, setSortOrder] = useState<string>("featured");
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleWishlist = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -189,33 +198,80 @@ const CategorySectionPage = (): JSX.Element => {
         </div>
 
         {/* Filters and Sorting */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 border-4">
+        <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-center mb-8 lg:justify-between border-4">
           {/* Category Filters */}
-          <div className="flex justify-center flex-wrap gap-2 mb-12">
-            <Button
-              onClick={() => setActiveFilter("all")}
-              variant={activeFilter === "all" ? "default" : "outline"}
-              className={`capitalize ${activeFilter === "all" ? "" : ""}`}
-            >
-              <Filter className="h-4 w-4 mr-2" /> All Items
-            </Button>
-
-            {uniqueItemTypes.map((itemType) => (
-              <Button
-                key={itemType}
-                onClick={() => {
-                  setActiveFilter(itemType);
-                  updateURL(itemType);
-                }}
-                variant={activeFilter === itemType ? "default" : "outline"}
-                className={`capitalize ${activeFilter === itemType ? "" : ""}`}
+          <div className="flex flex-col md:flex-row gap-2 mb-3 lg:mb-0">
+            {isMobile ? (
+              <Collapsible
+                open={isOpen}
+                onOpenChange={setIsOpen}
+                className="space-y-2"
               >
-                {formatItemName(itemType)}
-              </Button>
-            ))}
+                <div className="flex items-center justify-between space-x-4">
+                  <CollapsibleTrigger asChild>
+                    <Button
+                      onClick={() => setActiveFilter("all")}
+                      variant={activeFilter === "all" ? "default" : "outline"}
+                      className={`capitalize w-full ${
+                        activeFilter === "all" ? "" : ""
+                      }`}
+                    >
+                      <Filter className="h-4 w-4 mr-2" /> Filter By
+                      <ChevronsUpDown className="h-4 w-4" />
+                      <span className="sr-only">Toggle</span>
+                    </Button>
+                  </CollapsibleTrigger>
+                </div>
+
+                <CollapsibleContent className="flex flex-col space-y-2">
+                  {uniqueItemTypes.map((itemType) => (
+                    <Button
+                      key={itemType}
+                      onClick={() => {
+                        setActiveFilter(itemType);
+                        updateURL(itemType);
+                      }}
+                      variant={
+                        activeFilter === itemType ? "default" : "outline"
+                      }
+                      className={`capitalize ${
+                        activeFilter === itemType ? "" : ""
+                      }`}
+                    >
+                      {formatItemName(itemType)}
+                    </Button>
+                  ))}
+                </CollapsibleContent>
+              </Collapsible>
+            ) : (
+              <>
+                <Button
+                  onClick={() => setActiveFilter("all")}
+                  variant={activeFilter === "all" ? "default" : "outline"}
+                  className={`capitalize ${activeFilter === "all" ? "" : ""}`}
+                >
+                  <Filter className="h-4 w-4 mr-2" /> Filter By
+                </Button>
+                {uniqueItemTypes.map((itemType) => (
+                  <Button
+                    key={itemType}
+                    onClick={() => {
+                      setActiveFilter(itemType);
+                      updateURL(itemType);
+                    }}
+                    variant={activeFilter === itemType ? "default" : "outline"}
+                    className={`capitalize ${
+                      activeFilter === itemType ? "" : ""
+                    }`}
+                  >
+                    {formatItemName(itemType)}
+                  </Button>
+                ))}
+              </>
+            )}
           </div>
 
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-6 lg:mb-0">
             <span className="text-sm mr-2">Sort by:</span>
             <select
               value={sortOrder}
