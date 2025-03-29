@@ -1,33 +1,19 @@
 "use client";
-
-import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { mockProductData } from "@/lib/mockProductData";
-import LoadingIndicator from "@/components/Loading";
+import { useProduct } from "@/app/context/productContext";
 import CannotFind from "@/components/CannotFind";
-import {
-  Star,
-  Heart,
-  ShoppingCart,
-  Share2,
-  Check,
-  Truck,
-  ArrowLeft,
-  Clock,
-  Minus,
-  Plus,
-} from "lucide-react";
-import Link from "next/link";
-import { formatURL } from "@/lib/utils";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ProductDetails, ProductType } from "@/lib/types";
-import ProductGallery from "@/components/ProductGallery";
+import LoadingIndicator from "@/components/Loading";
 import components from "@/components/ProductDetails";
+import ProductGallery from "@/components/ProductGallery";
 import ProductInfo from "@/components/ProductInfo";
 import RelatedProducts from "@/components/RelatedProducts";
-import { useProduct } from "@/app/context/productContext";
+import { Button } from "@/components/ui/button";
+import { mockProductData } from "@/lib/mockProductData";
+import { ProductType } from "@/lib/types";
+import { formatURL } from "@/lib/utils";
+import { ArrowLeft, Heart, ShoppingCart } from "lucide-react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function ProductPage() {
   const { gender, category, slug } = useParams();
@@ -37,10 +23,6 @@ export default function ProductPage() {
 
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
-  const [selectedImage, setSelectedImage] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedColor, setSelectedColor] = useState("");
   const [inWishlist, setInWishlist] = useState(false);
 
   useEffect(() => {
@@ -98,42 +80,8 @@ export default function ProductPage() {
     return <CannotFind />;
   }
 
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
-  };
-
-  const increaseQuantity = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity((prev) => prev - 1);
-    }
-  };
-
   const toggleWishlist = () => {
     setInWishlist(!inWishlist);
-  };
-
-  const renderStars = (rating: number) => {
-    return (
-      <div className="flex">
-        {[1, 2, 3, 4, 5].map((star) => (
-          <Star
-            key={star}
-            className={`h-4 w-4 ${
-              star <= rating
-                ? "text-yellow-400 fill-yellow-400"
-                : "text-gray-300"
-            }`}
-          />
-        ))}
-      </div>
-    );
   };
 
   return (
