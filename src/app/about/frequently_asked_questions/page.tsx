@@ -181,25 +181,23 @@ const FAQPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
+          <h1 className="text-5xl font-extrabold mb-4">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Find answers to common questions about our products, services, and
             policies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Table of Contents Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 bg-white rounded-xl shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">
-                FAQ Categories
-              </h2>
+          <div className="lg:col-span-2">
+            <div className="sticky top-8 rounded-xl border shadow-md p-6">
+              <h2 className="text-xl font-bold mb-4">FAQ Categories</h2>
               <ul className="space-y-2">
                 {faqCategories.map((category) => (
                   <li key={category.id}>
@@ -208,7 +206,7 @@ const FAQPage = () => {
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeCategory === category.id
                           ? "bg-blue-100 text-blue-700"
-                          : "hover:bg-gray-100 text-gray-700"
+                          : "hover:bg-gray-100"
                       }`}
                     >
                       {category.icon}
@@ -220,18 +218,18 @@ const FAQPage = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 bg-blue-50 p-4 rounded-lg space-y-2">
-                <h3 className="font-medium text-blue-800 flex items-center">
+              <div className="mt-8 p-4 bg-muted rounded-lg space-y-2">
+                <h3 className="font-medium flex items-center">
                   <HelpCircle className="h-4 w-4 mr-2" />
                   Need More Help?
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm">
                   Can't find what you're looking for? Our customer service team
                   is available to assist you.
                 </p>
                 <div className="mt-4 flex flex-col space-y-2">
                   <Link href="/customer_service" className="w-full">
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                    <Button className="w-full">
                       <MessageSquare className="h-4 w-4 mr-2" /> Contact Support
                     </Button>
                   </Link>
@@ -241,36 +239,31 @@ const FAQPage = () => {
           </div>
 
           {/* Main FAQ Content */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="lg:col-span-5 space-y-8">
             {faqCategories.map((category) => (
               <div
                 key={category.id}
                 ref={(el) => {
                   sectionRefs.current[category.id] = el;
                 }}
-                className="bg-white rounded-xl shadow-md overflow-hidden"
+                className="rounded-xl shadow-md overflow-hidden"
               >
-                <div className="w-full flex items-center justify-between p-6 bg-white">
+                <div className="w-full flex items-center justify-between p-6">
                   <div className="flex items-center">
                     {category.icon}
-                    <h2 className="text-2xl font-semibold ml-3 text-gray-800">
+                    <h2 className="text-2xl font-semibold ml-3">
                       {category.title}
                     </h2>
                   </div>
                 </div>
-                <div className="border-t border-gray-200">
+                <div className="border-t">
                   {category.questions.map((faq, index) => (
-                    <div
-                      key={index}
-                      className="border-b border-gray-100 last:border-b-0"
-                    >
+                    <div key={index} className="border-b last:border-b-0">
                       <button
                         onClick={() => toggleQuestion(category.id, index)}
                         className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
                       >
-                        <h3 className="text-lg font-medium text-gray-800">
-                          {faq.question}
-                        </h3>
+                        <h3 className="text-lg font-medium">{faq.question}</h3>
                         <svg
                           className={`w-5 h-5 transform transition-transform ${
                             isQuestionExpanded(category.id, index)
@@ -290,8 +283,8 @@ const FAQPage = () => {
                         </svg>
                       </button>
                       {isQuestionExpanded(category.id, index) && (
-                        <div className="p-4 pt-0 bg-gray-50">
-                          <p className="text-gray-700">{faq.answer}</p>
+                        <div className="p-4 pt-0">
+                          <p className="">{faq.answer}</p>
                         </div>
                       )}
                     </div>
@@ -299,29 +292,6 @@ const FAQPage = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Fixed Contact Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm text-gray-600">
-            Can't find what you're looking for? We're here to help.
-          </p>
-          <div className="flex space-x-3">
-            <a
-              href="mailto:support@yourcompany.com"
-              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-md"
-            >
-              <Mail className="h-4 w-4 mr-2" /> Email Us
-            </a>
-            <a
-              href="tel:+15551234567"
-              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
-            >
-              <Phone className="h-4 w-4 mr-2" /> Call Us
-            </a>
           </div>
         </div>
       </div>
