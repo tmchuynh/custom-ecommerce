@@ -4,100 +4,154 @@ import CannotFind from "@/components/CannotFind";
 import LoadingIndicator from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { navigations } from "@/lib/constants";
+import { mockProductData } from "@/lib/mockProductData";
 import { ArrowRight, Filter, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
-/**
- * A page component that displays product categories based on the gender parameter.
- */
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender is string | string[]
-  const [categories, setCategories] = useState<any[]>([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-  const [uniqueSubcategories, setUniqueSubcategories] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [items, setItems] = useState<string[]>([]);
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const [subcategories, setSubCategories] = useState<string[] | null>(null);
+  const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
 
-  const { getProductsByCategory } = useProduct();
+  const { getProductsByGender } = useProduct();
 
   useEffect(() => {
     /**
-     * Fetches and processes category data based on the specified gender.
+     * Fetches and processes product data based on the specified gender.
      */
-    const fetchItemsData = async (): Promise<void> => {
+    const fetchProducts = async (): Promise<void> => {
       try {
         // Validate gender
         const validGender = typeof gender === "string" ? gender : "";
         if (!validGender || !["men", "women", "kids"].includes(validGender)) {
-          setCategories([]);
+          setProducts([]);
           setLoading(false);
           return;
         }
 
-        // Find the specific gender category in navigations
-        const genderCategory = navigations.categories.find(
-          (cat) => cat.id === validGender
-        );
+        // Fetch all products for the gender
+        const genderProducts = await getProductsByGender(validGender);
 
-        if (!genderCategory) {
-          setCategories([]);
+        if (!genderProducts || genderProducts.length === 0) {
+          setProducts([]);
           setLoading(false);
           return;
         }
 
-        // Process the sections to get all top-level categories
-        const processedCategories: any[] = [];
-
-        // Each gender has an array of sections, and each section is an array of category objects
-        genderCategory.sections.forEach((sectionGroup) => {
-          sectionGroup.forEach((section) => {
-            // Add this category to our processed list with proper metadata
-            processedCategories.push({
-              name: section.name,
-              description: `Browse our ${section.name} collection`,
-              imageSrc:
-                section.imageSrc ||
-                "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1411&auto=format&fit=crop",
-              href: section.href,
-              id: section.id,
-              gender: validGender,
-              category: section.id,
-              subcategory: section.subcategory || "general",
-            });
-          });
-        });
-
-        // Extract unique subcategories for filtering
-        const subcategories = [
-          ...new Set(processedCategories.map((item) => item.subcategory)),
+        // Extract unique categories and items
+        const uniqueCategories = [
+          ...new Set(
+            genderProducts.map((product: { category: any }) => product.category)
+          ),
         ];
-        setUniqueSubcategories(subcategories);
+        setCategories(uniqueCategories);
 
-        setCategories(processedCategories);
+        setProducts(genderProducts);
       } catch (error) {
-        console.error("Error fetching category data", error);
-        setCategories([]);
+        console.error("Error fetching products", error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchItemsData = async (): Promise<void> => {
+      try {
+        const categoryData = (mockProductData as any)[gender as string]?.[
+          selectedCategory as string
+        ];
+
+        if (categoryData) {
+          const enhancedProducts: any[] = [];
+          const itemTypes: Set<string> = new Set();
+          const subCategories =
+            selectedCategory === "shoes"
+              ? [
+                  ...new Set(
+                    Object.values(categoryData.shoes)
+                      .flatMap((product: any) => product.subCategory)
+                      .filter(Boolean)
+                  ),
+                ]
+              : [];
+
+          Object.entries(categoryData).forEach(
+            ([itemType, subCategory]: [string, any]) => {
+              // Add each product with its item type and subcategory
+              Object.values(subCategory).forEach((product: any) => {
+                const productData = {
+                  ...product,
+                  itemType: itemType,
+                  id: `${itemType}-${product.name
+                    .replace(/\s+/g, "-")
+                    .toLowerCase()}`,
+                  subCategory:
+                    itemType === "shoes"
+                      ? product.subCategory || "Casual"
+                      : null, // Add subcategory for shoes
+                };
+                enhancedProducts.push(productData);
+              });
+              itemTypes.add(itemType);
+            }
+          );
+
+          setUniqueItemTypes(Array.from(itemTypes));
+          setProducts(enhancedProducts);
+
+          // Add shoe subcategories to state if shoes is selected
+          setSubCategories(subCategories);
+        } else {
+          console.error("Product data not found");
+        }
+      } catch (error) {
+        console.error("Error fetching product data", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchItemsData();
-  }, [gender, getProductsByCategory]);
+    fetchProducts();
+  }, [gender, getProductsByGender, selectedCategory]);
 
-  const filteredCategories =
-    activeFilter === "all"
-      ? categories
-      : categories.filter((category) => category.subcategory === activeFilter);
+  useEffect(() => {
+    // Update items when a category is selected
+    if (selectedCategory) {
+      const categoryItems = products
+        .filter((product) => product.category === selectedCategory)
+        .map((product) => product.itemType);
+      setItems([...new Set(categoryItems)]);
+    } else {
+      setItems([]);
+    }
+    setSelectedItem(null); // Reset selected item when category changes
+  }, [selectedCategory, products]);
+
+  const filteredProducts = products.filter((product) => {
+    if (selectedCategory && product.category !== selectedCategory) {
+      return false;
+    }
+    if (selectedItem && product.itemType !== selectedItem) {
+      return false;
+    }
+    return true;
+  });
 
   if (loading) {
     return <LoadingIndicator />;
   }
 
-  if (categories.length === 0) {
+  if (products.length === 0) {
     return <CannotFind />;
   }
 
@@ -119,70 +173,100 @@ const GenderPage = (): JSX.Element => {
           </p>
         </div>
 
-        {/* Category Filters */}
-        {uniqueSubcategories.length > 1 && (
-          <div className="flex justify-center flex-wrap gap-2 mb-12">
-            <Button
-              onClick={() => setActiveFilter("all")}
-              variant={activeFilter === "all" ? "default" : "outline"}
-              className={`capitalize ${activeFilter === "all" ? "" : ""}`}
-            >
-              <Filter className="h-4 w-4 mr-2" /> All Categories
-            </Button>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Filters Section */}
+          <aside className="w-full lg:w-1/4">
+            <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
 
-            {uniqueSubcategories.map((subcategory) => (
-              <Button
-                key={subcategory}
-                onClick={() => setActiveFilter(subcategory)}
-                variant={activeFilter === subcategory ? "default" : "outline"}
-                className={`capitalize ${
-                  activeFilter === subcategory ? "" : ""
-                }`}
-              >
-                {subcategory}
-              </Button>
-            ))}
+            {/* Categories */}
+            <div className="mb-6">
+              <h3 className="text-md font-medium mb-2">Categories</h3>
+              <div className="space-y-2">
+                {categories.map((category) => (
+                  <label key={category} className="flex items-center space-x-2">
+                    <input
+                      type="radio"
+                      name="category"
+                      checked={selectedCategory === category}
+                      onChange={() =>
+                        setSelectedCategory(
+                          selectedCategory === category ? null : category
+                        )
+                      }
+                      className="form-radio h-5 w-5 text-blue-600"
+                    />
+                    <span className="capitalize">{category}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
+
+            {/* Items */}
+            {selectedCategory && items.length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-md font-medium mb-2">Items</h3>
+                <div className="space-y-2">
+                  {items.map((item) => (
+                    <label key={item} className="flex items-center space-x-2">
+                      <input
+                        type="radio"
+                        name="item"
+                        checked={selectedItem === item}
+                        onChange={() =>
+                          setSelectedItem(selectedItem === item ? null : item)
+                        }
+                        className="form-radio h-5 w-5 text-blue-600"
+                      />
+                      <span className="capitalize">{item}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            )}
+          </aside>
+
+          {/* Products Section */}
+          <div className="w-full lg:w-3/4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.id}
+                  className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+                >
+                  <div className="relative overflow-hidden aspect-square">
+                    <Image
+                      src={product.imageSrc}
+                      alt={product.name}
+                      width={400}
+                      height={400}
+                      className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                    />
+
+                    {/* Product Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge variant={"secondary"}>{product.itemType}</Badge>
+                    </div>
+
+                    {/* Shop Now Button - Appears on Hover */}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                      <Button>
+                        <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
+                      </Button>
+                    </div>
+                  </div>
+
+                  <div className="p-4">
+                    <h3 className="font-medium text-lg mb-1 group-hover:text-teritary transition-colors">
+                      {product.name}
+                    </h3>
+                    <p className="text-sm line-clamp-2">
+                      {product.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        )}
-
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredCategories.map((category, index) => (
-            <Link
-              key={index}
-              href={category.href}
-              className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
-            >
-              <div className="relative overflow-hidden aspect-square">
-                <Image
-                  src={category.imageSrc}
-                  alt={category.name}
-                  width={400}
-                  height={400}
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                />
-
-                {/* Category Badge */}
-                <div className="absolute top-4 left-4">
-                  <Badge variant={"secondary"}>{category.subcategory}</Badge>
-                </div>
-
-                {/* Shop Now Button - Appears on Hover */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <Button>
-                    <ShoppingBag className="h-4 w-4 mr-2" /> Shop Now
-                  </Button>
-                </div>
-              </div>
-
-              <div className="p-4">
-                <h3 className="font-medium text-lg mb-1 group-hover:text-teritary transition-colors">
-                  {category.name}
-                </h3>
-                <p className="text-sm line-clamp-2">{category.description}</p>
-              </div>
-            </Link>
-          ))}
         </div>
 
         {/* View All Link */}
