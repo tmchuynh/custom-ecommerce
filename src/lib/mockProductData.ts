@@ -25,6 +25,7 @@ export const mockProductData = {
               name: "Brown",
             },
           ],
+          featured: true,
           images: [
             "/images/Shopping/Men/Oxford_Shoes_Front_View.jpg",
             "/images/Shopping/Men/Oxford_Shoes_Side_View.jpg",
