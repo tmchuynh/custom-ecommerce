@@ -143,45 +143,6 @@ export default function ProductPage() {
   return (
     <div className="">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Breadcrumb */}
-        <nav className="mb-6 text-sm">
-          <ol className="flex items-center space-x-2">
-            <li>
-              <Link href="/" className="">
-                Home
-              </Link>
-            </li>
-            <li className="">/</li>
-            <li>
-              <Link href={`/shopping/${gender}`} className=" capitalize">
-                {gender}
-              </Link>
-            </li>
-            <li className="">/</li>
-            <li>
-              <Link
-                href={`/shopping/${gender}/${category}`}
-                className=" capitalize"
-              >
-                {category}
-              </Link>
-            </li>
-            <li className="">/</li>
-            <li>
-              <Link
-                href={`/shopping/${gender}/${category}/${item}`}
-                className=" capitalize"
-              >
-                {item}
-              </Link>
-            </li>
-            <li className="">/</li>
-            <li className="text-gray-900 font-medium truncate">
-              {product.name}
-            </li>
-          </ol>
-        </nav>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Images */}
           <div className="space-y-4">
