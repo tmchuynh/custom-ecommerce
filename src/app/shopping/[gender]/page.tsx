@@ -192,17 +192,19 @@ const GenderPage = (): JSX.Element => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {getFilteredAndSortedProducts().map((product, index) => (
                 <div
-                  key={product.id || `prod-${index}`}
+                  key={`${product.id}-prod-${index}`}
                   className="group rounded-xl border shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 relative"
                 >
                   <div className="relative overflow-hidden aspect-square">
-                    <Image
+                    {/* <Image
                       src={product.imageSrc}
                       alt={product.name}
                       width={400}
                       height={400}
                       className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                    />
+                    /> */}
+
+                    <Skeleton />
 
                     {/* Product Badge */}
                     <div className="absolute top-4 left-4">
