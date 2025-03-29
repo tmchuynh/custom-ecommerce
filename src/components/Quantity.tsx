@@ -40,8 +40,9 @@ function QuantityButtons({
 
   const cartItem = getCartItem(product.name);
 
-  const displayQuantity =
-    foundItem && cartItem ? cartItem.quantity : localQuantity;
+  const handleUpdateQuantity = (id: string, quantity: number) => {
+    updateQuantity(id, quantity);
+  };
 
   const handleIncrement = () => {
     if (foundItem && cartItem) {
@@ -64,15 +65,14 @@ function QuantityButtons({
       {/* Quantity Selector */}
       <div>
         <h3 className="text-sm font-medium">Quantity</h3>
-        <div className="mt-2 flex items-center border border-gray-300 rounded-md">
-          <button type="button" onClick={handleDecrement} className="p-2">
-            <Minus className="h-4 w-4" />
-          </button>
-          <span className="w-12 text-center">{String(displayQuantity)}</span>
-          <button type="button" onClick={handleIncrement} className="p-2">
-            <Plus className="h-4 w-4" />
-          </button>
-        </div>
+        <input
+          type="number"
+          value={product.quantity}
+          onChange={(e) =>
+            handleUpdateQuantity(product.name, parseInt(e.target.value))
+          }
+          className="w-16 text-center border rounded-md"
+        />
       </div>
       {foundItem && (
         <Button
