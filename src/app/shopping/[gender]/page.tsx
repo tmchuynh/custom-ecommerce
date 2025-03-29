@@ -5,7 +5,7 @@ import LoadingIndicator from "@/components/Loading";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mockProductData } from "@/lib/mockProductData";
-import { ArrowRight, Filter, ShoppingBag } from "lucide-react";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -17,11 +17,6 @@ const GenderPage = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [items, setItems] = useState<string[]>([]);
-  const [selectedItem, setSelectedItem] = useState<string | null>(null);
-  const [subcategories, setSubCategories] = useState<string[] | null>(null);
-  const [uniqueItemTypes, setUniqueItemTypes] = useState<string[]>([]);
-  const [activeFilters, setActiveFilters] = useState<Set<string>>(new Set());
   const [sortOrder, setSortOrder] = useState<string>("featured");
 
   const { getProductsByGender } = useProduct();
@@ -65,87 +60,12 @@ const GenderPage = (): JSX.Element => {
       }
     };
 
-    const fetchItemsData = async (): Promise<void> => {
-      try {
-        const categoryData = (mockProductData as any)[gender as string];
-        console.log("Category Data:", categoryData);
-
-        if (categoryData && selectedCategory) {
-          // Get the subcategories for the selected category
-          const subcategoryData = categoryData[selectedCategory];
-          if (subcategoryData) {
-            // Get unique item types (subcategories) from the selected category
-            const itemTypes = Object.keys(subcategoryData);
-            setUniqueItemTypes(itemTypes);
-
-            // Process products
-            const enhancedProducts: any[] = [];
-            Object.entries(subcategoryData).forEach(
-              ([itemType, products]: [string, any]) => {
-                Object.entries(products).forEach(
-                  ([id, product]: [string, any]) => {
-                    enhancedProducts.push({
-                      ...product,
-                      id,
-                      itemType,
-                    });
-                  }
-                );
-              }
-            );
-            setProducts(enhancedProducts);
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching product data", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchItemsData();
     fetchProducts();
-  }, [gender, getProductsByGender, selectedCategory]);
-
-  useEffect(() => {
-    // Update items when a category is selected
-    if (selectedCategory) {
-      const categoryItems = products
-        .filter((product) => product.category === selectedCategory)
-        .map((product) => product.itemType);
-      setItems([...new Set(categoryItems)]);
-    } else {
-      setItems([]);
-    }
-    setSelectedItem(null); // Reset selected item when category changes
-  }, [selectedCategory, products]);
-
-  const formatItemName = (itemName: string) => {
-    return (itemName as string)
-      .split("_")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
-  };
-
-  const handleFilterChange = (itemType: string) => {
-    setActiveFilters((prevFilters) => {
-      const newFilters = new Set(prevFilters);
-      if (newFilters.has(itemType)) {
-        newFilters.delete(itemType);
-      } else {
-        newFilters.add(itemType);
-      }
-      return newFilters;
-    });
-  };
+  }, [gender, getProductsByGender]);
 
   const getFilteredAndSortedProducts = () => {
     const filtered = products.filter((product) => {
       if (selectedCategory && product.category !== selectedCategory) {
-        return false;
-      }
-      // If filters exist, ensure the product's itemType is included
-      if (activeFilters.size > 0 && !activeFilters.has(product.itemType)) {
         return false;
       }
       return true;
@@ -220,48 +140,18 @@ const GenderPage = (): JSX.Element => {
             </div>
 
             {/* Categories */}
-            <div className="mb-6">
-              <h3 className="text-md font-medium mb-2">Categories</h3>
-              <div className="space-y-2">
-                {categories.map((category) => (
-                  <label key={category} className="flex items-center space-x-2">
-                    <input
-                      type="radio"
-                      name="category"
-                      checked={selectedCategory === category}
-                      onChange={() =>
-                        setSelectedCategory(
-                          selectedCategory === category ? null : category
-                        )
-                      }
-                      className="form-radio h-5 w-5 text-blue-600"
-                    />
-                    <span className="capitalize">{category}</span>
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            {/* Items (converted to checkboxes) */}
-            {selectedCategory && items.length > 0 && (
+            {categories.length > 0 && (
               <div className="mb-6">
-                <h2 className="text-lg font-semibold mb-4">Filter by:</h2>
+                <h3 className="text-md font-medium mb-2">Categories</h3>
                 <div className="space-y-2">
-                  {uniqueItemTypes.map((itemType) => (
-                    <label
-                      key={itemType}
-                      className="flex items-center space-x-2"
+                  {categories.map((cat) => (
+                    <Link
+                      key={cat}
+                      href={`/shopping/${gender}/${cat}`}
+                      className="block text-blue-500 underline"
                     >
-                      <input
-                        type="checkbox"
-                        checked={activeFilters.has(itemType)}
-                        onChange={() => handleFilterChange(itemType)}
-                        className="form-checkbox h-5 w-5 text-blue-600"
-                      />
-                      <span className="capitalize">
-                        {formatItemName(itemType)}
-                      </span>
-                    </label>
+                      {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                    </Link>
                   ))}
                 </div>
               </div>
