@@ -77,7 +77,10 @@ function QuantityButtons({
       {foundItem && (
         <Button
           variant="destructive"
-          onClick={() => removeFromCart(product.name)}
+          onClick={() => {
+            removeFromCart(product.name);
+            setLocalQuantity(1);
+          }}
         >
           Remove
         </Button>
