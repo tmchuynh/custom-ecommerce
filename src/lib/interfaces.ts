@@ -201,6 +201,7 @@ export interface CountriesInformation {
 
 export interface ProductContextType {
   getProductByName: (name: string) => ProductType | undefined;
+  getProductsByGender: (gender: string) => ProductType[];
   getProductsByCategory: (categoryObj: Record<string, any>) => any;
   getSubcategoriesByGender: (gender: string, category?: string) => string[];
   searchProducts: (query: string) => ProductType[];
