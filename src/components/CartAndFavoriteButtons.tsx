@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
 import { ShoppingCart } from "lucide-react";
+import { useProduct } from "@/app/context/productContext";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -40,9 +41,12 @@ export default function CartAndFavoritesButtons({
   page?: boolean;
 }): JSX.Element {
   const { addToCart, getCartItem } = useCart();
+  const { getProductByName } = useProduct();
   const [localQuantity, setLocalQuantity] = useState(1);
-  const foundItem = getCartItem(product.name);
+  const foundItem = getProductByName(product.name);
   const [hovered, setHovered] = useState(false);
+
+  console.log("product", product);
 
   /**
    * Handles adding a product to the cart.
@@ -65,27 +69,29 @@ export default function CartAndFavoritesButtons({
 
   return (
     <div
-      className={cn("mt-5 pt-4 col-span-2", {
+      className={cn("mt-5 pt-4 col-span-2 w-fit h-fit border", {
         "mt-0": page,
       })}
     >
-      <div className="flex items-end gap-5">
+      <div
+        className={cn("flex items-end gap-5", {
+          "flex-col items-start": !page,
+        })}
+      >
         <QuantityButtons
           product={product}
           localQuantity={localQuantity}
           setLocalQuantity={setLocalQuantity}
         />
-        {!foundItem && (
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              handleAddToCart(product, product.name);
-            }}
-          >
-            <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-          </Button>
-        )}
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleAddToCart(product, product.name);
+          }}
+        >
+          <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+        </Button>
       </div>
     </div>
   );
