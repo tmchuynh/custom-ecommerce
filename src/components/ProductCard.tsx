@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { JSX, useState } from "react";
-import { cn, formatCurrency } from "@/lib/utils";
+import { cn, formatCurrency, formatURL } from "@/lib/utils";
 import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
 import ProductHighlights from "./ProductHighlights";
@@ -21,12 +21,14 @@ const ProductCard = ({
   product,
   gender,
   category,
+  item,
   toggleWishlist,
   wishlist,
 }: {
   product: any;
   gender: string;
   category: string;
+  item: string;
   toggleWishlist: (id: string, e: React.MouseEvent) => void;
   wishlist: Set<string>;
 }): JSX.Element => {
@@ -94,7 +96,9 @@ const ProductCard = ({
 
       <div className="p-4">
         <h3 className="text-gray-800 font-medium text-lg mb-1 transition-colors">
-          <Link href={`/shopping/${gender}/${category}/${product.id}`}>
+          <Link
+            href={`/shopping/${gender}/${category}/${formatURL(product.name)}`}
+          >
             {product.name}
           </Link>
         </h3>
@@ -133,7 +137,7 @@ const ProductCard = ({
 
         <div className="text-sm text-gray-500 capitalize flex items-center">
           <span className="bg-gray-100 px-2 py-1 rounded text-xs">
-            {category as string}
+            {item ? <>{item as string}</> : <>{category as string}</>}
           </span>
           {product.isLimited && (
             <span className="ml-2 text-amber-600 flex items-center text-xs">

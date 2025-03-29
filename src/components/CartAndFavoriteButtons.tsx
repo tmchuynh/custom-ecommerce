@@ -36,10 +36,10 @@ import { FaPlus } from "react-icons/fa";
  */
 export default function CartAndFavoritesButtons({
   product,
-  page = true,
+  page,
 }: {
   product: ProductType;
-  page?: boolean;
+  page: boolean;
 }): JSX.Element {
   const { addToCart, getCartItem } = useCart();
   const { getProductByName } = useProduct();

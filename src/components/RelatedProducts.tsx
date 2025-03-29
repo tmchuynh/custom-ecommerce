@@ -40,6 +40,7 @@ const RelatedProducts = ({
           <ProductCard
             category={category}
             gender={gender}
+            item={product.itemType}
             product={product}
             key={prodIndex}
             toggleWishlist={toggleWishlist}
