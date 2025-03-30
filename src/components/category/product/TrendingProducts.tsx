@@ -1,19 +1,6 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Clock,
-  Eye,
-  Filter,
-  Heart,
-  ShoppingCart,
-  Star,
-  StarHalf,
-  TrendingUp,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Filter } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProductRate from "./ProductRate";
 import { mockProductData } from "@/lib/mockProductData";
@@ -41,8 +28,6 @@ export default function TrendingProducts() {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [categories, setCategories] = useState<string[]>(["all"]);
-
-  const { getProductsByGender } = useProduct();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -171,8 +156,6 @@ export default function TrendingProducts() {
               category={product.category}
               item={product.itemType}
               page={true}
-              toggleWishlist={() => {}}
-              wishlist={new Set()}
             />
           ))}
         </div>

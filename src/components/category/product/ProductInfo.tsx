@@ -1,20 +1,18 @@
+import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
+import { useWishlist } from "@/app/context/wishlistContext";
+import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { ProductType } from "@/lib/types";
 import { cn, formatURL } from "@/lib/utils";
+import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useEffect, useMemo, useState } from "react";
-import AddToCartButtons from "./AddToCartButtons";
-import ProductRate from "./ProductRate";
-import { Button } from "./ui/button";
-import { Heart, ShoppingCart } from "lucide-react";
-import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
-import QuantityButtons from "./Quantity";
-import { useWishlist } from "@/app/context/wishlistContext";
-import { useProtectedAction } from "@/hooks/useProtectedAction";
-import { AuthDialog } from "./auth/AuthDialog";
+import { AuthDialog } from "../../auth/AuthDialog";
+import AddToCartButtons from "../../buttons/AddToCartButtons";
+import QuantityButtons from "../../buttons/Quantity";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -24,7 +22,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "./ui/alert-dialog";
+} from "../../ui/alert-dialog";
+import { Button } from "../../ui/button";
+import ProductRate from "./ProductRate";
 
 /**
  * A component that displays detailed information about a product.

@@ -1,9 +1,8 @@
-import { navigations } from "@/lib/constants";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { navigations } from "@/lib/navigation";
 import { ArrowRight } from "lucide-react";
-import DynamicButton from "./ui/button-dynamic";
+import Image from "next/image";
+import Link from "next/link";
+import DynamicButton from "../ui/button-dynamic";
 
 export default function ShopByCollection() {
   return (

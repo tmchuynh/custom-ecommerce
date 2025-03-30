@@ -1,14 +1,14 @@
 import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { formatItemName, formatURL } from "@/lib/utils";
-import { Clock, Eye, Heart, Star } from "lucide-react";
+import { Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { JSX, useMemo } from "react";
-import AddToCartButtons from "./AddToCartButtons";
-import { Badge } from "./ui/badge";
+import AddToCartButtons from "../../buttons/AddToCartButtons";
+import QuickLookAndFavoriteButtons from "../../buttons/QuickLookAndFavoriteButtons";
+import { Badge } from "../../ui/badge";
 import ProductRate from "./ProductRate";
-import QuickLookAndFavoriteButtons from "./QuickLookAndFavoriteButtons";
 
 const ProductCard = ({
   product,
@@ -16,16 +16,12 @@ const ProductCard = ({
   category,
   item,
   page,
-  toggleWishlist,
-  wishlist,
 }: {
   product: any;
   gender: string;
   category: string;
   item: string;
   page: boolean;
-  toggleWishlist: (id: string, e: React.MouseEvent) => void;
-  wishlist: Set<string>;
 }): JSX.Element => {
   const { getProductByName, convertPrice } = useProduct();
   const { formatCurrency } = useCurrency();

@@ -1,4 +1,4 @@
-import { ComingSoonMessageProps } from "@/lib/interfaces";
+import { ComingSoonMessageProps } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 

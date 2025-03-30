@@ -4,16 +4,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
-import { capitalize, cn } from "@/lib/utils";
-import { Radio, RadioGroup } from "@headlessui/react";
-import { JSX } from "react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "./ui/tooltip";
+} from "@/components/ui/tooltip";
+import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
+import { capitalize, cn } from "@/lib/utils";
+import { Radio, RadioGroup } from "@headlessui/react";
+import { JSX } from "react";
 
 /**
  * A component that renders product details in an accordion format.

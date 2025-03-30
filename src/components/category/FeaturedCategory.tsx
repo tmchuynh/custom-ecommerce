@@ -1,13 +1,7 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { Button } from "./ui/button";
-import DynamicButton from "./ui/button-dynamic";
-
-interface FeaturedCategoryProps {
-  item: any;
-  index: number;
-  closePopovers?: () => void;
-}
+import DynamicButton from "../ui/button-dynamic";
+import { FeaturedCategoryProps } from "@/lib/interfaces";
 
 export default function FeaturedCategory({
   item,

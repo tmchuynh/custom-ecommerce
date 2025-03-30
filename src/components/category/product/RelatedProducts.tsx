@@ -16,14 +16,10 @@ import ProductCard from "./ProductCard";
 const RelatedProducts = ({
   gender,
   category,
-  toggleWishlist,
-  wishlist,
   relatedProducts,
 }: {
   gender: string;
   category: string;
-  toggleWishlist: () => void;
-  wishlist: Set<string>;
   relatedProducts: ProductType[];
 }): JSX.Element => {
   return (
@@ -43,8 +39,6 @@ const RelatedProducts = ({
             item={product.itemType}
             product={product}
             key={prodIndex}
-            toggleWishlist={toggleWishlist}
-            wishlist={wishlist}
             page={false}
           />
         ))}

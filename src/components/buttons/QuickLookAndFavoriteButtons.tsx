@@ -1,15 +1,8 @@
 "use client";
-import {
-  Color,
-  DetailItem,
-  ProductDetailsProps,
-  ProductType,
-} from "@/lib/types";
+import { Color, ProductType } from "@/lib/types";
 import { cn, getAccessibleColor } from "@/lib/utils";
-import { useTheme } from "next-themes";
 import { JSX, useEffect, useState } from "react";
-import { FaHeart } from "react-icons/fa";
-import { Button, buttonVariants } from "./ui/button";
+import { Button } from "../ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -21,18 +14,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { mockProductData } from "@/lib/mockProductData";
 import { useParams, usePathname } from "next/navigation";
-import ProductGallery from "./ProductGallery";
-import ProductInfo from "./ProductInfo";
-import components from "./ProductDetails";
+import ProductInfo from "../category/product/ProductInfo";
 import { Eye, Heart, Link } from "lucide-react";
-import { useAuth } from "@/app/context/authContext";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import theme from "@material-tailwind/react/theme";
 import { toast } from "sonner";
-import { AuthDialog } from "./auth/AuthDialog";
+import { AuthDialog } from "../auth/AuthDialog";
+import components from "../category/product/ProductDetails";
+import ProductGallery from "../category/product/ProductGallery";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".

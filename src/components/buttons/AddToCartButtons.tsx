@@ -2,27 +2,12 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Heart, ShoppingCart } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 import { JSX, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
-import { Button } from "./ui/button";
-import { useAuth } from "@/app/context/authContext";
-import { useWishlist } from "@/app/context/wishlistContext";
-import { useProtectedAction } from "@/hooks/useProtectedAction";
-import { AuthDialog } from "./auth/AuthDialog";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "./ui/alert-dialog";
-import Link from "next/link";
+import { Button } from "../ui/button";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.

@@ -5,9 +5,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { CoolMode } from "./magicui/cool-mode";
-import { Sonner } from "./Sonner";
 import Link from "next/link";
+import { CoolMode } from "../magicui/cool-mode";
+import { Sonner } from "../Sonner";
 
 /**
  * `LoginPage` is a React component that renders a login form, handles user authentication,

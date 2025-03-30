@@ -3,9 +3,9 @@ import { cn, generateRandomNumberArray, getAccessibleColor } from "@/lib/utils";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 /**
  * A component that displays a gallery of product images or numbered panels with navigation controls.

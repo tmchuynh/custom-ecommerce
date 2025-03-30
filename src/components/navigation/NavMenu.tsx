@@ -19,13 +19,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
-import CategoryList from "./CategoryList";
-import FeaturedCategory from "./FeaturedCategory";
+import CategoryList from "../category/CategoryList";
 import NavMobileMenu from "./NavMobileMenu";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { about } from "@/lib/constants";
 import { navigations } from "@/lib/navigation";
+import FeaturedCategory from "../category/FeaturedCategory";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);

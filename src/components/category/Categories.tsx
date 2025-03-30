@@ -1,9 +1,7 @@
-import { navigations } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Button } from "./ui/button";
-import DynamicButton from "./ui/button-dynamic";
+import { navigations } from "@/lib/navigation";
 
 export default function Categories() {
   return (
