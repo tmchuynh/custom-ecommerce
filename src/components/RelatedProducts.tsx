@@ -45,6 +45,7 @@ const RelatedProducts = ({
             key={prodIndex}
             toggleWishlist={toggleWishlist}
             wishlist={wishlist}
+            page={false}
           />
         ))}
       </div>
