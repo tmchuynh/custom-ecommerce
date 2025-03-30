@@ -16,29 +16,57 @@ import {
 } from "@/components/ui/select";
 import { PaymentInfoData } from "@/lib/interfaces";
 import { PaymentInfoFormProps } from "@/lib/types";
+import {
+  generateMonths,
+  generateYears,
+  handleBlur,
+  validateField,
+  handleInputChange,
+  handleSelectChange,
+  handleFormSubmit,
+} from "@/lib/utils";
 import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-// Generate month and year options
-const generateMonths = () => {
-  return Array.from({ length: 12 }, (_, i) => {
-    const month = (i + 1).toString().padStart(2, "0");
-    return { value: month, label: month };
-  });
-};
-
-const generateYears = () => {
-  const currentYear = new Date().getFullYear();
-  return Array.from({ length: 10 }, (_, i) => {
-    const year = (currentYear + i).toString();
-    return { value: year, label: year };
-  });
-};
-
 const months = generateMonths();
 const years = generateYears();
 
+/**
+ * A form component for handling payment information during checkout.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Function} props.onSubmit - Callback function called when form is successfully submitted
+ * @param {number} props.total - Total amount to be charged
+ * @param {string} props.billingAddress - Billing street address
+ * @param {string} props.billingCity - Billing city
+ * @param {string} props.billingState - Billing state
+ * @param {string} props.billingZip - Billing ZIP code
+ *
+ * @returns A payment form that supports credit card and PayPal payment methods
+ *
+ * Features:
+ * - Credit card and PayPal payment options
+ * - Real-time credit card type detection
+ * - Card number formatting and validation
+ * - Expiry date validation
+ * - CVC validation with card-specific rules
+ * - Option to save payment information
+ * - Option to use shipping address as billing address
+ * - Secure payment processing
+ * - Error handling and display
+ * - Responsive design
+ *
+ * Supported credit cards:
+ * - Visa
+ * - Mastercard
+ * - American Express
+ * - Discover
+ * - Diners Club
+ * - JCB
+ * - UnionPay
+ */
 export default function PaymentInfoForm({
   onSubmit,
   total,
@@ -47,8 +75,7 @@ export default function PaymentInfoForm({
   billingState,
   billingZip,
 }: PaymentInfoFormProps) {
-  const { handlePaymentSubmission, paymentError, validateCardDetails } =
-    usePayment();
+  const { handlePaymentSubmission, paymentError } = usePayment();
 
   const [formData, setFormData] = useState<PaymentInfoData>({
     paymentMethod: "creditCard",
@@ -65,173 +92,57 @@ export default function PaymentInfoForm({
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [cardType, setCardType] = useState<string>("");
 
-  // Helper function to detect card type with expanded card support
-  const detectCardType = (cardNumber: string) => {
-    // Remove spaces and dashes
-    const cleanNumber = cardNumber.replace(/[\s-]/g, "");
-
-    // Visa
-    if (/^4/.test(cleanNumber)) return "visa";
-
-    // Mastercard
-    if (/^(5[1-5]|2[2-7])/.test(cleanNumber)) return "mastercard";
-
-    // American Express
-    if (/^3[47]/.test(cleanNumber)) return "amex";
-
-    // Discover
-    if (
-      /^(6011|65|64[4-9]|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]))/.test(
-        cleanNumber
-      )
-    )
-      return "discover";
-
-    // Diners Club
-    if (/^3(0[0-5]|[68])/.test(cleanNumber)) return "diners";
-
-    // JCB
-    if (/^35/.test(cleanNumber)) return "jcb";
-
-    // UnionPay
-    if (/^62/.test(cleanNumber)) return "unionpay";
-
-    return "";
-  };
-
-  // Format the credit card number as the user types
-  const formatCardNumber = (value: string) => {
-    // Remove all non-digits
-    const cleaned = value.replace(/\D/g, "");
-
-    // Limit to 16 digits
-    const limited = cleaned.slice(0, 16);
-
-    // Format with spaces
-    let formatted = "";
-    for (let i = 0; i < limited.length; i++) {
-      if (i > 0 && i % 4 === 0) {
-        formatted += " ";
-      }
-      formatted += limited[i];
-    }
-
-    return formatted;
-  };
-
-  const validateField = (name: string, value: string) => {
-    if (name === "cardNumber") {
-      if (value.trim() === "") return "Card number is required";
-      const cardIssuer = detectCardType(value);
-      const isValid = validateCardDetails({
-        number: value,
-        expirationDate: formData.expiryMonth + "/" + formData.expiryYear,
-        cvv: formData.cvc,
-        issuer: cardIssuer || "unknown",
-      });
-      if (!isValid) return paymentError || "Invalid card number";
-      return "";
-    }
-    switch (name) {
-      case "nameOnCard":
-        return value.trim() === "" ? "Name on card is required" : "";
-
-      case "expiryMonth":
-      case "expiryYear":
-        if (value === "")
-          return `Expiry ${
-            name === "expiryMonth" ? "month" : "year"
-          } is required`;
-
-        // If both month and year are filled, check that the date is in the future
-        if (formData.expiryMonth && formData.expiryYear) {
-          const expiryDate = new Date();
-          expiryDate.setFullYear(
-            parseInt(formData.expiryYear),
-            parseInt(formData.expiryMonth) - 1,
-            expiryDate.getDate()
-          );
-
-          const currentDate = new Date();
-          if (expiryDate < currentDate)
-            return "Card expiration date has passed";
-        }
-        return "";
-
-      case "cvc":
-        if (value.trim() === "") return "CVC is required";
-        if (!/^\d+$/.test(value)) return "CVC must contain only digits";
-        if (cardType === "amex" && value.length !== 4)
-          return "CVC must be 4 digits for American Express";
-        if (cardType !== "amex" && value.length !== 3)
-          return "CVC must be 3 digits";
-        return "";
-
-      default:
-        return "";
-    }
-  };
-
+  /**
+   * Handles form input changes for payment information.
+   * Specifically manages credit card number formatting, card type detection, and field validation.
+   *
+   * @param e - The React change event from the input element
+   *
+   * For card number inputs:
+   * - Formats the card number
+   * - Detects and sets the card type
+   * - Updates form data with formatted value
+   * - Validates the field
+   *
+   * For other inputs:
+   * - Handles both text inputs and checkboxes
+   * - Updates form data accordingly
+   * - Validates non-checkbox fields
+   *
+   * @example
+   * <input
+   *   name="cardNumber"
+   *   onChange={handleChange}
+   *   value={formData.cardNumber}
+   * />
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-
-    if (name === "cardNumber") {
-      const formattedValue = formatCardNumber(value);
-      const detectedType = detectCardType(formattedValue);
-      setCardType(detectedType);
-
-      setFormData((prev) => ({
-        ...prev,
-        [name]: formattedValue,
-      }));
-
-      const error = validateField(name, formattedValue);
-      setErrors((prev) => ({ ...prev, [name]: error }));
-    } else {
-      const newValue = type === "checkbox" ? checked : value;
-
-      setFormData((prev) => ({
-        ...prev,
-        [name]: newValue,
-      }));
-
-      if (type !== "checkbox") {
-        const error = validateField(name, value);
-        setErrors((prev) => ({ ...prev, [name]: error }));
-      }
-    }
+    handleInputChange(e, setFormData, setErrors, setCardType, {
+      expiryMonth: formData.expiryMonth,
+      expiryYear: formData.expiryYear,
+    });
   };
 
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
-    setTouched((prev) => ({ ...prev, [name]: true }));
-
-    // Revalidate expiry date whenever month or year changes
-    if (name === "expiryMonth" || name === "expiryYear") {
-      if (formData.expiryMonth && formData.expiryYear) {
-        const monthError = validateField("expiryMonth", formData.expiryMonth);
-        const yearError = validateField("expiryYear", formData.expiryYear);
-        setErrors((prev) => ({
-          ...prev,
-          expiryMonth: monthError,
-          expiryYear: yearError,
-        }));
-      }
-    }
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  /**
+   * Handles the submission of the payment form.
+   *
+   * @param {React.FormEvent} e - The form submission event
+   * @returns {Promise<void>} A promise that resolves when the payment submission is complete
+   *
+   * @description
+   * This function processes payment form submissions with two possible flows:
+   * 1. PayPal payments - directly calls onSubmit()
+   * 2. Credit card payments - validates and processes card details
+   *
+   * For credit card payments, it:
+   * - Formats card and billing information
+   * - Attempts payment processing via handlePaymentSubmission()
+   * - Handles successful payments by calling onSubmit()
+   * - Handles errors by updating the error state
+   *
+   * @throws Will throw an error if payment processing fails
+   */
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
 
     if (formData.paymentMethod === "paypal") {
@@ -239,40 +150,57 @@ export default function PaymentInfoForm({
       return;
     }
 
-    try {
-      const paymentData = {
-        cardDetails: {
-          number: formData.cardNumber,
-          expirationDate: `${formData.expiryMonth}/${formData.expiryYear}`,
-          cvv: formData.cvc,
-          issuer: cardType || "unknown",
-        },
-        amount: total,
-        billingAddress: formData.billingAddressSameAsShipping
-          ? undefined
-          : {
-              address: billingAddress,
-              city: billingCity,
-              state: billingState,
-              zipCode: billingZip,
-              country: "US", // Add proper country selection if needed
-            },
-      };
+    const requiredFields: (keyof PaymentInfoData)[] = [
+      "cardNumber",
+      "nameOnCard",
+      "expiryMonth",
+      "expiryYear",
+      "cvc",
+    ];
+    const isValid = handleFormSubmit(
+      formData,
+      requiredFields,
+      validateField,
+      setErrors,
+      setTouched,
+      async () => {
+        const paymentData = {
+          cardDetails: {
+            number: formData.cardNumber,
+            expirationDate: `${formData.expiryMonth}/${formData.expiryYear}`,
+            cvv: formData.cvc,
+            issuer: cardType || "unknown",
+          },
+          amount: total,
+          billingAddress: formData.billingAddressSameAsShipping
+            ? undefined
+            : {
+                address: billingAddress,
+                city: billingCity,
+                state: billingState,
+                zipCode: billingZip,
+                country: "US",
+              },
+        };
 
-      const result = await handlePaymentSubmission(paymentData);
+        const result = await handlePaymentSubmission(paymentData);
 
-      if (result) {
-        onSubmit();
-      } else {
-        setErrors((prev) => ({
-          ...prev,
-          cardNumber: paymentError || "Payment failed",
-        }));
-      }
-    } catch (error) {
+        if (result) {
+          onSubmit();
+        } else {
+          setErrors((prev) => ({
+            ...prev,
+            cardNumber: paymentError || "Payment failed",
+          }));
+        }
+      },
+      { expiryMonth: formData.expiryMonth, expiryYear: formData.expiryYear }
+    );
+
+    if (!isValid) {
       setErrors((prev) => ({
         ...prev,
-        cardNumber: error instanceof Error ? error.message : "Payment failed",
+        cardNumber: "Please fix the errors above before submitting.",
       }));
     }
   };
@@ -419,7 +347,7 @@ export default function PaymentInfoForm({
                   name="cardNumber"
                   value={formData.cardNumber}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={(e) => handleBlur(e, setTouched)}
                   placeholder="4111 1111 1111 1111"
                   autoComplete="cc-number"
                   className={`pl-10 ${
@@ -457,7 +385,7 @@ export default function PaymentInfoForm({
                 name="nameOnCard"
                 value={formData.nameOnCard}
                 onChange={handleChange}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, setTouched)}
                 placeholder="John Doe"
                 autoComplete="cc-name"
                 className={`${
@@ -482,7 +410,13 @@ export default function PaymentInfoForm({
                 <Select
                   value={formData.expiryMonth}
                   onValueChange={(value) =>
-                    handleSelectChange("expiryMonth", value)
+                    handleSelectChange(
+                      "expiryMonth",
+                      value,
+                      setFormData,
+                      setErrors,
+                      setTouched
+                    )
                   }
                 >
                   <SelectTrigger
@@ -518,7 +452,13 @@ export default function PaymentInfoForm({
                 <Select
                   value={formData.expiryYear}
                   onValueChange={(value) =>
-                    handleSelectChange("expiryYear", value)
+                    handleSelectChange(
+                      "expiryYear",
+                      value,
+                      setFormData,
+                      setErrors,
+                      setTouched
+                    )
                   }
                 >
                   <SelectTrigger
@@ -569,7 +509,7 @@ export default function PaymentInfoForm({
                   name="cvc"
                   value={formData.cvc}
                   onChange={handleChange}
-                  onBlur={handleBlur}
+                  onBlur={(e) => handleBlur(e, setTouched)}
                   placeholder={cardType === "amex" ? "1234" : "123"}
                   autoComplete="cc-csc"
                   maxLength={cardType === "amex" ? 4 : 3}

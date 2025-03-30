@@ -16,6 +16,29 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+/**
+ * ProductPage component displays detailed information about a specific product.
+ * It handles the display of product images, details, and related products based on URL parameters.
+ *
+ * @component
+ * @uses useParams - Hook to access URL parameters (gender, category, slug)
+ * @uses useProduct - Custom hook to fetch related products
+ * @uses useState - Hook to manage product data, related products, and loading state
+ * @uses useEffect - Hook to fetch product data on component mount and parameter changes
+ *
+ * @returns {JSX.Element} A product detail page containing:
+ * - Product gallery
+ * - Product information
+ * - Product details
+ * - Related products section
+ * - Navigation link back to category
+ *
+ * @throws {Error} When gender or category parameters are missing
+ *
+ * @example
+ * // URL format: /shopping/[gender]/[category]/[slug]
+ * <ProductPage />
+ */
 export default function ProductPage() {
   const { gender, category, slug } = useParams();
 
