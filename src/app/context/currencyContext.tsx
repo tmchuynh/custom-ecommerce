@@ -14,7 +14,6 @@ import React, {
   ReactNode,
   JSX,
 } from "react";
-import { getTaxInfoByCountryCode } from "./cartContext";
 import { currencyCountries } from "@/lib/countriesConstant";
 import { countryTaxRates } from "@/lib/taxRatesConstant";
 
