@@ -3,6 +3,25 @@
 import Image from "next/image"; // Assuming you're using Image component
 import { useWishlist } from "../context/wishlistContext";
 
+/**
+ * Renders the Wishlist page component.
+ *
+ * Displays a list of items that the user has added to their wishlist.
+ * If the wishlist is empty, shows a message indicating that.
+ * For each item in the wishlist, displays:
+ * - Product image
+ * - Product name
+ * - Price
+ * - Remove button to delete item from wishlist
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <WishlistPage />
+ * ```
+ *
+ * @returns {JSX.Element} A responsive page displaying wishlist items or empty state message
+ */
 const WishlistPage = () => {
   const { wishlistItems, removeFromWishlist } = useWishlist(); // Access wishlist data
 

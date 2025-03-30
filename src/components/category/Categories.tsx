@@ -3,6 +3,23 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { navigations } from "@/lib/navigation";
 
+/**
+ * Categories component displays a grid of product categories with visual cards.
+ * Each category card includes:
+ * - Background image from the first collection or default placeholder
+ * - Gradient overlay
+ * - Category name
+ * - Description showing number of collections
+ * - "Shop Collection" link with arrow
+ * - Collections count badge
+ *
+ * The component is responsive:
+ * - 1 column on mobile
+ * - 2 columns on medium screens
+ * - 3 columns on large screens
+ *
+ * @returns JSX element containing the categories grid section
+ */
 export default function Categories() {
   return (
     <section className=" py-16">
@@ -48,7 +65,7 @@ export default function Categories() {
                 </div>
               </div>
 
-              <div className="absolute top-4 right-4 rounded-full px-3 py-1 text-xs font-medium text-gray-700 z-20">
+              <div className="absolute top-4 right-4 rounded-full px-3 py-1 text-xs font-medium  z-20">
                 {category.collections.length} Collections
               </div>
             </Link>

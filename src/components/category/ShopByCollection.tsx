@@ -3,8 +3,29 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import DynamicButton from "../ui/button-dynamic";
+import { JSX } from "react";
 
-export default function ShopByCollection() {
+/**
+ * A component that displays shopping collections organized by categories.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <ShopByCollection />
+ * ```
+ *
+ * @description
+ * This component renders a section displaying different shopping collections organized by categories.
+ * Each category contains multiple collections displayed in a grid layout with images and titles.
+ * Features include:
+ * - Heading and descriptive text for the overall collections section
+ * - Categories with individual headings and "View All" buttons
+ * - Collection cards with hover effects, images, and titles
+ * - Responsive grid layout
+ *
+ * @returns {JSX.Element} A section containing categorized shopping collections
+ */
+export default function ShopByCollection(): JSX.Element {
   return (
     <section aria-labelledby="collection-heading" className=" py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
