@@ -124,17 +124,48 @@ const TrackOrder = () => {
     {
       question: "What if my tracking number doesn't work?",
       answer:
-        "If your tracking number doesn't work, please wait 24-48 hours after receiving your shipping confirmation. If the issue persists, contact our customer service team.",
+        "If your tracking number doesn't work, please wait 24-48 hours after receiving your shipping confirmation. Shipping carriers often need some time to update the status of your shipment. If the issue persists beyond that, please reach out to our customer service team, and we will assist you in tracking down the problem and resolving it as quickly as possible.",
     },
     {
       question: "How long does shipping take?",
       answer:
-        "Standard shipping typically takes 3-7 business days. Express shipping takes 1-3 business days, depending on your location.",
+        "Standard shipping typically takes 3-7 business days, depending on your location. For faster delivery, we offer express shipping options, which usually take 1-3 business days. Please note that delivery times may vary depending on factors such as weather, carrier delays, and the specific shipping method you select.",
     },
     {
       question: "Can I change my shipping address?",
       answer:
-        "You can change your shipping address only if your order hasn't been shipped yet. Please contact customer service immediately for assistance.",
+        "You can change your shipping address only if your order hasn’t been shipped yet. If you realize there’s an error in the address, please contact customer service immediately, and we will do our best to accommodate the change. Once the order is shipped, we cannot alter the address, so please double-check your shipping details at checkout.",
+    },
+    {
+      question: "What should I do if my order is delayed?",
+      answer:
+        "If your order is delayed, please first check the tracking information to see if there are any updates. In some cases, carriers experience delays due to high demand, weather, or logistical issues. If your tracking status doesn’t update or you believe there’s an issue, contact our customer service team, and we will investigate and help resolve the issue.",
+    },
+    {
+      question: "How do I track my international order?",
+      answer:
+        "To track your international order, simply use the tracking number provided in your shipping confirmation email. You can track it on the carrier’s website (e.g., DHL, FedEx, UPS) or use the tracking feature on our website. Please note that international orders may experience longer transit times, and tracking information may not always update as frequently as domestic orders.",
+    },
+    {
+      question: "Can I select a specific delivery date for my order?",
+      answer:
+        "Unfortunately, we cannot offer specific delivery date selection at this time. Delivery dates are based on the shipping method you choose and the carrier's delivery schedule. You will be able to see an estimated delivery date when you choose your shipping method at checkout.",
+    },
+    {
+      question:
+        "What happens if my package is marked as delivered but I didn’t receive it?",
+      answer:
+        "If your package is marked as delivered but you haven’t received it, please check with your neighbors or anyone else at your address to see if it was accepted by someone else. If you still can’t locate it, please contact customer service, and we will initiate an investigation with the carrier. In some cases, it may take a few days for packages to be located, so please allow extra time before reaching out.",
+    },
+    {
+      question: "Do you ship to PO boxes or APO/FPO addresses?",
+      answer:
+        "Yes, we do ship to PO boxes and APO/FPO addresses. However, shipping times may be longer, depending on the destination. Please make sure to provide the correct address format, and note that certain shipping methods may not be available for PO boxes or military addresses.",
+    },
+    {
+      question: "How do I cancel my order before it ships?",
+      answer:
+        "If you need to cancel your order before it ships, please contact our customer service team immediately. We process orders quickly, and once an order has been shipped, we are unable to cancel it. If the cancellation is processed successfully, we will refund your payment in full.",
     },
   ];
 
