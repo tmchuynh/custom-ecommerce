@@ -294,27 +294,6 @@ const LocationsPage = () => {
           </div>
         </div>
       </div>
-
-      {/* Fixed Contact Button */}
-      <div className="fixed bottom-0 left-0 right-0 shadow-md p-4 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm">Need more information about our locations?</p>
-          <div className="flex space-x-3">
-            <a
-              href="mailto:info@yourcompany.com"
-              className="inline-flex items-center bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-md"
-            >
-              <Mail className="h-4 w-4 mr-2" /> Email Us
-            </a>
-            <a
-              href="tel:+15551234567"
-              className="inline-flex items-center  px-4 py-2 rounded-md"
-            >
-              <Phone className="h-4 w-4 mr-2" /> Call Us
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

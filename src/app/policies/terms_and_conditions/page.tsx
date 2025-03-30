@@ -684,18 +684,6 @@ const TermsAndConditions = () => {
           </div>
         </div>
       </div>
-
-      {/* Fixed Accept Button */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm text-gray-600">
-            By continuing to use our site, you agree to these terms.
-          </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-            Accept Terms
-          </Button>
-        </div>
-      </div>
     </div>
   );
 };
