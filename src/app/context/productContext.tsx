@@ -16,22 +16,50 @@ import { useCurrency } from "./currencyContext";
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
 /**
- * Product Provider Component
- *
- * A React Context Provider that manages product-related functionality across the application.
- * It provides methods for retrieving product information, categories, and other product-related data.
+ * Provider component that manages product-related state and functionality for an e-commerce application.
  *
  * @component
- * @example
- * ```tsx
- * <ProductProvider>
- *   <App />
- * </ProductProvider>
- * ```
- *
  * @param {Object} props - Component props
  * @param {React.ReactNode} props.children - Child components that will have access to the product context
- * @returns {React.ReactNode} The provider component with the product context
+ *
+ * @provides Context functions including:
+ * - Product retrieval and filtering
+ * - Price conversion and formatting
+ * - Inventory management
+ * - Analytics tracking
+ * - Price history and statistics
+ *
+ * Features:
+ * - Automatic view count updates
+ * - Random price adjustments every two weeks
+ * - Weekly stock replenishment
+ * - Currency conversion support
+ * - Product search and filtering
+ * - Related products suggestions
+ * - Featured and new arrival products
+ * - Price tracking and history
+ * - Stock level management
+ * - Sales and popularity metrics
+ * - Ratings and reviews tracking
+ *
+ * @example
+ * ```tsx
+ * function App() {
+ *   return (
+ *     <ProductProvider>
+ *       <YourComponent />
+ *     </ProductProvider>
+ *   );
+ * }
+ * ```
+ *
+ * @remarks
+ * The provider includes automatic background processes:
+ * - Updates random product view counts every 48 hours
+ * - Restocks products every Saturday at 11 PM
+ * - Adjusts prices for random products every two weeks
+ *
+ * @returns {React.ReactNode} A Provider component that makes product functionality available to its children
  */
 export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -42,12 +70,157 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   const { selectedCurrency } = useCurrency();
   const [forceUpdate, setForceUpdate] = useState(0);
 
-  // Force update when currency changes
   useEffect(() => {
     setForceUpdate((prev) => prev + 1);
   }, [selectedCurrency]);
 
-  // Convert a price from USD to the selected currency
+  useEffect(() => {
+    /**
+     * Randomly updates view counts for a subset of products.
+     * Selects between 25-100 products at random and increments their view counts.
+     *
+     * The function:
+     * 1. Generates a random number between 25-100 for how many products to update
+     * 2. Randomly shuffles the full product list
+     * 3. Takes the first n random products from the shuffled list
+     * 4. Increments the view count for each selected product
+     *
+     * @remarks
+     * This is used to simulate random product views by users
+     *
+     * @example
+     * ```tsx
+     * updateRandomViewCounts(); // Updates between 25-100 random product view counts
+     * ```
+     */
+    const updateRandomViewCounts = () => {
+      // Get random number of products to update (between 25-100)
+      const numProductsToUpdate =
+        Math.floor(Math.random() * (100 - 25 + 1)) + 25;
+
+      // Shuffle products array and take first n items
+      const shuffledProducts = [...allProducts].sort(() => 0.5 - Math.random());
+      const selectedProducts = shuffledProducts.slice(0, numProductsToUpdate);
+
+      // Increment view count for each selected product
+      selectedProducts.forEach((product) => {
+        incrementViewCount(product.name);
+      });
+
+      console.log(`Updated view counts for ${numProductsToUpdate} products`);
+    };
+
+    // Run every other day (48 hours)
+    const interval = setInterval(updateRandomViewCounts, 48 * 60 * 60 * 1000);
+
+    // Run initial update
+    updateRandomViewCounts();
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    /**
+     * Checks if it's Saturday night after 11 PM and restocks all products by adding 500 units to their stock levels.
+     * This function serves as a weekly automated inventory replenishment system.
+     *
+     * The function:
+     * 1. Gets the current date and time
+     * 2. Checks if it's Saturday (day 6) and after 11 PM
+     * 3. If conditions are met, adds 500 units to each product's stock level
+     * 4. Logs completion message to console
+     *
+     * @remarks
+     * Stock levels are increased by a fixed amount of 500 units for all products.
+     * Products with undefined stock levels will be set to 500.
+     */
+    const checkAndRestock = () => {
+      const now = new Date();
+      if (now.getDay() === 6 && now.getHours() >= 23) {
+        // Saturday night after 11 PM
+        allProducts.forEach((product, index) => {
+          allProducts[index] = {
+            ...product,
+            stockLevel: (product.stockLevel || 0) + 500,
+          };
+        });
+        console.log("Weekly restock completed");
+      }
+    };
+
+    // Check every hour
+    const interval = setInterval(checkAndRestock, 1000 * 60 * 60);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    /**
+     * Adjusts prices for a random selection of products on a biweekly basis.
+     * Randomly selects between 5-25 products from the total product pool and
+     * applies either a price increase or decrease with equal probability.
+     *
+     * The function:
+     * 1. Determines a random number of products to adjust (5-25)
+     * 2. Randomly shuffles the product list
+     * 3. Selects the determined number of products
+     * 4. For each selected product, randomly applies either a price increase or decrease
+     *
+     * @remarks
+     * This function relies on the existence of an `allProducts` array and
+     * an `adjustProductPrice` function to perform the actual price modifications.
+     *
+     * @example
+     * ```typescript
+     * adjustPrices(); // Adjusts prices for random products
+     * ```
+     */
+    const adjustPrices = () => {
+      // Randomly select between 5-25 products
+      const numProductsToAdjust = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+      const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
+      const selectedProducts = shuffled.slice(0, numProductsToAdjust);
+
+      selectedProducts.forEach((product) => {
+        // 50/50 chance for increase or decrease
+        const isIncrease = Math.random() > 0.5;
+        adjustProductPrice(product.name, isIncrease);
+      });
+
+      console.log(
+        `Biweekly price adjustments completed for ${numProductsToAdjust} products`
+      );
+    };
+
+    // Run price adjustments every two weeks
+    const msUntilNextAdjustment = 14 * 24 * 60 * 60 * 1000; // 14 days in milliseconds
+    const interval = setInterval(adjustPrices, msUntilNextAdjustment);
+
+    // Run initial adjustment if we haven't done one in the last two weeks
+    adjustPrices();
+
+    return () => clearInterval(interval);
+  }, []);
+
+  /**
+   * Converts a price from USD to the specified or selected currency.
+   *
+   * @param priceInUSD - The price in USD to convert. Can be a number or string.
+   * @param currencyOverride - Optional currency to override the context's selected currency.
+   * @returns A formatted string representing the price in the target currency.
+   *
+   * @example
+   * // Convert 19.99 USD to EUR
+   * convertPrice(19.99, { code: 'EUR', rate: 0.85 })
+   * // Returns "€16.99"
+   *
+   * @example
+   * // Convert "$29.99" to current selected currency
+   * convertPrice("$29.99")
+   * // Returns price in selected currency format
+   *
+   * @throws Logs error to console if currency or rate is invalid
+   * @defaultValue Returns USD format if conversion fails
+   */
   const convertPrice = (
     priceInUSD: number | string,
     currencyOverride?: Currency
@@ -86,7 +259,18 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
-  // Add debugging to the formatPriceWithCurrency function
+  /**
+   * Formats a numeric price with a currency symbol.
+   *
+   * @param price - The numeric price value to format
+   * @param currencyCode - The ISO currency code (e.g., 'USD', 'EUR')
+   * @param symbol - Optional custom currency symbol to use instead of looking up from currencyCountries
+   * @returns A string with the formatted price including currency symbol
+   *
+   * @example
+   * formatPriceWithCurrency(19.99, 'USD') // Returns '$19.99'
+   * formatPriceWithCurrency(29.99, 'EUR', '€') // Returns '€29.99'
+   */
   const formatPriceWithCurrency = (
     price: number,
     currencyCode: string,
@@ -104,7 +288,21 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     return `${currencySymbol}${numericPrice.toFixed(2)}`;
   };
 
-  // Convert mockProductData into a flat array for easier manipulation
+  /**
+   * Memoized array of all products with enhanced metadata.
+   * Transforms the nested mockProductData structure into a flat array of products,
+   * adding additional metadata like gender, category, subcategory, stock level and view count.
+   *
+   * @returns {ProductType[]} An array of product objects with the following properties:
+   * - All original product properties from mockProductData
+   * - gender: The product's gender category
+   * - category: The product's main category
+   * - subcategory: The product's subcategory
+   * - stockLevel: Initial stock level (default: 100)
+   * - viewCount: Product view counter (default: 0)
+   *
+   * @memoized The result is memoized to prevent unnecessary recalculations
+   */
   const allProducts = useMemo(() => {
     const products: ProductType[] = [];
 
@@ -133,28 +331,28 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     return products;
   }, []);
 
-  // Schedule weekly restock
-  useEffect(() => {
-    const checkAndRestock = () => {
-      const now = new Date();
-      if (now.getDay() === 6 && now.getHours() >= 23) {
-        // Saturday night after 11 PM
-        allProducts.forEach((product, index) => {
-          allProducts[index] = {
-            ...product,
-            stockLevel: (product.stockLevel || 0) + 500,
-          };
-        });
-        console.log("Weekly restock completed");
-      }
-    };
-
-    // Check every hour
-    const interval = setInterval(checkAndRestock, 1000 * 60 * 60);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Add function to randomly adjust product price
+  /**
+   * Adjusts the price of a product either up or down by a random percentage.
+   *
+   * @param productName - The name of the product to adjust the price for
+   * @param isIncrease - Boolean flag indicating whether to increase (true) or decrease (false) the price
+   *
+   * For price increases:
+   * - Random adjustment between 10% to 25%
+   *
+   * For price decreases:
+   * - Random adjustment between 5% to 80%
+   *
+   * The function will:
+   * 1. Find the product by name
+   * 2. Parse the current price if it's a string
+   * 3. Calculate a random adjustment percentage
+   * 4. Apply the adjustment to get the new price
+   * 5. Update the product with the new price
+   * 6. Add the new price to the product's price history
+   *
+   * @returns void
+   */
   const adjustProductPrice = (productName: string, isIncrease: boolean) => {
     const productIndex = allProducts.findIndex((p) => p.name === productName);
     if (productIndex === -1) return;
@@ -186,55 +384,24 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     };
   };
 
-  // Schedule biweekly price adjustments
-  useEffect(() => {
-    const adjustPrices = () => {
-      // Randomly select between 5-25 products
-      const numProductsToAdjust = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
-      const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
-      const selectedProducts = shuffled.slice(0, numProductsToAdjust);
-
-      selectedProducts.forEach((product) => {
-        // 50/50 chance for increase or decrease
-        const isIncrease = Math.random() > 0.5;
-        adjustProductPrice(product.name, isIncrease);
-      });
-
-      console.log(
-        `Biweekly price adjustments completed for ${numProductsToAdjust} products`
-      );
-    };
-
-    // Run price adjustments every two weeks
-    const msUntilNextAdjustment = 14 * 24 * 60 * 60 * 1000; // 14 days in milliseconds
-    const interval = setInterval(adjustPrices, msUntilNextAdjustment);
-
-    // Run initial adjustment if we haven't done one in the last two weeks
-    adjustPrices();
-
-    return () => clearInterval(interval);
-  }, []);
-
   /**
-   * Retrieves a product by its name from the list of all products.
+   * Retrieves a product by its name and increments its view count.
    *
-   * @param name - The name of the product to search for.
-   * @returns The product object if found, or `undefined` if no product matches the given name.
+   * @param name - The name of the product to search for
+   * @returns A ProductType object with all fields defaulted if undefined, or undefined if product not found
    *
-   * The returned product object includes the following properties:
-   * - `name`: The name of the product.
-   * - `description`: A description of the product.
-   * - `gender`: The gender category of the product.
-   * - `category`: The main category of the product.
-   * - `highlights`: An array of highlight features for the product (default is an empty array).
-   * - `subcategory`: The subcategory of the product.
-   * - `images`: An array of image URLs for the product (default is an empty array).
-   * - `details`: An array of detailed information about the product (default is an empty array).
-   * - `colors`: An array of available colors for the product (default is an empty array).
-   * - `imageSrc`: The source URL of the main product image (default is an empty string).
-   * - `quantity`: The available quantity of the product.
-   * - `price`: The price of the product (default is an empty string).
-   * - `badge`: Any badge or label associated with the product.
+   * @example
+   * ```typescript
+   * const product = getProductByName("Blue Jeans");
+   * if (product) {
+   *   console.log(product.price); // Accesses price with guaranteed string value
+   * }
+   * ```
+   *
+   * @remarks
+   * - All product properties are defaulted to empty/zero values if undefined
+   * - View count is automatically incremented when product is accessed
+   * - Price is converted to display format if available
    */
   const getProductByName = (name: string): ProductType | undefined => {
     const product = allProducts.find((p) => p.name === name);
@@ -245,12 +412,28 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
 
     return {
       ...product,
+      name: product.name || "",
+      gender: product.gender || "",
+      category: product.category || "",
+      itemType: product.itemType || "",
+      description: product.description || "",
+      badge: product.badge || "",
+      price: product.price || "",
       displayPrice: product.price ? convertPrice(product.price) : "",
+      rating: product.rating || 0,
+      reviewCount: product.reviewCount || 0,
+      subcategory: product.subcategory || "",
       highlights: product.highlights || [],
       images: product.images || [],
       details: product.details || [],
       colors: product.colors || [],
       imageSrc: product.imageSrc || "",
+      quantity: product.quantity || 0,
+      discountPrice: product.discountPrice || 0,
+      originalPrice: product.originalPrice || 0,
+      priceHistory: product.priceHistory || [],
+      viewCount: product.viewCount || 0,
+      stockLevel: product.stockLevel || 0,
     };
   };
 
@@ -457,7 +640,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
    * @param {number} [limit=8] - The maximum number of products to return. Defaults to 8.
    * @returns {ProductType[]} An array of featured products, limited to the specified number.
    */
-  const getFeaturedProducts = (limit = 8): ProductType[] => {
+  const getFeaturedProducts = (limit: number = 8): ProductType[] => {
     // Get products with 'featured' badge or tag
     const featured = allProducts.filter((product) =>
       product.badge?.toLowerCase().includes("featured")
@@ -486,7 +669,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
    * @param {number} [limit=8] - The maximum number of products to return. Defaults to 8.
    * @returns {ProductType[]} An array of products marked as "new", limited to the specified count.
    */
-  const getNewArrivals = (limit = 8): ProductType[] => {
+  const getNewArrivals = (limit: number = 8): ProductType[] => {
     // Get products with 'new' badge
     const newProducts = allProducts.filter((product) =>
       product.badge?.toLowerCase().includes("new")
@@ -593,6 +776,11 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
   };
 
+  /**
+   * Filters and transforms products based on gender, converting prices in the process.
+   * @param {string} gender - The gender to filter products by ('men', 'women', etc.)
+   * @returns {ProductType[]} An array of products filtered by gender with converted prices
+   */
   const getProductsByGender = (gender: string): ProductType[] => {
     return allProducts
       .filter((product) => product.gender === gender)
@@ -602,7 +790,12 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
   };
 
-  const hasDiscount = (id: string) => {
+  /**
+   * Checks if a product has a valid discount price.
+   * @param id - The name/identifier of the product to check
+   * @returns {boolean} True if the product exists and has a discount price lower than the regular price, false otherwise
+   */
+  const hasDiscount = (id: string): boolean => {
     const product = allProducts.find((item) => item.name === id);
     return product
       ? product.discountPrice !== undefined &&
@@ -610,7 +803,19 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       : false;
   };
 
-  const hasPriceDrop = (id: string) => {
+  /**
+   * Determines if a product has had a price drop in the last month
+   * @param id - The name identifier of the product to check
+   * @returns {boolean} True if the product's current price is lower than any price in its history from the last month, false otherwise
+   *
+   * @remarks
+   * This function:
+   * - Searches for a product by name in allProducts array
+   * - Checks the price history for the last month
+   * - Compares current price against historical prices
+   * - Returns false if product not found or has no price history
+   */
+  const hasPriceDrop = (id: string): boolean => {
     const product = allProducts.find((item) => item.name === id);
     if (!product || !product.priceHistory) return false;
 
@@ -624,6 +829,13 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
+  /**
+   * Updates the price history of a product by adding a new price entry with the current date
+   * @param id - The name identifier of the product to update
+   * @param newPrice - The new price to add to the product's price history
+   * @returns void
+   * @remarks In a real application, this would update the product in a database
+   */
   const updatePriceHistory = (id: string, newPrice: number) => {
     // In a real application, this would update the product in a database
     const productIndex = allProducts.findIndex((item) => item.name === id);
@@ -641,19 +853,45 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Inventory management
+  /**
+   * Retrieves the current stock level for a specified product
+   * @param productName - The name of the product to look up
+   * @returns The stock level of the product, or 0 if the product is not found
+   */
   const getStockLevel = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     return product?.stockLevel || 0;
   };
 
+  /**
+   * Checks if a product is currently in stock
+   * @param productName - The name of the product to check
+   * @returns True if the product has stock greater than 0, false otherwise
+   */
   const isInStock = (productName: string): boolean => {
     return getStockLevel(productName) > 0;
   };
 
-  const isLowStock = (productName: string, threshold = 5): boolean => {
+  /**
+   * Determines if a product's stock level is at or below a specified threshold
+   * @param {string} productName - The name of the product to check stock level for
+   * @param {number} [threshold=5] - The threshold value to compare against (defaults to 5)
+   * @returns {boolean} True if stock level is at or below threshold, false otherwise
+   */
+  const isLowStock = (productName: string, threshold: number = 5): boolean => {
     return getStockLevel(productName) <= threshold;
   };
 
+  /**
+   * Updates the stock level of a product by reducing its quantity
+   * @param productName - The name of the product to update
+   * @param quantity - The amount to reduce from the current stock level
+   * @returns void
+   * @remarks
+   * - If the product is not found, the function returns without making any changes
+   * - The stock level cannot go below 0
+   * - If the product's current stock level is undefined, it is treated as 0
+   */
   const updateStockLevel = (productName: string, quantity: number) => {
     const productIndex = allProducts.findIndex((p) => p.name === productName);
     if (productIndex === -1) return;
@@ -666,23 +904,50 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Ratings and reviews
+  /**
+   * Retrieves the rating for a specified product by its name.
+   *
+   * @param productName - The name of the product to look up
+   * @returns The rating value of the product if found, or 0 if the product doesn't exist
+   */
   const getProductRating = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     return product?.rating || 0;
   };
 
+  /**
+   * Retrieves the review count for a specific product by its name.
+   * @param {string} productName - The name of the product to look up
+   * @returns {number} The number of reviews for the product, or 0 if the product is not found
+   */
   const getProductReviewCount = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     return product?.reviewCount || 0;
   };
 
   // Analytics
+  /**
+   * Retrieves the sales count for a specific product from localStorage
+   * @param productName - The name of the product to get sales count for
+   * @returns The number of sales for the product, returns 0 if no sales data exists
+   */
   const getSalesCount = (productName: string): number => {
     const salesData = localStorage.getItem(`sales_${productName}`);
     if (!salesData) return 0;
     return JSON.parse(salesData).count || 0;
   };
 
+  /**
+   * Calculates a popularity score for a product based on view count and sales data.
+   * The score is weighted with 30% from views and 70% from sales.
+   *
+   * @param productName - The name of the product to calculate score for
+   * @returns A numerical score representing the product's popularity
+   * @example
+   * ```typescript
+   * const score = getPopularityScore("Sample Product"); // Returns weighted score
+   * ```
+   */
   const getPopularityScore = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     const views = product?.viewCount || 0;
@@ -690,12 +955,31 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     return views * 0.3 + sales * 0.7;
   };
 
+  /**
+   * Retrieves a list of products sorted by view count in descending order
+   *
+   * @param limit - Maximum number of products to return (defaults to 10)
+   * @returns Array of products sorted by view count, limited to specified size
+   *
+   * @example
+   * // Get top 5 most viewed products
+   * const topProducts = getMostViewedProducts(5);
+   */
   const getMostViewedProducts = (limit = 10): ProductType[] => {
     return [...allProducts]
       .sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))
       .slice(0, limit);
   };
 
+  /**
+   * Retrieves a sorted array of best-selling products based on their sales count.
+   *
+   * @param limit - Maximum number of products to return (defaults to 10)
+   * @returns Array of products sorted by sales count in descending order, limited to specified amount
+   *
+   * @example
+   * const topSellers = getBestSellingProducts(5); // Returns top 5 best-selling products
+   */
   const getBestSellingProducts = (limit = 10): ProductType[] => {
     return [...allProducts]
       .sort((a, b) => {
@@ -707,6 +991,15 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Price history stats
+  /**
+   * Retrieves the price history for a specific product within a given time period
+   * @param productName - The name of the product to get price history for
+   * @param days - Number of days to look back in history (defaults to 30)
+   * @returns An array of price history records filtered by the specified time period
+   * @remarks
+   * - Returns an empty array if the product is not found or has no price history
+   * - Filters price history entries newer than the cutoff date (current date minus specified days)
+   */
   const getPriceHistory = (productName: string, days = 30) => {
     const product = allProducts.find((p) => p.name === productName);
     if (!product?.priceHistory) return [];
@@ -719,23 +1012,48 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   };
 
+  /**
+   * Retrieves the lowest price for a given product within a specified time period
+   * @param productName - The name of the product to check prices for
+   * @param days - Number of days to look back in price history (defaults to 30)
+   * @returns The lowest price found for the product in the specified time period
+   */
   const getLowestPrice = (productName: string, days = 30): number => {
     const history = getPriceHistory(productName, days);
     return Math.min(...history.map((record) => record.price));
   };
 
+  /**
+   * Gets the highest price for a product within a specified time period.
+   *
+   * @param productName - The name of the product to check prices for
+   * @param days - Number of days to look back in price history (defaults to 30)
+   * @returns The highest price found within the specified time period
+   */
   const getHighestPrice = (productName: string, days = 30): number => {
     const history = getPriceHistory(productName, days);
     return Math.max(...history.map((record) => record.price));
   };
 
-  const getAveragePrice = (productName: string, days = 30): number => {
+  /**
+   * Calculates the average price of a product over a specified period.
+   *
+   * @param {string} productName - The name of the product to calculate average price for
+   * @param {number} [days=30] - The number of days to look back for price history (defaults to 30)
+   * @returns {number} The average price over the specified period, or 0 if no price history exists
+   */
+  const getAveragePrice = (productName: string, days: number = 30): number => {
     const history = getPriceHistory(productName, days);
     if (history.length === 0) return 0;
     const sum = history.reduce((acc, record) => acc + record.price, 0);
     return sum / history.length;
   };
 
+  /**
+   * Calculates the percentage drop in price for a given product from its highest recorded price
+   * @param productName - The name of the product to calculate price drop for
+   * @returns The percentage drop in price (0-100). Returns 0 if product not found or has no price history
+   */
   const getPriceDropPercentage = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     if (!product || !product.priceHistory || product.priceHistory.length === 0)
@@ -747,7 +1065,17 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     return ((highestPrice - currentPrice) / highestPrice) * 100;
   };
 
-  // Add function to increment view count
+  /**
+   * Increments the view count of a product by one.
+   *
+   * @param productName - The name of the product to increment the view count for
+   * @returns void
+   * @throws None
+   *
+   * @remarks
+   * If the product is not found (productIndex === -1), the function will return early
+   * without making any changes. The view count starts at 0 if not previously set.
+   */
   const incrementViewCount = (productName: string): void => {
     const productIndex = allProducts.findIndex((p) => p.name === productName);
     if (productIndex === -1) return;

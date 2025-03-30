@@ -96,6 +96,17 @@ export interface CurrencyContextType {
   getCurrencySymbol: (currencyCode: string) => string;
   getCurrencyName: (currencyCode: string) => string;
 
+  getTaxInfoByCountryCode: (countryCode: string) => CountryTaxInfo | undefined;
+  getTaxInfoByCountryName: (countryName: string) => CountryTaxInfo | undefined;
+  getTaxInfoByCurrencyCode: (
+    currencyCode: string
+  ) => CountryTaxInfo | undefined;
+  getTaxInfoByCurrencyName: (
+    currencyName: string
+  ) => CountryTaxInfo | undefined;
+  getTaxInfoByCurrency: (currency: Currency) => CountryTaxInfo | undefined;
+  getTaxInfoByCountry: (country: string) => CountryTaxInfo | undefined;
+
   // Last updated timestamp
   lastRatesUpdate: Date | null;
 }
