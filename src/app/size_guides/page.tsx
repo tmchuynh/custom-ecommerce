@@ -82,10 +82,8 @@ const SizeGuide = () => {
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
-            Size Guide
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-5xl font-extrabold mb-4">Size Guide</h1>
+          <p className="text-xl max-w-2xl mx-auto">
             Use our size guide to find your perfect fit! Whether you're shopping
             for tops, bottoms, or shoes, we have the measurements and visuals to
             help you make the right choice.
