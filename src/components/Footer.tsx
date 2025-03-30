@@ -1,4 +1,4 @@
-import { navigationSections } from "@/lib/constants";
+import { navigationSections } from "@/lib/constants/constants";
 import Newsletter from "./Newsletter";
 
 export default function Footer() {

@@ -1,4 +1,4 @@
-import { people } from "@/lib/constants";
+import { people } from "@/lib/constants/constants";
 import Image from "next/image";
 
 export default function Team() {

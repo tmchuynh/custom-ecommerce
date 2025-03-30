@@ -7,7 +7,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import { capitalize } from "@/lib/utils/utils";
 import { ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";

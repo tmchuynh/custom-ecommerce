@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { JSX, useEffect, useState } from "react";
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import ProductCard from "./ProductCard";
 import { FaFilter } from "react-icons/fa";
 

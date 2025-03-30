@@ -9,7 +9,7 @@ import React, {
   JSX,
 } from "react";
 import { currencyCountries } from "@/lib/countriesConstant";
-import { countryTaxRates } from "@/lib/taxRatesConstant";
+import { countryTaxRates } from "@/lib/constants/taxRatesConstant";
 import { CurrencyContextType } from "@/lib/contextTypes";
 import { CountryTaxInfo } from "@/lib/interfaces";
 import { Currency, CurrencyCode } from "@/lib/types";

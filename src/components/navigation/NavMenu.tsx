@@ -23,8 +23,8 @@ import CategoryList from "../category/CategoryList";
 import NavMobileMenu from "./NavMobileMenu";
 import { Button } from "../ui/button";
 import { useWishlist } from "@/app/context/wishlistContext";
-import { about } from "@/lib/constants";
-import { navigations } from "@/lib/navigation";
+import { about } from "@/lib/constants/constants";
+import { navigations } from "@/lib/constants/navigation";
 import FeaturedCategory from "../category/FeaturedCategory";
 
 export default function NavMenu() {

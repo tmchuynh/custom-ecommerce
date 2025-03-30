@@ -1,6 +1,4 @@
 "use client";
-
-import { useCustomer } from "@/app/context/customerContext";
 import { usePayment } from "@/app/context/paymentContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,9 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
 import {
-  handleInputChange,
-  handleFormSubmit,
   handleBlur,
+  handleFormSubmit,
+  handleInputChange,
 } from "@/lib/utils/utils";
 import { validateField } from "@/lib/utils/validation";
 import { useState } from "react";
@@ -62,8 +60,6 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const { handlePaymentSubmission } = usePayment();
-  const { validatePhone, validateEmail, validateName, formatPhoneNumber } =
-    useCustomer();
 
   /**
    * Handles form input changes and updates the form state accordingly.

@@ -16,7 +16,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
 
 import { ShippingAddressFormProps } from "@/lib/types";
-import { usStates } from "@/lib/constants";
+import { usStates } from "@/lib/constants/constants";
 import { ShippingAddress, ShippingMethod } from "@/lib/interfaces";
 import {
   handleInputChange,

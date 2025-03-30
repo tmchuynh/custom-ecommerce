@@ -1,4 +1,4 @@
-import { navigations } from "@/lib/navigation";
+import { navigations } from "@/lib/constants/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import DynamicButton from "../ui/button-dynamic";

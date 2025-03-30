@@ -1,7 +1,7 @@
 "use client";
 
 import { currencyCountries } from "@/lib/countriesConstant";
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import { Currency, ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, {
   createContext,

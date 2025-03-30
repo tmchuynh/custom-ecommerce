@@ -1,74 +1,83 @@
-import {
-  CursorArrowRaysIcon,
-  DocumentTextIcon,
-  FingerPrintIcon,
-} from "@heroicons/react/24/outline";
-import { GiftIcon, RulerIcon, ShieldCheckIcon, StarIcon } from "lucide-react";
-import { Fa500Px } from "react-icons/fa";
+import { Fa500Px, FaFile, FaFingerprint, FaGift, FaStar } from "react-icons/fa";
+import { FaShield } from "react-icons/fa6";
+import { HiCursorClick } from "react-icons/hi";
+import { IoMdHelp } from "react-icons/io";
+import { MdAssignmentReturn } from "react-icons/md";
+import { TbRulerMeasure2 } from "react-icons/tb";
+import { InformationDetails } from "../interfaces";
 
-export const about = [
+export const about: InformationDetails[] = [
   {
-    name: "Customer Service",
+    id: "customer_service",
+    title: "Customer Service",
     description:
       "Get assistance with your orders, returns, and inquiries. We're here to help you!",
     href: "/customer_service",
-    icon: CursorArrowRaysIcon,
+    icon: HiCursorClick,
   },
   {
-    name: "Frequently Asked Questions",
+    id: "frequently_asked_questions",
+    title: "Frequently Asked Questions",
     description:
       "Get assistance with your orders, returns, and inquiries. We're here to help you!",
     href: "/about/frequently_asked_questions",
-    icon: CursorArrowRaysIcon,
+    icon: IoMdHelp,
   },
   {
-    name: "Privacy Policy",
+    id: "privacy_policy",
+    title: "Privacy Policy",
     description:
       "Read how we handle and protect your personal data with complete privacy.",
     href: "/policies/privacy_policy",
-    icon: ShieldCheckIcon,
+    icon: FaShield,
   },
   {
-    name: "Return Policy",
+    id: "return_policy",
+    title: "Return Policy",
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
     href: "/policies/return_policy",
-    icon: CursorArrowRaysIcon,
+    icon: MdAssignmentReturn,
   },
   {
-    name: "Loyalty Program",
+    id: "loyalty_program",
+    title: "Loyalty Program",
     description:
       "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
     href: "/loyalty_program",
-    icon: GiftIcon,
+    icon: FaGift,
   },
   {
-    name: "Size Guides",
+    id: "size_guides",
+    title: "Size Guides",
     description:
       "Ensure the perfect fit with our detailed size guides for clothes and shoes.",
     href: "/size_guides",
-    icon: RulerIcon,
+    icon: TbRulerMeasure2,
   },
   {
-    name: "Customer Reviews",
+    id: "customer_reviews",
+    title: "Customer Reviews",
     description:
       "See what other customers have to say about our products and services.",
     href: "/about/customer_reviews",
-    icon: StarIcon,
+    icon: FaStar,
   },
   {
-    name: "Track Order",
+    id: "track_order",
+    title: "Track Order",
     description:
       "Easily track your order status and delivery details in real-time.",
     href: "/customer_service/track_order",
-    icon: FingerPrintIcon,
+    icon: FaFingerprint,
   },
   {
-    name: "Terms & Conditions",
+    id: "terms_and_conditions",
+    title: "Terms & Conditions",
     description:
       "Understand the rules and regulations of using our website and purchasing from us.",
     href: "/policies/terms_and_conditions",
-    icon: DocumentTextIcon,
+    icon: FaFile,
   },
 ];
 
@@ -573,5 +582,36 @@ export const locations = [
     ],
     lat: 37.7949,
     lng: -122.4394,
+  },
+];
+
+export const orderStatuses = [
+  {
+    trackingNumber: "123456",
+    status: "Shipped",
+    carrier: "FedEx",
+    estimatedDelivery: "Jun 15, 2023",
+    lastUpdate: "Jun 10, 2023 - Package left warehouse",
+  },
+  {
+    trackingNumber: "654321",
+    status: "In Transit",
+    carrier: "UPS",
+    estimatedDelivery: "Jun 18, 2023",
+    lastUpdate: "Jun 12, 2023 - Package in transit to destination",
+  },
+  {
+    trackingNumber: "112233",
+    status: "Delivered",
+    carrier: "USPS",
+    estimatedDelivery: "Jun 8, 2023",
+    lastUpdate: "Jun 8, 2023 - Package delivered",
+  },
+  {
+    trackingNumber: "445566",
+    status: "Processing",
+    carrier: "Pending",
+    estimatedDelivery: "Jun 20, 2023",
+    lastUpdate: "Jun 11, 2023 - Order confirmed, preparing for shipment",
   },
 ];

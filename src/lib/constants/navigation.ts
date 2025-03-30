@@ -1,4 +1,4 @@
-import { NavigationDetails } from "./types";
+import { NavigationDetails } from "../types";
 
 export const navigations: NavigationDetails = {
   categories: [

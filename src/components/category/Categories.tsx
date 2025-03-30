@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { navigations } from "@/lib/navigation";
+import { navigations } from "@/lib/constants/navigation";
 import { FaArrowRight } from "react-icons/fa";
 
 /**

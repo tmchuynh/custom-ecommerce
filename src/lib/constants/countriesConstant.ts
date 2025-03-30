@@ -1,4 +1,4 @@
-import { currencyCountriesInfo } from "./interfaces";
+import { currencyCountriesInfo } from "../interfaces";
 
 export const currencyCountries: currencyCountriesInfo[] = [
   // United States Dollar (USD)

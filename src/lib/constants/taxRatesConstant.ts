@@ -3,7 +3,7 @@
  * Source: https://zonos.com/docs/guides/import-tax-rates-by-country
  */
 
-import { CountryTaxInfo } from "./interfaces";
+import { CountryTaxInfo } from "../interfaces";
 
 /**
  * Country tax information including VAT/GST rates, duty rates, and de minimis thresholds
