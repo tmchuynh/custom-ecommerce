@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trackingOrderFAQs } from "@/lib/faqs";
-import { cn } from "@/lib/utils";
+import { cn, toggleAccordionSection } from "@/lib/utils";
 import {
   AlertCircle,
   ArrowLeft,
@@ -22,6 +22,42 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
+/**
+ * TrackOrder component provides order tracking functionality and shipping information display.
+ *
+ * @component
+ * @description
+ * This component allows users to:
+ * - Track orders using a tracking number
+ * - View order status and shipping details
+ * - Access shipping FAQs and information
+ * - Navigate to related customer service pages
+ *
+ * The component features:
+ * - Real-time order status tracking
+ * - Progress indicator for shipping stages
+ * - Collapsible FAQ and shipping information sections
+ * - Integration with multiple shipping carriers (FedEx, UPS, USPS)
+ * - Responsive layout with sidebar navigation
+ *
+ * @example
+ * ```tsx
+ * <TrackOrder />
+ * ```
+ *
+ * @returns {JSX.Element} A complete order tracking interface with status display and shipping information
+ *
+ * @state
+ * - trackingNumber: string - Stores the user input tracking number
+ * - orderStatus: string | null - Current status of the tracked order
+ * - loading: boolean - Loading state during tracking number search
+ * - activeSection: string | null - Currently expanded information section
+ *
+ * @hooks
+ * - useRouter - For navigation between pages
+ * - useState - For managing component state
+ * - useRef - For managing section references for scroll functionality
+ */
 const TrackOrder = () => {
   const router = useRouter();
   const [trackingNumber, setTrackingNumber] = useState("");
@@ -31,13 +67,12 @@ const TrackOrder = () => {
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
   // Simulated order statuses

@@ -17,6 +17,38 @@ import {
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
+/**
+ * PaymentSecurity Component
+ *
+ * A component that displays comprehensive information about payment security measures
+ * through an interactive accordion-style interface.
+ *
+ * @component
+ *
+ * @state {string | null} activeSection - Tracks which security section is currently expanded
+ * @state {React.RefObject<{ [key: string]: HTMLElement | null }>} sectionRefs - Holds references to section DOM elements
+ *
+ * @example
+ * ```tsx
+ * <PaymentSecurity />
+ * ```
+ *
+ * Features:
+ * - Responsive layout with sidebar navigation
+ * - Accordion-style expandable sections
+ * - Smooth scroll functionality to sections
+ * - Detailed information about:
+ *   - Security Overview
+ *   - Data Encryption
+ *   - Payment Processing
+ *   - Authentication Methods
+ *   - Security Compliance
+ *   - Security Monitoring
+ *   - Fraud Prevention
+ *   - Contact Information
+ *
+ * @returns {JSX.Element} A payment security information page with interactive sections
+ */
 const PaymentSecurity = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

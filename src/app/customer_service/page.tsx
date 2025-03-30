@@ -20,6 +20,42 @@ import {
 import { customerServiceFAQs } from "@/lib/faqs";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
+/**
+ * CustomerService Component
+ *
+ * A comprehensive customer service page component that provides various support resources and information.
+ *
+ * @component
+ *
+ * @features
+ * - Interactive table of contents with smooth scrolling
+ * - Collapsible sections for different support topics
+ * - Contact information display
+ * - Business hours table
+ * - FAQ section
+ * - Additional services overview
+ *
+ * @state
+ * - activeSection: Tracks which accordion section is currently expanded
+ * - sectionRefs: Maintains references to section DOM elements for scrolling
+ *
+ * @methods
+ * - toggleSection: Handles expanding/collapsing accordion sections
+ * - handleScrollToSection: Manages smooth scrolling to selected sections
+ *
+ * @sections
+ * - Introduction
+ * - Contact Information
+ * - Business Hours
+ * - Frequently Asked Questions
+ * - Other Services
+ *
+ * @sidepanel
+ * - Quick navigation menu
+ * - Contact cards with email and phone information
+ *
+ * @returns React component that renders a full customer service support page
+ */
 const CustomerService = () => {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState<string | null>(null);

@@ -17,6 +17,45 @@ import {
 import Image from "next/image";
 import { useRef, useState } from "react";
 
+/**
+ * A comprehensive loyalty program component that displays membership details, points system, and program benefits.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <LoyaltyProgram />
+ * ```
+ *
+ * @remarks
+ * This component manages a loyalty program interface with the following features:
+ * - Points tracking and management
+ * - Collapsible sections for program details
+ * - Table of contents navigation
+ * - Program tiers and benefits explanation
+ * - FAQ section with expandable answers
+ *
+ * @returns A complex layout containing:
+ * - Current points display
+ * - Program perks section
+ * - Sidebar navigation
+ * - Detailed sections including:
+ *   - Introduction
+ *   - How It Works
+ *   - Program Benefits
+ *   - Earning Points
+ *   - Redeeming Points
+ *   - Membership Tiers
+ *   - FAQs
+ *
+ * @state
+ * - points: number - Tracks the user's current point balance
+ * - activeSection: string | null - Controls which section is currently expanded
+ * - expandedFaqs: { [key: number]: boolean } - Tracks which FAQ items are expanded
+ *
+ * @hooks
+ * - useRef - For section references and scroll functionality
+ * - useState - For managing component state
+ */
 const LoyaltyProgram = () => {
   const [points, setPoints] = useState(0);
   const [activeSection, setActiveSection] = useState<string | null>(null);

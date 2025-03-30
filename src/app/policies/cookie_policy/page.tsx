@@ -19,6 +19,44 @@ import {
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
+/**
+ * CookiePolicy Component
+ *
+ * A comprehensive cookie policy page component that displays detailed information about
+ * website cookie usage through an interactive accordion-style interface.
+ *
+ * @component
+ *
+ * @state {string | null} activeSection - Tracks which policy section is currently expanded
+ * @state {{ [key: string]: HTMLElement | null }} sectionRefs - Stores references to section DOM elements
+ *
+ * @method toggleSection - Toggles the expansion state of a policy section
+ * @param {string} sectionId - ID of the section to toggle
+ *
+ * @method handleScrollToSection - Scrolls the page to a specific policy section
+ * @param {string} sectionId - ID of the section to scroll to
+ *
+ * Features:
+ * - Responsive layout with sidebar navigation
+ * - Collapsible sections with smooth animations
+ * - Interactive table of contents
+ * - Detailed information about cookie usage, types, and management
+ * - Contact information and support options
+ *
+ * Sections covered:
+ * - Overview
+ * - Encryption
+ * - What Are Cookies
+ * - Types of Cookies
+ * - How We Use Cookies
+ * - Third-Party Cookies
+ * - Cookie Duration
+ * - Cookie Management
+ * - Policy Updates
+ * - Contact Information
+ *
+ * @returns {JSX.Element} A responsive cookie policy page with interactive sections
+ */
 const CookiePolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

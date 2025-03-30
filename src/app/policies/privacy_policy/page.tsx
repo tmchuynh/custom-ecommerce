@@ -17,6 +17,44 @@ import {
 import router from "next/router";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 
+/**
+ * Privacy Policy Component
+ *
+ * A comprehensive privacy policy page component that displays detailed information about
+ * data collection, usage, and protection practices. The component features an interactive
+ * accordion-style layout with a sticky table of contents sidebar for easy navigation.
+ *
+ * @component
+ *
+ * @state {string | null} activeSection - Tracks which section is currently expanded
+ * @state {Object} sectionRefs - Refs to each policy section for scrolling functionality
+ *
+ * @function toggleSection - Handles expanding/collapsing individual policy sections
+ * @param {string} sectionId - ID of the section to toggle
+ *
+ * @function handleScrollToSection - Handles smooth scrolling to selected policy sections
+ * @param {string} sectionId - ID of the section to scroll to
+ *
+ * Features:
+ * - Responsive layout with grid system
+ * - Sticky navigation sidebar
+ * - Expandable/collapsible content sections
+ * - Smooth scroll functionality
+ * - Icon integration for visual hierarchy
+ * - Accessible button controls
+ *
+ * Sections covered:
+ * - Introduction
+ * - Information Collection
+ * - Information Usage
+ * - Information Sharing
+ * - Data Protection
+ * - User Rights
+ * - Policy Changes
+ * - Contact Information
+ *
+ * @returns {JSX.Element} A responsive privacy policy page component
+ */
 const PrivacyPolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
