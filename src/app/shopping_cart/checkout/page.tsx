@@ -24,6 +24,7 @@ import OrderItems from "@/components/checkout/order-items";
 import OrderSummary from "@/components/checkout/order-summary";
 import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import ShippingAddressForm from "@/components/checkout/shipping-address-form";
+import { useCurrency } from "@/app/context/currencyContext";
 
 const CheckoutPage = () => {
   const {
@@ -35,11 +36,11 @@ const CheckoutPage = () => {
     getTotalPrice,
     applyDiscount,
     getDiscountedTotal,
-    startCheckout,
     getEstimatedDeliveryDate,
     selectedShippingMethod,
-    getImportTaxBreakdown,
   } = useCart();
+
+  const { getImportTaxBreakdown } = useCurrency();
 
   // Discount state
   const [discountCode, setDiscountCode] = useState<string>("");
@@ -74,7 +75,7 @@ const CheckoutPage = () => {
   // Calculate values for order summary
   const subtotal = getSubTotal();
   const tax = calculateTaxAmount(subtotal, shippingCountry);
-  const internationalTax = getImportTaxBreakdown(shippingCountry);
+  const internationalTax = getImportTaxBreakdown(subtotal, shippingCountry);
 
   console.log("internationalTax", internationalTax);
   // Use the selected shipping method instead of the auto-determined one
@@ -291,9 +292,6 @@ const CheckoutPage = () => {
       return;
     }
 
-    // Proceed with checkout
-    startCheckout();
-
     // Instead of showing an alert, navigate to the thank you page
     try {
       // Set navigation block to false so we can navigate without confirmation dialog
@@ -488,8 +486,7 @@ const CheckoutPage = () => {
             <OrderSummary
               subtotal={subtotal}
               tax={tax}
-              shippingMethod={selectedShippingMethod}
-              shipping={internationalTax.shipping}
+              shipping={calculateShippingCost(selectedShippingMethod)}
               vatTax={internationalTax.vat}
               importFees={internationalTax.duty}
               newDate={estimatedDeliveryDate || new Date()}
@@ -501,6 +498,9 @@ const CheckoutPage = () => {
                 shippingCountry.toLowerCase() !== "us"
               }
               shippingCountry={shippingCountry}
+              total={discountApplied ? discountedTotal : originalTotal}
+              shippingMethod={selectedShippingMethod}
+              itemCount={cartItems.length}
             />
 
             {/* Navigation Buttons */}
