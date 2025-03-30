@@ -1,6 +1,6 @@
 "use client";
 
-import { Currency, CurrencyContextType } from "@/lib/interfaces";
+import { Currency, CurrencyCode, CurrencyContextType } from "@/lib/interfaces";
 import React, {
   createContext,
   useContext,
@@ -10,6 +10,7 @@ import React, {
   JSX,
 } from "react";
 import { getTaxInfoByCountryCode } from "./cartContext";
+import { currencyCountries } from "@/lib/countriesConstant";
 
 /**
  * Context for managing the current currency.
@@ -41,6 +42,7 @@ export const CurrencyProvider = ({
     name: "US Dollar",
     rate: 1,
   });
+  const [lastRatesUpdate, setLastRatesUpdate] = useState<Date | null>(null);
 
   // Load saved currency preference on component mount
   useEffect(() => {
@@ -131,6 +133,72 @@ export const CurrencyProvider = ({
     };
   };
 
+  // Currency conversion functions
+  const convertAmount = (
+    amount: number,
+    fromCurrency: string,
+    toCurrency: string
+  ): number => {
+    const fromRate = getExchangeRate(fromCurrency);
+    const toRate = getExchangeRate(toCurrency);
+    return (amount / fromRate) * toRate;
+  };
+
+  const formatCurrency = (
+    amount: number,
+    currencyCode: CurrencyCode
+  ): string => {
+    if (isNaN(amount)) return "$0.00";
+    const currency = currencyCountries.find((c) => c.code === currencyCode);
+    if (!currency) return `${amount}`;
+
+    return (
+      "$" +
+      new Intl.NumberFormat(undefined, {
+        style: "currency",
+        currency: currencyCode,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(amount)
+    );
+  };
+
+  // Currency rates management
+  const updateExchangeRate = (currencyCode: string, newRate: number): void => {
+    // This is a simplified version - in production you'd want to update your backend
+    localStorage.setItem(`rate_${currencyCode}`, newRate.toString());
+    setLastRatesUpdate(new Date());
+  };
+
+  const getExchangeRate = (currencyCode: string): number => {
+    const currency = currencyCountries.find((c) => c.code === currencyCode);
+    return currency?.rate ?? 1;
+  };
+
+  // Currency validation
+  const isCurrencySupported = (currencyCode: string): boolean => {
+    return currencyCountries.some((c) => c.code === currencyCode);
+  };
+
+  const getAvailableCurrencies = (): Currency[] => {
+    return currencyCountries.map((c) => ({
+      code: c.code,
+      name: c.name,
+      rate: c.rate,
+    }));
+  };
+
+  // Currency info
+  const getCurrencySymbol = (currencyCode: string): string => {
+    const currency = currencyCountries.find((c) => c.code === currencyCode);
+    return currency?.symbol ?? currencyCode;
+  };
+
+  const getCurrencyName = (currencyCode: string): string => {
+    const currency = currencyCountries.find((c) => c.code === currencyCode);
+    return currency?.name ?? currencyCode;
+  };
+
   return (
     <CurrencyContext.Provider
       value={{
@@ -141,6 +209,15 @@ export const CurrencyProvider = ({
         calculateImportFee,
         getImportTaxBreakdown,
         calculateImportTaxes,
+        convertAmount,
+        formatCurrency,
+        updateExchangeRate,
+        getExchangeRate,
+        isCurrencySupported,
+        getAvailableCurrencies,
+        getCurrencySymbol,
+        getCurrencyName,
+        lastRatesUpdate,
       }}
     >
       {children}
