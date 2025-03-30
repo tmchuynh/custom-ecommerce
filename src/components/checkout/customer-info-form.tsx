@@ -8,14 +8,9 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Mail, User, Phone, AlertCircle } from "lucide-react";
 import { CustomerInfoFormProps } from "@/lib/types";
-
-export interface CustomerInfoData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  marketingConsent: boolean;
-}
+import { usePayment } from "@/app/context/paymentContext";
+import { useCustomer } from "@/app/context/customerContext";
+import { CustomerInfoData } from "@/lib/interfaces";
 
 export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const [formData, setFormData] = useState<CustomerInfoData>({
@@ -28,27 +23,29 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const { handlePaymentSubmission } = usePayment();
+  const { validatePhone, validateEmail, validateName, formatPhoneNumber } =
+    useCustomer();
 
   const validateField = (name: string, value: string) => {
     if (name === "firstName" || name === "lastName") {
-      return value.trim() === ""
-        ? `${name === "firstName" ? "First" : "Last"} name is required`
+      if (value.trim() === "") {
+        return `${name === "firstName" ? "First" : "Last"} name is required`;
+      }
+      return !validateName(value)
+        ? "Please enter a valid name (letters, spaces, hyphens and apostrophes only)"
         : "";
     }
 
     if (name === "email") {
       if (value.trim() === "") return "Email is required";
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return !emailPattern.test(value)
-        ? "Please enter a valid email address"
-        : "";
+      return !validateEmail(value) ? "Please enter a valid email address" : "";
     }
 
     if (name === "phone") {
       if (value.trim() === "") return "Phone number is required";
-      const phonePattern = /^\+?[0-9]{10,15}$/;
-      return !phonePattern.test(value.replace(/[^0-9]/g, ""))
-        ? "Please enter a valid phone number"
+      return !validatePhone(value.replace(/\D/g, ""))
+        ? "Please enter a valid 10-digit phone number"
         : "";
     }
 
@@ -57,7 +54,12 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
-    const newValue = type === "checkbox" ? checked : value;
+    const newValue =
+      type === "checkbox"
+        ? checked
+        : name === "phone"
+        ? formatPhoneNumber(value)
+        : value;
 
     setFormData((prev) => ({
       ...prev,
@@ -102,7 +104,16 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
     setTouched(touchedFields);
 
     if (isValid) {
-      onSubmit(formData);
+      handlePaymentSubmission({
+        ...formData,
+        cardDetails: {
+          number: formData.firstName, // Placeholder for card number
+          expirationDate: "",
+          cvv: "",
+          issuer: "",
+        },
+        amount: 0, // Add appropriate amount
+      });
     }
   };
 
