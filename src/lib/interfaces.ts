@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { DetailedHTMLProps, HTMLAttributes, CSSProperties } from "react";
+import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from "react";
 import {
   FeaturedDetails,
   LengthType,
@@ -261,6 +261,31 @@ export interface PaymentInfoData {
   billingAddressSameAsShipping: boolean;
 }
 
+export interface ShippingAddress {
+  id?: string;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  addressType: "residential" | "business";
+  isDefault?: boolean;
+  label?: string; // e.g., "Home", "Office", "Mom's house"
+  deliveryInstructions?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface ShippingRate {
+  id: string;
+  carrier: string;
+  service: string;
+  estimatedDays: number;
+  price: number;
+  currencyCode: string;
+}
+
 export interface CustomerInfoData {
   firstName: string;
   lastName: string;
@@ -274,6 +299,77 @@ export interface CustomerContextType {
   validateEmail: (email: string) => boolean;
   validateName: (name: string) => boolean;
   formatPhoneNumber: (phone: string) => string;
+  validateAddress: (address: Partial<ShippingAddress>) => boolean;
+  validatePostalCode: (postalCode: string, country?: string) => boolean;
+  formatAddress: (address: ShippingAddress) => string;
+  getDefaultShippingAddress: () => ShippingAddress | undefined;
+  getCustomerAddresses: () => ShippingAddress[];
+  getCustomerData: () => {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    addresses: ShippingAddress[];
+  } | null;
+  isAuthenticated: boolean;
+}
+
+export interface AuthUser {
+  id: string;
+  email: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  addresses: ShippingAddress[];
+  defaultShippingAddress?: string;
+  defaultBillingAddress?: string;
+  createdAt: Date;
+}
+
+export interface SignUpCredentials {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+}
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface AuthContextType {
+  user: AuthUser | null;
+  isLoading: boolean;
+  error: string | null;
+  signUp: (credentials: SignUpCredentials) => Promise<void>;
+  login: (credentials: LoginCredentials) => Promise<void>;
+  logout: () => Promise<void>;
+}
+
+export interface ShippingAddress {
+  id?: string;
+  addressLine1: string;
+  addressLine2?: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  addressType: "residential" | "business";
+  isDefault?: boolean;
+  label?: string; // e.g., "Home", "Office", "Mom's house"
+  deliveryInstructions?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export interface ShippingRate {
+  id: string;
+  carrier: string;
+  service: string;
+  estimatedDays: number;
+  price: number;
+  currencyCode: string;
 }
 
 export interface ProductContextType {
