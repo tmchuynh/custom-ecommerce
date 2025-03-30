@@ -8,6 +8,8 @@ import {
   Shield,
 } from "lucide-react";
 import Link from "next/link";
+import DynamicButton from "./ui/button-dynamic";
+import { Button } from "./ui/button";
 
 export default function Policies() {
   const policyLinks = [
@@ -41,22 +43,14 @@ export default function Policies() {
       href: "/policies/cookie_policy",
       icon: <Key className="h-6 w-6" />,
     },
-    {
-      title: "User Guidelines",
-      description: "Best practices for using our platform safely",
-      href: "/policies/user_guidelines",
-      icon: <Book className="h-6 w-6" />,
-    },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <section className=" py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
-            Our Policies
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-extrabold mb-4">Our Policies</h2>
+          <p className="text-xl max-w-2xl mx-auto">
             We're committed to transparency. Please review our policies to
             understand how we operate.
           </p>
@@ -67,38 +61,28 @@ export default function Policies() {
             <Link
               key={index}
               href={policy.href}
-              className="group flex flex-col h-full bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group flex flex-col h-full rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border"
             >
               <div className="p-6 flex flex-col h-full">
                 <div className="flex items-center mb-4">
                   <div className="p-2 rounded-full bg-blue-50 text-blue-600 mr-3">
                     {policy.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {policy.title}
-                  </h3>
+                  <h3 className="text-lg font-semibold">{policy.title}</h3>
                 </div>
-                <p className="text-gray-600 text-sm mb-4 flex-grow">
-                  {policy.description}
-                </p>
-                <div className="flex items-center text-blue-600 mt-auto text-sm font-medium">
-                  <span>Read More</span>
-                  <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </div>
+                <p className="text-sm mb-4 flex-grow">{policy.description}</p>
+                <DynamicButton text="Read More" variant="outline" />
               </div>
-              <div className="h-1 bg-gradient-to-r from-blue-600 to-indigo-600 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+              <div className="h-1 bg-gradient-to-r from-blue-600 to-red-800 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
             </Link>
           ))}
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-500 text-sm">
+          <p className="text-sm">
             Have questions about our policies?{" "}
-            <Link
-              href="/customer_service"
-              className="text-blue-600 hover:underline"
-            >
-              Contact our Support Team
+            <Link href="/customer_service">
+              <Button variant={"ghost"}>Contact our Support Team</Button>
             </Link>
           </p>
         </div>

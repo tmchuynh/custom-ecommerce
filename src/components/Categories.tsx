@@ -2,15 +2,15 @@ import { navigations } from "@/lib/constants";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
+import DynamicButton from "./ui/button-dynamic";
 
 export default function Categories() {
   return (
-    <section className="bg-gradient-to-b from-gray-50 to-white py-16">
+    <section className=" py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
-            Browse Categories
-          </h2>
+          <h2 className="text-3xl font-extrabold mb-4">Browse Categories</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Explore our wide range of categories and find exactly what you're
             looking for
@@ -38,35 +38,23 @@ export default function Categories() {
               />
 
               <div className="relative flex flex-col justify-end h-full p-6 z-20">
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  {category.name}
-                </h3>
-                <p className="text-white/90 mb-4 line-clamp-2">
+                <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
+                <p className="mb-4 line-clamp-2">
                   {`Explore our ${category.name.toLowerCase()} collection with ${
                     category.collections.length
                   } different styles.`}
                 </p>
-                <div className="flex items-center text-white mt-auto">
+                <div className="flex items-center mt-auto">
                   <span className="text-sm font-medium">Shop Collection</span>
                   <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
 
-              <div className="absolute top-4 right-4 bg-white/90 rounded-full px-3 py-1 text-xs font-medium text-gray-700 z-20">
+              <div className="absolute top-4 right-4 rounded-full px-3 py-1 text-xs font-medium text-gray-700 z-20">
                 {category.collections.length} Collections
               </div>
             </Link>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/shopping"
-            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
-          >
-            View All Categories
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>
