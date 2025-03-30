@@ -2,19 +2,19 @@
 "use client";
 
 import { currencyCountries } from "@/lib/countriesConstant";
-import { CartContextType, CartItem, CountryTaxInfo } from "@/lib/interfaces";
+import { CartContextType, CartItem } from "@/lib/interfaces";
 import { ShippingMethod } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
 import React, {
   createContext,
+  JSX,
   useContext,
   useEffect,
   useState,
-  JSX,
 } from "react";
-import { formatDate } from "@/lib/utils";
 import { useCurrency } from "./currencyContext";
-import { useWishlist } from "./wishlistContext";
 import { useProduct } from "./productContext";
+import { useWishlist } from "./wishlistContext";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
