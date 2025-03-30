@@ -12,6 +12,7 @@ import React, {
   useState,
 } from "react";
 import { useCurrency } from "./CurrencyContext";
+import { useCart } from "./cartContext";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
@@ -41,6 +42,7 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   // Get the current currency from the CurrencyContext
   const { selectedCurrency } = useCurrency();
   const [forceUpdate, setForceUpdate] = useState(0);
+  const { getProductSalesCount } = useCart();
 
   // Force update when currency changes
   useEffect(() => {
@@ -116,12 +118,14 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
           for (const product of Object.values(
             productsData as Record<string, ProductType>
           )) {
-            // Add metadata to each product
+            // Add metadata and initial stock level to each product
             products.push({
               ...(product as ProductType),
               gender,
               category,
               subcategory,
+              stockLevel: 100, // Initialize stock level to 100
+              viewCount: 0, // Initialize view count
             });
           }
         }
@@ -129,6 +133,88 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     return products;
+  }, []);
+
+  // Schedule weekly restock
+  useEffect(() => {
+    const checkAndRestock = () => {
+      const now = new Date();
+      if (now.getDay() === 6 && now.getHours() >= 23) {
+        // Saturday night after 11 PM
+        allProducts.forEach((product, index) => {
+          allProducts[index] = {
+            ...product,
+            stockLevel: (product.stockLevel || 0) + 500,
+          };
+        });
+        console.log("Weekly restock completed");
+      }
+    };
+
+    // Check every hour
+    const interval = setInterval(checkAndRestock, 1000 * 60 * 60);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Add function to randomly adjust product price
+  const adjustProductPrice = (productName: string, isIncrease: boolean) => {
+    const productIndex = allProducts.findIndex((p) => p.name === productName);
+    if (productIndex === -1) return;
+
+    const product = allProducts[productIndex];
+    const currentPrice =
+      typeof product.price === "string"
+        ? parseFloat(product.price.replace(/[^0-9.-]+/g, ""))
+        : product.price || 0;
+
+    // Calculate adjustment percentage
+    const adjustmentPercent = isIncrease
+      ? Math.random() * (0.25 - 0.1) + 0.1 // 10% to 25% increase
+      : Math.random() * (0.8 - 0.05) + 0.05; // 5% to 80% decrease
+
+    // Calculate new price
+    const newPrice = isIncrease
+      ? currentPrice * (1 + adjustmentPercent)
+      : currentPrice * (1 - adjustmentPercent);
+
+    // Update product price and price history
+    allProducts[productIndex] = {
+      ...product,
+      price: newPrice.toFixed(2),
+      priceHistory: [
+        ...(product.priceHistory || []),
+        { date: new Date().toISOString(), price: newPrice },
+      ],
+    };
+  };
+
+  // Schedule biweekly price adjustments
+  useEffect(() => {
+    const adjustPrices = () => {
+      // Randomly select between 5-25 products
+      const numProductsToAdjust = Math.floor(Math.random() * (25 - 5 + 1)) + 5;
+      const shuffled = [...allProducts].sort(() => 0.5 - Math.random());
+      const selectedProducts = shuffled.slice(0, numProductsToAdjust);
+
+      selectedProducts.forEach((product) => {
+        // 50/50 chance for increase or decrease
+        const isIncrease = Math.random() > 0.5;
+        adjustProductPrice(product.name, isIncrease);
+      });
+
+      console.log(
+        `Biweekly price adjustments completed for ${numProductsToAdjust} products`
+      );
+    };
+
+    // Run price adjustments every two weeks
+    const msUntilNextAdjustment = 14 * 24 * 60 * 60 * 1000; // 14 days in milliseconds
+    const interval = setInterval(adjustPrices, msUntilNextAdjustment);
+
+    // Run initial adjustment if we haven't done one in the last two weeks
+    adjustPrices();
+
+    return () => clearInterval(interval);
   }, []);
 
   /**
@@ -155,6 +241,9 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   const getProductByName = (name: string): ProductType | undefined => {
     const product = allProducts.find((p) => p.name === name);
     if (!product) return undefined;
+
+    // Increment view count when product is accessed
+    incrementViewCount(name);
 
     return {
       ...product,
@@ -515,6 +604,160 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
       }));
   };
 
+  const hasDiscount = (id: string) => {
+    const product = allProducts.find((item) => item.name === id);
+    return product
+      ? product.discountPrice !== undefined &&
+          Number(product.discountPrice) < Number(product.price)
+      : false;
+  };
+
+  const hasPriceDrop = (id: string) => {
+    const product = allProducts.find((item) => item.name === id);
+    if (!product || !product.priceHistory) return false;
+
+    const today = new Date();
+    const lastMonth = new Date(today.setMonth(today.getMonth() - 1));
+    const currentPrice = Number(product.price);
+
+    return product.priceHistory.some(
+      (history) =>
+        new Date(history.date) >= lastMonth && history.price > currentPrice
+    );
+  };
+
+  const updatePriceHistory = (id: string, newPrice: number) => {
+    // In a real application, this would update the product in a database
+    const productIndex = allProducts.findIndex((item) => item.name === id);
+    if (productIndex === -1) return;
+
+    const product = allProducts[productIndex];
+    const newHistory = product.priceHistory || [];
+    allProducts[productIndex] = {
+      ...product,
+      priceHistory: [
+        ...newHistory,
+        { date: new Date().toISOString(), price: newPrice },
+      ],
+    };
+  };
+
+  // Inventory management
+  const getStockLevel = (productName: string): number => {
+    const product = allProducts.find((p) => p.name === productName);
+    return product?.stockLevel || 0;
+  };
+
+  const isInStock = (productName: string): boolean => {
+    return getStockLevel(productName) > 0;
+  };
+
+  const isLowStock = (productName: string, threshold = 5): boolean => {
+    return getStockLevel(productName) <= threshold;
+  };
+
+  const updateStockLevel = (productName: string, quantity: number) => {
+    const productIndex = allProducts.findIndex((p) => p.name === productName);
+    if (productIndex === -1) return;
+
+    const currentStock = allProducts[productIndex].stockLevel || 0;
+    allProducts[productIndex] = {
+      ...allProducts[productIndex],
+      stockLevel: Math.max(0, currentStock - quantity), // Prevent negative stock
+    };
+  };
+
+  // Ratings and reviews
+  const getProductRating = (productName: string): number => {
+    const product = allProducts.find((p) => p.name === productName);
+    return product?.rating || 0;
+  };
+
+  const getProductReviewCount = (productName: string): number => {
+    const product = allProducts.find((p) => p.name === productName);
+    return product?.reviewCount || 0;
+  };
+
+  // Analytics
+  const getPopularityScore = (productName: string): number => {
+    const product = allProducts.find((p) => p.name === productName);
+    const views = product?.viewCount || 0;
+    const sales = getProductSalesCount(productName);
+    return views * 0.3 + sales * 0.7;
+  };
+
+  const getMostViewedProducts = (limit = 10): ProductType[] => {
+    return [...allProducts]
+      .sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))
+      .slice(0, limit);
+  };
+
+  const getBestSellingProducts = (limit = 10): ProductType[] => {
+    return [...allProducts]
+      .sort((a, b) => {
+        const aSales = getProductSalesCount(a.name);
+        const bSales = getProductSalesCount(b.name);
+        return bSales - aSales;
+      })
+      .slice(0, limit);
+  };
+
+  // Price history stats
+  const getPriceHistory = (productName: string, days = 30) => {
+    const product = allProducts.find((p) => p.name === productName);
+    if (!product?.priceHistory) return [];
+
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - days);
+
+    return product.priceHistory.filter(
+      (record) => new Date(record.date) >= cutoffDate
+    );
+  };
+
+  const getLowestPrice = (productName: string, days = 30): number => {
+    const history = getPriceHistory(productName, days);
+    return Math.min(...history.map((record) => record.price));
+  };
+
+  const getHighestPrice = (productName: string, days = 30): number => {
+    const history = getPriceHistory(productName, days);
+    return Math.max(...history.map((record) => record.price));
+  };
+
+  const getAveragePrice = (productName: string, days = 30): number => {
+    const history = getPriceHistory(productName, days);
+    if (history.length === 0) return 0;
+    const sum = history.reduce((acc, record) => acc + record.price, 0);
+    return sum / history.length;
+  };
+
+  const getPriceDropPercentage = (productName: string): number => {
+    const product = allProducts.find((p) => p.name === productName);
+    if (!product || !product.priceHistory || product.priceHistory.length === 0)
+      return 0;
+
+    const currentPrice = Number(product.price);
+    const highestPrice = getHighestPrice(productName);
+
+    return ((highestPrice - currentPrice) / highestPrice) * 100;
+  };
+
+  const getSalesCount = (productName: string): number => {
+    return getProductSalesCount(productName);
+  };
+
+  // Add function to increment view count
+  const incrementViewCount = (productName: string): void => {
+    const productIndex = allProducts.findIndex((p) => p.name === productName);
+    if (productIndex === -1) return;
+
+    allProducts[productIndex] = {
+      ...allProducts[productIndex],
+      viewCount: (allProducts[productIndex].viewCount || 0) + 1,
+    };
+  };
+
   return (
     <ProductContext.Provider
       value={{
@@ -531,6 +774,25 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
         convertPrice,
         formatPrice: formatPriceWithCurrency,
         getProductsByGender,
+        hasDiscount,
+        hasPriceDrop,
+        updatePriceHistory,
+        getStockLevel,
+        isInStock,
+        isLowStock,
+        updateStockLevel,
+        getProductRating,
+        getProductReviewCount,
+        getPopularityScore,
+        getMostViewedProducts,
+        getBestSellingProducts,
+        getPriceHistory,
+        getLowestPrice,
+        getHighestPrice,
+        getAveragePrice,
+        getPriceDropPercentage,
+        getSalesCount,
+        incrementViewCount,
       }}
     >
       {children}
