@@ -7,7 +7,7 @@ import {
   validateCreditCard,
   validateCVV,
   validateExpiryDate,
-} from "@/lib/utils";
+} from "@/lib/utils/utils";
 import React, { createContext, useContext, useState } from "react";
 
 const PaymentContext = createContext<PaymentContextType | undefined>(undefined);

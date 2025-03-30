@@ -3,7 +3,7 @@
 
 import { currencyCountries } from "@/lib/countriesConstant";
 import { ShippingMethod } from "@/lib/types";
-import { formatDate } from "@/lib/utils";
+import { formatDate } from "@/lib/utils/utils";
 import React, {
   createContext,
   JSX,
