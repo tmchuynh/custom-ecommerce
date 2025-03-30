@@ -1,6 +1,25 @@
 import { Star } from "lucide-react";
 import { JSX, useMemo } from "react";
 
+/**
+ * A component that displays a product rating with stars and review count.
+ * Generates and persists random ratings in localStorage if none exist.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} props.page - If true, displays the review count alongside the rating
+ *
+ * @returns {JSX.Element} A flex container with star ratings, average rating number,
+ *                        and optionally the review count
+ *
+ * @example
+ * // Basic usage without review count
+ * <ProductRate page={false} />
+ *
+ * @example
+ * // With review count displayed
+ * <ProductRate page={true} />
+ */
 const ProductRate = ({ page }: { page: boolean }): JSX.Element => {
   const { averageRating, reviewCount } = useMemo(() => {
     // Use a consistent storage key

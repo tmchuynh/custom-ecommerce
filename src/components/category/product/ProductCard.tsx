@@ -10,6 +10,37 @@ import QuickLookAndFavoriteButtons from "../../buttons/QuickLookAndFavoriteButto
 import { Badge } from "../../ui/badge";
 import ProductRate from "./ProductRate";
 
+/**
+ * A component that displays a product card with image, price, badges, and interactive elements.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {any} props.product - The product object containing details like name, price, images etc.
+ * @param {string} props.gender - The gender category of the product
+ * @param {string} props.category - The main category of the product
+ * @param {string} props.item - The specific item type/subcategory
+ * @param {boolean} props.page - Flag indicating if card is displayed on a product page
+ *
+ * @returns {JSX.Element} A product card component with:
+ * - Product image with hover zoom effect
+ * - Quick action buttons (visible on hover)
+ * - Product badges (New, Sale, Limited)
+ * - Product name with link
+ * - Price display (with original price if on sale)
+ * - Rating display
+ * - Add to cart button
+ *
+ * @example
+ * ```tsx
+ * <ProductCard
+ *   product={productData}
+ *   gender="mens"
+ *   category="clothing"
+ *   item="shirts"
+ *   page={false}
+ * />
+ * ```
+ */
 const ProductCard = ({
   product,
   gender,

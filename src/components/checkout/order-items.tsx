@@ -7,6 +7,24 @@ import { AlertTriangle, ChevronDown, ChevronUp, Clock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
+/**
+ * A component that displays a list of items in a shopping cart/order with various interactive features
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {CartItem[]} props.cartItems - Array of cart items to display
+ * @param {boolean} [props.editable=false] - Whether the items can be edited (quantity updates/removal)
+ * @param {Function} [props.onUpdateQuantity] - Callback when item quantity is updated, receives item id and new quantity
+ * @param {Function} [props.onRemoveItem] - Callback when item is removed, receives item id
+ *
+ * @returns React component that renders:
+ * - Collapsible list of order items with images and details
+ * - Item count and limited availability warnings
+ * - Price display with sale price handling
+ * - Quantity controls and remove buttons when editable
+ * - Empty cart state
+ * - Badges for limited stock and new arrivals
+ */
 export default function OrderItems({
   cartItems,
   editable = false,

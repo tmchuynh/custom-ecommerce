@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +25,13 @@ import {
 import { ShippingAddressFormProps } from "@/lib/types";
 import { usStates } from "@/lib/constants";
 import { ShippingAddressData } from "@/lib/interfaces";
+import {
+  handleBlur,
+  validateField,
+  handleInputChange,
+  handleSelectChange,
+  handleFormSubmit,
+} from "@/lib/utils";
 
 // List of shipping methods
 const shippingMethods = [
@@ -54,9 +61,42 @@ const shippingMethods = [
   },
 ];
 
+/**
+ * A form component for collecting shipping address information during checkout.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {function} props.onSubmit - Callback function triggered when the form is successfully submitted with valid data
+ *
+ * @example
+ * ```tsx
+ * <ShippingAddressForm
+ *   onSubmit={(data) => handleShippingAddress(data)}
+ * />
+ * ```
+ *
+ * The component handles:
+ * - Address validation for required fields
+ * - US state selection
+ * - ZIP code format validation
+ * - Address type selection (residential/business)
+ * - Shipping method selection
+ * - Form state management
+ * - Error display
+ * - Field touch status tracking
+ *
+ * Features:
+ * - Real-time validation
+ * - Visual error feedback
+ * - Optional address saving
+ * - Responsive layout
+ * - Accessible form controls
+ *
+ * @returns {JSX.Element} A shipping address form with validation and error handling
+ */
 export default function ShippingAddressForm({
   onSubmit,
-}: ShippingAddressFormProps) {
+}: ShippingAddressFormProps): JSX.Element {
   const [formData, setFormData] = useState<ShippingAddressData>({
     addressLine1: "",
     addressLine2: "",
@@ -72,89 +112,54 @@ export default function ShippingAddressForm({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
-  const validateField = (name: string, value: string) => {
-    switch (name) {
-      case "addressLine1":
-        return value.trim() === "" ? "Address is required" : "";
-      case "city":
-        return value.trim() === "" ? "City is required" : "";
-      case "state":
-        return value.trim() === "" ? "State is required" : "";
-      case "postalCode":
-        if (value.trim() === "") return "Postal code is required";
-        const zipPattern = /^\d{5}(-\d{4})?$/;
-        return !zipPattern.test(value)
-          ? "Please enter a valid postal code (e.g., 12345 or 12345-6789)"
-          : "";
-      default:
-        return "";
-    }
-  };
-
+  /**
+   * Handles form input changes and updates the form state accordingly.
+   * Also performs validation for non-checkbox fields.
+   *
+   * @param e - The React change event from the input element
+   *
+   * @remarks
+   * - For checkbox inputs, updates the form state with the checked status
+   * - For other inputs, updates the form state with the input value and validates the field
+   * - Uses the validateField function to check for errors
+   * - Updates both formData and errors states using their respective setters
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    const newValue = type === "checkbox" ? checked : value;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: newValue,
-    }));
-
-    if (type !== "checkbox") {
-      const error = validateField(name, value);
-      setErrors((prev) => ({ ...prev, [name]: error }));
-    }
+    handleInputChange(e, setFormData, setErrors);
   };
 
-  const handleSelectChange = (name: string, value: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    const error = validateField(name, value);
-    setErrors((prev) => ({ ...prev, [name]: error }));
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * Handles the form submission event for the shipping address form.
+   * Validates required fields, sets error messages, marks fields as touched,
+   * and calls the onSubmit callback if validation passes.
+   *
+   * @param {React.FormEvent} e - The form submission event
+   * @returns {void}
+   *
+   * @remarks
+   * Required fields that are validated:
+   * - addressLine1
+   * - city
+   * - state
+   * - postalCode
+   */
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
 
-    // Validate all required fields
-    const formErrors: Record<string, string> = {};
-    let isValid = true;
-
-    // Only validate required fields
-    const requiredFields = ["addressLine1", "city", "state", "postalCode"];
-
-    requiredFields.forEach((field) => {
-      const error = validateField(
-        field,
-        formData[field as keyof ShippingAddressData] as string
-      );
-      if (error) {
-        formErrors[field] = error;
-        isValid = false;
-      }
-    });
-
-    setErrors(formErrors);
-
-    // Mark all required fields as touched
-    const touchedFields: Record<string, boolean> = {};
-    requiredFields.forEach((field) => {
-      touchedFields[field] = true;
-    });
-    setTouched(touchedFields);
-
-    if (isValid) {
-      onSubmit(formData);
-    }
+    const requiredFields: (keyof ShippingAddressData)[] = [
+      "addressLine1",
+      "city",
+      "state",
+      "postalCode",
+    ];
+    handleFormSubmit(
+      formData,
+      requiredFields,
+      validateField,
+      setErrors,
+      setTouched,
+      onSubmit
+    );
   };
 
   return (
@@ -183,7 +188,7 @@ export default function ShippingAddressForm({
               name="addressLine1"
               value={formData.addressLine1}
               onChange={handleChange}
-              onBlur={handleBlur}
+              onBlur={(e) => handleBlur(e, setTouched)}
               placeholder="123 Main St"
               className={`pl-10 ${
                 touched.addressLine1 && errors.addressLine1
@@ -226,7 +231,7 @@ export default function ShippingAddressForm({
               name="city"
               value={formData.city}
               onChange={handleChange}
-              onBlur={handleBlur}
+              onBlur={(e) => handleBlur(e, setTouched)}
               placeholder="New York"
               className={`${
                 touched.city && errors.city
@@ -248,7 +253,15 @@ export default function ShippingAddressForm({
             </Label>
             <Select
               value={formData.state}
-              onValueChange={(value) => handleSelectChange("state", value)}
+              onValueChange={(value) =>
+                handleSelectChange(
+                  "state",
+                  value,
+                  setFormData,
+                  setErrors,
+                  setTouched
+                )
+              }
             >
               <SelectTrigger
                 id="state"
@@ -287,7 +300,7 @@ export default function ShippingAddressForm({
               name="postalCode"
               value={formData.postalCode}
               onChange={handleChange}
-              onBlur={handleBlur}
+              onBlur={(e) => handleBlur(e, setTouched)}
               placeholder="10001"
               className={`${
                 touched.postalCode && errors.postalCode
@@ -309,7 +322,15 @@ export default function ShippingAddressForm({
             </Label>
             <Select
               value={formData.country}
-              onValueChange={(value) => handleSelectChange("country", value)}
+              onValueChange={(value) =>
+                handleSelectChange(
+                  "country",
+                  value,
+                  setFormData,
+                  setErrors,
+                  setTouched
+                )
+              }
               disabled // Currently only shipping to US
             >
               <SelectTrigger id="country">

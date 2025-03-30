@@ -5,7 +5,36 @@ import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { OrderSummaryProps } from "@/lib/types";
+import { handleApplyDiscountUtil } from "@/lib/utils";
 
+/**
+ * A component that displays the order summary during checkout, including pricing details and discount functionality.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} props.subtotal - The subtotal amount before tax and shipping
+ * @param {number} props.tax - The tax amount
+ * @param {number} props.shipping - The shipping cost
+ * @param {number} [props.discountAmount=0] - The discount amount to be applied
+ * @param {number} props.total - The total order amount after all calculations
+ * @param {number} props.itemCount - The total number of items in the order
+ * @param {string} props.estimatedDelivery - The estimated delivery date/time
+ * @param {Function} props.onApplyDiscount - Callback function when discount is applied
+ *
+ * @returns {JSX.Element} A card containing order summary details, discount controls, and checkout information
+ *
+ * @example
+ * <OrderSummary
+ *   subtotal={100}
+ *   tax={10}
+ *   shipping={5}
+ *   discountAmount={20}
+ *   total={95}
+ *   itemCount={3}
+ *   estimatedDelivery="2-3 business days"
+ *   onApplyDiscount={(code) => handleDiscount(code)}
+ * />
+ */
 export default function OrderSummary({
   subtotal,
   tax,
@@ -25,24 +54,33 @@ export default function OrderSummary({
   const [discountError, setDiscountError] = useState<boolean>(false);
   const [discountCode, setDiscountCode] = useState<string>("");
 
-  const handleApplyDiscount = () => {
-    if (!discountCode.trim()) {
-      setDiscountError(true);
-      setDiscountApplied(false);
-      return;
+  /**
+   * Handles the application of a discount code to the shopping cart.
+   *
+   * This function validates the discount code input and applies it if valid:
+   * - Checks if discount code is not empty/whitespace
+   * - Validates the discount code through applyDiscount helper
+   * - Updates UI states for discount application status
+   * - Resets the discount code input field
+   *
+   * @returns {void}
+   * @throws {void}
+   *
+   * @example
+   * handleApplyDiscount(); // Processes current discountCode state
+   */
+  const handleApplyDiscount = (): void => {
+    const { discountApplied, discountError } = handleApplyDiscountUtil(
+      discountCode,
+      applyDiscount
+    );
+
+    setDiscountApplied(discountApplied);
+    setDiscountError(discountError);
+
+    if (discountApplied) {
+      setDiscountCode("");
     }
-
-    const isValidDiscount = applyDiscount(discountCode);
-
-    if (isValidDiscount) {
-      setDiscountApplied(true);
-      setDiscountError(false);
-    } else {
-      setDiscountError(true);
-      setDiscountApplied(false);
-    }
-
-    setDiscountCode("");
   };
 
   return (

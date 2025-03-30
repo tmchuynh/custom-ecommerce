@@ -2,6 +2,22 @@ import { ComingSoonMessageProps } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
 
+/**
+ * A React component that displays a "Coming Soon" message with an accompanying image.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.gender - The gender category for which products are coming soon (e.g., "Men's", "Women's")
+ * @param {string} props.sectionName - The name of the section for which products are coming soon (e.g., "Shoes", "Clothing")
+ *
+ * @returns {JSX.Element} A responsive layout containing a message and an image
+ * indicating that products are coming soon for the specified gender and section
+ *
+ * @example
+ * ```tsx
+ * <ComingSoonMessage gender="Women's" sectionName="Accessories" />
+ * ```
+ */
 const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({
   gender,
   sectionName,

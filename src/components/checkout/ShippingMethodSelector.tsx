@@ -4,6 +4,36 @@ import { useCart } from "@/app/context/cartContext";
 import { ShippingMethod } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 
+/**
+ * A component that renders a shipping method selector with various delivery options.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {string} [props.shippingCountry="USA"] - The shipping destination country code
+ *
+ * @remarks
+ * The component handles different shipping methods with the following features:
+ * - Automatically disables overnight shipping after 9 PM local time
+ * - Disables same-day shipping after 2 PM local time
+ * - Restricts premium shipping options (Two-Day, Overnight, Same-Day) for international addresses
+ * - Automatically falls back to standard shipping when selected method becomes invalid
+ * - Displays appropriate warning messages for international shipping
+ * - Updates shipping method when country changes or time restrictions apply
+ *
+ * Available shipping methods:
+ * - Standard Ground
+ * - Economy
+ * - Expedited
+ * - Two-Day (US only)
+ * - Overnight (US only, before 9 PM)
+ * - Same-Day (US only, before 2 PM)
+ *
+ * @requires useCart - Custom hook for managing cart state
+ * @requires React.FC - React Function Component type
+ * @requires ShippingMethod - Type definition for available shipping methods
+ *
+ * @returns {JSX.Element} A shipping method selector form element
+ */
 const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
   shippingCountry = "USA",
 }) => {
@@ -75,7 +105,15 @@ const ShippingMethodSelector: React.FC<{ shippingCountry?: string }> = ({
     updateShippingMethod(e.target.value as ShippingMethod);
   };
 
-  // Generate option display text based on disabled status
+  /**
+   * Generates text for shipping method options based on various conditions
+   * @param method - The shipping method identifier
+   * @param baseText - The base text to display for the shipping option
+   * @param isDisabled - Boolean indicating if the shipping option is disabled
+   * @param timeMessage - Message to display regarding shipping time for non-international orders
+   * @param intlMessage - Message to display for international orders
+   * @returns Formatted text string for the shipping option
+   */
   const getOptionText = (
     method: string,
     baseText: string,
