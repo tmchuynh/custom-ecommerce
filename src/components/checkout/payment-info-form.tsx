@@ -13,25 +13,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { PaymentInfoData } from "@/lib/interfaces";
+import { PaymentInfoFormProps } from "@/lib/types";
 import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-
-interface PaymentInfoFormProps {
-  onSubmit: (data: PaymentInfoData) => void;
-  defaultValues?: PaymentInfoData;
-}
-
-export interface PaymentInfoData {
-  paymentMethod: "creditCard" | "paypal";
-  cardNumber: string;
-  nameOnCard: string;
-  expiryMonth: string;
-  expiryYear: string;
-  cvc: string;
-  savePaymentInfo: boolean;
-  billingAddressSameAsShipping: boolean;
-}
 
 // Generate month and year options
 const generateMonths = () => {
@@ -53,21 +39,26 @@ const months = generateMonths();
 const years = generateYears();
 
 export default function PaymentInfoForm({
+  cardNumber,
+  cardExpiry,
+  cardCvv,
+  billingAddress,
+  billingCity,
+  billingState,
+  billingZip,
+  sameAsShipping,
   onSubmit,
-  defaultValues,
 }: PaymentInfoFormProps) {
-  const [formData, setFormData] = useState<PaymentInfoData>(
-    defaultValues || {
-      paymentMethod: "creditCard",
-      cardNumber: "",
-      nameOnCard: "",
-      expiryMonth: "",
-      expiryYear: "",
-      cvc: "",
-      savePaymentInfo: false,
-      billingAddressSameAsShipping: true,
-    }
-  );
+  const [formData, setFormData] = useState<PaymentInfoData>({
+    paymentMethod: "creditCard",
+    cardNumber: "",
+    nameOnCard: "",
+    expiryMonth: "",
+    expiryYear: "",
+    cvc: "",
+    savePaymentInfo: false,
+    billingAddressSameAsShipping: true,
+  });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
@@ -241,7 +232,7 @@ export default function PaymentInfoForm({
 
     if (formData.paymentMethod === "paypal") {
       // For PayPal, we don't need to validate the credit card fields
-      onSubmit(formData);
+      onSubmit();
       return;
     }
 
@@ -278,7 +269,7 @@ export default function PaymentInfoForm({
     setTouched(touchedFields);
 
     if (isValid) {
-      onSubmit(formData);
+      onSubmit();
     }
   };
 

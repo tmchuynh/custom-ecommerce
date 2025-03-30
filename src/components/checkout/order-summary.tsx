@@ -13,30 +13,21 @@ import {
 } from "lucide-react";
 import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
-import { formatCurrency } from "@/lib/utils";
-
-interface OrderSummaryProps {
-  subtotal: number;
-  tax: number;
-  shipping: number;
-  discount?: number;
-  total: number;
-  itemCount: number;
-  estimatedDelivery?: string;
-  onApplyDiscount?: (code: string) => void;
-}
+import { useCurrency } from "@/app/context/currencyContext";
+import { OrderSummaryProps } from "@/lib/types";
 
 export default function OrderSummary({
   subtotal,
   tax,
   shipping,
-  discount = 0,
+  discountAmount = 0,
   total,
   itemCount,
   estimatedDelivery,
   onApplyDiscount,
 }: OrderSummaryProps) {
   const { applyDiscount } = useCart();
+  const { formatCurrency, selectedCurrency } = useCurrency();
 
   const [showDiscount, setShowDiscount] = useState(false);
   const [showDetails, setShowDetails] = useState(true);
@@ -82,9 +73,9 @@ export default function OrderSummary({
         >
           <span>Order Details</span>
           {showDetails ? (
-            <ChevronUp className="h-5 w-5 text-gray-500" />
+            <ChevronUp className="h-5 w-5" />
           ) : (
-            <ChevronDown className="h-5 w-5 text-gray-500" />
+            <ChevronDown className="h-5 w-5" />
           )}
         </button>
 
@@ -92,7 +83,7 @@ export default function OrderSummary({
           <div className="space-y-3 mb-6">
             <div className="flex justify-between text-gray-600">
               <span>Subtotal</span>
-              <span>{formatCurrency(subtotal)}</span>
+              <span>{formatCurrency(subtotal, selectedCurrency.code)}</span>
             </div>
 
             <div className="flex justify-between text-gray-600">
@@ -101,27 +92,29 @@ export default function OrderSummary({
                 {shipping === 0 ? (
                   <span className="text-green-600">Free</span>
                 ) : (
-                  formatCurrency(shipping)
+                  formatCurrency(shipping, selectedCurrency.code)
                 )}
               </span>
             </div>
 
             <div className="flex justify-between text-gray-600">
               <span>Tax</span>
-              <span>{formatCurrency(tax)}</span>
+              <span>{formatCurrency(tax, selectedCurrency.code)}</span>
             </div>
 
-            {discount > 0 && (
+            {discountAmount > 0 && (
               <div className="flex justify-between text-green-600">
                 <span>Discount</span>
-                <span>-{formatCurrency(discount)}</span>
+                <span>
+                  -{formatCurrency(discountAmount, selectedCurrency.code)}
+                </span>
               </div>
             )}
 
             <div className="border-t border-gray-200 pt-3 mt-3">
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total</span>
-                <span>{formatCurrency(total)}</span>
+                <span>{formatCurrency(total, selectedCurrency.code)}</span>
               </div>
             </div>
           </div>
@@ -131,7 +124,9 @@ export default function OrderSummary({
           onClick={() => setShowDiscount(!showDiscount)}
           className="flex items-center justify-between w-full text-left mb-4 text-blue-600 font-medium"
         >
-          <span>{discount > 0 ? "Promo code applied" : "Add promo code"}</span>
+          <span>
+            {discountAmount > 0 ? "Promo code applied" : "Add promo code"}
+          </span>
           {showDiscount ? (
             <ChevronUp className="h-5 w-5" />
           ) : (
@@ -152,17 +147,18 @@ export default function OrderSummary({
           </div>
         )}
 
-        {discount > 0 && !showDiscount && (
+        {discountAmount > 0 && !showDiscount && (
           <div className="flex items-center mb-4 bg-green-50 p-2 rounded-lg">
             <Check className="h-4 w-4 text-green-500 mr-2" />
             <p className="text-sm text-green-700">
-              Promo code applied: -{formatCurrency(discount)}
+              Promo code applied: -
+              {formatCurrency(discountAmount, selectedCurrency.code)}
             </p>
           </div>
         )}
 
-        <div className="flex items-start space-x-2 mb-6 bg-gray-50 p-3 rounded-lg">
-          <Info className="h-5 w-5 text-gray-500 mt-0.5 flex-shrink-0" />
+        <div className="flex items-start space-x-2 mb-6 p-3 rounded-lg">
+          <Info className="h-5 w-5 mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-sm text-gray-700">
               By placing your order, you agree to our{" "}
