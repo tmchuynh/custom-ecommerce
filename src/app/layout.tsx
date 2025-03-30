@@ -4,7 +4,7 @@ import { Providers } from "./providers";
 import NavMenu from "@/components/NavMenu";
 import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
-import { CurrencyProvider } from "./context/CurrencyContext";
+import { CurrencyProvider } from "./context/currencyContext";
 import { CartProvider } from "./context/cartContext";
 import { WishlistProvider } from "./context/wishlistContext";
 import { Toaster } from "sonner";
