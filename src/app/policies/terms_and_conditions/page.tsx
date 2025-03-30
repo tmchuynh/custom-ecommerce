@@ -21,6 +21,33 @@ import {
 import router from "next/router";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 
+/**
+ * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.
+ *
+ * @component
+ * @description
+ * This component renders a responsive Terms and Conditions page with the following features:
+ * - A sticky table of contents sidebar for easy navigation
+ * - Collapsible sections with icons for different legal topics
+ * - Interactive accordion functionality for showing/hiding content
+ * - Smooth scrolling to selected sections
+ * - Responsive layout that adapts to different screen sizes
+ *
+ * The component uses:
+ * - useState to manage the active accordion section
+ * - useRef to store references to section elements
+ * - Custom scroll and toggle functions for navigation
+ * - Lucide icons for visual elements
+ *
+ * @example
+ * ```tsx
+ * <TermsAndConditions />
+ * ```
+ *
+ * @returns A React component that renders the Terms and Conditions page with
+ * multiple sections including Introduction, Use of Site, Account Registration,
+ * Product Information, and more.
+ */
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

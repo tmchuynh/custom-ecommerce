@@ -18,6 +18,48 @@ import {
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
+/**
+ * ReturnPolicy Component
+ *
+ * A comprehensive return policy page component that displays detailed information about the company's return process
+ * through an interactive accordion-style interface with a sticky table of contents sidebar.
+ *
+ * @component
+ *
+ * @example
+ * ```tsx
+ * <ReturnPolicy />
+ * ```
+ *
+ * @state
+ * - activeSection: string | null - Tracks which policy section is currently expanded
+ * - sectionRefs: { [key: string]: HTMLElement | null } - Stores references to section DOM elements for scrolling
+ *
+ * @functions
+ * - toggleSection(sectionId: string) - Handles expanding/collapsing individual policy sections
+ * - handleScrollToSection(sectionId: string) - Handles smooth scrolling to selected policy sections
+ *
+ * @features
+ * - Responsive layout with sidebar navigation on larger screens
+ * - Collapsible accordion sections for easy content digestion
+ * - Smooth scroll functionality when selecting sections
+ * - Visual indicators for active sections
+ * - Icon-based navigation for improved UX
+ * - Detailed policy information organized into logical sections
+ *
+ * @sections
+ * - Introduction
+ * - Return Timeframe
+ * - Eligibility for Return
+ * - Non-Returnable Items
+ * - How to Return an Item
+ * - Refunds and Exchanges
+ * - Return Shipping Costs
+ * - Damaged or Defective Items
+ * - Contact Information
+ *
+ * @returns A fully styled and interactive return policy page component
+ */
 const ReturnPolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

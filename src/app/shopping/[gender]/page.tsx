@@ -9,6 +9,36 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
+/**
+ * Renders a gender-specific shopping page with product filtering and sorting capabilities.
+ *
+ * @component
+ * @returns {JSX.Element} A section containing product listings filtered by gender with sorting and filtering options
+ *
+ * @remarks
+ * This component handles:
+ * - Product filtering by category
+ * - Product sorting (price, name, rating, newest)
+ * - Dynamic fetching of products based on gender parameter
+ * - Loading states and error handling
+ * - Responsive layout with sidebar filters and product grid
+ *
+ * The component uses URL parameters to determine the gender category (men/women/kids)
+ * and displays appropriate products from either mock data or API calls.
+ *
+ * @example
+ * ```tsx
+ * <GenderPage />
+ * ```
+ *
+ * State Management:
+ * - products: Array of products for the selected gender
+ * - loading: Boolean indicating data fetch status
+ * - categories: Available product categories
+ * - selectedCategory: Currently selected category filter
+ * - uniqueItemTypes: Available product types
+ * - sortOrder: Current sort order selection
+ */
 const GenderPage = (): JSX.Element => {
   const { gender } = useParams(); // gender is string | string[]
   const [products, setProducts] = useState<any[]>([]);
@@ -84,6 +114,20 @@ const GenderPage = (): JSX.Element => {
     fetchProducts();
   }, [gender, getProductsByGender]);
 
+  /**
+   * Filters and sorts products based on selected category and sort order.
+   *
+   * @returns {Product[]} Filtered and sorted array of products based on the following criteria:
+   * - If a category is selected, only returns products matching that category
+   * - Sorts products according to sortOrder:
+   *   - 'price-low-high': Products sorted by price ascending
+   *   - 'price-high-low': Products sorted by price descending
+   *   - 'name-a-z': Products sorted alphabetically by name
+   *   - 'name-z-a': Products sorted reverse alphabetically by name
+   *   - 'rating': Products sorted by rating (highest first)
+   *   - 'newest': New products shown first
+   *   - 'featured': No specific sort order (default)
+   */
   const getFilteredAndSortedProducts = () => {
     const filtered = products.filter((product) => {
       if (selectedCategory && product.category !== selectedCategory) {

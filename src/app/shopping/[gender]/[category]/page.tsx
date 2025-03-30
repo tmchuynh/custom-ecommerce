@@ -7,6 +7,31 @@ import { formatItemName, formatURL } from "@/lib/utils";
 import { useParams, useSearchParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
 
+/**
+ * A component that displays a category page with filterable and sortable products.
+ *
+ * @component
+ * @returns {JSX.Element} A section containing:
+ * - Page title and description
+ * - Sidebar with:
+ *   - Sort dropdown (by featured, newest, price, name, rating)
+ *   - Filter checkboxes by item types
+ * - Product grid showing filtered/sorted products
+ *
+ * @example
+ * ```tsx
+ * <CategoryPage />
+ * ```
+ *
+ * @remarks
+ * - Uses URL parameters for gender and category
+ * - Loads product data based on gender/category combination
+ * - Supports URL query parameter 'filter' for initial filter state
+ * - Handles loading state with LoadingIndicator
+ * - Shows CannotFind component when no products available
+ * - Maintains filter state in activeFilters Set
+ * - Supports multiple sort orders including price, name, rating etc.
+ */
 const CategoryPage = (): JSX.Element => {
   const { gender, category } = useParams();
   const searchParams = useSearchParams();
