@@ -173,7 +173,6 @@ export interface CartContextType {
     grandTotal: number;
   };
 
-  updateProductSalesCount: (productName: string) => void;
   getProductSalesCount: (productName: string) => number;
   getSalesTrends: (days?: number) => Array<{
     date: string;

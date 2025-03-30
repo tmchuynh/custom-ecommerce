@@ -12,7 +12,6 @@ import React, {
   useState,
 } from "react";
 import { useCurrency } from "./CurrencyContext";
-import { useCart } from "./cartContext";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
@@ -42,7 +41,6 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   // Get the current currency from the CurrencyContext
   const { selectedCurrency } = useCurrency();
   const [forceUpdate, setForceUpdate] = useState(0);
-  const { getProductSalesCount } = useCart();
 
   // Force update when currency changes
   useEffect(() => {
@@ -679,10 +677,16 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Analytics
+  const getSalesCount = (productName: string): number => {
+    const salesData = localStorage.getItem(`sales_${productName}`);
+    if (!salesData) return 0;
+    return JSON.parse(salesData).count || 0;
+  };
+
   const getPopularityScore = (productName: string): number => {
     const product = allProducts.find((p) => p.name === productName);
     const views = product?.viewCount || 0;
-    const sales = getProductSalesCount(productName);
+    const sales = getSalesCount(productName);
     return views * 0.3 + sales * 0.7;
   };
 
@@ -695,8 +699,8 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
   const getBestSellingProducts = (limit = 10): ProductType[] => {
     return [...allProducts]
       .sort((a, b) => {
-        const aSales = getProductSalesCount(a.name);
-        const bSales = getProductSalesCount(b.name);
+        const aSales = getSalesCount(a.name);
+        const bSales = getSalesCount(b.name);
         return bSales - aSales;
       })
       .slice(0, limit);
@@ -741,10 +745,6 @@ export const ProductProvider: React.FC<{ children: React.ReactNode }> = ({
     const highestPrice = getHighestPrice(productName);
 
     return ((highestPrice - currentPrice) / highestPrice) * 100;
-  };
-
-  const getSalesCount = (productName: string): number => {
-    return getProductSalesCount(productName);
   };
 
   // Add function to increment view count

@@ -13,7 +13,6 @@ import React, {
 } from "react";
 import { formatDate } from "@/lib/utils";
 import { countryTaxRates } from "@/lib/taxRatesConstant";
-import { useProduct } from "./productContext";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -312,15 +311,19 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       quantity: number;
     }>
   >([]);
-  const { updateStockLevel } = useProduct();
 
-  const updateProductSalesCount = (productName: string) => {
+  const updateProductSales = (productName: string, quantity: number) => {
     const date = new Date().toISOString();
-    const quantity =
-      cartItems.find((item) => item.name === productName)?.quantity || 1;
-
     setSalesHistory((prev) => [...prev, { date, productName, quantity }]);
-    updateStockLevel(productName, quantity); // Update stock level when sale occurs
+
+    // No direct product context dependency needed
+    localStorage.setItem(
+      `sales_${productName}`,
+      JSON.stringify({
+        count: getProductSalesCount(productName) + quantity,
+        lastUpdated: date,
+      })
+    );
   };
 
   const getProductSalesCount = (productName: string): number => {
@@ -395,7 +398,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     } else {
       setCartItems((prevItems) => [...prevItems, item]);
     }
-    updateProductSalesCount(item.name);
+    updateProductSales(item.name, item.quantity);
   };
 
   const removeFromCart = (id: string) => {
@@ -730,7 +733,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         getDeliveryDescription,
         getDeliveryEstimateText,
         getImportTaxBreakdown,
-        updateProductSalesCount,
+
         getProductSalesCount,
         getSalesTrends,
       }}
