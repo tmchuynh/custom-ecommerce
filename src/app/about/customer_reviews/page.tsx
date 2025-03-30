@@ -74,6 +74,15 @@ const CustomerReviews = (): JSX.Element => {
     setSearchTerm(e.target.value);
   };
 
+  /**
+   * Handles the submission of a customer review form.
+   * Prevents default form submission, processes the review data,
+   * displays a confirmation message, resets the form fields,
+   * and hides the review form.
+   *
+   * @param {React.FormEvent} e - The form submission event
+   * @returns {void}
+   */
   const handleReviewSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the review data to your backend
@@ -92,6 +101,21 @@ const CustomerReviews = (): JSX.Element => {
   };
 
   // Filter and sort reviews
+  /**
+   * Filters and sorts customer reviews based on specified criteria.
+   *
+   * @param reviews - Array of review objects to be filtered and sorted
+   * @param minRating - Minimum rating threshold for filtering reviews
+   * @param searchTerm - String to filter reviews by matching review text or customer name
+   * @param sortOrder - Sort order parameter ("highest" | "lowest" | default to date)
+   * @returns Filtered and sorted array of review objects based on:
+   *  - Reviews with rating >= minRating
+   *  - Reviews matching searchTerm in review text or customer name (case insensitive)
+   *  - Sorted by:
+   *    - rating (highest to lowest) if sortOrder is "highest"
+   *    - rating (lowest to highest) if sortOrder is "lowest"
+   *    - date (newest first) by default
+   */
   const filteredReviews = reviews
     .filter((review) => review.rating >= minRating)
     .filter(

@@ -1,28 +1,37 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Filter } from "lucide-react";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import ProductRate from "./ProductRate";
 import { mockProductData } from "@/lib/mockProductData";
-import { useProduct } from "@/app/context/productContext";
 import ProductCard from "./ProductCard";
 
-// Convert nested object structure into array of products
-const flattenProducts = (data: any) => {
-  const products: any[] = [];
-  Object.keys(data).forEach((category) => {
-    Object.values(data[category]).forEach((subcategory: any) => {
-      Object.values(subcategory).forEach((items: any) => {
-        Object.values(items).forEach((item: any) => {
-          products.push({ ...item, id: Math.random().toString() });
-        });
-      });
-    });
-  });
-  return products;
-};
-
-export default function TrendingProducts() {
+/**
+ * A component that displays a grid of trending products with filtering capabilities.
+ *
+ * @component
+ * @returns {JSX.Element} A section containing trending products with category filters
+ *
+ * @state {string} activeFilter - Currently selected category filter
+ * @state {Set<string>} wishlist - Set of product IDs that are in the wishlist
+ * @state {any[]} products - Array of all products fetched from mock data
+ * @state {boolean} loading - Loading state while fetching products
+ * @state {string[]} categories - Available category filters including "all"
+ *
+ * @example
+ * ```tsx
+ * <TrendingProducts />
+ * ```
+ *
+ * Features:
+ * - Displays featured products from men's, women's, and kids' categories
+ * - Category filtering system
+ * - Responsive grid layout
+ * - Product cards with images, prices, and ratings
+ * - Wishlist functionality
+ * - Loading state handling
+ */
+export default function TrendingProducts(): JSX.Element {
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [wishlist, setWishlist] = useState<Set<string>>(new Set());
   const [products, setProducts] = useState<any[]>([]);
@@ -77,40 +86,10 @@ export default function TrendingProducts() {
     fetchProducts();
   }, []);
 
-  const toggleWishlist = (productId: string) => {
-    setWishlist((prev) => {
-      const newWishlist = new Set(prev);
-      if (newWishlist.has(productId)) {
-        newWishlist.delete(productId);
-      } else {
-        newWishlist.add(productId);
-      }
-      return newWishlist;
-    });
-  };
-
   const filteredProducts =
     activeFilter === "all"
       ? products
       : products.filter((product) => product.category === activeFilter);
-
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(price);
-  };
-
-  const renderRatingStars = (rating: number) => {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-
-    return (
-      <div className="flex items-center">
-        <ProductRate page={true} />
-      </div>
-    );
-  };
 
   if (loading) {
     return <div>Loading...</div>;

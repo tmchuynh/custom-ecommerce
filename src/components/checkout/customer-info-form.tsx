@@ -10,7 +10,45 @@ import { Label } from "@/components/ui/label";
 import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
 import { AlertCircle, Mail, Phone, User } from "lucide-react";
 import { useState } from "react";
+import {
+  handleBlur,
+  validateField,
+  handleInputChange,
+  handleFormSubmit,
+} from "@/lib/utils";
 
+/**
+ * A form component for collecting customer information during checkout.
+ *
+ * @component
+ * @param {CustomerInfoFormProps} props - The component props (currently empty)
+ *
+ * @remarks
+ * This component handles:
+ * - Collection and validation of customer details (first name, last name, email, phone)
+ * - Real-time field validation and error messaging
+ * - Optional marketing consent checkbox
+ * - Form submission with validation checks
+ * - Phone number formatting
+ *
+ * @example
+ * ```tsx
+ * <CustomerInfoForm />
+ * ```
+ *
+ * @states
+ * - formData: Stores customer input data
+ * - errors: Tracks validation errors for each field
+ * - touched: Tracks which fields have been interacted with
+ *
+ * @validation
+ * Validates:
+ * - Names (required, letters/spaces/hyphens/apostrophes only)
+ * - Email (required, valid email format)
+ * - Phone (required, valid 10-digit format)
+ *
+ * @returns A form component with input fields for customer information and validation feedback
+ */
 export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const [formData, setFormData] = useState<CustomerInfoData>({
     firstName: "",
@@ -26,103 +64,73 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const { validatePhone, validateEmail, validateName, formatPhoneNumber } =
     useCustomer();
 
-  const validateField = (name: string, value: string) => {
-    if (name === "firstName" || name === "lastName") {
-      if (value.trim() === "") {
-        return `${name === "firstName" ? "First" : "Last"} name is required`;
-      }
-      return !validateName(value)
-        ? "Please enter a valid name (letters, spaces, hyphens and apostrophes only)"
-        : "";
-    }
-
-    if (name === "email") {
-      if (value.trim() === "") return "Email is required";
-      return !validateEmail(value) ? "Please enter a valid email address" : "";
-    }
-
-    if (name === "phone") {
-      if (value.trim() === "") return "Phone number is required";
-      return !validatePhone(value.replace(/\D/g, ""))
-        ? "Please enter a valid 10-digit phone number"
-        : "";
-    }
-
-    return "";
-  };
-
+  /**
+   * Handles form input changes and updates the form state accordingly.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event
+   *
+   * Updates the form data state with the new value:
+   * - For checkboxes, uses the checked state
+   * - For phone fields, formats the phone number
+   * - For other fields, uses the raw value
+   *
+   * Also validates non-checkbox fields and updates the error state.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    const newValue =
-      type === "checkbox"
-        ? checked
-        : name === "phone"
-        ? formatPhoneNumber(value)
-        : value;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: newValue,
-    }));
-
-    if (type !== "checkbox") {
-      const error = validateField(name, value);
-      setErrors((prev) => ({ ...prev, [name]: error }));
-    }
+    handleInputChange(e, setFormData, setErrors);
   };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const { name } = e.target;
-    setTouched((prev) => ({ ...prev, [name]: true }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  /**
+   * Handles the submission of the customer information form.
+   * Performs validation on all form fields except marketing consent,
+   * marks all fields as touched, and processes payment submission if valid.
+   *
+   * @param {React.FormEvent} e - The form submission event
+   * @returns {void}
+   *
+   * @remarks
+   * The function performs the following steps:
+   * 1. Prevents default form submission
+   * 2. Validates all form fields except marketingConsent
+   * 3. Sets error messages for invalid fields
+   * 4. Marks all fields as touched
+   * 5. If valid, submits payment information with placeholder card details
+   */
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
 
-    // Validate all fields
-    const formErrors: Record<string, string> = {};
-    let isValid = true;
-
-    (Object.keys(formData) as Array<keyof CustomerInfoData>).forEach((key) => {
-      if (key !== "marketingConsent") {
-        const error = validateField(key, formData[key] as string);
-        if (error) {
-          formErrors[key] = error;
-          isValid = false;
-        }
+    const requiredFields: Array<keyof CustomerInfoData> = [
+      "firstName",
+      "lastName",
+      "email",
+      "phone",
+    ];
+    handleFormSubmit(
+      formData,
+      requiredFields,
+      validateField,
+      setErrors,
+      setTouched,
+      (data) => {
+        handlePaymentSubmission({
+          ...data,
+          cardDetails: {
+            number: data.firstName, // Placeholder for card number
+            expirationDate: "",
+            cvv: "",
+            issuer: "",
+          },
+          amount: 0, // Add appropriate amount
+        });
       }
-    });
-
-    setErrors(formErrors);
-
-    // Mark all fields as touched
-    const touchedFields: Record<string, boolean> = {};
-    (Object.keys(formData) as Array<keyof CustomerInfoData>).forEach((key) => {
-      touchedFields[key] = true;
-    });
-    setTouched(touchedFields);
-
-    if (isValid) {
-      handlePaymentSubmission({
-        ...formData,
-        cardDetails: {
-          number: formData.firstName, // Placeholder for card number
-          expirationDate: "",
-          cvv: "",
-          issuer: "",
-        },
-        amount: 0, // Add appropriate amount
-      });
-    }
+    );
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
+    <div className="rounded-xl shadow-md p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Customer Information
-        </h2>
-        <p className="text-sm text-gray-600">
+        <h2 className="text-xl font-semibold mb-2">Customer Information</h2>
+        <p className="text-sm">
           Please enter your contact information for order confirmation and
           delivery updates.
         </p>
@@ -135,7 +143,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               First Name <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <User className="h-4 w-4" />
               </div>
               <Input
@@ -143,7 +151,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, setTouched)}
                 placeholder="John"
                 className={`pl-10 ${
                   touched.firstName && errors.firstName
@@ -165,7 +173,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               Last Name <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <User className="h-4 w-4" />
               </div>
               <Input
@@ -173,7 +181,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, setTouched)}
                 placeholder="Doe"
                 className={`pl-10 ${
                   touched.lastName && errors.lastName
@@ -196,7 +204,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               Email Address <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <Mail className="h-4 w-4" />
               </div>
               <Input
@@ -205,7 +213,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, setTouched)}
                 placeholder="john.doe@example.com"
                 className={`pl-10 ${
                   touched.email && errors.email
@@ -220,9 +228,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 </div>
               )}
             </div>
-            <p className="text-xs text-gray-500">
-              We'll send your order confirmation here
-            </p>
+            <p className="text-xs">We'll send your order confirmation here</p>
           </div>
 
           <div className="space-y-2">
@@ -230,7 +236,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               Phone Number <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
                 <Phone className="h-4 w-4" />
               </div>
               <Input
@@ -239,7 +245,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 type="tel"
                 value={formData.phone}
                 onChange={handleChange}
-                onBlur={handleBlur}
+                onBlur={(e) => handleBlur(e, setTouched)}
                 placeholder="(555) 123-4567"
                 className={`pl-10 ${
                   touched.phone && errors.phone
@@ -254,9 +260,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
                 </div>
               )}
             </div>
-            <p className="text-xs text-gray-500">
-              For delivery updates and order questions
-            </p>
+            <p className="text-xs">For delivery updates and order questions</p>
           </div>
 
           <div className="flex items-start space-x-2 pt-2">
@@ -275,15 +279,13 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
             <div className="grid gap-1.5 leading-none">
               <Label
                 htmlFor="marketingConsent"
-                className="text-sm font-normal text-gray-700 leading-snug"
+                className="text-sm font-normal  leading-snug"
               >
                 Keep me updated about new products, promotions, and exclusive
                 offers
-                <Badge className="ml-2 bg-green-100 text-green-800 hover:bg-green-100">
-                  Optional
-                </Badge>
+                <Badge className="ml-2">Optional</Badge>
               </Label>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs">
                 We respect your privacy and will never share your information
                 with third parties.
               </p>
@@ -291,10 +293,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
           </div>
 
           <div className="pt-3">
-            <Button
-              type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-            >
+            <Button type="submit" className="w-full">
               Continue to Shipping
             </Button>
           </div>
