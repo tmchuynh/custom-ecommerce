@@ -1,4 +1,4 @@
-import { CartItem, ShippingAddressData } from "./interfaces";
+import { CartItem, ShippingAddress } from "./interfaces";
 
 export type LengthType = number | string;
 export type Gender = "men" | "women" | "children";
@@ -430,7 +430,7 @@ export type ShippingAddressFormProps = {
       | "shippingAddress"
       | "shippingCountry"
   ) => void;
-  onSubmit: (data: ShippingAddressData) => void;
+  onSubmit: (data: ShippingAddress) => void;
 };
 
 export type PaymentInfoFormProps = {
