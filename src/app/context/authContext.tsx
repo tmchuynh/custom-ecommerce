@@ -1,12 +1,13 @@
 "use client";
 
 import { AuthContextType } from "@/lib/contextTypes";
+import { AuthUser } from "@/lib/interfaces";
 import {
-  AuthUser,
   SignUpCredentials,
   LoginCredentials,
   ResetPasswordData,
-} from "@/lib/interfaces";
+} from "@/lib/types";
+
 import { createContext, useContext, useState } from "react";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
