@@ -22,11 +22,7 @@ import {
   Truck,
   Package,
 } from "lucide-react";
-
-interface ShippingAddressFormProps {
-  onSubmit: (data: ShippingAddressData) => void;
-  defaultValues?: ShippingAddressData;
-}
+import { ShippingAddressFormProps } from "@/lib/types";
 
 export interface ShippingAddressData {
   addressLine1: string;
@@ -124,21 +120,18 @@ const shippingMethods = [
 
 export default function ShippingAddressForm({
   onSubmit,
-  defaultValues,
 }: ShippingAddressFormProps) {
-  const [formData, setFormData] = useState<ShippingAddressData>(
-    defaultValues || {
-      addressLine1: "",
-      addressLine2: "",
-      city: "",
-      state: "",
-      postalCode: "",
-      country: "US",
-      addressType: "residential",
-      saveAddress: true,
-      shippingMethod: "standard",
-    }
-  );
+  const [formData, setFormData] = useState<ShippingAddressData>({
+    addressLine1: "",
+    addressLine2: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "US",
+    addressType: "residential",
+    saveAddress: true,
+    shippingMethod: "standard",
+  });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});

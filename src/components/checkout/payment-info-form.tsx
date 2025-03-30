@@ -18,6 +18,7 @@ import { PaymentInfoFormProps } from "@/lib/types";
 import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { usePayment } from "@/app/context/paymentContext";
 
 // Generate month and year options
 const generateMonths = () => {
@@ -39,16 +40,16 @@ const months = generateMonths();
 const years = generateYears();
 
 export default function PaymentInfoForm({
-  cardNumber,
-  cardExpiry,
-  cardCvv,
+  onSubmit,
+  total,
   billingAddress,
   billingCity,
   billingState,
   billingZip,
-  sameAsShipping,
-  onSubmit,
 }: PaymentInfoFormProps) {
+  const { handlePaymentSubmission, paymentError, validateCardDetails } =
+    usePayment();
+
   const [formData, setFormData] = useState<PaymentInfoData>({
     paymentMethod: "creditCard",
     cardNumber: "",
@@ -119,16 +120,19 @@ export default function PaymentInfoForm({
   };
 
   const validateField = (name: string, value: string) => {
+    if (name === "cardNumber") {
+      if (value.trim() === "") return "Card number is required";
+      const cardIssuer = detectCardType(value);
+      const isValid = validateCardDetails({
+        number: value,
+        expirationDate: formData.expiryMonth + "/" + formData.expiryYear,
+        cvv: formData.cvc,
+        issuer: cardIssuer || "unknown",
+      });
+      if (!isValid) return paymentError || "Invalid card number";
+      return "";
+    }
     switch (name) {
-      case "cardNumber":
-        if (value.trim() === "") return "Card number is required";
-        const cleanNumber = value.replace(/[\s-]/g, "");
-        if (!/^\d+$/.test(cleanNumber))
-          return "Card number must contain only digits";
-        if (cleanNumber.length < 13 || cleanNumber.length > 19)
-          return "Card number must be 13-19 digits long";
-        return "";
-
       case "nameOnCard":
         return value.trim() === "" ? "Name on card is required" : "";
 
@@ -227,49 +231,49 @@ export default function PaymentInfoForm({
     setTouched((prev) => ({ ...prev, [name]: true }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (formData.paymentMethod === "paypal") {
-      // For PayPal, we don't need to validate the credit card fields
       onSubmit();
       return;
     }
 
-    // For credit card, validate all required fields
-    const formErrors: Record<string, string> = {};
-    let isValid = true;
+    try {
+      const paymentData = {
+        cardDetails: {
+          number: formData.cardNumber,
+          expirationDate: `${formData.expiryMonth}/${formData.expiryYear}`,
+          cvv: formData.cvc,
+          issuer: cardType || "unknown",
+        },
+        amount: total,
+        billingAddress: formData.billingAddressSameAsShipping
+          ? undefined
+          : {
+              address: billingAddress,
+              city: billingCity,
+              state: billingState,
+              zipCode: billingZip,
+              country: "US", // Add proper country selection if needed
+            },
+      };
 
-    const requiredFields = [
-      "cardNumber",
-      "nameOnCard",
-      "expiryMonth",
-      "expiryYear",
-      "cvc",
-    ];
+      const result = await handlePaymentSubmission(paymentData);
 
-    requiredFields.forEach((field) => {
-      const error = validateField(
-        field,
-        formData[field as keyof PaymentInfoData] as string
-      );
-      if (error) {
-        formErrors[field] = error;
-        isValid = false;
+      if (result) {
+        onSubmit();
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          cardNumber: paymentError || "Payment failed",
+        }));
       }
-    });
-
-    setErrors(formErrors);
-
-    // Mark all required fields as touched
-    const touchedFields: Record<string, boolean> = {};
-    requiredFields.forEach((field) => {
-      touchedFields[field] = true;
-    });
-    setTouched(touchedFields);
-
-    if (isValid) {
-      onSubmit();
+    } catch (error) {
+      setErrors((prev) => ({
+        ...prev,
+        cardNumber: error instanceof Error ? error.message : "Payment failed",
+      }));
     }
   };
 
