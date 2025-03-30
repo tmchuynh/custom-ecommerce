@@ -7,10 +7,7 @@ export default function Footer() {
   return (
     <>
       <Newsletter />
-      <footer
-        aria-labelledby="footer-heading"
-        className="bg-gray-900 text-foreground"
-      >
+      <footer aria-labelledby="footer-heading" className="td">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
@@ -36,7 +33,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="border-t border-background py-8">
+          <div className="border-t py-8">
             <p className="text-sm">
               Copyright &copy; {new Date().getFullYear()} Your Company, Inc.
             </p>
