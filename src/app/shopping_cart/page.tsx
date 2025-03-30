@@ -1,6 +1,5 @@
 "use client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { capitalize, cn } from "@/lib/utils/utils";
 import { useCart } from "../context/cartContext";
 import { useCurrency } from "../context/currencyContext";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -19,6 +18,8 @@ import { TiWarning } from "react-icons/ti";
 import { JSX } from "react";
 import { Separator } from "@/components/ui/separator";
 import { useProduct } from "../context/productContext";
+import { capitalize } from "@/lib/utils/format";
+import { cn } from "@/lib/utils/utils";
 
 /**
  * Component that renders the shopping cart page.

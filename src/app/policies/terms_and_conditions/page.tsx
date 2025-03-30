@@ -2,24 +2,24 @@
 
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  BookOpen,
-  ShieldCheck,
-  User,
-  ShoppingBag,
-  CreditCard,
-  Truck,
-  RefreshCw,
-  AlertTriangle,
-  Copyright,
-  Lock,
-  Edit3,
-  Phone,
-  Mail,
-  MessageSquare,
-} from "lucide-react";
+
 import router from "next/router";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import {
+  FaBookOpen,
+  FaCreditCard,
+  FaEdit,
+  FaLock,
+  FaPhone,
+  FaRegCopyright,
+  FaShoppingBag,
+  FaShoppingBasket,
+  FaUsers,
+} from "react-icons/fa";
+import { InformationDetails } from "@/lib/interfaces";
+import { FaShield, FaTruckFast } from "react-icons/fa6";
+import { GoAlertFill } from "react-icons/go";
+import { IoMdRefresh } from "react-icons/io";
 
 /**
  * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.
@@ -65,68 +65,68 @@ const TermsAndConditions = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "introduction",
       title: "Introduction",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "use",
       title: "Use of the Site",
-      icon: <ShieldCheck className="h-5 w-5" />,
+      icon: FaShield,
     },
     {
       id: "account",
       title: "Account Registration",
-      icon: <User className="h-5 w-5" />,
+      icon: FaUsers,
     },
     {
       id: "product",
       title: "Product Information",
-      icon: <ShoppingBag className="h-5 w-5" />,
+      icon: FaShoppingBag,
     },
     {
       id: "order",
       title: "Order Process",
-      icon: <ShoppingBag className="h-5 w-5" />,
+      icon: FaShoppingBasket,
     },
     {
       id: "payments",
       title: "Payments",
-      icon: <CreditCard className="h-5 w-5" />,
+      icon: FaCreditCard,
     },
     {
       id: "shipping",
       title: "Shipping and Delivery",
-      icon: <Truck className="h-5 w-5" />,
+      icon: FaTruckFast,
     },
     {
       id: "returns",
       title: "Returns and Exchanges",
-      icon: <RefreshCw className="h-5 w-5" />,
+      icon: IoMdRefresh,
     },
     {
       id: "liability",
       title: "Limitation of Liability",
-      icon: <AlertTriangle className="h-5 w-5" />,
+      icon: GoAlertFill,
     },
     {
       id: "intellectual",
       title: "Intellectual Property",
-      icon: <Copyright className="h-5 w-5" />,
+      icon: FaRegCopyright,
     },
     {
       id: "privacy",
       title: "Privacy Policy",
-      icon: <Lock className="h-5 w-5" />,
+      icon: FaLock,
     },
     {
       id: "changes",
       title: "Changes to Terms",
-      icon: <Edit3 className="h-5 w-5" />,
+      icon: FaEdit,
     },
-    { id: "contact", title: "Contact Us", icon: <Phone className="h-5 w-5" /> },
+    { id: "contact", title: "Contact Us", icon: FaPhone },
   ];
 
   return (
@@ -157,7 +157,7 @@ const TermsAndConditions = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -234,7 +234,7 @@ const TermsAndConditions = () => {
                   className="w-full flex items-center justify-between p-6 focus:outline-none"
                 >
                   <div className="flex items-center">
-                    {section.icon}
+                    <section.icon />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>

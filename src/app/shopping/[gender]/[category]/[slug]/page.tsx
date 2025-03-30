@@ -10,11 +10,11 @@ import LoadingIndicator from "@/components/states/Loading";
 import { ProductItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductType } from "@/lib/types";
-import { formatURL } from "@/lib/utils/utils";
-import { ArrowLeft } from "lucide-react";
+import { formatURL } from "@/lib/utils/format";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 
 /**
  * ProductPage component displays detailed information about a specific product.
@@ -171,7 +171,7 @@ export default function ProductPage() {
             href={`/shopping/${gender}/${category}`}
             className="inline-flex items-center text-blue-600 hover:text-blue-800"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <FaArrowLeft className="h-4 w-4 mr-2" />
             Back to{" "}
           </Link>
         </div>

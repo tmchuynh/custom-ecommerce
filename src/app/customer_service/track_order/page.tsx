@@ -6,21 +6,15 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trackingOrderFAQs } from "@/lib/faqs";
 import { cn, toggleAccordionSection } from "@/lib/utils/utils";
-import {
-  AlertCircle,
-  ArrowLeft,
-  BarChart4,
-  Clock,
-  HelpCircle,
-  Mail,
-  MessageSquare,
-  PackageCheck,
-  RefreshCw,
-  Search,
-} from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
+import { FaArrowLeft, FaClock, FaMailBulk, FaSearch } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
+import { FiHelpCircle } from "react-icons/fi";
+import { IoIosAlert, IoMdRefresh } from "react-icons/io";
+import { IoBarChartSharp } from "react-icons/io5";
+import { LuPackageCheck } from "react-icons/lu";
 
 /**
  * TrackOrder component provides order tracking functionality and shipping information display.
@@ -35,7 +29,7 @@ import { useRef, useState } from "react";
  *
  * The component features:
  * - Real-time order status tracking
- * - Progress indicator for shipping stages
+ * - Progress indicator for shipping stagesOO
  * - Collapsible FAQ and shipping information sections
  * - Integration with multiple shipping carriers (FedEx, UPS, USPS)
  * - Responsive layout with sidebar navigation
@@ -175,7 +169,7 @@ const TrackOrder = () => {
                     onClick={() => router.push("/customer_service/track_order")}
                     className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
                   >
-                    <ArrowLeft className="h-5 w-5 mr-2" />
+                    <FaArrowLeft className="h-5 w-5 mr-2" />
                     <span className="ml-2 text-sm font-medium">
                       Back to Customer Service
                     </span>
@@ -187,7 +181,7 @@ const TrackOrder = () => {
                     onClick={() => router.push("/customer_service/orders")}
                     className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
                   >
-                    <PackageCheck className="h-5 w-5 mr-2" />
+                    <LuPackageCheck className="h-5 w-5 mr-2" />
 
                     <span className="ml-2 text-sm font-medium">
                       View My Orders
@@ -200,7 +194,7 @@ const TrackOrder = () => {
                     onClick={() => router.push("/policies/return_policy")}
                     className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
                   >
-                    <RefreshCw className="h-5 w-5 mr-2" />
+                    <IoMdRefresh className="h-5 w-5 mr-2" />
                     <span className="ml-2 text-sm font-medium">
                       Return Policy
                     </span>
@@ -212,7 +206,7 @@ const TrackOrder = () => {
 
               <div className="p-4 bg-muted rounded-lg space-y-2">
                 <h3 className="font-medium flex items-center">
-                  <HelpCircle className="h-4 w-4 mr-2" />
+                  <FiHelpCircle className="h-4 w-4 mr-2" />
                   Need Help?
                 </h3>
                 <p className="text-sm text-foreground">
@@ -222,7 +216,7 @@ const TrackOrder = () => {
                 <div className="flex mt-2">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <MessageSquare className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
                     </Button>
                   </Link>
                 </div>
@@ -257,9 +251,9 @@ const TrackOrder = () => {
                     disabled={loading || !trackingNumber.trim()}
                   >
                     {loading ? (
-                      <Clock className="h-4 w-4 mr-1 animate-spin" />
+                      <FaClock className="h-4 w-4 mr-1 animate-spin" />
                     ) : (
-                      <Search className="h-4 w-4 mr-1" />
+                      <FaSearch className="h-4 w-4 mr-1" />
                     )}
                     {loading ? "Searching..." : "Track"}
                   </Button>
@@ -279,7 +273,7 @@ const TrackOrder = () => {
 
                   {orderStatus === "Order not found" ? (
                     <div className="p-4 rounded-lg flex items-start bg-red-200">
-                      <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                      <IoIosAlert className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
                       <div>
                         <h4 className="font-medium text-red-800">
                           Order Not Found
@@ -538,7 +532,7 @@ const TrackOrder = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <HelpCircle className="h-6 w-6" />
+                  <FiHelpCircle className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Frequently Asked Questions
                   </h2>
@@ -586,13 +580,13 @@ const TrackOrder = () => {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Button variant={"teritary"}>
-                        <Mail className="h-4 w-4 mr-2" /> Email Support
+                        <FaMailBulk className="h-4 w-4 mr-2" /> Email Support
                       </Button>
                       <Button
                         className="inline-flex items-center"
                         variant={"teritaryOutline"}
                       >
-                        <MessageSquare className="h-4 w-4 mr-2" /> Live Chat
+                        <FaMessage className="h-4 w-4 mr-2" /> Live Chat
                       </Button>
                     </div>
                   </div>
@@ -612,7 +606,7 @@ const TrackOrder = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <BarChart4 className="h-6 w-6" />
+                  <IoBarChartSharp className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Shipping Information
                   </h2>

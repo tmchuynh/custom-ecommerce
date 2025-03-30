@@ -3,22 +3,20 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import {
-  HelpCircle,
-  Phone,
-  Mail,
-  MessageSquare,
-  Clock,
-  Tag,
-  CreditCard,
-  Gift,
-  ShoppingBag,
-  Truck,
-  RefreshCw,
-  Globe,
-} from "lucide-react";
 import { customerServiceFAQs } from "@/lib/faqs";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import {
+  FaClock,
+  FaCreditCard,
+  FaGift,
+  FaMailBulk,
+  FaPhone,
+  FaShoppingBag,
+  FaTag,
+} from "react-icons/fa";
+import { FaGlobe, FaMessage, FaTruckFast } from "react-icons/fa6";
+import { InformationDetails } from "@/lib/interfaces";
+import { IoMdHelp, IoMdRefresh } from "react-icons/io";
 
 /**
  * CustomerService Component
@@ -74,31 +72,31 @@ const CustomerService = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "introduction",
       title: "How Can We Help You?",
-      icon: <HelpCircle className="h-5 w-5" />,
+      icon: FiHelpCircle,
     },
     {
       id: "contact",
       title: "Contact Information",
-      icon: <Phone className="h-5 w-5" />,
+      icon: FaPhone,
     },
     {
       id: "hours",
       title: "Business Hours",
-      icon: <Clock className="h-5 w-5" />,
+      icon: FaClock,
     },
     {
       id: "faq",
       title: "Frequently Asked Questions",
-      icon: <MessageSquare className="h-5 w-5" />,
+      icon: FaMessage,
     },
     {
       id: "other-services",
       title: "Other Services",
-      icon: <Gift className="h-5 w-5" />,
+      icon: FaGift,
     },
   ];
 
@@ -129,7 +127,7 @@ const CustomerService = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -140,7 +138,7 @@ const CustomerService = () => {
               {/* Contact Cards */}
               <div className="mt-8 space-y-4">
                 <div className="p-4 rounded-lg flex items-start bg-muted">
-                  <Mail className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
+                  <FaMailBulk className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-medium mb-1">Email Us</h3>
                     <a
@@ -153,7 +151,7 @@ const CustomerService = () => {
                 </div>
 
                 <div className="p-4 rounded-lg flex items-start bg-muted">
-                  <Phone className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
+                  <FaPhone className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-medium mb-1">Call Us</h3>
                     <a
@@ -182,7 +180,7 @@ const CustomerService = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <HelpCircle className="h-6 w-6" />
+                  <FiHelpCircle className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     How Can We Help You?
                   </h2>
@@ -223,7 +221,7 @@ const CustomerService = () => {
                         onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
-                        <ShoppingBag className="h-4 w-4 mr-2" /> Track your
+                        <FaShoppingBag className="h-4 w-4 mr-2" /> Track your
                         order
                       </a>
                       <a
@@ -231,21 +229,23 @@ const CustomerService = () => {
                         onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
-                        <RefreshCw className="h-4 w-4 mr-2" /> Return policy
+                        <IoMdRefresh className="h-4 w-4 mr-2" /> Return policy
                       </a>
                       <a
                         href="#shipping"
                         onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
-                        <Truck className="h-4 w-4 mr-2" /> Shipping information
+                        <FaTruckFast className="h-4 w-4 mr-2" /> Shipping
+                        information
                       </a>
                       <a
                         href="#payment"
                         onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
-                        <CreditCard className="h-4 w-4 mr-2" /> Payment methods
+                        <FaCreditCard className="h-4 w-4 mr-2" /> Payment
+                        methods
                       </a>
                     </div>
                   </div>
@@ -272,7 +272,7 @@ const CustomerService = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Phone className="h-6 w-6" />
+                  <FaPhone className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Contact Information
                   </h2>
@@ -297,7 +297,7 @@ const CustomerService = () => {
                 <div className="p-6 border-t">
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">
                           Email Support
@@ -323,7 +323,7 @@ const CustomerService = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">
                           Phone Support
@@ -343,7 +343,7 @@ const CustomerService = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">Live Chat</h3>
                         <p className="mb-2">
@@ -374,7 +374,7 @@ const CustomerService = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Clock className="h-6 w-6" />
+                  <FaClock className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Business Hours
                   </h2>
@@ -501,7 +501,7 @@ const CustomerService = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <MessageSquare className="h-6 w-6" />
+                  <FaMessage className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Frequently Asked Questions
                   </h2>
@@ -569,7 +569,7 @@ const CustomerService = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Gift className="h-6 w-6" />
+                  <FaGift className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Other Services
                   </h2>
@@ -599,7 +599,7 @@ const CustomerService = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="p-4 rounded-lg flex">
-                      <Gift className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
+                      <FaGift className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-2">Gift Cards</h3>
                         <p className="text-sm">
@@ -616,7 +616,7 @@ const CustomerService = () => {
                     </div>
 
                     <div className="p-4 rounded-lg flex">
-                      <Tag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
+                      <FaTag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-2">Track Your Order</h3>
                         <p className="text-sm">
@@ -627,7 +627,7 @@ const CustomerService = () => {
                     </div>
 
                     <div className="p-4 rounded-lg flex">
-                      <ShoppingBag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
+                      <FaShoppingBag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-2">
                           Product Recommendations
@@ -640,7 +640,7 @@ const CustomerService = () => {
                     </div>
 
                     <div className="p-4 rounded-lg flex">
-                      <Globe className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
+                      <FaGlobe className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-2">
                           International Orders

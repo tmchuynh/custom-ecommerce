@@ -2,20 +2,20 @@
 
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  BookOpen,
-  Database,
-  FileText,
-  Share2,
-  Shield,
-  UserCheck,
-  Edit3,
-  Phone,
-  Mail,
-  MessageSquare,
-} from "lucide-react";
 import router from "next/router";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { InformationDetails } from "@/lib/interfaces";
+import {
+  FaBookOpen,
+  FaEdit,
+  FaFileAlt,
+  FaMailBulk,
+  FaPhoneAlt,
+  FaShieldAlt,
+  FaSquare,
+  FaUserCheck,
+} from "react-icons/fa";
+import { FaDatabase, FaMessage, FaShare, FaShield } from "react-icons/fa6";
 
 /**
  * Privacy Policy Component
@@ -72,44 +72,44 @@ const PrivacyPolicy = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "introduction",
       title: "Introduction",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "information-collect",
       title: "Information We Collect",
-      icon: <Database className="h-5 w-5" />,
+      icon: FaDatabase,
     },
     {
       id: "information-usage",
       title: "How We Use Your Information",
-      icon: <FileText className="h-5 w-5" />,
+      icon: FaFileAlt,
     },
     {
       id: "information-sharing",
       title: "Information Sharing",
-      icon: <Share2 className="h-5 w-5" />,
+      icon: FaShare,
     },
     {
       id: "data-protection",
       title: "How We Protect Your Information",
-      icon: <Shield className="h-5 w-5" />,
+      icon: FaShieldAlt,
     },
     {
       id: "your-rights",
       title: "Your Rights",
-      icon: <UserCheck className="h-5 w-5" />,
+      icon: FaUserCheck,
     },
 
     {
       id: "changes",
       title: "Changes to Privacy Policy",
-      icon: <Edit3 className="h-5 w-5" />,
+      icon: FaEdit,
     },
-    { id: "contact", title: "Contact Us", icon: <Phone className="h-5 w-5" /> },
+    { id: "contact", title: "Contact Us", icon: FaPhoneAlt },
   ];
 
   return (
@@ -141,7 +141,7 @@ const PrivacyPolicy = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -166,7 +166,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <BookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
+                  <FaBookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -215,7 +215,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Database className="h-6 w-6" />
+                  <FaDatabase className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Information We Collect
                   </h2>
@@ -343,7 +343,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FileText className="h-6 w-6" />
+                  <FaFileAlt className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     How We Use Your Information
                   </h2>
@@ -447,7 +447,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Share2 className="h-6 w-6" />
+                  <FaShare className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Information Sharing
                   </h2>
@@ -529,7 +529,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Shield className="h-6 w-6" />
+                  <FaShield className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     How We Protect Your Information
                   </h2>
@@ -618,7 +618,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <UserCheck className="h-6 w-6" />
+                  <FaUserCheck className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Your Rights</h2>
                 </div>
                 <svg
@@ -709,7 +709,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Edit3 className="h-6 w-6" />
+                  <FaEdit className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Changes to Privacy Policy
                   </h2>
@@ -760,7 +760,7 @@ const PrivacyPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Phone className="h-6 w-6" />
+                  <FaPhoneAlt className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Contact Us</h2>
                 </div>
                 <svg
@@ -783,7 +783,7 @@ const PrivacyPolicy = () => {
                 <div className="p-6 border-t">
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">
                           Email Support
@@ -809,7 +809,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaPhoneAlt className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">
                           Phone Support
@@ -829,7 +829,7 @@ const PrivacyPolicy = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                       <div>
                         <h3 className="text-lg font-medium mb-2">Live Chat</h3>
                         <p className="mb-2">

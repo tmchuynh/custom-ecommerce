@@ -3,19 +3,13 @@
 import { Button } from "@/components/ui/button";
 import { perks } from "@/lib/constants";
 import { loyaltyFaqs } from "@/lib/faqs";
+import { InformationDetails } from "@/lib/interfaces";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
-import {
-  Award,
-  BookOpen,
-  CreditCard,
-  Gift,
-  HelpCircle,
-  ShoppingBag,
-  Star,
-  TrendingUp,
-} from "lucide-react";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { FaRegCreditCard, FaShoppingBag } from "react-icons/fa";
+import { IoIosHelpCircleOutline, IoIosTrendingUp } from "react-icons/io";
+import { FaAward, FaBookOpen, FaGift, FaStar } from "react-icons/fa6";
 
 /**
  * A comprehensive loyalty program component that displays membership details, points system, and program benefits.
@@ -78,41 +72,41 @@ const LoyaltyProgram = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "introduction",
       title: "Introduction",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "how-it-works",
       title: "How It Works",
-      icon: <Award className="h-5 w-5" />,
+      icon: FaAward,
     },
     {
       id: "benefits",
       title: "Program Benefits",
-      icon: <Gift className="h-5 w-5" />,
+      icon: FaGift,
     },
     {
       id: "earning",
       title: "Earning Points",
-      icon: <Star className="h-5 w-5" />,
+      icon: FaStar,
     },
     {
       id: "redeeming",
       title: "Redeeming Points",
-      icon: <ShoppingBag className="h-5 w-5" />,
+      icon: FaShoppingBag,
     },
     {
       id: "tiers",
       title: "Membership Tiers",
-      icon: <TrendingUp className="h-5 w-5" />,
+      icon: IoIosTrendingUp,
     },
     {
       id: "faqs",
       title: "FAQs",
-      icon: <HelpCircle className="h-5 w-5" />,
+      icon: IoIosHelpCircleOutline,
     },
   ];
 
@@ -137,7 +131,7 @@ const LoyaltyProgram = () => {
             purchase!
           </p>
           <div className="mt-4 text-blue-700 py-2 px-4 rounded-full inline-flex items-center">
-            <CreditCard className="h-5 w-5 mr-2" />
+            <FaRegCreditCard className="h-5 w-5 mr-2" />
             <span className="font-medium">Your Current Points: {points}</span>
           </div>
         </div>
@@ -189,7 +183,7 @@ const LoyaltyProgram = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -219,7 +213,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <BookOpen className="h-6 w-6" />
+                  <FaBookOpen className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -275,7 +269,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Award className="h-6 w-6" />
+                  <FaAward className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">How It Works</h2>
                 </div>
                 <svg
@@ -306,7 +300,7 @@ const LoyaltyProgram = () => {
                   <div className="p-4 rounded-lg space-y-4 mb-4">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 rounded-full p-2">
-                        <Star className="h-5 w-5" />
+                        <FaStar className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Earn <strong>1 point</strong> for every{" "}
@@ -315,7 +309,7 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="flex items-center">
                       <div className="flex-shrink-0 rounded-full p-2">
-                        <Gift className="h-5 w-5" />
+                        <FaGift className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Redeem your accumulated points for discounts, exclusive
@@ -324,7 +318,7 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="flex items-center">
                       <div className="flex-shrink-0 rounded-full p-2">
-                        <TrendingUp className="h-5 w-5" />
+                        <IoIosTrendingUp className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Reach higher tiers in the program for even better
@@ -358,7 +352,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Gift className="h-6 w-6" />
+                  <FaGift className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Program Benefits
                   </h2>
@@ -445,7 +439,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Star className="h-6 w-6" />
+                  <FaStar className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Earning Points
                   </h2>
@@ -535,7 +529,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <ShoppingBag className="h-6 w-6" />
+                  <FaShoppingBag className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Redeeming Points
                   </h2>
@@ -652,7 +646,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <TrendingUp className="h-6 w-6" />
+                  <IoIosTrendingUp className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Membership Tiers
                   </h2>
@@ -685,7 +679,7 @@ const LoyaltyProgram = () => {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="p-4 rounded-lg border">
                       <h3 className="font-medium mb-2 flex items-center">
-                        <Star className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
                         Standard
                       </h3>
                       <p className="text-sm mb-2">$0 - $500 annually</p>
@@ -697,8 +691,8 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="p-4 rounded-lg border">
                       <h3 className="font-medium mb-2 flex items-center">
-                        <Star className="h-4 w-4 mr-1" />
-                        <Star className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
                         Silver
                       </h3>
                       <p className="text-sm mb-2">$501 - $1,000 annually</p>
@@ -711,9 +705,9 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="p-4 rounded-lg border">
                       <h3 className="font-medium mb-2 flex items-center">
-                        <Star className="h-4 w-4 mr-1" />
-                        <Star className="h-4 w-4 mr-1" />
-                        <Star className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
+                        <FaStar className="h-4 w-4 mr-1" />
                         Gold
                       </h3>
                       <p className="text-sm mb-2">$1,001+ annually</p>
@@ -754,7 +748,7 @@ const LoyaltyProgram = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <HelpCircle className="h-6 w-6" />
+                  <IoIosHelpCircleOutline className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">
                     Frequently Asked Questions
                   </h2>

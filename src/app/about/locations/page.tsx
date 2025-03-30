@@ -3,18 +3,18 @@ import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  Clock,
-  Car,
-  Truck,
-  Navigation,
-  Info,
-  Calendar,
-} from "lucide-react";
 import { locations } from "@/lib/constants";
 import { scrollToSection } from "@/lib/utils/utils";
+import {
+  FaCalendar,
+  FaCar,
+  FaClock,
+  FaInfo,
+  FaMapPin,
+  FaPhone,
+  FaTruck,
+} from "react-icons/fa";
+import { MdAssistantNavigation } from "react-icons/md";
 
 const containerStyle = {
   width: "100%",
@@ -111,7 +111,7 @@ const LocationsPage = () => {
                           : "hover:bg-gray-100 "
                       }`}
                     >
-                      <MapPin className="h-5 w-5 mr-2 flex-shrink-0" />
+                      <FaMapPin className="h-5 w-5 mr-2 flex-shrink-0" />
                       <span className="text-sm font-medium">
                         {location.name}
                       </span>
@@ -122,7 +122,7 @@ const LocationsPage = () => {
 
               <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
                 <h3 className="font-medium flex items-center">
-                  <Info className="h-4 w-4 mr-2" />
+                  <FaInfo className="h-4 w-4 mr-2" />
                   Store Information
                 </h3>
                 <p className="text-sm ">
@@ -132,8 +132,8 @@ const LocationsPage = () => {
                 <div className="mt-4">
                   <Link href="/customer_service">
                     <Button className="">
-                      <Navigation className="h-4 w-4 mr-2" /> Learn About Our
-                      Services
+                      <MdAssistantNavigation className="h-4 w-4 mr-2" /> Learn
+                      About Our Services
                     </Button>
                   </Link>
                 </div>
@@ -153,14 +153,14 @@ const LocationsPage = () => {
               >
                 <div className="p-6 border-b">
                   <h2 className="text-2xl font-semibold flex items-center">
-                    <MapPin className="h-6 w-6 text-blue-600 mr-2" />
+                    <FaMapPin className="h-6 w-6 text-blue-600 mr-2" />
                     {location.name}
                   </h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <MapPin className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaMapPin className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Address</h3>
                         <p className="">{location.address}</p>
@@ -172,13 +172,14 @@ const LocationsPage = () => {
                           rel="noopener noreferrer"
                           className="text-blue-600 flex items-center mt-2 text-sm hover:underline"
                         >
-                          <Navigation className="h-4 w-4 mr-1" /> Get Directions
+                          <MdAssistantNavigation className="h-4 w-4 mr-1" /> Get
+                          Directions
                         </a>
                       </div>
                     </div>
 
                     <div className="flex items-start">
-                      <Clock className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaClock className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Store Hours</h3>
                         <ul className=" space-y-1">
@@ -190,7 +191,7 @@ const LocationsPage = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <Phone className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaPhone className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Contact</h3>
                         <p className="">
@@ -215,18 +216,18 @@ const LocationsPage = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <Info className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaInfo className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Store Features</h3>
                         <ul className=" space-y-1">
                           {location.features.map((feature, i) => (
                             <li key={i} className="flex items-center">
                               {feature.includes("parking") ? (
-                                <Car className="h-4 w-4 mr-2 text-green-600" />
+                                <FaCar className="h-4 w-4 mr-2 text-green-600" />
                               ) : feature.includes("pickup") ? (
-                                <Truck className="h-4 w-4 mr-2 text-green-600" />
+                                <FaTruck className="h-4 w-4 mr-2 text-green-600" />
                               ) : (
-                                <Calendar className="h-4 w-4 mr-2 text-green-600" />
+                                <FaCalendar className="h-4 w-4 mr-2 text-green-600" />
                               )}
                               {feature}
                             </li>
@@ -262,7 +263,7 @@ const LocationsPage = () => {
                     }
                     className=" w-full md:w-auto"
                   >
-                    <Phone className="h-4 w-4 mr-2" /> Call This Location
+                    <FaPhone className="h-4 w-4 mr-2" /> Call This Location
                   </Button>
                 </div>
               </div>

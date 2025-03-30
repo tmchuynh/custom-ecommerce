@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { IoMdTimer } from "react-icons/io";
 import { BsTruck } from "react-icons/bs";
+import { FaCheckCircle } from "react-icons/fa";
 
 /**
  * A component that displays the order confirmation page after a successful purchase.
@@ -66,7 +66,7 @@ const OrderConfirmation = () => {
       <div className="shadow-xl rounded-lg p-8">
         <div className="text-center">
           <div className="flex justify-center">
-            <CheckCircle2 className="h-20 w-20 text-green-500" />
+            <FaCheckCircle className="h-20 w-20 text-green-500" />
           </div>
           <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Thank you for your order!

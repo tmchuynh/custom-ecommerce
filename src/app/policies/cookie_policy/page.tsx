@@ -2,22 +2,22 @@
 
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Cookie,
-  Settings,
-  Shield,
-  Clock,
-  ToggleLeft,
-  Info,
-  FileText,
-  Phone,
-  BookOpen,
-  Mail,
-  MessageSquare,
-  Database,
-} from "lucide-react";
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import { InformationDetails } from "@/lib/interfaces";
+import {
+  FaBookOpen,
+  FaDatabase,
+  FaCookie,
+  FaClock,
+  FaInfo,
+  FaPhone,
+  FaFileAlt,
+  FaMailBulk,
+} from "react-icons/fa";
+import { IoMdSettings } from "react-icons/io";
+import { FaMessage, FaShield } from "react-icons/fa6";
+import { MdManageHistory } from "react-icons/md";
 
 /**
  * CookiePolicy Component
@@ -74,56 +74,56 @@ const CookiePolicy = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "overview",
       title: "Overview",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "encryption",
       title: "Encryption",
-      icon: <Database className="h-5 w-5" />,
+      icon: FaDatabase,
     },
     {
       id: "what-are-cookies",
       title: "What Are Cookies",
-      icon: <Cookie className="h-5 w-5" />,
+      icon: FaCookie,
     },
     {
       id: "types",
       title: "Types of Cookies",
-      icon: <FileText className="h-5 w-5" />,
+      icon: FaFileAlt,
     },
     {
       id: "how-we-use",
       title: "How We Use Cookies",
-      icon: <Settings className="h-5 w-5" />,
+      icon: IoMdSettings,
     },
     {
       id: "third-party",
       title: "Third-Party Cookies",
-      icon: <Shield className="h-5 w-5" />,
+      icon: FaShield,
     },
     {
       id: "duration",
       title: "Cookie Duration",
-      icon: <Clock className="h-5 w-5" />,
+      icon: FaClock,
     },
     {
       id: "management",
       title: "Cookie Management",
-      icon: <ToggleLeft className="h-5 w-5" />,
+      icon: MdManageHistory,
     },
     {
       id: "policy-updates",
       title: "Policy Updates",
-      icon: <Info className="h-5 w-5" />,
+      icon: FaInfo,
     },
     {
       id: "contact",
       title: "Contact Us",
-      icon: <Phone className="h-5 w-5" />,
+      icon: FaPhone,
     },
   ];
 
@@ -155,7 +155,7 @@ const CookiePolicy = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -187,7 +187,7 @@ const CookiePolicy = () => {
                   className="w-full flex items-center justify-between p-6 focus:outline-none"
                 >
                   <div className="flex items-center">
-                    {section.icon}
+                    <section.icon />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>
@@ -434,7 +434,7 @@ const CookiePolicy = () => {
                       <div className="p-6 border-t">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Email Support
@@ -460,7 +460,7 @@ const CookiePolicy = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Phone Support
@@ -483,7 +483,7 @@ const CookiePolicy = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Live Chat

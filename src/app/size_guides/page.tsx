@@ -3,15 +3,14 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Ruler,
-  Shirt,
-  MessageSquare,
-  Footprints,
-  HelpCircle,
-} from "lucide-react";
+
 import Image from "next/image";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { FaMessage, FaShirt } from "react-icons/fa6";
+import { InformationDetails } from "@/lib/interfaces";
+import { RiFootprintFill } from "react-icons/ri";
+import { TbRulerMeasure2 } from "react-icons/tb";
+import { IoMdHelp } from "react-icons/io";
 
 /**
  * A comprehensive size guide component that displays sizing information for clothing and footwear.
@@ -87,26 +86,26 @@ const SizeGuide = () => {
     </svg>
   );
 
-  const sizeGuideCategories = [
+  const sizeGuideCategories: InformationDetails[] = [
     {
       id: "shirts",
       title: "Shirts & Tops",
-      icon: <Shirt className="h-5 w-5" />,
+      icon: FaShirt,
     },
     {
       id: "pants",
       title: "Pants & Bottoms",
-      icon: <PantsIcon className="h-5 w-5" />,
+      icon: PantsIcon,
     },
     {
       id: "shoes",
       title: "Shoes & Footwear",
-      icon: <Footprints className="h-5 w-5" />,
+      icon: RiFootprintFill,
     },
     {
       id: "measuring",
       title: "How to Measure",
-      icon: <Footprints className="h-5 w-5" />,
+      icon: TbRulerMeasure2,
     },
   ];
 
@@ -138,7 +137,7 @@ const SizeGuide = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {category.icon}
+                      <category.icon />
                       <span className="ml-2 text-sm font-medium">
                         {category.title}
                       </span>
@@ -149,7 +148,7 @@ const SizeGuide = () => {
 
               <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
                 <h3 className="font-medium flex items-center">
-                  <HelpCircle className="h-4 w-4 mr-2" />
+                  <IoMdHelp className="h-4 w-4 mr-2" />
                   Need Help?
                 </h3>
                 <p className="text-sm">
@@ -159,7 +158,7 @@ const SizeGuide = () => {
                 <div className="mt-4">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <MessageSquare className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
                     </Button>
                   </Link>
                 </div>
@@ -181,7 +180,7 @@ const SizeGuide = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Shirt className="h-6 w-6" />
+                  <FaShirt className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3 ">
                     Shirts & Tops
                   </h2>
@@ -817,7 +816,7 @@ const SizeGuide = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Footprints className="h-6 w-6" />
+                  <RiFootprintFill className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3 ">
                     Shoes & Footwear
                   </h2>
@@ -1201,7 +1200,7 @@ const SizeGuide = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Ruler className="h-6 w-6" />
+                  <TbRulerMeasure2 className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3 ">
                     How to Measure
                   </h2>

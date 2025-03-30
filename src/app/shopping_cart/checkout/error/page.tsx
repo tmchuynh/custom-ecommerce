@@ -1,9 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, RefreshCw } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { IoMdRefresh, IoIosAlert } from "react-icons/io";
 
 /**
  * CheckoutError component displays an error page when checkout process fails.
@@ -53,7 +53,7 @@ const CheckoutError = () => {
       <div className="shadow-xl rounded-lg p-8">
         <div className="text-center">
           <div className="flex justify-center">
-            <AlertTriangle className="h-20 w-20 text-red-500" />
+            <IoIosAlert className="h-20 w-20 text-red-500" />
           </div>
           <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Oops! Something went wrong.
@@ -93,7 +93,7 @@ const CheckoutError = () => {
 
           <div className="mt-8 flex justify-center space-x-4">
             <Button onClick={handleRetry} className="flex items-center gap-2">
-              <RefreshCw className="h-4 w-4" />
+              <IoMdRefresh className="h-4 w-4" />
               Try Again
             </Button>
             <Button variant="outline" onClick={handleReturnToCart}>

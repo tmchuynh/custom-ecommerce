@@ -11,12 +11,6 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import {
-  validateCreditCard,
-  validateEmail,
-  validatePhone,
-  handleApplyDiscountUtil,
-} from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -32,6 +26,12 @@ import OrderItems from "@/components/checkout/order-items";
 import OrderSummary from "@/components/checkout/order-summary";
 import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import ShippingAddressForm from "@/components/checkout/shipping-address-form";
+import { handleApplyDiscountUtil } from "@/lib/utils/utils";
+import {
+  validatePhone,
+  validateEmail,
+  validateCreditCard,
+} from "@/lib/utils/validation";
 
 /**
  * A comprehensive checkout page component for an e-commerce application.

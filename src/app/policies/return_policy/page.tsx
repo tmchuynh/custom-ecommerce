@@ -2,21 +2,25 @@
 
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  BookOpen,
-  Clock,
-  CheckCircle,
-  XCircle,
-  RefreshCw,
-  DollarSign,
-  Truck,
-  AlertTriangle,
-  Phone,
-  Mail,
-  MessageSquare,
-} from "lucide-react";
+
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import { InformationDetails } from "@/lib/interfaces";
+import {
+  FaBookOpen,
+  FaCircleXmark,
+  FaMessage,
+  FaPhone,
+  FaTruckFast,
+} from "react-icons/fa6";
+import {
+  FaCheckCircle,
+  FaClock,
+  FaDollarSign,
+  FaMailBulk,
+} from "react-icons/fa";
+import { IoMdRefresh } from "react-icons/io";
+import { GoAlertFill } from "react-icons/go";
 
 /**
  * ReturnPolicy Component
@@ -77,48 +81,48 @@ const ReturnPolicy = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "introduction",
       title: "Introduction",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "timeframe",
       title: "Return Timeframe",
-      icon: <Clock className="h-5 w-5" />,
+      icon: FaClock,
     },
     {
       id: "eligibility",
       title: "Eligibility for Return",
-      icon: <CheckCircle className="h-5 w-5" />,
+      icon: FaCheckCircle,
     },
     {
       id: "non-returnable",
       title: "Non-Returnable Items",
-      icon: <XCircle className="h-5 w-5" />,
+      icon: FaCircleXmark,
     },
     {
       id: "process",
       title: "How to Return an Item",
-      icon: <RefreshCw className="h-5 w-5" />,
+      icon: IoMdRefresh,
     },
     {
       id: "refunds",
       title: "Refunds and Exchanges",
-      icon: <DollarSign className="h-5 w-5" />,
+      icon: FaDollarSign,
     },
     {
       id: "shipping",
       title: "Return Shipping Costs",
-      icon: <Truck className="h-5 w-5" />,
+      icon: FaTruckFast,
     },
     {
       id: "damaged",
       title: "Damaged or Defective Items",
-      icon: <AlertTriangle className="h-5 w-5" />,
+      icon: GoAlertFill,
     },
-    { id: "contact", title: "Contact Us", icon: <Phone className="h-5 w-5" /> },
+    { id: "contact", title: "Contact Us", icon: FaPhone },
   ];
 
   return (
@@ -150,7 +154,7 @@ const ReturnPolicy = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -175,7 +179,7 @@ const ReturnPolicy = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <BookOpen className="h-6 w-6" />
+                  <FaBookOpen className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -228,7 +232,7 @@ const ReturnPolicy = () => {
                   className="w-full flex items-center justify-between p-6 focus:outline-none"
                 >
                   <div className="flex items-center">
-                    {section.icon}
+                    <section.icon />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>
@@ -540,7 +544,7 @@ const ReturnPolicy = () => {
                       <div className="p-6 border-t">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Email Support
@@ -566,7 +570,7 @@ const ReturnPolicy = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Phone Support
@@ -589,7 +593,7 @@ const ReturnPolicy = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Live Chat

@@ -1,21 +1,14 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, JSX } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  CreditCard,
-  Lock,
-  Shield,
-  AlertTriangle,
-  Key,
-  Server,
-  FileText,
-  Phone,
-  Mail,
-  MessageSquare,
-} from "lucide-react";
+
 import router from "next/router";
 import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import { InformationDetails } from "@/lib/interfaces";
+import { FaFileAlt, FaKey, FaLock, FaMailBulk, FaPhone } from "react-icons/fa";
+import { FaCreditCard, FaMessage, FaServer, FaShield } from "react-icons/fa6";
+import { GoAlert, GoAlertFill } from "react-icons/go";
 
 /**
  * PaymentSecurity Component
@@ -49,7 +42,7 @@ import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
  *
  * @returns {JSX.Element} A payment security information page with interactive sections
  */
-const PaymentSecurity = () => {
+const PaymentSecurity = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -66,46 +59,46 @@ const PaymentSecurity = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "overview",
       title: "Security Overview",
-      icon: <Shield className="h-5 w-5" />,
+      icon: FaShield,
     },
     {
       id: "encryption",
       title: "Data Encryption",
-      icon: <Lock className="h-5 w-5" />,
+      icon: FaLock,
     },
     {
       id: "payment-processing",
       title: "Payment Processing",
-      icon: <CreditCard className="h-5 w-5" />,
+      icon: FaCreditCard,
     },
     {
       id: "authentication",
       title: "Authentication Methods",
-      icon: <Key className="h-5 w-5" />,
+      icon: FaKey,
     },
     {
       id: "compliance",
       title: "Security Compliance",
-      icon: <FileText className="h-5 w-5" />,
+      icon: FaFileAlt,
     },
     {
       id: "monitoring",
       title: "Security Monitoring",
-      icon: <Server className="h-5 w-5" />,
+      icon: FaServer,
     },
     {
       id: "fraud",
       title: "Fraud Prevention",
-      icon: <AlertTriangle className="h-5 w-5" />,
+      icon: GoAlertFill,
     },
     {
       id: "contact",
       title: "Contact Security Team",
-      icon: <Phone className="h-5 w-5" />,
+      icon: GoAlert,
     },
   ];
 
@@ -137,7 +130,7 @@ const PaymentSecurity = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -168,7 +161,7 @@ const PaymentSecurity = () => {
                   className="w-full flex items-center justify-between p-6 focus:outline-none"
                 >
                   <div className="flex items-center">
-                    {section.icon}
+                    <section.icon />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>
@@ -280,7 +273,7 @@ const PaymentSecurity = () => {
                       <div className="p-6 border-t">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Email Support
@@ -306,7 +299,7 @@ const PaymentSecurity = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Phone Support
@@ -329,7 +322,7 @@ const PaymentSecurity = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Live Chat

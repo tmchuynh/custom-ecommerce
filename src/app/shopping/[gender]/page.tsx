@@ -4,7 +4,7 @@ import ProductCard from "@/components/category/product/ProductCard";
 import CannotFind from "@/components/states/CannotFind";
 import LoadingIndicator from "@/components/states/Loading";
 import { mockProductData } from "@/lib/mockProductData";
-import { formatURL } from "@/lib/utils/utils";
+import { formatURL } from "@/lib/utils/format";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
