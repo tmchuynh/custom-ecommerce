@@ -4,11 +4,7 @@ import {
   FeaturedDetails,
   LengthType,
   PaymentStatus,
-  ProductFilters,
-  ProductType,
   SectionDetails,
-  ShippingMethod,
-  SortOption,
 } from "./types";
 
 export interface LoaderSizeMarginProps extends CommonProps {
@@ -130,7 +126,9 @@ export interface ShippingAddress {
   country: string;
   addressType: "residential" | "business";
   isDefault?: boolean;
-  label?: string; // e.g., "Home", "Office", "Mom's house"
+  label?: string;
+  shippingMethod: "standard" | "express" | "overnight";
+  saveAddress: boolean;
   deliveryInstructions?: string;
   createdAt?: Date;
   updatedAt?: Date;
@@ -235,16 +233,4 @@ export interface FeaturedCategoryProps {
   item: FeaturedDetails;
   index: number;
   closePopovers?: () => void;
-}
-
-export interface ShippingAddressData {
-  addressLine1: string;
-  addressLine2: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  country: string;
-  addressType: "residential" | "business";
-  saveAddress: boolean;
-  shippingMethod: "standard" | "express" | "overnight";
 }
