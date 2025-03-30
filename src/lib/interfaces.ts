@@ -149,6 +149,7 @@ export interface InformationDetails {
   title: string;
   icon: IconType;
   description?: string;
+  href?: string;
 }
 
 export interface ShippingRate {
