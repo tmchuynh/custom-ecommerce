@@ -11,7 +11,7 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 
 interface VelocityScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultVelocity?: number;
@@ -111,7 +111,7 @@ export function VelocityScroll({
     <div
       className={cn(
         "relative w-full text-4xl font-bold tracking-[-0.02em] md:text-7xl md:leading-[5rem]",
-        className,
+        className
       )}
       {...props}
     >
