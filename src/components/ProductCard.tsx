@@ -66,12 +66,7 @@ const ProductCard = ({
 
         {/* Quick Action Buttons */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-          <QuickLookAndFavoriteButtons
-            product={product}
-            page={page}
-            toggleWishlist={toggleWishlist}
-            wishlist={wishlist}
-          />
+          <QuickLookAndFavoriteButtons product={product} page={page} />
         </div>
 
         {/* Product Badges */}

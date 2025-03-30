@@ -12,6 +12,17 @@ import { useAuth } from "@/app/context/authContext";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { AuthDialog } from "./auth/AuthDialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/alert-dialog";
+import Link from "next/link";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -49,7 +60,7 @@ export default function AddToCartButtons({
   const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
   const { protectedAction, showAuthAlert, closeAuthAlert, handleLogin } =
     useProtectedAction();
-
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
   const handleAddToCart = async (product: ProductType, id: string) => {
     await protectedAction(async () => {
       addToCart({
@@ -65,14 +76,20 @@ export default function AddToCartButtons({
     });
   };
 
-  const handleWishlistClick = async () => {
-    await protectedAction(async () => {
-      if (!product) return;
+  const handleWishlistClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
 
-      if (wishlistItems.some((item) => item.name === product.name)) {
-        await removeFromWishlist(product.name);
-      } else {
-        await addToWishlist(product);
+    await protectedAction(async () => {
+      try {
+        if (wishlistItems.some((item) => item.name === product.name)) {
+          removeFromWishlist(product.name);
+        } else {
+          addToWishlist(product);
+        }
+      } catch (error) {
+        console.error("Wishlist operation failed:", error);
+        toast.error("Failed to update wishlist");
       }
     });
   };
@@ -134,6 +151,23 @@ export default function AddToCartButtons({
             </Button>
           ))}
       </div>
+
+      <AlertDialog open={showAuthDialog} onOpenChange={setShowAuthDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Sign in required</AlertDialogTitle>
+            <AlertDialogDescription>
+              Please sign in to add items to your wishlist.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction asChild>
+              <Link href="/auth/login">Sign in</Link>
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
