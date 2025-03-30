@@ -1,12 +1,22 @@
 "use client";
 
-import { ThemeProvider } from "next-themes";
-import { ReactNode } from "react";
+import React from "react";
+import { CurrencyProvider } from "./context/currencyContext";
+import { WishlistProvider } from "./context/wishlistContext";
+import { CartProvider } from "./context/cartContext";
+import { ProductProvider } from "./context/productContext";
+import { PaymentProvider } from "./context/paymentContext";
 
-export function Providers({ children }: { children: ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
-      {children}
-    </ThemeProvider>
+    <CurrencyProvider>
+      <ProductProvider>
+        <WishlistProvider>
+          <PaymentProvider>
+            <CartProvider>{children}</CartProvider>
+          </PaymentProvider>
+        </WishlistProvider>
+      </ProductProvider>
+    </CurrencyProvider>
   );
 }

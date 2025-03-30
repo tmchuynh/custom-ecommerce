@@ -1,7 +1,7 @@
 "use client";
 
 import { NotFoundContextType } from "@/lib/types";
-import { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, JSX, ReactNode, useContext, useState } from "react";
 
 /**
  * Context for managing the state of a "not found" condition.
@@ -21,7 +21,11 @@ const NotFoundContext = createContext<NotFoundContextType | undefined>(
  *
  * @returns {JSX.Element} The NotFoundContext.Provider component with the provided context value.
  */
-export const NotFoundProvider = ({ children }: { children: ReactNode }) => {
+export const NotFoundProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}): JSX.Element => {
   const [isNotFound, setIsNotFound] = useState(false);
 
   return (
@@ -43,7 +47,7 @@ export const NotFoundProvider = ({ children }: { children: ReactNode }) => {
  *
  * @returns {any} The context value from NotFoundContext.
  */
-export const useNotFound = () => {
+export const useNotFound = (): any => {
   const context = useContext(NotFoundContext);
   if (!context) {
     throw new Error("useNotFound must be used within a NotFoundProvider");
