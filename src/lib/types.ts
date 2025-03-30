@@ -215,8 +215,16 @@ export type ProductType = {
   displayPrice: string;
   imageSrc: string;
   quantity: number;
+  discountPrice?: number;
+  originalPrice?: number;
+  priceHistory?: Array<{
+    date: string;
+    price: number;
+  }>;
   price?: string;
   badge?: string;
+  viewCount: number;
+  stockLevel: number;
 };
 
 export type DiscountFormProps = {

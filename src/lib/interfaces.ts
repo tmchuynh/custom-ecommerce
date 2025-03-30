@@ -111,6 +111,7 @@ export interface ProductItem {
   isOnSale?: boolean;
   featured?: boolean;
   originalPrice?: number;
+  discountPrice?: number;
   options?: { name: string; value: string }[];
 }
 
@@ -171,6 +172,14 @@ export interface CartContextType {
     shipping: number;
     grandTotal: number;
   };
+
+  updateProductSalesCount: (productName: string) => void;
+  getProductSalesCount: (productName: string) => number;
+  getSalesTrends: (days?: number) => Array<{
+    date: string;
+    productName: string;
+    quantity: number;
+  }>;
 }
 
 export interface CountryTaxInfo {
@@ -225,24 +234,56 @@ export interface ProductContextType {
     currencyOverride?: Currency
   ) => string;
   formatPrice: (price: number, currencyCode: string) => string;
+  hasDiscount: (id: string) => boolean;
+  hasPriceDrop: (id: string) => boolean;
+  updatePriceHistory: (id: string, newPrice: number) => void;
+
+  // Inventory management
+  getStockLevel: (productName: string) => number;
+  isInStock: (productName: string) => boolean;
+  isLowStock: (productName: string, threshold?: number) => boolean;
+
+  // Ratings and reviews
+  getProductRating: (productName: string) => number;
+  getProductReviewCount: (productName: string) => number;
+
+  // Analytics
+  getPopularityScore: (productName: string) => number;
+  getMostViewedProducts: (limit?: number) => ProductType[];
+  getBestSellingProducts: (limit?: number) => ProductType[];
+
+  // Price history stats
+  getPriceHistory: (
+    productName: string,
+    days?: number
+  ) => Array<{ date: string; price: number }>;
+  getLowestPrice: (productName: string, days?: number) => number;
+  getHighestPrice: (productName: string, days?: number) => number;
+  getAveragePrice: (productName: string, days?: number) => number;
+  getPriceDropPercentage: (productName: string) => number;
+
+  getSalesCount: (productName: string) => number;
+
+  updateStockLevel: (productName: string, quantity: number) => void;
+
+  incrementViewCount: (productName: string) => void;
 }
 
 export interface ProductBadgesProps {
   highlights: string[];
 }
 
-export interface WishlistItem {
-  id: number;
-  name: string;
-  price: number;
-  imageSrc: string;
-  imageAlt: string;
-}
-
 export interface WishlistContextType {
-  wishlistItems: WishlistItem[];
-  addToWishlist: (item: WishlistItem) => void;
-  removeFromWishlist: (id: number) => void;
+  wishlistItems: ProductType[];
+  addToWishlist: (item: ProductType) => void;
+  removeFromWishlist: (id: string) => void;
+  clearWishlist: () => void;
+  isInWishlist: (id: string) => boolean;
+  getWishlistItem: (id: string) => ProductType | undefined;
+  getWishlistItems: () => ProductType[];
+  getWishlistCount: () => number;
+  getWishlistTotalPrice: () => number;
+  getWishlistItemByName: (name: string) => ProductType | undefined;
 }
 
 export interface ComingSoonMessageProps {
