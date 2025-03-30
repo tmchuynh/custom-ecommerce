@@ -314,6 +314,7 @@ export type ProductType = {
 };
 
 export type DiscountFormProps = {
+  onApply?: (code: string) => void;
   discountCode: string;
   setDiscountCode: (code: string) => void;
   discountApplied: boolean;

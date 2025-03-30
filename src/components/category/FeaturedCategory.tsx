@@ -2,12 +2,27 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import DynamicButton from "../ui/button-dynamic";
 import { FeaturedCategoryProps } from "@/lib/interfaces";
+import { JSX } from "react";
 
+/**
+ * A component that renders a featured category item with an image and overlay content
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.item - The category item data
+ * @param {string} props.item.name - Name of the category
+ * @param {string} props.item.imageAlt - Alt text for the category image
+ * @param {string} props.item.imageSrc - Source URL for the category image
+ * @param {string} props.item.href - Link URL for the category
+ * @param {number} props.index - Index of the category item in the list
+ * @param {() => void} props.closePopovers - Function to close any open popovers
+ * @returns {JSX.Element} A featured category card with image and overlay content
+ */
 export default function FeaturedCategory({
   item,
   index,
   closePopovers,
-}: FeaturedCategoryProps) {
+}: FeaturedCategoryProps): JSX.Element {
   return (
     <div
       key={item.name}

@@ -237,16 +237,6 @@ export interface FeaturedCategoryProps {
   closePopovers?: () => void;
 }
 
-export interface DiscountFormProps {
-  onApply?: (code: string) => void;
-  discountCode?: string;
-  setDiscountCode?: (code: string) => void;
-  discountApplied?: boolean;
-  discountError?: boolean;
-  setDiscountError?: (error: boolean) => void;
-  handleApplyDiscount?: () => void;
-}
-
 export interface ShippingAddressData {
   addressLine1: string;
   addressLine2: string;

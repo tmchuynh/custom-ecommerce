@@ -185,7 +185,7 @@ export function validateCreditCard(cardNumber: string): boolean {
 /**
  * Determines the type of a credit card based on its number.
  *
- * @param sanitizedNumber - The credit card number as a string, stripped of any non-numeric characters.
+ * @param cardNumber - The credit card number as a string, stripped of any non-numeric characters.
  * @returns The card type as a string ("Visa", "MasterCard", "American Express", "Discover"), or `null` if the type cannot be determined.
  *
  * @example
@@ -195,25 +195,37 @@ export function validateCreditCard(cardNumber: string): boolean {
  * ```
  */
 
-export function getCardType(sanitizedNumber: string): string | null {
-  // Check the first digit(s) to identify the card type
-  const firstDigit = sanitizedNumber.charAt(0);
-  const firstTwoDigits = sanitizedNumber.slice(0, 2);
+export function getCardType(cardNumber: string): string | null {
+  // Remove spaces and dashes
+  const sanitizedNumber = cardNumber.replace(/[\s-]/g, "");
 
-  if (firstDigit === "4") {
-    return "Visa";
-  } else if (firstTwoDigits >= "51" && firstTwoDigits <= "55") {
-    return "MasterCard";
-  } else if (firstTwoDigits === "34" || firstTwoDigits === "37") {
-    return "American Express";
-  } else if (
-    sanitizedNumber.startsWith("6011") ||
-    sanitizedNumber.startsWith("65")
-  ) {
+  // Visa
+  if (/^4/.test(sanitizedNumber)) return "Visa";
+
+  // Mastercard
+  if (/^(5[1-5]|2[2-7])/.test(sanitizedNumber)) return "MasterCard";
+
+  // American Express
+  if (/^3[47]/.test(sanitizedNumber)) return "American Express";
+
+  // Discover
+  if (
+    /^(6011|65|64[4-9]|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]))/.test(
+      sanitizedNumber
+    )
+  )
     return "Discover";
-  } else {
-    return null;
-  }
+
+  // Diners Club
+  if (/^3(0[0-5]|[68])/.test(sanitizedNumber)) return "Diners Club";
+
+  // JCB
+  if (/^35/.test(sanitizedNumber)) return "JCB";
+
+  // UnionPay
+  if (/^62/.test(sanitizedNumber)) return "UnionPay";
+
+  return null;
 }
 
 /**
@@ -655,6 +667,43 @@ export const scrollToSection = (
 };
 
 /**
+ * Generates an array of month objects for use in form selections.
+ * Each object contains a two-digit month number (01-12) as both value and label.
+ *
+ * @returns {Array<{value: string, label: string}>} An array of 12 month objects
+ * @example
+ * // Returns [{value: "01", label: "01"}, {value: "02", label: "02"}, ...]
+ * generateMonths()
+ */
+export const generateMonths = (): Array<{ value: string; label: string }> => {
+  return Array.from({ length: 12 }, (_, i) => {
+    const month = (i + 1).toString().padStart(2, "0");
+    return { value: month, label: month };
+  });
+};
+
+/**
+ * Generates an array of year options for the next 10 years starting from the current year
+ *
+ * @returns An array of objects containing year values and labels
+ * @example
+ * // Returns array like:
+ * // [
+ * //   { value: "2024", label: "2024" },
+ * //   { value: "2025", label: "2025" },
+ * //   ...and so on for 10 years
+ * // ]
+ * generateYears();
+ */
+export const generateYears = () => {
+  const currentYear = new Date().getFullYear();
+  return Array.from({ length: 10 }, (_, i) => {
+    const year = (currentYear + i).toString();
+    return { value: year, label: year };
+  });
+};
+
+/**
  * Validates a payment amount
  */
 export function validatePaymentAmount(amount: number): boolean {
@@ -709,3 +758,275 @@ export const toggleAccordionSection = (
     });
   }
 };
+
+/**
+ * Handles the blur event for form fields and marks the field as touched.
+ *
+ * @param e - The blur event from the input field
+ * @param setTouched - The state setter function for the touched fields
+ */
+export const handleBlur = (
+  e: React.FocusEvent<HTMLInputElement>,
+  setTouched: React.Dispatch<React.SetStateAction<Record<string, boolean>>>
+) => {
+  const { name } = e.target;
+  setTouched((prev) => ({ ...prev, [name]: true }));
+};
+
+/**
+ * Validates and applies a discount code.
+ *
+ * @param discountCode - The discount code to validate and apply.
+ * @param applyDiscount - A callback function to apply the discount.
+ * @returns An object containing the discount application status and error state.
+ *
+ * @example
+ * ```typescript
+ * const { discountApplied, discountError } = handleApplyDiscount("CODE123", applyDiscount);
+ * ```
+ */
+export function handleApplyDiscountUtil(
+  discountCode: string,
+  applyDiscount: (code: string) => boolean
+): { discountApplied: boolean; discountError: boolean } {
+  if (!discountCode.trim()) {
+    return { discountApplied: false, discountError: true };
+  }
+
+  const isValidDiscount = applyDiscount(discountCode);
+
+  return {
+    discountApplied: isValidDiscount,
+    discountError: !isValidDiscount,
+  };
+}
+
+/**
+ * Validates form fields based on their name and value.
+ *
+ * @param name - The name of the field to validate.
+ * @param value - The value of the field to validate.
+ * @param additionalData - Optional additional data for validation (e.g., card type, expiry date).
+ * @returns An error message string if validation fails, or an empty string if validation passes.
+ *
+ * @example
+ * ```typescript
+ * validateField("email", "invalid-email"); // returns "Please enter a valid email address"
+ * validateField("postalCode", "1234"); // returns "Please enter a valid postal code"
+ * validateField("cardNumber", "4111111111111111", { cardType: "visa" }); // returns ""
+ * ```
+ */
+export function validateField(
+  name: string,
+  value: string,
+  additionalData?: { [key: string]: any }
+): string {
+  switch (name) {
+    // Customer Info Validation
+    case "firstName":
+    case "lastName":
+      if (value.trim() === "") {
+        return `${name === "firstName" ? "First" : "Last"} name is required`;
+      }
+      return /^[a-zA-Z\s'-]+$/.test(value)
+        ? ""
+        : "Please enter a valid name (letters, spaces, hyphens, and apostrophes only)";
+
+    case "email":
+      if (value.trim() === "") return "Email is required";
+      return validateEmail(value) ? "" : "Please enter a valid email address";
+
+    case "phone":
+      if (value.trim() === "") return "Phone number is required";
+      return validatePhone(value.replace(/\D/g, ""))
+        ? ""
+        : "Please enter a valid 10-digit phone number";
+
+    // Shipping Address Validation
+    case "addressLine1":
+      return value.trim() === "" ? "Address is required" : "";
+
+    case "city":
+      return value.trim() === "" ? "City is required" : "";
+
+    case "state":
+      return value.trim() === "" ? "State is required" : "";
+
+    case "postalCode":
+      if (value.trim() === "") return "Postal code is required";
+      return validatePostalCode(value)
+        ? ""
+        : "Please enter a valid postal code (e.g., 12345 or 12345-6789)";
+
+    // Payment Info Validation
+    case "cardNumber":
+      if (value.trim() === "") return "Card number is required";
+      const cardType = additionalData?.cardType || getCardType(value);
+      return validateCreditCard(value)
+        ? ""
+        : `Invalid card number for ${cardType || "unknown"} card`;
+
+    case "nameOnCard":
+      return value.trim() === "" ? "Name on card is required" : "";
+
+    case "expiryMonth":
+    case "expiryYear":
+      if (value === "")
+        return `Expiry ${
+          name === "expiryMonth" ? "month" : "year"
+        } is required`;
+
+      if (additionalData?.expiryMonth && additionalData?.expiryYear) {
+        const expiryDate = new Date();
+        expiryDate.setFullYear(
+          parseInt(additionalData.expiryYear),
+          parseInt(additionalData.expiryMonth) - 1,
+          1
+        );
+        return expiryDate >= new Date()
+          ? ""
+          : "Card expiration date has passed";
+      }
+      return "";
+
+    case "cvc":
+      if (value.trim() === "") return "CVC is required";
+      if (!/^\d+$/.test(value)) return "CVC must contain only digits";
+      const isAmex = additionalData?.cardType === "amex";
+      return isAmex && value.length === 4
+        ? ""
+        : !isAmex && value.length === 3
+        ? ""
+        : `CVC must be ${isAmex ? "4" : "3"} digits`;
+
+    default:
+      return "";
+  }
+}
+
+/**
+ * Handles form input changes and updates the form state accordingly.
+ * Also performs validation for non-checkbox fields.
+ *
+ * @param e - The React change event from the input element.
+ * @param setFormData - The state setter function for the form data.
+ * @param setErrors - The state setter function for validation errors.
+ * @param setCardType - Optional state setter for card type detection (used for payment forms).
+ * @param additionalData - Optional additional data for validation (e.g., expiryMonth, expiryYear).
+ */
+export function handleInputChange<T extends Record<string, any>>(
+  e: React.ChangeEvent<HTMLInputElement>,
+  setFormData: React.Dispatch<React.SetStateAction<T>>,
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>,
+  setCardType?: React.Dispatch<React.SetStateAction<string>>,
+  additionalData?: { [key: string]: any }
+): void {
+  const { name, value, type, checked } = e.target;
+
+  if (name === "cardNumber" && setCardType) {
+    const formattedValue = formatCreditCardNumber(value);
+    const detectedType = getCardType(formattedValue);
+    setCardType(detectedType || "");
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: formattedValue,
+    }));
+
+    const error = validateField(name, formattedValue, {
+      cardType: detectedType,
+    });
+    setErrors((prev) => ({ ...prev, [name]: error }));
+  } else {
+    const newValue = type === "checkbox" ? checked : value;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: newValue,
+    }));
+
+    if (type !== "checkbox") {
+      const error = validateField(name, value, additionalData);
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
+  }
+}
+
+/**
+ * Handles changes in select input fields by updating form data, validating the field, and marking it as touched.
+ *
+ * @param name - The name of the select field being changed
+ * @param value - The new value selected in the field
+ * @param setFormData - The state setter function for the form data
+ * @param setErrors - The state setter function for validation errors
+ * @param setTouched - The state setter function for touched fields
+ */
+export function handleSelectChange<T extends Record<string, any>>(
+  name: string,
+  value: string,
+  setFormData: React.Dispatch<React.SetStateAction<T>>,
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>,
+  setTouched: React.Dispatch<React.SetStateAction<Record<string, boolean>>>
+): void {
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+
+  const error = validateField(name, value);
+  setErrors((prev) => ({ ...prev, [name]: error }));
+  setTouched((prev) => ({ ...prev, [name]: true }));
+}
+
+/**
+ * Handles the submission of forms with validation and optional callbacks.
+ *
+ * @param formData - The form data object containing field values.
+ * @param requiredFields - An array of required field names to validate.
+ * @param validateField - A function to validate individual fields.
+ * @param setErrors - A state setter function to update the error state.
+ * @param setTouched - A state setter function to mark fields as touched.
+ * @param onSubmit - A callback function to execute when the form is valid.
+ * @param additionalData - Optional additional data for validation or submission.
+ * @returns A boolean indicating whether the form submission was successful.
+ */
+export function handleFormSubmit<T>(
+  formData: T,
+  requiredFields: Array<keyof T>,
+  validateField: (name: string, value: string, additionalData?: any) => string,
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>,
+  setTouched: React.Dispatch<React.SetStateAction<Record<string, boolean>>>,
+  onSubmit: (data: T) => void,
+  additionalData?: any
+): boolean {
+  const formErrors: Record<string, string> = {};
+  let isValid = true;
+
+  // Validate required fields
+  requiredFields.forEach((field) => {
+    const error = validateField(
+      field as string,
+      formData[field] as string,
+      additionalData
+    );
+    if (error) {
+      formErrors[field as string] = error;
+      isValid = false;
+    }
+  });
+
+  setErrors(formErrors);
+
+  // Mark all required fields as touched
+  const touchedFields: Record<string, boolean> = {};
+  requiredFields.forEach((field) => {
+    touchedFields[field as string] = true;
+  });
+  setTouched(touchedFields);
+
+  if (isValid) {
+    onSubmit(formData);
+  }
+
+  return isValid;
+}
