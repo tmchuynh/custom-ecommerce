@@ -7,11 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Mail, User, Phone, AlertCircle } from "lucide-react";
-
-interface CustomerInfoFormProps {
-  onSubmit: (data: CustomerInfoData) => void;
-  defaultValues?: CustomerInfoData;
-}
+import { CustomerInfoFormProps } from "@/lib/types";
 
 export interface CustomerInfoData {
   firstName: string;
@@ -21,19 +17,14 @@ export interface CustomerInfoData {
   marketingConsent: boolean;
 }
 
-export default function CustomerInfoForm({
-  onSubmit,
-  defaultValues,
-}: CustomerInfoFormProps) {
-  const [formData, setFormData] = useState<CustomerInfoData>(
-    defaultValues || {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      marketingConsent: false,
-    }
-  );
+export default function CustomerInfoForm({}: CustomerInfoFormProps) {
+  const [formData, setFormData] = useState<CustomerInfoData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    marketingConsent: false,
+  });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
