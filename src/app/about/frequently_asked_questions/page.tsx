@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import {
   CreditCard,
   HelpCircle,
-  Mail,
   MessageSquare,
-  Phone,
   RefreshCw,
   ShoppingBag,
   Truck,
@@ -24,17 +22,27 @@ const faqCategories = [
       {
         question: "How do I place an order?",
         answer:
-          "To place an order, browse our products, select the item you'd like to purchase, and add it to your cart. Once you're ready, go to your cart and follow the checkout process.",
+          "To place an order, browse our products, select the item you'd like to purchase, and add it to your shopping cart. Once you're ready to checkout, go to your cart and follow the on-screen prompts to complete your order. You'll need to enter your shipping information and payment details, and you'll receive an order confirmation email once your order is placed.",
       },
       {
         question: "Can I modify or cancel my order after it's placed?",
         answer:
-          "If you need to change or cancel your order, please contact us as soon as possible. Once your order has been shipped, we may not be able to make changes.",
+          "If you need to modify or cancel your order, please contact us as soon as possible. We process orders quickly, and once the order has been shipped, we may not be able to make changes. If your order hasn’t been shipped yet, we will do our best to accommodate your request. For assistance, please reach out to our customer support team immediately.",
       },
       {
         question: "Do I need an account to make a purchase?",
         answer:
-          "While you can check out as a guest, creating an account allows you to track your orders, save your shipping information, and take advantage of our loyalty program.",
+          "You can check out as a guest, but creating an account allows you to track your orders, save your shipping information for faster checkout, and take advantage of our loyalty rewards program. An account also enables you to manage your personal details and preferences more easily.",
+      },
+      {
+        question: "Can I place an order over the phone?",
+        answer:
+          "At this time, we only accept online orders through our website. However, our customer support team is available to help guide you through the online ordering process if you need assistance.",
+      },
+      {
+        question: "Can I change my shipping address after placing an order?",
+        answer:
+          "If you need to change your shipping address, please contact us as soon as possible. If the order has not yet been processed or shipped, we may be able to update the shipping address. Once the order is shipped, we cannot make any changes to the address.",
       },
     ],
   },
@@ -46,17 +54,27 @@ const faqCategories = [
       {
         question: "What payment methods do you accept?",
         answer:
-          "We accept all major credit cards, PayPal, Apple Pay, and Google Pay for secure payments.",
+          "We accept all major credit cards, including Visa, MasterCard, and American Express, as well as PayPal, Apple Pay, and Google Pay. All payments are securely processed to ensure your personal and financial information is kept safe.",
       },
       {
         question: "How do I apply a discount code?",
         answer:
-          "During checkout, there will be an option to enter a promo code. Simply enter the code, and the discount will be applied to your order total.",
+          "During checkout, you will see an option to enter a promo code. Simply type or paste the code into the provided field and click 'Apply'. The discount will be reflected in your order total. Please ensure the promo code is entered correctly and that it’s valid for the items in your cart. Some codes may have terms and conditions, such as minimum purchase requirements or expiration dates.",
       },
       {
         question: "Do you charge sales tax?",
         answer:
-          "Yes, sales tax is applied according to state and local regulations. The exact amount will be calculated during checkout based on your shipping address.",
+          "Yes, sales tax is applied based on the shipping address provided during checkout. The exact amount will be calculated and displayed before you finalize your order. Sales tax is determined by state and local regulations and may vary depending on your location.",
+      },
+      {
+        question: "Can I use multiple discount codes on one order?",
+        answer:
+          "Unfortunately, only one discount code can be applied per order. If you have multiple codes, you will need to choose the one that provides the best discount. Keep an eye out for our special promotions that allow you to stack discounts on select items.",
+      },
+      {
+        question: "Do you offer gift cards?",
+        answer:
+          "Yes, we offer digital gift cards in various denominations. You can purchase a gift card on our website and send it to a recipient via email. The gift card can be used to make purchases on our site just like any other payment method.",
       },
     ],
   },
@@ -68,17 +86,27 @@ const faqCategories = [
       {
         question: "How can I track my order?",
         answer:
-          "You can track your order by entering your tracking number on our 'Track Order' page. You will receive an email with your tracking details once your order ships.",
+          "You can track your order by entering your tracking number on our 'Track Order' page. Once your order ships, you will receive a tracking email with the carrier and tracking number details. You can use these details to follow your shipment's progress and estimated delivery date.",
       },
       {
         question: "How long will shipping take?",
         answer:
-          "Standard shipping typically takes 3-7 business days. Express shipping takes 1-3 business days, depending on your location.",
+          "Standard shipping typically takes 3-7 business days, depending on your location. For faster delivery, we offer express shipping options that usually take 1-3 business days. Delivery times may vary based on the shipping method and your location, and we will provide estimated delivery dates at checkout.",
       },
       {
         question: "Do you offer international shipping?",
         answer:
-          "Yes! We offer international shipping to most countries. Shipping costs and delivery times will vary depending on your location.",
+          "Yes! We offer international shipping to select countries. Shipping costs and delivery times vary depending on your location. During checkout, you will be able to see the shipping options and the estimated delivery time for your country. Please note that international orders may be subject to customs duties and taxes, which are the responsibility of the customer.",
+      },
+      {
+        question: "Can I change my shipping address after placing my order?",
+        answer:
+          "If you need to change the shipping address, please contact us immediately. We can update the shipping address if the order has not yet been processed or shipped. Unfortunately, once the order is shipped, we cannot change the shipping address.",
+      },
+      {
+        question: "Do you offer expedited shipping options?",
+        answer:
+          "Yes, we offer expedited shipping options such as 2-day and next-day delivery for select regions. These options are available at checkout and vary by your location. The shipping fee will be calculated based on your shipping address and selected method.",
       },
     ],
   },
@@ -90,17 +118,27 @@ const faqCategories = [
       {
         question: "Can I return an item?",
         answer:
-          "Yes, we offer a 30-day return policy. You can return items that are in original condition and packaging for a full refund or exchange.",
+          "Yes, we offer a 30-day return policy for most items. To return an item, it must be in its original condition and packaging. Some items, such as sale or clearance products, may not be eligible for return. For full details, please refer to our Return Policy page.",
       },
       {
         question: "How do I start a return?",
         answer:
-          "To initiate a return, log into your account, go to your order history, select the order with the item you wish to return, and follow the return instructions. You can also contact our customer support team for assistance.",
+          "To start a return, log into your account and navigate to your order history. Select the order that contains the item(s) you wish to return and follow the on-screen instructions to initiate the return. If you need help, our customer support team is available to guide you through the process.",
       },
       {
         question: "How long do refunds take to process?",
         answer:
-          "Once we receive your returned item, we'll inspect it and process your refund within 3-5 business days. It may take an additional 5-10 business days for the funds to appear in your account, depending on your payment method.",
+          "Refunds are processed within 3-5 business days after we receive and inspect the returned item(s). Once your refund is processed, the funds will typically appear in your account within 5-10 business days, depending on your payment method and financial institution.",
+      },
+      {
+        question: "Can I exchange an item instead of returning it?",
+        answer:
+          "We currently do not offer direct exchanges. If you wish to exchange an item, please return it and place a new order for the replacement item. This allows you to select the correct size, color, or style.",
+      },
+      {
+        question: "Do I have to pay for return shipping?",
+        answer:
+          "If the return is due to an error on our part (e.g., damaged or incorrect item), we will cover the return shipping costs. For all other returns, customers are responsible for the return shipping fees. We recommend using a trackable shipping service for returns to ensure the item arrives safely.",
       },
     ],
   },
@@ -112,39 +150,27 @@ const faqCategories = [
       {
         question: "How do I create an account?",
         answer:
-          "You can create an account by clicking the 'Sign Up' button in the top right corner of our website. You'll need to provide your email address and create a password.",
+          "To create an account, click the 'Sign Up' button located in the top right corner of our website. Enter your email address, create a password, and follow the prompts to complete the registration. Once your account is created, you'll have access to personalized recommendations, order tracking, and more.",
       },
       {
         question: "How do you protect my personal information?",
         answer:
-          "We use industry-standard encryption and security measures to protect your data. For more information, please see our Privacy Policy.",
+          "We take your privacy seriously and use industry-standard encryption and security measures to protect your personal information. For more details on how we safeguard your data, please read our Privacy Policy.",
       },
       {
         question: "I forgot my password. How do I reset it?",
         answer:
-          "Click on 'Login' and then select 'Forgot password'. Enter your email address, and we'll send you instructions to reset your password.",
-      },
-    ],
-  },
-  {
-    id: "support",
-    title: "Customer Support",
-    icon: <MessageSquare className="h-5 w-5" />,
-    questions: [
-      {
-        question: "How do I contact customer support?",
-        answer:
-          "If you need assistance, please visit our 'Customer Service' page for contact details, including email and phone support.",
+          "If you’ve forgotten your password, click on 'Login' and then select 'Forgot Password'. Enter your email address, and we’ll send you instructions to reset your password. Make sure to check your spam or junk folder if you don't see the email in your inbox.",
       },
       {
-        question: "What are your customer service hours?",
+        question: "How do I update my account information?",
         answer:
-          "Our customer service team is available Monday through Friday from 9:00 AM to 6:00 PM EST, and Saturday from 10:00 AM to 4:00 PM EST.",
+          "To update your account information, log into your account, go to your profile settings, and make the necessary changes. You can update your contact details, address, and other preferences. If you need assistance, please contact our customer service team.",
       },
       {
-        question: "Do you offer size guidance for clothing items?",
+        question: "How do I delete my account?",
         answer:
-          "Yes, each product page includes a size chart. If you need additional assistance, our customer service team can help with sizing recommendations.",
+          "If you wish to delete your account, please contact our customer support team. We can assist you with deactivating your account and removing your personal information from our systems. Please note that once your account is deleted, it cannot be restored.",
       },
     ],
   },
