@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "./ui/button";
 /**
  * A component that displays a cloud of logo images.
  *
