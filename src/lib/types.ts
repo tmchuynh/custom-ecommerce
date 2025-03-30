@@ -349,6 +349,7 @@ export type PaymentInfoFormProps = {
   setCardNumber: (value: string) => void;
   cardType: string;
   setCardType: (value: string) => void;
+  validateCard: (details: any) => boolean;
   cardExpiry: string;
   setCardExpiry: (value: string) => void;
   cardCvv: string;
@@ -388,6 +389,11 @@ export type PaymentInfoFormProps = {
   onSubmit: () => void;
   isSubmitting: boolean;
   setIsSubmitting: (value: boolean) => void;
+  paymentError: string | null;
+  isCardValid: boolean;
+  setIsCardValid: (value: boolean) => void;
+  resetForm: () => void;
+  total: number;
   handlePayment: () => void;
   handlePaymentSuccess: () => void;
   handlePaymentPending: () => void;
@@ -395,5 +401,4 @@ export type PaymentInfoFormProps = {
   handlePaymentCancelled: () => void;
   handlePaymentDeclined: () => void;
   handlePaymentRefunded: () => void;
-  handlePaymentDispute: () => void;
 };
