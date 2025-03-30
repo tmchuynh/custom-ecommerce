@@ -151,7 +151,7 @@ const QuickLookAndFavoriteButtons = ({
         </AlertDialogContent>
       </AlertDialog>
 
-      <button
+      <Button
         onClick={(e) => toggleWishlist(product.name, e)}
         className="p-2 rounded-full shadow-md transition-colors"
       >
@@ -162,8 +162,8 @@ const QuickLookAndFavoriteButtons = ({
               : "text-gray-600"
           }`}
         />
-        <span className="sr-only">Add to favorites</span>
-      </button>
+        <span className="sr-only">Add to Wishlist</span>
+      </Button>
     </div>
   );
 };
