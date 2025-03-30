@@ -1,8 +1,4 @@
 "use client";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useCart } from "../context/cartContext";
-import { useCurrency } from "../context/currencyContext";
-import { Button, buttonVariants } from "@/components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,12 +10,16 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { TiWarning } from "react-icons/ti";
-import { JSX } from "react";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { useProduct } from "../context/productContext";
+import { Skeleton } from "@/components/ui/skeleton";
 import { capitalize } from "@/lib/utils/format";
 import { cn } from "@/lib/utils/utils";
+import { JSX } from "react";
+import { TiWarning } from "react-icons/ti";
+import { useCart } from "../context/cartContext";
+import { useCurrency } from "../context/currencyContext";
+import { useProduct } from "../context/productContext";
 
 /**
  * Component that renders the shopping cart page.

@@ -1,26 +1,12 @@
 "use client";
-
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
 
+import { return_policy_sections } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import router from "next/router";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
-import { InformationDetails } from "@/lib/interfaces";
-import {
-  FaBookOpen,
-  FaCircleXmark,
-  FaMessage,
-  FaPhone,
-  FaTruckFast,
-} from "react-icons/fa6";
-import {
-  FaCheckCircle,
-  FaClock,
-  FaDollarSign,
-  FaMailBulk,
-} from "react-icons/fa";
-import { IoMdRefresh } from "react-icons/io";
-import { GoAlertFill } from "react-icons/go";
+import { FaMailBulk } from "react-icons/fa";
+import { FaBookOpen, FaMessage, FaPhone } from "react-icons/fa6";
 
 /**
  * ReturnPolicy Component
@@ -40,18 +26,18 @@ import { GoAlertFill } from "react-icons/go";
  * - sectionRefs: { [key: string]: HTMLElement | null } - Stores references to section DOM elements for scrolling
  *
  * @functions
- * - toggleSection(sectionId: string) - Handles expanding/collapsing individual policy sections
- * - handleScrollToSection(sectionId: string) - Handles smooth scrolling to selected policy sections
+ * - toggleSection(sectionId: string) - Handles expanding/collapsing individual policy return_policy_sections
+ * - handleScrollToSection(sectionId: string) - Handles smooth scrolling to selected policy return_policy_sections
  *
  * @features
  * - Responsive layout with sidebar navigation on larger screens
- * - Collapsible accordion sections for easy content digestion
- * - Smooth scroll functionality when selecting sections
- * - Visual indicators for active sections
+ * - Collapsible accordion return_policy_sections for easy content digestion
+ * - Smooth scroll functionality when selecting return_policy_sections
+ * - Visual indicators for active return_policy_sections
  * - Icon-based navigation for improved UX
- * - Detailed policy information organized into logical sections
+ * - Detailed policy information organized into logical return_policy_sections
  *
- * @sections
+ * @return_policy_sections
  * - Introduction
  * - Return Timeframe
  * - Eligibility for Return
@@ -81,50 +67,6 @@ const ReturnPolicy = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections: InformationDetails[] = [
-    {
-      id: "introduction",
-      title: "Introduction",
-      icon: FaBookOpen,
-    },
-    {
-      id: "timeframe",
-      title: "Return Timeframe",
-      icon: FaClock,
-    },
-    {
-      id: "eligibility",
-      title: "Eligibility for Return",
-      icon: FaCheckCircle,
-    },
-    {
-      id: "non-returnable",
-      title: "Non-Returnable Items",
-      icon: FaCircleXmark,
-    },
-    {
-      id: "process",
-      title: "How to Return an Item",
-      icon: IoMdRefresh,
-    },
-    {
-      id: "refunds",
-      title: "Refunds and Exchanges",
-      icon: FaDollarSign,
-    },
-    {
-      id: "shipping",
-      title: "Return Shipping Costs",
-      icon: FaTruckFast,
-    },
-    {
-      id: "damaged",
-      title: "Damaged or Defective Items",
-      icon: GoAlertFill,
-    },
-    { id: "contact", title: "Contact Us", icon: FaPhone },
-  ];
-
   return (
     <div className="min-h-screen relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -144,7 +86,7 @@ const ReturnPolicy = () => {
             <div className="sticky top-8 rounded-xl shadow-md border p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {return_policy_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
@@ -218,8 +160,8 @@ const ReturnPolicy = () => {
               )}
             </div>
 
-            {/* Render all other sections */}
-            {sections.slice(1).map((section) => (
+            {/* Render all other return_policy_sections */}
+            {return_policy_sections.slice(1).map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {

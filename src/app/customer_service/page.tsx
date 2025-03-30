@@ -1,10 +1,10 @@
 "use client";
-
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { customerServiceFAQs } from "@/lib/constants/faqs";
+import { customer_service_sections } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
-import { customerServiceFAQs } from "@/lib/faqs";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import { useRef, useState } from "react";
 import {
   FaClock,
   FaCreditCard,
@@ -15,8 +15,8 @@ import {
   FaTag,
 } from "react-icons/fa";
 import { FaGlobe, FaMessage, FaTruckFast } from "react-icons/fa6";
-import { InformationDetails } from "@/lib/interfaces";
-import { IoMdHelp, IoMdRefresh } from "react-icons/io";
+import { FiHelpCircle } from "react-icons/fi";
+import { IoMdRefresh } from "react-icons/io";
 
 /**
  * CustomerService Component
@@ -27,7 +27,7 @@ import { IoMdHelp, IoMdRefresh } from "react-icons/io";
  *
  * @features
  * - Interactive table of contents with smooth scrolling
- * - Collapsible sections for different support topics
+ * - Collapsible customer_service_sections for different support topics
  * - Contact information display
  * - Business hours table
  * - FAQ section
@@ -38,10 +38,10 @@ import { IoMdHelp, IoMdRefresh } from "react-icons/io";
  * - sectionRefs: Maintains references to section DOM elements for scrolling
  *
  * @methods
- * - toggleSection: Handles expanding/collapsing accordion sections
- * - handleScrollToSection: Manages smooth scrolling to selected sections
+ * - toggleSection: Handles expanding/collapsing accordion customer_service_sections
+ * - handleScrollToSection: Manages smooth scrolling to selected customer_service_sections
  *
- * @sections
+ * @customer_service_sections
  * - Introduction
  * - Contact Information
  * - Business Hours
@@ -72,34 +72,6 @@ const CustomerService = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections: InformationDetails[] = [
-    {
-      id: "introduction",
-      title: "How Can We Help You?",
-      icon: FiHelpCircle,
-    },
-    {
-      id: "contact",
-      title: "Contact Information",
-      icon: FaPhone,
-    },
-    {
-      id: "hours",
-      title: "Business Hours",
-      icon: FaClock,
-    },
-    {
-      id: "faq",
-      title: "Frequently Asked Questions",
-      icon: FaMessage,
-    },
-    {
-      id: "other-services",
-      title: "Other Services",
-      icon: FaGift,
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -117,7 +89,7 @@ const CustomerService = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {customer_service_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}

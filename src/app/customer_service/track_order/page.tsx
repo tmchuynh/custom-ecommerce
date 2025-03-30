@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { trackingOrderFAQs } from "@/lib/faqs";
+import { orderStatuses } from "@/lib/constants/constants";
+import { trackingOrderFAQs } from "@/lib/constants/faqs";
 import { cn, toggleAccordionSection } from "@/lib/utils/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -68,38 +69,6 @@ const TrackOrder = () => {
       sectionRefs.current[sectionId]
     );
   };
-
-  // Simulated order statuses
-  const orderStatuses = [
-    {
-      trackingNumber: "123456",
-      status: "Shipped",
-      carrier: "FedEx",
-      estimatedDelivery: "Jun 15, 2023",
-      lastUpdate: "Jun 10, 2023 - Package left warehouse",
-    },
-    {
-      trackingNumber: "654321",
-      status: "In Transit",
-      carrier: "UPS",
-      estimatedDelivery: "Jun 18, 2023",
-      lastUpdate: "Jun 12, 2023 - Package in transit to destination",
-    },
-    {
-      trackingNumber: "112233",
-      status: "Delivered",
-      carrier: "USPS",
-      estimatedDelivery: "Jun 8, 2023",
-      lastUpdate: "Jun 8, 2023 - Package delivered",
-    },
-    {
-      trackingNumber: "445566",
-      status: "Processing",
-      carrier: "Pending",
-      estimatedDelivery: "Jun 20, 2023",
-      lastUpdate: "Jun 11, 2023 - Order confirmed, preparing for shipment",
-    },
-  ];
 
   // Handle the track order functionality
   const handleTrackOrder = () => {

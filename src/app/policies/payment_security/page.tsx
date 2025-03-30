@@ -1,14 +1,12 @@
 "use client";
-
-import { useState, useRef, JSX } from "react";
 import { Button } from "@/components/ui/button";
+import { JSX, useRef, useState } from "react";
 
+import { payment_security_sections } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import router from "next/router";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
-import { InformationDetails } from "@/lib/interfaces";
-import { FaFileAlt, FaKey, FaLock, FaMailBulk, FaPhone } from "react-icons/fa";
-import { FaCreditCard, FaMessage, FaServer, FaShield } from "react-icons/fa6";
-import { GoAlert, GoAlertFill } from "react-icons/go";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 /**
  * PaymentSecurity Component
@@ -28,8 +26,8 @@ import { GoAlert, GoAlertFill } from "react-icons/go";
  *
  * Features:
  * - Responsive layout with sidebar navigation
- * - Accordion-style expandable sections
- * - Smooth scroll functionality to sections
+ * - Accordion-style expandable payment_security_sections
+ * - Smooth scroll functionality to payment_security_sections
  * - Detailed information about:
  *   - Security Overview
  *   - Data Encryption
@@ -40,7 +38,7 @@ import { GoAlert, GoAlertFill } from "react-icons/go";
  *   - Fraud Prevention
  *   - Contact Information
  *
- * @returns {JSX.Element} A payment security information page with interactive sections
+ * @returns {JSX.Element} A payment security information page with interactive payment_security_sections
  */
 const PaymentSecurity = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -58,49 +56,6 @@ const PaymentSecurity = (): JSX.Element => {
   const handleScrollToSection = (sectionId: string) => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
-
-  const sections: InformationDetails[] = [
-    {
-      id: "overview",
-      title: "Security Overview",
-      icon: FaShield,
-    },
-    {
-      id: "encryption",
-      title: "Data Encryption",
-      icon: FaLock,
-    },
-    {
-      id: "payment-processing",
-      title: "Payment Processing",
-      icon: FaCreditCard,
-    },
-    {
-      id: "authentication",
-      title: "Authentication Methods",
-      icon: FaKey,
-    },
-    {
-      id: "compliance",
-      title: "Security Compliance",
-      icon: FaFileAlt,
-    },
-    {
-      id: "monitoring",
-      title: "Security Monitoring",
-      icon: FaServer,
-    },
-    {
-      id: "fraud",
-      title: "Fraud Prevention",
-      icon: GoAlertFill,
-    },
-    {
-      id: "contact",
-      title: "Contact Security Team",
-      icon: GoAlert,
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -120,7 +75,7 @@ const PaymentSecurity = (): JSX.Element => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {payment_security_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
@@ -148,7 +103,7 @@ const PaymentSecurity = (): JSX.Element => {
 
           {/* Main Content */}
           <div className="lg:col-span-5 space-y-8">
-            {sections.map((section) => (
+            {payment_security_sections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {

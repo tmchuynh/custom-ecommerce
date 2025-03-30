@@ -1,23 +1,11 @@
 "use client";
-
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { cookie_policy_sections } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import router from "next/router";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
-import { InformationDetails } from "@/lib/interfaces";
-import {
-  FaBookOpen,
-  FaDatabase,
-  FaCookie,
-  FaClock,
-  FaInfo,
-  FaPhone,
-  FaFileAlt,
-  FaMailBulk,
-} from "react-icons/fa";
-import { IoMdSettings } from "react-icons/io";
-import { FaMessage, FaShield } from "react-icons/fa6";
-import { MdManageHistory } from "react-icons/md";
+import { JSX, useRef, useState } from "react";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 /**
  * CookiePolicy Component
@@ -38,12 +26,12 @@ import { MdManageHistory } from "react-icons/md";
  *
  * Features:
  * - Responsive layout with sidebar navigation
- * - Collapsible sections with smooth animations
+ * - Collapsible cookie_policy_sections with smooth animations
  * - Interactive table of contents
  * - Detailed information about cookie usage, types, and management
  * - Contact information and support options
  *
- * Sections covered:
+ * cookie_policy_sections covered:
  * - Overview
  * - Encryption
  * - What Are Cookies
@@ -55,9 +43,9 @@ import { MdManageHistory } from "react-icons/md";
  * - Policy Updates
  * - Contact Information
  *
- * @returns {JSX.Element} A responsive cookie policy page with interactive sections
+ * @returns {JSX.Element} A responsive cookie policy page with interactive cookie_policy_sections
  */
-const CookiePolicy = () => {
+const CookiePolicy = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -73,59 +61,6 @@ const CookiePolicy = () => {
   const handleScrollToSection = (sectionId: string) => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
-
-  const sections: InformationDetails[] = [
-    {
-      id: "overview",
-      title: "Overview",
-      icon: FaBookOpen,
-    },
-    {
-      id: "encryption",
-      title: "Encryption",
-      icon: FaDatabase,
-    },
-    {
-      id: "what-are-cookies",
-      title: "What Are Cookies",
-      icon: FaCookie,
-    },
-    {
-      id: "types",
-      title: "Types of Cookies",
-      icon: FaFileAlt,
-    },
-    {
-      id: "how-we-use",
-      title: "How We Use Cookies",
-      icon: IoMdSettings,
-    },
-    {
-      id: "third-party",
-      title: "Third-Party Cookies",
-      icon: FaShield,
-    },
-    {
-      id: "duration",
-      title: "Cookie Duration",
-      icon: FaClock,
-    },
-    {
-      id: "management",
-      title: "Cookie Management",
-      icon: MdManageHistory,
-    },
-    {
-      id: "policy-updates",
-      title: "Policy Updates",
-      icon: FaInfo,
-    },
-    {
-      id: "contact",
-      title: "Contact Us",
-      icon: FaPhone,
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -145,7 +80,7 @@ const CookiePolicy = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {cookie_policy_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
@@ -174,7 +109,7 @@ const CookiePolicy = () => {
           {/* Main Content */}
 
           <div className="lg:col-span-5 space-y-8">
-            {sections.map((section) => (
+            {cookie_policy_sections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {

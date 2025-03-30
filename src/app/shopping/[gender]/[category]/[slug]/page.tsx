@@ -8,12 +8,12 @@ import RelatedProducts from "@/components/category/product/RelatedProducts";
 import CannotFind from "@/components/states/CannotFind";
 import LoadingIndicator from "@/components/states/Loading";
 import { ProductItem } from "@/lib/interfaces";
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import { ProductType } from "@/lib/types";
 import { formatURL } from "@/lib/utils/format";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
 /**
@@ -39,7 +39,7 @@ import { FaArrowLeft } from "react-icons/fa";
  * // URL format: /shopping/[gender]/[category]/[slug]
  * <ProductPage />
  */
-export default function ProductPage() {
+export default function ProductPage(): JSX.Element {
   const { gender, category, slug } = useParams();
 
   const { getRelatedProducts } = useProduct();

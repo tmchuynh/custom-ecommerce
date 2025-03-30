@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
 import Image from "next/image";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import { FaMessage, FaShirt } from "react-icons/fa6";

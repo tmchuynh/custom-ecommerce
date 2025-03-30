@@ -1,15 +1,14 @@
 "use client";
-
 import { Button } from "@/components/ui/button";
-import { perks } from "@/lib/constants";
-import { loyaltyFaqs } from "@/lib/faqs";
-import { InformationDetails } from "@/lib/interfaces";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
+import { perks } from "@/lib/constants/constants";
+import { loyaltyFaqs } from "@/lib/constants/faqs";
+import { loyalty_program_sections } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { FaRegCreditCard, FaShoppingBag } from "react-icons/fa";
-import { IoIosHelpCircleOutline, IoIosTrendingUp } from "react-icons/io";
 import { FaAward, FaBookOpen, FaGift, FaStar } from "react-icons/fa6";
+import { IoIosHelpCircleOutline, IoIosTrendingUp } from "react-icons/io";
 
 /**
  * A comprehensive loyalty program component that displays membership details, points system, and program benefits.
@@ -23,7 +22,7 @@ import { FaAward, FaBookOpen, FaGift, FaStar } from "react-icons/fa6";
  * @remarks
  * This component manages a loyalty program interface with the following features:
  * - Points tracking and management
- * - Collapsible sections for program details
+ * - Collapsible loyalty_program_sections for program details
  * - Table of contents navigation
  * - Program tiers and benefits explanation
  * - FAQ section with expandable answers
@@ -32,7 +31,7 @@ import { FaAward, FaBookOpen, FaGift, FaStar } from "react-icons/fa6";
  * - Current points display
  * - Program perks section
  * - Sidebar navigation
- * - Detailed sections including:
+ * - Detailed loyalty_program_sections including:
  *   - Introduction
  *   - How It Works
  *   - Program Benefits
@@ -71,44 +70,6 @@ const LoyaltyProgram = () => {
   const handleScrollToSection = (sectionId: string) => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
-
-  const sections: InformationDetails[] = [
-    {
-      id: "introduction",
-      title: "Introduction",
-      icon: FaBookOpen,
-    },
-    {
-      id: "how-it-works",
-      title: "How It Works",
-      icon: FaAward,
-    },
-    {
-      id: "benefits",
-      title: "Program Benefits",
-      icon: FaGift,
-    },
-    {
-      id: "earning",
-      title: "Earning Points",
-      icon: FaStar,
-    },
-    {
-      id: "redeeming",
-      title: "Redeeming Points",
-      icon: FaShoppingBag,
-    },
-    {
-      id: "tiers",
-      title: "Membership Tiers",
-      icon: IoIosTrendingUp,
-    },
-    {
-      id: "faqs",
-      title: "FAQs",
-      icon: IoIosHelpCircleOutline,
-    },
-  ];
 
   const [expandedFaqs, setExpandedFaqs] = useState<{ [key: number]: boolean }>(
     {}
@@ -173,7 +134,7 @@ const LoyaltyProgram = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Program Details</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {loyalty_program_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}

@@ -2,6 +2,7 @@
 
 import Image from "next/image"; // Assuming you're using Image component
 import { useWishlist } from "../context/wishlistContext";
+import { JSX } from "react";
 
 /**
  * Renders the Wishlist page component.
@@ -22,7 +23,7 @@ import { useWishlist } from "../context/wishlistContext";
  *
  * @returns {JSX.Element} A responsive page displaying wishlist items or empty state message
  */
-const WishlistPage = () => {
+const WishlistPage = (): JSX.Element => {
   const { wishlistItems, removeFromWishlist } = useWishlist(); // Access wishlist data
 
   return (

@@ -1,11 +1,11 @@
 "use client";
 import Categories from "@/components/category/Categories";
-import Policies from "@/components/Policies";
 import TrendingProducts from "@/components/category/product/TrendingProducts";
-import { offers, testimonials } from "@/lib/constants";
+import ShopByCollection from "@/components/category/ShopByCollection";
+import Policies from "@/components/Policies";
+import { offers, testimonials } from "@/lib/constants/constants";
 import Image from "next/image";
 import { useState } from "react";
-import ShopByCollection from "@/components/category/ShopByCollection";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

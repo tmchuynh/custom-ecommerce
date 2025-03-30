@@ -1,25 +1,12 @@
 "use client";
-
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useRef, useState } from "react";
 
-import router from "next/router";
+import { terms_and_conditions_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import {
-  FaBookOpen,
-  FaCreditCard,
-  FaEdit,
-  FaLock,
-  FaPhone,
-  FaRegCopyright,
-  FaShoppingBag,
-  FaShoppingBasket,
-  FaUsers,
-} from "react-icons/fa";
-import { InformationDetails } from "@/lib/interfaces";
-import { FaShield, FaTruckFast } from "react-icons/fa6";
-import { GoAlertFill } from "react-icons/go";
-import { IoMdRefresh } from "react-icons/io";
+import router from "next/router";
+import { FaBookOpen, FaMailBulk, FaPhone } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 /**
  * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.
@@ -28,9 +15,9 @@ import { IoMdRefresh } from "react-icons/io";
  * @description
  * This component renders a responsive Terms and Conditions page with the following features:
  * - A sticky table of contents sidebar for easy navigation
- * - Collapsible sections with icons for different legal topics
+ * - Collapsible terms_and_conditions_sections with icons for different legal topics
  * - Interactive accordion functionality for showing/hiding content
- * - Smooth scrolling to selected sections
+ * - Smooth scrolling to selected terms_and_conditions_sections
  * - Responsive layout that adapts to different screen sizes
  *
  * The component uses:
@@ -45,7 +32,7 @@ import { IoMdRefresh } from "react-icons/io";
  * ```
  *
  * @returns A React component that renders the Terms and Conditions page with
- * multiple sections including Introduction, Use of Site, Account Registration,
+ * multiple terms_and_conditions_sections including Introduction, Use of Site, Account Registration,
  * Product Information, and more.
  */
 const TermsAndConditions = () => {
@@ -65,70 +52,6 @@ const TermsAndConditions = () => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections: InformationDetails[] = [
-    {
-      id: "introduction",
-      title: "Introduction",
-      icon: FaBookOpen,
-    },
-    {
-      id: "use",
-      title: "Use of the Site",
-      icon: FaShield,
-    },
-    {
-      id: "account",
-      title: "Account Registration",
-      icon: FaUsers,
-    },
-    {
-      id: "product",
-      title: "Product Information",
-      icon: FaShoppingBag,
-    },
-    {
-      id: "order",
-      title: "Order Process",
-      icon: FaShoppingBasket,
-    },
-    {
-      id: "payments",
-      title: "Payments",
-      icon: FaCreditCard,
-    },
-    {
-      id: "shipping",
-      title: "Shipping and Delivery",
-      icon: FaTruckFast,
-    },
-    {
-      id: "returns",
-      title: "Returns and Exchanges",
-      icon: IoMdRefresh,
-    },
-    {
-      id: "liability",
-      title: "Limitation of Liability",
-      icon: GoAlertFill,
-    },
-    {
-      id: "intellectual",
-      title: "Intellectual Property",
-      icon: FaRegCopyright,
-    },
-    {
-      id: "privacy",
-      title: "Privacy Policy",
-      icon: FaLock,
-    },
-    {
-      id: "changes",
-      title: "Changes to Terms",
-      icon: FaEdit,
-    },
-    { id: "contact", title: "Contact Us", icon: FaPhone },
-  ];
-
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -147,7 +70,7 @@ const TermsAndConditions = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {terms_and_conditions_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
@@ -182,7 +105,7 @@ const TermsAndConditions = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <BookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
+                  <FaBookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -220,8 +143,8 @@ const TermsAndConditions = () => {
               )}
             </div>
 
-            {/* Render all other sections similarly */}
-            {sections.slice(1).map((section) => (
+            {/* Render all other terms_and_conditions_sections similarly */}
+            {terms_and_conditions_sections.slice(1).map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {
@@ -631,7 +554,7 @@ const TermsAndConditions = () => {
                       <div className="p-6 border-t">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Email Support
@@ -657,7 +580,7 @@ const TermsAndConditions = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Phone Support
@@ -680,7 +603,7 @@ const TermsAndConditions = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Live Chat

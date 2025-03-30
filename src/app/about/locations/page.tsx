@@ -3,7 +3,7 @@ import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import Link from "next/link";
-import { locations } from "@/lib/constants";
+import { locations } from "@/lib/constants/constants";
 import { scrollToSection } from "@/lib/utils/utils";
 import {
   FaCalendar,

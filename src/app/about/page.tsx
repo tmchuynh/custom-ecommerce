@@ -1,13 +1,12 @@
 "use client";
-
-import { useState, useRef } from "react";
 import LogoCloud from "@/components/LogoCloud";
 import Team from "@/components/Team";
-import { stats, values } from "@/lib/constants";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { stats, values } from "@/lib/constants/constants";
+import { about_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import { InformationDetails } from "@/lib/interfaces";
+import Image from "next/image";
+import { useRef, useState } from "react";
 import {
   FaAward,
   FaBookOpen,
@@ -32,29 +31,6 @@ export default function About() {
   const handleScrollToSection = (sectionId: string) => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
-
-  const sections: InformationDetails[] = [
-    {
-      id: "mission",
-      title: "Our Mission",
-      icon: FaBookOpen,
-    },
-    {
-      id: "values",
-      title: "Our Values",
-      icon: FaHeart,
-    },
-    {
-      id: "team",
-      title: "Our Team",
-      icon: FaUsers,
-    },
-    {
-      id: "partners",
-      title: "Our Partners",
-      icon: FaBriefcase,
-    },
-  ];
 
   return (
     <main className="isolate min-h-screen">
@@ -118,7 +94,7 @@ export default function About() {
             <div className="sticky top-8 rounded-xl shadow-md p-6 border">
               <h2 className="text-xl font-bold mb-4">About Us</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {about_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}

@@ -1,18 +1,15 @@
 "use client";
-
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import router from "next/router";
+import { privacy_policy_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import { InformationDetails } from "@/lib/interfaces";
+import router from "next/router";
+import { JSX, useRef, useState } from "react";
 import {
   FaBookOpen,
   FaEdit,
   FaFileAlt,
   FaMailBulk,
   FaPhoneAlt,
-  FaShieldAlt,
-  FaSquare,
   FaUserCheck,
 } from "react-icons/fa";
 import { FaDatabase, FaMessage, FaShare, FaShield } from "react-icons/fa6";
@@ -29,21 +26,21 @@ import { FaDatabase, FaMessage, FaShare, FaShield } from "react-icons/fa6";
  * @state {string | null} activeSection - Tracks which section is currently expanded
  * @state {Object} sectionRefs - Refs to each policy section for scrolling functionality
  *
- * @function toggleSection - Handles expanding/collapsing individual policy sections
+ * @function toggleSection - Handles expanding/collapsing individual policy privacy_policy_sections
  * @param {string} sectionId - ID of the section to toggle
  *
- * @function handleScrollToSection - Handles smooth scrolling to selected policy sections
+ * @function handleScrollToSection - Handles smooth scrolling to selected policy privacy_policy_sections
  * @param {string} sectionId - ID of the section to scroll to
  *
  * Features:
  * - Responsive layout with grid system
  * - Sticky navigation sidebar
- * - Expandable/collapsible content sections
+ * - Expandable/collapsible content privacy_policy_sections
  * - Smooth scroll functionality
  * - Icon integration for visual hierarchy
  * - Accessible button controls
  *
- * Sections covered:
+ * privacy_policy_sections covered:
  * - Introduction
  * - Information Collection
  * - Information Usage
@@ -55,7 +52,7 @@ import { FaDatabase, FaMessage, FaShare, FaShield } from "react-icons/fa6";
  *
  * @returns {JSX.Element} A responsive privacy policy page component
  */
-const PrivacyPolicy = () => {
+const PrivacyPolicy = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
@@ -71,46 +68,6 @@ const PrivacyPolicy = () => {
   const handleScrollToSection = (sectionId: string) => {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
-
-  const sections: InformationDetails[] = [
-    {
-      id: "introduction",
-      title: "Introduction",
-      icon: FaBookOpen,
-    },
-    {
-      id: "information-collect",
-      title: "Information We Collect",
-      icon: FaDatabase,
-    },
-    {
-      id: "information-usage",
-      title: "How We Use Your Information",
-      icon: FaFileAlt,
-    },
-    {
-      id: "information-sharing",
-      title: "Information Sharing",
-      icon: FaShare,
-    },
-    {
-      id: "data-protection",
-      title: "How We Protect Your Information",
-      icon: FaShieldAlt,
-    },
-    {
-      id: "your-rights",
-      title: "Your Rights",
-      icon: FaUserCheck,
-    },
-
-    {
-      id: "changes",
-      title: "Changes to Privacy Policy",
-      icon: FaEdit,
-    },
-    { id: "contact", title: "Contact Us", icon: FaPhoneAlt },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -131,7 +88,7 @@ const PrivacyPolicy = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {privacy_policy_sections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
