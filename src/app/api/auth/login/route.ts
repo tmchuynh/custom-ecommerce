@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { sign } from "jsonwebtoken";
-import { encryptKey } from "@/lib/utils";
+import { encryptKey } from "@/lib/utils/encryption";
 
 /**
  * Handles POST requests for user authentication and login.

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { verify } from "jsonwebtoken";
-import { decryptKey } from "@/lib/utils";
+import { decryptKey } from "@/lib/utils/encryption";
 
 /**
  * Handles HTTP GET requests for user authentication.

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { decryptKey } from "@/lib/utils";
+import { decryptKey } from "@/lib/utils/encryption";
 
 const wishlist = new Map<string, string[]>();
 
