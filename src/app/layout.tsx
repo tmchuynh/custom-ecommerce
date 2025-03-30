@@ -7,6 +7,7 @@ import { Toaster } from "sonner";
 import { NotFoundProvider } from "./context/NotFoundContext";
 import "./globals.css";
 import { Providers } from "./providers";
+import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({
   children,
@@ -18,22 +19,24 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <NotFoundProvider>
-            <NavTopMenu />
-            <NavMenu />
-            <main className="flex-grow">
-              <BreadcrumbWrapper />
-              {children}
-              <Footer />
-            </main>
-            <BackToTop />
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                style: {
-                  marginTop: "200px",
-                },
-              }}
-            />
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <NavTopMenu />
+              <NavMenu />
+              <main className="flex-grow">
+                <BreadcrumbWrapper />
+                {children}
+                <Footer />
+              </main>
+              <BackToTop />
+              <Toaster
+                position="top-center"
+                toastOptions={{
+                  style: {
+                    marginTop: "200px",
+                  },
+                }}
+              />
+            </ThemeProvider>
           </NotFoundProvider>
         </Providers>
       </body>

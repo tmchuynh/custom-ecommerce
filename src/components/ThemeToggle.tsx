@@ -2,7 +2,7 @@
 
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
 /**
@@ -31,37 +31,39 @@ import { FiMoon, FiSun } from "react-icons/fi";
  * };
  * ```
  */
-export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+export const ThemeToggle = (): JSX.Element | null => {
+  const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    // Initialize theme if not set
+    if (!theme || theme === "system") {
+      setTheme(systemTheme || "light");
+    }
+  }, [systemTheme, theme, setTheme]);
 
   const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
+    setTheme(theme === "dark" ? "light" : "dark");
   };
 
   if (!mounted) {
-    return null; // Render nothing until mounted
+    return null;
   }
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <div className="flex items-center space-x-2">
       <FiSun
         className={`text-xl ${
-          theme === "dark" ? "text-gray-400" : "text-primary"
+          currentTheme === "dark" ? "text-gray-400" : "text-primary"
         }`}
       />
-      <Switch checked={theme === "dark"} onCheckedChange={toggleTheme} />
+      <Switch checked={currentTheme === "dark"} onCheckedChange={toggleTheme} />
       <FiMoon
         className={`text-xl ${
-          theme === "light" ? "text-gray-400" : "text-blue-500"
+          currentTheme === "light" ? "text-gray-400" : "text-blue-500"
         }`}
       />
     </div>
