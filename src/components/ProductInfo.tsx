@@ -12,6 +12,19 @@ import { Heart, ShoppingCart } from "lucide-react";
 import { useCart } from "@/app/context/cartContext";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
+import { useWishlist } from "@/app/context/wishlistContext";
+import { useProtectedAction } from "@/hooks/useProtectedAction";
+import { AuthDialog } from "./auth/AuthDialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "./ui/alert-dialog";
 
 /**
  * A component that displays detailed information about a product.
@@ -75,9 +88,32 @@ const ProductInfo = ({
   );
   const [localQuantity, setLocalQuantity] = useState(1);
   const [inWishlist, setInWishlist] = useState(false);
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const { protectedAction, showAuthAlert, closeAuthAlert, handleLogin } =
+    useProtectedAction();
 
-  const toggleWishlist = () => {
-    setInWishlist(!inWishlist);
+  const handleWishlistClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    await protectedAction(async () => {
+      try {
+        const isInWishlist = wishlistItems.some(
+          (item) => item.name === product.name
+        );
+        if (isInWishlist) {
+          await removeFromWishlist(product.name);
+          toast.success("Removed from wishlist");
+        } else {
+          await addToWishlist(product);
+          toast.success("Added to wishlist");
+        }
+      } catch (error) {
+        console.error("Wishlist operation failed:", error);
+        toast.error("Failed to update wishlist");
+      }
+    });
   };
 
   /**
@@ -169,6 +205,11 @@ const ProductInfo = ({
         "w-full": !page,
       })}
     >
+      <AuthDialog
+        show={showAuthAlert}
+        onClose={closeAuthAlert}
+        onLogin={handleLogin}
+      />
       <div
         className={cn(
           "grid grid-cols-subgrid grid-col-7 grid-flow-row h-full",
@@ -248,7 +289,7 @@ const ProductInfo = ({
             )}
             <Button
               variant="outline"
-              onClick={toggleWishlist}
+              onClick={handleWishlistClick}
               className={`flex-1 flex items-center justify-center ${
                 inWishlist ? "bg-pink-50 border-pink-200 text-pink-700" : ""
               }`}
@@ -263,6 +304,23 @@ const ProductInfo = ({
           </div>
         )}
       </div>
+
+      <AlertDialog open={showAuthDialog} onOpenChange={setShowAuthDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Sign in required</AlertDialogTitle>
+            <AlertDialogDescription>
+              Please sign in to add items to your wishlist.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction asChild>
+              <Link href="/auth/login">Sign in</Link>
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

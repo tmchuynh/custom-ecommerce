@@ -57,51 +57,22 @@ export default function AddToCartButtons({
   const { addToCart, getCartItem } = useCart();
   const [localQuantity, setLocalQuantity] = useState(1);
   const cartItem = getCartItem(product.name);
-  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
-  const { protectedAction, showAuthAlert, closeAuthAlert, handleLogin } =
-    useProtectedAction();
-  const [showAuthDialog, setShowAuthDialog] = useState(false);
+
   const handleAddToCart = async (product: ProductType, id: string) => {
-    await protectedAction(async () => {
-      addToCart({
-        id: id,
-        name: product.name,
-        description: product.description,
-        highlights: product.highlights ?? [],
-        price: parseFloat(product.displayPrice),
-        quantity: localQuantity,
-        imageSrc: product.imageSrc,
-      });
-      toast.success(`${product.name} added to cart!`);
+    addToCart({
+      id: id,
+      name: product.name,
+      description: product.description,
+      highlights: product.highlights ?? [],
+      price: parseFloat(product.displayPrice),
+      quantity: localQuantity,
+      imageSrc: product.imageSrc,
     });
-  };
-
-  const handleWishlistClick = async (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-
-    await protectedAction(async () => {
-      try {
-        if (wishlistItems.some((item) => item.name === product.name)) {
-          removeFromWishlist(product.name);
-        } else {
-          addToWishlist(product);
-        }
-      } catch (error) {
-        console.error("Wishlist operation failed:", error);
-        toast.error("Failed to update wishlist");
-      }
-    });
+    toast.success(`${product.name} added to cart!`);
   };
 
   return (
     <div className={cn("mt-5 pt-4 col-span-2 w-fit h-fit", { "mt-0": page })}>
-      <AuthDialog
-        show={showAuthAlert}
-        onClose={closeAuthAlert}
-        onLogin={handleLogin}
-      />
-
       <div className={"flex items-end gap-5"}>
         <QuantityButtons
           product={product}
@@ -121,22 +92,6 @@ export default function AddToCartButtons({
               >
                 <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
               </Button>
-              <Button
-                onClick={handleWishlistClick}
-                variant="outline"
-                className="flex items-center gap-2"
-              >
-                <Heart
-                  className={`h-5 w-5 ${
-                    wishlistItems.some((item) => item.name === product.name)
-                      ? "fill-red-500 text-red-500"
-                      : ""
-                  }`}
-                />
-                {wishlistItems.some((item) => item.name === product.name)
-                  ? "Remove from Wishlist"
-                  : "Add to Wishlist"}
-              </Button>
             </div>
           ) : (
             <Button
@@ -151,23 +106,6 @@ export default function AddToCartButtons({
             </Button>
           ))}
       </div>
-
-      <AlertDialog open={showAuthDialog} onOpenChange={setShowAuthDialog}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Sign in required</AlertDialogTitle>
-            <AlertDialogDescription>
-              Please sign in to add items to your wishlist.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction asChild>
-              <Link href="/auth/login">Sign in</Link>
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
   );
 }
