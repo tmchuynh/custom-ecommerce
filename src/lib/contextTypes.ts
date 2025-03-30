@@ -192,6 +192,7 @@ export interface WishlistContextType {
   getWishlistCount: () => number;
   getWishlistTotalPrice: () => number;
   getWishlistItemByName: (name: string) => ProductType | undefined;
+  isAuthenticated: boolean;
 }
 
 export interface CustomerContextType {

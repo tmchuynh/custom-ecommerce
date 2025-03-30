@@ -25,7 +25,9 @@ import { useParams, usePathname } from "next/navigation";
 import ProductGallery from "./ProductGallery";
 import ProductInfo from "./ProductInfo";
 import components from "./ProductDetails";
-import { Eye, Heart } from "lucide-react";
+import { Eye, Heart, Link } from "lucide-react";
+import { useAuth } from "@/app/context/authContext";
+import { useWishlist } from "@/app/context/wishlistContext";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -59,6 +61,31 @@ const QuickLookAndFavoriteButtons = ({
   toggleWishlist: (id: string, e: React.MouseEvent) => void;
   wishlist: Set<string>;
 }): JSX.Element => {
+  const { user } = useAuth();
+  const { theme } = useTheme();
+  const { addToWishlist, removeFromWishlist } = useWishlist();
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+
+  const handleWishlistClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (!user) {
+      setShowAuthDialog(true);
+      return;
+    }
+
+    try {
+      if (wishlist.has(product.name)) {
+        await removeFromWishlist(product.name);
+      } else {
+        await addToWishlist(product);
+      }
+      toggleWishlist(product.name, e);
+    } catch (error) {
+      console.error("Wishlist operation failed:", error);
+    }
+  };
+
   const { gender, category, item, slug } = useParams();
 
   const pathname = usePathname();
@@ -79,8 +106,6 @@ const QuickLookAndFavoriteButtons = ({
     "AAA",
     true
   );
-
-  const { theme } = useTheme();
 
   useEffect(() => {
     // Only update when theme has a defined value
@@ -152,7 +177,7 @@ const QuickLookAndFavoriteButtons = ({
       </AlertDialog>
 
       <Button
-        onClick={(e) => toggleWishlist(product.name, e)}
+        onClick={handleWishlistClick}
         className="p-2 rounded-full shadow-md transition-colors"
       >
         <Heart
@@ -164,6 +189,23 @@ const QuickLookAndFavoriteButtons = ({
         />
         <span className="sr-only">Add to Wishlist</span>
       </Button>
+
+      <AlertDialog open={showAuthDialog} onOpenChange={setShowAuthDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Sign in required</AlertDialogTitle>
+            <AlertDialogDescription>
+              Please sign in to add items to your wishlist.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction asChild>
+              <Link href="/auth/login">Sign in</Link>
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

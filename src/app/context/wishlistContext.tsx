@@ -1,7 +1,8 @@
 "use client";
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { ProductType } from "@/lib/types";
 import { WishlistContextType } from "@/lib/contextTypes";
+import { useAuth } from "./authContext";
 
 /**
  * Context for managing the wishlist.
@@ -22,21 +23,81 @@ const WishlistContext = createContext<WishlistContextType | undefined>(
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
+  const { user } = useAuth();
   const [wishlistItems, setWishlistItems] = useState<ProductType[]>([]);
 
-  const addToWishlist = (item: ProductType) => {
-    setWishlistItems((prevItems) => {
-      if (prevItems.find((i) => i.name === item.name)) {
-        return prevItems; // Prevent adding duplicate items
+  // Load wishlist from backend when user logs in
+  useEffect(() => {
+    const loadWishlist = async () => {
+      if (user) {
+        try {
+          const response = await fetch("/api/user/wishlist", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setWishlistItems(data.wishlist);
+          }
+        } catch (error) {
+          console.error("Failed to load wishlist:", error);
+        }
+      } else {
+        setWishlistItems([]); // Clear wishlist when logged out
       }
-      return [...prevItems, item];
-    });
+    };
+
+    loadWishlist();
+  }, [user]);
+
+  const addToWishlist = async (item: ProductType) => {
+    if (!user) {
+      throw new Error("Must be logged in to add to wishlist");
+    }
+
+    try {
+      const response = await fetch("/api/user/wishlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+        body: JSON.stringify({ item }),
+      });
+
+      if (response.ok) {
+        setWishlistItems((prev) => {
+          if (prev.find((i) => i.name === item.name)) {
+            return prev;
+          }
+          return [...prev, item];
+        });
+      }
+    } catch (error) {
+      console.error("Failed to add to wishlist:", error);
+      throw error;
+    }
   };
 
-  const removeFromWishlist = (id: string) => {
-    setWishlistItems((prevItems) =>
-      prevItems.filter((item) => item.name !== id)
-    );
+  const removeFromWishlist = async (id: string) => {
+    if (!user) return;
+
+    try {
+      const response = await fetch(`/api/user/wishlist/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      });
+
+      if (response.ok) {
+        setWishlistItems((prev) => prev.filter((item) => item.name !== id));
+      }
+    } catch (error) {
+      console.error("Failed to remove from wishlist:", error);
+      throw error;
+    }
   };
 
   const clearWishlist = () => {
@@ -80,6 +141,7 @@ export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
         getWishlistCount,
         getWishlistTotalPrice,
         getWishlistItemByName,
+        isAuthenticated: !!user,
       }}
     >
       {children}
