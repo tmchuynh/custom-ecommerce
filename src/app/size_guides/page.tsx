@@ -13,6 +13,45 @@ import {
 import Image from "next/image";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 
+/**
+ * A comprehensive size guide component that displays sizing information for clothing and footwear.
+ *
+ * @component
+ * @description Renders an interactive size guide with multiple collapsible sections for different clothing categories.
+ * Includes detailed sizing tables for shirts, pants, and shoes for both men and women, along with measurement instructions.
+ *
+ * @example
+ * ```tsx
+ * <SizeGuide />
+ * ```
+ *
+ * @features
+ * - Interactive navigation sidebar with category links
+ * - Collapsible accordion sections for each clothing category
+ * - Detailed sizing tables with measurements in multiple units
+ * - Visual measurement guides and instructions
+ * - Mobile responsive design
+ * - Customer support integration
+ *
+ * @sections
+ * - Shirts & Tops: Sizing tables for men's and women's shirts with fit guide
+ * - Pants & Bottoms: Comprehensive pants sizing for men and women
+ * - Shoes & Footwear: Shoe size conversion charts and fitting tips
+ * - How to Measure: Detailed measurement instructions and tools needed
+ *
+ * @state
+ * - activeSection: Tracks which accordion section is currently expanded
+ * - sectionRefs: Stores references to section elements for scroll functionality
+ *
+ * @hooks
+ * - useState: Manages active section state
+ * - useRef: Stores section element references
+ *
+ * @dependencies
+ * - next/image
+ * - lucide-react icons
+ * - Custom PantsIcon SVG component
+ */
 const SizeGuide = () => {
   const [activeSection, setActiveSection] = useState<string | null>("shirts");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

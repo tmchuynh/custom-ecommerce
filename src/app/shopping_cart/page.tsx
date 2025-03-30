@@ -21,25 +21,22 @@ import { Separator } from "@/components/ui/separator";
 import { useProduct } from "../context/productContext";
 
 /**
- * Represents the shopping cart page of the e-commerce application.
- *
- * This component displays the items currently in the user's shopping cart,
- * allowing them to update item quantities, remove items, and view the total price.
+ * Component that renders the shopping cart page.
+ * Displays cart items, allows quantity updates and item removal, and shows order summary.
  *
  * Features:
- * - Displays a list of cart items with their details (name, description, price, and quantity).
- * - Allows users to update the quantity of each item in the cart.
- * - Allows users to remove items from the cart.
- * - Displays the total price of all items in the cart.
- * - Shows a message when the cart is empty.
+ * - Empty cart message when no items present
+ * - List of cart items with quantity controls and remove buttons
+ * - Clear all items functionality with confirmation dialog
+ * - Order summary with subtotal, tax, shipping and total
+ * - Proceed to checkout button
  *
- * Dependencies:
- * - Relies on the `useCart` hook to access cart data and actions.
- * - Uses utility functions like `cn` for conditional class names.
- * - Includes reusable components like `Skeleton` and `Button`.
+ * @returns {JSX.Element} The rendered cart page component
  *
- * @component
- * @returns {JSX.Element} The rendered shopping cart page.
+ * @example
+ * ```tsx
+ * <CartPage />
+ * ```
  */
 const CartPage = (): JSX.Element => {
   const {
@@ -59,20 +56,10 @@ const CartPage = (): JSX.Element => {
 
   const { convertPrice } = useProduct();
 
-  /**
-   * Handles the update of an item's quantity in the shopping cart.
-   *
-   * @param id - The ID of the item to update.
-   * @param quantity - The new quantity for the item.
-   */
   const handleUpdateQuantity = (id: string, quantity: number) => {
     updateQuantity(id, quantity);
   };
 
-  /**
-   * Handles the removal of an item from the shopping cart.
-   * @param {string} id - The ID of the item to remove.
-   */
   const handleRemoveItem = (id: string) => {
     removeFromCart(id);
   };

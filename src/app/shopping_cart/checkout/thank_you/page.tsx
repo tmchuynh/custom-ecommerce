@@ -8,14 +8,26 @@ import { IoMdTimer } from "react-icons/io";
 import { BsTruck } from "react-icons/bs";
 
 /**
- * OrderConfirmation page that displays after a successful order placement
+ * A component that displays the order confirmation page after a successful purchase.
  *
- * This page shows:
- * - A success message
- * - The order number
- * - Estimated delivery date
- * - A summary of the order
- * - Options to continue shopping or view order status
+ * @component
+ * @returns {JSX.Element} A page showing order confirmation details including:
+ *  - Success message with order number
+ *  - Shipping information
+ *  - Estimated delivery date
+ *  - Next steps information
+ *  - Navigation buttons for continuing shopping or viewing order status
+ *
+ * @example
+ * ```tsx
+ * <OrderConfirmation />
+ * ```
+ *
+ * @remarks
+ * - Generates a random order number on mount
+ * - Calculates estimated delivery date (7-10 business days from order date)
+ * - Uses router for navigation between pages
+ * - Styled with Tailwind CSS classes
  */
 const OrderConfirmation = () => {
   const router = useRouter();

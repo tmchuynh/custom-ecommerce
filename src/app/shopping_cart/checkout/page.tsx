@@ -11,7 +11,12 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
-import { validateCreditCard, validateEmail, validatePhone } from "@/lib/utils";
+import {
+  validateCreditCard,
+  validateEmail,
+  validatePhone,
+  handleApplyDiscountUtil,
+} from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
@@ -28,13 +33,57 @@ import OrderSummary from "@/components/checkout/order-summary";
 import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import ShippingAddressForm from "@/components/checkout/shipping-address-form";
 
+/**
+ * A comprehensive checkout page component for an e-commerce application.
+ *
+ * This component handles the entire checkout process including:
+ * - Customer information collection
+ * - Shipping address management
+ * - Payment processing
+ * - Order summary display
+ * - Discount code application
+ * - Navigation protection for unsaved data
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <CheckoutPage />
+ * ```
+ *
+ * @remarks
+ * The component uses several custom hooks:
+ * - useCart - For cart management and pricing calculations
+ * - usePayment - For payment processing and validation
+ * - useProduct - For inventory management
+ * - useCurrency - For international tax calculations
+ *
+ * @features
+ * - Form validation for all input fields
+ * - Real-time discount code application
+ * - Automatic billing address population
+ * - International shipping support
+ * - Estimated delivery date calculation
+ * - Navigation protection for unsaved form data
+ * - Empty cart state handling
+ *
+ * @state
+ * Manages state for:
+ * - Customer information
+ * - Shipping details
+ * - Payment information
+ * - Form validation
+ * - Navigation protection
+ * - Discount application
+ *
+ * @returns A complex checkout interface with forms for customer information,
+ * shipping address, payment details, and an order summary section
+ */
 const CheckoutPage = () => {
   const {
     cartItems,
     getSubTotal,
     calculateTaxAmount,
     calculateShippingCost,
-    calculateInternationalShippingFee,
     getTotalPrice,
     applyDiscount,
     getDiscountedTotal,
@@ -49,14 +98,9 @@ const CheckoutPage = () => {
     handlePaymentSubmission,
   } = usePayment();
 
-  const { getProductByName, updateStockLevel } = useProduct();
+  const { updateStockLevel } = useProduct();
 
-  const {
-    formatCurrency,
-    selectedCurrency,
-    calculateImportTaxes,
-    getImportTaxBreakdown,
-  } = useCurrency();
+  const { getImportTaxBreakdown } = useCurrency();
 
   // Discount state
   const [discountCode, setDiscountCode] = useState<string>("");
@@ -196,6 +240,26 @@ const CheckoutPage = () => {
     }));
   };
 
+  /**
+   * Validates the checkout form fields and updates form validation state.
+   *
+   * Checks the following fields for validity:
+   * - Customer name (non-empty)
+   * - Phone number (using validatePhone helper)
+   * - Email (using validateEmail helper)
+   * - Credit card number (using validateCreditCard helper)
+   * - Card expiry date (MM/YY format)
+   * - CVV (3-4 digits)
+   * - Shipping address fields (all required):
+   *   - Street address
+   *   - City
+   *   - State
+   *   - ZIP code
+   *   - Country
+   *
+   * @returns {void} Updates formErrors state with validation errors
+   * and isFormValid state indicating if form is valid
+   */
   const validateForm = () => {
     const errors: {
       name?: string;
@@ -263,27 +327,53 @@ const CheckoutPage = () => {
     setIsFormValid(Object.keys(errors).length === 0);
   };
 
-  const handleApplyDiscount = () => {
-    if (!discountCode.trim()) {
-      setDiscountError(true);
-      setDiscountApplied(false);
-      return;
+  /**
+   * Handles the application of a discount code to the shopping cart.
+   *
+   * This function validates the discount code input and applies it if valid:
+   * - Checks if discount code is not empty/whitespace
+   * - Validates the discount code through applyDiscount helper
+   * - Updates UI states for discount application status
+   * - Resets the discount code input field
+   *
+   * @returns {void}
+   * @throws {void}
+   *
+   * @example
+   * handleApplyDiscount(); // Processes current discountCode state
+   */
+  const handleApplyDiscount = (): void => {
+    const { discountApplied, discountError } = handleApplyDiscountUtil(
+      discountCode,
+      applyDiscount
+    );
+
+    setDiscountApplied(discountApplied);
+    setDiscountError(discountError);
+
+    if (discountApplied) {
+      setDiscountCode("");
     }
-
-    const isValidDiscount = applyDiscount(discountCode);
-
-    if (isValidDiscount) {
-      setDiscountApplied(true);
-      setDiscountError(false);
-    } else {
-      setDiscountError(true);
-      setDiscountApplied(false);
-    }
-
-    setDiscountCode("");
   };
 
-  const handleCheckout = async () => {
+  /**
+   * Handles the checkout process when the user submits the checkout form.
+   *
+   * This function performs the following steps:
+   * 1. Marks all form fields as touched to trigger validation
+   * 2. Validates the form
+   * 3. If form is invalid, displays error toast
+   * 4. If form is valid:
+   *    - Processes payment using card details
+   *    - Updates stock levels for purchased items
+   *    - Navigates to thank you page on success
+   *    - Navigates to error page if payment fails
+   *
+   * @async
+   * @throws {Error} When payment processing fails
+   * @returns {Promise<void>}
+   */
+  const handleCheckout = async (): Promise<void> => {
     // Mark all fields as touched to show all validation errors
     setTouchedFields({
       name: true,

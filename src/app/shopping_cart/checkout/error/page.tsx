@@ -6,13 +6,28 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 /**
- * CheckoutError page that displays when something goes wrong during checkout
+ * CheckoutError component displays an error page when checkout process fails.
  *
- * This page shows:
- * - An error message
- * - Possible reasons for the error
- * - Options to retry or return to cart
- * - Troubleshooting tips
+ * Features:
+ * - Generates and displays a random error code
+ * - Shows possible reasons for the error
+ * - Provides suggestions for resolving the issue
+ * - Offers buttons to retry checkout or return to cart
+ * - Displays customer support contact information
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <CheckoutError />
+ * ```
+ *
+ * @returns A JSX element containing the error page layout with:
+ * - Error icon and message
+ * - Random error code
+ * - List of potential issues
+ * - Suggested solutions
+ * - Action buttons
+ * - Support contact details
  */
 const CheckoutError = () => {
   const router = useRouter();
