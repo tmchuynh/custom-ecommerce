@@ -9,6 +9,7 @@ import React, {
   ReactNode,
   JSX,
 } from "react";
+import { getTaxInfoByCountryCode } from "./cartContext";
 
 /**
  * Context for managing the current currency.
@@ -74,6 +75,62 @@ export const CurrencyProvider = ({
     setSelectedCurrency(currency);
   };
 
+  const calculateImportTaxes = (subtotal: number, country: string) => {
+    // Get country tax info
+    const countryInfo = getTaxInfoByCountryCode(country);
+
+    // Default values
+    const result = {
+      dutyAmount: 0,
+      vatAmount: 0,
+      totalImportCharges: 0,
+      appliedDuty: false,
+      appliedVAT: false,
+    };
+
+    // If USA or unknown country, return default (no import taxes)
+    if (countryInfo.code === "USA" || countryInfo.code === "UNKNOWN") {
+      return result;
+    }
+
+    // Calculate duty if above de minimis threshold
+    if (subtotal > countryInfo.deMinimisDuty) {
+      result.dutyAmount = subtotal * countryInfo.dutyRate;
+      result.appliedDuty = true;
+    }
+
+    // Calculate VAT/GST if above de minimis threshold
+    if (subtotal > countryInfo.deMinimisVAT) {
+      result.vatAmount = subtotal * countryInfo.vatRate;
+      result.appliedVAT = true;
+    }
+
+    // Calculate total import charges
+    result.totalImportCharges = result.dutyAmount + result.vatAmount;
+
+    return result;
+  };
+
+  const calculateImportFee = (value: number, countryCode: string): number => {
+    const { totalImportCharges } = calculateImportTaxes(value, countryCode);
+    return totalImportCharges;
+  };
+
+  const getImportTaxBreakdown = (subtotal: number, country: string) => {
+    const { dutyAmount, vatAmount, totalImportCharges } = calculateImportTaxes(
+      subtotal,
+      country
+    );
+
+    return {
+      duty: dutyAmount,
+      vat: vatAmount,
+      total: totalImportCharges,
+      subtotal: subtotal,
+      grandTotal: subtotal + totalImportCharges,
+    };
+  };
+
   return (
     <CurrencyContext.Provider
       value={{
@@ -81,6 +138,9 @@ export const CurrencyProvider = ({
         setSelectedCurrency: handleSetCurrency,
         currency: selectedCurrency,
         setCurrency: handleSetCurrency,
+        calculateImportFee,
+        getImportTaxBreakdown,
+        calculateImportTaxes,
       }}
     >
       {children}
