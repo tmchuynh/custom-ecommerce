@@ -1,6 +1,6 @@
 "use client";
 
-import { useCurrency } from "@/app/context/CurrencyContext";
+import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { currencyCountries } from "@/lib/countriesConstant";
 
