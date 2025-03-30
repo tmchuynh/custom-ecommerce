@@ -161,9 +161,9 @@ const CustomerReviews = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Sidebar for filters */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4 flex items-center">
                 <Filter className="h-5 w-5 mr-2" />
@@ -365,7 +365,7 @@ const CustomerReviews = () => {
           </div>
 
           {/* Main Content - Reviews */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-5 space-y-8">
             {/* Reviews Grid */}
             {filteredReviews.length === 0 ? (
               <div className="rounded-xl shadow-md p-8 text-center">
