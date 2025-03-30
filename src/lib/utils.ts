@@ -94,8 +94,16 @@ export const formatDate = (date: Date) =>
  */
 export async function decryptKey(
   encryptedPasskey: string,
-  key: CryptoKey
+  secretKey: string
 ): Promise<string> {
+  const key = await window.crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secretKey),
+    { name: "AES-GCM", length: 256 },
+    false,
+    ["decrypt"]
+  );
+
   const data = new Uint8Array(
     atob(encryptedPasskey)
       .split("")
