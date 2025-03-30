@@ -6,6 +6,7 @@ import {
   PaymentStatus,
   SectionDetails,
 } from "./types";
+import { IconType } from "react-icons/lib";
 
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
@@ -132,6 +133,22 @@ export interface ShippingAddress {
   deliveryInstructions?: string;
   createdAt?: Date;
   updatedAt?: Date;
+}
+
+export interface ShippingMethod {
+  id: string;
+  title: string;
+  description: string;
+  price: string;
+  icon: IconType;
+  estimatedDelivery: string;
+}
+
+export interface InformationDetails {
+  id: string;
+  title: string;
+  icon: IconType;
+  description?: string;
 }
 
 export interface ShippingRate {
