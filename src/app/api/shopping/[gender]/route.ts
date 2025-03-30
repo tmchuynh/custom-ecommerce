@@ -1,5 +1,5 @@
 // /api/categories/[gender].ts
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import { Gender } from "@/lib/types";
 import { NextResponse } from "next/server";
 

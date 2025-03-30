@@ -1,4 +1,4 @@
-import { mockProductData } from "@/lib/mockProductData";
+import { mockProductData } from "@/lib/constants/mockProductData";
 import { NextResponse } from "next/server";
 
 /**
