@@ -1,6 +1,5 @@
 "use client";
 import { useCurrency } from "@/app/context/currencyContext";
-import { currencyCountries } from "@/lib/countriesConstant";
 import { ThemeToggle } from "../ThemeToggle";
 import {
   Select,
@@ -10,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "../ui/select";
+import { currencyCountries } from "@/lib/constants/countriesConstant";
 
 export default function NavTopMenu() {
   const { selectedCurrency, setSelectedCurrency } = useCurrency();

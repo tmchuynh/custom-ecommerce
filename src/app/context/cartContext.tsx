@@ -1,9 +1,7 @@
 // cartContext.tsx
 "use client";
 
-import { currencyCountries } from "@/lib/countriesConstant";
 import { ShippingMethod } from "@/lib/types";
-import { formatDate } from "@/lib/utils/utils";
 import React, {
   createContext,
   JSX,
@@ -16,6 +14,8 @@ import { useProduct } from "./productContext";
 import { useWishlist } from "./wishlistContext";
 import { CartContextType } from "@/lib/contextTypes";
 import { CartItem } from "@/lib/interfaces";
+import { currencyCountries } from "@/lib/constants/countriesConstant";
+import { formatDate } from "@/lib/utils/format";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 

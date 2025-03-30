@@ -8,11 +8,11 @@ import React, {
   ReactNode,
   JSX,
 } from "react";
-import { currencyCountries } from "@/lib/countriesConstant";
 import { countryTaxRates } from "@/lib/constants/taxRatesConstant";
 import { CurrencyContextType } from "@/lib/contextTypes";
 import { CountryTaxInfo } from "@/lib/interfaces";
 import { Currency, CurrencyCode } from "@/lib/types";
+import { currencyCountries } from "@/lib/constants/countriesConstant";
 
 /**
  * Context for managing the current currency.
