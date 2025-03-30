@@ -1,7 +1,7 @@
 "use client";
-
-import { WishlistContextType, WishlistItem } from "@/lib/interfaces";
+import { WishlistContextType } from "@/lib/interfaces";
 import React, { createContext, useState, useContext } from "react";
+import { ProductType } from "@/lib/types";
 
 /**
  * Context for managing the wishlist.
@@ -22,24 +22,65 @@ const WishlistContext = createContext<WishlistContextType | undefined>(
 export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [wishlistItems, setWishlistItems] = useState<WishlistItem[]>([]);
+  const [wishlistItems, setWishlistItems] = useState<ProductType[]>([]);
 
-  const addToWishlist = (item: WishlistItem) => {
+  const addToWishlist = (item: ProductType) => {
     setWishlistItems((prevItems) => {
-      if (prevItems.find((i) => i.id === item.id)) {
+      if (prevItems.find((i) => i.name === item.name)) {
         return prevItems; // Prevent adding duplicate items
       }
       return [...prevItems, item];
     });
   };
 
-  const removeFromWishlist = (id: number) => {
-    setWishlistItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  const removeFromWishlist = (id: string) => {
+    setWishlistItems((prevItems) =>
+      prevItems.filter((item) => item.name !== id)
+    );
+  };
+
+  const clearWishlist = () => {
+    setWishlistItems([]);
+  };
+
+  const isInWishlist = (id: string) => {
+    return wishlistItems.some((item) => item.name === id);
+  };
+
+  const getWishlistItem = (id: string) => {
+    return wishlistItems.find((item) => item.name === id);
+  };
+
+  const getWishlistItems = () => {
+    return wishlistItems;
+  };
+
+  const getWishlistCount = () => {
+    return wishlistItems.length;
+  };
+
+  const getWishlistTotalPrice = () => {
+    return wishlistItems.reduce((total, item) => total + Number(item.price), 0);
+  };
+
+  const getWishlistItemByName = (name: string) => {
+    return wishlistItems.find((item) => item.name === name);
   };
 
   return (
     <WishlistContext.Provider
-      value={{ wishlistItems, addToWishlist, removeFromWishlist }}
+      value={{
+        wishlistItems,
+        addToWishlist,
+        removeFromWishlist,
+        clearWishlist,
+        isInWishlist,
+        getWishlistItem,
+        getWishlistItems,
+        getWishlistCount,
+        getWishlistTotalPrice,
+        getWishlistItemByName,
+      }}
     >
       {children}
     </WishlistContext.Provider>
@@ -50,7 +91,7 @@ export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
  * @returns {WishlistContextType} The wishlist context.
  * @throws {Error} If the hook is used outside of a WishlistProvider.
  */
-export const useWishlist = () => {
+export const useWishlist = (): WishlistContextType => {
   const context = useContext(WishlistContext);
   if (!context) {
     throw new Error("useWishlist must be used within a WishlistProvider");
