@@ -2,23 +2,17 @@
 
 import { Button } from "@/components/ui/button";
 import { scrollToSection } from "@/lib/utils/utils";
-import {
-  CreditCard,
-  HelpCircle,
-  MessageSquare,
-  RefreshCw,
-  ShoppingBag,
-  Truck,
-  User,
-} from "lucide-react";
 import Link from "next/link";
 import { JSX, useRef, useState } from "react";
+import { FaCreditCard, FaShoppingBag, FaTruck, FaUser } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
+import { IoIosHelpCircle, IoMdRefresh } from "react-icons/io";
 
 const faqCategories = [
   {
     id: "ordering",
     title: "Ordering",
-    icon: <ShoppingBag className="h-5 w-5" />,
+    icon: <FaShoppingBag className="h-5 w-5" />,
     questions: [
       {
         question: "How do I place an order?",
@@ -50,7 +44,7 @@ const faqCategories = [
   {
     id: "payment",
     title: "Payment & Pricing",
-    icon: <CreditCard className="h-5 w-5" />,
+    icon: <FaCreditCard className="h-5 w-5" />,
     questions: [
       {
         question: "What payment methods do you accept?",
@@ -82,7 +76,7 @@ const faqCategories = [
   {
     id: "shipping",
     title: "Shipping & Delivery",
-    icon: <Truck className="h-5 w-5" />,
+    icon: <FaTruck className="h-5 w-5" />,
     questions: [
       {
         question: "How can I track my order?",
@@ -114,7 +108,7 @@ const faqCategories = [
   {
     id: "returns",
     title: "Returns & Refunds",
-    icon: <RefreshCw className="h-5 w-5" />,
+    icon: <IoMdRefresh className="h-5 w-5" />,
     questions: [
       {
         question: "Can I return an item?",
@@ -146,7 +140,7 @@ const faqCategories = [
   {
     id: "account",
     title: "Account & Privacy",
-    icon: <User className="h-5 w-5" />,
+    icon: <FaUser className="h-5 w-5" />,
     questions: [
       {
         question: "How do I create an account?",
@@ -272,7 +266,7 @@ const FAQPage = (): JSX.Element => {
 
               <div className="mt-8 p-4 bg-muted rounded-lg space-y-2">
                 <h3 className="font-medium flex items-center">
-                  <HelpCircle className="h-4 w-4 mr-2" />
+                  <IoIosHelpCircle className="h-4 w-4 mr-2" />
                   Need More Help?
                 </h3>
                 <p className="text-sm">
@@ -282,7 +276,7 @@ const FAQPage = (): JSX.Element => {
                 <div className="mt-4 flex flex-col space-y-2">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <MessageSquare className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
                     </Button>
                   </Link>
                 </div>

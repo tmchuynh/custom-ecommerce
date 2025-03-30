@@ -16,15 +16,10 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { reviews } from "@/lib/constants";
 import { cn } from "@/lib/utils/utils";
-import {
-  Filter,
-  MessageSquare,
-  Search,
-  SlidersHorizontal,
-  Star,
-  ThumbsUp,
-} from "lucide-react";
+
 import { JSX, useState } from "react";
+import { FaFilter, FaSearch, FaThumbsUp } from "react-icons/fa";
+import { FaMessage, FaSliders, FaStar } from "react-icons/fa6";
 
 /**
  * CustomerReviews component displays a comprehensive review section for an e-commerce website.
@@ -169,7 +164,7 @@ const CustomerReviews = (): JSX.Element => {
               </div>
               <div className="flex items-center mt-2">
                 {Array.from({ length: 5 }, (_, i) => (
-                  <Star
+                  <FaStar
                     key={i}
                     className={`h-6 w-6 ${
                       i < Math.round(averageRating)
@@ -206,7 +201,7 @@ const CustomerReviews = (): JSX.Element => {
           <div className="lg:col-span-2">
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4 flex items-center">
-                <Filter className="h-5 w-5 mr-2" />
+                <FaFilter className="h-5 w-5 mr-2" />
                 Filter Reviews
               </h2>
 
@@ -226,13 +221,13 @@ const CustomerReviews = (): JSX.Element => {
                     onChange={handleSearch}
                     className="pl-9"
                   />
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+                  <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
                 </div>
               </div>
 
               <div className="mb-6">
                 <h3 className="text-sm font-medium mb-2 flex items-center">
-                  <SlidersHorizontal className="h-4 w-4 mr-2" />
+                  <FaSliders className="h-4 w-4 mr-2" />
                   Sort By
                 </h3>
                 <div className="space-y-2">
@@ -280,7 +275,7 @@ const CustomerReviews = (): JSX.Element => {
 
               <div className="mb-6">
                 <h3 className="text-sm font-medium mb-2 flex items-center">
-                  <Star className="h-4 w-4 mr-2" />
+                  <FaStar className="h-4 w-4 mr-2" />
                   Filter by Rating
                 </h3>
                 <div className="space-y-2">
@@ -306,7 +301,7 @@ const CustomerReviews = (): JSX.Element => {
                   onClick={() => setShowReviewForm(!showReviewForm)}
                   className={cn(`w-full ${buttonVariants()}`)}
                 >
-                  <MessageSquare className="h-4 w-4 mr-2" />
+                  <FaMessage className="h-4 w-4 mr-2" />
                   Write a Review
                 </AlertDialogTrigger>
                 <AlertDialogContent className="border-4 min-w-11/12">
@@ -357,7 +352,7 @@ const CustomerReviews = (): JSX.Element => {
                       <Label className="text-sm font-medium">Your Rating</Label>
                       <div className="flex items-center mt-1">
                         {[1, 2, 3, 4, 5].map((rating) => (
-                          <Star
+                          <FaStar
                             key={rating}
                             className={`h-8 w-8 cursor-pointer ${
                               rating <= newReview.rating
@@ -438,7 +433,7 @@ const CustomerReviews = (): JSX.Element => {
                         </div>
                         <div className="flex">
                           {Array.from({ length: 5 }, (_, i) => (
-                            <Star
+                            <FaStar
                               key={i}
                               className={`h-5 w-5 ${
                                 i < review.rating
@@ -454,7 +449,7 @@ const CustomerReviews = (): JSX.Element => {
 
                       <div className="flex justify-between items-center mt-auto pt-3 border-t">
                         <Button variant="ghost" size="sm" className="">
-                          <ThumbsUp className="h-4 w-4 mr-1" /> Helpful
+                          <FaThumbsUp className="h-4 w-4 mr-1" /> Helpful
                         </Button>
                         <div className="text-sm">Verified Purchase</div>
                       </div>

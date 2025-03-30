@@ -8,7 +8,13 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import { InformationDetails } from "@/lib/interfaces";
-import { FaBookOpen, FaBriefcase, FaHeart, FaUsers } from "react-icons/fa";
+import {
+  FaAward,
+  FaBookOpen,
+  FaBriefcase,
+  FaHeart,
+  FaUsers,
+} from "react-icons/fa";
 
 export default function About() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -122,7 +128,7 @@ export default function About() {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      {section.icon}
+                      <section.icon />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -133,7 +139,7 @@ export default function About() {
 
               <div className="mt-8 p-4 rounded-lg space-y-2">
                 <h3 className="font-medium flex items-center">
-                  <Award className="h-4 w-4 mr-2" />
+                  <FaAward className="h-4 w-4 mr-2" />
                   Join Our Team
                 </h3>
                 <p className="text-sm">
@@ -161,7 +167,7 @@ export default function About() {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <BookOpen className="h-6 w-6" />
+                  <FaBookOpen className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Our Mission</h2>
                 </div>
                 <svg
@@ -243,7 +249,7 @@ export default function About() {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Heart className="h-6 w-6" />
+                  <FaHeart className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Our Values</h2>
                 </div>
                 <svg
@@ -301,7 +307,7 @@ export default function About() {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Users className="h-6 w-6" />
+                  <FaUsers className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Our Team</h2>
                 </div>
                 <svg
@@ -344,7 +350,7 @@ export default function About() {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <Briefcase className="h-6 w-6" />
+                  <FaBriefcase className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Our Partners</h2>
                 </div>
                 <svg
