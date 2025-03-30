@@ -22,30 +22,22 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <NotFoundProvider>
-            <CurrencyProvider>
-              <ProductProvider>
-                <CartProvider>
-                  <WishlistProvider>
-                    <NavTopMenu />
-                    <NavMenu />
-                    <main className="flex-grow">
-                      <BreadcrumbWrapper />
-                      {children}
-                      <Footer />
-                    </main>
-                  </WishlistProvider>
-                </CartProvider>
-              </ProductProvider>
-              <BackToTop />
-              <Toaster
-                position="top-center"
-                toastOptions={{
-                  style: {
-                    marginTop: "200px",
-                  },
-                }}
-              />
-            </CurrencyProvider>
+            <NavTopMenu />
+            <NavMenu />
+            <main className="flex-grow">
+              <BreadcrumbWrapper />
+              {children}
+              <Footer />
+            </main>
+            <BackToTop />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                style: {
+                  marginTop: "200px",
+                },
+              }}
+            />
           </NotFoundProvider>
         </Providers>
       </body>
