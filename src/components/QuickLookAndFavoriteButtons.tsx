@@ -1,3 +1,4 @@
+"use client";
 import {
   Color,
   DetailItem,
@@ -28,6 +29,10 @@ import components from "./ProductDetails";
 import { Eye, Heart, Link } from "lucide-react";
 import { useAuth } from "@/app/context/authContext";
 import { useWishlist } from "@/app/context/wishlistContext";
+import { useProtectedAction } from "@/hooks/useProtectedAction";
+import theme from "@material-tailwind/react/theme";
+import { toast } from "sonner";
+import { AuthDialog } from "./auth/AuthDialog";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -53,37 +58,31 @@ import { useWishlist } from "@/app/context/wishlistContext";
 const QuickLookAndFavoriteButtons = ({
   product,
   page = true,
-  toggleWishlist,
-  wishlist,
 }: {
   page?: boolean;
   product: ProductType;
-  toggleWishlist: (id: string, e: React.MouseEvent) => void;
-  wishlist: Set<string>;
 }): JSX.Element => {
-  const { user } = useAuth();
-  const { theme } = useTheme();
-  const { addToWishlist, removeFromWishlist } = useWishlist();
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const { protectedAction, showAuthAlert, closeAuthAlert, handleLogin } =
+    useProtectedAction();
   const [showAuthDialog, setShowAuthDialog] = useState(false);
 
   const handleWishlistClick = async (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
 
-    if (!user) {
-      setShowAuthDialog(true);
-      return;
-    }
-
-    try {
-      if (wishlist.has(product.name)) {
-        await removeFromWishlist(product.name);
-      } else {
-        await addToWishlist(product);
+    await protectedAction(async () => {
+      try {
+        if (wishlistItems.some((item) => item.name === product.name)) {
+          removeFromWishlist(product.name);
+        } else {
+          addToWishlist(product);
+        }
+      } catch (error) {
+        console.error("Wishlist operation failed:", error);
+        toast.error("Failed to update wishlist");
       }
-      toggleWishlist(product.name, e);
-    } catch (error) {
-      console.error("Wishlist operation failed:", error);
-    }
+    });
   };
 
   const { gender, category, item, slug } = useParams();
@@ -133,6 +132,12 @@ const QuickLookAndFavoriteButtons = ({
         }
       )}
     >
+      <AuthDialog
+        show={showAuthAlert}
+        onClose={closeAuthAlert}
+        onLogin={handleLogin}
+      />
+
       <AlertDialog>
         <AlertDialogTrigger className="p-2 rounded-full shadow-md transition-colors">
           <span className="sr-only"> Quick look </span>
@@ -182,7 +187,7 @@ const QuickLookAndFavoriteButtons = ({
       >
         <Heart
           className={`h-5 w-5 ${
-            wishlist.has(product.name)
+            wishlistItems.some((item) => item.name === product.name)
               ? "fill-red-500 text-red-500"
               : "text-gray-600"
           }`}
