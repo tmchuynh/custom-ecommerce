@@ -1,8 +1,8 @@
 import BackToTop from "@/components/BackToTop";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 import Footer from "@/components/Footer";
-import NavMenu from "@/components/NavMenu";
-import NavTopMenu from "@/components/NavTopMenu";
+import NavMenu from "@/components/navigation/NavMenu";
+import NavTopMenu from "@/components/navigation/NavTopMenu";
 import { Toaster } from "sonner";
 import { NotFoundProvider } from "./context/NotFoundContext";
 import "./globals.css";
