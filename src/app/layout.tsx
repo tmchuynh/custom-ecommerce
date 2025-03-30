@@ -1,17 +1,14 @@
-import "./globals.css";
-import { NotFoundProvider } from "./context/NotFoundContext";
-import { Providers } from "./providers";
-import NavMenu from "@/components/NavMenu";
-import BackToTop from "@/components/BackToTop";
-import Footer from "@/components/Footer";
-import { CurrencyProvider } from "./context/currencyContext";
-import { CartProvider } from "./context/cartContext";
-import { WishlistProvider } from "./context/wishlistContext";
-import { Toaster } from "sonner";
-import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
-import { ProductProvider } from "./context/productContext";
-import NavTopMenu from "@/components/NavTopMenu";
 import { CustomerProvider } from "@/app/context/customerContext";
+import BackToTop from "@/components/BackToTop";
+import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
+import Footer from "@/components/Footer";
+import NavMenu from "@/components/NavMenu";
+import NavTopMenu from "@/components/NavTopMenu";
+import { Toaster } from "sonner";
+import { AuthProvider } from "./context/authContext";
+import { NotFoundProvider } from "./context/NotFoundContext";
+import "./globals.css";
+import { Providers } from "./providers";
 
 export default function RootLayout({
   children,
@@ -23,24 +20,26 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <NotFoundProvider>
-            <CustomerProvider>
-              <NavTopMenu />
-              <NavMenu />
-              <main className="flex-grow">
-                <BreadcrumbWrapper />
-                {children}
-                <Footer />
-              </main>
-              <BackToTop />
-              <Toaster
-                position="top-center"
-                toastOptions={{
-                  style: {
-                    marginTop: "200px",
-                  },
-                }}
-              />
-            </CustomerProvider>
+            <AuthProvider>
+              <CustomerProvider>
+                <NavTopMenu />
+                <NavMenu />
+                <main className="flex-grow">
+                  <BreadcrumbWrapper />
+                  {children}
+                  <Footer />
+                </main>
+                <BackToTop />
+                <Toaster
+                  position="top-center"
+                  toastOptions={{
+                    style: {
+                      marginTop: "200px",
+                    },
+                  }}
+                />
+              </CustomerProvider>
+            </AuthProvider>
           </NotFoundProvider>
         </Providers>
       </body>
