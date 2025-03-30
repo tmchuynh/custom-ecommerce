@@ -1,7 +1,5 @@
 import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { formatItemName, formatURL } from "@/lib/utils/utils";
-import { Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { JSX, useMemo } from "react";
@@ -9,6 +7,8 @@ import AddToCartButtons from "../../buttons/AddToCartButtons";
 import QuickLookAndFavoriteButtons from "../../buttons/QuickLookAndFavoriteButtons";
 import { Badge } from "../../ui/badge";
 import ProductRate from "./ProductRate";
+import { formatItemName, formatURL } from "@/lib/utils/format";
+import { FaClock } from "react-icons/fa";
 
 /**
  * A component that displays a product card with image, price, badges, and interactive elements.
@@ -117,7 +117,7 @@ const ProductCard = ({
           )}
           {product.isLimited && (
             <span className="px-2 py-1 bg-amber-500 text-white text-xs font-medium rounded flex items-center">
-              <Clock className="h-3 w-3 mr-1" /> Limited
+              <FaClock className="h-3 w-3 mr-1" /> Limited
             </span>
           )}
         </div>

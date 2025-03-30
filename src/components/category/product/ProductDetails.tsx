@@ -11,7 +11,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
-import { capitalize, cn } from "@/lib/utils/utils";
+import { capitalize } from "@/lib/utils/format";
+import { cn } from "@/lib/utils/utils";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { JSX } from "react";
 

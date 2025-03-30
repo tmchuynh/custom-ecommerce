@@ -1,9 +1,9 @@
 import { navigations } from "@/lib/navigation";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import DynamicButton from "../ui/button-dynamic";
 import { JSX } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * A component that displays shopping collections organized by categories.
@@ -87,7 +87,7 @@ export default function ShopByCollection(): JSX.Element {
                         <span className="text-sm text-foreground font-medium">
                           Shop Now
                         </span>
-                        <ArrowRight className="h-4 w-4 ml-1 text-foreground" />
+                        <FaArrowRight className="h-4 w-4 ml-1 text-foreground" />
                       </div>
                     </div>
                   </Link>

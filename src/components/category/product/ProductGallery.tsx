@@ -1,15 +1,13 @@
 import { Color, ProductType } from "@/lib/types";
-import {
-  cn,
-  generateRandomNumberArray,
-  getAccessibleColor,
-} from "@/lib/utils/utils";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { JSX, useMemo, useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { getAccessibleColor } from "@/lib/utils/accessibility";
+import { generateRandomNumberArray } from "@/lib/utils/generate";
+import { cn } from "@/lib/utils/utils";
 
 /**
  * A component that displays a gallery of product images or numbered panels with navigation controls.
