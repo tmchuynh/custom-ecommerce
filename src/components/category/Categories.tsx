@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { navigations } from "@/lib/navigation";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * Categories component displays a grid of product categories with visual cards.
@@ -61,7 +61,7 @@ export default function Categories() {
                 </p>
                 <div className="flex items-center mt-auto">
                   <span className="text-sm font-medium">Shop Collection</span>
-                  <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
+                  <FaArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
                 </div>
               </div>
 

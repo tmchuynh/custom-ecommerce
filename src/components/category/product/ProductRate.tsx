@@ -1,5 +1,5 @@
-import { Star } from "lucide-react";
 import { JSX, useMemo } from "react";
+import { FaStar } from "react-icons/fa";
 
 /**
  * A component that displays a product rating with stars and review count.
@@ -53,7 +53,7 @@ const ProductRate = ({ page }: { page: boolean }): JSX.Element => {
     <>
       <div className="flex">
         {[1, 2, 3, 4, 5].map((star) => (
-          <Star
+          <FaStar
             key={star}
             className={`h-4 w-4 ${
               star <= parseFloat(averageRating)

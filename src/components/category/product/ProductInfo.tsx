@@ -4,7 +4,6 @@ import { useProduct } from "@/app/context/productContext";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { ProductType } from "@/lib/types";
-import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useEffect, useMemo, useState } from "react";
@@ -26,6 +25,7 @@ import { Button } from "../../ui/button";
 import ProductRate from "./ProductRate";
 import { formatURL } from "@/lib/utils/format";
 import { cn } from "@/lib/utils/utils";
+import { FaHeart, FaShoppingBag } from "react-icons/fa";
 
 /**
  * A component that displays detailed information about a product.
@@ -284,7 +284,7 @@ const ProductInfo = ({
                   handleAddToCart(product, product.name);
                 }}
               >
-                <ShoppingCart className="h-5 w-5 mr-2" />
+                <FaShoppingBag className="h-5 w-5 mr-2" />
                 Add to Cart
               </Button>
             )}
@@ -295,7 +295,7 @@ const ProductInfo = ({
                 inWishlist ? "bg-pink-50 border-pink-200 text-pink-700" : ""
               }`}
             >
-              <Heart
+              <FaHeart
                 className={`h-5 w-5 mr-2 ${
                   inWishlist ? "fill-pink-500 text-pink-500" : ""
                 }`}

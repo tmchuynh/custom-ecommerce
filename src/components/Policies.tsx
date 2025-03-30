@@ -1,47 +1,46 @@
-import {
-  ArrowRight,
-  Book,
-  CreditCard,
-  FileText,
-  Key,
-  RefreshCw,
-  Shield,
-} from "lucide-react";
 import Link from "next/link";
 import DynamicButton from "./ui/button-dynamic";
 import { Button } from "./ui/button";
+import { InformationDetails } from "@/lib/interfaces";
+import { FaCreditCard, FaFile, FaKey } from "react-icons/fa";
+import { IoMdRefresh } from "react-icons/io";
 
 export default function Policies() {
-  const policyLinks = [
+  const policyLinks: InformationDetails[] = [
     {
+      id: "terms_and_conditions",
       title: "Terms & Conditions",
       description: "Our terms of service and rules for using our platform",
       href: "/policies/terms_and_conditions",
-      icon: <FileText className="h-6 w-6" />,
+      icon: FaFile,
     },
     {
+      id: "privacy_policy",
       title: "Privacy Policy",
       description: "How we collect, use, and protect your personal information",
       href: "/policies/privacy_policy",
-      icon: <Shield className="h-6 w-6" />,
+      icon: FaFile,
     },
     {
+      id: "return_policy",
       title: "Return Policy",
       description: "Information about returns, refunds, and exchanges",
       href: "/policies/return_policy",
-      icon: <RefreshCw className="h-6 w-6" />,
+      icon: IoMdRefresh,
     },
     {
+      id: "payment_security",
       title: "Payment Security",
       description: "How we ensure your payment information remains safe",
       href: "/policies/payment_security",
-      icon: <CreditCard className="h-6 w-6" />,
+      icon: FaCreditCard,
     },
     {
+      id: "cookie_policy",
       title: "Cookie Policy",
       description: "How we use cookies and similar technologies",
       href: "/policies/cookie_policy",
-      icon: <Key className="h-6 w-6" />,
+      icon: FaKey,
     },
   ];
 
@@ -60,13 +59,13 @@ export default function Policies() {
           {policyLinks.map((policy, index) => (
             <Link
               key={index}
-              href={policy.href}
+              href={policy.href || "/"}
               className="group flex flex-col h-full rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border"
             >
               <div className="p-6 flex flex-col h-full">
                 <div className="flex items-center mb-4">
                   <div className="p-2 rounded-full bg-blue-50 text-blue-600 mr-3">
-                    {policy.icon}
+                    <policy.icon />
                   </div>
                   <h3 className="text-lg font-semibold">{policy.title}</h3>
                 </div>
