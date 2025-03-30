@@ -16,6 +16,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [failedAttempts, setFailedAttempts] = useState(0);
+  const [lockUntil, setLockUntil] = useState<Date | null>(null);
 
   const validatePassword = (password: string): boolean => {
     const minLength = 8;
@@ -82,11 +84,22 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const isAccountLocked = (): boolean => {
+    if (!lockUntil) return false;
+    return new Date() < lockUntil;
+  };
+
   const login = async (credentials: LoginCredentials) => {
     setIsLoading(true);
     setError(null);
 
     try {
+      if (isAccountLocked()) {
+        throw new Error(
+          "Your account is locked for 24 hours due to multiple failed login attempts. Please reset your password."
+        );
+      }
+
       const endpoint = credentials.loginCode
         ? "/api/auth/login-with-code"
         : "/api/auth/login";
@@ -98,12 +111,30 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       });
 
       if (!response.ok) {
+        setFailedAttempts((prev) => {
+          const newAttempts = prev + 1;
+
+          if (newAttempts === 5) {
+            alert("Warning: You have 5 failed login attempts.");
+          }
+
+          if (newAttempts >= 10) {
+            setLockUntil(new Date(Date.now() + 24 * 60 * 60 * 1000)); // Lock for 24 hours
+            alert(
+              "Your account has been locked for 24 hours due to multiple failed login attempts. Please reset your password."
+            );
+          }
+
+          return newAttempts;
+        });
+
         throw new Error("Login failed");
       }
 
       const userData = await response.json();
       setUser(userData);
       localStorage.setItem("authToken", userData.token);
+      setFailedAttempts(0); // Reset failed attempts on successful login
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
       throw err;
