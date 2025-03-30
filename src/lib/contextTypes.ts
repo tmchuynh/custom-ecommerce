@@ -10,6 +10,7 @@ import {
   Payment,
   PaymentStatus,
   PaymentSubmissionData,
+  ResetPasswordData,
 } from "./interfaces";
 import {
   ProductFilters,
@@ -220,6 +221,10 @@ export interface AuthContextType {
   signUp: (credentials: SignUpCredentials) => Promise<void>;
   login: (credentials: LoginCredentials) => Promise<void>;
   logout: () => Promise<void>;
+  requestLoginCode: (identifier: string) => Promise<void>;
+  resetPasswordRequest: (email: string) => Promise<void>;
+  validateResetCode: (email: string, code: string) => Promise<boolean>;
+  resetPassword: (data: ResetPasswordData) => Promise<void>;
 }
 
 export interface PaymentContextType {

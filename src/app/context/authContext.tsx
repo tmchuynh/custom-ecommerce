@@ -5,6 +5,7 @@ import {
   AuthUser,
   SignUpCredentials,
   LoginCredentials,
+  ResetPasswordData,
 } from "@/lib/interfaces";
 import { createContext, useContext, useState } from "react";
 
@@ -56,13 +57,40 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const requestLoginCode = async (identifier: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/auth/request-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ identifier }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send login code");
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to send login code"
+      );
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const login = async (credentials: LoginCredentials) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Add your API call here
-      const response = await fetch("/api/auth/login", {
+      const endpoint = credentials.loginCode
+        ? "/api/auth/login-with-code"
+        : "/api/auth/login";
+
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),
@@ -77,6 +105,75 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       localStorage.setItem("authToken", userData.token);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred");
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const resetPasswordRequest = async (email: string) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/auth/reset-password-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send reset code");
+      }
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Failed to send reset code"
+      );
+      throw err;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const validateResetCode = async (
+    email: string,
+    code: string
+  ): Promise<boolean> => {
+    try {
+      const response = await fetch("/api/auth/validate-reset-code", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, code }),
+      });
+
+      return response.ok;
+    } catch {
+      return false;
+    }
+  };
+
+  const resetPassword = async (data: ResetPasswordData) => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      if (data.newPassword && !validatePassword(data.newPassword)) {
+        throw new Error(
+          "New password must be at least 8 characters and contain a number and symbol"
+        );
+      }
+
+      const response = await fetch("/api/auth/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to reset password");
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to reset password");
       throw err;
     } finally {
       setIsLoading(false);
@@ -105,7 +202,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, isLoading, error, signUp, login, logout }}
+      value={{
+        user,
+        isLoading,
+        error,
+        signUp,
+        login,
+        logout,
+        requestLoginCode,
+        resetPasswordRequest,
+        validateResetCode,
+        resetPassword,
+      }}
     >
       {children}
     </AuthContext.Provider>

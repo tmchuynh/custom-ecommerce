@@ -184,16 +184,22 @@ export interface CustomerInfoData {
   marketingConsent: boolean;
 }
 
+export interface ResetPasswordData {
+  email: string;
+  code?: string;
+  newPassword?: string;
+}
+
 export interface AuthUser {
   id: string;
   email: string;
+  username: string;
   firstName?: string;
   lastName?: string;
   phone?: string;
-  addresses: ShippingAddress[];
+  addresses?: ShippingAddress[];
   defaultShippingAddress?: string;
-  defaultBillingAddress?: string;
-  createdAt: Date;
+  token: string;
 }
 
 export interface SignUpCredentials {
@@ -204,8 +210,9 @@ export interface SignUpCredentials {
 }
 
 export interface LoginCredentials {
-  email: string;
-  password: string;
+  identifier: string; // can be email or username
+  password?: string;
+  loginCode?: string;
 }
 
 export interface ShippingAddress {
