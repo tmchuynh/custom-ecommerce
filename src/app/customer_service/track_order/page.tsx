@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { trackingOrderFAQs } from "@/lib/faqs";
-import { cn, toggleAccordionSection } from "@/lib/utils";
+import { cn, toggleAccordionSection } from "@/lib/utils/utils";
 import {
   AlertCircle,
   ArrowLeft,

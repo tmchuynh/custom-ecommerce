@@ -10,7 +10,7 @@ import LoadingIndicator from "@/components/states/Loading";
 import { ProductItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductType } from "@/lib/types";
-import { formatURL } from "@/lib/utils";
+import { formatURL } from "@/lib/utils/utils";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";

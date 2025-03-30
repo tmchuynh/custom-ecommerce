@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { perks } from "@/lib/constants";
 import { loyaltyFaqs } from "@/lib/faqs";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
+import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
 import {
   Award,
   BookOpen,

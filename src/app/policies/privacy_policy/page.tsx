@@ -15,7 +15,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import router from "next/router";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 
 /**
  * Privacy Policy Component

@@ -19,7 +19,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import router from "next/router";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 
 /**
  * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.

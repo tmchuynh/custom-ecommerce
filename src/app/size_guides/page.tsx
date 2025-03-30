@@ -11,7 +11,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import Image from "next/image";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 
 /**
  * A comprehensive size guide component that displays sizing information for clothing and footwear.

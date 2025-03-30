@@ -16,7 +16,7 @@ import {
   validateEmail,
   validatePhone,
   handleApplyDiscountUtil,
-} from "@/lib/utils";
+} from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";

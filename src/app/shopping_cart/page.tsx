@@ -1,6 +1,6 @@
 "use client";
 import { Skeleton } from "@/components/ui/skeleton";
-import { capitalize, cn } from "@/lib/utils";
+import { capitalize, cn } from "@/lib/utils/utils";
 import { useCart } from "../context/cartContext";
 import { useCurrency } from "../context/currencyContext";
 import { Button, buttonVariants } from "@/components/ui/button";

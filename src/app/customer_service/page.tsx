@@ -18,7 +18,7 @@ import {
   Globe,
 } from "lucide-react";
 import { customerServiceFAQs } from "@/lib/faqs";
-import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
+import { toggleAccordionSection, scrollToSection } from "@/lib/utils/utils";
 
 /**
  * CustomerService Component
