@@ -16,6 +16,9 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useCart } from "../../context/cartContext";
+import { usePayment } from "@/app/context/paymentContext";
+import { useProduct } from "@/app/context/productContext";
+import { useCurrency } from "@/app/context/currencyContext";
 
 // Import our newly created components
 import CustomerInfoForm from "@/components/checkout/customer-info-form";
@@ -24,7 +27,6 @@ import OrderItems from "@/components/checkout/order-items";
 import OrderSummary from "@/components/checkout/order-summary";
 import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import ShippingAddressForm from "@/components/checkout/shipping-address-form";
-import { useCurrency } from "@/app/context/currencyContext";
 
 const CheckoutPage = () => {
   const {
@@ -40,7 +42,21 @@ const CheckoutPage = () => {
     selectedShippingMethod,
   } = useCart();
 
-  const { getImportTaxBreakdown } = useCurrency();
+  const {
+    processPayment,
+    paymentError,
+    validateCardDetails,
+    handlePaymentSubmission,
+  } = usePayment();
+
+  const { getProductByName, updateStockLevel } = useProduct();
+
+  const {
+    formatCurrency,
+    selectedCurrency,
+    calculateImportTaxes,
+    getImportTaxBreakdown,
+  } = useCurrency();
 
   // Discount state
   const [discountCode, setDiscountCode] = useState<string>("");
@@ -267,7 +283,7 @@ const CheckoutPage = () => {
     setDiscountCode("");
   };
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     // Mark all fields as touched to show all validation errors
     setTouchedFields({
       name: true,
@@ -294,12 +310,25 @@ const CheckoutPage = () => {
 
     // Instead of showing an alert, navigate to the thank you page
     try {
-      // Set navigation block to false so we can navigate without confirmation dialog
-      navigationBlocked.current = true;
-      // Navigate to the confirmation page
-      router.push("/shopping_cart/checkout/thank_you");
+      // Process payment
+      const paymentResult = await processPayment(discountedTotal, {
+        number: cardNumber,
+        expirationDate: cardExpiry,
+        cvv: cardCvv,
+        issuer: cardType,
+      });
+
+      if (paymentResult) {
+        // Update stock levels
+        cartItems.forEach((item) => {
+          updateStockLevel(item.name, item.quantity);
+        });
+
+        navigationBlocked.current = true;
+        router.push("/shopping_cart/checkout/thank_you");
+      }
     } catch (error) {
-      // If there's an error during checkout, navigate to the error page
+      toast.error(error instanceof Error ? error.message : "Checkout failed");
       router.push("/shopping_cart/checkout/error");
     }
   };
@@ -427,6 +456,18 @@ const CheckoutPage = () => {
               handleBlur={(field: string) =>
                 handleBlur(field as keyof typeof touchedFields)
               }
+              onSubmit={(data) => {
+                handlePaymentSubmission({
+                  ...data,
+                  cardDetails: {
+                    number: cardNumber,
+                    expirationDate: cardExpiry,
+                    cvv: cardCvv,
+                    issuer: cardType,
+                  },
+                  amount: discountedTotal,
+                });
+              }}
             />
             {/* Shipping Address Section */}
             <ShippingAddressForm
@@ -443,6 +484,18 @@ const CheckoutPage = () => {
               touchedFields={touchedFields}
               formErrors={formErrors}
               handleBlur={handleBlur}
+              onSubmit={(data) => {
+                handlePaymentSubmission({
+                  ...data,
+                  cardDetails: {
+                    number: cardNumber,
+                    expirationDate: cardExpiry,
+                    cvv: cardCvv,
+                    issuer: cardType,
+                  },
+                  amount: discountedTotal,
+                });
+              }}
             />
             {/* Payment Information Section */}
             <PaymentInfoForm
@@ -467,7 +520,26 @@ const CheckoutPage = () => {
               touchedFields={touchedFields}
               formErrors={formErrors}
               handleBlur={handleBlur}
-              // Add any missing required props here
+              onSubmit={handleCheckout}
+              isSubmitting={false}
+              setIsSubmitting={() => {}}
+              handlePayment={() => {}}
+              validateCard={validateCardDetails}
+              paymentError={paymentError || null}
+              isCardValid={true}
+              setIsCardValid={() => {}}
+              resetForm={() => {}}
+              total={discountedTotal}
+              handlePaymentSuccess={() => toast.success("Payment successful")}
+              handlePaymentPending={() => toast.info("Payment is processing")}
+              handlePaymentProcessing={() =>
+                toast.info("Processing payment...")
+              }
+              handlePaymentCancelled={() => toast.warning("Payment cancelled")}
+              handlePaymentDeclined={() => toast.error("Payment declined")}
+              handlePaymentRefunded={() =>
+                toast.info("Payment will be refuneded")
+              }
             />
           </div>
           {/* Right Column - Order Summary */}
