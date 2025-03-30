@@ -13,6 +13,7 @@ import React, {
 } from "react";
 import { formatDate } from "@/lib/utils";
 import { countryTaxRates } from "@/lib/taxRatesConstant";
+import { useCurrency } from "./currencyContext";
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -244,53 +245,6 @@ export const getTaxInfoByCountryCode = (
   return taxInfo;
 };
 
-// Calculate import taxes for international orders
-const calculateImportTaxes = (
-  subtotal: number,
-  country: string
-): {
-  dutyAmount: number;
-  vatAmount: number;
-  totalImportCharges: number;
-  appliedDuty: boolean;
-  appliedVAT: boolean;
-} => {
-  // Get country tax info
-  const countryInfo = getTaxInfoByCountryCode(country);
-
-  // Default values
-  const result = {
-    dutyAmount: 0,
-    vatAmount: 0,
-    totalImportCharges: 0,
-    appliedDuty: false,
-    appliedVAT: false,
-  };
-
-  // If USA or unknown country, return default (no import taxes)
-  if (countryInfo.code === "USA" || countryInfo.code === "UNKNOWN") {
-    return result;
-  }
-
-  // Calculate duty if above de minimis threshold
-  if (subtotal > countryInfo.deMinimisDuty) {
-    result.dutyAmount = subtotal * countryInfo.dutyRate;
-    result.appliedDuty = true;
-  }
-
-  // Calculate VAT/GST if above de minimis threshold
-  if (subtotal > countryInfo.deMinimisVAT) {
-    // VAT is typically applied to (subtotal + duty)
-    result.vatAmount = subtotal * countryInfo.vatRate;
-    result.appliedVAT = true;
-  }
-
-  // Calculate total import charges
-  result.totalImportCharges = result.dutyAmount + result.vatAmount;
-
-  return result;
-};
-
 // -------------------
 // CartProvider Component
 // -------------------
@@ -298,6 +252,7 @@ const calculateImportTaxes = (
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }): JSX.Element => {
+  const { calculateImportFee, calculateImportTaxes } = useCurrency();
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
   const [discountAmount, setDiscountAmount] = useState<number>(0);
@@ -578,16 +533,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return addBusinessDays(today, daysToAdd);
   };
 
-  const startCheckout = (): void => {
-    if (cartItems.length === 0) return;
-    setCheckoutActive(true);
-    // Simulate checkout process
-    setTimeout(() => {
-      clearCart();
-      setCheckoutActive(false);
-    }, 2000);
-  };
-
   const moveToWishlist = (itemId: string): void => {
     const item = cartItems.find((item) => item.id === itemId);
     if (item) {
@@ -627,82 +572,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return `${formattedWindowStart} - ${formattedWindowEnd}`; // Delivery window
   };
 
-  const calculateImportFee = (value: number, countryCode: string): number => {
-    // Find the country object from the array
-    console.log("Country Code Passed:", countryCode);
-    const defaultCountryData = {
-      country: "Unknown",
-      code: "UNKNOWN",
-      vatRate: 0.0,
-      dutyRate: 0.0,
-      deMinimisDuty: 0,
-      deMinimisVAT: 0,
-      hasImportFees: false,
-    };
-
-    const country =
-      countryTaxRates.find((rate) => rate.code === countryCode) ||
-      defaultCountryData;
-
-    if (!country) {
-      console.error("Country not found in countryTaxRates:", countryCode);
-      throw new Error("Country not found");
-    }
-
-    if (!country) {
-      throw new Error("Country not found");
-    }
-
-    // If the country doesn't apply import fees, return 0
-    if (!country.hasImportFees) {
-      return 0;
-    }
-
-    // Check if value is below the de minimis thresholds
-    if (value <= country.deMinimisVAT) {
-      return 0; // No VAT if value is below the VAT threshold
-    }
-
-    // Calculate VAT (GST)
-    const gst = value * country.vatRate;
-
-    // Calculate customs duty if applicable
-    const customsDuty =
-      value > country.deMinimisDuty ? value * country.dutyRate : 0;
-
-    // Total import fee is the sum of VAT and customs duty
-    return gst + customsDuty;
-  };
-
-  // Get detailed import tax breakdown
-  const getImportTaxBreakdown = (
-    country: string
-  ): {
-    duty: number;
-    vat: number;
-    total: number;
-    subtotal: number;
-    shipping: number;
-    grandTotal: number;
-  } => {
-    const subtotal = getSubTotal();
-    const { dutyAmount, vatAmount, totalImportCharges } = calculateImportTaxes(
-      subtotal,
-      country
-    );
-    const shippingMethod = getShippingMethod();
-    const shipping = calculateInternationalShippingFee(country, shippingMethod);
-
-    return {
-      duty: dutyAmount,
-      vat: vatAmount,
-      total: totalImportCharges,
-      subtotal: subtotal,
-      shipping: shipping,
-      grandTotal: subtotal + shipping + totalImportCharges,
-    };
-  };
-
   return (
     <CartContext.Provider
       value={{
@@ -725,15 +594,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         calculateShippingCost,
         calculateInternationalShippingFee,
         getEstimatedDeliveryDate,
-        startCheckout,
         moveToWishlist,
         selectedShippingMethod,
         updateShippingMethod,
         getDeliveryWindowDates,
         getDeliveryDescription,
         getDeliveryEstimateText,
-        getImportTaxBreakdown,
-
         getProductSalesCount,
         getSalesTrends,
       }}
