@@ -5,9 +5,10 @@ import LogoCloud from "@/components/LogoCloud";
 import Team from "@/components/Team";
 import { stats, values } from "@/lib/constants";
 import Image from "next/image";
-import { BookOpen, Users, Award, Briefcase, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { InformationDetails } from "@/lib/interfaces";
+import { FaBookOpen, FaBriefcase, FaHeart, FaUsers } from "react-icons/fa";
 
 export default function About() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -26,31 +27,26 @@ export default function About() {
     scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
-  const sections = [
+  const sections: InformationDetails[] = [
     {
       id: "mission",
       title: "Our Mission",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBookOpen,
     },
     {
       id: "values",
       title: "Our Values",
-      icon: <Heart className="h-5 w-5" />,
+      icon: FaHeart,
     },
     {
       id: "team",
       title: "Our Team",
-      icon: <Users className="h-5 w-5" />,
+      icon: FaUsers,
     },
     {
       id: "partners",
       title: "Our Partners",
-      icon: <Briefcase className="h-5 w-5" />,
-    },
-    {
-      id: "blog",
-      title: "Featured Articles",
-      icon: <BookOpen className="h-5 w-5" />,
+      icon: FaBriefcase,
     },
   ];
 

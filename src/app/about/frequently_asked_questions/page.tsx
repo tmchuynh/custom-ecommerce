@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { scrollToSection } from "@/lib/utils";
+import { scrollToSection } from "@/lib/utils/utils";
 import {
   CreditCard,
   HelpCircle,

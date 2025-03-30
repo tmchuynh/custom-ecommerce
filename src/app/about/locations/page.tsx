@@ -14,7 +14,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { locations } from "@/lib/constants";
-import { scrollToSection } from "@/lib/utils";
+import { scrollToSection } from "@/lib/utils/utils";
 
 const containerStyle = {
   width: "100%",
