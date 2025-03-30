@@ -15,9 +15,9 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { ChevronDown } from "lucide-react";
 import { mockProductData } from "@/lib/mockProductData";
 import { capitalize } from "@/lib/utils/format";
+import { FaChevronDown } from "react-icons/fa";
 
 const StaticBreadcrumb: React.FC = () => {
   const pathname = usePathname();
@@ -127,7 +127,7 @@ const StaticBreadcrumb: React.FC = () => {
                 className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
               >
                 Shopping
-                <ChevronDown className="ml-1 h-4 w-4" />
+                <FaChevronDown className="ml-1 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56">
@@ -162,7 +162,7 @@ const StaticBreadcrumb: React.FC = () => {
                   className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
                 >
                   {capitalize(gender)}
-                  <ChevronDown className="ml-1 h-4 w-4" />
+                  <FaChevronDown className="ml-1 h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-56">

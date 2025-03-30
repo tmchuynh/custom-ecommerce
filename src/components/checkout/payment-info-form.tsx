@@ -25,9 +25,10 @@ import {
 } from "@/lib/utils/utils";
 import { validateField } from "@/lib/utils/validation";
 
-import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { FaCreditCard, FaInfo, FaLock } from "react-icons/fa";
+import { IoIosAlert } from "react-icons/io";
 
 const months = generateMonths();
 const years = generateYears();
@@ -242,7 +243,7 @@ export default function PaymentInfoForm({
               <Label htmlFor="creditCard" className="flex-1 cursor-pointer">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <CreditCard
+                    <FaCreditCard
                       className={`h-5 w-5 mr-2 ${
                         formData.paymentMethod === "creditCard"
                           ? "text-primary"
@@ -299,7 +300,7 @@ export default function PaymentInfoForm({
               <Label htmlFor="paypal" className="flex-1 cursor-pointer">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <CreditCard
+                    <FaCreditCard
                       className={`h-5 w-5 mr-2 ${
                         formData.paymentMethod === "paypal"
                           ? "text-primary"
@@ -334,7 +335,7 @@ export default function PaymentInfoForm({
               </Label>
               <div className="relative">
                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
-                  <CreditCard className="h-4 w-4" />
+                  <FaCreditCard className="h-4 w-4" />
                 </div>
                 <Input
                   id="cardNumber"
@@ -363,7 +364,7 @@ export default function PaymentInfoForm({
                 )}
                 {touched.cardNumber && errors.cardNumber && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <AlertCircle className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="h-3 w-3 mr-1" />
                     {errors.cardNumber}
                   </div>
                 )}
@@ -390,7 +391,7 @@ export default function PaymentInfoForm({
               />
               {touched.nameOnCard && errors.nameOnCard && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <AlertCircle className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="h-3 w-3 mr-1" />
                   {errors.nameOnCard}
                 </div>
               )}
@@ -433,7 +434,7 @@ export default function PaymentInfoForm({
                 </Select>
                 {touched.expiryMonth && errors.expiryMonth && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <AlertCircle className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="h-3 w-3 mr-1" />
                     {errors.expiryMonth}
                   </div>
                 )}
@@ -475,7 +476,7 @@ export default function PaymentInfoForm({
                 </Select>
                 {touched.expiryYear && errors.expiryYear && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <AlertCircle className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="h-3 w-3 mr-1" />
                     {errors.expiryYear}
                   </div>
                 )}
@@ -515,7 +516,7 @@ export default function PaymentInfoForm({
                 />
                 {touched.cvc && errors.cvc && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <AlertCircle className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="h-3 w-3 mr-1" />
                     {errors.cvc}
                   </div>
                 )}
@@ -577,7 +578,7 @@ export default function PaymentInfoForm({
         {formData.paymentMethod === "paypal" && (
           <div className="p-4 rounded-lg my-4">
             <div className="flex items-start">
-              <Info className="h-5 w-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
+              <FaInfo className="h-5 w-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
               <div>
                 <h3 className="text-sm font-medium text-blue-800">
                   You'll be redirected to PayPal to complete your purchase
@@ -593,7 +594,7 @@ export default function PaymentInfoForm({
 
         <div className="border-t hover:bg-secondary hover:text-secondary-foreground mt-6 pt-6">
           <div className="flex items-center mb-4 p-3 rounded-lg">
-            <Lock className="h-5 w-5 text-blue-600 mr-2" />
+            <FaLock className="h-5 w-5 text-blue-600 mr-2" />
             <p className="text-sm text-blue-800">
               Your payment information is encrypted and secure.
             </p>

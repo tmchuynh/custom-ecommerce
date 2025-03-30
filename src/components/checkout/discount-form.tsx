@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, Check, Gift, X } from "lucide-react";
+import { IoIosAlert } from "react-icons/io";
 import { DiscountFormProps } from "@/lib/types";
+import { FaCheckDouble, FaGift } from "react-icons/fa";
+import { FaX } from "react-icons/fa6";
 
 /**
  * A form component for handling discount code applications in a checkout process.
@@ -158,12 +160,12 @@ export default function DiscountForm({
             />
             {applied && (
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <Check className="h-4 w-4 text-green-500" />
+                <FaCheckDouble className="h-4 w-4 text-green-500" />
               </div>
             )}
             {error && (
               <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-                <X className="h-4 w-4 text-red-500" />
+                <FaX className="h-4 w-4 text-red-500" />
               </div>
             )}
           </div>
@@ -178,7 +180,7 @@ export default function DiscountForm({
           >
             {applied ? (
               <>
-                <Check className="h-4 w-4 mr-1" /> Applied
+                <FaCheckDouble className="h-4 w-4 mr-1" /> Applied
               </>
             ) : (
               "Apply"
@@ -188,14 +190,14 @@ export default function DiscountForm({
 
         {error && (
           <div className="flex items-center mt-1 text-red-500 text-xs">
-            <AlertCircle className="h-3 w-3 mr-1" />
+            <IoIosAlert className="h-3 w-3 mr-1" />
             Invalid promo code. Please try again.
           </div>
         )}
       </div>
 
       <div className="flex items-start p-3 rounded-lg">
-        <Gift className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
+        <FaGift className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
         <div>
           <p className="text-sm font-medium">Available Promotions</p>
           <div className="grid gap-2 mt-2">

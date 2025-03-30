@@ -14,7 +14,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
-import { AlertCircle, MapPin, Home, Building } from "lucide-react";
+
 import { ShippingAddressFormProps } from "@/lib/types";
 import { usStates } from "@/lib/constants";
 import { ShippingAddress, ShippingMethod } from "@/lib/interfaces";
@@ -27,6 +27,8 @@ import {
 import { validateField } from "@/lib/utils/validation";
 import { FaTruckFast } from "react-icons/fa6";
 import { BiSolidPackage } from "react-icons/bi";
+import { IoIosAlert } from "react-icons/io";
+import { FaBuilding, FaHome, FaMapPin } from "react-icons/fa";
 
 const shippingMethods: ShippingMethod[] = [
   {
@@ -173,7 +175,7 @@ export default function ShippingAddressForm({
           </Label>
           <div className="relative">
             <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
-              <MapPin className="h-4 w-4" />
+              <FaMapPin className="h-4 w-4" />
             </div>
             <Input
               id="addressLine1"
@@ -190,7 +192,7 @@ export default function ShippingAddressForm({
             />
             {touched.addressLine1 && errors.addressLine1 && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <AlertCircle className="h-3 w-3 mr-1" />
+                <IoIosAlert className="h-3 w-3 mr-1" />
                 {errors.addressLine1}
               </div>
             )}
@@ -231,7 +233,7 @@ export default function ShippingAddressForm({
             />
             {touched.city && errors.city && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <AlertCircle className="h-3 w-3 mr-1" />
+                <IoIosAlert className="h-3 w-3 mr-1" />
                 {errors.city}
               </div>
             )}
@@ -273,7 +275,7 @@ export default function ShippingAddressForm({
             </Select>
             {touched.state && errors.state && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <AlertCircle className="h-3 w-3 mr-1" />
+                <IoIosAlert className="h-3 w-3 mr-1" />
                 {errors.state}
               </div>
             )}
@@ -300,7 +302,7 @@ export default function ShippingAddressForm({
             />
             {touched.postalCode && errors.postalCode && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <AlertCircle className="h-3 w-3 mr-1" />
+                <IoIosAlert className="h-3 w-3 mr-1" />
                 {errors.postalCode}
               </div>
             )}
@@ -347,7 +349,7 @@ export default function ShippingAddressForm({
                   : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
-              <Home
+              <FaHome
                 className={`h-5 w-5 mr-2 ${
                   formData.addressType === "residential"
                     ? "text-primary"
@@ -379,7 +381,7 @@ export default function ShippingAddressForm({
                   : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
-              <Building
+              <FaBuilding
                 className={`h-5 w-5 mr-2 ${
                   formData.addressType === "business"
                     ? "text-primary"

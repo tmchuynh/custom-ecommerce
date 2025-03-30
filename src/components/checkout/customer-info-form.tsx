@@ -14,8 +14,9 @@ import {
   handleBlur,
 } from "@/lib/utils/utils";
 import { validateField } from "@/lib/utils/validation";
-import { AlertCircle, Mail, Phone, User } from "lucide-react";
 import { useState } from "react";
+import { FaMailBulk, FaPhoneAlt, FaUser } from "react-icons/fa";
+import { IoIosAlert } from "react-icons/io";
 
 /**
  * A form component for collecting customer information during checkout.
@@ -144,7 +145,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
             </Label>
             <div className="relative">
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <User className="h-4 w-4" />
+                <FaUser className="h-4 w-4" />
               </div>
               <Input
                 id="firstName"
@@ -161,7 +162,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.firstName && errors.firstName && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <AlertCircle className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="h-3 w-3 mr-1" />
                   {errors.firstName}
                 </div>
               )}
@@ -174,7 +175,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
             </Label>
             <div className="relative">
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <User className="h-4 w-4" />
+                <FaUser className="h-4 w-4" />
               </div>
               <Input
                 id="lastName"
@@ -192,7 +193,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               {touched.lastName && errors.lastName && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
                   {" "}
-                  <AlertCircle className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="h-3 w-3 mr-1" />
                   {errors.lastName}
                 </div>
               )}
@@ -205,7 +206,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
             </Label>
             <div className="relative">
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <Mail className="h-4 w-4" />
+                <FaMailBulk className="h-4 w-4" />
               </div>
               <Input
                 id="email"
@@ -223,7 +224,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.email && errors.email && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <AlertCircle className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="h-3 w-3 mr-1" />
                   {errors.email}
                 </div>
               )}
@@ -237,7 +238,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
             </Label>
             <div className="relative">
               <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <Phone className="h-4 w-4" />
+                <FaPhoneAlt className="h-4 w-4" />
               </div>
               <Input
                 id="phone"
@@ -255,7 +256,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.phone && errors.phone && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <AlertCircle className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="h-3 w-3 mr-1" />
                   {errors.phone}
                 </div>
               )}
