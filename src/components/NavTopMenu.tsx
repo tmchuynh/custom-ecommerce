@@ -1,5 +1,5 @@
 "use client";
-import { useCurrency } from "@/app/context/CurrencyContext";
+import { useCurrency } from "@/app/context/currencyContext";
 import { currencyCountries } from "@/lib/countriesConstant";
 import { ThemeToggle } from "./ThemeToggle";
 import {

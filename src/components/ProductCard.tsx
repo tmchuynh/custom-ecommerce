@@ -1,6 +1,6 @@
-import { useCurrency } from "@/app/context/CurrencyContext";
+import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { formatCurrency, formatItemName, formatURL } from "@/lib/utils";
+import { formatItemName, formatURL } from "@/lib/utils";
 import { Clock, Eye, Heart, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,6 +28,7 @@ const ProductCard = ({
   wishlist: Set<string>;
 }): JSX.Element => {
   const { getProductByName, convertPrice } = useProduct();
+  const { formatCurrency } = useCurrency();
   const { selectedCurrency } = useCurrency();
 
   const foundItem = getProductByName(product.name);
@@ -112,7 +113,7 @@ const ProductCard = ({
         <div className="flex items-center gap-2">
           {product.originalPrice && (
             <span className="text-sm line-through">
-              {formatCurrency(product.originalPrice)}
+              {formatCurrency(product.originalPrice, selectedCurrency.code)}
             </span>
           )}
           <span className="text-lg font-semibold text-blue-600">

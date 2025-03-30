@@ -1,4 +1,4 @@
-import { useCurrency } from "@/app/context/CurrencyContext";
+import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
 import { ProductType } from "@/lib/types";
 import { cn, formatURL } from "@/lib/utils";

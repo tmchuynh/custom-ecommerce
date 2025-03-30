@@ -2,7 +2,7 @@
 import { Skeleton } from "@/components/ui/skeleton";
 import { capitalize, cn } from "@/lib/utils";
 import { useCart } from "../context/cartContext";
-import { useCurrency } from "../context/CurrencyContext";
+import { useCurrency } from "../context/currencyContext";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   AlertDialog,
