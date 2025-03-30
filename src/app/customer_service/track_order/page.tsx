@@ -1,8 +1,10 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { cn } from "@/lib/utils";
 import {
   AlertCircle,
   ArrowLeft,
@@ -19,9 +21,11 @@ import {
   Truck,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 
 const TrackOrder = () => {
+  const router = useRouter();
   const [trackingNumber, setTrackingNumber] = useState("");
   const [orderStatus, setOrderStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -139,63 +143,73 @@ const TrackOrder = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-extrabold mb-4">Track Your Order</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Enter your tracking number to get the latest update on your order
             status.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 bg-white rounded-xl shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4 text-gray-800">
-                Quick Links
-              </h2>
+          <div className="lg:col-span-2">
+            <div className="sticky top-8 rounded-xl border shadow-md p-6">
+              <h2 className="text-xl font-bold mb-4">Contents</h2>
 
-              <div className="space-y-3">
-                <Link
-                  href="/customer_service"
-                  className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                >
-                  <ArrowLeft className="h-5 w-5 mr-2" />
-                  <span>Back to Customer Service</span>
-                </Link>
+              <ul className="space-y-2">
+                <li>
+                  <button
+                    onClick={() => router.push("/customer_service/track_order")}
+                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                  >
+                    <ArrowLeft className="h-5 w-5 mr-2" />
+                    <span className="ml-2 text-sm font-medium">
+                      Back to Customer Service
+                    </span>
+                  </button>
+                </li>
 
-                <Link
-                  href="/orders"
-                  className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                >
-                  <PackageCheck className="h-5 w-5 mr-2" />
-                  <span>View My Orders</span>
-                </Link>
+                <li>
+                  <button
+                    onClick={() => router.push("/customer_service/orders")}
+                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                  >
+                    <PackageCheck className="h-5 w-5 mr-2" />
 
-                <Link
-                  href="/return_policy"
-                  className="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition"
-                >
-                  <RefreshCw className="h-5 w-5 mr-2" />
-                  <span>Return Policy</span>
-                </Link>
-              </div>
+                    <span className="ml-2 text-sm font-medium">
+                      View My Orders
+                    </span>
+                  </button>
+                </li>
+
+                <li>
+                  <button
+                    onClick={() => router.push("/policies/return_policy")}
+                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                  >
+                    <RefreshCw className="h-5 w-5 mr-2" />
+                    <span className="ml-2 text-sm font-medium">
+                      Return Policy
+                    </span>
+                  </button>
+                </li>
+              </ul>
 
               <hr className="my-4" />
 
-              <div className="bg-blue-50 p-4 rounded-lg space-y-2">
-                <h3 className="font-medium text-blue-800 flex items-center">
+              <div className="p-4 bg-muted rounded-lg space-y-2">
+                <h3 className="font-medium flex items-center">
                   <HelpCircle className="h-4 w-4 mr-2" />
                   Need Help?
                 </h3>
-                <p className="text-sm text-gray-700">
+                <p className="text-sm text-foreground">
                   Our customer service team is available to assist you with any
                   questions.
                 </p>
                 <div className="flex mt-2">
-                  <Link
-                    href="/customer_service"
-                    className="text-blue-600 text-sm font-medium hover:underline"
-                  >
-                    Contact Support →
+                  <Link href="/customer_service" className="w-full">
+                    <Button className="w-full">
+                      <MessageSquare className="h-4 w-4 mr-2" /> Contact Support
+                    </Button>
                   </Link>
                 </div>
               </div>
@@ -203,13 +217,13 @@ const TrackOrder = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-5 space-y-8">
             {/* Tracking Form */}
-            <Card className="shadow-lg p-8 rounded-xl bg-white">
+            <Card className="shadow-lg p-8 rounded-lg">
               <div className="mb-6">
                 <label
                   htmlFor="tracking-number"
-                  className="block text-sm font-medium text-gray-700 mb-1"
+                  className="text-lg font-medium mb-4 mt-8"
                 >
                   Tracking Number
                 </label>
@@ -236,7 +250,7 @@ const TrackOrder = () => {
                     {loading ? "Searching..." : "Track"}
                   </Button>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs mt-1">
                   You can find your tracking number in your order confirmation
                   email.
                 </p>
@@ -245,12 +259,12 @@ const TrackOrder = () => {
               {/* Tracking Results */}
               {orderStatus && (
                 <div className="mt-8 border-t pt-6">
-                  <h3 className="text-lg font-medium mb-4 text-gray-800">
+                  <h3 className="text-lg font-medium mb-4 rounded-lg">
                     Order Status:
                   </h3>
 
                   {orderStatus === "Order not found" ? (
-                    <div className="bg-red-50 p-4 rounded-lg flex items-start">
+                    <div className="p-4 rounded-lg flex items-start bg-red-200">
                       <AlertCircle className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
                       <div>
                         <h4 className="font-medium text-red-800">
@@ -264,49 +278,44 @@ const TrackOrder = () => {
                     </div>
                   ) : (
                     <>
-                      <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                      <div className="p-4 rounded-lg mb-6">
                         <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div>
-                            <dt className="text-sm font-medium text-gray-500">
+                            <dt className="text-sm font-medium">
                               Tracking Number
                             </dt>
-                            <dd className="mt-1 text-sm text-gray-900">
-                              {trackingNumber}
-                            </dd>
+                            <dd className="mt-1 text-sm">{trackingNumber}</dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium text-gray-500">
-                              Status
-                            </dt>
+                            <dt className="text-sm font-medium">Status</dt>
                             <dd className="mt-1 text-sm font-semibold">
-                              <span
-                                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                              <Badge
+                                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium `}
+                                variant={
                                   orderDetails?.status === "Delivered"
-                                    ? "bg-green-100 text-green-800"
+                                    ? "blue"
                                     : orderDetails?.status === "In Transit"
-                                    ? "bg-blue-100 text-blue-800"
+                                    ? "orange"
                                     : orderDetails?.status === "Shipped"
-                                    ? "bg-yellow-100 text-yellow-800"
-                                    : "bg-gray-100 text-gray-800"
-                                }`}
+                                    ? "emerald"
+                                    : "purple"
+                                }
                               >
                                 {orderDetails?.status}
-                              </span>
+                              </Badge>
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium text-gray-500">
-                              Carrier
-                            </dt>
-                            <dd className="mt-1 text-sm text-gray-900">
+                            <dt className="text-sm font-medium">Carrier</dt>
+                            <dd className="mt-1 text-sm">
                               {orderDetails?.carrier}
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium text-gray-500">
+                            <dt className="text-sm font-medium">
                               Estimated Delivery
                             </dt>
-                            <dd className="mt-1 text-sm text-gray-900">
+                            <dd className="mt-1 text-sm">
                               {orderDetails?.estimatedDelivery}
                             </dd>
                           </div>
@@ -315,13 +324,13 @@ const TrackOrder = () => {
 
                       {/* Shipping Progress Indicator */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-medium text-gray-700 mb-3">
+                        <h4 className="text-sm font-medium mb-3">
                           Shipping Progress
                         </h4>
                         <div className="relative">
-                          <div className="overflow-hidden h-2 mb-6 text-xs flex rounded bg-gray-200">
+                          <div className="overflow-hidden h-2 mb-6 text-xs flex rounded">
                             <div
-                              className={`shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-blue-600 transition-all duration-500 ${
+                              className={`shadow-none flex flex-col text-center whitespace-nowrap  justify-center  transition-all duration-500 ${
                                 currentStep === 1
                                   ? "w-1/4"
                                   : currentStep === 2
@@ -334,89 +343,157 @@ const TrackOrder = () => {
                               }`}
                             ></div>
                           </div>
-                          <div className="flex justify-between">
-                            <div
-                              className={`text-center flex flex-col items-center ${
-                                currentStep >= 1
-                                  ? "text-blue-600"
-                                  : "text-gray-400"
-                              }`}
+
+                          <ol className="w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse md:grid md:grid-cols-2 md:gap-8">
+                            <li
+                              className={cn(
+                                "flex items-start space-x-2.5 rtl:space-x-reverse",
+                                {
+                                  "text-purple-600 dark:text-purple-500":
+                                    currentStep >= 1,
+                                }
+                              )}
                             >
-                              <div
-                                className={`rounded-full w-8 h-8 flex items-center justify-center mb-1 ${
-                                  currentStep >= 1
-                                    ? "bg-blue-100"
-                                    : "bg-gray-100"
-                                }`}
+                              <span
+                                className={cn(
+                                  "flex items-center justify-center w-8 h-8 rounded-full shrink-0 border",
+                                  {
+                                    "border-secondary text-secondary":
+                                      currentStep >= 1,
+                                  }
+                                )}
                               >
-                                <PackageOpen className="h-4 w-4" />
-                              </div>
-                              <span className="text-xs">Processing</span>
-                            </div>
-                            <div
-                              className={`text-center flex flex-col items-center ${
-                                currentStep >= 2
-                                  ? "text-blue-600"
-                                  : "text-gray-400"
-                              }`}
+                                1
+                              </span>
+                              <span>
+                                <h3
+                                  className={cn("font-medium leading-tight", {
+                                    uppercase: currentStep >= 1,
+                                  })}
+                                >
+                                  Processing
+                                </h3>
+                                <p className="text-sm text-foreground">
+                                  Your order is being processed, and we are
+                                  preparing your items for shipment.
+                                </p>
+                              </span>
+                            </li>
+
+                            <li
+                              className={cn(
+                                "flex items-start space-x-2.5 rtl:space-x-reverse",
+                                {
+                                  "text-emerald-600 dark:text-emerald-500":
+                                    currentStep >= 2,
+                                }
+                              )}
                             >
-                              <div
-                                className={`rounded-full w-8 h-8 flex items-center justify-center mb-1 ${
-                                  currentStep >= 2
-                                    ? "bg-blue-100"
-                                    : "bg-gray-100"
-                                }`}
+                              <span
+                                className={cn(
+                                  "flex items-center justify-center w-8 h-8 rounded-full shrink-0 border",
+                                  {
+                                    "border-secondary text-secondary":
+                                      currentStep >= 2,
+                                  }
+                                )}
                               >
-                                <PackageCheck className="h-4 w-4" />
-                              </div>
-                              <span className="text-xs">Shipped</span>
-                            </div>
-                            <div
-                              className={`text-center flex flex-col items-center ${
-                                currentStep >= 3
-                                  ? "text-blue-600"
-                                  : "text-gray-400"
-                              }`}
+                                2
+                              </span>
+                              <span>
+                                <h3
+                                  className={cn("font-medium leading-tight", {
+                                    uppercase: currentStep >= 2,
+                                  })}
+                                >
+                                  Shipped
+                                </h3>
+                                <p className="text-sm text-foreground">
+                                  Your order has been shipped and is on its way
+                                  to the delivery address.
+                                </p>
+                              </span>
+                            </li>
+
+                            <li
+                              className={cn(
+                                "flex items-start space-x-2.5 rtl:space-x-reverse",
+                                {
+                                  "text-orange-600 dark:text-orange-500":
+                                    currentStep >= 3,
+                                }
+                              )}
                             >
-                              <div
-                                className={`rounded-full w-8 h-8 flex items-center justify-center mb-1 ${
-                                  currentStep >= 3
-                                    ? "bg-blue-100"
-                                    : "bg-gray-100"
-                                }`}
+                              <span
+                                className={cn(
+                                  "flex items-center justify-center w-8 h-8 rounded-full shrink-0 border",
+                                  {
+                                    "border-secondary text-secondary":
+                                      currentStep >= 3,
+                                  }
+                                )}
                               >
-                                <Truck className="h-4 w-4" />
-                              </div>
-                              <span className="text-xs">In Transit</span>
-                            </div>
-                            <div
-                              className={`text-center flex flex-col items-center ${
-                                currentStep >= 4
-                                  ? "text-blue-600"
-                                  : "text-gray-400"
-                              }`}
+                                3
+                              </span>
+                              <span>
+                                <h3
+                                  className={cn("font-medium leading-tight", {
+                                    uppercase: currentStep >= 3,
+                                  })}
+                                >
+                                  In Transit
+                                </h3>
+                                <p className="text-sm text-foreground">
+                                  Your package is currently in transit and
+                                  should arrive soon.
+                                </p>
+                              </span>
+                            </li>
+
+                            <li
+                              className={cn(
+                                "flex items-start space-x-2.5 rtl:space-x-reverse",
+                                {
+                                  "text-blue-600 dark:text-blue-500":
+                                    currentStep >= 4,
+                                }
+                              )}
                             >
-                              <div
-                                className={`rounded-full w-8 h-8 flex items-center justify-center mb-1 ${
-                                  currentStep >= 4
-                                    ? "bg-blue-100"
-                                    : "bg-gray-100"
-                                }`}
+                              <span
+                                className={cn(
+                                  "flex items-center justify-center w-8 h-8 rounded-full shrink-0 border",
+                                  {
+                                    "border-secondary text-secondary":
+                                      currentStep >= 4,
+                                  }
+                                )}
                               >
-                                <CheckCircle className="h-4 w-4" />
-                              </div>
-                              <span className="text-xs">Delivered</span>
-                            </div>
-                          </div>
+                                4
+                              </span>
+                              <span>
+                                <h3
+                                  className={cn("font-medium leading-tight", {
+                                    uppercase: currentStep >= 4,
+                                  })}
+                                >
+                                  Delivered
+                                </h3>
+                                <p className="text-sm text-foreground">
+                                  Your order has been delivered! We hope you
+                                  enjoy your purchase.
+                                </p>
+                              </span>
+                            </li>
+                          </ol>
                         </div>
                       </div>
 
                       {/* Last Update */}
-                      <div className="border-t border-gray-200 pt-4">
-                        <h4 className="text-sm font-medium text-gray-700 mb-2">
+                      <div className="border-t pt-4">
+                        <h4 className="text-sm font-medium mb-2">
                           Last Update
                         </h4>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-foreground">
                           {orderDetails?.lastUpdate}
                         </p>
                       </div>
@@ -424,8 +501,8 @@ const TrackOrder = () => {
                       {/* Tracking Link */}
                       {orderDetails?.carrier !== "Pending" && (
                         <div className="mt-4">
-                          <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                            View Detailed Tracking on {orderDetails?.carrier}
+                          <Button className="w-1/4 text-wrap p-2">
+                            View Details on {orderDetails?.carrier} Website
                           </Button>
                         </div>
                       )}
@@ -440,16 +517,16 @@ const TrackOrder = () => {
               ref={(el) => {
                 sectionRefs.current["faqs"] = el;
               }}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="rounded-lg border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("faqs")}
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
-                <div className="flex items-center">
-                  <HelpCircle className="h-6 w-6 text-blue-600" />
-                  <h2 className="text-2xl font-semibold ml-3 text-gray-800">
-                    Tracking FAQs
+                <div className="flex items-center gap-3">
+                  <HelpCircle className="h-6 w-6" />
+                  <h2 className="text-2xl font-semibold ml-3">
+                    Frequently Asked Questions
                   </h2>
                 </div>
                 <svg
@@ -469,35 +546,38 @@ const TrackOrder = () => {
                 </svg>
               </button>
               {activeSection === "faqs" && (
-                <div className="p-6 pt-0 border-t border-gray-200">
-                  <div className="space-y-4">
+                <div className="p-6 pt-0 border-t">
+                  <div className="space-y-4 py-8">
                     {faqs.map((faq, index) => (
-                      <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                        <h3 className="text-lg font-medium text-gray-800 mb-2 flex items-start">
-                          <span className="text-blue-600 mr-2">Q:</span>
+                      <div key={index} className="p-4 rounded-lg">
+                        <h3 className="text-lg font-medium mb-2 flex items-start">
+                          <span className="mr-2">Q:</span>
                           {faq.question}
                         </h3>
-                        <div className="text-gray-700 ml-6">
+                        <div className="ml-6">
                           <p>{faq.answer}</p>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="mt-6 bg-blue-50 p-4 rounded-lg">
-                    <h3 className="text-lg font-medium text-blue-800 mb-2">
+                  <div className="mt-6 p-6 bg-muted rounded-lg">
+                    <h3 className="text-lg font-medium mb-2">
                       Need additional help?
                     </h3>
-                    <p className="text-gray-700 mb-4">
+                    <p className="mb-4">
                       If you need further assistance with tracking your order or
                       have any other questions, please contact our customer
                       service team.
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      <Button className="inline-flex items-center bg-white text-blue-600 border border-blue-200 hover:bg-blue-50">
+                      <Button variant={"teritary"}>
                         <Mail className="h-4 w-4 mr-2" /> Email Support
                       </Button>
-                      <Button className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white">
+                      <Button
+                        className="inline-flex items-center"
+                        variant={"teritaryOutline"}
+                      >
                         <MessageSquare className="h-4 w-4 mr-2" /> Live Chat
                       </Button>
                     </div>
@@ -511,15 +591,15 @@ const TrackOrder = () => {
               ref={(el) => {
                 sectionRefs.current["shipping-info"] = el;
               }}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="rounded-lg border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("shipping-info")}
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
-                <div className="flex items-center">
-                  <BarChart4 className="h-6 w-6 text-blue-600" />
-                  <h2 className="text-2xl font-semibold ml-3 text-gray-800">
+                <div className="flex items-center gap-3">
+                  <BarChart4 className="h-6 w-6" />
+                  <h2 className="text-2xl font-semibold ml-3">
                     Shipping Information
                   </h2>
                 </div>
@@ -540,52 +620,41 @@ const TrackOrder = () => {
                 </svg>
               </button>
               {activeSection === "shipping-info" && (
-                <div className="p-6 pt-0 border-t border-gray-200">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-medium text-gray-800 mb-2">
+                <div className="p-6 pt-0 border-t">
+                  <div className="mt-4 p-3">
+                    <h3 className="text-lg font-medium ">Shipping Carriers</h3>
+                    <p className="text-sm mb-2">
+                      We partner with the following carriers to deliver your
+                      orders:
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <Badge variant={"blue"}>FedEx</Badge>
+                      <Badge variant={"blue"}>UPS</Badge>
+                      <Badge variant={"blue"}>USPS</Badge>
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8">
+                    <div className="p-4 rounded-lg bg-muted">
+                      <h3 className="text-lg font-medium mb-4">
                         Standard Shipping
                       </h3>
-                      <ul className="text-gray-700 space-y-1 text-sm">
+                      <ul className="space-y-1 text-sm">
                         <li>• Delivery in 3-7 business days</li>
                         <li>• Free on orders over $50</li>
                         <li>• $4.99 for orders under $50</li>
                       </ul>
                     </div>
 
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-medium text-gray-800 mb-2">
+                    <div className="p-4 rounded-lg bg-muted">
+                      <h3 className="text-lg font-medium mb-4">
                         Express Shipping
                       </h3>
-                      <ul className="text-gray-700 space-y-1 text-sm">
+                      <ul className="space-y-1 text-sm">
                         <li>• Delivery in 1-3 business days</li>
                         <li>• $12.99 flat rate</li>
                         <li>• Available for most locations</li>
                       </ul>
-                    </div>
-                  </div>
-
-                  <div className="mt-4">
-                    <h3 className="font-medium text-gray-800 mb-2">
-                      Shipping Carriers
-                    </h3>
-                    <p className="text-gray-700 text-sm mb-2">
-                      We partner with the following carriers to deliver your
-                      orders:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        FedEx
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        UPS
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        USPS
-                      </span>
-                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                        DHL
-                      </span>
                     </div>
                   </div>
                 </div>

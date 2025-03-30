@@ -197,7 +197,7 @@ const FAQPage = () => {
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">FAQ Categories</h2>
+              <h2 className="text-xl font-bold mb-4">Content</h2>
               <ul className="space-y-2">
                 {faqCategories.map((category) => (
                   <li key={category.id}>
@@ -205,8 +205,8 @@ const FAQPage = () => {
                       onClick={() => scrollToSection(category.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeCategory === category.id
-                          ? "bg-blue-100 text-blue-700"
-                          : "hover:bg-gray-100"
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
                       {category.icon}
@@ -246,7 +246,7 @@ const FAQPage = () => {
                 ref={(el) => {
                   sectionRefs.current[category.id] = el;
                 }}
-                className="rounded-xl shadow-md overflow-hidden"
+                className="rounded-xl shadow-md overflow-hidden border"
               >
                 <div className="w-full flex items-center justify-between p-6">
                   <div className="flex items-center">

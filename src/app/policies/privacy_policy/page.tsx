@@ -94,9 +94,9 @@ const PrivacyPolicy = () => {
           <p className="text-sm mt-2">Last Updated: June 10, 2023</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Table of Contents Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
@@ -122,13 +122,13 @@ const PrivacyPolicy = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-5 space-y-8">
             {/* Introduction */}
             <div
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}

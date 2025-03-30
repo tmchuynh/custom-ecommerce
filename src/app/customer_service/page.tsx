@@ -117,9 +117,9 @@ const CustomerService = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Table of Contents Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-2">
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
@@ -143,7 +143,7 @@ const CustomerService = () => {
               </ul>
               {/* Contact Cards */}
               <div className="mt-8 space-y-4">
-                <div className="p-4 rounded-lg flex items-start">
+                <div className="p-4 rounded-lg flex items-start bg-muted">
                   <Mail className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-medium mb-1">Email Us</h3>
@@ -156,7 +156,7 @@ const CustomerService = () => {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-lg flex items-start">
+                <div className="p-4 rounded-lg flex items-start bg-muted">
                   <Phone className="h-5 w-5 mt-0.5 mr-3 flex-shrink-0" />
                   <div>
                     <h3 className="font-medium mb-1">Call Us</h3>
@@ -173,13 +173,13 @@ const CustomerService = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-5 space-y-8">
             {/* Introduction */}
             <div
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}
@@ -259,7 +259,7 @@ const CustomerService = () => {
               ref={(el) => {
                 sectionRefs.current["contact"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("contact")}
@@ -361,7 +361,7 @@ const CustomerService = () => {
               ref={(el) => {
                 sectionRefs.current["hours"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("hours")}
@@ -488,7 +488,7 @@ const CustomerService = () => {
               ref={(el) => {
                 sectionRefs.current["faq"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("faq")}
@@ -556,7 +556,7 @@ const CustomerService = () => {
               ref={(el) => {
                 sectionRefs.current["other-services"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("other-services")}
@@ -612,13 +612,10 @@ const CustomerService = () => {
                     <div className="p-4 rounded-lg flex">
                       <Tag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium mb-2">
-                          Order Customization
-                        </h3>
+                        <h3 className="font-medium mb-2">Track Your Order</h3>
                         <p className="text-sm">
-                          Many of our products are customizable. Please contact
-                          our support team to learn more about personalization
-                          options.
+                          Use our order tracking tool to check the status of
+                          your shipment and get real-time updates.
                         </p>
                       </div>
                     </div>
