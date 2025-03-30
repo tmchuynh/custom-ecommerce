@@ -1,7 +1,7 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { ShoppingCart } from "lucide-react";
 import { JSX, useState } from "react";
 import { FaPlus } from "react-icons/fa";

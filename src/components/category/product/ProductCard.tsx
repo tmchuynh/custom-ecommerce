@@ -1,6 +1,6 @@
 import { useCurrency } from "@/app/context/currencyContext";
 import { useProduct } from "@/app/context/productContext";
-import { formatItemName, formatURL } from "@/lib/utils";
+import { formatItemName, formatURL } from "@/lib/utils/utils";
 import { Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

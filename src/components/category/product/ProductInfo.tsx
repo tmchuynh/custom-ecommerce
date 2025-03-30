@@ -4,7 +4,6 @@ import { useProduct } from "@/app/context/productContext";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { ProductType } from "@/lib/types";
-import { cn, formatURL } from "@/lib/utils";
 import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,6 +24,8 @@ import {
 } from "../../ui/alert-dialog";
 import { Button } from "../../ui/button";
 import ProductRate from "./ProductRate";
+import { formatURL } from "@/lib/utils/format";
+import { cn } from "@/lib/utils/utils";
 
 /**
  * A component that displays detailed information about a product.

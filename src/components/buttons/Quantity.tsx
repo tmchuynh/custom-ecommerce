@@ -1,7 +1,7 @@
 import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/lib/types";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { JSX } from "react";
 
 /**

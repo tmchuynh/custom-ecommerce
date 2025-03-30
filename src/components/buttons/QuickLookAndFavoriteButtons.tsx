@@ -1,6 +1,6 @@
 "use client";
 import { Color, ProductType } from "@/lib/types";
-import { cn, getAccessibleColor } from "@/lib/utils";
+import { cn, getAccessibleColor } from "@/lib/utils/utils";
 import { JSX, useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import {

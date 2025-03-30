@@ -1,5 +1,5 @@
 import { CategoryProps } from "@/lib/interfaces";
-import { formatURL } from "@/lib/utils";
+import { formatURL } from "@/lib/utils/format";
 import { useRouter } from "next/navigation";
 import { JSX } from "react";
 
