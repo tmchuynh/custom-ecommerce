@@ -24,10 +24,6 @@ const LoyaltyProgram = () => {
     setPoints(points + 100); // Example: Add 100 points on button click
   };
 
-  const [expandedQuestions, setExpandedQuestions] = useState<{
-    [key: string]: boolean;
-  }>({});
-
   const toggleSection = (sectionId: string) => {
     setActiveSection(activeSection === sectionId ? null : sectionId);
     if (activeSection !== sectionId) {
@@ -88,46 +84,55 @@ const LoyaltyProgram = () => {
     {
       question: "How do I join the loyalty program?",
       answer:
-        "You can join by creating an account on our website or signing up during checkout.",
+        "Joining our loyalty program is simple! You can become a member by creating an account on our website or by signing up during the checkout process. Once you're a member, you’ll start earning points automatically with every purchase you make. Plus, you’ll get access to exclusive discounts, promotions, and rewards!",
     },
     {
       question: "Do points expire?",
       answer:
-        "Yes, points expire 12 months after they were earned if not redeemed.",
+        "Yes, loyalty points expire 12 months after they are earned if they are not redeemed. We encourage you to use your points before they expire to take advantage of rewards, discounts, and other offers available in our program. You’ll be notified when your points are nearing expiration, so you don’t miss out!",
     },
     {
       question: "Can I earn points on sale items?",
-      answer: "Yes, you earn points on all purchases, including sale items.",
+      answer:
+        "Absolutely! You earn points on all purchases, including sale items, so you can still enjoy rewards while taking advantage of discounts. Points are earned based on the total amount spent, including discounts on sale items. Whether it's full price or discounted, every purchase counts toward your next reward!",
     },
     {
       question: "How do I check my points balance?",
       answer:
-        "Your points balance is visible in your account dashboard after logging in.",
+        "Your points balance is always visible in your account dashboard once you log in. You can see how many points you’ve earned, track your progress toward your next reward, and review the rewards you’re eligible for. It’s easy to keep track of your points and enjoy the benefits. You’ll also receive notifications when you’re close to unlocking a reward!",
     },
     {
       question: "Can I transfer my points to someone else?",
       answer:
-        "No, points are non-transferable and can only be used by the account holder.",
+        "No, points are non-transferable and can only be used by the account holder. This ensures that the rewards are personalized to your shopping experience. However, you can always enjoy the benefits yourself and unlock greater rewards as you continue to shop. Plus, sharing your loyalty benefits with others through referrals can earn you even more rewards!",
     },
     {
       question: "What happens to my points if I return an item?",
       answer:
-        "When you return an item, the points earned from that purchase will be deducted from your balance.",
+        "When you return an item, the points earned from that purchase will be deducted from your points balance. If you return part of an order, only the points for that specific item will be removed. If a full order is returned, all points from that order will be deducted. This ensures that your points are accurate and reflect your actual purchases. If you return an item but keep the rest of the order, the points for that item will be subtracted from your balance.",
+    },
+    {
+      question:
+        "Can I earn points for writing reviews or sharing on social media?",
+      answer:
+        "Yes, you can earn bonus points for certain activities like writing product reviews or sharing your purchase on social media. Check our promotions page or your account dashboard for ongoing ways to earn additional points. Participating in special campaigns or social media challenges can also provide extra opportunities to earn more rewards!",
+    },
+    {
+      question: "How do I redeem my points?",
+      answer:
+        "To redeem your points, simply go to the checkout page when making a purchase. You’ll see your available points balance, and you can choose to apply your points to receive a discount or redeem rewards. The more points you accumulate, the better the rewards you can unlock. Your points can be redeemed for discounts on future purchases, free products, and other exclusive offers.",
+    },
+    {
+      question: "How many points do I need for a reward?",
+      answer:
+        "The number of points required for a reward varies depending on the reward itself. For example, you may need 500 points for a $5 discount or 10,000 points for a free product up to $100 in value. You can check the reward details in your account dashboard to see what’s available at different point levels. We regularly update the rewards and offer special promotions, so check back often!",
+    },
+    {
+      question: "Can I use my points with other discount codes?",
+      answer:
+        "In most cases, loyalty points can be combined with other discount codes during checkout. However, some promotional offers may have exclusions. Be sure to check the terms of any active promo codes before applying them to ensure they are compatible with your loyalty points. If you have any questions, our customer support team can help you navigate using points and codes together.",
     },
   ];
-
-  const toggleQuestion = (categoryId: string, questionIndex: number) => {
-    const key = `${categoryId}-${questionIndex}`;
-    setExpandedQuestions((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
-
-  const isQuestionExpanded = (categoryId: string, questionIndex: number) => {
-    const key = `${categoryId}-${questionIndex}`;
-    return expandedQuestions[key] || false;
-  };
 
   const [expandedFaqs, setExpandedFaqs] = useState<{ [key: number]: boolean }>(
     {}
@@ -254,15 +259,23 @@ const LoyaltyProgram = () => {
               {activeSection === "introduction" && (
                 <div className="p-6 border-t">
                   <p className="mb-4">
-                    Welcome to our Loyalty Rewards Program! We value your
-                    business and want to thank you for your continued support
-                    with exclusive benefits and rewards.
+                    Welcome to our Loyalty Rewards Program! We truly value your
+                    business and are excited to thank you for your continued
+                    support with exclusive benefits and rewards. As a member of
+                    our program, you will enjoy special perks designed to
+                    enhance your shopping experience and make every purchase
+                    even more rewarding.
                   </p>
                   <p className="">
-                    Our program is designed to enhance your shopping experience
-                    by providing you with opportunities to earn points on every
-                    purchase, which can be redeemed for discounts, special
-                    offers, and more.
+                    Our program is designed to provide you with valuable
+                    opportunities to earn points with every purchase you make.
+                    These points can be redeemed for a variety of rewards,
+                    including discounts on future purchases, access to exclusive
+                    special offers, early notifications about sales or
+                    promotions, and even free gifts or personalized rewards
+                    tailored to your preferences. The more you shop, the more
+                    you earn—giving you the chance to save more and enjoy
+                    additional perks with each purchase.
                   </p>
                 </div>
               )}
@@ -302,9 +315,11 @@ const LoyaltyProgram = () => {
               {activeSection === "how-it-works" && (
                 <div className="p-6 border-t">
                   <p className="mb-4">
-                    Earn points for every purchase you make. Redeem your points
-                    for discounts, exclusive offers, and more! The more you
-                    shop, the more you earn!
+                    Earn points with every purchase you make and unlock
+                    exclusive rewards, discounts, and offers! The more you shop,
+                    the more points you earn, bringing you closer to even
+                    greater perks and savings. It’s our way of saying thank you
+                    for choosing us. Here’s how it works:
                   </p>
                   <div className="p-4 rounded-lg space-y-4 mb-4">
                     <div className="flex items-center">
@@ -312,7 +327,8 @@ const LoyaltyProgram = () => {
                         <Star className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
-                        Earn 1 point for every $1 spent
+                        Earn <strong>1 point</strong> for every{" "}
+                        <strong>$1</strong> spent on eligible purchases.
                       </p>
                     </div>
                     <div className="flex items-center">
@@ -320,7 +336,8 @@ const LoyaltyProgram = () => {
                         <Gift className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
-                        Redeem points for discounts
+                        Redeem your accumulated points for discounts, exclusive
+                        offers, and special promotions.
                       </p>
                     </div>
                     <div className="flex items-center">
@@ -328,14 +345,20 @@ const LoyaltyProgram = () => {
                         <TrendingUp className="h-5 w-5" />
                       </div>
                       <p className="ml-4 font-medium">
-                        Reach higher tiers for better rewards
+                        Reach higher tiers in the program for even better
+                        rewards, such as early access to sales, personalized
+                        offers, or additional discounts.
                       </p>
                     </div>
                   </div>
                   <p className="">
-                    Simply create an account and start earning points
-                    automatically with every purchase. Your points balance is
-                    visible in your account dashboard.
+                    Simply create an account, and you'll start earning points
+                    automatically with every purchase you make. Your points
+                    balance will be updated in real time and is always visible
+                    in your account dashboard, so you can easily track your
+                    progress towards the next reward. Plus, with each purchase,
+                    you'll unlock new opportunities to redeem your points for
+                    even more savings.
                   </p>
                 </div>
               )}
@@ -377,16 +400,52 @@ const LoyaltyProgram = () => {
               {activeSection === "benefits" && (
                 <div className="p-6 border-t">
                   <p className="mb-4">
-                    As a loyalty member, you'll receive exclusive perks and
-                    rewards! Here are some of the benefits:
+                    As a valued loyalty member, you'll receive a variety of
+                    exclusive perks and rewards that are designed to enhance
+                    your shopping experience and give you more value with every
+                    purchase. Here are some of the amazing benefits you’ll enjoy
+                    as part of our Loyalty Rewards Program:
                   </p>
                   <ul className="list-disc list-inside space-y-3">
-                    <li>Exclusive discounts on select products</li>
-                    <li>Early access to sales and new arrivals</li>
-                    <li>Birthday rewards and special promotions</li>
-                    <li>Free shipping on orders over $50</li>
-                    <li>Member-only events and product previews</li>
-                    <li>Personalized product recommendations</li>
+                    <li>
+                      <strong>Exclusive discounts on select products:</strong>{" "}
+                      Enjoy special discounts on a curated selection of
+                      products, available only to loyalty members. These
+                      discounts provide you with the opportunity to save more on
+                      your favorite items.
+                    </li>
+                    <li>
+                      <strong>Early access to sales and new arrivals:</strong>{" "}
+                      Be the first to know about upcoming sales, promotions, and
+                      new product releases. Get early access to the best deals
+                      and secure your favorite items before they sell out.
+                    </li>
+                    <li>
+                      <strong>Birthday rewards and special promotions:</strong>{" "}
+                      Celebrate your special day with a birthday reward! As a
+                      loyalty member, you’ll receive exclusive birthday gifts
+                      and promotions as a token of appreciation for being a part
+                      of our community.
+                    </li>
+                    <li>
+                      <strong>Free shipping on orders over $50:</strong> Enjoy
+                      free standard shipping on all orders over $50 as a loyalty
+                      member. It’s our way of making sure you save on delivery
+                      costs while enjoying a seamless shopping experience.
+                    </li>
+                    <li>
+                      <strong>Member-only events and product previews:</strong>{" "}
+                      Gain access to exclusive member-only events, product
+                      launches, and previews. You’ll be the first to see our new
+                      collections and participate in special events designed
+                      just for you.
+                    </li>
+                    <li>
+                      <strong>Personalized product recommendations:</strong>{" "}
+                      Based on your shopping history and preferences, we’ll
+                      provide tailored product recommendations to make your
+                      shopping experience even more enjoyable and convenient.
+                    </li>
                   </ul>
                 </div>
               )}
@@ -429,27 +488,40 @@ const LoyaltyProgram = () => {
                 <div className="p-6 border-t">
                   <p className="mb-4">
                     There are multiple ways to earn points in our loyalty
-                    program:
+                    program, allowing you to accumulate rewards faster and enjoy
+                    even more benefits. Here are the key ways you can start
+                    earning points:
                   </p>
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Standard Purchases</h3>
                       <p className="">
-                        Earn 1 point for every $1 spent on regular-priced items.
+                        Earn <strong>1 point</strong> for every{" "}
+                        <strong>$1</strong> spent on regular-priced items. The
+                        more you shop, the more points you earn! These points
+                        can then be redeemed for discounts, special offers, and
+                        more.
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Bonus Point Events</h3>
                       <p className="">
-                        Throughout the year, we offer special events where you
-                        can earn double or triple points on your purchases.
+                        Throughout the year, we host special events where you
+                        can earn <strong>double</strong> or even{" "}
+                        <strong>triple points</strong> on your purchases. Be
+                        sure to check our website and subscribe to our
+                        newsletter so you never miss an opportunity to earn
+                        extra points during these events!
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Referrals</h3>
                       <p className="">
-                        Earn 500 points for each friend you refer who makes
-                        their first purchase.
+                        Earn <strong>500 points</strong> for each friend you
+                        refer who makes their first purchase. The more friends
+                        you refer, the more points you collect. It’s a win-win –
+                        your friends get to enjoy our products, and you get
+                        rewarded for spreading the word!
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
@@ -457,9 +529,11 @@ const LoyaltyProgram = () => {
                         Social Media Engagement
                       </h3>
                       <p className="">
-                        Earn 100 points when you follow us on social media
-                        platforms and tag us in your posts featuring our
-                        products.
+                        Earn <strong>100 points</strong> when you follow us on
+                        social media platforms like Instagram, Facebook, or
+                        Twitter. Plus, tag us in your posts featuring our
+                        products, and you’ll earn even more points. Show off
+                        your favorite products, and we’ll reward you for it!
                       </p>
                     </div>
                   </div>
@@ -503,11 +577,14 @@ const LoyaltyProgram = () => {
               {activeSection === "redeeming" && (
                 <div className="p-6 border-t">
                   <p className="mb-4">
-                    You can redeem your points for various rewards at checkout:
+                    You can redeem your loyalty points for a variety of rewards
+                    at checkout! The more points you accumulate, the better the
+                    rewards you can claim. Below are some of the rewards you can
+                    unlock by using your points:
                   </p>
                   <div className="overflow-x-auto">
                     <table className="min-w-full divide-y mb-4">
-                      <thead className="">
+                      <thead>
                         <tr>
                           <th
                             scope="col"
@@ -525,42 +602,42 @@ const LoyaltyProgram = () => {
                       </thead>
                       <tbody className="divide-y">
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             500
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             $5 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             1,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             $10 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             2,500
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             $25 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             5,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             $50 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             10,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm ">
+                          <td className="px-6 py-4 whitespace-nowrap text-sm">
                             Free product (up to $100 value)
                           </td>
                         </tr>
@@ -568,9 +645,14 @@ const LoyaltyProgram = () => {
                     </table>
                   </div>
                   <p className="">
-                    To redeem points, simply select the reward you want during
-                    checkout. Your available points and eligible rewards will be
-                    displayed in your cart.
+                    To redeem your points, simply select the reward you'd like
+                    to use during checkout. When you add items to your cart,
+                    your available points and eligible rewards will be
+                    displayed, allowing you to easily choose the one you want to
+                    apply. The points will be automatically deducted from your
+                    total, and the corresponding discount or free product will
+                    be applied to your order. It’s a simple and rewarding way to
+                    save as you shop!
                   </p>
                 </div>
               )}
@@ -613,8 +695,10 @@ const LoyaltyProgram = () => {
                 <div className="p-6 border-t">
                   <p className="mb-4">
                     Our loyalty program features different tiers based on your
-                    annual spending. The higher your tier, the more benefits you
-                    receive:
+                    annual spending. The higher your tier, the more exclusive
+                    benefits you’ll receive, including better rewards, faster
+                    point accumulation, and special perks. Here's a breakdown of
+                    the tiers and their associated benefits:
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div className="p-4 rounded-lg border">
@@ -624,9 +708,9 @@ const LoyaltyProgram = () => {
                       </h3>
                       <p className="text-sm mb-2">$0 - $500 annually</p>
                       <ul className="text-sm space-y-1">
-                        <li>• Basic earning rate (1 point per $1)</li>
-                        <li>• Access to member-only sales</li>
-                        <li>• Birthday reward</li>
+                        <li>Basic earning rate (1 point per $1 spent)</li>
+                        <li>Access to member-only sales and promotions</li>
+                        <li>Birthday reward to celebrate your special day</li>
                       </ul>
                     </div>
                     <div className="p-4 rounded-lg border">
@@ -637,10 +721,10 @@ const LoyaltyProgram = () => {
                       </h3>
                       <p className="text-sm mb-2">$501 - $1,000 annually</p>
                       <ul className="text-sm space-y-1">
-                        <li>• 1.25 points per $1 spent</li>
-                        <li>• Free shipping on orders over $35</li>
-                        <li>• Early access to new products</li>
-                        <li>• All Standard benefits</li>
+                        <li>Earn 1.25 points per $1 spent</li>
+                        <li>Free shipping on orders over $35</li>
+                        <li>Early access to new product releases</li>
+                        <li>All Standard benefits, plus extra rewards</li>
                       </ul>
                     </div>
                     <div className="p-4 rounded-lg border">
@@ -652,19 +736,25 @@ const LoyaltyProgram = () => {
                       </h3>
                       <p className="text-sm mb-2">$1,001+ annually</p>
                       <ul className="text-sm space-y-1">
-                        <li>• 1.5 points per $1 spent</li>
-                        <li>• Free shipping on all orders</li>
-                        <li>• Exclusive seasonal gifts</li>
-                        <li>• Dedicated customer service</li>
-                        <li>• All Silver benefits</li>
+                        <li>Earn 1.5 points per $1 spent</li>
+                        <li>Free shipping on all orders, no minimum</li>
+                        <li>Exclusive seasonal gifts as a thank you</li>
+                        <li>
+                          Dedicated customer service for a personalized
+                          experience
+                        </li>
+                        <li>All Silver benefits, plus additional VIP perks</li>
                       </ul>
                     </div>
                   </div>
                   <p className="">
                     Your tier is evaluated annually based on your spending
-                    during the previous 12 months. Once you reach a tier, you
-                    maintain that status for the remainder of the current year
-                    and all of the following year.
+                    during the previous 12 months. Once you achieve a tier,
+                    you’ll maintain that status for the remainder of the current
+                    year and the entire following year, ensuring you get the
+                    most value for your loyalty. As you continue to shop and
+                    earn more points, you can move up to higher tiers for even
+                    better rewards and benefits.
                   </p>
                 </div>
               )}

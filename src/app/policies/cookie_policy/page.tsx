@@ -12,7 +12,11 @@ import {
   FileText,
   Phone,
   BookOpen,
+  Mail,
+  MessageSquare,
+  Database,
 } from "lucide-react";
+import router from "next/router";
 
 const CookiePolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -37,6 +41,16 @@ const CookiePolicy = () => {
   };
 
   const sections = [
+    {
+      id: "overview",
+      title: "Overview",
+      icon: <BookOpen className="h-5 w-5" />,
+    },
+    {
+      id: "encryption",
+      title: "Encryption",
+      icon: <Database className="h-5 w-5" />,
+    },
     {
       id: "what-are-cookies",
       title: "What Are Cookies",
@@ -115,64 +129,24 @@ const CookiePolicy = () => {
                   </li>
                 ))}
               </ul>
+              <div className="px-4 pt-3 flex justify-between items-center">
+                <p className="text-sm">
+                  By using our services, you acknowledge our use of cookies.
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
-            {/* Introduction */}
-            <div
-              ref={(el) => {
-                sectionRefs.current["introduction"] = el;
-              }}
-              className="border text-muted-foreground rounded-xl shadow-md overflow-hidden"
-            >
-              <button
-                onClick={() => toggleSection("introduction")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
-              >
-                <div className="flex items-center">
-                  <BookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
-                  <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
-                </div>
-                <svg
-                  className={`w-6 h-6 transform transition-transform ${
-                    activeSection === "introduction" ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {activeSection === "introduction" && (
-                <div className="p-6 border-t">
-                  <p className="">
-                    These Terms and Conditions ("Terms", "Terms and Conditions")
-                    govern your use of our website ("Site"), the services we
-                    provide, and any purchases you make through the website. By
-                    using our Site and services, you agree to comply with these
-                    Terms. If you do not agree with any part of these Terms, you
-                    should not use our Site or services.
-                  </p>
-                </div>
-              )}
-            </div>
 
-            {/* Render all other sections similarly */}
-            {sections.slice(1).map((section) => (
+          <div className="lg:col-span-5 space-y-8">
+            {sections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {
                   sectionRefs.current[section.id] = el;
                 }}
-                className="rounded-xl border shadow-md overflow-hidden"
+                className="border rounded-xl shadow-md overflow-hidden"
               >
                 <button
                   onClick={() => toggleSection(section.id)}
@@ -202,255 +176,304 @@ const CookiePolicy = () => {
                 </button>
                 {activeSection === section.id && (
                   <div className="p-6 border-t">
-                    {section.id === "use" && (
-                      <>
-                        <p className=" mb-4">
-                          You may use our Site for lawful purposes only. By
-                          using our Site, you agree:
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                          <li>
-                            Not to engage in any fraudulent, unlawful, or
-                            harmful activities.
-                          </li>
-                          <li>
-                            Not to violate any applicable laws or regulations.
-                          </li>
-                          <li>
-                            Not to interfere with the proper functioning of the
-                            Site or its security features.
-                          </li>
-                          <li>
-                            Not to upload, post, or transmit any content that is
-                            offensive, harmful, or infringes upon the rights of
-                            others.
-                          </li>
-                        </ul>
-                      </>
+                    {/* Add content for each section */}
+                    {section.id === "overview" && (
+                      <p>
+                        We implement industry-standard security measures to
+                        protect your payment information and maintain a secure
+                        shopping environment. Our website uses encryption
+                        protocols, such as SSL (Secure Sockets Layer), to ensure
+                        that all sensitive data, including credit card details
+                        and personal information, is transmitted securely.
+                        Additionally, we comply with PCI DSS (Payment Card
+                        Industry Data Security Standard) to safeguard your
+                        financial information and prevent unauthorized access.
+                        We also employ multi-factor authentication and regular
+                        security audits to monitor for potential
+                        vulnerabilities. Our commitment to security ensures that
+                        your shopping experience is safe and your data remains
+                        protected at all times.
+                      </p>
                     )}
 
-                    {section.id === "account" && (
-                      <>
-                        <p className=" mb-4">
-                          To make a purchase on our Site, you may need to create
-                          an account. When registering, you agree to provide
-                          accurate and up-to-date information, and you are
-                          responsible for maintaining the confidentiality of
-                          your login credentials.
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                          <li>
-                            You must notify us immediately if you believe your
-                            account has been compromised.
-                          </li>
-                          <li>
-                            We may suspend or terminate your account if we
-                            suspect any unauthorized activity or violation of
-                            these Terms.
-                          </li>
-                        </ul>
-                      </>
-                    )}
-
-                    {section.id === "product" && (
-                      <>
-                        <p className=" mb-4">
-                          We make every effort to ensure that product
-                          information, including descriptions, prices, and
-                          images, are accurate. However, we cannot guarantee the
-                          accuracy, completeness, or reliability of such
-                          information. All prices are subject to change without
-                          notice.
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                          <li>
-                            We reserve the right to modify or discontinue any
-                            product without prior notice.
-                          </li>
-                          <li>
-                            If a product is incorrectly priced, we will notify
-                            you and provide the option to cancel or proceed with
-                            the corrected price.
-                          </li>
-                        </ul>
-                      </>
-                    )}
-
-                    {section.id === "order" && (
-                      <>
+                    {section.id === "encryption" && (
+                      <div>
                         <p className="mb-4">
-                          Once you place an order on our Site, you will receive
-                          an order confirmation email. Please review the order
-                          details to ensure accuracy. A contract between you and
-                          us will only be formed when the order is dispatched
-                          for shipping.
+                          All sensitive data is encrypted using
+                          industry-standard SSL/TLS encryption to ensure the
+                          security of your personal and financial information
+                          while shopping. Our commitment to protecting your data
+                          is central to maintaining a safe and trustworthy
+                          environment for all transactions.
                         </p>
                         <ul className="list-disc list-inside space-y-2">
                           <li>
-                            We reserve the right to reject or cancel any order
-                            for reasons such as product availability or pricing
-                            errors.
+                            <strong>
+                              256-bit SSL encryption for all transactions:
+                            </strong>{" "}
+                            This advanced encryption method ensures that all
+                            communications between your browser and our servers
+                            are securely encrypted, preventing any unauthorized
+                            access or interception of sensitive information such
+                            as payment details and personal data.
                           </li>
                           <li>
-                            We may ask you for additional information to process
-                            your order, such as proof of identity or address.
+                            <strong>
+                              Secure storage of encrypted payment data:
+                            </strong>{" "}
+                            We utilize secure storage systems that comply with
+                            the highest standards of data protection. Any
+                            payment information you provide is securely
+                            encrypted and stored in compliance with industry
+                            regulations, ensuring that your details are never
+                            exposed to unauthorized parties.
                           </li>
                           <li>
-                            If we cancel your order, you will receive a full
-                            refund to your original payment method.
+                            <strong>
+                              Regular security audits and updates:
+                            </strong>{" "}
+                            We perform regular security audits and system
+                            updates to identify and mitigate any vulnerabilities
+                            in our infrastructure. This proactive approach helps
+                            us stay ahead of potential threats and ensures your
+                            data remains protected at all times.
                           </li>
                         </ul>
-                      </>
+                      </div>
                     )}
 
-                    {section.id === "payments" && (
-                      <>
-                        <p className="mb-4">
-                          We accept various forms of payment, including
-                          credit/debit cards, PayPal, and other payment
-                          providers. Payments will be processed securely, and we
-                          do not store your sensitive payment information.
+                    {section.id === "what-are-cookies" && (
+                      <div className="prose max-w-none">
+                        <p>
+                          Cookies are small text files that are placed on your
+                          device when you visit a website. They are widely used
+                          to make websites work more efficiently by storing
+                          information such as your preferences, login
+                          credentials, and browsing history. Cookies help
+                          improve your experience by enabling websites to
+                          remember certain details about your visit, such as
+                          your language preference or items in your shopping
+                          cart. Additionally, cookies allow website owners to
+                          gather valuable insights into user behavior, which can
+                          help enhance site performance, improve functionality,
+                          and tailor content and advertising to your interests.
+                          While most cookies are harmless, you have the option
+                          to manage or block them through your browser settings
+                          at any time.
+                        </p>
+                      </div>
+                    )}
+
+                    {section.id === "types" && (
+                      <div>
+                        <p>
+                          Cookies can be categorized into different types based
+                          on their purpose and duration. Here are the main
+                          types:
                         </p>
                         <ul className="list-disc list-inside space-y-2">
                           <li>
-                            By providing your payment information, you authorize
-                            us to charge the full amount of your order,
-                            including taxes and shipping fees.
+                            <strong>Session Cookies:</strong> Temporary cookies
+                            that are deleted when you close your browser. They
+                            are used to remember your actions during a single
+                            browsing session.
                           </li>
                           <li>
-                            We may verify your payment details before processing
-                            your order.
+                            <strong>Persistent Cookies:</strong> These cookies
+                            remain on your device for a specified period or
+                            until you manually delete them. They are used to
+                            remember your preferences and settings for future
+                            visits.
                           </li>
                           <li>
-                            If a payment is declined, we will notify you, and
-                            your order will not be processed until a valid
-                            payment method is provided.
+                            <strong>First-Party Cookies:</strong> Set by the
+                            website you are visiting. They are used to store
+                            information about your interactions with that
+                            specific site.
+                          </li>
+                          <li>
+                            <strong>Third-Party Cookies:</strong> Set by domains
+                            other than the one you are visiting. They are often
+                            used for tracking and advertising purposes.
                           </li>
                         </ul>
-                      </>
+                      </div>
                     )}
 
-                    {section.id === "shipping" && (
-                      <>
-                        <p className="mb-4">
-                          We offer shipping within [Country/Region] and
-                          internationally. Shipping costs and delivery times
-                          vary depending on your location, the items purchased,
-                          and the shipping method chosen.
-                        </p>
-                        <ul className="list-disc list-inside space-y-2">
-                          <li>
-                            We are not responsible for delays caused by
-                            third-party carriers or customs processing.
-                          </li>
-                          <li>
-                            Shipping charges will be added to your order during
-                            the checkout process.
-                          </li>
-                          <li>
-                            If your order is lost or damaged during shipment,
-                            please contact us within 7 days of receiving your
-                            tracking information for assistance.
-                          </li>
-                        </ul>
-                      </>
-                    )}
-
-                    {section.id === "returns" && (
-                      <p className="">
-                        If you're not completely satisfied with your purchase,
-                        we accept returns and exchanges under specific
-                        conditions. Please refer to our{" "}
-                        <a
-                          href="/return-policy"
-                          className="text-blue-600 hover:underline"
-                        >
-                          Return Policy
-                        </a>{" "}
-                        for full details.
+                    {section.id === "how-we-use" && (
+                      <p>
+                        We use cookies to enhance your browsing experience,
+                        analyze site traffic, and personalize content tailored
+                        to your preferences. Cookies help us understand how you
+                        interact with our website, such as which pages you visit
+                        most frequently, how long you stay on certain pages, and
+                        which features you use. This valuable information allows
+                        us to improve our website's functionality, optimize the
+                        user interface, and offer a more personalized
+                        experience. Additionally, cookies enable us to serve
+                        relevant content and advertisements based on your
+                        interests, making your browsing experience more
+                        efficient and enjoyable. Rest assured, we take your
+                        privacy seriously, and you can manage or block cookies
+                        at any time through your browser settings.
                       </p>
                     )}
-
-                    {section.id === "liability" && (
-                      <p className="">
-                        We are not liable for any indirect, incidental, or
-                        consequential damages resulting from the use of our Site
-                        or products. In no event will our liability exceed the
-                        amount paid by you for the product in question.
+                    {section.id === "third-party" && (
+                      <p>
+                        Some of our pages may contain content or features from
+                        third-party services, such as social media platforms,
+                        payment processors, or analytics tools, which may set
+                        their own cookies on your device. These third-party
+                        cookies are used to provide functionality like social
+                        sharing, embedded media, or tracking for targeted
+                        advertisements. Please note that we do not have control
+                        over these third-party cookies, and their use is
+                        governed by the privacy policies of the respective third
+                        parties. We encourage you to review the privacy policies
+                        of these third-party services to understand how they
+                        collect, store, and use your data. While we aim to
+                        provide a secure and transparent browsing experience,
+                        the use of third-party cookies is outside of our
+                        control.
                       </p>
                     )}
-
-                    {section.id === "intellectual" && (
-                      <p className="">
-                        All content on our website, including images, graphics,
-                        text, logos, and trademarks, are the property of our
-                        company or our licensors. You may not use, reproduce, or
-                        distribute our content without our express written
-                        permission.
+                    {section.id === "duration" && (
+                      <p>
+                        Cookies can be classified into two main types: session
+                        cookies and persistent cookies.{" "}
+                        <strong>Session cookies</strong> are temporary and are
+                        only stored on your device for the duration of your
+                        browsing session. Once you close your browser, these
+                        cookies are automatically deleted. They are commonly
+                        used to remember temporary data, such as login
+                        credentials or items added to a shopping cart, during a
+                        single visit. <strong>Persistent cookies</strong>, on
+                        the other hand, remain on your device for a specified
+                        period or until you manually delete them. These cookies
+                        are used to store data across browsing sessions, such as
+                        your language preference, login status, or website
+                        settings, which allows for a more seamless and
+                        personalized experience during future visits. The
+                        duration of persistent cookies is typically defined by
+                        the website or service that sets them.
                       </p>
                     )}
-
-                    {section.id === "privacy" && (
-                      <p className="">
-                        Your use of our Site is also governed by our{" "}
-                        <a
-                          href="/privacy-policy"
-                          className="text-blue-600 hover:underline"
-                        >
-                          Privacy Policy
-                        </a>
-                        , which explains how we collect, use, and protect your
-                        personal information.
+                    {section.id === "management" && (
+                      <p>
+                        You can control cookies through your browser settings,
+                        giving you the option to manage your privacy
+                        preferences. Most modern browsers allow you to block,
+                        delete, or disable cookies entirely, either for specific
+                        websites or globally. You can also set your browser to
+                        notify you whenever a cookie is being stored, allowing
+                        you to make decisions on a case-by-case basis. However,
+                        please note that blocking or deleting essential cookies
+                        may impact website functionality, such as preventing you
+                        from staying logged in, remembering your preferences, or
+                        enabling shopping cart features. Disabling cookies could
+                        also affect the performance of certain website features
+                        that rely on them for personalized content and
+                        analytics. Therefore, while you have full control over
+                        cookies, it’s important to be aware that restricting
+                        cookies may affect your overall browsing experience.
                       </p>
                     )}
-
-                    {section.id === "changes" && (
-                      <p className="">
-                        We reserve the right to update or change these Terms and
-                        Conditions at any time. When changes are made, the
-                        updated version will be posted on this page with a new
-                        "Last Updated" date. Your continued use of the Site
-                        after changes are posted constitutes acceptance of those
-                        changes.
+                    {section.id === "policy-updates" && (
+                      <p>
+                        We may update this Cookie Policy periodically to reflect
+                        changes in our practices, improve our website’s
+                        functionality, or comply with legal, operational, or
+                        regulatory requirements. As laws and technology evolve,
+                        we may need to make adjustments to how we collect, use,
+                        and manage cookies on our site. Whenever we make
+                        significant changes to this policy, we will notify you
+                        by updating the "Last Updated" date at the top of this
+                        page. We encourage you to review this policy regularly
+                        to stay informed about how we use cookies and how they
+                        may impact your browsing experience. By continuing to
+                        use our website, you accept the updated policy, so it’s
+                        important to stay aware of any changes that may affect
+                        your privacy preferences.
                       </p>
                     )}
-
                     {section.id === "contact" && (
-                      <>
-                        <p className="">
-                          If you have any questions or concerns regarding these
-                          Terms and Conditions, please contact us at:
-                        </p>
-                        <div className="mt-4 p-4 rounded-lg">
-                          <p className="">
-                            Email:{" "}
-                            <a
-                              className="text-blue-600 hover:underline"
-                              href="mailto:support@yourcompany.com"
-                            >
-                              support@yourcompany.com
-                            </a>
-                          </p>
-                          <p className="mt-2">Phone: +1 (555) 123-4567</p>
+                      <div className="p-6 border-t">
+                        <div className="space-y-6">
+                          <div className="flex items-start">
+                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Email Support
+                              </h3>
+                              <p className="mb-2">
+                                For general inquiries, product questions, or
+                                issues with your order, please contact us at:
+                              </p>
+                              <Button
+                                variant={"link"}
+                                onClick={() =>
+                                  router.push("mailto:support@yourcompany.com")
+                                }
+                                className="p-0 h-auto font-medium"
+                              >
+                                support@yourcompany.com
+                              </Button>
+                              <p className="text-sm mt-1">
+                                We typically respond to emails within 24-48
+                                hours during business days.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Phone Support
+                              </h3>
+                              <p className="mb-2">
+                                Our customer service team is available to take
+                                your call at:
+                              </p>
+                              <a
+                                href="tel:+15551234567"
+                                className="font-medium"
+                              >
+                                +1 (555) 123-4567
+                              </a>
+                              <p className="text-sm mt-1">
+                                Please check our business hours below for
+                                availability.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Live Chat
+                              </h3>
+                              <p className="mb-2">
+                                If you'd prefer to chat with a representative in
+                                real-time, you can reach us using the live chat
+                                feature on our website.
+                              </p>
+                              <Button className="">Start Live Chat</Button>
+                              <p className="text-sm mt-1">
+                                Live chat is available during business hours
+                                only.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </>
+                      </div>
                     )}
                   </div>
                 )}
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      <div className="fixed bottom-0 left-0 right-0 bg-white shadow-md p-4 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm text-gray-600">
-            By continuing to use our site, you agree to our use of cookies.
-          </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
-            Accept Cookie Policy
-          </Button>
         </div>
       </div>
     </div>
