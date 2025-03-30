@@ -3,22 +3,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import DynamicButton from "./ui/button-dynamic";
 
 export default function ShopByCollection() {
   return (
-    <section
-      aria-labelledby="collection-heading"
-      className="bg-gradient-to-b from-white to-gray-50 py-12"
-    >
+    <section aria-labelledby="collection-heading" className=" py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2
-            id="collection-heading"
-            className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4"
-          >
+          <h2 id="collection-heading" className="text-3xl font-extrabold mb-4">
             Shop by Collection
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Each season, we collaborate with world-class designers to create a
             collection inspired by the natural world.
           </p>
@@ -28,7 +23,7 @@ export default function ShopByCollection() {
           {navigations.categories.map((category, index) => (
             <div key={index} className="relative">
               <div className="flex items-center mb-6">
-                <h2 className="text-2xl font-semibold text-gray-900">
+                <h2 className="text-2xl font-semibold">
                   <Link
                     href={`/shopping/${category.name.toLowerCase()}`}
                     className="hover:text-blue-600 transition-colors"
@@ -36,18 +31,16 @@ export default function ShopByCollection() {
                     {category.name}
                   </Link>
                 </h2>
-                <div className="ml-4 flex-grow border-t border-gray-200"></div>
+                <div className="ml-4 flex-grow border-t"></div>
                 <Link
                   href={`/shopping/${category.name.toLowerCase()}`}
                   className="ml-4"
                 >
-                  <Button
+                  <DynamicButton
+                    text="View All"
+                    className="w-full"
                     variant="outline"
-                    className="flex items-center gap-2 border-blue-600 text-blue-600 hover:bg-blue-50"
-                  >
-                    View All
-                    <ArrowRight className="h-4 w-4" />
-                  </Button>
+                  />
                 </Link>
               </div>
 

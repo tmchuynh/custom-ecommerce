@@ -135,10 +135,8 @@ export default function TrendingProducts() {
     <section className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-800 mb-4">
-            Trending Products
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-extrabold mb-4">Trending Products</h2>
+          <p className="text-xlborder max-w-2xl mx-auto">
             Discover our most popular products that are making waves this
             season.
           </p>
@@ -177,17 +175,6 @@ export default function TrendingProducts() {
               wishlist={new Set()}
             />
           ))}
-        </div>
-
-        {/* View All Link */}
-        <div className="mt-12 text-center">
-          <Link
-            href="/products"
-            className="inline-flex items-center text-blue-600 font-medium hover:text-blue-800"
-          >
-            View All Products
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
         </div>
       </div>
     </section>

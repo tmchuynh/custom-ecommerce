@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Team() {
   return (
     <div className="py-24 sm:py-32">
-      <div className="mx-auto grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-20 px-6 lg:px-8 w-full md:w-11/12">
+      <div className="mx-auto grid grid-cols-1 gap-20 px-6 lg:px-8 w-full md:w-11/12">
         <div className="">
           <h2 className="text-2xl font-semibold mb-4">Meet our leadership</h2>
           <p className="mt-6 text-lg/8">
@@ -15,7 +15,7 @@ export default function Team() {
 
         <ul
           role="list"
-          className="col-span-2 2xl:col-span-3 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 w-full gap-9"
+          className="col-span-2 grid grid-cols-1 2xl:grid-cols-2 w-full gap-9"
         >
           {people.map((person) => (
             <li key={person.name}>
