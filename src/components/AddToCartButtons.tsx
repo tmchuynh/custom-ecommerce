@@ -2,12 +2,14 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { ShoppingCart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { JSX, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
+import { useAuth } from "@/app/context/authContext";
+import { useWishlist } from "@/app/context/wishlistContext";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -43,6 +45,11 @@ export default function AddToCartButtons({
   const [localQuantity, setLocalQuantity] = useState(1);
   const cartItem = getCartItem(product.name);
 
+  const { user } = useAuth();
+  const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
+  const [showAuthDialog, setShowAuthDialog] = useState(false);
+  const [inWishlist, setInWishlist] = useState(false);
+
   /**
    * Handles adding a product to the cart.
    *
@@ -63,6 +70,26 @@ export default function AddToCartButtons({
     toast.success(`${product.name} added to cart!`);
   };
 
+  const handleWishlistClick = async () => {
+    if (!user) {
+      setShowAuthDialog(true);
+      return;
+    }
+
+    try {
+      if (!product) return;
+
+      if (wishlistItems.some((item) => item.name === product.name)) {
+        removeFromWishlist(product.name);
+      } else {
+        addToWishlist(product);
+      }
+      setInWishlist(!inWishlist);
+    } catch (error) {
+      console.error("Wishlist operation failed:", error);
+    }
+  };
+
   return (
     <div
       className={cn("mt-5 pt-4 col-span-2 w-fit h-fit", {
@@ -78,15 +105,33 @@ export default function AddToCartButtons({
         />
         {!cartItem &&
           (!page ? (
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                handleAddToCart(product, product.name);
-              }}
-            >
-              <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
-            </Button>
+            <div className="flex gap-4">
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  handleAddToCart(product, product.name);
+                }}
+              >
+                <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+              </Button>
+              <Button
+                onClick={handleWishlistClick}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                <Heart
+                  className={`h-5 w-5 ${
+                    wishlistItems.some((item) => item.name === product.name)
+                      ? "fill-red-500 text-red-500"
+                      : ""
+                  }`}
+                />
+                {wishlistItems.some((item) => item.name === product.name)
+                  ? "Remove from Wishlist"
+                  : "Add to Wishlist"}
+              </Button>
+            </div>
           ) : (
             <Button
               size={"sm"}

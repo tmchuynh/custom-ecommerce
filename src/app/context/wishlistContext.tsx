@@ -26,6 +26,13 @@ export const WishlistProvider: React.FC<{ children: React.ReactNode }> = ({
   const { user } = useAuth();
   const [wishlistItems, setWishlistItems] = useState<ProductType[]>([]);
 
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cartItems");
+    if (storedCart) {
+      setWishlistItems(JSON.parse(storedCart));
+    }
+  }, []);
+
   // Load wishlist from backend when user logs in
   useEffect(() => {
     const loadWishlist = async () => {
