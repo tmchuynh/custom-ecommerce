@@ -11,7 +11,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { useCurrency } from "./CurrencyContext";
+import { useCurrency } from "./currencyContext";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 
