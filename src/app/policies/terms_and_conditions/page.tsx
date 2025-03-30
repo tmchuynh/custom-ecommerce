@@ -149,7 +149,7 @@ const TermsAndConditions = () => {
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="bg-muted text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="border text-muted-foreground rounded-xl shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}
