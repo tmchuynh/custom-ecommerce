@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { decryptKey } from "@/lib/utils";
 
 /**
  * Retrieves the user's wishlist items.
@@ -11,16 +12,25 @@ import { cookies } from "next/headers";
  *  - Error 500: If an internal server error occurs
  * @throws {Error} When there's an issue accessing cookies or processing the request
  */
+const wishlist = new Map<string, string[]>();
+
 export async function GET(): Promise<NextResponse> {
   try {
-    const cookieStore = await cookies();
-    const token = cookieStore.get("token")?.value;
-    if (!token) {
+    const encryptedToken = (await cookies()).get("token")?.value;
+    if (!encryptedToken) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // TODO: Fetch wishlist items from database
-    return NextResponse.json({ items: [] });
+    const token = await decryptKey(
+      encryptedToken,
+      process.env.JWT_SECRET || "secret"
+    );
+
+    // Simulated token decoding to get username
+    const username = "demo"; // Replace with actual decoding logic if needed
+
+    const userWishlist = wishlist.get(username) || [];
+    return NextResponse.json({ items: userWishlist });
   } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
@@ -49,14 +59,24 @@ export async function GET(): Promise<NextResponse> {
  */
 export async function POST(request: Request) {
   try {
-    const cookieStore = await cookies();
-    const token = cookieStore.get("token")?.value;
-    if (!token) {
+    const encryptedToken = (await cookies()).get("token")?.value;
+    if (!encryptedToken) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const token = await decryptKey(
+      encryptedToken,
+      process.env.JWT_SECRET || "secret"
+    );
+
     const { productId } = await request.json();
-    // TODO: Add item to wishlist in database
+
+    // Simulated token decoding to get username
+    const username = "demo"; // Replace with actual decoding logic if needed
+
+    const userWishlist = wishlist.get(username) || [];
+    userWishlist.push(productId);
+    wishlist.set(username, userWishlist);
 
     return NextResponse.json({ success: true });
   } catch (error) {

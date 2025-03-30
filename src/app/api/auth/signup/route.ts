@@ -18,13 +18,22 @@ import { NextResponse } from "next/server";
  *   password: string
  * }
  */
+
+// Simulated in-memory user data
+const users = new Map<string, { email: string; password: string }>();
+
 export async function POST(request: Request) {
   try {
     const { username, email, password } = await request.json();
 
-    // TODO: Add validation and user creation logic
-    // This is a placeholder - replace with actual DB operations
+    if (users.has(username)) {
+      return NextResponse.json(
+        { error: "User already exists" },
+        { status: 400 }
+      );
+    }
 
+    users.set(username, { email, password });
     return NextResponse.json({ success: true });
   } catch (error) {
     return NextResponse.json(

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { sign } from "jsonwebtoken";
+import { encryptKey } from "@/lib/utils";
 
 /**
  * Handles POST requests for user authentication and login.
@@ -16,15 +17,26 @@ export async function POST(request: Request) {
   try {
     const { username, password } = await request.json();
 
-    // TODO: Add your authentication logic here
-    // This is a placeholder - replace with actual DB check
-    if (username === "demo" && password === "demo") {
+    // Simulated user data
+    const users = [
+      { username: "demo", password: "demo" },
+      { username: "admin", password: "admin123" },
+    ];
+
+    // Simulated authentication logic
+    const user = users.find(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (user) {
       const token = sign({ username }, process.env.JWT_SECRET || "secret", {
         expiresIn: "24h",
       });
 
+      const encryptedToken = await encryptKey(token);
+
       const cookieStore = await cookies();
-      cookieStore.set("token", token, {
+      cookieStore.set("token", encryptedToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",

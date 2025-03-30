@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { verify } from "jsonwebtoken";
+import { decryptKey } from "@/lib/utils";
 
 /**
  * Handles HTTP GET requests for user authentication.
@@ -15,17 +16,24 @@ import { verify } from "jsonwebtoken";
  */
 export async function GET(): Promise<NextResponse> {
   try {
-    const token = (await cookies()).get("token")?.value;
+    const encryptedToken = (await cookies()).get("token")?.value;
 
-    if (!token) {
+    if (!encryptedToken) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const decoded = verify(token, process.env.JWT_SECRET || "secret");
-    // TODO: Fetch user data from database using decoded token
-    return NextResponse.json({
-      user: decoded,
-    });
+    const token = await decryptKey(
+      encryptedToken,
+      process.env.JWT_SECRET || "secret"
+    );
+
+    const decoded = verify(token, process.env.JWT_SECRET || "secret") as {
+      username: string;
+    };
+    // Simulated user data
+    const user = { username: decoded.username, email: "demo@example.com" };
+
+    return NextResponse.json({ user });
   } catch (error) {
     return NextResponse.json(
       { error: "Internal server error" },
