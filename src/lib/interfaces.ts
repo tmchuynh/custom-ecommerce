@@ -3,6 +3,7 @@ import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from "react";
 import {
   FeaturedDetails,
   LengthType,
+  PaymentStatus,
   ProductFilters,
   ProductType,
   SectionDetails,
@@ -10,18 +11,9 @@ import {
   SortOption,
 } from "./types";
 
-export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
-  text?: string;
-}
-
 export interface LoaderSizeMarginProps extends CommonProps {
   size?: LengthType;
   margin?: LengthType;
-}
-
-export interface LengthObject {
-  value: number;
-  unit: string;
 }
 
 export interface LoaderSizeProps extends CommonProps {
@@ -39,29 +31,6 @@ export interface CommonProps
   loading?: boolean;
   cssOverride?: CSSProperties;
   speedMultiplier?: number;
-}
-
-export type CurrencyCode = string;
-
-export type Currency = {
-  code: CurrencyCode;
-  name: string;
-  rate: number;
-};
-
-export interface DynamicButtonProps {
-  variant?:
-    | "default"
-    | "destructive"
-    | "outline"
-    | "secondary"
-    | "ghost"
-    | "link";
-  text: string;
-  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  onClick?: () => void;
-  className?: string;
-  iconClassName?: string;
 }
 
 export interface FeaturedCategoryProps {
@@ -176,20 +145,6 @@ export interface ShippingRate {
   currencyCode: string;
 }
 
-export interface CustomerInfoData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: string;
-  marketingConsent: boolean;
-}
-
-export interface ResetPasswordData {
-  email: string;
-  code?: string;
-  newPassword?: string;
-}
-
 export interface AuthUser {
   id: string;
   email: string;
@@ -200,19 +155,6 @@ export interface AuthUser {
   addresses?: ShippingAddress[];
   defaultShippingAddress?: string;
   token: string;
-}
-
-export interface SignUpCredentials {
-  email: string;
-  password: string;
-  firstName?: string;
-  lastName?: string;
-}
-
-export interface LoginCredentials {
-  identifier: string; // can be email or username
-  password?: string;
-  loginCode?: string;
 }
 
 export interface ShippingAddress {
@@ -239,34 +181,6 @@ export interface ShippingRate {
   price: number;
   currencyCode: string;
 }
-
-export interface ProductBadgesProps {
-  highlights: string[];
-}
-
-export interface ComingSoonMessageProps {
-  gender: string;
-  sectionName: string;
-}
-
-export interface RandomNumberArrayOptions {
-  length: number;
-  min: number;
-  max: number;
-}
-
-export interface FormattedItem {
-  name: string;
-  url: string;
-}
-
-export type PaymentStatus =
-  | "pending"
-  | "processing"
-  | "success"
-  | "failed"
-  | "cancelled"
-  | "refunded";
 
 export interface CreditCard {
   number: string;

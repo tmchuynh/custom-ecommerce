@@ -1,4 +1,4 @@
-import { CartItem, Currency, CustomerInfoData } from "./interfaces";
+import { CartItem } from "./interfaces";
 import { ShippingAddressData } from "@/components/checkout/shipping-address-form";
 
 export type LengthType = number | string;
@@ -7,6 +7,85 @@ export type Gender = "men" | "women" | "children";
 export type NotFoundContextType = {
   isNotFound: boolean;
   setNotFound: (value: boolean) => void;
+};
+
+export type SkeletonProps = React.HTMLAttributes<HTMLDivElement> & {
+  text?: string;
+};
+
+export type LengthObject = {
+  value: number;
+  unit: string;
+};
+
+export type ProductBadgesProps = {
+  highlights: string[];
+};
+
+export type ComingSoonMessageProps = {
+  gender: string;
+  sectionName: string;
+};
+
+export type RandomNumberArrayOptions = {
+  length: number;
+  min: number;
+  max: number;
+};
+
+export type FormattedItem = {
+  name: string;
+  url: string;
+};
+
+export type CurrencyCode = string;
+
+export type Currency = {
+  code: CurrencyCode;
+  name: string;
+  rate: number;
+};
+
+export type SignUpCredentials = {
+  email: string;
+  password: string;
+  firstName?: string;
+  lastName?: string;
+};
+
+export type LoginCredentials = {
+  identifier: string; // can be email or username
+  password?: string;
+  loginCode?: string;
+};
+
+export type CustomerInfoData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  marketingConsent: boolean;
+};
+
+export type ResetPasswordData = {
+  email: string;
+  code?: string;
+  newPassword?: string;
+};
+
+export type DynamicButtonProps = {
+  variant?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "link";
+  text: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  onClick?: () => void;
+  className?: string;
+  iconClassName?: string;
 };
 
 export type User = {
@@ -34,10 +113,17 @@ export type CreditCard = {
 export type Payment = {
   id: string;
   amount: number;
-  status: "pending" | "processing" | "success" | "failed";
+  status: PaymentStatus;
   email: string;
   date: Date;
 };
+
+export type PaymentStatus =
+  | "success"
+  | "pending"
+  | "failed"
+  | "processing"
+  | "refunded";
 
 export type PurchaseRecord = {
   user: User;
