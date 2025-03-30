@@ -177,7 +177,7 @@ const PaymentSecurity = () => {
                           All sensitive data is encrypted using
                           industry-standard SSL/TLS encryption:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>256-bit SSL encryption for all transactions</li>
                           <li>Secure storage of encrypted payment data</li>
                           <li>Regular security audits and updates</li>
@@ -187,7 +187,7 @@ const PaymentSecurity = () => {
                     {section.id === "payment-processing" && (
                       <div>
                         <p className="mb-4">Our payment processing system:</p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>Partners with trusted payment processors</li>
                           <li>Never stores complete credit card information</li>
                           <li>Uses tokenization for recurring payments</li>
@@ -200,7 +200,7 @@ const PaymentSecurity = () => {
                         <p className="mb-4">
                           We employ multiple authentication methods:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>Two-factor authentication (2FA)</li>
                           <li>3D Secure for card payments</li>
                           <li>Strong password requirements</li>
@@ -211,7 +211,7 @@ const PaymentSecurity = () => {
                     {section.id === "compliance" && (
                       <div>
                         <p className="mb-4">We maintain compliance with:</p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             PCI DSS (Payment Card Industry Data Security
                             Standard)
@@ -227,7 +227,7 @@ const PaymentSecurity = () => {
                         <p className="mb-4">
                           Our security monitoring includes:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>24/7 system monitoring</li>
                           <li>Automated threat detection</li>
                           <li>Regular security assessments</li>
@@ -240,7 +240,7 @@ const PaymentSecurity = () => {
                         <p className="mb-4">
                           Our fraud prevention measures include:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>Advanced fraud detection algorithms</li>
                           <li>Address verification system (AVS)</li>
                           <li>Card verification value (CVV) checks</li>

@@ -1204,7 +1204,7 @@ const SizeGuide = () => {
                           <h3 className="text-lg font-medium mb-4">
                             Tools You'll Need
                           </h3>
-                          <ul className="list-disc list-inside space-y-2 ml-2">
+                          <ul className="list-disc list-outside mx-5 space-y-2 ml-2">
                             <li>A soft measuring tape</li>
                             <li>
                               A piece of paper and pencil to record measurements
@@ -1219,7 +1219,7 @@ const SizeGuide = () => {
                           <h3 className="text-lg font-medium mb-4">
                             General Tips
                           </h3>
-                          <ul className="list-disc list-inside space-y-2 ml-2">
+                          <ul className="list-disc list-outside mx-5 space-y-2 ml-2">
                             <li>
                               Wear minimal clothing or undergarments for most
                               accurate measurements

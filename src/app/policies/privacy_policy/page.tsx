@@ -223,7 +223,7 @@ const PrivacyPolicy = () => {
                     process your orders, communicate with you, and provide
                     personalized services. This includes, but is not limited to:
                   </p>
-                  <ul className="list-disc list-inside space-y-2 mb-4">
+                  <ul className="list-disc list-outside mx-5 space-y-2 mb-4">
                     <li>
                       <strong>Name:</strong> To identify you and provide
                       personalized service.
@@ -267,7 +267,7 @@ const PrivacyPolicy = () => {
                     improving website performance, and providing better content
                     recommendations. This includes:
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
                       <strong>Browser type and version:</strong> To ensure
                       compatibility with your device and optimize the website’s
@@ -340,7 +340,7 @@ const PrivacyPolicy = () => {
                     and ensure a secure and efficient transaction process. Below
                     are the key ways in which we utilize your information:
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
                       <strong>To process and fulfill your orders:</strong> We
                       use your personal and payment information to process your
@@ -446,7 +446,7 @@ const PrivacyPolicy = () => {
                     circumstances, all of which are necessary to provide our
                     services or comply with legal obligations:
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
                       <span className="font-medium">
                         Third-party service providers:
@@ -527,7 +527,7 @@ const PrivacyPolicy = () => {
                     of advanced security technologies and practices to mitigate
                     risks. Here are the key security measures we use:
                   </p>
-                  <ul className="list-disc list-inside space-y-2 mb-4">
+                  <ul className="list-disc list-outside mx-5 space-y-2 mb-4">
                     <li>
                       <strong>Encryption of sensitive data:</strong> All
                       sensitive information, such as payment details, is
@@ -615,7 +615,7 @@ const PrivacyPolicy = () => {
                     committed to helping you exercise these rights in accordance
                     with relevant data protection regulations.
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
+                  <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
                       <span className="font-medium">Access:</span> You have the
                       right to request a copy of the personal information we

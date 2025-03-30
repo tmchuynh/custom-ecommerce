@@ -244,7 +244,7 @@ const TermsAndConditions = () => {
                           should not interfere with the rights of others or the
                           operation of the Site itself.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             You agree not to engage in any fraudulent, unlawful,
                             or harmful activities, including but not limited to
@@ -295,7 +295,7 @@ const TermsAndConditions = () => {
                           password and do not share your account details with
                           anyone.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             If you suspect that your account has been
                             compromised or if there are any unauthorized
@@ -335,7 +335,7 @@ const TermsAndConditions = () => {
                           right to update or adjust prices at any time without
                           prior notice.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             We reserve the right to modify or discontinue any
                             product or service offered on our website without
@@ -378,7 +378,7 @@ const TermsAndConditions = () => {
                             Order Tracking
                           </a>
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             We reserve the right to reject or cancel any order
                             for reasons such as product availability, pricing
@@ -437,7 +437,7 @@ const TermsAndConditions = () => {
                           </a>{" "}
                           for all the necessary information.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             By providing your payment information, you authorize
                             us to charge the full amount of your order,
@@ -476,7 +476,7 @@ const TermsAndConditions = () => {
                           delivery times are estimates and may be subject to
                           delays due to factors beyond our control.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             We are not responsible for any delays caused by
                             third-party carriers, customs processing, or

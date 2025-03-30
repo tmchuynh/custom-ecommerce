@@ -2,7 +2,7 @@
 
 import { currencyCountries } from "@/lib/countriesConstant";
 import { mockProductData } from "@/lib/mockProductData";
-import { ProductFilters, ProductType, SortOption } from "@/lib/types";
+import { Currency, ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, {
   createContext,
   useContext,
@@ -12,7 +12,6 @@ import React, {
 } from "react";
 import { useCurrency } from "./currencyContext";
 import { ProductContextType } from "@/lib/contextTypes";
-import { Currency } from "@/lib/interfaces";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 

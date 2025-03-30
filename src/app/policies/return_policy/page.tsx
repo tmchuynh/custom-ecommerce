@@ -249,7 +249,7 @@ const ReturnPolicy = () => {
                           business. Please review the requirements carefully
                           before initiating a return.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             Items must be unused and in the same condition as
                             when you received them. This includes no signs of
@@ -304,7 +304,7 @@ const ReturnPolicy = () => {
                           Please review the list below to ensure you are aware
                           of these exceptions before making your purchase.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             <strong>Gift cards:</strong> Gift cards are not
                             eligible for return or refund, as they are
@@ -354,7 +354,7 @@ const ReturnPolicy = () => {
                           to ensure your return is processed smoothly and
                           efficiently:
                         </p>
-                        <ol className="list-decimal list-inside space-y-2">
+                        <ol className="list-decimal list-outside mx-5 space-y-2">
                           <li>
                             Log into your account on our website or use the
                             return portal link provided in your order
@@ -409,7 +409,7 @@ const ReturnPolicy = () => {
                           Depending on your preference and the nature of your
                           return, you can expect the following outcomes:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             <span className="font-medium">Refunds:</span>{" "}
                             Refunds will be issued to the original payment

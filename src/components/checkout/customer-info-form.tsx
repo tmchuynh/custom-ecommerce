@@ -7,10 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Mail, User, Phone, AlertCircle } from "lucide-react";
-import { CustomerInfoFormProps } from "@/lib/types";
+import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
 import { usePayment } from "@/app/context/paymentContext";
 import { useCustomer } from "@/app/context/customerContext";
-import { CustomerInfoData } from "@/lib/interfaces";
 
 export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const [formData, setFormData] = useState<CustomerInfoData>({

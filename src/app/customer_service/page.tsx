@@ -17,6 +17,7 @@ import {
   RefreshCw,
   Globe,
 } from "lucide-react";
+import { customerServiceFAQs } from "@/lib/faqs";
 
 const CustomerService = () => {
   const router = useRouter();
@@ -66,94 +67,6 @@ const CustomerService = () => {
       id: "other-services",
       title: "Other Services",
       icon: <Gift className="h-5 w-5" />,
-    },
-  ];
-
-  // FAQ questions for easier management
-  const faqs = [
-    {
-      question: "How do I track my order?",
-      answer:
-        "Once your order has shipped, you will receive a tracking number via email. This tracking number can be used on the carrier’s website (e.g., USPS, FedEx, UPS) to check the status of your shipment, including its current location and estimated delivery date. If you did not receive a tracking number or have any issues with tracking, please reach out to our customer support team for assistance.",
-    },
-    {
-      question: "What is your return policy?",
-      answer: (
-        <>
-          We offer a 30-day return policy for most items. If you are not
-          satisfied with your purchase, you can return it within 30 days of
-          receiving the item. To ensure a smooth return, items must be unused,
-          in their original condition, and in the original packaging. To learn
-          more, visit our{" "}
-          <a href="/policies/return_policy" className="hover:underline">
-            Return Policy page
-          </a>
-          .
-        </>
-      ),
-    },
-    {
-      question: "How can I change or cancel my order?",
-      answer: (
-        <>
-          If you need help to change or cancel your order, please contact us as
-          soon as possible. We process orders quickly, and once your order has
-          been shipped, we may not be able to make any changes or cancellations.
-          If your order has not yet shipped, we’ll do our best to accommodate
-          your request. For further assistance, please reach out to our customer
-          support team.
-        </>
-      ),
-    },
-    {
-      question: "How do I apply a discount code?",
-      answer:
-        "During checkout, you will see an option to enter a promo or discount code. Simply type or paste the code in the designated box, and the discount will automatically be applied to your order total. If the code is not working, make sure it’s entered correctly, and that it’s still valid for your current order. Some codes may have specific terms, such as minimum purchase requirements or expiration dates.",
-    },
-    {
-      question: "Do you offer international shipping?",
-      answer:
-        "Yes, we offer international shipping to select countries. Shipping fees and delivery times may vary depending on your location. During checkout, you will be able to see the applicable shipping costs and estimated delivery times for your country. Please note that international shipments may be subject to customs duties, taxes, or fees, which are the responsibility of the customer. For more details, check our shipping information or contact our customer service team.",
-    },
-    {
-      question: "Can I return sale or discounted items?",
-      answer:
-        "Sale or discounted items may be eligible for return, but there are certain exclusions. Please refer to our Return Policy page for details about which items can be returned. In general, items marked as 'final sale' or 'non-returnable' cannot be returned.",
-    },
-    {
-      question: "How do I know if an item is eligible for a return?",
-      answer:
-        "To be eligible for a return, the item must be unused, in its original packaging, and in the same condition as when you received it. Some items may have specific return conditions, such as hygiene products or custom-made items, which are not eligible for return. For more information, please refer to our Return Policy page.",
-    },
-    {
-      question: "How do I check my order history?",
-      answer:
-        "To view your order history, simply log into your account and go to the 'Order History' section. You'll be able to view all your past orders, track their status, and request returns or exchanges if applicable. If you don't have an account, you can still check the status of your order using the tracking number provided.",
-    },
-    {
-      question: "What should I do if I receive a damaged or defective item?",
-      answer:
-        "If you receive a damaged or defective item, please contact us within 7 days of receiving the product. We’ll assist you with a return, replacement, or refund, depending on the issue. Please provide photos of the damage or defect to help us process your request faster.",
-    },
-    {
-      question: "Can I use more than one discount code?",
-      answer:
-        "Unfortunately, only one discount code can be applied to each order. If you have multiple valid discount codes, you will need to choose the one that gives you the best discount. Keep an eye out for special promotions that allow you to combine offers on select items.",
-    },
-    {
-      question: "What shipping carriers do you use?",
-      answer:
-        "We use a variety of shipping carriers, including USPS, FedEx, UPS, and DHL, depending on your location and the shipping method you select. You will receive tracking information via email once your order ships, including the name of the carrier and the tracking number.",
-    },
-    {
-      question: "Do you offer gift wrapping services?",
-      answer:
-        "Currently, we do not offer gift wrapping services. However, we are exploring this option for the future. We recommend checking out our website for any upcoming promotions or new services.",
-    },
-    {
-      question: "Can I change my shipping address after the order is placed?",
-      answer:
-        "If your order has not yet been shipped, please contact us immediately, and we will do our best to update your shipping address. However, once the order has been shipped, we cannot make changes to the shipping address. Please ensure your address is correct at checkout to avoid delivery issues.",
     },
   ];
 
@@ -586,7 +499,7 @@ const CustomerService = () => {
                   </p>
 
                   <div className="space-y-6">
-                    {faqs.map((faq, index) => (
+                    {customerServiceFAQs.map((faq, index) => (
                       <div key={index} className="p-4 rounded-lg">
                         <h3 className="text-lg font-medium mb-2 flex items-start">
                           <span className="mr-2">Q:</span>

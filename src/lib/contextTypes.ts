@@ -1,21 +1,21 @@
 import {
-  Currency,
   CountryTaxInfo,
   CartItem,
   ShippingAddress,
   AuthUser,
-  LoginCredentials,
-  SignUpCredentials,
-  CreditCard,
-  Payment,
-  PaymentStatus,
   PaymentSubmissionData,
-  ResetPasswordData,
 } from "./interfaces";
 import {
+  CreditCard,
+  Currency,
+  LoginCredentials,
+  Payment,
+  PaymentStatus,
   ProductFilters,
   ProductType,
+  ResetPasswordData,
   ShippingMethod,
+  SignUpCredentials,
   SortOption,
 } from "./types";
 

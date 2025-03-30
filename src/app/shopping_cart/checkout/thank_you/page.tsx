@@ -51,52 +51,46 @@ const OrderConfirmation = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div className="bg-white shadow-xl rounded-lg p-8">
+      <div className="shadow-xl rounded-lg p-8">
         <div className="text-center">
           <div className="flex justify-center">
             <CheckCircle2 className="h-20 w-20 text-green-500" />
           </div>
-          <h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Thank you for your order!
           </h1>
-          <p className="mt-2 text-xl text-gray-500">
+          <p className="mt-2 text-xl">
             Your order has been placed successfully.
           </p>
           <p className="mt-2 font-medium">Order #{orderNumber}</p>
         </div>
 
         <div className="mt-10">
-          <div className="border-t border-gray-200 pt-6">
-            <h2 className="text-lg font-medium text-gray-900">
-              Order information
-            </h2>
+          <div className="border-t pt-6">
+            <h2 className="text-lg font-medium">Order information</h2>
 
             <div className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
-              <div className="flex items-center space-x-3 bg-gray-50 p-4 rounded-md">
-                <BsTruck className="h-8 w-8 text-gray-400" />
+              <div className="flex items-center space-x-3 p-4 rounded-md">
+                <BsTruck className="h-8 w-8" />
                 <div>
-                  <p className="font-medium text-gray-900">Shipping</p>
-                  <p className="text-gray-500">Standard shipping</p>
+                  <p className="font-medium">Shipping</p>
+                  <p className="">Standard shipping</p>
                 </div>
               </div>
 
-              <div className="flex items-center space-x-3 bg-gray-50 p-4 rounded-md">
-                <IoMdTimer className="h-8 w-8 text-gray-400" />
+              <div className="flex items-center space-x-3 p-4 rounded-md">
+                <IoMdTimer className="h-8 w-8" />
                 <div>
-                  <p className="font-medium text-gray-900">
-                    Estimated delivery
-                  </p>
-                  <p className="text-gray-500">{estimatedDelivery}</p>
+                  <p className="font-medium">Estimated delivery</p>
+                  <p className="">{estimatedDelivery}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-10 border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-medium text-gray-900">
-              What happens next?
-            </h3>
-            <p className="mt-2 text-gray-500">
+          <div className="mt-10 border-t pt-6">
+            <h3 className="text-lg font-medium">What happens next?</h3>
+            <p className="mt-2">
               You will receive a confirmation email with your order details.
               Once your order ships, we'll send you tracking information.
             </p>

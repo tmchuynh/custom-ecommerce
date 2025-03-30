@@ -1,7 +1,8 @@
 "use client";
 
 import { PaymentContextType } from "@/lib/contextTypes";
-import { CreditCard, Payment, PaymentStatus } from "@/lib/interfaces";
+import { CreditCard, Payment } from "@/lib/interfaces";
+import { PaymentStatus } from "@/lib/types";
 import {
   validateCreditCard,
   validateCVV,
@@ -91,7 +92,8 @@ export const PaymentProvider = ({
 
   const processPayment = async (
     amount: number,
-    cardDetails: CreditCard
+    cardDetails: CreditCard,
+    currency?: string
   ): Promise<Payment> => {
     setProcessingPayment(true);
     setPaymentError(null);

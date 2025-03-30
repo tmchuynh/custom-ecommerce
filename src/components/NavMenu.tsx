@@ -1,6 +1,5 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
-import { about, navigations } from "@/lib/constants";
 import { FeaturedDetails, SectionDetails } from "@/lib/types";
 import {
   Popover,
@@ -25,6 +24,8 @@ import FeaturedCategory from "./FeaturedCategory";
 import NavMobileMenu from "./NavMobileMenu";
 import { Button } from "./ui/button";
 import { useWishlist } from "@/app/context/wishlistContext";
+import { about } from "@/lib/constants";
+import { navigations } from "@/lib/navigation";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);

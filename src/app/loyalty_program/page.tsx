@@ -3,7 +3,6 @@
 import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { perks } from "@/lib/constants";
 import {
   BookOpen,
   Award,
@@ -14,6 +13,8 @@ import {
   TrendingUp,
   HelpCircle,
 } from "lucide-react";
+import { perks } from "@/lib/constants";
+import { loyaltyFaqs } from "@/lib/faqs";
 
 const LoyaltyProgram = () => {
   const [points, setPoints] = useState(0);
@@ -77,60 +78,6 @@ const LoyaltyProgram = () => {
       id: "faqs",
       title: "FAQs",
       icon: <HelpCircle className="h-5 w-5" />,
-    },
-  ];
-
-  const loyaltyFaqs = [
-    {
-      question: "How do I join the loyalty program?",
-      answer:
-        "Joining our loyalty program is simple! You can become a member by creating an account on our website or by signing up during the checkout process. Once you're a member, you’ll start earning points automatically with every purchase you make. Plus, you’ll get access to exclusive discounts, promotions, and rewards!",
-    },
-    {
-      question: "Do points expire?",
-      answer:
-        "Yes, loyalty points expire 12 months after they are earned if they are not redeemed. We encourage you to use your points before they expire to take advantage of rewards, discounts, and other offers available in our program. You’ll be notified when your points are nearing expiration, so you don’t miss out!",
-    },
-    {
-      question: "Can I earn points on sale items?",
-      answer:
-        "Absolutely! You earn points on all purchases, including sale items, so you can still enjoy rewards while taking advantage of discounts. Points are earned based on the total amount spent, including discounts on sale items. Whether it's full price or discounted, every purchase counts toward your next reward!",
-    },
-    {
-      question: "How do I check my points balance?",
-      answer:
-        "Your points balance is always visible in your account dashboard once you log in. You can see how many points you’ve earned, track your progress toward your next reward, and review the rewards you’re eligible for. It’s easy to keep track of your points and enjoy the benefits. You’ll also receive notifications when you’re close to unlocking a reward!",
-    },
-    {
-      question: "Can I transfer my points to someone else?",
-      answer:
-        "No, points are non-transferable and can only be used by the account holder. This ensures that the rewards are personalized to your shopping experience. However, you can always enjoy the benefits yourself and unlock greater rewards as you continue to shop. Plus, sharing your loyalty benefits with others through referrals can earn you even more rewards!",
-    },
-    {
-      question: "What happens to my points if I return an item?",
-      answer:
-        "When you return an item, the points earned from that purchase will be deducted from your points balance. If you return part of an order, only the points for that specific item will be removed. If a full order is returned, all points from that order will be deducted. This ensures that your points are accurate and reflect your actual purchases. If you return an item but keep the rest of the order, the points for that item will be subtracted from your balance.",
-    },
-    {
-      question:
-        "Can I earn points for writing reviews or sharing on social media?",
-      answer:
-        "Yes, you can earn bonus points for certain activities like writing product reviews or sharing your purchase on social media. Check our promotions page or your account dashboard for ongoing ways to earn additional points. Participating in special campaigns or social media challenges can also provide extra opportunities to earn more rewards!",
-    },
-    {
-      question: "How do I redeem my points?",
-      answer:
-        "To redeem your points, simply go to the checkout page when making a purchase. You’ll see your available points balance, and you can choose to apply your points to receive a discount or redeem rewards. The more points you accumulate, the better the rewards you can unlock. Your points can be redeemed for discounts on future purchases, free products, and other exclusive offers.",
-    },
-    {
-      question: "How many points do I need for a reward?",
-      answer:
-        "The number of points required for a reward varies depending on the reward itself. For example, you may need 500 points for a $5 discount or 10,000 points for a free product up to $100 in value. You can check the reward details in your account dashboard to see what’s available at different point levels. We regularly update the rewards and offer special promotions, so check back often!",
-    },
-    {
-      question: "Can I use my points with other discount codes?",
-      answer:
-        "In most cases, loyalty points can be combined with other discount codes during checkout. However, some promotional offers may have exclusions. Be sure to check the terms of any active promo codes before applying them to ensure they are compatible with your loyalty points. If you have any questions, our customer support team can help you navigate using points and codes together.",
     },
   ];
 
@@ -406,7 +353,7 @@ const LoyaltyProgram = () => {
                     purchase. Here are some of the amazing benefits you’ll enjoy
                     as part of our Loyalty Rewards Program:
                   </p>
-                  <ul className="list-disc list-inside space-y-3">
+                  <ul className="list-disc list-outside mx-5 space-y-3">
                     <li>
                       <strong>Exclusive discounts on select products:</strong>{" "}
                       Enjoy special discounts on a curated selection of

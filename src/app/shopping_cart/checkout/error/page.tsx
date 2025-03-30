@@ -35,29 +35,25 @@ const CheckoutError = () => {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div className="bg-white shadow-xl rounded-lg p-8">
+      <div className="shadow-xl rounded-lg p-8">
         <div className="text-center">
           <div className="flex justify-center">
             <AlertTriangle className="h-20 w-20 text-red-500" />
           </div>
-          <h1 className="mt-4 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
             Oops! Something went wrong.
           </h1>
-          <p className="mt-2 text-xl text-gray-500">
+          <p className="mt-2 text-xl ">
             We encountered an issue while processing your order.
           </p>
-          <p className="mt-2 font-medium text-gray-500">
-            Error Code: {errorCode}
-          </p>
+          <p className="mt-2 font-medium ">Error Code: {errorCode}</p>
         </div>
 
         <div className="mt-10">
-          <div className="border-t border-gray-200 pt-6">
-            <h2 className="text-lg font-medium text-gray-900">
-              What might have happened?
-            </h2>
+          <div className="border-t pt-6">
+            <h2 className="text-lg font-medium">What might have happened?</h2>
 
-            <ul className="mt-4 list-disc pl-5 text-gray-500 space-y-2">
+            <ul className="mt-4 list-disc pl-5  space-y-2">
               <li>Your payment might not have been processed correctly</li>
               <li>There could be an issue with our payment system</li>
               <li>
@@ -67,12 +63,10 @@ const CheckoutError = () => {
             </ul>
           </div>
 
-          <div className="mt-8 border-t border-gray-200 pt-6">
-            <h3 className="text-lg font-medium text-gray-900">
-              What you can do
-            </h3>
+          <div className="mt-8 border-t pt-6">
+            <h3 className="text-lg font-medium">What you can do</h3>
 
-            <ul className="mt-4 list-disc pl-5 text-gray-500 space-y-2">
+            <ul className="mt-4 list-disc pl-5  space-y-2">
               <li>Try placing your order again</li>
               <li>Check that your payment information is correct</li>
               <li>Make sure you have a stable internet connection</li>
@@ -92,7 +86,7 @@ const CheckoutError = () => {
             </Button>
           </div>
 
-          <div className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-8 text-center text-sm ">
             <p>Need assistance? Contact our customer service at</p>
             <p className="font-medium mt-1">
               support@yourstore.com or 1-800-123-4567

@@ -206,7 +206,7 @@ const CookiePolicy = () => {
                           is central to maintaining a safe and trustworthy
                           environment for all transactions.
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             <strong>
                               256-bit SSL encryption for all transactions:
@@ -271,7 +271,7 @@ const CookiePolicy = () => {
                           on their purpose and duration. Here are the main
                           types:
                         </p>
-                        <ul className="list-disc list-inside space-y-2">
+                        <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             <strong>Session Cookies:</strong> Temporary cookies
                             that are deleted when you close your browser. They
