@@ -18,6 +18,7 @@ import {
   Globe,
 } from "lucide-react";
 import { customerServiceFAQs } from "@/lib/faqs";
+import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
 const CustomerService = () => {
   const router = useRouter();
@@ -25,21 +26,16 @@ const CustomerService = () => {
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const sections = [
@@ -90,7 +86,7 @@ const CustomerService = () => {
                 {sections.map((section) => (
                   <li key={section.id}>
                     <button
-                      onClick={() => scrollToSection(section.id)}
+                      onClick={() => handleScrollToSection(section.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeSection === section.id
                           ? "bg-primary text-primary-foreground"
@@ -188,7 +184,7 @@ const CustomerService = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <a
                         href="#track-order"
-                        onClick={() => scrollToSection("faq")}
+                        onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
                         <ShoppingBag className="h-4 w-4 mr-2" /> Track your
@@ -196,21 +192,21 @@ const CustomerService = () => {
                       </a>
                       <a
                         href="#return-policy"
-                        onClick={() => scrollToSection("faq")}
+                        onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
                         <RefreshCw className="h-4 w-4 mr-2" /> Return policy
                       </a>
                       <a
                         href="#shipping"
-                        onClick={() => scrollToSection("faq")}
+                        onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
                         <Truck className="h-4 w-4 mr-2" /> Shipping information
                       </a>
                       <a
                         href="#payment"
-                        onClick={() => scrollToSection("faq")}
+                        onClick={() => handleScrollToSection("faq")}
                         className="flex items-center hover:underline"
                       >
                         <CreditCard className="h-4 w-4 mr-2" /> Payment methods
@@ -517,7 +513,7 @@ const CustomerService = () => {
                   </div>
 
                   <div className="mt-6 flex justify-center">
-                    <Button onClick={() => scrollToSection("contact")}>
+                    <Button onClick={() => handleScrollToSection("contact")}>
                       Still have questions? Contact us
                     </Button>
                   </div>

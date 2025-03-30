@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { scrollToSection } from "@/lib/utils";
 import {
   CreditCard,
   HelpCircle,
@@ -11,7 +12,7 @@ import {
   User,
 } from "lucide-react";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { JSX, useRef, useState } from "react";
 
 const faqCategories = [
   {
@@ -176,21 +177,46 @@ const faqCategories = [
   },
 ];
 
-const FAQPage = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(
-    "ordering"
-  );
+/**
+ * A component that renders a Frequently Asked Questions (FAQ) page with categorized questions and answers.
+ *
+ * @component
+ *
+ * @state {string | null} activeCategory - Currently selected FAQ category
+ * @state {{ [key: string]: boolean }} expandedQuestions - Tracks expanded/collapsed state of FAQ items
+ *
+ * @hooks
+ * - useRef: Stores references to category section elements for scroll functionality
+ *
+ * @features
+ * - Sticky sidebar navigation
+ * - Smooth scrolling to categories
+ * - Expandable/collapsible FAQ items
+ * - Contact support section
+ *
+ * @layout
+ * - Two-column layout (on large screens)
+ * - Left sidebar with category navigation
+ * - Right main content area with FAQ sections
+ *
+ * @dependencies
+ * - Requires faqCategories data structure with:
+ *   - id: string
+ *   - icon: ReactNode
+ *   - title: string
+ *   - questions: Array<{ question: string, answer: string }>
+ *
+ * @returns {JSX.Element} Rendered FAQ page component
+ */
+const FAQPage = (): JSX.Element => {
+  const [activeSection, setActiveSection] = useState<string | null>("ordering");
   const [expandedQuestions, setExpandedQuestions] = useState<{
     [key: string]: boolean;
   }>({});
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveCategory(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const toggleQuestion = (categoryId: string, questionIndex: number) => {
@@ -228,9 +254,9 @@ const FAQPage = () => {
                 {faqCategories.map((category) => (
                   <li key={category.id}>
                     <button
-                      onClick={() => scrollToSection(category.id)}
-                      className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
-                        activeCategory === category.id
+                      onClick={() => handleScrollToSection(category.id)}
+                      className={`flex items-center w-full text-center px-3 py-2 rounded-lg transition-colors ${
+                        activeSection === category.id
                           ? "bg-primary text-primary-foreground"
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}

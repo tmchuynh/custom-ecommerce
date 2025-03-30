@@ -1,8 +1,4 @@
 "use client";
-
-import components from "@/components/ProductDetails";
-import ProductGallery from "@/components/ProductGallery";
-import ProductInfo from "@/components/ProductInfo";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -22,18 +18,39 @@ import { reviews } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import {
   Filter,
-  Mail,
   MessageSquare,
-  Phone,
   Search,
   SlidersHorizontal,
   Star,
   ThumbsUp,
 } from "lucide-react";
-import { useRef, useState } from "react";
+import { JSX, useState } from "react";
 
-const CustomerReviews = () => {
-  const [activeSection, setActiveSection] = useState<string | null>(null);
+/**
+ * CustomerReviews component displays a comprehensive review section for an e-commerce website.
+ *
+ * Features include:
+ * - Display of average rating and rating distribution
+ * - Filtering reviews by rating and search term
+ * - Sorting reviews by newest, highest, or lowest rating
+ * - Form for submitting new reviews
+ * - Responsive grid layout of review cards
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <CustomerReviews />
+ * ```
+ *
+ * @state {number} minRating - Minimum rating filter (0-5)
+ * @state {string} searchTerm - Search term for filtering reviews
+ * @state {string} sortOrder - Sort order ("newest" | "highest" | "lowest")
+ * @state {boolean} showReviewForm - Controls visibility of review submission form
+ * @state {Object} newReview - Contains new review data (name, email, rating, review)
+ *
+ * @returns {JSX.Element} A fully functional customer reviews section
+ */
+const CustomerReviews = (): JSX.Element => {
   const [minRating, setMinRating] = useState<number>(0);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [sortOrder, setSortOrder] = useState<string>("newest");
@@ -44,7 +61,6 @@ const CustomerReviews = () => {
     rating: 5,
     review: "",
   });
-  const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const handleRatingChange = (rating: number) => {
     setMinRating(rating === minRating ? 0 : rating);

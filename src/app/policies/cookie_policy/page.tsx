@@ -17,27 +17,23 @@ import {
   Database,
 } from "lucide-react";
 import router from "next/router";
+import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
 
 const CookiePolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const sections = [
@@ -114,7 +110,7 @@ const CookiePolicy = () => {
                 {sections.map((section) => (
                   <li key={section.id}>
                     <button
-                      onClick={() => scrollToSection(section.id)}
+                      onClick={() => handleScrollToSection(section.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeSection === section.id
                           ? "bg-primary text-primary-foreground"

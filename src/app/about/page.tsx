@@ -1,34 +1,29 @@
 "use client";
 
 import { useState, useRef } from "react";
-import FeaturedBlogs from "@/components/FeaturedBlogs";
 import LogoCloud from "@/components/LogoCloud";
 import Team from "@/components/Team";
 import { stats, values } from "@/lib/constants";
 import Image from "next/image";
 import { BookOpen, Users, Award, Briefcase, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 
 export default function About() {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const sections = [
@@ -124,7 +119,7 @@ export default function About() {
                 {sections.map((section) => (
                   <li key={section.id}>
                     <button
-                      onClick={() => scrollToSection(section.id)}
+                      onClick={() => handleScrollToSection(section.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeSection === section.id
                           ? "bg-primary text-primary-foreground"

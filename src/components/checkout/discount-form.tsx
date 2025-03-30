@@ -3,17 +3,8 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { AlertCircle, AlertTriangle, Check, Gift, X } from "lucide-react";
-
-interface DiscountFormProps {
-  onApply?: (code: string) => void;
-  discountCode?: string;
-  setDiscountCode?: (code: string) => void;
-  discountApplied?: boolean;
-  discountError?: boolean;
-  setDiscountError?: (error: boolean) => void;
-  handleApplyDiscount?: () => void;
-}
+import { AlertCircle, Check, Gift, X } from "lucide-react";
+import { DiscountFormProps } from "@/lib/interfaces";
 
 export default function DiscountForm({
   onApply,

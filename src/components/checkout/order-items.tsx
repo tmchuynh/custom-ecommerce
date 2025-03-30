@@ -1,19 +1,11 @@
 "use client";
-
-import { Button } from "@/components/ui/button";
+import { useCurrency } from "@/app/context/currencyContext";
 import { Badge } from "@/components/ui/badge";
-import {
-  ChevronDown,
-  ChevronUp,
-  Clock,
-  AlertTriangle,
-  Gift,
-} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { OrderItemsProps } from "@/lib/types";
+import { AlertTriangle, ChevronDown, ChevronUp, Clock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { CartItem } from "@/lib/interfaces";
-import { OrderItemsProps } from "@/lib/types";
-import { useCurrency } from "@/app/context/currencyContext";
 
 export default function OrderItems({
   cartItems,

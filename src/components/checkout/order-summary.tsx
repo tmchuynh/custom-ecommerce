@@ -1,16 +1,6 @@
 "use client";
-
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-  ChevronDown,
-  ChevronUp,
-  Check,
-  Clock,
-  Info,
-  ArrowRight,
-  ChevronLeft,
-} from "lucide-react";
+import { ChevronDown, ChevronUp, Check, Info, ChevronLeft } from "lucide-react";
 import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";

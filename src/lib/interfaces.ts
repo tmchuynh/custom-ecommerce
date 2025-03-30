@@ -230,3 +230,31 @@ export interface PaymentSubmissionData {
     phone: string;
   };
 }
+
+export interface FeaturedCategoryProps {
+  item: FeaturedDetails;
+  index: number;
+  closePopovers?: () => void;
+}
+
+export interface DiscountFormProps {
+  onApply?: (code: string) => void;
+  discountCode?: string;
+  setDiscountCode?: (code: string) => void;
+  discountApplied?: boolean;
+  discountError?: boolean;
+  setDiscountError?: (error: boolean) => void;
+  handleApplyDiscount?: () => void;
+}
+
+export interface ShippingAddressData {
+  addressLine1: string;
+  addressLine2: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  addressType: "residential" | "business";
+  saveAddress: boolean;
+  shippingMethod: "standard" | "express" | "overnight";
+}

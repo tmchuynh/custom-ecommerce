@@ -1,14 +1,11 @@
 "use client";
-
 import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import Link from "next/link";
 import {
   MapPin,
   Phone,
-  Mail,
   Clock,
   Car,
   Truck,
@@ -16,64 +13,47 @@ import {
   Info,
   Calendar,
 } from "lucide-react";
-
-const locations = [
-  {
-    id: "main-store",
-    name: "Main Store",
-    address: "123 Main St, Cityville, CA 12345",
-    hours: [
-      "Monday - Friday: 9:00 AM - 6:00 PM",
-      "Saturday: 10:00 AM - 5:00 PM",
-      "Sunday: Closed",
-    ],
-    phone: "+1 (555) 123-4567",
-    email: "mainstore@example.com",
-    features: ["Free parking", "Curbside pickup", "In-store events"],
-    lat: 37.7749,
-    lng: -122.4194,
-  },
-  {
-    id: "downtown",
-    name: "Downtown Branch",
-    address: "456 Downtown Ave, Cityville, CA 12346",
-    hours: [
-      "Monday - Friday: 8:00 AM - 7:00 PM",
-      "Saturday: 10:00 AM - 4:00 PM",
-      "Sunday: Closed",
-    ],
-    phone: "+1 (555) 987-6543",
-    email: "downtown@example.com",
-    features: ["Validated parking", "Express pickup", "Coffee bar"],
-    lat: 37.7849,
-    lng: -122.4294,
-  },
-  {
-    id: "eastside",
-    name: "Eastside Store",
-    address: "789 Eastside Rd, Cityville, CA 12347",
-    hours: [
-      "Monday - Friday: 9:00 AM - 6:00 PM",
-      "Saturday: 11:00 AM - 4:00 PM",
-      "Sunday: Closed",
-    ],
-    phone: "+1 (555) 456-7890",
-    email: "eastside@example.com",
-    features: [
-      "Free parking",
-      "EV charging stations",
-      "Product demonstrations",
-    ],
-    lat: 37.7949,
-    lng: -122.4394,
-  },
-];
+import { locations } from "@/lib/constants";
+import { scrollToSection } from "@/lib/utils";
 
 const containerStyle = {
   width: "100%",
   height: "400px",
 };
 
+/**
+ * LocationsPage Component
+ *
+ * Renders a page displaying store locations with interactive maps and location details.
+ *
+ * Features:
+ * - Displays multiple store locations with detailed information
+ * - Interactive Google Maps integration for each location
+ * - Sticky sidebar navigation between locations
+ * - Responsive layout that works on mobile and desktop
+ *
+ * @component
+ * @requires @react-google-maps/api - For Google Maps integration
+ * @requires google-maps-api-key - Environment variable for Google Maps API authentication
+ *
+ * @example
+ * ```tsx
+ * <LocationsPage />
+ * ```
+ *
+ * @remarks
+ * The component uses the following key functionalities:
+ * - useJsApiLoader for Google Maps API loading
+ * - useState for tracking active location
+ * - useRef for scroll management
+ * - useCallback for optimizing map-related functions
+ *
+ * State Management:
+ * - activeLocation: Tracks currently selected location
+ * - sectionRefs: Stores references to location sections for scrolling
+ *
+ * @returns A fully responsive page component with location information and interactive maps
+ */
 const LocationsPage = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -85,12 +65,8 @@ const LocationsPage = () => {
   );
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveLocation(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveLocation);
   };
 
   const onLoad = useCallback(
@@ -128,7 +104,7 @@ const LocationsPage = () => {
                 {locations.map((location) => (
                   <li key={location.id}>
                     <button
-                      onClick={() => scrollToSection(location.id)}
+                      onClick={() => handleScrollToSection(location.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeLocation === location.id
                           ? "bg-blue-100 text-blue-700"

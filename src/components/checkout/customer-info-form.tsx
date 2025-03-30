@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useCustomer } from "@/app/context/customerContext";
+import { usePayment } from "@/app/context/paymentContext";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
-import { Mail, User, Phone, AlertCircle } from "lucide-react";
 import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
-import { usePayment } from "@/app/context/paymentContext";
-import { useCustomer } from "@/app/context/customerContext";
+import { AlertCircle, Mail, Phone, User } from "lucide-react";
+import { useState } from "react";
 
 export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   const [formData, setFormData] = useState<CustomerInfoData>({

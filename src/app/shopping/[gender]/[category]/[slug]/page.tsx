@@ -1,17 +1,17 @@
 "use client";
 import { useProduct } from "@/app/context/productContext";
-import CannotFind from "@/components/CannotFind";
-import LoadingIndicator from "@/components/Loading";
-import components from "@/components/ProductDetails";
-import ProductGallery from "@/components/ProductGallery";
-import ProductInfo from "@/components/ProductInfo";
-import RelatedProducts from "@/components/RelatedProducts";
-import { Button } from "@/components/ui/button";
+import components from "@/components/category/product/ProductDetails";
+import ProductGallery from "@/components/category/product/ProductGallery";
+
+import ProductInfo from "@/components/category/product/ProductInfo";
+import RelatedProducts from "@/components/category/product/RelatedProducts";
+import CannotFind from "@/components/states/CannotFind";
+import LoadingIndicator from "@/components/states/Loading";
 import { ProductItem } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductType } from "@/lib/types";
 import { formatURL } from "@/lib/utils";
-import { ArrowLeft, Heart, ShoppingCart } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -24,7 +24,6 @@ export default function ProductPage() {
 
   const [product, setProduct] = useState<ProductType | null>(null);
   const [loading, setLoading] = useState(true);
-  const [inWishlist, setInWishlist] = useState(false);
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -80,10 +79,6 @@ export default function ProductPage() {
   if (!product) {
     return <CannotFind />;
   }
-
-  const toggleWishlist = () => {
-    setInWishlist(!inWishlist);
-  };
 
   return (
     <div className="">
@@ -144,9 +139,7 @@ export default function ProductPage() {
         <RelatedProducts
           gender={gender as string}
           category={category as string}
-          toggleWishlist={toggleWishlist}
           relatedProducts={relatedProducts}
-          wishlist={new Set()}
         />
 
         {/* Back to collection link */}

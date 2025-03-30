@@ -371,17 +371,6 @@ export const formatItemName = (itemName: string) => {
     .join(" "); // Join the words back into a string
 };
 
-/**
- * Formats a URL string by converting it to lowercase, replacing spaces with hyphens,
- * and removing possessive apostrophes (e.g., 's).
- *
- * @param {string} url - The URL string to format
- * @returns {string} The formatted URL string
- *
- * @example
- * formatURL("Product's Name"); // returns "product-name"
- * formatURL("Hello World"); // returns "hello-world"
- */
 export const formatURL = (url: string): string => {
   return url.toLowerCase().replaceAll(" ", "-").replaceAll("'s", "");
 };
@@ -579,7 +568,15 @@ export function getAccessibleColor(
 }
 
 /**
- * Validates a credit card expiry date in MM/YY format
+ * Validates if a credit card expiry date is valid and not expired
+ * @param expiry - The expiry date in MM/YY format (e.g. "12/25")
+ * @returns boolean - True if the expiry date is valid and not expired, false otherwise
+ * @example
+ * ```typescript
+ * validateExpiryDate("12/25") // true
+ * validateExpiryDate("13/25") // false (invalid month)
+ * validateExpiryDate("12/20") // false (expired)
+ * ```
  */
 export function validateExpiryDate(expiry: string): boolean {
   const regex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
@@ -595,7 +592,18 @@ export function validateExpiryDate(expiry: string): boolean {
 }
 
 /**
- * Validates a credit card CVV code
+ * Validates a CVV (Card Verification Value) string.
+ *
+ * @param cvv - The CVV string to validate
+ * @returns True if the CVV is valid (contains 3-4 digits only), false otherwise
+ *
+ * @example
+ * ```typescript
+ * validateCVV("123")  // returns true
+ * validateCVV("1234") // returns true
+ * validateCVV("12")   // returns false
+ * validateCVV("12a")  // returns false
+ * ```
  */
 export function validateCVV(cvv: string): boolean {
   // CVV should be 3-4 digits
@@ -604,7 +612,13 @@ export function validateCVV(cvv: string): boolean {
 }
 
 /**
- * Formats a credit card expiry date input
+ * Formats a string into a credit card expiry date format (MM/YY)
+ * @param value - The input string to format
+ * @returns The formatted expiry date string in MM/YY format
+ * @example
+ * formatExpiryDate("1223") // returns "12/23"
+ * formatExpiryDate("12") // returns "12"
+ * formatExpiryDate("1") // returns "1"
  */
 export function formatExpiryDate(value: string): string {
   const cleaned = value.replace(/\D/g, "");
@@ -615,6 +629,32 @@ export function formatExpiryDate(value: string): string {
 }
 
 /**
+ * Smoothly scrolls to a specified section of the page and optionally updates the active section state.
+ *
+ * @param sectionId - The ID of the section to scroll to
+ * @param sectionRefs - A React mutable ref object containing references to section elements
+ * @param setActiveSection - Optional callback function to update the active section state
+ *
+ * @example
+ * ```typescript
+ * scrollToSection('about', sectionRefs, setActiveSection);
+ * ```
+ */
+export const scrollToSection = (
+  sectionId: string,
+  sectionRefs: React.MutableRefObject<{ [key: string]: HTMLElement | null }>,
+  setActiveSection?: (sectionId: string) => void
+) => {
+  if (setActiveSection) {
+    setActiveSection(sectionId);
+  }
+  sectionRefs.current[sectionId]?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+};
+
+/**
  * Validates a payment amount
  */
 export function validatePaymentAmount(amount: number): boolean {
@@ -622,7 +662,18 @@ export function validatePaymentAmount(amount: number): boolean {
 }
 
 /**
- * Validates a billing postal code
+ * Validates a postal code according to the specified country format.
+ * @param postalCode - The postal code string to validate
+ * @param countryCode - The two-letter ISO country code (defaults to "US")
+ * @returns boolean indicating whether the postal code is valid for the given country
+ *
+ * @example
+ * ```ts
+ * validatePostalCode('12345') // returns true
+ * validatePostalCode('12345-6789') // returns true
+ * validatePostalCode('1234') // returns false
+ * validatePostalCode('ABC 123', 'CA') // returns true
+ * ```
  */
 export function validatePostalCode(
   postalCode: string,
@@ -635,3 +686,26 @@ export function validatePostalCode(
   // Default to basic validation for other countries
   return /^[A-Z0-9]{3,10}$/i.test(postalCode.replace(/\s/g, ""));
 }
+
+/**
+ * Toggles an accordion section and scrolls to it if newly opened
+ *
+ * @param sectionId - The ID of the section to toggle
+ * @param activeSection - The currently active section ID
+ * @param setActiveSection - Function to update the active section state
+ * @param sectionRef - Reference to the section element to scroll to
+ */
+export const toggleAccordionSection = (
+  sectionId: string,
+  activeSection: string | null,
+  setActiveSection: (sectionId: string | null) => void,
+  sectionRef: HTMLElement | null
+) => {
+  setActiveSection(activeSection === sectionId ? null : sectionId);
+  if (activeSection !== sectionId && sectionRef) {
+    sectionRef.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};

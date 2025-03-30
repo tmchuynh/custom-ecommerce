@@ -8,33 +8,26 @@ import {
   Shirt,
   MessageSquare,
   Footprints,
-  Info,
-  Mail,
-  Phone,
   HelpCircle,
 } from "lucide-react";
 import Image from "next/image";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 
 const SizeGuide = () => {
   const [activeSection, setActiveSection] = useState<string | null>("shirts");
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
   // Create a custom PantsIcon since it doesn't exist in lucide-react
@@ -99,7 +92,7 @@ const SizeGuide = () => {
                 {sizeGuideCategories.map((category) => (
                   <li key={category.id}>
                     <button
-                      onClick={() => scrollToSection(category.id)}
+                      onClick={() => handleScrollToSection(category.id)}
                       className={`flex items-center w-full text-center px-3 py-2 rounded-lg transition-colors ${
                         activeSection === category.id
                           ? "bg-primary text-primary-foreground"

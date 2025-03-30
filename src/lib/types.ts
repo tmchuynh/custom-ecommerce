@@ -1,5 +1,4 @@
-import { CartItem } from "./interfaces";
-import { ShippingAddressData } from "@/components/checkout/shipping-address-form";
+import { CartItem, ShippingAddressData } from "./interfaces";
 
 export type LengthType = number | string;
 export type Gender = "men" | "women" | "children";

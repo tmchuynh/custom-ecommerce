@@ -1,14 +1,10 @@
 "use client";
 import { useProduct } from "@/app/context/productContext";
-import CannotFind from "@/components/CannotFind";
-import LoadingIndicator from "@/components/Loading";
-import ProductCard from "@/components/ProductCard";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import ProductCard from "@/components/category/product/ProductCard";
+import CannotFind from "@/components/states/CannotFind";
+import LoadingIndicator from "@/components/states/Loading";
 import { mockProductData } from "@/lib/mockProductData";
 import { formatURL } from "@/lib/utils";
-import { ArrowRight, ShoppingBag } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { JSX, useEffect, useState } from "react";
@@ -194,8 +190,6 @@ const GenderPage = (): JSX.Element => {
                   gender={gender as string}
                   category={product.category}
                   item={product.itemType}
-                  toggleWishlist={() => {}}
-                  wishlist={new Set()}
                 />
               ))}
             </div>

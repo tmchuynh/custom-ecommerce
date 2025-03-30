@@ -1,5 +1,6 @@
 "use client";
 
+import { usePayment } from "@/app/context/paymentContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -18,7 +19,6 @@ import { PaymentInfoFormProps } from "@/lib/types";
 import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { usePayment } from "@/app/context/paymentContext";
 
 // Generate month and year options
 const generateMonths = () => {

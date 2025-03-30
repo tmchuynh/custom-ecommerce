@@ -1,20 +1,21 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import {
-  BookOpen,
-  Award,
-  Star,
-  Gift,
-  ShoppingBag,
-  CreditCard,
-  TrendingUp,
-  HelpCircle,
-} from "lucide-react";
 import { perks } from "@/lib/constants";
 import { loyaltyFaqs } from "@/lib/faqs";
+import { toggleAccordionSection, scrollToSection } from "@/lib/utils";
+import {
+  Award,
+  BookOpen,
+  CreditCard,
+  Gift,
+  HelpCircle,
+  ShoppingBag,
+  Star,
+  TrendingUp,
+} from "lucide-react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 const LoyaltyProgram = () => {
   const [points, setPoints] = useState(0);
@@ -26,21 +27,16 @@ const LoyaltyProgram = () => {
   };
 
   const toggleSection = (sectionId: string) => {
-    setActiveSection(activeSection === sectionId ? null : sectionId);
-    if (activeSection !== sectionId) {
-      sectionRefs.current[sectionId]?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    toggleAccordionSection(
+      sectionId,
+      activeSection,
+      setActiveSection,
+      sectionRefs.current[sectionId]
+    );
   };
 
-  const scrollToSection = (sectionId: string) => {
-    setActiveSection(sectionId);
-    sectionRefs.current[sectionId]?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId: string) => {
+    scrollToSection(sectionId, sectionRefs, setActiveSection);
   };
 
   const sections = [
@@ -147,7 +143,7 @@ const LoyaltyProgram = () => {
                 {sections.map((section) => (
                   <li key={section.id}>
                     <button
-                      onClick={() => scrollToSection(section.id)}
+                      onClick={() => handleScrollToSection(section.id)}
                       className={`flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         activeSection === section.id
                           ? "bg-primary text-primary-foreground"

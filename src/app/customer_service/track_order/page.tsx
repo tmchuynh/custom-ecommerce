@@ -10,16 +10,13 @@ import {
   AlertCircle,
   ArrowLeft,
   BarChart4,
-  CheckCircle,
   Clock,
   HelpCircle,
   Mail,
   MessageSquare,
   PackageCheck,
-  PackageOpen,
   RefreshCw,
   Search,
-  Truck,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
