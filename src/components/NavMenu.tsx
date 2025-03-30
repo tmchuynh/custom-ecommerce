@@ -24,6 +24,7 @@ import CategoryList from "./CategoryList";
 import FeaturedCategory from "./FeaturedCategory";
 import NavMobileMenu from "./NavMobileMenu";
 import { Button } from "./ui/button";
+import { useWishlist } from "@/app/context/wishlistContext";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -39,6 +40,7 @@ export default function NavMenu() {
     }[]
   >([]);
   const { getTotalItems } = useCart();
+  const { getWishlistCount } = useWishlist();
 
   useEffect(() => {
     const sorted = navigations.categories.map((category) => {
@@ -341,7 +343,7 @@ export default function NavMenu() {
                           className="size-6 shrink-0 group-hover:text-primary"
                         />
                         <span className="ml-2 text-sm font-medium group-hover:text-secondary">
-                          0
+                          {getWishlistCount() || 0}
                         </span>
                         <span className="sr-only">
                           items in wishlist, view wishlist
