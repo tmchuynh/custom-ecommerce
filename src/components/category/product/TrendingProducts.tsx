@@ -1,10 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Filter } from "lucide-react";
 import { JSX, useEffect, useState } from "react";
-import ProductRate from "./ProductRate";
 import { mockProductData } from "@/lib/mockProductData";
 import ProductCard from "./ProductCard";
+import { FaFilter } from "react-icons/fa";
 
 /**
  * A component that displays a grid of trending products with filtering capabilities.
@@ -119,7 +118,7 @@ export default function TrendingProducts(): JSX.Element {
                   : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
-              {category === "all" && <Filter className="h-4 w-4 mr-2" />}
+              {category === "all" && <FaFilter className="h-4 w-4 mr-2" />}
               {category}
             </Button>
           ))}

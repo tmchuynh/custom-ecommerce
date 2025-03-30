@@ -3,9 +3,10 @@ import { useCurrency } from "@/app/context/currencyContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { OrderItemsProps } from "@/lib/types";
-import { AlertTriangle, ChevronDown, ChevronUp, Clock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { FaChevronDown, FaChevronUp, FaClock } from "react-icons/fa";
+import { IoIosAlert } from "react-icons/io";
 
 /**
  * A component that displays a list of items in a shopping cart/order with various interactive features
@@ -47,16 +48,16 @@ export default function OrderItems({
             </h2>
             {cartItems.some((item) => item.isLimited) && (
               <p className="text-sm text-amber-600 flex items-center mt-1">
-                <Clock className="h-4 w-4 mr-1" />
+                <FaClock className="h-4 w-4 mr-1" />
                 Some items in your order have limited availability
               </p>
             )}
           </div>
           <button onClick={() => setShowItems(!showItems)}>
             {showItems ? (
-              <ChevronUp className="h-5 w-5" />
+              <FaChevronUp className="h-5 w-5" />
             ) : (
-              <ChevronDown className="h-5 w-5" />
+              <FaChevronDown className="h-5 w-5" />
             )}
           </button>
         </div>
@@ -135,7 +136,7 @@ export default function OrderItems({
                           variant="outline"
                           className="text-amber-600 border-amber-200 bg-amber-50 hover:bg-amber-100 flex items-center"
                         >
-                          <Clock className="h-3 w-3 mr-1" /> Limited Stock
+                          <FaClock className="h-3 w-3 mr-1" /> Limited Stock
                         </Badge>
                       )}
                       {item.isNew && (
@@ -211,7 +212,7 @@ export default function OrderItems({
       {cartItems.length === 0 && (
         <div className="p-6 text-center">
           <div className="flex flex-col items-center">
-            <AlertTriangle className="h-10 w-10 text-gray-400 mb-4" />
+            <IoIosAlert className="h-10 w-10 text-gray-400 mb-4" />
             <h3 className="text-gray-800 font-medium text-lg mb-1">
               Your cart is empty
             </h3>

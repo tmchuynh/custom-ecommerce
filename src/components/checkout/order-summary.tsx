@@ -1,11 +1,17 @@
 "use client";
 import { JSX, useState } from "react";
-import { ChevronDown, ChevronUp, Check, Info, ChevronLeft } from "lucide-react";
 import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { OrderSummaryProps } from "@/lib/types";
 import { handleApplyDiscountUtil } from "@/lib/utils/utils";
+import {
+  FaCheckDouble,
+  FaChevronDown,
+  FaChevronLeft,
+  FaChevronUp,
+  FaInfo,
+} from "react-icons/fa";
 
 /**
  * A component that displays the order summary during checkout, including pricing details and discount functionality.
@@ -99,9 +105,9 @@ export default function OrderSummary({
         >
           <span>Order Details</span>
           {showDetails ? (
-            <ChevronUp className="h-5 w-5" />
+            <FaChevronUp className="h-5 w-5" />
           ) : (
-            <ChevronDown className="h-5 w-5" />
+            <FaChevronDown className="h-5 w-5" />
           )}
         </button>
 
@@ -154,9 +160,9 @@ export default function OrderSummary({
             {discountAmount > 0 ? "Promo code applied" : "Add promo code"}
           </span>
           {showDiscount ? (
-            <ChevronUp className="h-5 w-5" />
+            <FaChevronUp className="h-5 w-5" />
           ) : (
-            <ChevronDown className="h-5 w-5" />
+            <FaChevronDown className="h-5 w-5" />
           )}
         </button>
 
@@ -175,7 +181,7 @@ export default function OrderSummary({
 
         {discountAmount > 0 && !showDiscount && (
           <div className="flex items-center mb-4 bg-green-50 p-2 rounded-lg">
-            <Check className="h-4 w-4 text-green-500 mr-2" />
+            <FaCheckDouble className="h-4 w-4 text-green-500 mr-2" />
             <p className="text-sm text-green-700">
               Promo code applied: -
               {formatCurrency(discountAmount, selectedCurrency.code)}
@@ -184,7 +190,7 @@ export default function OrderSummary({
         )}
 
         <div className="flex items-start space-x-2 mb-6 p-3 rounded-lg">
-          <Info className="h-5 w-5 mt-0.5 flex-shrink-0" />
+          <FaInfo className="h-5 w-5 mt-0.5 flex-shrink-0" />
           <div>
             <p className="text-sm text-gray-700">
               By placing your order, you agree to our{" "}
@@ -210,7 +216,7 @@ export default function OrderSummary({
             href="/cart"
             className="flex items-center justify-center text-sm hover:underline"
           >
-            <ChevronLeft className="h-4 w-4 mr-1" />
+            <FaChevronLeft className="h-4 w-4 mr-1" />
             Return to cart
           </a>
         </div>
