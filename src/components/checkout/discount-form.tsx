@@ -171,8 +171,8 @@ export default function DiscountForm({
             onClick={applyDiscount}
             className={
               applied
-                ? "bg-green-600 hover:bg-green-700 text-white"
-                : "bg-blue-600 hover:bg-blue-700 text-white"
+                ? "bg-green-600 hover:bg-green-700 text-foreground"
+                : "bg-blue-600 hover:bg-blue-700 text-foreground"
             }
             disabled={applied}
           >
@@ -195,7 +195,7 @@ export default function DiscountForm({
       </div>
 
       <div className="flex items-start p-3 rounded-lg">
-        <Gift className="h-5 w-5 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+        <Gift className="h-5 w-5 mr-2 mt-0.5 flex-shrink-0" />
         <div>
           <p className="text-sm font-medium">Available Promotions</p>
           <div className="grid gap-2 mt-2">
@@ -212,7 +212,7 @@ export default function DiscountForm({
                     setLocalDiscountCode("WELCOME10");
                   }
                 }}
-                className="text-xs text-blue-600 hover:underline"
+                className="text-xs hover:underline"
               >
                 Apply
               </button>
@@ -230,7 +230,7 @@ export default function DiscountForm({
                     setLocalDiscountCode("SUMMER25");
                   }
                 }}
-                className="text-xs text-blue-600 hover:underline"
+                className="text-xs hover:underline"
               >
                 Apply
               </button>

@@ -26,7 +26,7 @@ export default function Categories() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold mb-4">Browse Categories</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto">
             Explore our wide range of categories and find exactly what you're
             looking for
           </p>

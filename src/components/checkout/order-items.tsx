@@ -37,11 +37,11 @@ export default function OrderItems({
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden">
-      <div className="p-6 border-b border-gray-200">
+    <div className="rounded-xl shadow-md overflow-hidden">
+      <div className="p-6 border-b ">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-semibold text-gray-800 mb-1">
+            <h2 className="text-xl font-semibold mb-1">
               <span className="hidden sm:inline">Order</span> Items
               <span className="ml-2">({totalItems})</span>
             </h2>
@@ -52,10 +52,7 @@ export default function OrderItems({
               </p>
             )}
           </div>
-          <button
-            onClick={() => setShowItems(!showItems)}
-            className="text-gray-500 hover:text-gray-700"
-          >
+          <button onClick={() => setShowItems(!showItems)}>
             {showItems ? (
               <ChevronUp className="h-5 w-5" />
             ) : (
@@ -66,11 +63,11 @@ export default function OrderItems({
       </div>
 
       {showItems && (
-        <div className="divide-y divide-gray-200">
+        <div className="divide-y">
           {cartItems.map((item) => (
             <div key={item.id} className="p-4 sm:p-6">
               <div className="flex flex-col sm:flex-row gap-4">
-                <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border ">
                   <Image
                     src={item.imageSrc}
                     alt={item.name}
@@ -79,7 +76,7 @@ export default function OrderItems({
                     className="h-full w-full object-cover object-center"
                   />
                   {item.isOnSale && (
-                    <div className="absolute top-0 left-0 bg-red-500 text-white text-xs font-bold px-1 py-0.5">
+                    <div className="absolute top-0 left-0 bg-red-500 text-foreground text-xs font-bold px-1 py-0.5">
                       SALE
                     </div>
                   )}
@@ -88,9 +85,7 @@ export default function OrderItems({
                 <div className="flex flex-1 flex-col">
                   <div className="flex justify-between">
                     <div>
-                      <h3 className="text-base font-medium text-gray-900">
-                        {item.name}
-                      </h3>
+                      <h3 className="text-base font-medium">{item.name}</h3>
                       <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                         {item.color && <p>Color: {item.color}</p>}
                         {item.size && <p>Size: {item.size}</p>}
@@ -121,7 +116,7 @@ export default function OrderItems({
                             </p>
                           </>
                         ) : (
-                          <p className="text-base font-medium text-gray-900">
+                          <p className="text-base font-medium">
                             {formatCurrency(
                               Number(item.price),
                               selectedCurrency.code
@@ -164,7 +159,7 @@ export default function OrderItems({
                                   Math.max(1, item.quantity - 1)
                                 )
                               }
-                              className="px-2 py-1 text-gray-600 hover:bg-gray-100"
+                              className="px-2 py-1"
                               disabled={item.quantity <= 1}
                             >
                               -
@@ -174,7 +169,7 @@ export default function OrderItems({
                               onClick={() =>
                                 onUpdateQuantity(item.id, item.quantity + 1)
                               }
-                              className="px-2 py-1 text-gray-600 hover:bg-gray-100"
+                              className="px-2 py-1"
                             >
                               +
                             </button>
@@ -223,7 +218,7 @@ export default function OrderItems({
             <p className="text-gray-500 mb-4">
               Add some items to your cart to proceed with checkout
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button className="bg-primary text-primary-foreground">
               Continue Shopping
             </Button>
           </div>

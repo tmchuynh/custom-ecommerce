@@ -206,12 +206,10 @@ export default function PaymentInfoForm({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
+    <div className="rounded-xl shadow-md p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Payment Information
-        </h2>
-        <p className="text-sm text-gray-600">
+        <h2 className="text-xl font-semibold mb-2">Payment Information</h2>
+        <p className="text-sm">
           Please select your preferred payment method and enter your details
           securely.
         </p>
@@ -232,8 +230,8 @@ export default function PaymentInfoForm({
             <div
               className={`flex items-center space-x-3 rounded-lg border p-4 ${
                 formData.paymentMethod === "creditCard"
-                  ? "bg-blue-50 border-blue-200"
-                  : "border-gray-200"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
               <RadioGroupItem
@@ -247,15 +245,13 @@ export default function PaymentInfoForm({
                     <CreditCard
                       className={`h-5 w-5 mr-2 ${
                         formData.paymentMethod === "creditCard"
-                          ? "text-blue-500"
-                          : "text-gray-400"
+                          ? "text-primary"
+                          : "text-secondary"
                       }`}
                     />
                     <div>
                       <div className="font-medium">Credit or Debit Card</div>
-                      <div className="text-sm text-gray-500">
-                        All major cards accepted
-                      </div>
+                      <div className="text-sm">All major cards accepted</div>
                     </div>
                     <div className="flex space-x-2">
                       <Image
@@ -295,8 +291,8 @@ export default function PaymentInfoForm({
             <div
               className={`flex items-center space-x-3 rounded-lg border p-4 ${
                 formData.paymentMethod === "paypal"
-                  ? "bg-blue-50 border-blue-200"
-                  : "border-gray-200"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
               <RadioGroupItem value="paypal" id="paypal" className="mt-0.5" />
@@ -306,15 +302,13 @@ export default function PaymentInfoForm({
                     <CreditCard
                       className={`h-5 w-5 mr-2 ${
                         formData.paymentMethod === "paypal"
-                          ? "text-blue-500"
-                          : "text-gray-400"
+                          ? "text-primary"
+                          : "text-secondary"
                       }`}
                     />
                     <div>
                       <div className="font-medium">PayPal</div>
-                      <div className="text-sm text-gray-500">
-                        Fast and secure payments
-                      </div>
+                      <div className="text-sm">Fast and secure payments</div>
                     </div>
                   </div>
                   <div className="flex justify-end">
@@ -339,7 +333,7 @@ export default function PaymentInfoForm({
                 Card Number <span className="text-red-500">*</span>
               </Label>
               <div className="relative">
-                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
                   <CreditCard className="h-4 w-4" />
                 </div>
                 <Input
@@ -494,7 +488,7 @@ export default function PaymentInfoForm({
                   </Label>
                   <button
                     type="button"
-                    className="text-xs text-blue-600 hover:underline"
+                    className="text-xs"
                     onClick={() =>
                       alert(
                         "The CVC is the 3-digit code on the back of Visa, MasterCard, and Discover cards. For American Express, it's the 4-digit code on the front."
@@ -543,14 +537,14 @@ export default function PaymentInfoForm({
               <div className="grid gap-1.5 leading-none">
                 <Label
                   htmlFor="savePaymentInfo"
-                  className="text-sm font-normal text-gray-700 leading-snug"
+                  className="text-sm font-normal leading-snug"
                 >
                   Save my payment information for future purchases
                   <Badge className="ml-2 bg-green-100 text-green-800 hover:bg-green-100">
                     Optional
                   </Badge>
                 </Label>
-                <p className="text-xs text-gray-500">
+                <p className="text-xs">
                   Your card data will be encrypted and stored securely.
                 </p>
               </div>
@@ -571,7 +565,7 @@ export default function PaymentInfoForm({
               <div className="grid gap-1.5 leading-none">
                 <Label
                   htmlFor="billingAddressSameAsShipping"
-                  className="text-sm font-normal text-gray-700 leading-snug"
+                  className="text-sm font-normal leading-snug"
                 >
                   Billing address is the same as my shipping address
                 </Label>
@@ -581,7 +575,7 @@ export default function PaymentInfoForm({
         )}
 
         {formData.paymentMethod === "paypal" && (
-          <div className="bg-blue-50 p-4 rounded-lg my-4">
+          <div className="p-4 rounded-lg my-4">
             <div className="flex items-start">
               <Info className="h-5 w-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
               <div>
@@ -597,18 +591,15 @@ export default function PaymentInfoForm({
           </div>
         )}
 
-        <div className="border-t border-gray-200 mt-6 pt-6">
-          <div className="flex items-center mb-4 bg-blue-50 p-3 rounded-lg">
+        <div className="border-t hover:bg-secondary hover:text-secondary-foreground mt-6 pt-6">
+          <div className="flex items-center mb-4 p-3 rounded-lg">
             <Lock className="h-5 w-5 text-blue-600 mr-2" />
             <p className="text-sm text-blue-800">
               Your payment information is encrypted and secure.
             </p>
           </div>
 
-          <Button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-          >
+          <Button type="submit" className="w-full">
             Place Order
           </Button>
         </div>

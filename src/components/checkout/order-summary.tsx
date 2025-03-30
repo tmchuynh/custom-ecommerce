@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { ChevronDown, ChevronUp, Check, Info, ChevronLeft } from "lucide-react";
 import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
@@ -44,7 +44,7 @@ export default function OrderSummary({
   itemCount,
   estimatedDelivery,
   onApplyDiscount,
-}: OrderSummaryProps) {
+}: OrderSummaryProps): JSX.Element {
   const { applyDiscount } = useCart();
   const { formatCurrency, selectedCurrency } = useCurrency();
 
@@ -84,12 +84,10 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden sticky top-8">
-      <div className="p-6 border-b border-gray-200">
-        <h2 className="text-xl font-semibold text-gray-800 mb-1">
-          Order Summary
-        </h2>
-        <p className="text-sm text-gray-600">
+    <div className="rounded-xl shadow-md overflow-hidden sticky top-8">
+      <div className="p-6 border-b">
+        <h2 className="text-xl font-semibold mb-1">Order Summary</h2>
+        <p className="text-sm">
           {itemCount} {itemCount === 1 ? "item" : "items"}
         </p>
       </div>
@@ -97,7 +95,7 @@ export default function OrderSummary({
       <div className="p-6">
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center justify-between w-full text-left mb-4 text-gray-800 font-medium"
+          className="flex items-center justify-between w-full text-left mb-4 font-medium"
         >
           <span>Order Details</span>
           {showDetails ? (
@@ -109,12 +107,12 @@ export default function OrderSummary({
 
         {showDetails && (
           <div className="space-y-3 mb-6">
-            <div className="flex justify-between text-gray-600">
+            <div className="flex justify-between">
               <span>Subtotal</span>
               <span>{formatCurrency(subtotal, selectedCurrency.code)}</span>
             </div>
 
-            <div className="flex justify-between text-gray-600">
+            <div className="flex justify-between">
               <span>Shipping</span>
               <span>
                 {shipping === 0 ? (
@@ -125,7 +123,7 @@ export default function OrderSummary({
               </span>
             </div>
 
-            <div className="flex justify-between text-gray-600">
+            <div className="flex justify-between">
               <span>Tax</span>
               <span>{formatCurrency(tax, selectedCurrency.code)}</span>
             </div>
@@ -139,7 +137,7 @@ export default function OrderSummary({
               </div>
             )}
 
-            <div className="border-t border-gray-200 pt-3 mt-3">
+            <div className="border-t pt-3 mt-3">
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total</span>
                 <span>{formatCurrency(total, selectedCurrency.code)}</span>
@@ -150,7 +148,7 @@ export default function OrderSummary({
 
         <button
           onClick={() => setShowDiscount(!showDiscount)}
-          className="flex items-center justify-between w-full text-left mb-4 text-blue-600 font-medium"
+          className="flex items-center justify-between w-full text-left mb-4 "
         >
           <span>
             {discountAmount > 0 ? "Promo code applied" : "Add promo code"}
@@ -210,7 +208,7 @@ export default function OrderSummary({
         <div className="space-y-3">
           <a
             href="/cart"
-            className="flex items-center justify-center text-blue-600 text-sm hover:underline"
+            className="flex items-center justify-center text-sm hover:underline"
           >
             <ChevronLeft className="h-4 w-4 mr-1" />
             Return to cart

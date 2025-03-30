@@ -80,14 +80,14 @@ export default function ShopByCollection(): JSX.Element {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-semibold text-white">
+                      <h3 className="text-xl font-semibold text-foreground">
                         {section.name}
                       </h3>
                       <div className="mt-2 flex items-center">
-                        <span className="text-sm text-white/80 font-medium">
+                        <span className="text-sm text-foreground font-medium">
                           Shop Now
                         </span>
-                        <ArrowRight className="h-4 w-4 ml-1 text-white/80" />
+                        <ArrowRight className="h-4 w-4 ml-1 text-foreground" />
                       </div>
                     </div>
                   </Link>

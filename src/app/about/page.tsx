@@ -387,7 +387,7 @@ export default function About() {
           <p className="text-sm">
             Want to learn more about our company and mission?
           </p>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6">
+          <Button className="bg-primary text-primary-foreground px-6">
             Contact Us
           </Button>
         </div>

@@ -24,7 +24,7 @@ import {
 } from "lucide-react";
 import { ShippingAddressFormProps } from "@/lib/types";
 import { usStates } from "@/lib/constants";
-import { ShippingAddressData } from "@/lib/interfaces";
+import { ShippingAddress } from "@/lib/interfaces";
 import {
   handleBlur,
   validateField,
@@ -97,7 +97,7 @@ const shippingMethods = [
 export default function ShippingAddressForm({
   onSubmit,
 }: ShippingAddressFormProps): JSX.Element {
-  const [formData, setFormData] = useState<ShippingAddressData>({
+  const [formData, setFormData] = useState<ShippingAddress>({
     addressLine1: "",
     addressLine2: "",
     city: "",
@@ -146,7 +146,7 @@ export default function ShippingAddressForm({
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
 
-    const requiredFields: (keyof ShippingAddressData)[] = [
+    const requiredFields: (keyof ShippingAddress)[] = [
       "addressLine1",
       "city",
       "state",
@@ -163,12 +163,10 @@ export default function ShippingAddressForm({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-6">
+    <div className="rounded-xl shadow-md p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 mb-2">
-          Shipping Address
-        </h2>
-        <p className="text-sm text-gray-600">
+        <h2 className="text-xl font-semibold mb-2">Shipping Address</h2>
+        <p className="text-sm">
           Please enter the address where you would like your order to be
           delivered.
         </p>
@@ -180,7 +178,7 @@ export default function ShippingAddressForm({
             Address <span className="text-red-500">*</span>
           </Label>
           <div className="relative">
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
               <MapPin className="h-4 w-4" />
             </div>
             <Input
@@ -208,9 +206,7 @@ export default function ShippingAddressForm({
         <div className="space-y-2">
           <Label htmlFor="addressLine2" className="text-sm font-medium">
             Apartment, suite, etc.
-            <Badge className="ml-2 bg-gray-100 text-gray-800 hover:bg-gray-100">
-              Optional
-            </Badge>
+            <Badge className="ml-2">Optional</Badge>
           </Label>
           <Input
             id="addressLine2"
@@ -353,28 +349,28 @@ export default function ShippingAddressForm({
               }
               className={`flex items-center p-3 rounded-lg border ${
                 formData.addressType === "residential"
-                  ? "bg-blue-50 border-blue-200"
-                  : "bg-white border-gray-200 hover:bg-gray-50"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
               <Home
                 className={`h-5 w-5 mr-2 ${
                   formData.addressType === "residential"
-                    ? "text-blue-500"
-                    : "text-gray-400"
+                    ? "text-primary"
+                    : "text-secondary"
                 }`}
               />
               <div className="text-left">
                 <div
                   className={`font-medium ${
                     formData.addressType === "residential"
-                      ? "text-blue-700"
-                      : "text-gray-700"
+                      ? "text-primary"
+                      : "text-secondary"
                   }`}
                 >
                   Residential
                 </div>
-                <div className="text-xs text-gray-500">Home or apartment</div>
+                <div className="text-xs">Home or apartment</div>
               </div>
             </button>
 
@@ -385,30 +381,28 @@ export default function ShippingAddressForm({
               }
               className={`flex items-center p-3 rounded-lg border ${
                 formData.addressType === "business"
-                  ? "bg-blue-50 border-blue-200"
-                  : "bg-white border-gray-200 hover:bg-gray-50"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
               <Building
                 className={`h-5 w-5 mr-2 ${
                   formData.addressType === "business"
-                    ? "text-blue-500"
-                    : "text-gray-400"
+                    ? "text-primary"
+                    : "text-secondary"
                 }`}
               />
               <div className="text-left">
                 <div
                   className={`font-medium ${
                     formData.addressType === "business"
-                      ? "text-blue-700"
-                      : "text-gray-700"
+                      ? "text-primary"
+                      : "text-secondary"
                   }`}
                 >
                   Business
                 </div>
-                <div className="text-xs text-gray-500">
-                  Office or retail location
-                </div>
+                <div className="text-xs">Office or retail location</div>
               </div>
             </button>
           </div>
@@ -429,8 +423,8 @@ export default function ShippingAddressForm({
                   key={method.id}
                   className={`flex items-center space-x-3 rounded-lg border p-4 ${
                     formData.shippingMethod === method.id
-                      ? "bg-blue-50 border-blue-200"
-                      : "border-gray-200"
+                      ? "bg-primary text-primary-foreground"
+                      : "hover:bg-secondary hover:text-secondary-foreground"
                   }`}
                 >
                   <RadioGroupItem
@@ -444,22 +438,20 @@ export default function ShippingAddressForm({
                         <span
                           className={`mr-2 ${
                             formData.shippingMethod === method.id
-                              ? "text-blue-500"
-                              : "text-gray-400"
+                              ? "bg-primary"
+                              : "bg-secondary"
                           }`}
                         >
                           {method.icon}
                         </span>
                         <div>
                           <div className="font-medium">{method.title}</div>
-                          <div className="text-sm text-gray-500">
-                            {method.description}
-                          </div>
+                          <div className="text-sm">{method.description}</div>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="font-semibold">{method.price}</div>
-                        <div className="text-xs text-gray-500">
+                        <div className="text-xs">
                           Est. delivery: {method.estimatedDelivery}
                         </div>
                       </div>
@@ -483,7 +475,7 @@ export default function ShippingAddressForm({
           <div className="grid gap-1.5 leading-none">
             <Label
               htmlFor="saveAddress"
-              className="text-sm font-normal text-gray-700 leading-snug"
+              className="text-sm font-normal leading-snug"
             >
               Save this address for future orders
             </Label>
@@ -491,10 +483,7 @@ export default function ShippingAddressForm({
         </div>
 
         <div className="pt-4">
-          <Button
-            type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-          >
+          <Button type="submit" className="w-full">
             Continue to Payment
           </Button>
         </div>

@@ -1,7 +1,7 @@
 "use client";
 import { useCurrency } from "@/app/context/currencyContext";
-import { navigations } from "@/lib/constants";
 import { currencyCountries } from "@/lib/countriesConstant";
+import { navigations } from "@/lib/navigation";
 import {
   Dialog,
   DialogBackdrop,

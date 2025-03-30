@@ -115,8 +115,8 @@ export default function TrendingProducts(): JSX.Element {
               variant={activeFilter === category ? "default" : "outline"}
               className={`capitalize ${
                 activeFilter === category
-                  ? "bg-blue-600 hover:bg-blue-700 text-white"
-                  : "text-gray-700 hover:text-blue-600"
+                  ? "bg-primary text-primary-foreground"
+                  : "hover:bg-secondary hover:text-secondary-foreground"
               }`}
             >
               {category === "all" && <Filter className="h-4 w-4 mr-2" />}
