@@ -12,7 +12,10 @@ import {
   Truck,
   AlertTriangle,
   Phone,
+  Mail,
+  MessageSquare,
 } from "lucide-react";
+import router from "next/router";
 
 const ReturnPolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -155,11 +158,19 @@ const ReturnPolicy = () => {
               </button>
               {activeSection === "introduction" && (
                 <div className="p-6 border-t">
-                  <p className="">
+                  <p>
                     We understand that shopping online can sometimes lead to
-                    products not meeting your expectations. That's why we offer
-                    a comprehensive return policy to make sure you're completely
-                    satisfied with your purchase.
+                    products not meeting your expectations, whether due to fit,
+                    appearance, or other factors. That's why we offer a
+                    comprehensive and customer-friendly return policy designed
+                    to ensure you are completely satisfied with your purchase.
+                    If for any reason you're not happy with the product you've
+                    received, we provide a straightforward process for returns
+                    or exchanges, allowing you to return the item within a
+                    specified period and receive a refund or replacement. Our
+                    goal is to make your shopping experience as smooth and
+                    hassle-free as possible, and we are committed to resolving
+                    any issues to your satisfaction.
                   </p>
                 </div>
               )}
@@ -204,52 +215,80 @@ const ReturnPolicy = () => {
                   <div className="p-6 border-t">
                     {section.id === "timeframe" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           All returns must be initiated within 30 days from the
                           date of purchase. If 30 days have passed since your
                           purchase, unfortunately, we cannot offer you a refund
-                          or exchange.
+                          or exchange. We encourage you to review your order as
+                          soon as possible to ensure you are satisfied with your
+                          items. After the 30-day window, we are unable to
+                          process any returns or exchanges.
                         </p>
-                        <p className="">
+                        <p>
                           In some cases, we may extend the return period, such
-                          as for seasonal sales, holidays, or special
-                          promotions. Please check the return instructions for
-                          specific timeframes related to your order.
+                          as during seasonal sales, holidays, or special
+                          promotions. This extension allows for additional time
+                          to return items purchased during these periods. Please
+                          make sure to review the specific return instructions
+                          or any promotional terms associated with your order,
+                          as extended return periods may apply to certain
+                          purchases. Always check the return policy or contact
+                          customer support for the most up-to-date information
+                          on return timeframes for your order.
                         </p>
                       </>
                     )}
 
                     {section.id === "eligibility" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           To be eligible for a return, the item must meet the
-                          following criteria:
+                          following criteria. These conditions are in place to
+                          ensure that returned items are in a resellable
+                          condition and to protect both the customer and the
+                          business. Please review the requirements carefully
+                          before initiating a return.
                         </p>
-                        <ul className="list-disc list-inside  space-y-2">
+                        <ul className="list-disc list-inside space-y-2">
                           <li>
                             Items must be unused and in the same condition as
-                            when you received them.
+                            when you received them. This includes no signs of
+                            wear, use, or damage. We cannot accept returned
+                            items that have been used or are no longer in new
+                            condition.
                           </li>
                           <li>
                             Items must be in their original packaging, including
-                            tags and labels attached.
+                            all tags, labels, and accessories that were included
+                            at the time of purchase. Returned items that are
+                            missing original packaging or tags may be rejected.
                           </li>
                           <li>
                             Items must not be damaged, worn, or altered in any
-                            way.
+                            way. This includes any modifications, stains, tears,
+                            or other changes that prevent the item from being
+                            resold or reused.
                           </li>
                           <li>
                             For clothing and apparel, items should not have been
-                            washed or worn.
+                            washed, worn, or have any signs of use. This
+                            includes removal of hygiene seals on clothing and
+                            apparel.
                           </li>
                           <li>
                             For hygiene products (e.g., swimwear,
                             undergarments), returns are only accepted if the
-                            item is unopened and in original condition.
+                            item is unopened, unused, and in its original
+                            condition. Due to hygiene reasons, once the seal is
+                            broken or the product has been used, we cannot
+                            accept returns.
                           </li>
                           <li>
                             Sale or clearance items are non-refundable unless
-                            specified in the promotion or sale terms.
+                            specifically stated in the promotion or sale terms.
+                            Please check the sale or promotional conditions
+                            before making your purchase, as these items often
+                            have different return policies.
                           </li>
                         </ul>
                       </>
@@ -257,88 +296,154 @@ const ReturnPolicy = () => {
 
                     {section.id === "non-returnable" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           We are unable to accept returns for the following
-                          types of products:
+                          types of products. These items are either
+                          non-refundable due to their nature or have specific
+                          terms and conditions that make returns impossible.
+                          Please review the list below to ensure you are aware
+                          of these exceptions before making your purchase.
                         </p>
-                        <ul className="list-disc list-inside  space-y-2">
-                          <li>Gift cards</li>
-                          <li>Downloadable software products</li>
+                        <ul className="list-disc list-inside space-y-2">
                           <li>
-                            Items marked as "Final Sale" or "Non-returnable" on
-                            the product page
+                            <strong>Gift cards:</strong> Gift cards are not
+                            eligible for return or refund, as they are
+                            considered a form of currency. Once purchased, they
+                            cannot be returned or exchanged for cash or credit.
                           </li>
-                          <li>Custom-made or personalized items</li>
-                          <li>Perishable goods (e.g., food items, flowers)</li>
+                          <li>
+                            <strong>Downloadable software products:</strong> Due
+                            to the nature of digital goods, downloadable
+                            software is non-returnable once it has been accessed
+                            or downloaded. Please ensure compatibility before
+                            purchasing.
+                          </li>
+                          <li>
+                            <strong>
+                              Items marked as "Final Sale" or "Non-returnable"
+                              on the product page:
+                            </strong>{" "}
+                            Certain items may be marked as "Final Sale" or
+                            "Non-returnable" at the time of purchase. These
+                            items cannot be returned under any circumstances, so
+                            please carefully review product descriptions before
+                            buying.
+                          </li>
+                          <li>
+                            <strong>Custom-made or personalized items:</strong>{" "}
+                            Custom or personalized items, such as engraved
+                            jewelry or made-to-order products, cannot be
+                            returned due to their unique nature. We encourage
+                            you to confirm details and specifications before
+                            finalizing your purchase.
+                          </li>
+                          <li>
+                            <strong>Perishable goods:</strong> Perishable items
+                            such as food, flowers, or other products with a
+                            limited shelf life cannot be returned once shipped,
+                            for health and safety reasons.
+                          </li>
                         </ul>
                       </>
                     )}
 
                     {section.id === "process" && (
                       <>
-                        <p className=" mb-4">
-                          To initiate a return, follow these simple steps:
+                        <p className="mb-4">
+                          To initiate a return, please follow these simple steps
+                          to ensure your return is processed smoothly and
+                          efficiently:
                         </p>
-                        <ol className="list-decimal list-inside  space-y-2">
+                        <ol className="list-decimal list-inside space-y-2">
                           <li>
                             Log into your account on our website or use the
                             return portal link provided in your order
-                            confirmation email.
+                            confirmation email. If you don't have an account,
+                            you can still initiate the return through the return
+                            portal using your order details.
                           </li>
                           <li>
                             Select the items you wish to return and provide a
-                            reason for the return.
+                            reason for the return. This helps us improve our
+                            services and better understand why the items didn't
+                            meet your expectations.
                           </li>
                           <li>
                             Print the return shipping label provided (if
                             applicable) and include the return form in your
-                            package.
+                            package. This form will help us process your return
+                            quickly and accurately. If a return label is not
+                            provided, you may use your preferred shipping
+                            method.
                           </li>
                           <li>
                             Ship the items back to us using the return label (if
-                            provided) or your preferred shipping method.
+                            provided) or your preferred shipping method. Make
+                            sure the items are securely packaged to prevent
+                            damage during transit.
                           </li>
                           <li>
                             Once we receive your return, we will process your
-                            refund or exchange within 5-7 business days.
+                            refund or exchange within 5-7 business days. You
+                            will receive an email notification once your return
+                            has been processed, and the refund will be credited
+                            to your original payment method or exchanged item.
                           </li>
                         </ol>
-                        <p className=" mt-4">
+                        <p className="mt-4">
                           Please note that you are responsible for the shipping
                           costs associated with returns unless the return is due
                           to a mistake on our part (e.g., incorrect or defective
-                          item).
+                          item). If you are returning an item due to an error on
+                          our part, please contact our customer support team to
+                          arrange a prepaid return label.
                         </p>
                       </>
                     )}
 
                     {section.id === "refunds" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           Once your return is processed, we will notify you via
-                          email about your refund or exchange. You can expect:
+                          email regarding the status of your refund or exchange.
+                          Depending on your preference and the nature of your
+                          return, you can expect the following outcomes:
                         </p>
-                        <ul className="list-disc list-inside  space-y-2">
+                        <ul className="list-disc list-inside space-y-2">
                           <li>
                             <span className="font-medium">Refunds:</span>{" "}
                             Refunds will be issued to the original payment
-                            method. Please allow 5-7 business days for the
-                            refund to appear on your account, depending on your
-                            payment provider.
+                            method used at the time of purchase. Once we process
+                            your return, please allow 5-7 business days for the
+                            refund to reflect in your account. The exact timing
+                            depends on your payment provider and bank processing
+                            times. You will receive a notification once your
+                            refund has been completed.
                           </li>
                           <li>
                             <span className="font-medium">Exchanges:</span> If
                             you requested an exchange, we will ship the new
                             item(s) to you once we receive the returned
-                            product(s). You will not be charged additional
-                            shipping fees for exchanges, except for any price
-                            differences.
+                            product(s) and verify the condition of the return.
+                            You will not be charged additional shipping fees for
+                            exchanges, except in cases where there are price
+                            differences between the exchanged items. If the
+                            exchanged item costs more, you will be notified of
+                            the difference, which will be charged. If the new
+                            item is of lesser value, we will process a refund
+                            for the difference.
                           </li>
                           <li>
                             <span className="font-medium">Store Credit:</span>{" "}
                             If you prefer store credit instead of a refund, you
-                            can opt for an e-gift card, which will be sent to
-                            your email after processing.
+                            can choose to receive an e-gift card. The e-gift
+                            card will be sent to your email after your return
+                            has been processed. This option allows you to shop
+                            for new items at your convenience, and the card will
+                            remain valid until fully used. Please ensure that
+                            your email address is correct when opting for store
+                            credit to ensure timely delivery of your e-gift
+                            card.
                           </li>
                         </ul>
                       </>
@@ -346,56 +451,125 @@ const ReturnPolicy = () => {
 
                     {section.id === "shipping" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           Unless the return is due to an error on our part
-                          (e.g., wrong item shipped or damaged goods), the
-                          return shipping cost is the responsibility of the
-                          customer. We recommend using a trackable shipping
-                          service for returns as we cannot guarantee receipt of
-                          your returned item.
+                          (e.g., wrong item shipped, defective or damaged
+                          goods), the return shipping cost will be the
+                          responsibility of the customer. We recommend using a
+                          trackable shipping service or purchasing shipping
+                          insurance for the return, as we cannot guarantee
+                          receipt of your returned item. It’s important to
+                          retain the tracking number and proof of shipment in
+                          case any issues arise with the return process.
                         </p>
                         <p className="">
-                          If the return is due to our error, we will cover the
-                          return shipping cost and provide a prepaid shipping
-                          label.
+                          If the return is due to our error, such as receiving
+                          the wrong item or a damaged product, we will cover the
+                          return shipping cost. In these cases, we will provide
+                          you with a prepaid return shipping label to ensure a
+                          smooth and cost-free return process. Please contact
+                          our customer support team to arrange the return and
+                          receive the prepaid label.
                         </p>
                       </>
                     )}
 
                     {section.id === "damaged" && (
                       <>
-                        <p className=" mb-4">
+                        <p className="mb-4">
                           If you receive a damaged or defective item, please
-                          contact us immediately at our customer service email,
-                          and we will arrange for a return or replacement at no
-                          additional cost to you.
+                          contact us immediately at our customer service email.
+                          We will arrange for a return or replacement at no
+                          additional cost to you. We understand how frustrating
+                          this can be and will work to resolve the issue as
+                          quickly as possible to ensure your satisfaction.
                         </p>
                         <p className="">
-                          To help us process your claim faster, please include
-                          photos of the damaged item and the packaging.
+                          To help us process your claim faster and accurately,
+                          please include clear photos of the damaged item as
+                          well as the packaging. These images will assist us in
+                          verifying the issue and expedite the process of
+                          issuing a return or replacement. The more detailed the
+                          photos, the quicker we can resolve the matter. Please
+                          ensure that the photos clearly show the damaged area
+                          of the product and any visible damage to the
+                          packaging.
                         </p>
                       </>
                     )}
 
                     {section.id === "contact" && (
-                      <>
-                        <p className="">
-                          If you have any questions or concerns regarding our
-                          return policy, please don't hesitate to contact us:
-                        </p>
-                        <div className="mt-4 p-4 rounded-lg">
-                          <p className="">
-                            Email:{" "}
-                            <a
-                              className="hover:underline"
-                              href="mailto:support@yourcompany.com"
-                            >
-                              support@yourcompany.com
-                            </a>
-                          </p>
-                          <p className=" mt-2">Phone: +1 (555) 123-4567</p>
+                      <div className="p-6 border-t">
+                        <div className="space-y-6">
+                          <div className="flex items-start">
+                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Email Support
+                              </h3>
+                              <p className="mb-2">
+                                For general inquiries, product questions, or
+                                issues with your order, please contact us at:
+                              </p>
+                              <Button
+                                variant={"link"}
+                                onClick={() =>
+                                  router.push("mailto:support@yourcompany.com")
+                                }
+                                className="p-0 h-auto font-medium"
+                              >
+                                support@yourcompany.com
+                              </Button>
+                              <p className="text-sm mt-1">
+                                We typically respond to emails within 24-48
+                                hours during business days.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Phone Support
+                              </h3>
+                              <p className="mb-2">
+                                Our customer service team is available to take
+                                your call at:
+                              </p>
+                              <a
+                                href="tel:+15551234567"
+                                className="font-medium"
+                              >
+                                +1 (555) 123-4567
+                              </a>
+                              <p className="text-sm mt-1">
+                                Please check our business hours below for
+                                availability.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Live Chat
+                              </h3>
+                              <p className="mb-2">
+                                If you'd prefer to chat with a representative in
+                                real-time, you can reach us using the live chat
+                                feature on our website.
+                              </p>
+                              <Button className="">Start Live Chat</Button>
+                              <p className="text-sm mt-1">
+                                Live chat is available during business hours
+                                only.
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </>
+                      </div>
                     )}
                   </div>
                 )}

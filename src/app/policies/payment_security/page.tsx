@@ -11,7 +11,10 @@ import {
   Server,
   FileText,
   Phone,
+  Mail,
+  MessageSquare,
 } from "lucide-react";
+import router from "next/router";
 
 const PaymentSecurity = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
@@ -114,11 +117,11 @@ const PaymentSecurity = () => {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="max-w-7xl mx-auto px-4 pt-3 sm:px-6 lg:px-8 flex justify-between items-center">
-              <p className="text-sm text-gray-600">
-                By using our services, you acknowledge our security measures.
-              </p>
+              <div className="px-4 pt-3 flex justify-between items-center">
+                <p className="text-sm">
+                  By using our services, you acknowledge our security measures.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -181,7 +184,143 @@ const PaymentSecurity = () => {
                         </ul>
                       </div>
                     )}
-                    {/* Add similar content blocks for other sections */}
+                    {section.id === "payment-processing" && (
+                      <div>
+                        <p className="mb-4">Our payment processing system:</p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>Partners with trusted payment processors</li>
+                          <li>Never stores complete credit card information</li>
+                          <li>Uses tokenization for recurring payments</li>
+                          <li>Monitors transactions in real-time</li>
+                        </ul>
+                      </div>
+                    )}
+                    {section.id === "authentication" && (
+                      <div>
+                        <p className="mb-4">
+                          We employ multiple authentication methods:
+                        </p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>Two-factor authentication (2FA)</li>
+                          <li>3D Secure for card payments</li>
+                          <li>Strong password requirements</li>
+                          <li>Automatic session timeouts</li>
+                        </ul>
+                      </div>
+                    )}
+                    {section.id === "compliance" && (
+                      <div>
+                        <p className="mb-4">We maintain compliance with:</p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>
+                            PCI DSS (Payment Card Industry Data Security
+                            Standard)
+                          </li>
+                          <li>GDPR (General Data Protection Regulation)</li>
+                          <li>Local data protection laws</li>
+                          <li>Regular security certifications and audits</li>
+                        </ul>
+                      </div>
+                    )}
+                    {section.id === "monitoring" && (
+                      <div>
+                        <p className="mb-4">
+                          Our security monitoring includes:
+                        </p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>24/7 system monitoring</li>
+                          <li>Automated threat detection</li>
+                          <li>Regular security assessments</li>
+                          <li>Incident response protocols</li>
+                        </ul>
+                      </div>
+                    )}
+                    {section.id === "fraud" && (
+                      <div>
+                        <p className="mb-4">
+                          Our fraud prevention measures include:
+                        </p>
+                        <ul className="list-disc list-inside space-y-2">
+                          <li>Advanced fraud detection algorithms</li>
+                          <li>Address verification system (AVS)</li>
+                          <li>Card verification value (CVV) checks</li>
+                          <li>Suspicious activity monitoring</li>
+                        </ul>
+                      </div>
+                    )}
+                    {section.id === "contact" && (
+                      <div className="p-6 border-t">
+                        <div className="space-y-6">
+                          <div className="flex items-start">
+                            <Mail className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Email Support
+                              </h3>
+                              <p className="mb-2">
+                                For general inquiries, product questions, or
+                                issues with your order, please contact us at:
+                              </p>
+                              <Button
+                                variant={"link"}
+                                onClick={() =>
+                                  router.push("mailto:support@yourcompany.com")
+                                }
+                                className="p-0 h-auto font-medium"
+                              >
+                                support@yourcompany.com
+                              </Button>
+                              <p className="text-sm mt-1">
+                                We typically respond to emails within 24-48
+                                hours during business days.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <Phone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Phone Support
+                              </h3>
+                              <p className="mb-2">
+                                Our customer service team is available to take
+                                your call at:
+                              </p>
+                              <a
+                                href="tel:+15551234567"
+                                className="font-medium"
+                              >
+                                +1 (555) 123-4567
+                              </a>
+                              <p className="text-sm mt-1">
+                                Please check our business hours below for
+                                availability.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="flex items-start">
+                            <MessageSquare className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <div>
+                              <h3 className="text-lg font-medium mb-2">
+                                Live Chat
+                              </h3>
+                              <p className="mb-2">
+                                If you'd prefer to chat with a representative in
+                                real-time, you can reach us using the live chat
+                                feature on our website.
+                              </p>
+                              <Button className="">Start Live Chat</Button>
+                              <p className="text-sm mt-1">
+                                Live chat is available during business hours
+                                only.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
