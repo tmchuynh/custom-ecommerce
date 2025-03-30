@@ -10,6 +10,8 @@ import QuantityButtons from "./Quantity";
 import { Button } from "./ui/button";
 import { useAuth } from "@/app/context/authContext";
 import { useWishlist } from "@/app/context/wishlistContext";
+import { useProtectedAction } from "@/hooks/useProtectedAction";
+import { AuthDialog } from "./auth/AuthDialog";
 
 /**
  * Renders buttons for managing a product in the cart and favorites.
@@ -44,58 +46,45 @@ export default function AddToCartButtons({
   const { addToCart, getCartItem } = useCart();
   const [localQuantity, setLocalQuantity] = useState(1);
   const cartItem = getCartItem(product.name);
-
-  const { user } = useAuth();
   const { wishlistItems, addToWishlist, removeFromWishlist } = useWishlist();
-  const [showAuthDialog, setShowAuthDialog] = useState(false);
-  const [inWishlist, setInWishlist] = useState(false);
+  const { protectedAction, showAuthAlert, closeAuthAlert, handleLogin } =
+    useProtectedAction();
 
-  /**
-   * Handles adding a product to the cart.
-   *
-   * @param {any} product - The product to add to the cart.
-   * @param {number} id - The ID of the product (using index as fallback).
-   * @returns {void}
-   */
-  const handleAddToCart = (product: any, id: string): void => {
-    addToCart({
-      id: id,
-      name: product.name,
-      description: product.description,
-      highlights: product.highlights,
-      price: parseFloat(product.price.replace("$", "")),
-      quantity: localQuantity,
-      imageSrc: product.imageSrc,
+  const handleAddToCart = async (product: ProductType, id: string) => {
+    await protectedAction(async () => {
+      addToCart({
+        id: id,
+        name: product.name,
+        description: product.description,
+        highlights: product.highlights ?? [],
+        price: parseFloat(product.displayPrice),
+        quantity: localQuantity,
+        imageSrc: product.imageSrc,
+      });
+      toast.success(`${product.name} added to cart!`);
     });
-    toast.success(`${product.name} added to cart!`);
   };
 
   const handleWishlistClick = async () => {
-    if (!user) {
-      setShowAuthDialog(true);
-      return;
-    }
-
-    try {
+    await protectedAction(async () => {
       if (!product) return;
 
       if (wishlistItems.some((item) => item.name === product.name)) {
-        removeFromWishlist(product.name);
+        await removeFromWishlist(product.name);
       } else {
-        addToWishlist(product);
+        await addToWishlist(product);
       }
-      setInWishlist(!inWishlist);
-    } catch (error) {
-      console.error("Wishlist operation failed:", error);
-    }
+    });
   };
 
   return (
-    <div
-      className={cn("mt-5 pt-4 col-span-2 w-fit h-fit", {
-        "mt-0": page,
-      })}
-    >
+    <div className={cn("mt-5 pt-4 col-span-2 w-fit h-fit", { "mt-0": page })}>
+      <AuthDialog
+        show={showAuthAlert}
+        onClose={closeAuthAlert}
+        onLogin={handleLogin}
+      />
+
       <div className={"flex items-end gap-5"}>
         <QuantityButtons
           product={product}
