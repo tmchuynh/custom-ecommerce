@@ -1,8 +1,9 @@
 "use client";
 
-import { CustomerContextType, ShippingAddress } from "@/lib/interfaces";
 import { createContext, useContext } from "react";
 import { useAuth } from "./authContext";
+import { CustomerContextType } from "@/lib/contextTypes";
+import { ShippingAddress } from "@/lib/interfaces";
 
 const CustomerContext = createContext<CustomerContextType | undefined>(
   undefined

@@ -1,7 +1,7 @@
 "use client";
-import { WishlistContextType } from "@/lib/interfaces";
 import React, { createContext, useState, useContext } from "react";
 import { ProductType } from "@/lib/types";
+import { WishlistContextType } from "@/lib/contextTypes";
 
 /**
  * Context for managing the wishlist.

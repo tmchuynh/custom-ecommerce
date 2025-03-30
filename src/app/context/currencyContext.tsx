@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  CountryTaxInfo,
-  Currency,
-  CurrencyCode,
-  CurrencyContextType,
-} from "@/lib/interfaces";
+import { CountryTaxInfo, Currency, CurrencyCode } from "@/lib/interfaces";
 import React, {
   createContext,
   useContext,
@@ -16,6 +11,7 @@ import React, {
 } from "react";
 import { currencyCountries } from "@/lib/countriesConstant";
 import { countryTaxRates } from "@/lib/taxRatesConstant";
+import { CurrencyContextType } from "@/lib/contextTypes";
 
 /**
  * Context for managing the current currency.

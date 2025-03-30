@@ -1,11 +1,7 @@
 "use client";
 
-import {
-  CreditCard,
-  Payment,
-  PaymentContextType,
-  PaymentStatus,
-} from "@/lib/interfaces";
+import { PaymentContextType } from "@/lib/contextTypes";
+import { CreditCard, Payment, PaymentStatus } from "@/lib/interfaces";
 import {
   validateCreditCard,
   validateCVV,

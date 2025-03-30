@@ -1,7 +1,6 @@
 "use client";
 
 import { currencyCountries } from "@/lib/countriesConstant";
-import { Currency, ProductContextType } from "@/lib/interfaces";
 import { mockProductData } from "@/lib/mockProductData";
 import { ProductFilters, ProductType, SortOption } from "@/lib/types";
 import React, {
@@ -12,6 +11,8 @@ import React, {
   useState,
 } from "react";
 import { useCurrency } from "./currencyContext";
+import { ProductContextType } from "@/lib/contextTypes";
+import { Currency } from "@/lib/interfaces";
 
 const ProductContext = createContext<ProductContextType | undefined>(undefined);
 

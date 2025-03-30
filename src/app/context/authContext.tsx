@@ -1,7 +1,7 @@
 "use client";
 
+import { AuthContextType } from "@/lib/contextTypes";
 import {
-  AuthContextType,
   AuthUser,
   SignUpCredentials,
   LoginCredentials,
