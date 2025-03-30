@@ -11,9 +11,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import { formatCurrency } from "@/lib/utils";
 import { CartItem } from "@/lib/interfaces";
 import { OrderItemsProps } from "@/lib/types";
+import { useCurrency } from "@/app/context/currencyContext";
 
 export default function OrderItems({
   cartItems,
@@ -22,6 +22,7 @@ export default function OrderItems({
   onRemoveItem,
 }: OrderItemsProps) {
   const [showItems, setShowItems] = useState(true);
+  const { formatCurrency, selectedCurrency } = useCurrency();
 
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -32,7 +33,7 @@ export default function OrderItems({
           <div>
             <h2 className="text-xl font-semibold text-gray-800 mb-1">
               <span className="hidden sm:inline">Order</span> Items
-              <span className="ml-2 text-gray-500">({totalItems})</span>
+              <span className="ml-2">({totalItems})</span>
             </h2>
             {cartItems.some((item) => item.isLimited) && (
               <p className="text-sm text-amber-600 flex items-center mt-1">
@@ -80,7 +81,7 @@ export default function OrderItems({
                       <h3 className="text-base font-medium text-gray-900">
                         {item.name}
                       </h3>
-                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500">
+                      <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                         {item.color && <p>Color: {item.color}</p>}
                         {item.size && <p>Size: {item.size}</p>}
                         {item.options &&
@@ -96,22 +97,29 @@ export default function OrderItems({
                         {item.originalPrice &&
                         Number(item.originalPrice) > Number(item.price) ? (
                           <>
-                            <p className="text-sm line-through text-gray-500 mr-2">
-                              {formatCurrency(item.originalPrice)}
+                            <p className="text-sm line-through mr-2">
+                              {formatCurrency(
+                                item.originalPrice,
+                                selectedCurrency.code
+                              )}
                             </p>
                             <p className="text-base font-medium text-red-600">
-                              {formatCurrency(Number(item.price))}
+                              {formatCurrency(
+                                Number(item.price),
+                                selectedCurrency.code
+                              )}
                             </p>
                           </>
                         ) : (
                           <p className="text-base font-medium text-gray-900">
-                            {formatCurrency(Number(item.price))}
+                            {formatCurrency(
+                              Number(item.price),
+                              selectedCurrency.code
+                            )}
                           </p>
                         )}
                       </div>
-                      <p className="text-sm text-gray-500">
-                        Qty: {item.quantity}
-                      </p>
+                      <p className="text-sm">Qty: {item.quantity}</p>
                     </div>
                   </div>
 
@@ -184,7 +192,7 @@ export default function OrderItems({
       )}
 
       {!showItems && cartItems.length > 2 && (
-        <div className="px-6 py-4 text-center text-sm text-gray-500">
+        <div className="px-6 py-4 text-center text-sm">
           {cartItems.length} items in your order.
           <button
             onClick={() => setShowItems(true)}
