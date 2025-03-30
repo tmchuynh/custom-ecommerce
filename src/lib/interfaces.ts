@@ -54,6 +54,50 @@ export interface CurrencyContextType {
   setSelectedCurrency: (currency: Currency) => void;
   currency: Currency;
   setCurrency: (currency: Currency) => void;
+  calculateImportFee: (value: number, countryCode: string) => number;
+  getImportTaxBreakdown: (
+    subtotal: number,
+    country: string
+  ) => {
+    duty: number;
+    vat: number;
+    total: number;
+    subtotal: number;
+    grandTotal: number;
+  };
+  calculateImportTaxes: (
+    subtotal: number,
+    country: string
+  ) => {
+    dutyAmount: number;
+    vatAmount: number;
+    totalImportCharges: number;
+    appliedDuty: boolean;
+    appliedVAT: boolean;
+  };
+
+  // Currency conversion
+  convertAmount: (
+    amount: number,
+    fromCurrency: string,
+    toCurrency: string
+  ) => number;
+  formatCurrency: (amount: number, currencyCode: string) => string;
+
+  // Currency rates management
+  updateExchangeRate: (currencyCode: string, newRate: number) => void;
+  getExchangeRate: (currencyCode: string) => number;
+
+  // Currency validation
+  isCurrencySupported: (currencyCode: string) => boolean;
+  getAvailableCurrencies: () => Currency[];
+
+  // Currency info
+  getCurrencySymbol: (currencyCode: string) => string;
+  getCurrencyName: (currencyCode: string) => string;
+
+  // Last updated timestamp
+  lastRatesUpdate: Date | null;
 }
 
 export interface DynamicButtonProps {
@@ -153,7 +197,6 @@ export interface CartContextType {
     startDate: Date,
     country: string
   ) => string;
-  startCheckout: () => void;
   moveToWishlist: (itemId: string) => void;
   calculateInternationalShippingFee: (
     country: string,
@@ -162,16 +205,6 @@ export interface CartContextType {
   selectedShippingMethod: ShippingMethod;
   updateShippingMethod: (method: ShippingMethod) => void;
   getDeliveryEstimateText: (shippingCountry: string) => string;
-
-  // Add the new import tax breakdown function
-  getImportTaxBreakdown: (country: string) => {
-    duty: number;
-    vat: number;
-    total: number;
-    subtotal: number;
-    shipping: number;
-    grandTotal: number;
-  };
 
   getProductSalesCount: (productName: string) => number;
   getSalesTrends: (days?: number) => Array<{
@@ -204,16 +237,6 @@ export interface CountriesInformation {
   label: string;
   distanceFactor: number;
   taxRate: number;
-  shippingMultiplier: number;
-  shippingBase: number;
-  shippingRates: {
-    standard: number;
-    economy: number;
-    twoDay: number;
-    expedited: number;
-    sameDay: number;
-    overnight: number;
-  };
 }
 
 export interface ProductContextType {

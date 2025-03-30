@@ -305,18 +305,6 @@ export const formatCreditCardNumber = (value: string): string => {
 };
 
 /**
- * Formats a numeric value into a currency string.
- *
- * @param value - The numeric value to format.
- * @returns A string representing the formatted currency. If the input is not a valid number, it returns "$0.00".
- */
-export const formatCurrency = (value: number) => {
-  if (isNaN(value)) return "$0.00";
-
-  return "$" + value.toLocaleString(undefined);
-};
-
-/**
  * Capitalizes the first letter of each word in a string and replaces hyphens with spaces.
  * Also replaces underscores with spaces and trims the result.
  *
