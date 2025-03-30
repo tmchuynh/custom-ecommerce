@@ -577,3 +577,61 @@ export function getAccessibleColor(
 
   return contrastColor;
 }
+
+/**
+ * Validates a credit card expiry date in MM/YY format
+ */
+export function validateExpiryDate(expiry: string): boolean {
+  const regex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+  if (!regex.test(expiry)) return false;
+
+  const [month, year] = expiry.split("/").map((num) => parseInt(num));
+  const now = new Date();
+  const currentYear = now.getFullYear() % 100;
+  const currentMonth = now.getMonth() + 1;
+
+  // Check if card is expired
+  return year > currentYear || (year === currentYear && month >= currentMonth);
+}
+
+/**
+ * Validates a credit card CVV code
+ */
+export function validateCVV(cvv: string): boolean {
+  // CVV should be 3-4 digits
+  const regex = /^[0-9]{3,4}$/;
+  return regex.test(cvv);
+}
+
+/**
+ * Formats a credit card expiry date input
+ */
+export function formatExpiryDate(value: string): string {
+  const cleaned = value.replace(/\D/g, "");
+  if (cleaned.length >= 2) {
+    return `${cleaned.slice(0, 2)}/${cleaned.slice(2, 4)}`;
+  }
+  return cleaned;
+}
+
+/**
+ * Validates a payment amount
+ */
+export function validatePaymentAmount(amount: number): boolean {
+  return amount > 0 && Number.isFinite(amount);
+}
+
+/**
+ * Validates a billing postal code
+ */
+export function validatePostalCode(
+  postalCode: string,
+  countryCode: string = "US"
+): boolean {
+  // US ZIP code pattern
+  if (countryCode === "US") {
+    return /^\d{5}(-\d{4})?$/.test(postalCode);
+  }
+  // Default to basic validation for other countries
+  return /^[A-Z0-9]{3,10}$/i.test(postalCode.replace(/\s/g, ""));
+}

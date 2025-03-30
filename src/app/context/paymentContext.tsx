@@ -42,8 +42,7 @@ export const PaymentProvider = ({
 
   const processPayment = async (
     amount: number,
-    cardDetails: CreditCard,
-    currency: string = "USD"
+    cardDetails: CreditCard
   ): Promise<Payment> => {
     setProcessingPayment(true);
     setPaymentError(null);
@@ -82,6 +81,36 @@ export const PaymentProvider = ({
     }
   };
 
+  const processRefund = async (): Promise<Payment> => {
+    setProcessingPayment(true);
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const refund: Payment = {
+        id: `REF-${Math.random().toString(36).substr(2, 9)}`,
+        amount: lastPayment?.amount || 0,
+        status: "refunded",
+        email: lastPayment?.email || "",
+        date: new Date(),
+      };
+      setLastPayment(refund);
+      return refund;
+    } catch (error) {
+      setPaymentError("Refund failed");
+      throw error;
+    } finally {
+      setProcessingPayment(false);
+    }
+  };
+
+  const verifyPayment = async (paymentId: string): Promise<boolean> => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      return lastPayment?.id === paymentId && lastPayment?.status === "success";
+    } catch {
+      return false;
+    }
+  };
+
   const getPaymentStatus = (paymentId: string): PaymentStatus => {
     return lastPayment?.id === paymentId
       ? lastPayment.status
@@ -102,6 +131,8 @@ export const PaymentProvider = ({
         getPaymentStatus,
         lastPayment,
         validateCardDetails,
+        processRefund,
+        verifyPayment,
       }}
     >
       {children}

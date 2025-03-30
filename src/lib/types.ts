@@ -261,15 +261,19 @@ export type SortOption =
 export type OrderSummaryProps = {
   subtotal: number;
   tax: number;
-  shippingMethod: ShippingMethod;
   shipping: number;
   vatTax: number;
   importFees: number;
-  isInternational?: boolean;
+  newDate: Date;
+  total: number;
   discountApplied: boolean;
   discountAmount: number;
-  newDate: Date;
+  isInternational: boolean;
+  shippingMethod: ShippingMethod;
+  itemCount: number;
+  estimatedDelivery?: string;
   shippingCountry: string;
+  onApplyDiscount?: (code: string) => void;
 };
 
 export type CustomerInfoFormProps = {
@@ -381,4 +385,15 @@ export type PaymentInfoFormProps = {
       | "shippingAddress"
       | "name"
   ) => void;
+  onSubmit: () => void;
+  isSubmitting: boolean;
+  setIsSubmitting: (value: boolean) => void;
+  handlePayment: () => void;
+  handlePaymentSuccess: () => void;
+  handlePaymentPending: () => void;
+  handlePaymentProcessing: () => void;
+  handlePaymentCancelled: () => void;
+  handlePaymentDeclined: () => void;
+  handlePaymentRefunded: () => void;
+  handlePaymentDispute: () => void;
 };

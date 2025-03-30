@@ -250,6 +250,17 @@ export interface CountriesInformation {
   taxRate: number;
 }
 
+export interface PaymentInfoData {
+  paymentMethod: "creditCard" | "paypal";
+  cardNumber: string;
+  nameOnCard: string;
+  expiryMonth: string;
+  expiryYear: string;
+  cvc: string;
+  savePaymentInfo: boolean;
+  billingAddressSameAsShipping: boolean;
+}
+
 export interface ProductContextType {
   getProductByName: (name: string) => ProductType | undefined;
   getProductsByGender: (gender: string) => ProductType[];
@@ -333,4 +344,60 @@ export interface RandomNumberArrayOptions {
 export interface FormattedItem {
   name: string;
   url: string;
+}
+
+export type PaymentStatus =
+  | "pending"
+  | "processing"
+  | "success"
+  | "failed"
+  | "cancelled"
+  | "refunded";
+
+export interface CreditCard {
+  number: string;
+  expirationDate: string;
+  cvv: string;
+  issuer: string;
+}
+
+export interface Payment {
+  id: string;
+  amount: number;
+  status: PaymentStatus;
+  email: string;
+  date: Date;
+  cardDetails?: Partial<CreditCard>;
+  error?: string;
+}
+
+export interface PaymentResult {
+  success: boolean;
+  paymentId?: string;
+  error?: string;
+  status: PaymentStatus;
+  transaction?: Payment;
+}
+
+export interface PaymentProcessorOptions {
+  testMode?: boolean;
+  currency?: string;
+  description?: string;
+  metadata?: Record<string, any>;
+}
+
+export interface PaymentContextType {
+  processPayment: (
+    amount: number,
+    cardDetails: CreditCard,
+    currency?: string
+  ) => Promise<Payment>;
+  processingPayment: boolean;
+  paymentError: string | null;
+  clearPaymentError: () => void;
+  getPaymentStatus: (paymentId: string) => PaymentStatus;
+  lastPayment: Payment | null;
+  validateCardDetails: (card: CreditCard) => boolean;
+  processRefund: (paymentId: string) => Promise<Payment>;
+  verifyPayment: (paymentId: string) => Promise<boolean>;
 }
