@@ -11,14 +11,34 @@ const buttonVariants = cva(
       variant: {
         default:
           "border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground shadow-xs hover:bg-teritary hover:text-teritary-foreground hover:border-teritary",
-        destructive:
-          "bg-destructive text-destructive-foreground shadow-xs hover:bg-transparent hover:text-destructive border-destructive",
         outline:
           "border border-accent bg-transparent shadow-xs hover:bg-secondary hover:text-secondary-foreground",
         ghost: "border-transparent bg-transparent hover:text-accent",
         link: "border-transparent text-primary underline-offset-4 hover:underline",
+        secondary:
+          "border-transparent bg-secondary text-secondary-foreground shadow-xs hover:bg-teritary hover:text-teritary-foreground hover:border-teritary",
+        secondaryOutline:
+          "border border-secondary bg-transparent shadow-xs hover:bg-teritary hover:text-teritary-foreground hover:border-teritary",
+        secondaryGhost:
+          "border-transparent bg-transparent text-secondary hover:text-teritary-foreground",
+        secondaryLink:
+          "border-transparent text-secondary underline-offset-4 hover:underline",
+        teritary:
+          "border-transparent bg-teritary text-teritary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
+        teritaryOutline:
+          "border border-teritary bg-transparent shadow-xs hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
+        teritaryGhost:
+          "border-transparent bg-transparent text-teritary hover:text-secondary-foreground",
+        teritaryLink:
+          "border-transparent text-teritary underline-offset-4 hover:underline",
+        destructive:
+          "bg-destructive text-destructive-foreground shadow-xs hover:bg-transparent hover:text-destructive border-destructive",
+        destructiveOutline:
+          "border border-destructive bg-transparent shadow-xs hover:bg-destructive hover:text-destructive-foreground hover:border-destructive",
+        destructiveGhost:
+          "border-transparent bg-transparent text-destructive hover:text-destructive-foreground",
+        destructiveLink:
+          "border-transparent text-destructive underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2",
