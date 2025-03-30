@@ -2,7 +2,6 @@
 
 import React, { useMemo, useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { capitalize } from "@/lib/utils";
 import {
   BreadcrumbItem,
   BreadcrumbLink,
@@ -17,8 +16,8 @@ import {
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
-import { Separator } from "./ui/separator";
 import { mockProductData } from "@/lib/mockProductData";
+import { capitalize } from "@/lib/utils/format";
 
 const StaticBreadcrumb: React.FC = () => {
   const pathname = usePathname();
@@ -27,7 +26,6 @@ const StaticBreadcrumb: React.FC = () => {
   const [parentCategories, setParentCategories] = useState<any[]>([]);
   const [genders, setGenders] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 
   // Compute the path segments and their capitalized versions
   const pathSegments = useMemo(

@@ -14,33 +14,27 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Badge } from "@/components/ui/badge";
-import {
-  AlertCircle,
-  MapPin,
-  Home,
-  Building,
-  Truck,
-  Package,
-} from "lucide-react";
+import { AlertCircle, MapPin, Home, Building } from "lucide-react";
 import { ShippingAddressFormProps } from "@/lib/types";
 import { usStates } from "@/lib/constants";
-import { ShippingAddress } from "@/lib/interfaces";
+import { ShippingAddress, ShippingMethod } from "@/lib/interfaces";
 import {
-  handleBlur,
-  validateField,
   handleInputChange,
-  handleSelectChange,
   handleFormSubmit,
-} from "@/lib/utils";
+  handleBlur,
+  handleSelectChange,
+} from "@/lib/utils/utils";
+import { validateField } from "@/lib/utils/validation";
+import { FaTruckFast } from "react-icons/fa6";
+import { BiSolidPackage } from "react-icons/bi";
 
-// List of shipping methods
-const shippingMethods = [
+const shippingMethods: ShippingMethod[] = [
   {
     id: "standard",
     title: "Standard Shipping",
     description: "3-5 business days",
     price: "Free",
-    icon: <Truck className="h-5 w-5" />,
+    icon: FaTruckFast,
     estimatedDelivery: "Jul 27 - Jul 29",
   },
   {
@@ -48,7 +42,7 @@ const shippingMethods = [
     title: "Express Shipping",
     description: "2-3 business days",
     price: "$9.99",
-    icon: <Truck className="h-5 w-5" />,
+    icon: FaTruckFast,
     estimatedDelivery: "Jul 25 - Jul 26",
   },
   {
@@ -56,7 +50,7 @@ const shippingMethods = [
     title: "Overnight Shipping",
     description: "Next business day",
     price: "$19.99",
-    icon: <Package className="h-5 w-5" />,
+    icon: BiSolidPackage,
     estimatedDelivery: "Jul 24",
   },
 ];
@@ -442,7 +436,7 @@ export default function ShippingAddressForm({
                               : "bg-secondary"
                           }`}
                         >
-                          {method.icon}
+                          <method.icon />
                         </span>
                         <div>
                           <div className="font-medium">{method.title}</div>

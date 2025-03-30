@@ -16,15 +16,15 @@ import {
 } from "@/components/ui/select";
 import { PaymentInfoData } from "@/lib/interfaces";
 import { PaymentInfoFormProps } from "@/lib/types";
+import { generateMonths, generateYears } from "@/lib/utils/generate";
 import {
-  generateMonths,
-  generateYears,
-  handleBlur,
-  validateField,
   handleInputChange,
-  handleSelectChange,
   handleFormSubmit,
-} from "@/lib/utils";
+  handleBlur,
+  handleSelectChange,
+} from "@/lib/utils/utils";
+import { validateField } from "@/lib/utils/validation";
+
 import { AlertCircle, CreditCard, Info, Lock } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";

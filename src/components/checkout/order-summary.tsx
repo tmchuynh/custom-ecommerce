@@ -5,7 +5,7 @@ import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { OrderSummaryProps } from "@/lib/types";
-import { handleApplyDiscountUtil } from "@/lib/utils";
+import { handleApplyDiscountUtil } from "@/lib/utils/utils";
 
 /**
  * A component that displays the order summary during checkout, including pricing details and discount functionality.

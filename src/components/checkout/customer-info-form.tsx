@@ -8,14 +8,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
-import { AlertCircle, Mail, Phone, User } from "lucide-react";
-import { useState } from "react";
 import {
-  handleBlur,
-  validateField,
   handleInputChange,
   handleFormSubmit,
-} from "@/lib/utils";
+  handleBlur,
+} from "@/lib/utils/utils";
+import { validateField } from "@/lib/utils/validation";
+import { AlertCircle, Mail, Phone, User } from "lucide-react";
+import { useState } from "react";
 
 /**
  * A form component for collecting customer information during checkout.
