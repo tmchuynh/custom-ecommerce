@@ -261,6 +261,21 @@ export interface PaymentInfoData {
   billingAddressSameAsShipping: boolean;
 }
 
+export interface CustomerInfoData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  marketingConsent: boolean;
+}
+
+export interface CustomerContextType {
+  validatePhone: (phone: string) => boolean;
+  validateEmail: (email: string) => boolean;
+  validateName: (name: string) => boolean;
+  formatPhoneNumber: (phone: string) => string;
+}
+
 export interface ProductContextType {
   getProductByName: (name: string) => ProductType | undefined;
   getProductsByGender: (gender: string) => ProductType[];
@@ -400,4 +415,25 @@ export interface PaymentContextType {
   validateCardDetails: (card: CreditCard) => boolean;
   processRefund: (paymentId: string) => Promise<Payment>;
   verifyPayment: (paymentId: string) => Promise<boolean>;
+  handlePaymentSubmission: (
+    data: PaymentSubmissionData
+  ) => Promise<Payment | null>;
+  validatePaymentSubmission: (data: PaymentSubmissionData) => boolean;
+}
+
+export interface PaymentSubmissionData {
+  cardDetails: CreditCard;
+  amount: number;
+  billingAddress?: {
+    address: string;
+    city: string;
+    state: string;
+    zipCode: string;
+    country: string;
+  };
+  customerInfo?: {
+    name: string;
+    email: string;
+    phone: string;
+  };
 }

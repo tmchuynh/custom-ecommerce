@@ -11,6 +11,7 @@ import { Toaster } from "sonner";
 import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
 import { ProductProvider } from "./context/productContext";
 import NavTopMenu from "@/components/NavTopMenu";
+import { CustomerProvider } from "@/app/context/customerContext";
 
 export default function RootLayout({
   children,
@@ -22,22 +23,24 @@ export default function RootLayout({
       <body className="flex flex-col min-h-screen">
         <Providers>
           <NotFoundProvider>
-            <NavTopMenu />
-            <NavMenu />
-            <main className="flex-grow">
-              <BreadcrumbWrapper />
-              {children}
-              <Footer />
-            </main>
-            <BackToTop />
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                style: {
-                  marginTop: "200px",
-                },
-              }}
-            />
+            <CustomerProvider>
+              <NavTopMenu />
+              <NavMenu />
+              <main className="flex-grow">
+                <BreadcrumbWrapper />
+                {children}
+                <Footer />
+              </main>
+              <BackToTop />
+              <Toaster
+                position="top-center"
+                toastOptions={{
+                  style: {
+                    marginTop: "200px",
+                  },
+                }}
+              />
+            </CustomerProvider>
           </NotFoundProvider>
         </Providers>
       </body>
