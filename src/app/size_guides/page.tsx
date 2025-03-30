@@ -6,10 +6,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
 import { FaMessage, FaShirt } from "react-icons/fa6";
-import { InformationDetails } from "@/lib/interfaces";
 import { RiFootprintFill } from "react-icons/ri";
+import { PiPantsFill } from "react-icons/pi";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { IoMdHelp } from "react-icons/io";
+import { sizeGuideCategories } from "@/lib/constants/informationDetails";
 
 /**
  * A comprehensive size guide component that displays sizing information for clothing and footwear.
@@ -66,47 +67,6 @@ const SizeGuide = () => {
       sectionRefs.current[sectionId]
     );
   };
-
-  // Create a custom PantsIcon since it doesn't exist in lucide-react
-  const PantsIcon = (props: any) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="M8 2v20M16 2v20M3 2h18M4 7h4M16 7h4M4 14h4M16 14h4M3 22h18" />
-    </svg>
-  );
-
-  const sizeGuideCategories: InformationDetails[] = [
-    {
-      id: "shirts",
-      title: "Shirts & Tops",
-      icon: FaShirt,
-    },
-    {
-      id: "pants",
-      title: "Pants & Bottoms",
-      icon: PantsIcon,
-    },
-    {
-      id: "shoes",
-      title: "Shoes & Footwear",
-      icon: RiFootprintFill,
-    },
-    {
-      id: "measuring",
-      title: "How to Measure",
-      icon: TbRulerMeasure2,
-    },
-  ];
 
   return (
     <div className="min-h-screen">
@@ -445,7 +405,7 @@ const SizeGuide = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <PantsIcon className="h-6 w-6" />
+                  <PiPantsFill className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3 ">
                     Pants & Bottoms
                   </h2>

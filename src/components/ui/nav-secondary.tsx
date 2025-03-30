@@ -1,5 +1,4 @@
 import React from "react";
-import { type LucideIcon } from "lucide-react";
 
 import {
   SidebarGroup,
@@ -9,6 +8,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { IconType } from "react-icons/lib";
 
 export function NavSecondary({
   items,
@@ -17,7 +17,7 @@ export function NavSecondary({
   items: {
     title: string;
     url: string;
-    icon: LucideIcon;
+    icon: IconType;
     badge?: React.ReactNode;
   }[];
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {

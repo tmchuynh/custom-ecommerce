@@ -2,9 +2,8 @@
 import { useCart } from "@/app/context/cartContext";
 import { ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils/utils";
-import { ShoppingCart } from "lucide-react";
 import { JSX, useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaShoppingCart } from "react-icons/fa";
 import { toast } from "sonner";
 import QuantityButtons from "./Quantity";
 import { Button } from "../ui/button";
@@ -75,7 +74,7 @@ export default function AddToCartButtons({
                   handleAddToCart(product, product.name);
                 }}
               >
-                <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
+                <FaShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
               </Button>
             </div>
           ) : (

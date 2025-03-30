@@ -38,11 +38,15 @@ import {
   FaCircleXmark,
   FaMessage,
   FaShield,
+  FaShirt,
   FaTruckFast,
 } from "react-icons/fa6";
 import { FiHelpCircle } from "react-icons/fi";
 import { GoAlertFill, GoAlert } from "react-icons/go";
 import { MdManageHistory } from "react-icons/md";
+import { PiPantsFill } from "react-icons/pi";
+import { RiFootprintFill } from "react-icons/ri";
+import { TbRulerMeasure2 } from "react-icons/tb";
 
 export const loyalty_program_sections: InformationDetails[] = [
   {
@@ -375,4 +379,27 @@ export const privacy_policy_sections: InformationDetails[] = [
     icon: FaEdit,
   },
   { id: "contact", title: "Contact Us", icon: FaPhoneAlt },
+];
+
+export const sizeGuideCategories: InformationDetails[] = [
+  {
+    id: "shirts",
+    title: "Shirts & Tops",
+    icon: FaShirt,
+  },
+  {
+    id: "pants",
+    title: "Pants & Bottoms",
+    icon: PiPantsFill,
+  },
+  {
+    id: "shoes",
+    title: "Shoes & Footwear",
+    icon: RiFootprintFill,
+  },
+  {
+    id: "measuring",
+    title: "How to Measure",
+    icon: TbRulerMeasure2,
+  },
 ];

@@ -5,9 +5,10 @@ import { CreditCard, Payment } from "@/lib/interfaces";
 import { PaymentStatus } from "@/lib/types";
 import {
   validateCreditCard,
-  validateCVV,
   validateExpiryDate,
-} from "@/lib/utils/utils";
+  validateCVV,
+} from "@/lib/utils/validation";
+
 import React, { createContext, useContext, useState } from "react";
 
 const PaymentContext = createContext<PaymentContextType | undefined>(undefined);

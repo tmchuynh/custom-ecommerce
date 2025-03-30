@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DayPicker } from "react-day-picker";
 
 import { cn } from "@/lib/utils/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -68,7 +68,7 @@ function Calendar({
                 onClick={props.onPrev}
                 className="h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
               >
-                <ChevronLeft className="h-4 w-4" />
+                <FaChevronLeft className="h-4 w-4" />
               </button>
               <span className="text-sm font-medium">{props.label}</span>
               <button
@@ -76,7 +76,7 @@ function Calendar({
                 onClick={props.onNext}
                 className="h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
               >
-                <ChevronRight className="h-4 w-4" />
+                <FaChevronRight className="h-4 w-4" />
               </button>
             </div>
           ),

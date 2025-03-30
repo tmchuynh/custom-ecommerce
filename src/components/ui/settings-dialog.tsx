@@ -1,20 +1,6 @@
 "use client";
 
 import * as React from "react";
-import {
-  Bell,
-  Check,
-  Globe,
-  Home,
-  Keyboard,
-  Link,
-  Lock,
-  Menu,
-  MessageCircle,
-  Paintbrush,
-  Settings,
-  Video,
-} from "lucide-react";
 
 import {
   Breadcrumb,
@@ -42,21 +28,35 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@/components/ui/sidebar";
+import {
+  FaBell,
+  FaCheckDouble,
+  FaGlobe,
+  FaHome,
+  FaKeyboard,
+  FaLink,
+  FaLock,
+  FaPaintBrush,
+  FaVideo,
+} from "react-icons/fa";
+import { TiThMenu } from "react-icons/ti";
+import { FaMessage } from "react-icons/fa6";
+import { IoMdSettings } from "react-icons/io";
 
 const data = {
   nav: [
-    { name: "Notifications", icon: Bell },
-    { name: "Navigation", icon: Menu },
-    { name: "Home", icon: Home },
-    { name: "Appearance", icon: Paintbrush },
-    { name: "Messages & media", icon: MessageCircle },
-    { name: "Language & region", icon: Globe },
-    { name: "Accessibility", icon: Keyboard },
-    { name: "Mark as read", icon: Check },
-    { name: "Audio & video", icon: Video },
-    { name: "Connected accounts", icon: Link },
-    { name: "Privacy & visibility", icon: Lock },
-    { name: "Advanced", icon: Settings },
+    { name: "Notifications", icon: FaBell },
+    { name: "Navigation", icon: TiThMenu },
+    { name: "Home", icon: FaHome },
+    { name: "Appearance", icon: FaPaintBrush },
+    { name: "Messages & media", icon: FaMessage },
+    { name: "Language & region", icon: FaGlobe },
+    { name: "Accessibility", icon: FaKeyboard },
+    { name: "Mark as read", icon: FaCheckDouble },
+    { name: "Audio & video", icon: FaVideo },
+    { name: "Connected accounts", icon: FaLink },
+    { name: "Privacy & visibility", icon: FaLock },
+    { name: "Advanced", icon: IoMdSettings },
   ],
 };
 

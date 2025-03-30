@@ -8,8 +8,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { mockProductData } from "@/lib/constants/mockProductData";
-import { capitalize } from "@/lib/utils/utils";
-import { ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { JSX, useEffect, useMemo, useState } from "react";
 import { Button } from "./button";
@@ -20,6 +18,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./dropdown-menu";
+import { capitalize } from "@/lib/utils/format";
+import { FaChevronDown } from "react-icons/fa";
 
 /**
  * DynamicBreadcrumb Component
@@ -129,7 +129,7 @@ const DynamicBreadcrumb = (): JSX.Element | null => {
                     className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
                   >
                     {capitalizedSegment}
-                    <ChevronDown className="ml-1 h-4 w-4" />
+                    <FaChevronDown className="ml-1 h-4 w-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">

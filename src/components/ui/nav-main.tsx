@@ -1,12 +1,11 @@
 "use client";
 
-import { type LucideIcon } from "lucide-react";
-
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { IconType } from "react-icons/lib";
 
 export function NavMain({
   items,
@@ -14,7 +13,7 @@ export function NavMain({
   items: {
     title: string;
     url: string;
-    icon: LucideIcon;
+    icon: IconType;
     isActive?: boolean;
   }[];
 }) {

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Check, ChevronRight } from "lucide-react";
 
 import {
   Collapsible,
@@ -15,6 +14,7 @@ import {
   SidebarMenuItem,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
+import { FaCheck, FaChevronRight } from "react-icons/fa";
 
 export function Calendars({
   calendars,
@@ -39,7 +39,7 @@ export function Calendars({
               >
                 <CollapsibleTrigger>
                   {calendar.name}{" "}
-                  <ChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                  <FaChevronRight className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
@@ -52,7 +52,7 @@ export function Calendars({
                             data-active={index < 2}
                             className="group/calendar-item flex aspect-square size-4 shrink-0 items-center justify-center rounded-sm border border-sidebar-border text-sidebar-primary-foreground data-[active=true]:border-sidebar-primary data-[active=true]:bg-sidebar-primary"
                           >
-                            <Check className="hidden size-3 group-data-[active=true]/calendar-item:block" />
+                            <FaCheck className="hidden size-3 group-data-[active=true]/calendar-item:block" />
                           </div>
                           {item}
                         </SidebarMenuButton>

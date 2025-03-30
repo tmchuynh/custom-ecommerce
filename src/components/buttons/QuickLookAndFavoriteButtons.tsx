@@ -1,6 +1,5 @@
 "use client";
 import { Color, ProductType } from "@/lib/types";
-import { cn, getAccessibleColor } from "@/lib/utils/utils";
 import { JSX, useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import {
@@ -16,7 +15,6 @@ import {
 } from "@/components/ui/alert-dialog";
 import { useParams, usePathname } from "next/navigation";
 import ProductInfo from "../category/product/ProductInfo";
-import { Eye, Heart, Link } from "lucide-react";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import theme from "@material-tailwind/react/theme";
@@ -24,6 +22,10 @@ import { toast } from "sonner";
 import { AuthDialog } from "../auth/AuthDialog";
 import components from "../category/product/ProductDetails";
 import ProductGallery from "../category/product/ProductGallery";
+import { getAccessibleColor } from "@/lib/utils/accessibility";
+import { cn } from "@/lib/utils/utils";
+import Link from "next/link";
+import { FaEye, FaHeart } from "react-icons/fa";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -132,7 +134,7 @@ const QuickLookAndFavoriteButtons = ({
       <AlertDialog>
         <AlertDialogTrigger className="p-2 rounded-full shadow-md transition-colors">
           <span className="sr-only"> Quick look </span>
-          <Eye className="h-5 w-5 text-gray-600" />
+          <FaEye className="h-5 w-5 text-gray-600" />
         </AlertDialogTrigger>
         <AlertDialogContent className="border-4 min-w-11/12">
           <AlertDialogFooter className="">
@@ -176,7 +178,7 @@ const QuickLookAndFavoriteButtons = ({
         onClick={handleWishlistClick}
         className="p-2 rounded-full shadow-md transition-colors"
       >
-        <Heart
+        <FaHeart
           className={`h-5 w-5 ${
             wishlistItems.some((item) => item.name === product.name)
               ? "fill-red-500 text-red-500"

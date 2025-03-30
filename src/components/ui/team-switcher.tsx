@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { ChevronDown, Plus } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -17,6 +16,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { FaChevronDown, FaPlus } from "react-icons/fa";
 
 export function TeamSwitcher({
   teams,
@@ -39,7 +39,7 @@ export function TeamSwitcher({
                 <activeTeam.logo className="size-3" />
               </div>
               <span className="truncate font-semibold">{activeTeam.name}</span>
-              <ChevronDown className="opacity-50" />
+              <FaChevronDown className="opacity-50" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
@@ -67,7 +67,7 @@ export function TeamSwitcher({
             <DropdownMenuSeparator />
             <DropdownMenuItem className="gap-2 p-2">
               <div className="flex size-6 items-center justify-center rounded-md border bg-background">
-                <Plus className="size-4" />
+                <FaPlus className="size-4" />
               </div>
               <div className="font-medium text-muted-foreground">Add team</div>
             </DropdownMenuItem>

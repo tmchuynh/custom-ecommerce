@@ -1,5 +1,3 @@
-import { ChevronRight, MoreHorizontal, Plus } from "lucide-react";
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,6 +15,8 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
+import { FaChevronRight, FaPlus } from "react-icons/fa";
+import { MdOutlineHorizontalRule } from "react-icons/md";
 
 export function NavWorkspaces({
   workspaces,
@@ -49,11 +49,11 @@ export function NavWorkspaces({
                     className="left-2 bg-sidebar-accent text-sidebar-accent-foreground data-[state=open]:rotate-90"
                     showOnHover
                   >
-                    <ChevronRight />
+                    <FaChevronRight />
                   </SidebarMenuAction>
                 </CollapsibleTrigger>
                 <SidebarMenuAction showOnHover>
-                  <Plus />
+                  <FaPlus />
                 </SidebarMenuAction>
                 <CollapsibleContent>
                   <SidebarMenuSub>
@@ -74,7 +74,7 @@ export function NavWorkspaces({
           ))}
           <SidebarMenuItem>
             <SidebarMenuButton className="text-sidebar-foreground/70">
-              <MoreHorizontal />
+              <MdOutlineHorizontalRule />
               <span>More</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
