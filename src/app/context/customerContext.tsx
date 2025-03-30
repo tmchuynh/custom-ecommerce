@@ -1,7 +1,6 @@
 "use client";
 
-import { CustomerContextType } from "@/lib/interfaces";
-import { ShippingAddress } from "@/lib/interfaces/shipping";
+import { CustomerContextType, ShippingAddress } from "@/lib/interfaces";
 import { createContext, useContext } from "react";
 import { useAuth } from "./authContext";
 
