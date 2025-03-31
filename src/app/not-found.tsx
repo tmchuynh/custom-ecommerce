@@ -25,7 +25,7 @@ import { IoMdClose } from "react-icons/io";
  * - The "Contact support" button opens the default mail client to send an email to support.
  *
  * @dependencies
- * - `useRouter` from `next/router` for navigation.
+ * - `useRouter` from `next/navigation` for navigation.
  * - `useState` and `useEffect` from `react` for state management and side effects.
  * - `DynamicButton` component for rendering buttons with different styles and actions.
  * - `IoMdClose` and `FaPhoneAlt` icons from `react-icons` for button icons.

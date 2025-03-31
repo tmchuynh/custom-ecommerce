@@ -168,3 +168,191 @@ export const loyaltyFaqs = [
       "In most cases, loyalty points can be combined with other discount codes during checkout. However, some promotional offers may have exclusions. Be sure to check the terms of any active promo codes before applying them to ensure they are compatible with your loyalty points. If you have any questions, our customer support team can help you navigate using points and codes together.",
   },
 ];
+
+export const internationalOrderReturnsFAQs = [
+  {
+    question: "Do you offer international shipping?",
+    answer:
+      "Yes, we offer international shipping to many countries. Shipping fees and delivery times may vary based on your location and the shipping method you select during checkout. You will be able to view the applicable shipping costs and estimated delivery time during the checkout process. Please note that international shipments may be subject to customs duties, taxes, or other import fees, which are the responsibility of the customer.",
+  },
+  {
+    question: "What are the shipping costs for international orders?",
+    answer:
+      "Shipping costs for international orders are calculated at checkout based on the destination country, the items in your order, and the shipping method you select. You can view the total shipping cost before completing your purchase. Please keep in mind that additional costs may apply for expedited shipping or larger orders.",
+  },
+  {
+    question: "Can I track my international order?",
+    answer:
+      "Yes, once your international order has shipped, you will receive a tracking number via email. You can use this tracking number on the carrier's website (e.g., USPS, FedEx, UPS, DHL) to check the status of your shipment, including its current location and estimated delivery date. If you encounter any issues with tracking, please contact our customer service team for assistance.",
+  },
+  {
+    question: "Can I return items from international orders?",
+    answer:
+      "Yes, we accept returns for international orders, but please note that you will be responsible for the return shipping costs. To be eligible for a return, items must be unused, in their original condition, and in the original packaging. Please review our Return Policy for specific details on return conditions and the process for international returns.",
+  },
+  {
+    question: "How do I return an international order?",
+    answer:
+      "To initiate a return for an international order, please contact our customer service team. They will provide you with the necessary return instructions and help you with any questions about the process. Be sure to securely package the items and use a trackable shipping method for your return. International return shipping costs are the responsibility of the customer.",
+  },
+  {
+    question: "Are there any exceptions to returning international orders?",
+    answer:
+      "Some items may not be eligible for return, including but not limited to personal care products, perishable items, or custom-made products. For more details on exclusions, please refer to our Return Policy page. If you are unsure whether your item is eligible for return, please contact customer service for clarification.",
+  },
+  {
+    question:
+      "Will I be refunded for the full amount on international returns?",
+    answer:
+      "You will be refunded for the full amount of your returned items, excluding any return shipping costs. Refunds will be issued to the original payment method once the returned items have been received and inspected. Please note that the refund may take several business days to reflect in your account, depending on your payment provider or bank.",
+  },
+  {
+    question:
+      "Do I need to pay customs duties or taxes for my international return?",
+    answer:
+      "Yes, you may be responsible for any customs duties or taxes for your return shipment. These charges are the responsibility of the customer and must be paid before the returned item can be processed. If you need assistance with the return process or have questions about international return fees, please contact our customer service team.",
+  },
+  {
+    question:
+      "What should I do if my international order arrives damaged or defective?",
+    answer:
+      "If you receive a damaged or defective item from an international order, please contact our customer service team within 7 days of receiving the product. Provide photos of the damage or defect to help expedite the process. We will assist you with a return, replacement, or refund depending on the issue. Please note that you may need to handle return shipping costs for damaged or defective items based on our return policy.",
+  },
+  {
+    question: "Can I use a discount code on international orders?",
+    answer:
+      "Yes, you can use valid discount codes on international orders. During checkout, enter your promo code in the designated box, and the discount will be applied to your order total. Please note that some promotions may have specific exclusions or restrictions, such as international shipping charges, so be sure to check the terms before applying the code.",
+  },
+  {
+    question: "How long does international shipping take?",
+    answer:
+      "The delivery time for international orders depends on the shipping method you choose and the destination country. Delivery times generally range from a few days for expedited shipping to several weeks for standard international shipping. You will be able to see the estimated delivery time during checkout based on your shipping selection.",
+  },
+  {
+    question: "What if my international order gets lost or delayed?",
+    answer:
+      "If your international order is lost or delayed, please contact our customer service team as soon as possible. We will assist you in tracking the package and filing a claim with the carrier if necessary. Please note that we are not responsible for delays caused by third-party carriers, customs processing, or unforeseen events like weather conditions.",
+  },
+];
+
+export const giftCardFAQs = [
+  {
+    question: "How do I redeem my gift card?",
+    answer:
+      "To redeem your gift card, simply enter the unique gift card code at checkout. The value of the gift card will be applied to your total order, and any remaining balance will stay on the card for future use. If you have any issues redeeming your gift card, please contact our customer support team for assistance.",
+  },
+  {
+    question: "Can I use a gift card for international orders?",
+    answer:
+      "Yes, you can use a gift card for international orders. When checking out, the gift card will be applied to the total, and any remaining balance will be calculated in your local currency. Please be aware that international orders may be subject to additional shipping fees or customs duties, which are not covered by the gift card.",
+  },
+  {
+    question: "Can I check the balance of my gift card?",
+    answer:
+      "To check the balance of your gift card, please log into your account and navigate to the 'Gift Cards' section. You can view your current balance and any remaining funds. Alternatively, you can contact our customer service team, and we can assist you with your gift card balance.",
+  },
+  {
+    question: "Can I reload my gift card?",
+    answer:
+      "At this time, gift cards cannot be reloaded. Once the balance is used, the card will no longer be valid. If you would like to purchase a new gift card, you can do so directly on our website.",
+  },
+  {
+    question: "Can I return a gift card?",
+    answer:
+      "Gift cards are non-returnable and cannot be refunded once purchased. If you have any issues with your gift card, such as a lost or stolen card, please contact customer service immediately, and we will assist you in resolving the issue.",
+  },
+  {
+    question: "Can I use multiple gift cards on a single order?",
+    answer:
+      "Yes, you can use multiple gift cards for a single order. During checkout, simply enter the codes for each gift card, and the corresponding values will be applied to your total. If the total cost exceeds the value of your gift cards, you will need to pay the difference using another payment method.",
+  },
+  {
+    question: "Can I use a gift card with other promotions?",
+    answer:
+      "Yes, you can use a gift card in combination with other promotions or discount codes, as long as the terms of the promotion allow for it. Please note that some promotions may have specific exclusions, so be sure to check the details before applying the discount.",
+  },
+  {
+    question: "Do gift cards expire?",
+    answer:
+      "No, our gift cards do not have an expiration date. You can use the gift card at any time, and the remaining balance will stay on the card for future use. We recommend keeping track of your gift card balance and using it within a reasonable time frame.",
+  },
+  {
+    question: "What should I do if my gift card is lost or stolen?",
+    answer:
+      "If your gift card is lost or stolen, please contact our customer service team immediately. We may require proof of purchase to assist with replacing the card or providing a refund, depending on the circumstances.",
+  },
+  {
+    question: "Can I purchase a gift card for someone else?",
+    answer:
+      "Yes, you can purchase a gift card for someone else. During checkout, you will be able to enter the recipient’s email address for an e-gift card, or you can choose to have a physical card mailed directly to their address. Gift cards make a great gift for any occasion, and the recipient can redeem them for any product on our site.",
+  },
+  {
+    question: "How long does it take to receive my gift card?",
+    answer:
+      "E-gift cards are sent immediately via email after purchase. If you purchase a physical gift card, it will be shipped according to your selected shipping method and delivery address. Shipping times for physical gift cards vary based on your location, but you can check the estimated delivery time at checkout.",
+  },
+  {
+    question: "Can I purchase a gift card with another gift card?",
+    answer:
+      "Unfortunately, gift cards cannot be used to purchase additional gift cards. If you would like to buy a gift card, you will need to use a different payment method such as a credit card or PayPal.",
+  },
+];
+
+export const productRecommendationsFAQs = [
+  {
+    question: "How do product recommendations work?",
+    answer:
+      "Our product recommendations are powered by advanced algorithms that analyze your browsing behavior, purchase history, and preferences. Based on this data, we suggest items that are likely to match your interests. As you interact more with our site, the recommendations become increasingly personalized to suit your evolving tastes.",
+  },
+  {
+    question: "Can I customize my product recommendations?",
+    answer:
+      "Yes, you can customize your recommendations by updating your profile preferences or providing feedback on the products you're recommended. By liking or disliking certain items, or by selecting specific product categories you're interested in, you can further personalize the recommendations you receive.",
+  },
+  {
+    question: "How do I get product recommendations?",
+    answer:
+      "To start receiving personalized product recommendations, simply browse through our catalog or log into your account. Our system will analyze your activity on the site and generate suggestions based on what you’ve viewed, liked, or purchased. The more you interact with the site, the more relevant the recommendations will become.",
+  },
+  {
+    question: "Can I opt out of product recommendations?",
+    answer:
+      "Yes, you can opt out of receiving personalized product recommendations. If you prefer not to have recommendations tailored to your preferences, you can adjust your settings in your account profile or contact our customer support team for assistance. Please note that this may affect your overall shopping experience as you will not receive personalized suggestions.",
+  },
+  {
+    question:
+      "Why am I seeing product recommendations for items I’m not interested in?",
+    answer:
+      "Our recommendation system continuously learns from your interactions. If you see items that don't match your interests, it may be due to recent browsing activity or general patterns. You can improve the relevance of your recommendations by providing feedback on items you're not interested in. The more you engage with the site, the better the system becomes at offering relevant suggestions.",
+  },
+  {
+    question: "Are product recommendations based on my personal information?",
+    answer:
+      "No, your product recommendations are based solely on your activity on the site, such as your browsing history, purchases, and preferences. We do not use any personal or sensitive information to create recommendations. Our goal is to provide you with suggestions that enhance your shopping experience, based on what you’ve shown an interest in.",
+  },
+  {
+    question: "Can I share my product recommendations with others?",
+    answer:
+      "Yes, you can share your favorite recommended products with others. If you find a product that you think someone else would love, you can easily share it via social media, email, or direct links. Sharing your recommendations can help others discover new products as well.",
+  },
+  {
+    question: "Do product recommendations change over time?",
+    answer:
+      "Yes, product recommendations change over time based on your activity. The more you interact with the site—whether it’s browsing new categories, purchasing items, or liking products—the more tailored and accurate your suggestions will become. This allows for an ever-evolving and personalized shopping experience.",
+  },
+  {
+    question: "How accurate are the product recommendations?",
+    answer:
+      "We strive to make our product recommendations as accurate as possible by analyzing patterns in your browsing and purchase history. While the system is constantly learning and improving, there may be occasional suggestions that don't align perfectly with your preferences. If this happens, we encourage you to provide feedback, which helps refine the recommendations for future visits.",
+  },
+  {
+    question: "Can I disable product recommendations entirely?",
+    answer:
+      "If you prefer not to receive any product recommendations, you can opt out of personalized suggestions in your account settings. While this will stop recommendations based on your browsing history, you will still be able to browse the site freely without personalized suggestions.",
+  },
+  {
+    question: "Do I have to create an account to get product recommendations?",
+    answer:
+      "While you do not need to create an account to browse products, logging into your account allows our system to track your activity and provide more personalized product recommendations. Creating an account ensures that you receive the most relevant suggestions based on your preferences and browsing behavior.",
+  },
+];
