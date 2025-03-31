@@ -52,12 +52,12 @@ export default function FeaturedCategory({
               <span aria-hidden="true" className="absolute inset-0" />
               {item.name}
             </a>
-            <DynamicButton
-              variant="link"
-              text="Shop Now"
-              className="w-fit p-0 text-background m-0"
-            />
           </div>
+          <DynamicButton
+            variant="secondary"
+            text="Shop Now"
+            className="w-fit p-0 text-background my-2"
+          />
         </div>
       </div>
     </div>
