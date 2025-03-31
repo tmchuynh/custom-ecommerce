@@ -40,35 +40,26 @@ const CheckoutError = () => {
     setErrorCode(randomErrorCode);
   }, []);
 
-  const handleRetry = () => {
-    router.push("/shopping_cart/checkout");
-  };
-
-  const handleReturnToCart = () => {
-    router.push("/shopping_cart");
-  };
-
   return (
-    <div className="max-w-4xl mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-      <div className="shadow-xl rounded-lg p-8">
-        <div className="text-center">
-          <div className="flex justify-center">
-            <IoIosAlert className="h-20 w-20 text-red-500" />
-          </div>
-          <h1 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+    <div className="min-h-screen">
+      <div className="max-w-4xl mx-auto px-4 py-12">
+        <div className="text-center mb-12">
+          <IoIosAlert className="h-20 w-20 text-red-500 mx-auto" />
+          <h1 className="text-5xl font-extrabold mt-4">
             Oops! Something went wrong.
           </h1>
-          <p className="mt-2 text-xl ">
+          <p className="text-xl mt-4">
             We encountered an issue while processing your order.
           </p>
-          <p className="mt-2 font-medium ">Error Code: {errorCode}</p>
+          <p className="text-lg font-medium mt-2">Error Code: {errorCode}</p>
         </div>
 
-        <div className="mt-10">
-          <div className="border-t pt-6">
-            <h2 className="text-lg font-medium">What might have happened?</h2>
-
-            <ul className="mt-4 list-disc pl-5  space-y-2">
+        <div className="rounded-xl shadow-md overflow-hidden border">
+          <div className="p-6">
+            <h2 className="text-2xl font-semibold">
+              What might have happened?
+            </h2>
+            <ul className="mt-4 list-disc list-inside space-y-2">
               <li>Your payment might not have been processed correctly</li>
               <li>There could be an issue with our payment system</li>
               <li>
@@ -77,11 +68,12 @@ const CheckoutError = () => {
               <li>One or more items in your cart might be out of stock</li>
             </ul>
           </div>
+        </div>
 
-          <div className="mt-8 border-t pt-6">
-            <h3 className="text-lg font-medium">What you can do</h3>
-
-            <ul className="mt-4 list-disc pl-5  space-y-2">
+        <div className="rounded-xl shadow-md overflow-hidden border mt-8">
+          <div className="p-6">
+            <h2 className="text-2xl font-semibold">What you can do</h2>
+            <ul className="mt-4 list-disc list-inside space-y-2">
               <li>Try placing your order again</li>
               <li>Check that your payment information is correct</li>
               <li>Make sure you have a stable internet connection</li>
@@ -90,23 +82,26 @@ const CheckoutError = () => {
               </li>
             </ul>
           </div>
+        </div>
 
-          <div className="mt-8 flex justify-center space-x-4">
-            <Button onClick={handleRetry} className="flex items-center gap-2">
-              <IoMdRefresh className="h-4 w-4" />
-              Try Again
-            </Button>
-            <Button variant="outline" onClick={handleReturnToCart}>
-              Return to Cart
-            </Button>
-          </div>
+        <div className="flex justify-center space-x-4 mt-8">
+          <Button onClick={() => router.push("/shopping_cart/checkout")}>
+            <IoMdRefresh className="h-4 w-4 mr-2" />
+            Try Again
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => router.push("/shopping_cart")}
+          >
+            Return to Cart
+          </Button>
+        </div>
 
-          <div className="mt-8 text-center text-sm ">
-            <p>Need assistance? Contact our customer service at</p>
-            <p className="font-medium mt-1">
-              support@yourstore.com or 1-800-123-4567
-            </p>
-          </div>
+        <div className="text-center text-sm mt-8">
+          <p>Need assistance? Contact our customer service at</p>
+          <p className="font-medium mt-1">
+            support@yourstore.com or 1-800-123-4567
+          </p>
         </div>
       </div>
     </div>
