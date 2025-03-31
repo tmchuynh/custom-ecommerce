@@ -144,7 +144,7 @@ const LoyaltyProgram = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon size={20} />
+                      <section.icon className="h-6 w-6" />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>

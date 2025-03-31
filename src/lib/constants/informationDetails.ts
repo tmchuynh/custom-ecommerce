@@ -58,7 +58,7 @@ import {
 } from "react-icons/fa6";
 import { FiHelpCircle } from "react-icons/fi";
 import { GoAlertFill, GoAlert } from "react-icons/go";
-import { MdManageHistory } from "react-icons/md";
+import { MdCurrencyExchange, MdManageHistory } from "react-icons/md";
 import { PiPantsFill } from "react-icons/pi";
 import { RiFootprintFill } from "react-icons/ri";
 import { TbRulerMeasure2 } from "react-icons/tb";
@@ -349,7 +349,7 @@ export const terms_and_conditions_sections: InformationDetails[] = [
   {
     id: "returns",
     title: "Returns and Exchanges",
-    icon: IoMdRefresh,
+    icon: MdCurrencyExchange,
   },
   {
     id: "liability",

@@ -86,7 +86,7 @@ const PaymentSecurity = (): JSX.Element => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon size={20} />
+                      <section.icon className="h-6 w-6" />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -117,7 +117,7 @@ const PaymentSecurity = (): JSX.Element => {
                   className="w-full flex items-center justify-between p-6 focus:outline-none"
                 >
                   <div className="flex items-center">
-                    <section.icon size={20} />
+                    <section.icon className="h-6 w-6" />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>
