@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { IoMdTimer } from "react-icons/io";
 import { BsTruck } from "react-icons/bs";
 import { FaCheckCircle } from "react-icons/fa";
@@ -29,7 +29,7 @@ import { FaCheckCircle } from "react-icons/fa";
  * - Uses router for navigation between pages
  * - Styled with Tailwind CSS classes
  */
-const OrderConfirmation = () => {
+const OrderConfirmation = (): JSX.Element => {
   const router = useRouter();
   const [orderNumber, setOrderNumber] = useState<string>("");
   const [estimatedDelivery, setEstimatedDelivery] = useState<string>("");
@@ -112,7 +112,7 @@ const OrderConfirmation = () => {
             <Button onClick={handleContinueShopping}>Continue Shopping</Button>
             <Button
               variant="outline"
-              onClick={() => router.push("/account/orders")}
+              onClick={() => router.push("/user/orders")}
             >
               View Order Status
             </Button>
