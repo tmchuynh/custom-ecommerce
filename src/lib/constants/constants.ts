@@ -1,7 +1,6 @@
 import {
   Fa500Px,
   FaFile,
-  FaFingerprint,
   FaGift,
   FaGifts,
   FaGlobeAfrica,
@@ -11,17 +10,17 @@ import {
 import { FaBagShopping, FaShield } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdHelp } from "react-icons/io";
-import { MdAssignmentReturn, MdCurrencyExchange } from "react-icons/md";
+import { LuPackageCheck } from "react-icons/lu";
+import { MdCurrencyExchange } from "react-icons/md";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { InformationDetails } from "../interfaces";
-import { LuPackageCheck } from "react-icons/lu";
 
 export const about: InformationDetails[] = [
   {
     id: "customer_service",
     title: "Customer Service",
     description:
-      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
+      "Need help with your order or have questions? Our customer service team is here to assist you with returns, inquiries, and any concerns you may have.",
     href: "/customer_service",
     icon: HiCursorClick,
   },
@@ -29,7 +28,7 @@ export const about: InformationDetails[] = [
     id: "frequently_asked_questions",
     title: "Frequently Asked Questions",
     description:
-      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
+      "Find answers to common questions about our products, shipping, returns, and more. Get quick solutions to your most pressing queries.",
     href: "/info/frequently_asked_questions",
     icon: IoMdHelp,
   },
@@ -37,7 +36,7 @@ export const about: InformationDetails[] = [
     id: "loyalty_program",
     title: "Loyalty Program",
     description:
-      "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
+      "Join our loyalty program and start earning rewards, discounts, and exclusive offers every time you shop with us.",
     href: "/loyalty_program",
     icon: FaGift,
   },
@@ -45,7 +44,7 @@ export const about: InformationDetails[] = [
     id: "gift_cards",
     title: "Gift Cards",
     description:
-      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
+      "Give the gift of choice with our gift cards. Perfect for any occasion, they can be used to shop for a wide range of products from our store.",
     href: "/info/gift_cards",
     icon: FaGifts,
   },
@@ -53,7 +52,7 @@ export const about: InformationDetails[] = [
     id: "track_order",
     title: "Track Order",
     description:
-      "Easily track your order status and delivery details in real-time.",
+      "Stay updated on your order's status. Track its progress, shipping details, and expected delivery time in real-time.",
     href: "/customer_service/track_order",
     icon: LuPackageCheck,
   },
@@ -61,23 +60,23 @@ export const about: InformationDetails[] = [
     id: "international_orders",
     title: "International Orders",
     description:
-      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+      "Explore our seamless international shopping experience, including shipping, customs, and hassle-free returns and exchanges.",
     href: "/info/international_orders",
     icon: FaGlobeAfrica,
   },
   {
     id: "product_recommendations",
-    title: "Product Reccomendations",
+    title: "Product Recommendations",
     description:
-      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
-    href: "/info/international_orders",
+      "Discover personalized product recommendations based on your preferences and browsing history to help you find exactly what you’re looking for.",
+    href: "/info/product_recommendations",
     icon: FaBagShopping,
   },
   {
     id: "size_guides",
     title: "Size Guides",
     description:
-      "Ensure the perfect fit with our detailed size guides for clothes and shoes.",
+      "Ensure the perfect fit with our detailed size guides for apparel, shoes, and accessories. Find the right size with ease.",
     href: "/size_guides",
     icon: TbRulerMeasure2,
   },
@@ -85,7 +84,7 @@ export const about: InformationDetails[] = [
     id: "customer_reviews",
     title: "Customer Reviews",
     description:
-      "See what other customers have to say about our products and services.",
+      "Read reviews from other customers to help you make informed decisions about our products and services. Get insights from real experiences.",
     href: "/info/about/customer_reviews",
     icon: FaStar,
   },
@@ -96,7 +95,7 @@ export const policiesMenu: InformationDetails[] = [
     id: "privacy_policy",
     title: "Privacy Policy",
     description:
-      "Read how we handle and protect your personal data with complete privacy.",
+      "Learn how we collect, use, and protect your personal data. We are committed to safeguarding your privacy and ensuring the security of your information.",
     href: "/policies/privacy_policy",
     icon: FaShield,
   },
@@ -104,7 +103,7 @@ export const policiesMenu: InformationDetails[] = [
     id: "return_policy",
     title: "Return Policy",
     description:
-      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+      "Discover our hassle-free return and exchange process, designed to give you peace of mind with every purchase. Understand the conditions for returning items.",
     href: "/policies/return_policy",
     icon: MdCurrencyExchange,
   },
@@ -112,7 +111,7 @@ export const policiesMenu: InformationDetails[] = [
     id: "international_return_policy",
     title: "International Return Policy",
     description:
-      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+      "Learn about our return and exchange procedures for international orders. We make it easy to shop globally with clear guidelines for international returns.",
     href: "/policies/return_policy/international_return_policy",
     icon: FaGlobeEurope,
   },
@@ -120,7 +119,7 @@ export const policiesMenu: InformationDetails[] = [
     id: "terms_and_conditions",
     title: "Terms & Conditions",
     description:
-      "Understand the rules and regulations of using our website and purchasing from us.",
+      "Review the terms and conditions that govern your use of our website and services, as well as the policies surrounding purchases and transactions.",
     href: "/policies/terms_and_conditions",
     icon: FaFile,
   },
