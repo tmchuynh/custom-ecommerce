@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { navigations } from "@/lib/constants/navigation";
 import { FaArrowRight } from "react-icons/fa";
+import DynamicButton from "../ui/button-dynamic";
 
 /**
  * Categories component displays a grid of product categories with visual cards.
@@ -39,8 +40,6 @@ export default function Categories() {
               href={`/shopping/${category.name.toLowerCase()}`}
               className="group relative flex flex-col rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-80"
             >
-              {/* Using a placeholder image - replace with actual category image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-indigo-800/30 opacity-70 z-10 transition-opacity group-hover:opacity-80"></div>
               <Image
                 src={
                   category.collections[0]?.imageSrc ||
@@ -49,7 +48,7 @@ export default function Categories() {
                 alt={category.name}
                 width={600}
                 height={400}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className="absolute inset-1.5 object-center w-full object-cover h-full opacity-75"
               />
 
               <div className="relative flex flex-col justify-end h-full p-6 z-20">
@@ -59,14 +58,11 @@ export default function Categories() {
                     category.collections.length
                   } different styles.`}
                 </p>
-                <div className="flex items-center mt-auto">
-                  <span className="text-sm font-medium">Shop Collection</span>
-                  <FaArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />
-                </div>
-              </div>
 
-              <div className="absolute top-4 right-4 rounded-full px-3 py-1 text-xs font-medium  z-20">
-                {category.collections.length} Collections
+                <DynamicButton
+                  text="Shop Now"
+                  className="w-fit p-0 text-background my-2"
+                />
               </div>
             </Link>
           ))}
