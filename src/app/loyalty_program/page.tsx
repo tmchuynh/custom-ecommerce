@@ -93,7 +93,7 @@ const LoyaltyProgram = () => {
           </p>
           <div className="mt-4 text-blue-700 py-2 px-4 rounded-full inline-flex items-center">
             <FaRegCreditCard className="h-5 w-5 mr-2" />
-            <span className="font-medium">Your Current Points: {points}</span>
+            <strong>Your Current Points: {points}</strong>
           </div>
         </div>
 
@@ -203,7 +203,7 @@ const LoyaltyProgram = () => {
                     enhance your shopping experience and make every purchase
                     even more rewarding.
                   </p>
-                  <p className="">
+                  <p>
                     Our program is designed to provide you with valuable
                     opportunities to earn points with every purchase you make.
                     These points can be redeemed for a variety of rewards,
@@ -288,7 +288,7 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                   </div>
-                  <p className="">
+                  <p>
                     Simply create an account, and you'll start earning points
                     automatically with every purchase you make. Your points
                     balance will be updated in real time and is always visible
@@ -432,7 +432,7 @@ const LoyaltyProgram = () => {
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Standard Purchases</h3>
-                      <p className="">
+                      <p>
                         Earn <strong>1 point</strong> for every{" "}
                         <strong>$1</strong> spent on regular-priced items. The
                         more you shop, the more points you earn! These points
@@ -442,7 +442,7 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Bonus Point Events</h3>
-                      <p className="">
+                      <p>
                         Throughout the year, we host special events where you
                         can earn <strong>double</strong> or even{" "}
                         <strong>triple points</strong> on your purchases. Be
@@ -453,7 +453,7 @@ const LoyaltyProgram = () => {
                     </div>
                     <div className="p-4 rounded-lg">
                       <h3 className="font-medium mb-2">Referrals</h3>
-                      <p className="">
+                      <p>
                         Earn <strong>500 points</strong> for each friend you
                         refer who makes their first purchase. The more friends
                         you refer, the more points you collect. It’s a win-win –
@@ -465,7 +465,7 @@ const LoyaltyProgram = () => {
                       <h3 className="font-medium mb-2">
                         Social Media Engagement
                       </h3>
-                      <p className="">
+                      <p>
                         Earn <strong>100 points</strong> when you follow us on
                         social media platforms like Instagram, Facebook, or
                         Twitter. Plus, tag us in your posts featuring our
@@ -581,7 +581,7 @@ const LoyaltyProgram = () => {
                       </tbody>
                     </table>
                   </div>
-                  <p className="">
+                  <p>
                     To redeem your points, simply select the reward you'd like
                     to use during checkout. When you add items to your cart,
                     your available points and eligible rewards will be
@@ -684,7 +684,7 @@ const LoyaltyProgram = () => {
                       </ul>
                     </div>
                   </div>
-                  <p className="">
+                  <p>
                     Your tier is evaluated annually based on your spending
                     during the previous 12 months. Once you achieve a tier,
                     you’ll maintain that status for the remainder of the current
@@ -760,7 +760,7 @@ const LoyaltyProgram = () => {
                         </button>
                         {expandedFaqs[index] && (
                           <div className="p-4 pt-0">
-                            <p className="">{faq.answer}</p>
+                            <p>{faq.answer}</p>
                           </div>
                         )}
                       </div>

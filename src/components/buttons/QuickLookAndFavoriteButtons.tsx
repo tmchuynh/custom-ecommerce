@@ -137,9 +137,9 @@ const QuickLookAndFavoriteButtons = ({
           <FaEye className="h-5 w-5 text-gray-600" />
         </AlertDialogTrigger>
         <AlertDialogContent className="border-4 min-w-11/12">
-          <AlertDialogFooter className="">
-            <AlertDialogCancel className="">Cancel</AlertDialogCancel>
-            <AlertDialogAction className="">Continue</AlertDialogAction>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction>Continue</AlertDialogAction>
           </AlertDialogFooter>
           <AlertDialogTitle />
           <div className="mx-auto">

@@ -395,39 +395,36 @@ const ReturnPolicy = () => {
                         </p>
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
-                            <span className="font-medium">Refunds:</span>{" "}
-                            Refunds will be issued to the original payment
-                            method used at the time of purchase. Once we process
-                            your return, please allow 5-7 business days for the
-                            refund to reflect in your account. The exact timing
-                            depends on your payment provider and bank processing
-                            times. You will receive a notification once your
-                            refund has been completed.
+                            <strong>Refunds:</strong> Refunds will be issued to
+                            the original payment method used at the time of
+                            purchase. Once we process your return, please allow
+                            5-7 business days for the refund to reflect in your
+                            account. The exact timing depends on your payment
+                            provider and bank processing times. You will receive
+                            a notification once your refund has been completed.
                           </li>
                           <li>
-                            <span className="font-medium">Exchanges:</span> If
-                            you requested an exchange, we will ship the new
-                            item(s) to you once we receive the returned
-                            product(s) and verify the condition of the return.
-                            You will not be charged additional shipping fees for
-                            exchanges, except in cases where there are price
-                            differences between the exchanged items. If the
-                            exchanged item costs more, you will be notified of
-                            the difference, which will be charged. If the new
-                            item is of lesser value, we will process a refund
-                            for the difference.
+                            <strong>Exchanges:</strong> If you requested an
+                            exchange, we will ship the new item(s) to you once
+                            we receive the returned product(s) and verify the
+                            condition of the return. You will not be charged
+                            additional shipping fees for exchanges, except in
+                            cases where there are price differences between the
+                            exchanged items. If the exchanged item costs more,
+                            you will be notified of the difference, which will
+                            be charged. If the new item is of lesser value, we
+                            will process a refund for the difference.
                           </li>
                           <li>
-                            <span className="font-medium">Store Credit:</span>{" "}
-                            If you prefer store credit instead of a refund, you
-                            can choose to receive an e-gift card. The e-gift
-                            card will be sent to your email after your return
-                            has been processed. This option allows you to shop
-                            for new items at your convenience, and the card will
-                            remain valid until fully used. Please ensure that
-                            your email address is correct when opting for store
-                            credit to ensure timely delivery of your e-gift
-                            card.
+                            <strong>Store Credit:</strong> If you prefer store
+                            credit instead of a refund, you can choose to
+                            receive an e-gift card. The e-gift card will be sent
+                            to your email after your return has been processed.
+                            This option allows you to shop for new items at your
+                            convenience, and the card will remain valid until
+                            fully used. Please ensure that your email address is
+                            correct when opting for store credit to ensure
+                            timely delivery of your e-gift card.
                           </li>
                         </ul>
                       </>
@@ -446,7 +443,7 @@ const ReturnPolicy = () => {
                           retain the tracking number and proof of shipment in
                           case any issues arise with the return process.
                         </p>
-                        <p className="">
+                        <p>
                           If the return is due to our error, such as receiving
                           the wrong item or a damaged product, we will cover the
                           return shipping cost. In these cases, we will provide
@@ -468,7 +465,7 @@ const ReturnPolicy = () => {
                           this can be and will work to resolve the issue as
                           quickly as possible to ensure your satisfaction.
                         </p>
-                        <p className="">
+                        <p>
                           To help us process your claim faster and accurately,
                           please include clear photos of the damaged item as
                           well as the packaging. These images will assist us in
@@ -545,7 +542,7 @@ const ReturnPolicy = () => {
                                 real-time, you can reach us using the live chat
                                 feature on our website.
                               </p>
-                              <Button className="">Start Live Chat</Button>
+                              <Button>Start Live Chat</Button>
                               <p className="text-sm mt-1">
                                 Live chat is available during business hours
                                 only.

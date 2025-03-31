@@ -126,7 +126,7 @@ export default function NavMenu() {
       </div>
 
       <nav>
-        <div className="">
+        <div>
           <div className="bg-background text-foreground z-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="flex h-16 items-center justify-between">

@@ -123,7 +123,7 @@ const PrivacyPolicy = (): JSX.Element => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
+                  <FaBookOpen className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -144,7 +144,7 @@ const PrivacyPolicy = (): JSX.Element => {
               </button>
               {activeSection === "introduction" && (
                 <div className="p-6 border-t">
-                  <p className="">
+                  <p>
                     At [Your Company Name], we value the privacy of our
                     customers and are fully committed to safeguarding any
                     personal information you provide to us. We understand the
@@ -165,7 +165,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-collect"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-collect")}
@@ -293,7 +293,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-usage"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-usage")}
@@ -397,7 +397,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-sharing"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-sharing")}
@@ -437,37 +437,34 @@ const PrivacyPolicy = (): JSX.Element => {
                   </p>
                   <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
-                      <span className="font-medium">
-                        Third-party service providers:
-                      </span>{" "}
-                      We may share your information with trusted third-party
-                      service providers who perform functions on our behalf,
-                      such as processing payments, fulfilling orders, providing
-                      customer support, marketing, or conducting analytics.
-                      These third-party providers are contractually obligated to
+                      <strong>Third-party service providers:</strong> We may
+                      share your information with trusted third-party service
+                      providers who perform functions on our behalf, such as
+                      processing payments, fulfilling orders, providing customer
+                      support, marketing, or conducting analytics. These
+                      third-party providers are contractually obligated to
                       safeguard your data and use it solely for the purpose of
                       performing their designated services for us. We carefully
                       select our partners and ensure they meet strict security
                       and privacy standards.
                     </li>
                     <li>
-                      <span className="font-medium">Legal requirements:</span>{" "}
-                      We may disclose your personal information if required by
-                      law, such as in response to a subpoena, court order, or
-                      government request. We may also disclose information to
-                      comply with applicable regulations, protect our legal
-                      rights, or investigate potential illegal activities or
-                      security breaches.
+                      <strong>Legal requirements:</strong> We may disclose your
+                      personal information if required by law, such as in
+                      response to a subpoena, court order, or government
+                      request. We may also disclose information to comply with
+                      applicable regulations, protect our legal rights, or
+                      investigate potential illegal activities or security
+                      breaches.
                     </li>
                     <li>
-                      <span className="font-medium">Business transfers:</span>{" "}
-                      In the event of a merger, acquisition, or sale of assets,
-                      your information may be transferred to the acquiring
-                      company or entity. If this happens, we will ensure that
-                      your data remains protected under the same level of
-                      privacy and security as described in this policy. You will
-                      be notified if there are any changes to the way your
-                      information is handled.
+                      <strong>Business transfers:</strong> In the event of a
+                      merger, acquisition, or sale of assets, your information
+                      may be transferred to the acquiring company or entity. If
+                      this happens, we will ensure that your data remains
+                      protected under the same level of privacy and security as
+                      described in this policy. You will be notified if there
+                      are any changes to the way your information is handled.
                     </li>
                   </ul>
                 </div>
@@ -479,7 +476,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["data-protection"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("data-protection")}
@@ -568,7 +565,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["your-rights"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("your-rights")}
@@ -606,48 +603,47 @@ const PrivacyPolicy = (): JSX.Element => {
                   </p>
                   <ul className="list-disc list-outside mx-5 space-y-2">
                     <li>
-                      <span className="font-medium">Access:</span> You have the
-                      right to request a copy of the personal information we
-                      hold about you. If you wish to review, update, or correct
-                      any of the data we have on file, you can contact us to
-                      obtain a copy of this information. We may require proof of
-                      identity before fulfilling such requests to protect your
-                      privacy.
+                      <strong>Access:</strong> You have the right to request a
+                      copy of the personal information we hold about you. If you
+                      wish to review, update, or correct any of the data we have
+                      on file, you can contact us to obtain a copy of this
+                      information. We may require proof of identity before
+                      fulfilling such requests to protect your privacy.
                     </li>
                     <li>
-                      <span className="font-medium">Correction:</span> If you
-                      believe that any of the information we hold about you is
-                      inaccurate or incomplete, you have the right to request
-                      corrections. This ensures that the personal data we
-                      maintain is accurate and up-to-date. You can contact us to
-                      make any necessary adjustments to your information.
+                      <strong>Correction:</strong> If you believe that any of
+                      the information we hold about you is inaccurate or
+                      incomplete, you have the right to request corrections.
+                      This ensures that the personal data we maintain is
+                      accurate and up-to-date. You can contact us to make any
+                      necessary adjustments to your information.
                     </li>
                     <li>
-                      <span className="font-medium">Deletion:</span> You have
-                      the right to request the deletion of your personal
-                      information under certain circumstances. For example, you
-                      may request deletion if your data is no longer necessary
-                      for the purposes for which it was collected, or if you
-                      withdraw your consent. However, please note that there may
-                      be legal obligations that require us to retain some of
-                      your data even after deletion requests.
+                      <strong>Deletion:</strong> You have the right to request
+                      the deletion of your personal information under certain
+                      circumstances. For example, you may request deletion if
+                      your data is no longer necessary for the purposes for
+                      which it was collected, or if you withdraw your consent.
+                      However, please note that there may be legal obligations
+                      that require us to retain some of your data even after
+                      deletion requests.
                     </li>
                     <li>
-                      <span className="font-medium">Opt-out of marketing:</span>{" "}
-                      If you no longer wish to receive promotional emails,
-                      newsletters, or other marketing communications, you can
-                      opt-out at any time by unsubscribing through the provided
-                      link in our emails or by contacting us directly. You will
-                      also be able to opt-out of personalized ads or other
-                      targeted marketing efforts.
+                      <strong>Opt-out of marketing:</strong> If you no longer
+                      wish to receive promotional emails, newsletters, or other
+                      marketing communications, you can opt-out at any time by
+                      unsubscribing through the provided link in our emails or
+                      by contacting us directly. You will also be able to
+                      opt-out of personalized ads or other targeted marketing
+                      efforts.
                     </li>
                     <li>
-                      <span className="font-medium">Data portability:</span> You
-                      may request that we transfer your personal data to another
-                      service provider in a structured, commonly used, and
-                      machine-readable format. This allows you to move, copy, or
-                      transfer your data easily between different services while
-                      maintaining control over your personal information.
+                      <strong>Data portability:</strong> You may request that we
+                      transfer your personal data to another service provider in
+                      a structured, commonly used, and machine-readable format.
+                      This allows you to move, copy, or transfer your data
+                      easily between different services while maintaining
+                      control over your personal information.
                     </li>
                   </ul>
                 </div>
@@ -659,7 +655,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["changes"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("changes")}
@@ -689,7 +685,7 @@ const PrivacyPolicy = (): JSX.Element => {
               </button>
               {activeSection === "changes" && (
                 <div className="p-6 border-t">
-                  <p className="">
+                  <p>
                     We reserve the right to update, modify, or revise this
                     privacy policy at any time to reflect changes in our
                     practices, comply with legal requirements, or improve our
@@ -710,7 +706,7 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["contact"] = el;
               }}
-              className="rounded-xl border-2 shadow-md overflow-hidden"
+              className="rounded-xl border shadow-md overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("contact")}
@@ -794,7 +790,7 @@ const PrivacyPolicy = (): JSX.Element => {
                           real-time, you can reach us using the live chat
                           feature on our website.
                         </p>
-                        <Button className="">Start Live Chat</Button>
+                        <Button>Start Live Chat</Button>
                         <p className="text-sm mt-1">
                           Live chat is available during business hours only.
                         </p>

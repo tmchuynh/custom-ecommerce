@@ -287,7 +287,7 @@ const PaymentSecurity = (): JSX.Element => {
                                 real-time, you can reach us using the live chat
                                 feature on our website.
                               </p>
-                              <Button className="">Start Live Chat</Button>
+                              <Button>Start Live Chat</Button>
                               <p className="text-sm mt-1">
                                 Live chat is available during business hours
                                 only.

@@ -72,7 +72,7 @@ export default function CategoryList({
           </li>
         )}
         {section.items.map((item) => (
-          <li key={item.name} className="">
+          <li key={item.name}>
             <a
               href={`/shopping/${category.id}/${formatURL(
                 section.name
