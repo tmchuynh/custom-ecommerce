@@ -570,58 +570,98 @@ const CustomerService = () => {
                   </p>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="p-4 rounded-lg flex">
+                    <div className="p-4 rounded-lg group flex">
                       <FaGift className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium mb-2">Gift Cards</h3>
-                        <p className="text-sm">
-                          Purchase a gift card for friends or family, and let
-                          them shop for their favorite products on our site.
-                        </p>
-                        <a
-                          href="/gift-cards"
-                          className="text-sm mt-2 inline-block hover:underline"
+                        <a href="/info/gift_cards">
+                          <h3 className="font-medium mb-2 group-hover:underline underline-offset-4">
+                            Gift Cards
+                          </h3>
+                          <p className="text-sm">
+                            Purchase a gift card for friends or family, and let
+                            them shop for their favorite products on our site.
+                          </p>
+                        </a>
+                        <Button
+                          variant={"link"}
+                          onClick={() => router.push("/info/gift-cards")}
+                          className="px-0"
                         >
                           Learn more
-                        </a>
+                        </Button>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-lg flex">
+                    <div className="p-4 rounded-lg group flex">
                       <FaTag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium mb-2">Track Your Order</h3>
-                        <p className="text-sm">
-                          Use our order tracking tool to check the status of
-                          your shipment and get real-time updates.
-                        </p>
+                        <a href="/customer_service/track_order">
+                          <h3 className="font-medium mb-2 group-hover:underline underline-offset-4">
+                            Track Your Order
+                          </h3>
+                          <p className="text-sm">
+                            Use our order tracking tool to check the status of
+                            your shipment and get real-time updates.
+                          </p>
+                        </a>
+                        <Button
+                          variant={"link"}
+                          onClick={() =>
+                            router.push("/customer_service/track_order")
+                          }
+                          className="px-0"
+                        >
+                          Learn more
+                        </Button>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-lg flex">
+                    <div className="p-4 rounded-lg group flex">
                       <FaShoppingBag className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium mb-2">
-                          Product Recommendations
-                        </h3>
-                        <p className="text-sm">
-                          Our team is happy to assist you in finding the perfect
-                          product for your needs.
-                        </p>
+                        <a href="/info/product_recommendations">
+                          <h3 className="font-medium mb-2 group-hover:underline underline-offset-4">
+                            Product Recommendations
+                          </h3>
+                          <p className="text-sm">
+                            Our team is happy to assist you in finding the
+                            perfect product for your needs.
+                          </p>
+                        </a>{" "}
+                        <Button
+                          variant={"link"}
+                          onClick={() =>
+                            router.push("/info/product_recommendations")
+                          }
+                          className="px-0"
+                        >
+                          Learn more
+                        </Button>
                       </div>
                     </div>
 
-                    <div className="p-4 rounded-lg flex">
+                    <div className="p-4 rounded-lg group flex">
                       <FaGlobe className="h-5 w-5 mt-1 mr-3 flex-shrink-0" />
                       <div>
-                        <h3 className="font-medium mb-2">
-                          International Orders
-                        </h3>
-                        <p className="text-sm">
-                          We offer special assistance for international
-                          customers with customs documentation and shipping
-                          concerns.
-                        </p>
+                        <a href="/info/international_orders">
+                          <h3 className="font-medium mb-2 group-hover:underline underline-offset-4">
+                            International Orders
+                          </h3>
+                          <p className="text-sm">
+                            We offer special assistance for international
+                            customers with customs documentation and shipping
+                            concerns.
+                          </p>
+                        </a>
+                        <Button
+                          variant={"link"}
+                          onClick={() =>
+                            router.push("/info/international_orders")
+                          }
+                          className="px-0"
+                        >
+                          Learn more
+                        </Button>
                       </div>
                     </div>
                   </div>
