@@ -52,10 +52,10 @@ export default function NavTopMenu() {
         </form>
 
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-sm font-medium">
+          <a href="/login" className="text-sm font-medium">
             Sign in
           </a>
-          <a href="#" className="text-sm font-medium">
+          <a href="/registration" className="text-sm font-medium">
             Create an account
           </a>
           <div className="hidden md:block">

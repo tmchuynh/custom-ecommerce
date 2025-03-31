@@ -129,8 +129,8 @@ export interface ShippingAddress {
   isDefault?: boolean;
   label?: string;
   shippingMethod: "standard" | "express" | "overnight";
-  saveAddress: boolean;
   deliveryInstructions?: string;
+  saveAddress: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -169,24 +169,20 @@ export interface AuthUser {
   lastName?: string;
   phone?: string;
   addresses?: ShippingAddress[];
-  defaultShippingAddress?: string;
   token: string;
-}
-
-export interface ShippingAddress {
-  id?: string;
-  addressLine1: string;
-  addressLine2?: string;
-  city: string;
-  state: string;
-  postalCode: string;
-  country: string;
-  addressType: "residential" | "business";
-  isDefault?: boolean;
-  label?: string; // e.g., "Home", "Office", "Mom's house"
-  deliveryInstructions?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+  loyaltyProgram?: {
+    isEnrolled: boolean;
+    points: number;
+    tier: string;
+    nextTier: string;
+    pointsToNextTier: number;
+  };
+  orders?: Array<{
+    id: string;
+    status: string;
+    date: string;
+    total: number;
+  }>;
 }
 
 export interface ShippingRate {

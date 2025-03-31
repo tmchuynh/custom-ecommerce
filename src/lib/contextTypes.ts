@@ -217,6 +217,8 @@ export interface CustomerContextType {
 
 export interface AuthContextType {
   user: AuthUser | null;
+  setUser: React.Dispatch<React.SetStateAction<AuthUser | null>>;
+  isAuthenticated: boolean;
   isLoading: boolean;
   error: string | null;
   signUp: (credentials: SignUpCredentials) => Promise<void>;

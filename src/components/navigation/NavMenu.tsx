@@ -250,7 +250,7 @@ export default function NavMenu() {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-4">
                               {about.map((item) => (
                                 <a
-                                  key={item.name}
+                                  key={item.title}
                                   href={item.href}
                                   className="flex text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center hover:bg-muted"
                                   onClick={closeAllPopovers}
@@ -261,7 +261,7 @@ export default function NavMenu() {
                                   />
                                   <div className="gap-y-3 flex flex-col">
                                     <p className="flex gap-x-4 group-hover:underline underline-offset-4">
-                                      {item.name}
+                                      {item.title}
                                     </p>
                                     <p>{item.description}</p>
                                   </div>

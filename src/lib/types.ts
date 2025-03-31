@@ -53,7 +53,8 @@ export type SignUpCredentials = {
 };
 
 export type LoginCredentials = {
-  identifier: string; // can be email or username
+  email: string;
+  identifier: string;
   password?: string;
   loginCode?: string;
 };
