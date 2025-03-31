@@ -3,9 +3,11 @@ import Categories from "@/components/category/Categories";
 import TrendingProducts from "@/components/category/product/TrendingProducts";
 import ShopByCollection from "@/components/category/ShopByCollection";
 import Policies from "@/components/Policies";
+import DynamicButton from "@/components/ui/button-dynamic";
 import { offers, testimonials } from "@/lib/constants/constants";
 import Image from "next/image";
 import { useState } from "react";
+import { FaShoppingCart } from "react-icons/fa";
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,20 +36,17 @@ export default function HomePage() {
       </nav>
 
       {/* Hero section */}
-      <div className="relative">
+      <div className="flex min-h-full relative overflow-hidden justify-center">
         {/* Decorative image and overlay */}
-        <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <Image
-            alt=""
-            width={1920}
-            height={1080}
-            src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-01-hero-full-width.jpg"
-            objectFit="cover"
-          />
-        </div>
-        <div aria-hidden="true" className="absolute inset-0 opacity-50" />
+        <Image
+          alt=""
+          width={1920}
+          height={1080}
+          src="https://tailwindcss.com/plus-assets/img/ecommerce-images/home-page-01-hero-full-width.jpg"
+          className="absolute inset-1.5 object-bottom w-full object-cover opacity-55"
+        />
 
-        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 py-32 text-center sm:py-64 lg:px-0">
+        <div className="relative mx-auto max-w-3xl flex-col z-10 p-9 mb-35 mt-20 bg-muted/60 rounded-2xl items-center px-6 text-center lg:px-0 lg:py-15">
           <h1 className="text-4xl font-extrabold text-center mb-8">
             New arrivals are here
           </h1>
@@ -56,12 +55,12 @@ export default function HomePage() {
             options from our summer small-batch release while they're still in
             stock.
           </p>
-          <a
-            href="#"
-            className="mt-8 inline-block rounded-md border border-transparent px-8 py-3 text-base font-medium"
-          >
-            Shop New Arrivals
-          </a>
+          <DynamicButton
+            variant="outline"
+            text="Shop New Arrivals"
+            icon={FaShoppingCart}
+            iconClassName="group-hover:translate-x-15"
+          />
         </div>
       </div>
 
