@@ -457,7 +457,7 @@ const TermsAndConditions = () => {
                       <p>
                         Your use of our Site is also governed by our{" "}
                         <a
-                          href="/policies/privacy-policy"
+                          href="/policies/privacy_policy"
                           className="text-blue-600 hover:underline"
                         >
                           Privacy Policy
