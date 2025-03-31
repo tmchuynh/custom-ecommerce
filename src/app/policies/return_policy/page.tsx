@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import { return_policy_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { FaMailBulk } from "react-icons/fa";
 import { FaBookOpen, FaMessage, FaPhone } from "react-icons/fa6";
 
@@ -53,6 +53,7 @@ import { FaBookOpen, FaMessage, FaPhone } from "react-icons/fa6";
 const ReturnPolicy = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const router = useRouter();
 
   const toggleSection = (sectionId: string) => {
     toggleAccordionSection(

@@ -4,9 +4,9 @@ import { useRef, useState } from "react";
 
 import { terms_and_conditions_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import router from "next/router";
 import { FaBookOpen, FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
+import { useRouter } from "next/navigation";
 
 /**
  * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.
@@ -38,6 +38,7 @@ import { FaMessage } from "react-icons/fa6";
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const router = useRouter();
 
   const toggleSection = (sectionId: string) => {
     toggleAccordionSection(
@@ -185,81 +186,42 @@ const TermsAndConditions = () => {
                         <p className="mb-4">
                           You may use our Site only for lawful purposes and in a
                           manner consistent with these Terms and Conditions. By
-                          accessing or using our Site, you agree to abide by all
-                          applicable laws and regulations. Your use of the Site
-                          should not interfere with the rights of others or the
-                          operation of the Site itself.
+                          accessing or using our Site, you agree to comply with
+                          all applicable laws, regulations, and guidelines. Your
+                          use of the Site should not interfere with the rights
+                          of others or disrupt the operation or security of the
+                          Site itself.
                         </p>
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             You agree not to engage in any fraudulent, unlawful,
                             or harmful activities, including but not limited to
                             identity theft, scams, or any actions intended to
-                            deceive others or disrupt the Site's operations.
+                            deceive others or disrupt the operation of the Site.
+                            This includes attempting to bypass security measures
+                            or unauthorized access to our system.
                           </li>
                           <li>
                             You agree not to violate any applicable local,
-                            state, national, or international laws or
-                            regulations while using the Site. This includes, but
-                            is not limited to, copyright laws, data protection
-                            laws, and any other legal frameworks relevant to
-                            your activities.
+                            state, national, or international laws while using
+                            the Site. This includes but is not limited to
+                            respecting copyright laws, data protection laws, and
+                            any other relevant legal frameworks.
                           </li>
                           <li>
                             You agree not to interfere with the proper
                             functioning of the Site or its security features.
-                            This includes attempting to bypass security
-                            measures, upload harmful malware, or perform actions
-                            that could negatively affect the performance or
-                            availability of the Site.
+                            This includes actions such as uploading malware,
+                            attempting to bypass security measures, or engaging
+                            in any activity that could negatively impact the
+                            Site’s performance or availability.
                           </li>
                           <li>
                             You agree not to upload, post, or transmit any
-                            content that is offensive, harmful, discriminatory,
-                            or that infringes upon the rights of others,
-                            including intellectual property rights, privacy
-                            rights, or any other rights. This also includes
-                            content that may be obscene, defamatory, or
-                            harassing in nature.
-                          </li>
-                        </ul>
-                      </>
-                    )}
-
-                    {section.id === "account" && (
-                      <>
-                        <p className="mb-4">
-                          To make a purchase on our Site, you may need to create
-                          an account. When registering for an account, you agree
-                          to provide accurate, complete, and up-to-date
-                          information. You are responsible for ensuring the
-                          confidentiality of your login credentials, such as
-                          your username and password. This means you are fully
-                          responsible for all activities that occur under your
-                          account, whether or not you have authorized them. We
-                          strongly recommend that you use a strong, unique
-                          password and do not share your account details with
-                          anyone.
-                        </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
-                          <li>
-                            If you suspect that your account has been
-                            compromised or if there are any unauthorized
-                            activities under your account, you must notify us
-                            immediately. Prompt action will help prevent further
-                            unauthorized access and protect your personal
-                            information.
-                          </li>
-                          <li>
-                            We reserve the right to suspend or terminate your
-                            account if we suspect any unauthorized activity,
-                            fraud, or violation of these Terms and Conditions.
-                            This includes activities that may harm our Site,
-                            disrupt the services we provide, or violate any
-                            applicable laws or regulations. If your account is
-                            suspended or terminated, you will be notified and
-                            provided with the necessary steps to resolve the
-                            issue, if applicable.
+                            content that is harmful, discriminatory, offensive,
+                            or infringes upon others’ rights. This includes
+                            content that is obscene, defamatory, harassing, or
+                            violates privacy or intellectual property rights.
                           </li>
                         </ul>
                       </>
@@ -268,37 +230,35 @@ const TermsAndConditions = () => {
                     {section.id === "product" && (
                       <>
                         <p className="mb-4">
-                          We make every effort to ensure that product
-                          information, including descriptions, prices,
-                          availability, and images, are accurate and up-to-date.
-                          However, due to the dynamic nature of our inventory
-                          and external factors, we cannot guarantee the
-                          accuracy, completeness, or reliability of such
-                          information. In some cases, discrepancies may occur
-                          due to typographical errors, pricing updates, or
-                          changes in product availability. All prices are
-                          subject to change without notice, and we reserve the
-                          right to update or adjust prices at any time without
-                          prior notice.
+                          We strive to ensure that product information,
+                          including descriptions, prices, availability, and
+                          images, are accurate and up-to-date. However, due to
+                          the dynamic nature of our inventory and external
+                          factors, we cannot guarantee the absolute accuracy or
+                          reliability of this information. Discrepancies may
+                          occur due to typographical errors, pricing updates, or
+                          changes in product availability. Prices are subject to
+                          change without notice, and we reserve the right to
+                          adjust prices at any time.
                         </p>
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             We reserve the right to modify or discontinue any
                             product or service offered on our website without
                             prior notice. This includes changes in product
-                            specifications, availability, and pricing. While we
+                            specifications, availability, or pricing. While we
                             strive to maintain a wide range of products, some
                             items may be discontinued or temporarily out of
                             stock.
                           </li>
                           <li>
                             If a product is incorrectly priced on our website,
-                            we will notify you as soon as we become aware of the
-                            error. In such cases, we will offer you the option
-                            to cancel your order or proceed with the corrected
-                            price. We aim to resolve any pricing discrepancies
-                            promptly and fairly, ensuring you have a transparent
-                            shopping experience.
+                            we will notify you as soon as we are aware of the
+                            error. We will offer you the option to either cancel
+                            your order or proceed with the corrected price. We
+                            aim to resolve any pricing discrepancies promptly
+                            and fairly, ensuring transparency in your shopping
+                            experience.
                           </li>
                         </ul>
                       </>
@@ -308,18 +268,18 @@ const TermsAndConditions = () => {
                       <>
                         <p className="mb-4">
                           Once you place an order on our Site, you will receive
-                          an order confirmation email outlining the details of
-                          your purchase. Please review the order details
-                          carefully to ensure accuracy, including the items,
-                          quantities, and shipping information. If there are any
+                          an order confirmation email detailing your purchase.
+                          Please review the order details carefully to ensure
+                          that all information is correct, including items,
+                          quantities, and shipping details. If you notice any
                           discrepancies or issues, please contact us promptly. A
                           contract between you and us will only be formed when
-                          the order is dispatched for shipping. Until that time,
-                          we reserve the right to modify or cancel the order if
+                          the order is dispatched for shipping. Until then, we
+                          reserve the right to modify or cancel the order if
                           necessary.
                         </p>
                         <p>
-                          You may track your orders through{" "}
+                          You can track your orders through{" "}
                           <a href="/customer_service/track_order">
                             Order Tracking
                           </a>
@@ -327,25 +287,24 @@ const TermsAndConditions = () => {
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             We reserve the right to reject or cancel any order
-                            for reasons such as product availability, pricing
-                            errors, or if we suspect fraudulent activity. In the
-                            event of a cancellation, we will notify you as soon
-                            as possible and provide a full explanation.
+                            due to issues such as product availability, pricing
+                            errors, or suspected fraudulent activity. If your
+                            order is canceled, we will notify you promptly and
+                            provide an explanation.
                           </li>
                           <li>
                             In some cases, we may need to request additional
                             information from you to process your order, such as
-                            proof of identity, billing address verification, or
-                            other relevant documentation. This is to ensure that
-                            the transaction is legitimate and secure.
+                            proof of identity or billing address verification.
+                            This helps ensure that the transaction is legitimate
+                            and secure.
                           </li>
                           <li>
                             If we cancel your order for any reason, you will
                             receive a full refund to your original payment
-                            method. The refund will be processed as quickly as
-                            possible, but please note that it may take a few
-                            business days for the amount to reflect in your
-                            account, depending on your bank or payment provider.
+                            method. Please note that it may take a few business
+                            days for the refund to appear in your account,
+                            depending on your bank or payment provider.
                           </li>
                         </ul>
                       </>
@@ -354,15 +313,14 @@ const TermsAndConditions = () => {
                     {section.id === "payments" && (
                       <>
                         <p className="mb-4">
-                          We accept various forms of payment, including
+                          We accept various payment methods, including
                           credit/debit cards, PayPal, and other secure payment
-                          providers to offer you flexibility and convenience
-                          during checkout. All payments will be processed
-                          securely using encryption technology to protect your
-                          personal and financial information. Please note that
-                          we do not store your sensitive payment details,
-                          ensuring that your data remains protected and
-                          confidential.
+                          providers, offering flexibility and convenience during
+                          checkout. All payments will be processed securely
+                          using encryption technology to protect your financial
+                          data. We do not store sensitive payment details,
+                          ensuring that your personal and financial information
+                          remains secure.
                         </p>
                         <p>
                           For full details on Payment Security or Privacy
@@ -381,30 +339,28 @@ const TermsAndConditions = () => {
                           >
                             Privacy Policy
                           </a>{" "}
-                          for all the necessary information.
+                          for all necessary information.
                         </p>
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
                             By providing your payment information, you authorize
                             us to charge the full amount of your order,
                             including taxes, shipping fees, and any applicable
-                            discounts. This ensures a smooth and accurate
-                            transaction process.
+                            discounts.
                           </li>
                           <li>
-                            For security purposes, we may verify your payment
+                            For security reasons, we may verify your payment
                             details before processing your order. This
-                            verification is conducted to prevent fraud and
-                            ensure the accuracy of the payment information
-                            provided.
+                            verification helps prevent fraud and ensures the
+                            accuracy of your payment information.
                           </li>
                           <li>
                             If a payment is declined for any reason, we will
-                            promptly notify you via email or on-site messaging.
-                            Your order will not be processed or shipped until a
-                            valid payment method is provided. You will be given
-                            the opportunity to update your payment details to
-                            successfully complete the transaction.
+                            notify you via email or on-site messaging. Your
+                            order will not be processed or shipped until a valid
+                            payment method is provided. You will have the
+                            opportunity to update your payment information and
+                            complete the transaction.
                           </li>
                         </ul>
                       </>
@@ -414,37 +370,35 @@ const TermsAndConditions = () => {
                       <>
                         <p className="mb-4">
                           We offer shipping within [Country/Region] and
-                          internationally to provide convenient delivery options
+                          internationally, providing convenient delivery options
                           for our customers worldwide. Shipping costs and
                           delivery times may vary depending on factors such as
-                          your location, the items purchased, and the shipping
-                          method selected during checkout. Please be aware that
-                          delivery times are estimates and may be subject to
-                          delays due to factors beyond our control.
+                          your location, items purchased, and the shipping
+                          method selected during checkout. Delivery times are
+                          estimates and may be subject to delays due to factors
+                          outside of our control.
                         </p>
                         <ul className="list-disc list-outside mx-5 space-y-2">
                           <li>
-                            We are not responsible for any delays caused by
+                            We are not responsible for delays caused by
                             third-party carriers, customs processing, or
-                            unforeseen circumstances such as weather conditions
-                            or natural disasters. While we strive to ensure
-                            timely delivery, these factors may impact the
-                            arrival time of your order.
+                            unforeseen circumstances like weather conditions or
+                            natural disasters. While we strive to ensure timely
+                            delivery, these factors may affect the arrival time
+                            of your order.
                           </li>
                           <li>
-                            Shipping charges will be added to your order during
-                            the checkout process based on your selected shipping
-                            method and delivery location. You will have the
-                            opportunity to review the shipping cost before
-                            completing your purchase.
+                            Shipping charges are calculated during checkout
+                            based on your selected shipping method and delivery
+                            location. You will be able to review the shipping
+                            cost before completing your purchase.
                           </li>
                           <li>
                             If your order is lost or damaged during shipment,
                             please contact us within 7 days of receiving your
-                            tracking information. We will assist you with filing
-                            a claim with the carrier and ensuring that you
-                            receive the appropriate resolution, which may
-                            include a replacement or refund.
+                            tracking information. We will help you file a claim
+                            with the carrier and resolve the issue by offering a
+                            replacement or refund.
                           </li>
                         </ul>
                       </>
@@ -454,22 +408,18 @@ const TermsAndConditions = () => {
                       <p>
                         If you're not completely satisfied with your purchase,
                         we accept returns and exchanges under specific
-                        conditions. We want to ensure that you are happy with
-                        your purchase, and if for any reason you’re not, we
-                        offer a straightforward process to return or exchange
-                        items. Please note that there are certain requirements,
-                        such as the condition of the items, time frame for
-                        returns, and whether the product is eligible for a
-                        return or exchange. For full details on our return and
-                        exchange policy, including any exclusions or
-                        restrictions, please refer to our{" "}
+                        conditions. We want to ensure you're happy with your
+                        purchase, so if for any reason you’re not, we offer an
+                        easy process to return or exchange items. For full
+                        details on our return and exchange policy, including any
+                        exclusions or restrictions, please refer to our{" "}
                         <a
                           href="/policies/return_policy"
                           className="text-blue-600 hover:underline"
                         >
                           Return Policy
                         </a>{" "}
-                        for all the necessary information.
+                        for more information.
                       </p>
                     )}
 
@@ -480,14 +430,11 @@ const TermsAndConditions = () => {
                         Site, products, or services, including but not limited
                         to loss of profits, data, or business opportunities,
                         even if we have been advised of the possibility of such
-                        damages. In no event will our liability exceed the
-                        amount paid by you for the specific product or service
-                        in question. This limitation of liability applies to the
-                        fullest extent permitted by law and is intended to
-                        protect our company from unforeseen or excessive
-                        financial responsibility. By using our Site, you agree
-                        to these terms and understand that your remedies are
-                        limited to the purchase price of the product or service.
+                        damages. Our liability is limited to the amount paid by
+                        you for the specific product or service in question.
+                        This limitation applies to the fullest extent permitted
+                        by law and is intended to protect us from unforeseen
+                        financial responsibility.
                       </p>
                     )}
 
@@ -498,13 +445,11 @@ const TermsAndConditions = () => {
                         exclusive property of our company or our licensors. This
                         content is protected by copyright, trademark, and other
                         intellectual property laws. You may not use, reproduce,
-                        modify, distribute, display, or transmit any of our
-                        content without obtaining our express written
-                        permission. Any unauthorized use of our content is a
-                        violation of our intellectual property rights and may
-                        result in legal action. We reserve the right to take
-                        appropriate steps to protect our intellectual property
-                        and enforce our rights.
+                        modify, distribute, or display any content from our Site
+                        without obtaining express written permission.
+                        Unauthorized use of our content is a violation of our
+                        intellectual property rights and may lead to legal
+                        action.
                       </p>
                     )}
 
@@ -518,18 +463,11 @@ const TermsAndConditions = () => {
                           Privacy Policy
                         </a>
                         , which explains how we collect, use, store, and protect
-                        your personal information. Our Privacy Policy outlines
-                        the types of data we collect, including information you
-                        provide directly and data collected through cookies and
-                        other tracking technologies. It also details how we use
-                        this information to improve your experience on our Site,
-                        personalize content, and fulfill our legal and business
-                        obligations. We take your privacy seriously and
-                        implement robust measures to safeguard your personal
-                        data from unauthorized access or misuse. Please take a
-                        moment to review our Privacy Policy to understand how we
-                        protect your information and your rights regarding its
-                        use.
+                        your personal information. Our Privacy Policy details
+                        the types of data we collect, how we use it to improve
+                        your experience, and how we safeguard your personal
+                        information. Please take a moment to review our Privacy
+                        Policy for more information on how we protect your data.
                       </p>
                     )}
 
@@ -538,15 +476,12 @@ const TermsAndConditions = () => {
                         We reserve the right to update, modify, or change these
                         Terms and Conditions at any time to reflect changes in
                         our practices, improve our services, or comply with
-                        legal, operational, or regulatory requirements. When
-                        updates or changes are made, the revised version will be
-                        posted on this page with a new "Last Updated" date to
-                        keep you informed. We encourage you to regularly review
-                        this page to stay updated on any changes. Your continued
-                        use of the Site after the updated Terms and Conditions
-                        have been posted constitutes your acceptance of those
-                        changes. If you do not agree with the revised terms, you
-                        should discontinue using the Site.
+                        legal, operational, or regulatory requirements. Updates
+                        will be posted on this page with a new "Last Updated"
+                        date. We encourage you to review this page regularly to
+                        stay informed. Continued use of the Site after changes
+                        are posted constitutes acceptance of the updated Terms
+                        and Conditions.
                       </p>
                     )}
 

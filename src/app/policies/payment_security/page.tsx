@@ -4,7 +4,7 @@ import { JSX, useRef, useState } from "react";
 
 import { payment_security_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
@@ -43,6 +43,7 @@ import { FaMessage } from "react-icons/fa6";
 const PaymentSecurity = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
+  const router = useRouter();
 
   const toggleSection = (sectionId: string) => {
     toggleAccordionSection(
