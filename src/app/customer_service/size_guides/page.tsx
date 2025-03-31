@@ -170,7 +170,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   Size
@@ -250,7 +250,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   Size
@@ -436,7 +436,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   Size
@@ -548,7 +548,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   Size
@@ -806,7 +806,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   US
@@ -939,7 +939,7 @@ const SizeGuide = () => {
                         </h3>
                         <div className="overflow-x-auto">
                           <table className="min-w-full divide-y border rounded-lg">
-                            <thead className="">
+                            <thead>
                               <tr>
                                 <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
                                   US
@@ -1234,12 +1234,12 @@ const SizeGuide = () => {
                             sizing advice.
                           </p>
                           <Link href="/customer_service">
-                            <Button className="">Get Sizing Help</Button>
+                            <Button>Get Sizing Help</Button>
                           </Link>
                         </div>
                       </div>
 
-                      <div className="">
+                      <div>
                         <Image
                           src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?q=80&w=1000&auto=format&fit=crop"
                           alt="Measurement guide"

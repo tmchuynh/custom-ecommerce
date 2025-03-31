@@ -131,7 +131,7 @@ const LocationsPage = () => {
                 </p>
                 <div className="mt-4">
                   <Link href="/customer_service">
-                    <Button className="">
+                    <Button>
                       <MdAssistantNavigation className="h-4 w-4 mr-2" /> Learn
                       About Our Services
                     </Button>
@@ -163,7 +163,7 @@ const LocationsPage = () => {
                       <FaMapPin className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Address</h3>
-                        <p className="">{location.address}</p>
+                        <p>{location.address}</p>
                         <a
                           href={`https://maps.google.com/?q=${encodeURIComponent(
                             location.address
@@ -194,7 +194,7 @@ const LocationsPage = () => {
                       <FaPhone className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
                       <div>
                         <h3 className="font-medium mb-1">Contact</h3>
-                        <p className="">
+                        <p>
                           Phone:{" "}
                           <a
                             href={`tel:${location.phone}`}
@@ -203,7 +203,7 @@ const LocationsPage = () => {
                             {location.phone}
                           </a>
                         </p>
-                        <p className="">
+                        <p>
                           Email:{" "}
                           <a
                             href={`mailto:${location.email}`}

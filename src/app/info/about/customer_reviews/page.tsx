@@ -305,9 +305,9 @@ const CustomerReviews = (): JSX.Element => {
                   Write a Review
                 </AlertDialogTrigger>
                 <AlertDialogContent className="border-4 min-w-11/12">
-                  <AlertDialogFooter className="">
-                    <AlertDialogCancel className="">Cancel</AlertDialogCancel>
-                    <AlertDialogAction className="">Continue</AlertDialogAction>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction>Continue</AlertDialogAction>
                   </AlertDialogFooter>
                   <AlertDialogTitle />
                   <h2 className="text-xl font-semibold mb-4">Write a Review</h2>
@@ -448,7 +448,7 @@ const CustomerReviews = (): JSX.Element => {
                       <p className="mb-4">{review.review}</p>
 
                       <div className="flex justify-between items-center mt-auto pt-3 border-t">
-                        <Button variant="ghost" size="sm" className="">
+                        <Button variant="ghost" size="sm">
                           <FaThumbsUp className="h-4 w-4 mr-1" /> Helpful
                         </Button>
                         <div className="text-sm">Verified Purchase</div>

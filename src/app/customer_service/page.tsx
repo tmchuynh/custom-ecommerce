@@ -323,7 +323,7 @@ const CustomerService = () => {
                           real-time, you can reach us using the live chat
                           feature on our website.
                         </p>
-                        <Button className="">Start Live Chat</Button>
+                        <Button>Start Live Chat</Button>
                         <p className="text-sm mt-1">
                           Live chat is available during business hours only.
                         </p>
@@ -377,7 +377,7 @@ const CustomerService = () => {
                   </p>
                   <div className="rounded-lg overflow-hidden">
                     <table className="min-w-full divide-y">
-                      <thead className="">
+                      <thead>
                         <tr>
                           <th
                             scope="col"

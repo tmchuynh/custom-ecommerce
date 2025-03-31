@@ -330,7 +330,7 @@ const FAQPage = (): JSX.Element => {
                       </button>
                       {isQuestionExpanded(category.id, index) && (
                         <div className="p-4 pt-0">
-                          <p className="">{faq.answer}</p>
+                          <p>{faq.answer}</p>
                         </div>
                       )}
                     </div>
