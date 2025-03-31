@@ -147,7 +147,7 @@ const TrackOrder = () => {
 
                 <li>
                   <button
-                    onClick={() => router.push("/customer_service/orders")}
+                    onClick={() => router.push("/user/orders")}
                     className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
                   >
                     <LuPackageCheck className="h-5 w-5 mr-2" />
