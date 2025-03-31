@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { JSX } from "react";
+import { Badge } from "./ui/badge";
 /**
  * A component that displays a cloud of logo images.
  *
@@ -9,9 +11,9 @@ import Image from "next/image";
  *
  * @returns {JSX.Element} A React element representing the logo cloud.
  */
-export default function LogoCloud() {
+export default function LogoCloud(): JSX.Element {
   return (
-    <div className="relative isolate -z-10 mt-28 py-12 border-2">
+    <div className="relative isolate -z-10 py-3 mt-3">
       <div className="mx-auto max-w-7xl px-6 lg:px-2">
         <div className="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
           <Image
@@ -51,15 +53,9 @@ export default function LogoCloud() {
           />
         </div>
         <div className="mt-16 flex justify-center">
-          <p className="relative rounded-full px-4 py-1.5 text-sm/6 ring-1 ring-gray-900/5 ring-inset">
-            <span className="hidden md:inline">
-              Over 2500 companies use our tools to better their business.
-            </span>
-            <a href="#" className="font-semibold inline-flex items-center">
-              <span aria-hidden="true" className="absolute inset-0" /> Read our
-              customer stories <span aria-hidden="true">&rarr;</span>
-            </a>
-          </p>
+          <Badge className="rounded-full px-3 py-2">
+            Over 2500 companies use our tools to better their business.
+          </Badge>
         </div>
       </div>
     </div>
