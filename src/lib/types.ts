@@ -79,6 +79,17 @@ export type DynamicButtonProps = {
     | "destructive"
     | "outline"
     | "secondary"
+    | "secondaryOutline"
+    | "secondaryGhost"
+    | "secondaryLink"
+    | "teritary"
+    | "teritaryOutline"
+    | "teritaryGhost"
+    | "teritaryLink"
+    | "destructive"
+    | "destructiveOutline"
+    | "destructiveGhost"
+    | "destructiveLink"
     | "ghost"
     | "link";
   text: string;

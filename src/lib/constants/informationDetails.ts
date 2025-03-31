@@ -1,9 +1,8 @@
 import {
   FaAward,
-  FaBan,
   FaBookOpen,
   FaBriefcase,
-  FaCheckCircle,
+  FaCheckDouble,
   FaClipboardCheck,
   FaClock,
   FaCogs,
@@ -24,7 +23,7 @@ import {
   FaLock,
   FaMoneyBill,
   FaPhoneAlt,
-  FaQuestionCircle,
+  FaQuestion,
   FaRegCopyright,
   FaServer,
   FaShare,
@@ -35,27 +34,14 @@ import {
   FaShoppingCart,
   FaStar,
   FaTags,
-  FaTruck,
   FaUser,
   FaUserCheck,
   FaUserFriends,
   FaUsers,
 } from "react-icons/fa";
-import {
-  FaCircleXmark,
-  FaMessage,
-  FaShield,
-  FaShirt,
-  FaTruckFast,
-} from "react-icons/fa6";
-import { FiHelpCircle } from "react-icons/fi";
+import { FaMessage, FaShirt, FaTruckFast, FaX } from "react-icons/fa6";
 import { GoAlert, GoAlertFill } from "react-icons/go";
-import {
-  IoIosHelpCircleOutline,
-  IoIosTrendingUp,
-  IoMdRefresh,
-  IoMdSettings,
-} from "react-icons/io";
+import { IoIosTrendingUp, IoMdRefresh, IoMdSettings } from "react-icons/io";
 import { MdCurrencyExchange, MdManageHistory } from "react-icons/md";
 import { PiPantsFill } from "react-icons/pi";
 import { RiFootprintFill } from "react-icons/ri";
@@ -96,7 +82,7 @@ export const loyalty_program_sections: InformationDetails[] = [
   {
     id: "faqs",
     title: "FAQs",
-    icon: IoIosHelpCircleOutline,
+    icon: FaQuestion,
   },
 ];
 
@@ -127,7 +113,7 @@ export const payment_security_sections: InformationDetails[] = [
   {
     id: "overview",
     title: "Security Overview",
-    icon: FaShield,
+    icon: FaShieldAlt,
   },
   {
     id: "encryption",
@@ -195,7 +181,7 @@ export const cookie_policy_sections: InformationDetails[] = [
   {
     id: "third-party",
     title: "Third-Party Cookies",
-    icon: FaShield,
+    icon: FaShieldAlt,
   },
   {
     id: "duration",
@@ -228,7 +214,7 @@ export const internationalReturnPolicySections = [
   {
     id: "process",
     title: "Return Process",
-    icon: FaTruck,
+    icon: FaTruckFast,
   },
   {
     id: "shipping",
@@ -243,7 +229,7 @@ export const internationalReturnPolicySections = [
   {
     id: "nonreturnable",
     title: "Non-Returnable Items",
-    icon: FaBan,
+    icon: FaX,
   },
   {
     id: "contact",
@@ -258,7 +244,7 @@ export const giftCardsSections = [
   { id: "limitations", title: "Limitations", icon: FaCreditCard },
   { id: "e_vs_physical", title: "E-Gift Cards vs Physical", icon: FaEnvelope },
   { id: "send_to_friend", title: "Send to a Friend", icon: FaUserFriends },
-  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
+  { id: "faq", title: "FAQ", icon: FaQuestion },
 ];
 
 export const internationalOrdersSections = [
@@ -271,7 +257,7 @@ export const internationalOrdersSections = [
     icon: MdCurrencyExchange,
   },
   { id: "language", title: "Language Support", icon: FaLanguage },
-  { id: "faqs", title: "Frequently Asked Questions", icon: FaQuestionCircle },
+  { id: "faqs", title: "Frequently Asked Questions", icon: FaQuestion },
 ];
 
 export const productRecommendationsSections = [
@@ -281,20 +267,20 @@ export const productRecommendationsSections = [
   {
     id: "how_to_get",
     title: "How to Get Recommendations",
-    icon: FaQuestionCircle,
+    icon: FaQuestion,
   },
   { id: "who_provides", title: "Who Provides Recommendations", icon: FaUser },
   { id: "how_chosen", title: "How Recommendations Are Chosen", icon: FaCogs },
   { id: "customize", title: "How to Customize Recommendations", icon: FaTags },
   { id: "time_to_get", title: "How Long It Takes", icon: FaClock },
-  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
+  { id: "faq", title: "FAQ", icon: FaQuestion },
 ];
 
 export const customer_service_sections: InformationDetails[] = [
   {
     id: "introduction",
     title: "How Can We Help You?",
-    icon: FiHelpCircle,
+    icon: FaQuestion,
   },
   {
     id: "contact",
@@ -327,7 +313,7 @@ export const terms_and_conditions_sections: InformationDetails[] = [
   {
     id: "use",
     title: "Use of the Site",
-    icon: FaShield,
+    icon: FaShieldAlt,
   },
   {
     id: "product",
@@ -391,12 +377,12 @@ export const return_policy_sections: InformationDetails[] = [
   {
     id: "eligibility",
     title: "Eligibility for Return",
-    icon: FaCheckCircle,
+    icon: FaCheckDouble,
   },
   {
     id: "non-returnable",
     title: "Non-Returnable Items",
-    icon: FaCircleXmark,
+    icon: FaX,
   },
   {
     id: "process",

@@ -438,7 +438,7 @@ export default function ShippingAddressForm({
                               : "bg-secondary"
                           }`}
                         >
-                          <method..icon className="h-6 w-6" />
+                          <method.icon className="h-6 w-6" />
                         </span>
                         <div>
                           <div className="font-medium">{method.title}</div>

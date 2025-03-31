@@ -65,7 +65,7 @@ export default function Policies() {
               <div className="p-6 flex flex-col h-full">
                 <div className="flex items-center mb-4">
                   <div className="p-2 rounded-full bg-blue-50 text-blue-600 mr-3">
-                    <policy..icon className="h-6 w-6" />
+                    <policy.icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold">{policy.title}</h3>
                 </div>

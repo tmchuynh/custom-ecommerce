@@ -1,8 +1,8 @@
-import { DynamicButtonProps } from "@/lib/interfaces";
 import { cn } from "@/lib/utils/utils";
 import React from "react";
 import { LuArrowBigRightDash } from "react-icons/lu";
 import { Button } from "./button";
+import { DynamicButtonProps } from "@/lib/types";
 
 const DynamicButton: React.FC<DynamicButtonProps> = ({
   variant = "default",
@@ -16,13 +16,13 @@ const DynamicButton: React.FC<DynamicButtonProps> = ({
     <Button
       variant={variant}
       onClick={onClick}
-      className={cn("mt-2 group w-1/2", className)}
+      className={cn("mt-2 group w-1/2 gap-0", className)}
     >
-      {text}
+      <p className="pl-5">{text}</p>
       {Icon && (
         <span
           className={cn(
-            "inline-block px-2 transition-transform duration-300 ease-in-out group-hover:translate-x-4",
+            "inline-block px-5 transition-transform duration-300 ease-in-out group-hover:translate-x-2",
             iconClassName
           )}
         >
