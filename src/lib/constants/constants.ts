@@ -4,14 +4,17 @@ import {
   FaFingerprint,
   FaGift,
   FaGifts,
+  FaGlobeAfrica,
+  FaGlobeEurope,
   FaStar,
 } from "react-icons/fa";
-import { FaShield } from "react-icons/fa6";
+import { FaBagShopping, FaShield } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdHelp } from "react-icons/io";
-import { MdAssignmentReturn } from "react-icons/md";
+import { MdAssignmentReturn, MdCurrencyExchange } from "react-icons/md";
 import { TbRulerMeasure2 } from "react-icons/tb";
 import { InformationDetails } from "../interfaces";
+import { LuPackageCheck } from "react-icons/lu";
 
 export const about: InformationDetails[] = [
   {
@@ -31,6 +34,14 @@ export const about: InformationDetails[] = [
     icon: IoMdHelp,
   },
   {
+    id: "loyalty_program",
+    title: "Loyalty Program",
+    description:
+      "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
+    href: "/loyalty_program",
+    icon: FaGift,
+  },
+  {
     id: "gift_cards",
     title: "Gift Cards",
     description:
@@ -39,12 +50,20 @@ export const about: InformationDetails[] = [
     icon: FaGifts,
   },
   {
+    id: "track_order",
+    title: "Track Order",
+    description:
+      "Easily track your order status and delivery details in real-time.",
+    href: "/customer_service/track_order",
+    icon: LuPackageCheck,
+  },
+  {
     id: "international_orders",
     title: "International Orders",
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
     href: "/info/international_orders",
-    icon: MdAssignmentReturn,
+    icon: FaGlobeAfrica,
   },
   {
     id: "product_recommendations",
@@ -52,31 +71,7 @@ export const about: InformationDetails[] = [
     description:
       "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
     href: "/info/international_orders",
-    icon: MdAssignmentReturn,
-  },
-  {
-    id: "privacy_policy",
-    title: "Privacy Policy",
-    description:
-      "Read how we handle and protect your personal data with complete privacy.",
-    href: "/policies/privacy_policy",
-    icon: FaShield,
-  },
-  {
-    id: "return_policy",
-    title: "Return Policy",
-    description:
-      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
-    href: "/policies/return_policy",
-    icon: MdAssignmentReturn,
-  },
-  {
-    id: "loyalty_program",
-    title: "Loyalty Program",
-    description:
-      "Earn rewards, discounts, and exclusive offers by joining our loyalty program.",
-    href: "/loyalty_program",
-    icon: FaGift,
+    icon: FaBagShopping,
   },
   {
     id: "size_guides",
@@ -94,13 +89,32 @@ export const about: InformationDetails[] = [
     href: "/info/about/customer_reviews",
     icon: FaStar,
   },
+];
+
+export const policiesMenu: InformationDetails[] = [
   {
-    id: "track_order",
-    title: "Track Order",
+    id: "privacy_policy",
+    title: "Privacy Policy",
     description:
-      "Easily track your order status and delivery details in real-time.",
-    href: "/customer_service/track_order",
-    icon: FaFingerprint,
+      "Read how we handle and protect your personal data with complete privacy.",
+    href: "/policies/privacy_policy",
+    icon: FaShield,
+  },
+  {
+    id: "return_policy",
+    title: "Return Policy",
+    description:
+      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+    href: "/policies/return_policy",
+    icon: MdCurrencyExchange,
+  },
+  {
+    id: "international_return_policy",
+    title: "International Return Policy",
+    description:
+      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+    href: "/policies/return_policy/international_return_policy",
+    icon: FaGlobeEurope,
   },
   {
     id: "terms_and_conditions",
