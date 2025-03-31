@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 
 import { terms_and_conditions_sections } from "@/lib/constants/informationDetails";
 import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import { FaBookOpen, FaMailBulk, FaPhone } from "react-icons/fa";
+import { FaBookOpen, FaMailBulk, FaPhone, FaPhoneAlt } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { useRouter } from "next/navigation";
 
@@ -68,7 +68,7 @@ const TermsAndConditions = () => {
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-8 rounded-xl border shadow-md p-6">
+            <div className="sticky top-18 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
                 {terms_and_conditions_sections.map((section) => (
@@ -106,7 +106,7 @@ const TermsAndConditions = () => {
                 className="w-full flex items-center justify-between p-6 focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6 dark:text-foreground text-secondary" />
+                  <FaBookOpen className="h-6 w-6" />
                   <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
                 </div>
                 <svg
@@ -515,7 +515,7 @@ const TermsAndConditions = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhoneAlt className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
                             <div>
                               <h3 className="text-lg font-medium mb-2">
                                 Phone Support

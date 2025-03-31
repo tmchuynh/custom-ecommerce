@@ -12,7 +12,6 @@ import {
   TabPanel,
   TabPanels,
 } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
 import {
   SelectGroup,
   SelectTrigger,
@@ -23,6 +22,7 @@ import {
 } from "@radix-ui/react-select";
 import Image from "next/image";
 import { Fragment, useState } from "react";
+import { FaX } from "react-icons/fa6";
 
 export default function NavMobileMenu() {
   const [open, setOpen] = useState(false);
@@ -64,7 +64,7 @@ export default function NavMobileMenu() {
               className="-m-2 inline-flex items-center justify-center rounded-md p-2"
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-6" />
+              <FaX aria-hidden="true" className="size-6" />
             </button>
           </div>
 

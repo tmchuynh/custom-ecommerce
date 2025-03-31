@@ -91,7 +91,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8 rounded-xl shadow-md p-6 border">
+            <div className="sticky top-18 rounded-xl shadow-md p-6 border">
               <h2 className="text-xl font-bold mb-4">About Us</h2>
               <ul className="space-y-2">
                 {about_sections.map((section) => (

@@ -8,7 +8,6 @@ import {
   FaHeart,
   FaUsers,
   FaClock,
-  FaPhone,
   FaCreditCard,
   FaFileAlt,
   FaKey,
@@ -217,7 +216,7 @@ export const cookie_policy_sections: InformationDetails[] = [
   {
     id: "contact",
     title: "Contact Us",
-    icon: FaPhone,
+    icon: FaPhoneAlt,
   },
 ];
 
@@ -250,7 +249,7 @@ export const internationalReturnPolicySections = [
   {
     id: "contact",
     title: "Contact Us",
-    icon: FaPhone,
+    icon: FaPhoneAlt,
   },
 ];
 
@@ -297,7 +296,7 @@ export const customer_service_sections: InformationDetails[] = [
   {
     id: "contact",
     title: "Contact Information",
-    icon: FaPhone,
+    icon: FaPhoneAlt,
   },
   {
     id: "hours",
@@ -372,7 +371,7 @@ export const terms_and_conditions_sections: InformationDetails[] = [
     title: "Changes to Terms",
     icon: FaEdit,
   },
-  { id: "contact", title: "Contact Us", icon: FaPhone },
+  { id: "contact", title: "Contact Us", icon: FaPhoneAlt },
 ];
 
 export const return_policy_sections: InformationDetails[] = [
@@ -416,7 +415,7 @@ export const return_policy_sections: InformationDetails[] = [
     title: "Damaged or Defective Items",
     icon: GoAlertFill,
   },
-  { id: "contact", title: "Contact Us", icon: FaPhone },
+  { id: "contact", title: "Contact Us", icon: FaPhoneAlt },
 ];
 
 export const privacy_policy_sections: InformationDetails[] = [

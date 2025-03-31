@@ -131,7 +131,7 @@ const LoyaltyProgram = () => {
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-8 rounded-xl border shadow-md p-6">
+            <div className="sticky top-18 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Program Details</h2>
               <ul className="space-y-2">
                 {loyalty_program_sections.map((section) => (

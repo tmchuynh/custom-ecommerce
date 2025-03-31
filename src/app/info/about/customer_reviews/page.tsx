@@ -199,7 +199,7 @@ const CustomerReviews = (): JSX.Element => {
         <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
           {/* Sidebar for filters */}
           <div className="lg:col-span-2">
-            <div className="sticky top-8 rounded-xl border shadow-md p-6">
+            <div className="sticky top-18 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4 flex items-center">
                 <FaFilter className="h-5 w-5 mr-2" />
                 Filter Reviews

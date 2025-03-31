@@ -90,7 +90,7 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="rounded-xl shadow-md overflow-hidden sticky top-8">
+    <div className="rounded-xl shadow-md overflow-hidden sticky top-18">
       <div className="p-6 border-b">
         <h2 className="text-xl font-semibold mb-1">Order Summary</h2>
         <p className="text-sm">
