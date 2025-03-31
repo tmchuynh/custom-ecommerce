@@ -113,7 +113,7 @@ export default function About() {
                 ))}
               </ul>
 
-              <div className="mt-8 p-4 rounded-lg space-y-2">
+              <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
                 <h3 className="font-medium flex items-center">
                   <FaAward className="h-4 w-4 mr-2" />
                   Join Our Team
@@ -356,18 +356,6 @@ export default function About() {
               )}
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Contact Button */}
-      <div className="fixed bottom-0 left-0 right-0 shadow-md p-4 border-t">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-          <p className="text-sm">
-            Want to learn more about our company and mission?
-          </p>
-          <Button className="bg-primary text-primary-foreground px-6">
-            Contact Us
-          </Button>
         </div>
       </div>
     </main>
