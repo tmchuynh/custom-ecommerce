@@ -257,7 +257,7 @@ export default function NavMenu() {
                                 >
                                   <item.icon
                                     aria-hidden="true"
-                                    className="size-10 flex-none bg-muted group-hover:bg-accent p-2 rounded-lg"
+                                    className="size-10 flex-none bg-muted group-hover:bg-teritary group-hover:text-teritary-foreground p-2 rounded-lg"
                                   />
                                   <div className="gap-y-3 flex flex-col">
                                     <p className="flex gap-x-4 group-hover:underline underline-offset-4">

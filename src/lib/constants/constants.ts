@@ -1,4 +1,11 @@
-import { Fa500Px, FaFile, FaFingerprint, FaGift, FaStar } from "react-icons/fa";
+import {
+  Fa500Px,
+  FaFile,
+  FaFingerprint,
+  FaGift,
+  FaGifts,
+  FaStar,
+} from "react-icons/fa";
 import { FaShield } from "react-icons/fa6";
 import { HiCursorClick } from "react-icons/hi";
 import { IoMdHelp } from "react-icons/io";
@@ -20,8 +27,32 @@ export const about: InformationDetails[] = [
     title: "Frequently Asked Questions",
     description:
       "Get assistance with your orders, returns, and inquiries. We're here to help you!",
-    href: "/about/frequently_asked_questions",
+    href: "/info/frequently_asked_questions",
     icon: IoMdHelp,
+  },
+  {
+    id: "gift_cards",
+    title: "Gift Cards",
+    description:
+      "Get assistance with your orders, returns, and inquiries. We're here to help you!",
+    href: "/info/gift_cards",
+    icon: FaGifts,
+  },
+  {
+    id: "international_orders",
+    title: "International Orders",
+    description:
+      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+    href: "/info/international_orders",
+    icon: MdAssignmentReturn,
+  },
+  {
+    id: "product_recommendations",
+    title: "Product Reccomendations",
+    description:
+      "Learn about our hassle-free returns and exchanges process. Shop with confidence.",
+    href: "/info/international_orders",
+    icon: MdAssignmentReturn,
   },
   {
     id: "privacy_policy",
@@ -60,7 +91,7 @@ export const about: InformationDetails[] = [
     title: "Customer Reviews",
     description:
       "See what other customers have to say about our products and services.",
-    href: "/about/customer_reviews",
+    href: "/info/about/customer_reviews",
     icon: FaStar,
   },
   {

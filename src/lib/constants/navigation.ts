@@ -786,7 +786,7 @@ export const navigations: NavigationDetails = {
     },
   ],
   pages: [
-    { name: "Our Story", href: "/about" },
-    { name: "Find Stores", href: "/about/locations" },
+    { name: "Our Story", href: "/info/about" },
+    { name: "Find Stores", href: "/info/about/locations" },
   ],
 };
