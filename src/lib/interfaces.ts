@@ -169,6 +169,7 @@ export interface AuthUser {
   lastName?: string;
   phone?: string;
   addresses?: ShippingAddress[];
+  defaultShippingAddress?: string;
   token: string;
   loyaltyProgram?: {
     isEnrolled: boolean;
