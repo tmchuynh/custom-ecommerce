@@ -84,19 +84,19 @@ export const scrollToSection = (
 /**
  * Toggles an accordion section and scrolls to it if newly opened
  *
- * @param sectionId - The ID of the section to toggle
+ * @param id - The ID of the section to toggle
  * @param activeSection - The currently active section ID
  * @param setActiveSection - Function to update the active section state
  * @param sectionRef - Reference to the section element to scroll to
  */
 export const toggleAccordionSection = (
-  sectionId: string,
+  id: string,
   activeSection: string | null,
-  setActiveSection: (sectionId: string | null) => void,
+  setActiveSection: (id: string | null) => void,
   sectionRef: HTMLElement | null
 ) => {
-  setActiveSection(activeSection === sectionId ? null : sectionId);
-  if (activeSection !== sectionId && sectionRef) {
+  setActiveSection(activeSection === id ? null : id);
+  if (activeSection !== id && sectionRef) {
     sectionRef.scrollIntoView({
       behavior: "smooth",
       block: "start",
