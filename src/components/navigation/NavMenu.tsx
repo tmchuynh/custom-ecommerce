@@ -15,7 +15,7 @@ import CategoryList from "../category/CategoryList";
 import NavMobileMenu from "./NavMobileMenu";
 import { Button } from "../ui/button";
 import { useWishlist } from "@/app/context/wishlistContext";
-import { about } from "@/lib/constants/constants";
+import { about, policiesMenu } from "@/lib/constants/constants";
 import { navigations } from "@/lib/constants/navigation";
 import FeaturedCategory from "../category/FeaturedCategory";
 import {
@@ -229,11 +229,11 @@ export default function NavMenu() {
 
                       <Popover className="inline-flex items-center gap-x-1">
                         <PopoverButton
-                          onClick={() => togglePopover("Our Brand")}
+                          onClick={() => togglePopover("information")}
                           className="relative z-10 -mb-px flex items-center pt-px text-sm font-medium transition-colors duration-200 ease-out focus-visible:outline-none hover:underline underline-offset-4 gap-x-2"
                         >
-                          Our Brand
-                          {openPopovers["Our Brand"] ? (
+                          Information
+                          {openPopovers["information"] ? (
                             <ChevronUpIcon
                               aria-hidden="true"
                               className="h-5 w-5"
@@ -252,6 +252,54 @@ export default function NavMenu() {
                           <div className="mx-auto max-w-7xl gap-x-8 gap-y-10 px-6 pb-10 lg:px-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-4">
                               {about.map((item) => (
+                                <a
+                                  key={item.title}
+                                  href={item.href}
+                                  className="flex text-sm font-semibold gap-x-4 p-4 rounded-2xl -ml-3 group items-center hover:bg-muted"
+                                  onClick={closeAllPopovers}
+                                >
+                                  <item.icon
+                                    aria-hidden="true"
+                                    className="size-10 flex-none bg-muted group-hover:bg-teritary group-hover:text-teritary-foreground p-2 rounded-lg"
+                                  />
+                                  <div className="gap-y-3 flex flex-col">
+                                    <p className="flex gap-x-4 group-hover:underline underline-offset-4">
+                                      {item.title}
+                                    </p>
+                                    <p>{item.description}</p>
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        </PopoverPanel>
+                      </Popover>
+
+                      <Popover className="inline-flex items-center gap-x-1">
+                        <PopoverButton
+                          onClick={() => togglePopover("policies")}
+                          className="relative z-10 -mb-px flex items-center pt-px text-sm font-medium transition-colors duration-200 ease-out focus-visible:outline-none hover:underline underline-offset-4 gap-x-2"
+                        >
+                          Our Policies
+                          {openPopovers["policies"] ? (
+                            <ChevronUpIcon
+                              aria-hidden="true"
+                              className="h-5 w-5"
+                            />
+                          ) : (
+                            <ChevronDownIcon
+                              aria-hidden="true"
+                              className="h-5 w-5"
+                            />
+                          )}
+                        </PopoverButton>
+                        <PopoverPanel
+                          transition
+                          className="absolute inset-x-0 top-full -z-10 bg-background pt-16 ring-1 shadow-lg ring-gray-900/5 transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
+                        >
+                          <div className="mx-auto max-w-7xl gap-x-8 gap-y-10 px-6 pb-10 lg:px-8">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 sm:gap-4">
+                              {policiesMenu.map((item) => (
                                 <a
                                   key={item.title}
                                   href={item.href}
