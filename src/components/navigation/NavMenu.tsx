@@ -1,24 +1,16 @@
 "use client";
 import { useCart } from "@/app/context/cartContext";
 import { FeaturedDetails, SectionDetails } from "@/lib/types";
-import {
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-  PopoverPanel,
-} from "@headlessui/react";
-import {
-  Bars3Icon,
-  ChevronDownIcon,
-  ChevronUpIcon,
-  MagnifyingGlassIcon,
-  QuestionMarkCircleIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/20/solid";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { FaHeart } from "react-icons/fa";
+import {
+  FaBars,
+  FaHeart,
+  FaQuestionCircle,
+  FaShoppingBag,
+} from "react-icons/fa";
 import CategoryList from "../category/CategoryList";
 import NavMobileMenu from "./NavMobileMenu";
 import { Button } from "../ui/button";
@@ -26,6 +18,17 @@ import { useWishlist } from "@/app/context/wishlistContext";
 import { about } from "@/lib/constants/constants";
 import { navigations } from "@/lib/constants/navigation";
 import FeaturedCategory from "../category/FeaturedCategory";
+import {
+  PopoverGroup,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
+} from "@headlessui/react";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  MagnifyingGlassIcon,
+} from "@radix-ui/react-icons";
 
 export default function NavMenu() {
   const [open, setOpen] = useState(false);
@@ -294,7 +297,7 @@ export default function NavMenu() {
                     className="-ml-2 rounded-md bg-background text-foreground p-2"
                   >
                     <span className="sr-only">Open menu</span>
-                    <Bars3Icon aria-hidden="true" className="size-6" />
+                    <FaBars aria-hidden="true" className="size-6" />
                   </Button>
 
                   {/* Search */}
@@ -324,10 +327,7 @@ export default function NavMenu() {
                     {/* Help */}
                     <a href="#" className="p-2 lg:hidden">
                       <span className="sr-only">Help</span>
-                      <QuestionMarkCircleIcon
-                        aria-hidden="true"
-                        className="size-6"
-                      />
+                      <FaQuestionCircle aria-hidden="true" className="size-6" />
                     </a>
                     <a href="#" className="hidden text-sm font-medium lg:block">
                       Help
@@ -358,7 +358,7 @@ export default function NavMenu() {
                         href="/shopping_cart"
                         className="group -m-2 flex items-center p-2"
                       >
-                        <ShoppingBagIcon
+                        <FaShoppingBag
                           aria-hidden="true"
                           className="size-6 shrink-0 group-hover:text-primary"
                         />
