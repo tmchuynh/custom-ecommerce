@@ -245,11 +245,6 @@ export const terms_and_conditions_sections: InformationDetails[] = [
     icon: FaShield,
   },
   {
-    id: "account",
-    title: "Account Registration",
-    icon: FaUsers,
-  },
-  {
     id: "product",
     title: "Product Information",
     icon: FaShoppingBag,
