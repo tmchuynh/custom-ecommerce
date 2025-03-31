@@ -14,6 +14,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
+  const isAuthenticated = user !== null;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [failedAttempts, setFailedAttempts] = useState(0);
@@ -236,6 +237,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         isLoading,
         error,
         signUp,
@@ -245,6 +247,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         resetPasswordRequest,
         validateResetCode,
         resetPassword,
+        isAuthenticated,
       }}
     >
       {children}
