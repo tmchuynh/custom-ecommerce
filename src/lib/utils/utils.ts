@@ -100,6 +100,7 @@ export const toggleAccordionSection = (
     sectionRef.scrollIntoView({
       behavior: "smooth",
       block: "start",
+      inline: "nearest",
     });
   }
 };
