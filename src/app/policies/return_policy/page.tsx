@@ -483,7 +483,7 @@ const ReturnPolicy = () => {
                     )}
 
                     {section.id === "contact" && (
-                      <div className="p-6 border-t">
+                      <div className="p-6">
                         <div className="space-y-6">
                           <div className="flex items-start">
                             <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
