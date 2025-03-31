@@ -96,7 +96,7 @@ const SizeGuide = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <category.icon />
+                      <category..icon size={20} />
                       <span className="ml-2 text-sm font-medium">
                         {category.title}
                       </span>

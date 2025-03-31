@@ -67,7 +67,7 @@ const InternationalReturnPolicyPage = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon />
+                      <section.icon size={20} />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
@@ -90,7 +90,7 @@ const InternationalReturnPolicyPage = () => {
               >
                 <button className="w-full flex items-center justify-between p-6 focus:outline-none">
                   <div className="flex items-center">
-                    <section.icon />
+                    <section.icon size={20} />
                     <h2 className="text-2xl font-semibold ml-3">
                       {section.title}
                     </h2>

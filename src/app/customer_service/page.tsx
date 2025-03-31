@@ -99,7 +99,7 @@ const CustomerService = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon />
+                      <section.icon size={20} />
                       <span className="ml-2 text-sm font-medium">
                         {section.title}
                       </span>
