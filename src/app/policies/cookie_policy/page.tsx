@@ -45,6 +45,7 @@ import { FaMessage } from "react-icons/fa6";
  *
  * @returns {JSX.Element} A responsive cookie policy page with interactive cookie_policy_sections
  */
+/** */
 const CookiePolicy = (): JSX.Element => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

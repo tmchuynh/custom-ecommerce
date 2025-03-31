@@ -1,30 +1,39 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { giftCardFAQs } from "@/lib/constants/faqs";
+import { giftCardsSections } from "@/lib/constants/informationDetails";
 import { scrollToSection } from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import {
-  FaCreditCard,
-  FaEnvelope,
-  FaGift,
-  FaMailBulk,
-  FaPhone,
-  FaQuestionCircle,
-  FaShoppingCart,
-  FaUserFriends,
-} from "react-icons/fa";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-const giftCardsSections = [
-  { id: "overview", title: "Overview", icon: FaGift },
-  { id: "how_to_use", title: "How to Use", icon: FaShoppingCart },
-  { id: "limitations", title: "Limitations", icon: FaCreditCard },
-  { id: "e_vs_physical", title: "E-Gift Cards vs Physical", icon: FaEnvelope },
-  { id: "send_to_friend", title: "Send to a Friend", icon: FaUserFriends },
-  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
-];
-
+/**
+ * A React component that renders a comprehensive gift cards information page.
+ *
+ * @component
+ * @description This component displays detailed information about gift cards including
+ * sections for overview, usage instructions, limitations, e-gift vs physical cards,
+ * sending options, FAQs and contact information. It features:
+ * - A sticky table of contents sidebar for easy navigation
+ * - Expandable/collapsible content sections
+ * - Interactive buttons for section navigation
+ * - Comprehensive FAQ section with common questions and answers
+ * - Contact information with multiple support channels
+ *
+ * @example
+ * ```tsx
+ * <GiftCardsPage />
+ * ```
+ *
+ * @returns {JSX.Element} A responsive page layout with gift card information sections
+ *
+ * @see {@link giftCardsSections} for section content configuration
+ * @see {@link giftCardFAQs} for FAQ content configuration
+ *
+ * @state {string | null} activeSection - Tracks which content section is currently active/expanded
+ * @state {React.RefObject} sectionRefs - Stores references to section DOM elements for scrolling
+ */
 const GiftCardsPage = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

@@ -1,51 +1,38 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { internationalReturnPolicySections } from "@/lib/constants/informationDetails";
 import { scrollToSection } from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import {
-  FaBan,
-  FaClipboardCheck,
-  FaMailBulk,
-  FaMoneyBill,
-  FaPhone,
-  FaTruck,
-} from "react-icons/fa";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-const sections = [
-  {
-    id: "eligibility",
-    title: "Return Eligibility",
-    icon: FaClipboardCheck,
-  },
-  {
-    id: "process",
-    title: "Return Process",
-    icon: FaTruck,
-  },
-  {
-    id: "shipping",
-    title: "Return Shipping Costs",
-    icon: FaMoneyBill,
-  },
-  {
-    id: "refunds",
-    title: "Refunds",
-    icon: FaMoneyBill,
-  },
-  {
-    id: "nonreturnable",
-    title: "Non-Returnable Items",
-    icon: FaBan,
-  },
-  {
-    id: "contact",
-    title: "Contact Us",
-    icon: FaPhone,
-  },
-];
-
+/**
+ * A component that displays the international return policy page.
+ *
+ * @component
+ * @description This component renders a comprehensive international return policy page with interactive sections.
+ * It includes a sticky table of contents sidebar and expandable content sections covering eligibility,
+ * return process, shipping, refunds, non-returnable items, and contact information.
+ *
+ * @example
+ * ```tsx
+ * <InternationalReturnPolicyPage />
+ * ```
+ *
+ * @returns A React component that displays the international return policy page with:
+ * - A header with title and description
+ * - A sticky sidebar with navigation links to different policy sections
+ * - Expandable content sections with detailed policy information
+ * - Contact information section with email, phone, and live chat options
+ *
+ * @state {string | null} activeSection - Tracks which policy section is currently active/expanded
+ * @state {Record<string, HTMLElement | null>} sectionRefs - Refs for each policy section for scrolling
+ *
+ * @depends {@link useRouter} - Next.js router for navigation
+ * @depends {@link scrollToSection} - Utility function for smooth scrolling to sections
+ * @depends {@link internationalReturnPolicySections} - Configuration object for policy sections
+ */
 const InternationalReturnPolicyPage = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
@@ -70,7 +57,7 @@ const InternationalReturnPolicyPage = () => {
             <div className="sticky top-8 rounded-xl border shadow-md p-6">
               <h2 className="text-xl font-bold mb-4">Contents</h2>
               <ul className="space-y-2">
-                {sections.map((section) => (
+                {internationalReturnPolicySections.map((section) => (
                   <li key={section.id}>
                     <button
                       onClick={() => handleScrollToSection(section.id)}
@@ -93,7 +80,7 @@ const InternationalReturnPolicyPage = () => {
 
           {/* Main Content */}
           <div className="lg:col-span-5 space-y-8">
-            {sections.map((section) => (
+            {internationalReturnPolicySections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {

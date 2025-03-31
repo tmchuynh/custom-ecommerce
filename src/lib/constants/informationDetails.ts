@@ -26,6 +26,22 @@ import {
   FaDollarSign,
   FaRegCopyright,
   FaShoppingBasket,
+  FaCogs,
+  FaLightbulb,
+  FaQuestionCircle,
+  FaTags,
+  FaUser,
+  FaGlobe,
+  FaLanguage,
+  FaShippingFast,
+  FaUndo,
+  FaEnvelope,
+  FaShoppingCart,
+  FaUserFriends,
+  FaBan,
+  FaClipboardCheck,
+  FaMoneyBill,
+  FaTruck,
 } from "react-icons/fa";
 import {
   IoIosTrendingUp,
@@ -203,6 +219,73 @@ export const cookie_policy_sections: InformationDetails[] = [
     title: "Contact Us",
     icon: FaPhone,
   },
+];
+
+export const internationalReturnPolicySections = [
+  {
+    id: "eligibility",
+    title: "Return Eligibility",
+    icon: FaClipboardCheck,
+  },
+  {
+    id: "process",
+    title: "Return Process",
+    icon: FaTruck,
+  },
+  {
+    id: "shipping",
+    title: "Return Shipping Costs",
+    icon: FaMoneyBill,
+  },
+  {
+    id: "refunds",
+    title: "Refunds",
+    icon: FaMoneyBill,
+  },
+  {
+    id: "nonreturnable",
+    title: "Non-Returnable Items",
+    icon: FaBan,
+  },
+  {
+    id: "contact",
+    title: "Contact Us",
+    icon: FaPhone,
+  },
+];
+
+export const giftCardsSections = [
+  { id: "overview", title: "Overview", icon: FaGift },
+  { id: "how_to_use", title: "How to Use", icon: FaShoppingCart },
+  { id: "limitations", title: "Limitations", icon: FaCreditCard },
+  { id: "e_vs_physical", title: "E-Gift Cards vs Physical", icon: FaEnvelope },
+  { id: "send_to_friend", title: "Send to a Friend", icon: FaUserFriends },
+  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
+];
+
+export const internationalOrdersSections = [
+  { id: "shipping", title: "Shipping Information", icon: FaShippingFast },
+  { id: "customs", title: "Customs and Duties", icon: FaGlobe },
+  { id: "payment", title: "Payment Options", icon: FaDollarSign },
+  { id: "returns", title: "International Returns Policy", icon: FaUndo },
+  { id: "language", title: "Language Support", icon: FaLanguage },
+  { id: "faqs", title: "Frequently Asked Questions", icon: FaQuestionCircle },
+];
+
+export const productRecommendationsSections = [
+  { id: "overview", title: "Overview", icon: FaStar },
+  { id: "how_it_works", title: "How It Works", icon: FaLightbulb },
+  { id: "benefits", title: "Benefits", icon: FaTags },
+  {
+    id: "how_to_get",
+    title: "How to Get Recommendations",
+    icon: FaQuestionCircle,
+  },
+  { id: "who_provides", title: "Who Provides Recommendations", icon: FaUser },
+  { id: "how_chosen", title: "How Recommendations Are Chosen", icon: FaCogs },
+  { id: "customize", title: "How to Customize Recommendations", icon: FaTags },
+  { id: "time_to_get", title: "How Long It Takes", icon: FaClock },
+  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
 ];
 
 export const customer_service_sections: InformationDetails[] = [

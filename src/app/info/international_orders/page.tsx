@@ -1,30 +1,41 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { internationalOrderReturnsFAQs } from "@/lib/constants/faqs";
+import { internationalOrdersSections } from "@/lib/constants/informationDetails";
 import { scrollToSection } from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import {
-  FaDollarSign,
-  FaGlobe,
-  FaLanguage,
-  FaMailBulk,
-  FaPhone,
-  FaQuestionCircle,
-  FaShippingFast,
-  FaUndo,
-} from "react-icons/fa";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-const internationalOrdersSections = [
-  { id: "shipping", title: "Shipping Information", icon: FaShippingFast },
-  { id: "customs", title: "Customs and Duties", icon: FaGlobe },
-  { id: "payment", title: "Payment Options", icon: FaDollarSign },
-  { id: "returns", title: "International Returns Policy", icon: FaUndo },
-  { id: "language", title: "Language Support", icon: FaLanguage },
-  { id: "faqs", title: "Frequently Asked Questions", icon: FaQuestionCircle },
-];
-
+/**
+ * A React component that renders the International Orders page.
+ * This page provides comprehensive information about international shipping policies,
+ * customs, payments, returns, language support, FAQs, and contact information.
+ *
+ * @component
+ * @example
+ * ```tsx
+ * <InternationalOrdersPage />
+ * ```
+ *
+ * @remarks
+ * The component uses the following features:
+ * - Sticky sidebar navigation with section highlighting
+ * - Collapsible content sections
+ * - Dynamic content rendering based on section IDs
+ * - Smooth scrolling to sections
+ *
+ * @state
+ * - activeSection: string | null - Tracks the currently active/expanded section
+ *
+ * @hooks
+ * - useRef - Stores references to section elements for scrolling
+ * - useRouter - Handles navigation for contact options
+ *
+ * @returns A responsive page layout with a navigation sidebar and expandable content sections
+ * covering international order policies and information
+ */
 const InternationalOrdersPage = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});

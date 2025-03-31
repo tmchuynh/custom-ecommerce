@@ -1,38 +1,43 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { productRecommendationsFAQs } from "@/lib/constants/faqs";
+import { productRecommendationsSections } from "@/lib/constants/informationDetails";
 import { scrollToSection } from "@/lib/utils/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import {
-  FaClock,
-  FaCogs,
-  FaLightbulb,
-  FaMailBulk,
-  FaPhone,
-  FaQuestionCircle,
-  FaStar,
-  FaTags,
-  FaUser,
-} from "react-icons/fa";
+import { FaMailBulk, FaPhone } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-const productRecommendationsSections = [
-  { id: "overview", title: "Overview", icon: FaStar },
-  { id: "how_it_works", title: "How It Works", icon: FaLightbulb },
-  { id: "benefits", title: "Benefits", icon: FaTags },
-  {
-    id: "how_to_get",
-    title: "How to Get Recommendations",
-    icon: FaQuestionCircle,
-  },
-  { id: "who_provides", title: "Who Provides Recommendations", icon: FaUser },
-  { id: "how_chosen", title: "How Recommendations Are Chosen", icon: FaCogs },
-  { id: "customize", title: "How to Customize Recommendations", icon: FaTags },
-  { id: "time_to_get", title: "How Long It Takes", icon: FaClock },
-  { id: "faq", title: "FAQ", icon: FaQuestionCircle },
-];
-
+/**
+ * A component that renders a comprehensive product recommendations page.
+ *
+ * @component
+ * @description
+ * This page provides detailed information about the product recommendation system,
+ * including how it works, benefits, customization options, and FAQs. The page features:
+ * - A sticky table of contents sidebar for easy navigation
+ * - Expandable/collapsible sections with detailed content
+ * - FAQ section with common customer questions
+ * - Contact information section with multiple support channels
+ *
+ * @example
+ * ```tsx
+ * <ProductRecommendationsPage />
+ * ```
+ *
+ * @returns A React component that displays the product recommendations information page
+ *
+ * @states
+ * - activeSection: string | null - Tracks which content section is currently expanded
+ *
+ * @refs
+ * - sectionRefs: { [key: string]: HTMLElement | null } - References to section elements for scroll functionality
+ *
+ * @hooks
+ * - useRouter - Next.js router hook for navigation
+ * - useState - Manages active section state
+ * - useRef - Manages section references
+ */
 const ProductRecommendationsPage = () => {
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const sectionRefs = useRef<{ [key: string]: HTMLElement | null }>({});
