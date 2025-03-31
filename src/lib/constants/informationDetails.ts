@@ -1,54 +1,46 @@
 import {
-  FaBookOpen,
   FaAward,
-  FaGift,
-  FaStar,
-  FaShoppingBag,
+  FaBan,
+  FaBookOpen,
   FaBriefcase,
-  FaHeart,
-  FaUsers,
+  FaCheckCircle,
+  FaClipboardCheck,
   FaClock,
-  FaCreditCard,
-  FaFileAlt,
-  FaKey,
-  FaLock,
-  FaServer,
+  FaCogs,
   FaCookie,
+  FaCreditCard,
   FaDatabase,
-  FaInfo,
+  FaDollarSign,
   FaEdit,
+  FaEnvelope,
+  FaFileAlt,
+  FaGift,
+  FaGlobe,
+  FaHeart,
+  FaInfo,
+  FaKey,
+  FaLanguage,
+  FaLightbulb,
+  FaLock,
+  FaMoneyBill,
   FaPhoneAlt,
+  FaQuestionCircle,
+  FaRegCopyright,
+  FaServer,
   FaShare,
   FaShieldAlt,
-  FaUserCheck,
-  FaCheckCircle,
-  FaDollarSign,
-  FaRegCopyright,
-  FaShoppingBasket,
-  FaCogs,
-  FaLightbulb,
-  FaQuestionCircle,
-  FaTags,
-  FaUser,
-  FaGlobe,
-  FaLanguage,
   FaShippingFast,
-  FaUndo,
-  FaEnvelope,
+  FaShoppingBag,
+  FaShoppingBasket,
   FaShoppingCart,
-  FaUserFriends,
-  FaBan,
-  FaClipboardCheck,
-  FaMoneyBill,
+  FaStar,
+  FaTags,
   FaTruck,
+  FaUser,
+  FaUserCheck,
+  FaUserFriends,
+  FaUsers,
 } from "react-icons/fa";
-import {
-  IoIosTrendingUp,
-  IoIosHelpCircleOutline,
-  IoMdSettings,
-  IoMdRefresh,
-} from "react-icons/io";
-import { InformationDetails } from "../interfaces";
 import {
   FaCircleXmark,
   FaMessage,
@@ -57,11 +49,18 @@ import {
   FaTruckFast,
 } from "react-icons/fa6";
 import { FiHelpCircle } from "react-icons/fi";
-import { GoAlertFill, GoAlert } from "react-icons/go";
+import { GoAlert, GoAlertFill } from "react-icons/go";
+import {
+  IoIosHelpCircleOutline,
+  IoIosTrendingUp,
+  IoMdRefresh,
+  IoMdSettings,
+} from "react-icons/io";
 import { MdCurrencyExchange, MdManageHistory } from "react-icons/md";
 import { PiPantsFill } from "react-icons/pi";
 import { RiFootprintFill } from "react-icons/ri";
 import { TbRulerMeasure2 } from "react-icons/tb";
+import { InformationDetails } from "../interfaces";
 
 export const loyalty_program_sections: InformationDetails[] = [
   {
@@ -266,7 +265,11 @@ export const internationalOrdersSections = [
   { id: "shipping", title: "Shipping Information", icon: FaShippingFast },
   { id: "customs", title: "Customs and Duties", icon: FaGlobe },
   { id: "payment", title: "Payment Options", icon: FaDollarSign },
-  { id: "returns", title: "International Returns Policy", icon: FaUndo },
+  {
+    id: "returns",
+    title: "International Returns Policy",
+    icon: MdCurrencyExchange,
+  },
   { id: "language", title: "Language Support", icon: FaLanguage },
   { id: "faqs", title: "Frequently Asked Questions", icon: FaQuestionCircle },
 ];
