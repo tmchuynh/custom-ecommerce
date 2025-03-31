@@ -56,38 +56,66 @@ export function getCardType(cardNumber: string): string | null {
 }
 
 /**
- * Smoothly scrolls to a specified section of the page and optionally updates the active section state.
+ * Smoothly scrolls to a specified section on the page with an offset.
  *
  * @param sectionId - The ID of the section to scroll to
- * @param sectionRefs - A React mutable ref object containing references to section elements
+ * @param sectionRefs - React ref object containing references to section elements
  * @param setActiveSection - Optional callback function to update the active section state
  *
+ * @remarks
+ * This function:
+ * - Updates the active section state if a callback is provided
+ * - Uses requestAnimationFrame for smooth scrolling animation
+ * - Applies a fixed offset of 80px to account for fixed headers
+ *
  * @example
- * ```typescript
+ * ```tsx
+ * const sectionRefs = useRef({});
  * scrollToSection('about', sectionRefs, setActiveSection);
  * ```
  */
 export const scrollToSection = (
   sectionId: string,
-  sectionRefs: React.MutableRefObject<{ [key: string]: HTMLElement | null }>,
+  sectionRefs: React.RefObject<{ [key: string]: HTMLElement | null }>,
   setActiveSection?: (sectionId: string) => void
 ) => {
   if (setActiveSection) {
     setActiveSection(sectionId);
   }
-  sectionRefs.current[sectionId]?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
+
+  const section = sectionRefs.current?.[sectionId];
+  if (section) {
+    const offset = 80; // Fixed offset (e.g., header height)
+
+    // Wait for two animation frames to ensure layout is updated
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const sectionPosition =
+          section.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: sectionPosition - offset,
+          behavior: "smooth",
+        });
+      });
+    });
+  }
 };
 
 /**
- * Toggles an accordion section and scrolls to it if newly opened
+ * Toggles an accordion section and smoothly scrolls to it if opened.
  *
- * @param id - The ID of the section to toggle
- * @param activeSection - The currently active section ID
+ * @param id - The unique identifier of the accordion section
+ * @param activeSection - The currently active section's ID, or null if none is active
  * @param setActiveSection - Function to update the active section state
- * @param sectionRef - Reference to the section element to scroll to
+ * @param sectionRef - Reference to the DOM element of the accordion section
+ *
+ * @remarks
+ * When opening a section (activeSection !== id), the function will:
+ * 1. Update the active section state
+ * 2. Scroll to the newly opened section with a smooth animation
+ * 3. Apply an offset of 100px from the top of the viewport
+ *
+ * The scroll behavior has a 100ms delay to ensure DOM updates are complete.
  */
 export const toggleAccordionSection = (
   id: string,
@@ -96,12 +124,19 @@ export const toggleAccordionSection = (
   sectionRef: HTMLElement | null
 ) => {
   setActiveSection(activeSection === id ? null : id);
+
   if (activeSection !== id && sectionRef) {
-    sectionRef.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-      inline: "nearest",
-    });
+    const offset = 100; // Adjust offset if needed
+
+    // Delay scrolling slightly to ensure the DOM has updated
+    setTimeout(() => {
+      const sectionPosition =
+        sectionRef.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: sectionPosition - offset,
+        behavior: "smooth",
+      });
+    }, 100); // Delay in milliseconds – adjust if necessary
   }
 };
 
