@@ -172,7 +172,7 @@ const StaticBreadcrumb: React.FC = () => {
                       key={item.href}
                       onClick={() => router.push(item.href)}
                     >
-                      {item.name}
+                      {capitalize(item.name)}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuGroup>
