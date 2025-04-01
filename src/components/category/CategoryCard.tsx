@@ -3,7 +3,7 @@
 import { CategoryCardProps } from "@/lib/types";
 import { useRouter } from "next/navigation";
 import { JSX } from "react";
-import DynamicButton from "../ui/button-dynamic";
+import DynamicButton from "../buttons/button-dynamic";
 import { Skeleton } from "../ui/skeleton";
 
 /**

@@ -1,7 +1,9 @@
 import { CategoryProps } from "@/lib/interfaces";
-import { formatURL } from "@/lib/utils/format";
+import { formatURL, sortAlphabetically } from "@/lib/utils/format";
 import { useRouter } from "next/navigation";
 import { JSX } from "react";
+import HoverIconLink from "../buttons/links/HoverIconLink";
+import { FaArrowRight } from "react-icons/fa";
 
 /**
  * A React component that renders a list of categories and their respective sections.
@@ -42,6 +44,10 @@ export default function CategoryList({
   closePopovers,
 }: CategoryProps): JSX.Element {
   const router = useRouter();
+  const sortedItems = {
+    ...section,
+    items: [...section.items].sort((a, b) => a.name.localeCompare(b.name)),
+  };
   return (
     <div key={index} className="space-y-4">
       <div className="flex items-center justify-between">
@@ -57,31 +63,41 @@ export default function CategoryList({
         aria-labelledby={`${category.id}-heading`}
         className="mt-4 space-y-4"
       >
-        {section.name !== "Shop by Collection" && (
+        {sortedItems.name !== "Shop by Collection" && (
           <li>
-            <a
-              href={`/shopping/${category.id}/${formatURL(section.name)}`}
-              className="p-0 my-0 text-foreground hover:underline underline-offset-4"
-              onClick={() => {
-                closePopovers?.();
-                router.push(`/shopping/${category.id}`);
-              }}
-            >
-              Shop All {section.name}
-            </a>
+            <HoverIconLink
+              icon={FaArrowRight}
+              link={
+                <a
+                  href={`/shopping/${category.id}/${formatURL(section.name)}`}
+                  className="p-0 my-0 text-foreground hover:underline underline-offset-4"
+                  onClick={() => {
+                    closePopovers?.();
+                    router.push(`/shopping/${category.id}`);
+                  }}
+                >
+                  Shop All {section.name}
+                </a>
+              }
+            ></HoverIconLink>
           </li>
         )}
-        {section.items.map((item) => (
-          <li key={item.name}>
-            <a
-              href={`/shopping/${category.id}/${formatURL(
-                section.name
-              )}?filter=${formatURL(item.name)}`}
-              className="p-0 my-0 text-foreground hover:underline underline-offset-4"
-              onClick={closePopovers}
-            >
-              {item.name}
-            </a>
+        {sortedItems.items.map((item) => (
+          <li key={item.name} className="w-full flex items-center">
+            <HoverIconLink
+              icon={FaArrowRight}
+              link={
+                <a
+                  href={`/shopping/${category.id}/${formatURL(
+                    section.name
+                  )}?filter=${formatURL(item.name)}`}
+                  className="p-0 my-0 text-foreground hover:underline underline-offset-4"
+                  onClick={closePopovers}
+                >
+                  {item.name}
+                </a>
+              }
+            />
           </li>
         ))}
       </ul>
