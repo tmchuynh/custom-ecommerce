@@ -1,3 +1,5 @@
+import { SectionDetails } from "../types";
+
 export const formatDate = (date: Date) =>
   date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
 
@@ -71,12 +73,10 @@ export const formatCreditCardNumber = (value: string): string => {
  * capitalize("hello world") // returns "Hello World"
  */
 export const capitalize = (str: string): string => {
-  function replaceChar(char: string): string {
-    return char === "-" ? " " : char.toUpperCase();
-  }
   return str
-    .replace(/-|\b\w/g, replaceChar)
-    .replaceAll("_", " ")
+    .replace(/-/g, " ")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase())
     .trim();
 };
 
@@ -145,3 +145,63 @@ export function formatExpiryDate(value: string): string {
   }
   return cleaned;
 }
+
+/**
+ * Sorts an array of strings alphabetically.
+ *
+ * @param arr - The array of strings to sort.
+ * @returns A new array sorted alphabetically.
+ */
+export const sortAlphabetically = (arr: string[]): string[] => {
+  return [...arr].sort((a, b) => a.localeCompare(b));
+};
+
+/**
+ * Sorts an array of strings alphabetically.
+ *
+ * @param arr - The array of strings to sort.
+ * @returns A new array sorted alphabetically.
+ */
+export const sortSectionsAlphabetically = (
+  arr: SectionDetails[]
+): SectionDetails[] => {
+  return [...arr].sort((a, b) => a.name.localeCompare(b.name));
+};
+
+/**
+ * Sorts an array of strings by the length of each string.
+ *
+ * @param arr - The array of strings to sort.
+ * @returns A new array sorted by string length.
+ */
+export const sortByLength = (arr: string[]): string[] => {
+  return [...arr].sort((a, b) => a.length - b.length);
+};
+
+/**
+ * Sorts an array of objects alphabetically by a specified key.
+ *
+ * @param arr - The array of objects to sort.
+ * @param key - The key to sort the objects by.
+ * @returns A new array sorted alphabetically by the specified key.
+ */
+export const sortObjectsByKey = <T extends Record<string, any>>(
+  arr: T[],
+  key: keyof T
+): T[] => {
+  return [...arr].sort((a, b) => String(a[key]).localeCompare(String(b[key])));
+};
+
+/**
+ * Sorts an array of objects by the length of a specified key's value.
+ *
+ * @param arr - The array of objects to sort.
+ * @param key - The key to sort the objects by the length of its value.
+ * @returns A new array sorted by the length of the specified key's value.
+ */
+export const sortObjectsByKeyLength = <T extends Record<string, any>>(
+  arr: T[],
+  key: keyof T
+): T[] => {
+  return [...arr].sort((a, b) => String(a[key]).length - String(b[key]).length);
+};

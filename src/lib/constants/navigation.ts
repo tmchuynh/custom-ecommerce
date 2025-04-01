@@ -13,7 +13,7 @@ export const navigations: NavigationDetails = {
           name: "New Arrivals",
           href: "/shopping/women/collections/new_arrivals",
           imageSrc:
-            "https://media.istockphoto.com/id/1160533209/photo/female-fashion-clothes-flat-lay-square.jpg?s=612x612&w=0&k=20&c=qnrP8AQgbrQlcFPK0tVAW-1B-abTlHiGQAeP5_FY-Qw=",
+            "https://plus.unsplash.com/premium_photo-1658506871173-7498f5371ed1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d29tZW4lMjBzaG9wcGluZ3xlbnwwfDB8MHx8fDA%3D",
           imageAlt:
             "Latest arrivals in women's fashion, from dresses to casual wear.",
         },
@@ -21,7 +21,7 @@ export const navigations: NavigationDetails = {
           name: "Accessories",
           href: "/shopping/women/accessories",
           imageSrc:
-            "https://media.istockphoto.com/id/654407498/photo/woman-trendy-fashion-accessories.jpg?s=612x612&w=0&k=20&c=8Iv1m5tfkhx9WcnNwV7adXkBahEPv2EvdUnpMmQzYAI=",
+            "https://images.unsplash.com/photo-1728936075080-94921fb44db9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdvbWVuJTIwc2hvcHBpbmclMjBqZXdsZXJ5fGVufDB8MHwwfHx8MA%3D%3D",
           imageAlt: "Stylish dresses for all occasions, from formal to casual.",
         },
         {
@@ -253,7 +253,7 @@ export const navigations: NavigationDetails = {
           name: "New Arrivals",
           href: "/shopping/women/collections/new_arrivals",
           imageSrc:
-            "https://cdn.sanity.io/images/tzehqw2l/production/7776683b570c81940b1526996c1b23745be4c674-335x447.jpg?width=2000&height=2669&crop=center",
+            "https://plus.unsplash.com/premium_photo-1664201890656-32ae80bfa8bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWVuJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D",
           imageAlt:
             "Latest arrivals in women's fashion, from dresses to casual wear.",
         },
@@ -765,14 +765,14 @@ export const navigations: NavigationDetails = {
           name: "Best Sellers",
           href: "/shopping/kids/collections/best_sellers",
           imageSrc:
-            "https://media.istockphoto.com/id/1676220225/photo/children-learning-in-a-school-classroom.jpg?s=612x612&w=0&k=20&c=rBAKsscZJRWgFQmkBKJIltnhzQXUnuICCtGUbdMCcag=",
+            "https://images.unsplash.com/photo-1571210862729-78a52d3779a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGtpZHN8ZW58MHx8MHx8fDA%3D",
           imageAlt: "Stylish dresses for all occasions, from formal to casual.",
         },
         {
           name: "Latest Drops",
           href: "/shopping/kids/collections/latest_drops",
           imageSrc:
-            "https://media.istockphoto.com/id/2096480418/photo/group-of-multi-cultural-children-friends-linking-arms-looking-down-into-camera.jpg?s=612x612&w=0&k=20&c=H0-_W5BfzoBd8VqKwsj353-25GCwsF5XRHVzitJ4ffQ=",
+            "https://images.unsplash.com/photo-1469406396016-013bfae5d83e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGtpZHN8ZW58MHx8MHx8fDA%3D",
           imageAlt: "Elegant accessories to complement your outfits.",
         },
         {

@@ -1,3 +1,4 @@
+import { IconType } from "react-icons/lib";
 import { CartItem, ShippingAddress } from "./interfaces";
 
 export type LengthType = number | string;
@@ -235,6 +236,7 @@ export type ItemDetails = {
   name: string;
   href: string;
   imageSrc: string;
+  icon: IconType;
 };
 
 export type SectionDetails = {
