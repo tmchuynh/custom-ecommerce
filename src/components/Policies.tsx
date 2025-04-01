@@ -1,5 +1,5 @@
 import Link from "next/link";
-import DynamicButton from "./ui/button-dynamic";
+import DynamicButton from "./buttons/button-dynamic";
 import { Button } from "./ui/button";
 import { InformationDetails } from "@/lib/interfaces";
 import { FaCreditCard, FaFile, FaKey } from "react-icons/fa";
