@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { navigations } from "@/lib/constants/navigation";
 import { FaArrowRight } from "react-icons/fa";
-import DynamicButton from "../ui/button-dynamic";
+import DynamicButton from "../buttons/button-dynamic";
 
 /**
  * Categories component displays a grid of product categories with visual cards.
