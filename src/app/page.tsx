@@ -3,10 +3,11 @@ import Categories from "@/components/category/Categories";
 import TrendingProducts from "@/components/category/product/TrendingProducts";
 import ShopByCollection from "@/components/category/ShopByCollection";
 import Policies from "@/components/Policies";
-import DynamicButton from "@/components/ui/button-dynamic";
+import DynamicButton from "@/components/buttons/button-dynamic";
 import { offers, testimonials } from "@/lib/constants/constants";
 import Image from "next/image";
 import { useState } from "react";
+import { ImQuotesLeft } from "react-icons/im";
 import { FaShoppingCart } from "react-icons/fa";
 
 export default function HomePage() {
@@ -46,7 +47,7 @@ export default function HomePage() {
           className="absolute inset-1.5 object-bottom w-full object-cover opacity-55"
         />
 
-        <div className="relative mx-auto max-w-3xl flex-col z-10 p-9 mb-35 mt-20 bg-muted/60 rounded-2xl items-center px-6 text-center lg:px-0 lg:py-15">
+        <div className="relative mx-auto max-w-3xl flex-col z-10 p-9 mb-35 mt-28 bg-muted/60 rounded-2xl items-center px-6 text-center lg:px-0 lg:py-15">
           <h1 className="text-4xl font-extrabold text-center mb-8">
             New arrivals are here
           </h1>
@@ -59,57 +60,59 @@ export default function HomePage() {
             variant="outline"
             text="Shop New Arrivals"
             icon={FaShoppingCart}
+            className="mt-9"
             iconClassName="group-hover:translate-x-15"
           />
         </div>
       </div>
 
       <main>
+        <TrendingProducts />
+
+        <ShopByCollection />
+
         {/* Testimonials */}
         <section
           aria-labelledby="testimonial-heading"
           className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32"
         >
           <div className="mx-auto max-w-2xl lg:max-w-none">
-            <h2
-              id="testimonial-heading"
-              className="text-2xl font-semibold mb-4"
-            >
-              What are people saying?
-            </h2>
-
-            <div className="mt-16 space-y-16 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-              {testimonials.map((testimonial) => (
-                <blockquote key={testimonial.id} className="sm:flex lg:block">
-                  <svg
-                    width={24}
-                    height={18}
-                    viewBox="0 0 24 18"
-                    aria-hidden="true"
-                    className="shrink-0"
-                  >
-                    <path
-                      d="M0 18h8.7v-5.555c-.024-3.906 1.113-6.841 2.892-9.68L6.452 0C3.188 2.644-.026 7.86 0 12.469V18zm12.408 0h8.7v-5.555C21.083 8.539 22.22 5.604 24 2.765L18.859 0c-3.263 2.644-6.476 7.86-6.451 12.469V18z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                  <div className="mt-8 sm:mt-0 sm:ml-6 lg:mt-10 lg:ml-0">
-                    <p className="text-lg">{testimonial.quote}</p>
-                    <cite className="mt-4 block font-semibold not-italic">
-                      {testimonial.attribution}
-                    </cite>
+            <div className="pt-24 pb-16 sm:pt-32 sm:pb-24 xl:pb-32">
+              <div className="pb-20 sm:pb-24 xl:pb-0">
+                <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
+                  <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
+                    <div className="relative aspect-2/1 h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
+                      <img
+                        alt=""
+                        src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80"
+                        className="absolute inset-0 size-full rounded-2xl bg-gray-800 object-cover shadow-2xl"
+                      />
+                    </div>
                   </div>
-                </blockquote>
-              ))}
+                  <div className="w-full relative max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
+                    <ImQuotesLeft className="absolute top-0 left-5 -z-10 size-24 md:size-40 lg:size-52 xl:size-72 text-muted" />
+                    <figure className="relative isolate pt-6 sm:pt-12 z-10">
+                      <blockquote className="text-xl/8 font-semibold sm:text-2xl/9">
+                        <p>
+                          Gravida quam mi erat tortor neque molestie. Auctor
+                          aliquet at porttitor a enim nunc suscipit tincidunt
+                          nunc. Et non lorem tortor posuere. Nunc eu scelerisque
+                          interdum eget tellus non nibh scelerisque bibendum.
+                        </p>
+                      </blockquote>
+                      <figcaption className="mt-8 text-base">
+                        <div className="font-semibold">Judith Black</div>
+                        <div className="mt-1">CEO of Workcation</div>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        <ShopByCollection />
-
         <Policies />
-
-        <TrendingProducts />
 
         <Categories />
       </main>
