@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils/utils";
 import Image from "next/image";
-import DynamicButton from "../ui/button-dynamic";
+import DynamicButton from "../buttons/button-dynamic";
 import { FeaturedCategoryProps } from "@/lib/interfaces";
 import { JSX } from "react";
 
@@ -41,8 +41,8 @@ export default function FeaturedCategory({
           "w-full object-cover"
         )}
       />
-      <div className="absolute inset-0 flex flex-col justify-end overflow-hidden">
-        <div className="bg-white/55 px-4 py-8 text-sm h-96 absolute w-full top-[50%] transition-transform duration-700 ease-in-out transform group-hover:-translate-y-2/12">
+      <div className="absolute inset-0 flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/90 via-white/50 to-white/10 ">
+        <div className=" px-4 py-8 text-sm h-96 absolute w-full top-[50%] ">
           <div className="flex items-center gap-5 text-2xl font-bold">
             <a
               href={item.href}

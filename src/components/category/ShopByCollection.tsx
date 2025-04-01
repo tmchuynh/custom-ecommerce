@@ -1,9 +1,12 @@
+"use client";
+
 import { navigations } from "@/lib/constants/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import DynamicButton from "../ui/button-dynamic";
+import DynamicButton from "../buttons/button-dynamic";
 import { JSX } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 /**
  * A component that displays shopping collections organized by categories.
@@ -26,6 +29,7 @@ import { FaArrowRight } from "react-icons/fa";
  * @returns {JSX.Element} A section containing categorized shopping collections
  */
 export default function ShopByCollection(): JSX.Element {
+  const router = useRouter();
   return (
     <section aria-labelledby="collection-heading" className=" py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,26 +46,17 @@ export default function ShopByCollection(): JSX.Element {
         <div className="space-y-16">
           {navigations.categories.map((category, index) => (
             <div key={index} className="relative">
-              <div className="flex items-center mb-6">
-                <h2 className="text-2xl font-semibold">
-                  <Link
-                    href={`/shopping/${category.name.toLowerCase()}`}
-                    className="hover:text-blue-600 transition-colors"
-                  >
-                    {category.name}
-                  </Link>
-                </h2>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-2xl font-semibold">{category.name}</h2>
                 <div className="ml-4 flex-grow border-t"></div>
-                <Link
-                  href={`/shopping/${category.name.toLowerCase()}`}
-                  className="ml-4"
-                >
-                  <DynamicButton
-                    text="View All"
-                    className="w-full"
-                    variant="outline"
-                  />
-                </Link>
+                <DynamicButton
+                  onClick={() =>
+                    router.push(`/shopping/${category.name.toLowerCase()}`)
+                  }
+                  text="View All"
+                  className="w-fit ml-4"
+                  variant="outline"
+                />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -78,16 +73,16 @@ export default function ShopByCollection(): JSX.Element {
                       alt={section.name}
                       className="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-white/70 via-white/20 to-transparent opacity-80"></div>
                     <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-xl font-semibold text-foreground">
+                      <h3 className="text-xl font-semibold text-accent uppercase">
                         {section.name}
                       </h3>
                       <div className="mt-2 flex items-center">
-                        <span className="text-sm text-foreground font-medium">
+                        <span className="text-sm text-accent font-medium">
                           Shop Now
                         </span>
-                        <FaArrowRight className="h-4 w-4 ml-1 text-foreground" />
+                        <FaArrowRight className="h-4 w-4 ml-1 text-accent" />
                       </div>
                     </div>
                   </Link>
