@@ -92,10 +92,8 @@ const links = [
 
 export default function InfoPage() {
   return (
-    <div className="flex flex-col items-center py-45 justify-center w-full h-11/12">
-      <h1 className="text-4xl font-bold">Info Page</h1>
-      <p className="mt-4 text-lg">This is the info page.</p>
-      <ul role="list" className="-mt-6 divide-y py-5">
+    <div className="flex flex-col items-center py-15 justify-center w-full h-11/12">
+      <ul role="list" className="-mt-6 divide-y">
         {links.map((link, linkIdx) => (
           <li
             key={linkIdx}
