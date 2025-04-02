@@ -70,7 +70,7 @@ export default function Newsletter() {
   }
 
   return (
-    <section className="w-full bg-muted/40 py-12 md:py-16">
+    <section className="w-full border-t py-12 md:py-16">
       <div className="container max-w-7xl mx-auto px-4">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
           Stay Connected
@@ -81,7 +81,7 @@ export default function Newsletter() {
             open={showWelcomeAlert}
             onOpenChange={setShowWelcomeAlert}
           >
-            <AlertDialogContent className="bg-white dark:bg-gray-900">
+            <AlertDialogContent className="">
               <AlertDialogHeader>
                 <AlertDialogTitle className="text-xl font-semibold">
                   Welcome to Our Newsletter!
@@ -94,7 +94,7 @@ export default function Newsletter() {
               </AlertDialogHeader>
               <AlertDialogFooter>
                 <AlertDialogAction
-                  className="bg-primary hover:bg-primary/90 text-white"
+                  className="bg-primary hover:bg-primary/90"
                   onClick={() => setShowWelcomeAlert(false)}
                 >
                   Got it

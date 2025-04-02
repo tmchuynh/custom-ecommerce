@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <>
       <Newsletter />
-      <footer aria-labelledby="footer-heading" className="td">
+      <footer aria-labelledby="footer-heading" className="border-t">
         <h2 id="footer-heading" className="sr-only">
           Footer
         </h2>
