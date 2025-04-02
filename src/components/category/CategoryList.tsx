@@ -64,13 +64,12 @@ export default function CategoryList({
         className="mt-4 space-y-4"
       >
         {sortedItems.name !== "Shop by Collection" && (
-          <li>
+          <li className="group">
             <HoverIconLink
               icon={FaArrowRight}
               link={
                 <a
                   href={`/shopping/${category.id}/${formatURL(section.name)}`}
-                  className="p-0 my-0 text-foreground hover:underline underline-offset-4"
                   onClick={() => {
                     closePopovers?.();
                     router.push(`/shopping/${category.id}`);
@@ -91,7 +90,6 @@ export default function CategoryList({
                   href={`/shopping/${category.id}/${formatURL(
                     section.name
                   )}?filter=${formatURL(item.name)}`}
-                  className="p-0 my-0 text-foreground hover:underline underline-offset-4"
                   onClick={closePopovers}
                 >
                   {item.name}
