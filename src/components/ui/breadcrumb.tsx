@@ -1,8 +1,8 @@
-import * as React from "react";
+import { cn } from "@/lib/utils";
 import { Slot } from "@radix-ui/react-slot";
-import { GoHorizontalRule } from "react-icons/go";
-import { cn } from "@/lib/utils/utils";
+import * as React from "react";
 import { FaChevronRight } from "react-icons/fa";
+import { GoHorizontalRule } from "react-icons/go";
 
 const Breadcrumb = React.forwardRef<
   HTMLElement,
@@ -98,7 +98,7 @@ const BreadcrumbEllipsis = ({
     className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
   >
-    <GoHorizontalRule className="h-4 w-4" />
+    <GoHorizontalRule className="w-4 h-4" />
     <span className="sr-only">More</span>
   </span>
 );
@@ -106,10 +106,10 @@ BreadcrumbEllipsis.displayName = "BreadcrumbElipssis";
 
 export {
   Breadcrumb,
-  BreadcrumbList,
+  BreadcrumbEllipsis,
   BreadcrumbItem,
   BreadcrumbLink,
+  BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  BreadcrumbEllipsis,
 };

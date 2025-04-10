@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import { FaMessage, FaShirt } from "react-icons/fa6";
-import { RiFootprintFill } from "react-icons/ri";
-import { PiPantsFill } from "react-icons/pi";
-import { TbRulerMeasure2 } from "react-icons/tb";
-import { IoMdHelp } from "react-icons/io";
 import { sizeGuideCategories } from "@/lib/constants/informationDetails";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
+import { useRef, useState } from "react";
+import { FaMessage, FaShirt } from "react-icons/fa6";
+import { IoMdHelp } from "react-icons/io";
+import { PiPantsFill } from "react-icons/pi";
+import { RiFootprintFill } from "react-icons/ri";
+import { TbRulerMeasure2 } from "react-icons/tb";
 
 /**
  * A comprehensive size guide component that displays sizing information for clothing and footwear.
@@ -70,21 +70,21 @@ const SizeGuide = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Size Guide</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Size Guide</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Use our size guide to find your perfect fit! Whether you're shopping
             for tops, bottoms, or shoes, we have the measurements and visuals to
             help you make the right choice.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-8 border rounded-xl shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4 ">Content</h2>
+            <div className="top-8 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Content</h2>
               <ul className="space-y-2">
                 {sizeGuideCategories.map((category) => (
                   <li key={category.id}>
@@ -96,8 +96,8 @@ const SizeGuide = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <category.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <category.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {category.title}
                       </span>
                     </button>
@@ -105,9 +105,9 @@ const SizeGuide = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
-                <h3 className="font-medium flex items-center">
-                  <IoMdHelp className="h-4 w-4 mr-2" />
+              <div className="space-y-2 bg-muted mt-8 p-4 rounded-lg">
+                <h3 className="flex items-center font-medium">
+                  <IoMdHelp className="mr-2 w-4 h-4" />
                   Need Help?
                 </h3>
                 <p className="text-sm">
@@ -117,7 +117,7 @@ const SizeGuide = () => {
                 <div className="mt-4">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="mr-2 w-4 h-4" /> Contact Support
                     </Button>
                   </Link>
                 </div>
@@ -126,23 +126,21 @@ const SizeGuide = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Shirts Section */}
             <div
               ref={(el) => {
                 sectionRefs.current["shirts"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("shirts")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaShirt className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3 ">
-                    Shirts & Tops
-                  </h2>
+                  <FaShirt className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Shirts & Tops</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -162,23 +160,23 @@ const SizeGuide = () => {
               </button>
               {activeSection === "shirts" && (
                 <div className="p-6 border-t">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 min-h-[60rem]">
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2 min-h-[60rem]">
                     <div>
                       <div>
-                        <h3 className="text-lg font-medium mb-4 ">
+                        <h3 className="mb-4 font-medium text-lg">
                           Men's Shirt Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Size
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Chest (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Length (inches)
                                 </th>
                               </tr>
@@ -245,20 +243,20 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Women's Shirt Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Size
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Bust (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Length (inches)
                                 </th>
                               </tr>
@@ -325,16 +323,16 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Shirt Fit Guide
                         </h3>
-                        <table className="min-w-full divide-y border rounded-lg">
+                        <table className="border rounded-lg divide-y min-w-full">
                           <thead>
                             <tr>
-                              <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                              <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                 Fit Type
                               </th>
-                              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                              <th className="px-4 py-3 font-medium text-left text-xs uppercase tracking-wider">
                                 Description
                               </th>
                             </tr>
@@ -371,11 +369,11 @@ const SizeGuide = () => {
                       </div>
                     </div>
                     <div className="flex flex-col space-y-6">
-                      <div className=" p-4 rounded-lg border">
-                        <h3 className="font-medium  mb-2">
+                      <div className="p-4 border rounded-lg">
+                        <h3 className="mb-2 font-medium">
                           How to measure chest/bust:
                         </h3>
-                        <p className="text-sm mb-4">
+                        <p className="mb-4 text-sm">
                           Measure around the fullest part of your chest/bust,
                           keeping the tape measure horizontal.
                         </p>
@@ -384,7 +382,7 @@ const SizeGuide = () => {
                           alt="Shirt sizing guide"
                           width={400}
                           height={300}
-                          className="rounded-lg shadow-md mx-auto"
+                          className="shadow-md mx-auto rounded-lg"
                         />
                       </div>
                     </div>
@@ -398,15 +396,15 @@ const SizeGuide = () => {
               ref={(el) => {
                 sectionRefs.current["pants"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("pants")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <PiPantsFill className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3 ">
+                  <PiPantsFill className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Pants & Bottoms
                   </h2>
                 </div>
@@ -428,26 +426,26 @@ const SizeGuide = () => {
               </button>
               {activeSection === "pants" && (
                 <div className="p-6 border-t">
-                  <div className="grid grid-cols-1 md:grid-cols-2 min-h-[60rem] gap-8">
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2 min-h-[60rem]">
                     <div>
                       <div>
-                        <h3 className="text-lg font-medium mb-4 ">
+                        <h3 className="mb-4 font-medium text-lg">
                           Men's Pants Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Size
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Waist (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Inseam (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Hip (inches)
                                 </th>
                               </tr>
@@ -543,23 +541,23 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Women's Pants Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Size
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Waist (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Hip (inches)
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Inseam (inches)
                                 </th>
                               </tr>
@@ -682,17 +680,17 @@ const SizeGuide = () => {
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Pants Fit Guide
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Fit Type
                                 </th>
-                                <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-left text-xs uppercase tracking-wider">
                                   Description
                                 </th>
                               </tr>
@@ -740,11 +738,11 @@ const SizeGuide = () => {
                       </div>
                     </div>
                     <div className="flex flex-col space-y-6">
-                      <div className=" p-4 rounded-lg border">
-                        <h3 className="font-medium  mb-2">
+                      <div className="p-4 border rounded-lg">
+                        <h3 className="mb-2 font-medium">
                           How to measure waist & hips:
                         </h3>
-                        <p className="text-sm mb-4">
+                        <p className="mb-4 text-sm">
                           For waist, measure around the narrowest part of your
                           natural waistline. For hips, measure around the
                           fullest part of your hips.
@@ -754,7 +752,7 @@ const SizeGuide = () => {
                           alt="Pants measuring guide"
                           width={400}
                           height={300}
-                          className="rounded-lg shadow-md mx-auto"
+                          className="shadow-md mx-auto rounded-lg"
                         />
                       </div>
                     </div>
@@ -768,15 +766,15 @@ const SizeGuide = () => {
               ref={(el) => {
                 sectionRefs.current["shoes"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("shoes")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <RiFootprintFill className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3 ">
+                  <RiFootprintFill className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Shoes & Footwear
                   </h2>
                 </div>
@@ -798,29 +796,29 @@ const SizeGuide = () => {
               </button>
               {activeSection === "shoes" && (
                 <div className="p-6 border-t">
-                  <div className="grid grid-cols-1 md:grid-cols-2 min-h-[60rem] gap-8">
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2 min-h-[60rem]">
                     <div>
                       <div>
-                        <h3 className="text-lg font-medium mb-4 ">
+                        <h3 className="mb-4 font-medium text-lg">
                           Men's Shoe Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   US
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   EU
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   UK
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Inches
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   CM
                                 </th>
                               </tr>
@@ -934,26 +932,26 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Women's Shoe Sizing
                         </h3>
                         <div className="overflow-x-auto">
-                          <table className="min-w-full divide-y border rounded-lg">
+                          <table className="border rounded-lg divide-y min-w-full">
                             <thead>
                               <tr>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   US
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   EU
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   UK
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   Inches
                                 </th>
-                                <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                                <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                   CM
                                 </th>
                               </tr>
@@ -1067,16 +1065,16 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h3 className="text-lg font-medium mb-4 mt-8 ">
+                        <h3 className="mt-8 mb-4 font-medium text-lg">
                           Shoe Fitting Tips
                         </h3>
-                        <table className="min-w-full divide-y border rounded-lg">
+                        <table className="border rounded-lg divide-y min-w-full">
                           <thead>
                             <tr>
-                              <th className="px-4 py-3 text-center text-xs font-medium uppercase tracking-wider">
+                              <th className="px-4 py-3 font-medium text-center text-xs uppercase tracking-wider">
                                 Tip
                               </th>
-                              <th className="px-4 py-3 text-left text-xs font-medium uppercase tracking-wider">
+                              <th className="px-4 py-3 font-medium text-left text-xs uppercase tracking-wider">
                                 Description
                               </th>
                             </tr>
@@ -1124,11 +1122,11 @@ const SizeGuide = () => {
                       </div>
                     </div>
                     <div className="flex flex-col space-y-6">
-                      <div className=" p-4 rounded-lg border">
-                        <h3 className="font-medium  mb-2">
+                      <div className="p-4 border rounded-lg">
+                        <h3 className="mb-2 font-medium">
                           How to measure your foot:
                         </h3>
-                        <p className="text-sm mb-4">
+                        <p className="mb-4 text-sm">
                           Place your foot on a piece of paper and trace around
                           it. Measure the length from the longest toe to the
                           heel.
@@ -1138,7 +1136,7 @@ const SizeGuide = () => {
                           alt="Shoe sizing guide"
                           width={400}
                           height={300}
-                          className="rounded-lg shadow-md mx-auto"
+                          className="shadow-md mx-auto rounded-lg"
                         />
                       </div>
                     </div>
@@ -1152,15 +1150,15 @@ const SizeGuide = () => {
               ref={(el) => {
                 sectionRefs.current["measuring"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("measuring")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <TbRulerMeasure2 className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3 ">
+                  <TbRulerMeasure2 className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     How to Measure
                   </h2>
                 </div>
@@ -1187,14 +1185,14 @@ const SizeGuide = () => {
                     measuring yourself:
                   </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2min-h-[60rem] gap-8">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="gap-8 grid grid-cols-1 md:grid-cols-2min-h-[60rem]">
+                    <div className="gap-8 grid grid-cols-1 md:grid-cols-2">
                       <div className="flex flex-col gap-8">
-                        <div className="border rounded-lg p-5">
-                          <h3 className="text-lg font-medium mb-4">
+                        <div className="p-5 border rounded-lg">
+                          <h3 className="mb-4 font-medium text-lg">
                             Tools You'll Need
                           </h3>
-                          <ul className="list-disc list-outside mx-5 space-y-2 ml-2">
+                          <ul className="space-y-2 mx-5 ml-2 list-disc list-outside">
                             <li>A soft measuring tape</li>
                             <li>
                               A piece of paper and pencil to record measurements
@@ -1205,11 +1203,11 @@ const SizeGuide = () => {
                           </ul>
                         </div>
 
-                        <div className="border rounded-lg p-5">
-                          <h3 className="text-lg font-medium mb-4">
+                        <div className="p-5 border rounded-lg">
+                          <h3 className="mb-4 font-medium text-lg">
                             General Tips
                           </h3>
-                          <ul className="list-disc list-outside mx-5 space-y-2 ml-2">
+                          <ul className="space-y-2 mx-5 ml-2 list-disc list-outside">
                             <li>
                               Wear minimal clothing or undergarments for most
                               accurate measurements
@@ -1223,8 +1221,8 @@ const SizeGuide = () => {
                           </ul>
                         </div>
 
-                        <div className="p-5 rounded-lg border">
-                          <h3 className="text-lg font-medium mb-2 ">
+                        <div className="p-5 border rounded-lg">
+                          <h3 className="mb-2 font-medium text-lg">
                             Still Unsure?
                           </h3>
                           <p className="mb-4">
@@ -1245,18 +1243,18 @@ const SizeGuide = () => {
                           alt="Measurement guide"
                           width={800}
                           height={400}
-                          className="rounded-lg shadow-md mx-auto"
+                          className="shadow-md mx-auto rounded-lg"
                         />
                       </div>
                     </div>
 
-                    <div className="p-5 rounded-lg border space-y-4">
-                      <h3 className="text-lg font-medium">
+                    <div className="space-y-4 p-5 border rounded-lg">
+                      <h3 className="font-medium text-lg">
                         Specific Measurements
                       </h3>
 
                       <div>
-                        <h4 className="font-medium ">Chest/Bust</h4>
+                        <h4 className="font-medium">Chest/Bust</h4>
                         <p className="text-sm">
                           Measure around the fullest part of your chest/bust,
                           keeping the tape horizontal.
@@ -1264,7 +1262,7 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-medium ">Waist</h4>
+                        <h4 className="font-medium">Waist</h4>
                         <p className="text-sm">
                           Measure around your natural waistline, which is the
                           narrowest part of your torso.
@@ -1272,7 +1270,7 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-medium ">Hips</h4>
+                        <h4 className="font-medium">Hips</h4>
                         <p className="text-sm">
                           Measure around the fullest part of your hips, about
                           7-9 inches below your waistline.
@@ -1280,7 +1278,7 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-medium ">Inseam</h4>
+                        <h4 className="font-medium">Inseam</h4>
                         <p className="text-sm">
                           Measure from the crotch of your pants to the bottom of
                           your ankle.
@@ -1288,7 +1286,7 @@ const SizeGuide = () => {
                       </div>
 
                       <div>
-                        <h4 className="font-medium ">Shoulders</h4>
+                        <h4 className="font-medium">Shoulders</h4>
                         <p className="text-sm">
                           Measure from the edge of one shoulder across to the
                           other shoulder.

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import { motion, Transition, Variants } from "motion/react";
 import React, { CSSProperties } from "react";
 
@@ -89,7 +89,7 @@ export function SpinningText({
           aria-hidden="true"
           key={`${index}-${letter}`}
           variants={itemVariants}
-          className="absolute left-1/2 top-1/2 inline-block"
+          className="inline-block top-1/2 left-1/2 absolute"
           style={
             {
               "--index": index,

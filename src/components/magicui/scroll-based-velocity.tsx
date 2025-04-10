@@ -11,7 +11,7 @@ import {
 } from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 
 interface VelocityScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultVelocity?: number;
@@ -86,7 +86,7 @@ function ParallaxText({
   return (
     <div
       ref={containerRef}
-      className="w-full overflow-hidden whitespace-nowrap"
+      className="w-full whitespace-nowrap overflow-hidden"
       {...props}
     >
       <motion.div className="inline-block" style={{ x }}>

@@ -1,6 +1,5 @@
 import { SkeletonProps } from "@/lib/interfaces";
-import { cn } from "@/lib/utils/utils";
-import React from "react";
+import { cn } from "@/lib/utils";
 
 function Skeleton({ className, text, ...props }: SkeletonProps) {
   return (
@@ -12,7 +11,7 @@ function Skeleton({ className, text, ...props }: SkeletonProps) {
       {...props}
     >
       {text && (
-        <span className="font-Ruthie text-center text-primary z-20">
+        <span className="z-20 font-Ruthie text-center text-primary">
           {text}
         </span>
       )}

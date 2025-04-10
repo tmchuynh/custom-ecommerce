@@ -1,7 +1,7 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils/utils";
 import { ButtonProps, buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { MdOutlineHorizontalRule } from "react-icons/md";
 
@@ -70,7 +70,7 @@ const PaginationPrevious = ({
     className={cn("gap-1 pl-2.5", className)}
     {...props}
   >
-    <FaChevronLeft className="h-4 w-4" />
+    <FaChevronLeft className="w-4 h-4" />
     <span>Previous</span>
   </PaginationLink>
 );
@@ -87,7 +87,7 @@ const PaginationNext = ({
     {...props}
   >
     <span>Next</span>
-    <FaChevronRight className="h-4 w-4" />
+    <FaChevronRight className="w-4 h-4" />
   </PaginationLink>
 );
 PaginationNext.displayName = "PaginationNext";
@@ -101,7 +101,7 @@ const PaginationEllipsis = ({
     className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
   >
-    <MdOutlineHorizontalRule className="h-4 w-4" />
+    <MdOutlineHorizontalRule className="w-4 h-4" />
     <span className="sr-only">More pages</span>
   </span>
 );
@@ -110,9 +110,9 @@ PaginationEllipsis.displayName = "PaginationEllipsis";
 export {
   Pagination,
   PaginationContent,
-  PaginationLink,
-  PaginationItem,
-  PaginationPrevious,
-  PaginationNext,
   PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
 };

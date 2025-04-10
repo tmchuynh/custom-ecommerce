@@ -4,9 +4,12 @@ import { useProduct } from "@/app/context/productContext";
 import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { formatURL } from "@/lib/utils/format";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { JSX, useEffect, useMemo, useState } from "react";
+import { FaHeart, FaShoppingBag } from "react-icons/fa";
 import { toast } from "sonner";
 import { AuthDialog } from "../../auth/AuthDialog";
 import AddToCartButtons from "../../buttons/AddToCartButtons";
@@ -23,9 +26,6 @@ import {
 } from "../../ui/alert-dialog";
 import { Button } from "../../ui/button";
 import ProductRate from "./ProductRate";
-import { formatURL } from "@/lib/utils/format";
-import { cn } from "@/lib/utils/utils";
-import { FaHeart, FaShoppingBag } from "react-icons/fa";
 
 /**
  * A component that displays detailed information about a product.
@@ -226,7 +226,7 @@ const ProductInfo = ({
             "font-bold w-10/12 pr-2": relatedProduct,
           })}
         >
-          <Link href={url} className="hover:underline underline-offset-2">
+          <Link href={url} className="underline-offset-2 hover:underline">
             {product.name}
           </Link>
         </h1>
@@ -268,7 +268,7 @@ const ProductInfo = ({
               )}
           </div>
         ) : (
-          <div className="mt-8 flex flex-col items-end sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className="flex sm:flex-row flex-col items-end sm:space-x-4 space-y-4 sm:space-y-0 mt-8">
             <QuantityButtons
               product={product}
               page={page}
@@ -277,14 +277,14 @@ const ProductInfo = ({
             />
             {!cartItem && (
               <Button
-                className="flex-1 flex items-center justify-center"
+                className="flex flex-1 justify-center items-center"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
                   handleAddToCart(product, product.name);
                 }}
               >
-                <FaShoppingBag className="h-5 w-5 mr-2" />
+                <FaShoppingBag className="mr-2 w-5 h-5" />
                 Add to Cart
               </Button>
             )}

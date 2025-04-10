@@ -1,7 +1,7 @@
 import { useCart } from "@/app/context/cartContext";
 import { Button } from "@/components/ui/button";
 import { ProductType } from "@/lib/types";
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import { JSX } from "react";
 
 /**
@@ -44,7 +44,7 @@ function QuantityButtons({
     <div className="flex items-end gap-3">
       {/* Quantity Selector */}
       <div className="flex flex-col items-center">
-        <h3 className="text-sm font-medium">Quantity</h3>
+        <h3 className="font-medium text-sm">Quantity</h3>
         <input
           type="number"
           value={foundItem && cartItem ? cartItem.quantity ?? 1 : localQuantity}

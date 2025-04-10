@@ -3,8 +3,8 @@
 import * as React from "react";
 import { DayPicker } from "react-day-picker";
 
-import { cn } from "@/lib/utils/utils";
 import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
@@ -66,17 +66,17 @@ function Calendar({
               <button
                 type="button"
                 onClick={props.onPrev}
-                className="h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+                className="bg-transparent opacity-50 hover:opacity-100 p-0 w-7 h-7"
               >
-                <FaChevronLeft className="h-4 w-4" />
+                <FaChevronLeft className="w-4 h-4" />
               </button>
-              <span className="text-sm font-medium">{props.label}</span>
+              <span className="font-medium text-sm">{props.label}</span>
               <button
                 type="button"
                 onClick={props.onNext}
-                className="h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+                className="bg-transparent opacity-50 hover:opacity-100 p-0 w-7 h-7"
               >
-                <FaChevronRight className="h-4 w-4" />
+                <FaChevronRight className="w-4 h-4" />
               </button>
             </div>
           ),

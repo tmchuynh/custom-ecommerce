@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import * as React from "react";
 
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import { FaCheckCircle, FaChevronRight } from "react-icons/fa";
 
 function DropdownMenu({
@@ -98,7 +98,7 @@ function DropdownMenuCheckboxItem({
       checked={checked}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+      <span className="left-2 absolute flex justify-center items-center pointer-events-none size-3.5">
         <DropdownMenuPrimitive.ItemIndicator>
           <FaCheckCircle className="size-4" />
         </DropdownMenuPrimitive.ItemIndicator>
@@ -133,7 +133,7 @@ function DropdownMenuRadioItem({
       )}
       {...props}
     >
-      <span className="pointer-events-none absolute left-2 flex size-3.5 items-center justify-center">
+      <span className="left-2 absolute flex justify-center items-center pointer-events-none size-3.5">
         <DropdownMenuPrimitive.ItemIndicator>
           <FaCheckCircle className="size-2 fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
@@ -240,18 +240,18 @@ function DropdownMenuSubContent({
 
 export {
   DropdownMenu,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
-  DropdownMenuLabel,
   DropdownMenuItem,
-  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuSub,
-  DropdownMenuSubTrigger,
   DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
 };

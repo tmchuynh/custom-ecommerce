@@ -13,8 +13,8 @@ import {
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 import { capitalize } from "@/lib/utils/format";
-import { cn } from "@/lib/utils/utils";
 import { JSX } from "react";
 import { TiWarning } from "react-icons/ti";
 import { useCart } from "../context/cartContext";
@@ -66,20 +66,20 @@ const CartPage = (): JSX.Element => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
       {cartItems.length === 0 ? (
-        <div className="h-[20rem] lg:h-[40rem] 2xl:h-[60rem] flex flex-col justify-center items-center">
-          <h1 className="text-4xl font-extrabold text-center mb-8">
+        <div className="flex flex-col justify-center items-center h-[20rem] lg:h-[40rem] 2xl:h-[60rem]">
+          <h1 className="mb-8 font-extrabold text-4xl text-center">
             Your Cart
           </h1>
-          <p className="text-xl text-center">Your cart is empty.</p>
+          <p className="text-center text-xl">Your cart is empty.</p>
         </div>
       ) : (
         <>
-          <h1 className="text-4xl font-extrabold text-center mb-8">
+          <h1 className="mb-8 font-extrabold text-4xl text-center">
             Your Cart
           </h1>
-          <div className="w-full flex justify-end">
+          <div className="flex justify-end w-full">
             <AlertDialog>
               <AlertDialogTrigger asChild>
                 <Button variant="destructive" className="uppercase">
@@ -91,7 +91,7 @@ const CartPage = (): JSX.Element => {
                 <div className="flex gap-5">
                   <TiWarning
                     size={65}
-                    className="self-center text-destructive"
+                    className="text-destructive self-center"
                   />
                   <AlertDialogHeader>
                     <AlertDialogTitle>
@@ -104,7 +104,7 @@ const CartPage = (): JSX.Element => {
                   </AlertDialogHeader>
                 </div>
 
-                <AlertDialogFooter className="flex sm:flex-col md:flex-row gap-3 sm:justify-start md:w-2/5 mx-auto pt-2">
+                <AlertDialogFooter className="flex md:flex-row sm:flex-col sm:justify-start gap-3 mx-auto pt-2 md:w-2/5">
                   <AlertDialogCancel>Cancel</AlertDialogCancel>
                   <AlertDialogAction
                     className={buttonVariants({ variant: "destructive" })}
@@ -124,30 +124,30 @@ const CartPage = (): JSX.Element => {
                   "border-b": index !== cartItems.length - 1,
                 })}
               >
-                <div className="md:grid md:grid-cols-3 md:col-span-3 lg:col-span-5 lg:grid-cols-4 xl:grid-cols-7">
+                <div className="md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 md:col-span-3 lg:col-span-5">
                   {/* <Image
                     src={item.imageSrc}
                     alt={item.name}
                     width={175}
                     height={175}
                   /> */}
-                  <Skeleton className="h-60 w-full rounded-xl hidden md:flex col-span-1 xl:col-span-2" />
+                  <Skeleton className="md:flex hidden col-span-1 xl:col-span-2 rounded-xl w-full h-60" />
                   <div className="flex flex-col justify-center gap-y-3 col-span-2 xl:col-span-5 pl-9">
-                    <p className="text-lg font-medium">{item.name}</p>
-                    <p className="text-sm font-medium">{item.description}</p>
+                    <p className="font-medium text-lg">{item.name}</p>
+                    <p className="font-medium text-sm">{item.description}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-center md:justify-end space-x-4 py-9 md:col-span-1 lg:col-span-2">
+                <div className="flex justify-center md:justify-end items-center space-x-4 md:col-span-1 lg:col-span-2 py-9">
                   <input
                     type="number"
                     value={item.quantity}
                     onChange={(e) =>
                       handleUpdateQuantity(item.id, parseInt(e.target.value))
                     }
-                    className="w-16 text-center border rounded-md"
+                    className="border rounded-md w-16 text-center"
                   />
-                  <div className="text-lg font-medium">
+                  <div className="font-medium text-lg">
                     {convertPrice(
                       Number(item.price) * item.quantity,
                       selectedCurrency
@@ -165,14 +165,14 @@ const CartPage = (): JSX.Element => {
 
             <div className="flex flex-col justify-between gap-y-3">
               <div className="flex justify-between items-center">
-                <div className="text-lg font-medium">Subtotal:</div>
-                <div className="text-xl font-bold">
+                <div className="font-medium text-lg">Subtotal:</div>
+                <div className="font-bold text-xl">
                   {convertPrice(getSubTotal(), selectedCurrency)}
                 </div>
               </div>
               <div className="flex justify-between items-center">
-                <div className="text-lg font-medium">Tax:</div>
-                <div className="text-xl font-bold">
+                <div className="font-medium text-lg">Tax:</div>
+                <div className="font-bold text-xl">
                   {convertPrice(
                     calculateTaxAmount(getSubTotal(), "US"),
                     selectedCurrency
@@ -181,10 +181,10 @@ const CartPage = (): JSX.Element => {
               </div>
 
               <div className="flex justify-between items-center">
-                <div className="text-lg font-medium">
+                <div className="font-medium text-lg">
                   {capitalize(getShippingMethod(getTotalItems()))} Shipping
                 </div>
-                <div className="text-xl font-bold">
+                <div className="font-bold text-xl">
                   {convertPrice(
                     calculateShippingCost(getShippingMethod(getTotalItems())),
                     selectedCurrency
@@ -193,16 +193,16 @@ const CartPage = (): JSX.Element => {
               </div>
               <Separator />
               <div className="flex justify-between items-center">
-                <div className="text-lg font-medium">Total:</div>
-                <div className="text-xl font-bold">
+                <div className="font-medium text-lg">Total:</div>
+                <div className="font-bold text-xl">
                   {convertPrice(getTotalPrice("US"), selectedCurrency)}
                 </div>
               </div>
             </div>
 
             {/* Add checkout button */}
-            <div className="mt-6 flex justify-end">
-              <Button className="w-full md:w-auto px-8 py-3 text-lg" asChild>
+            <div className="flex justify-end mt-6">
+              <Button className="px-8 py-3 w-full md:w-auto text-lg" asChild>
                 <a href="/shopping_cart/checkout">Proceed to Checkout</a>
               </Button>
             </div>

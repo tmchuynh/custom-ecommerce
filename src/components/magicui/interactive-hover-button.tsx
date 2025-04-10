@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils";
 import React from "react";
-import { cn } from "@/lib/utils/utils";
 import { FaArrowRight } from "react-icons/fa6";
 
 export const InteractiveHoverButton = React.forwardRef<
@@ -16,12 +16,12 @@ export const InteractiveHoverButton = React.forwardRef<
       {...props}
     >
       <div className="flex items-center gap-2">
-        <div className="h-2 w-2 rounded-full bg-primary transition-all duration-300 group-hover:scale-[100.8]"></div>
-        <span className="inline-block transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+        <div className="bg-primary rounded-full w-2 h-2 transition-all duration-300 group-hover:scale-[100.8]"></div>
+        <span className="inline-block group-hover:opacity-0 transition-all group-hover:translate-x-12 duration-300">
           {children}
         </span>
       </div>
-      <div className="absolute top-0 z-10 flex h-full w-full translate-x-12 items-center justify-center gap-2 text-primary-foreground opacity-0 transition-all duration-300 group-hover:-translate-x-5 group-hover:opacity-100">
+      <div className="top-0 z-10 absolute flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100 w-full h-full text-primary-foreground transition-all translate-x-12 group-hover:-translate-x-5 duration-300">
         <span>{children}</span>
         <FaArrowRight />
       </div>

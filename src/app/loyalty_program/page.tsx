@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { perks } from "@/lib/constants/constants";
 import { loyaltyFaqs } from "@/lib/constants/faqs";
 import { loyalty_program_sections } from "@/lib/constants/informationDetails";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { FaRegCreditCard, FaShoppingBag } from "react-icons/fa";
@@ -84,15 +84,15 @@ const LoyaltyProgram = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Loyalty Program</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Loyalty Program</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Join our loyalty program and start earning points for every
             purchase!
           </p>
-          <div className="mt-4 text-blue-700 py-2 px-4 rounded-full inline-flex items-center">
-            <FaRegCreditCard className="h-5 w-5 mr-2" />
+          <div className="inline-flex items-center mt-4 px-4 py-2 rounded-full text-blue-700">
+            <FaRegCreditCard className="mr-2 w-5 h-5" />
             <strong>Your Current Points: {points}</strong>
           </div>
         </div>
@@ -103,36 +103,36 @@ const LoyaltyProgram = () => {
             Our perks
           </h2>
 
-          <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 lg:gap-x-8 lg:gap-y-0">
+          <div className="gap-y-12 sm:gap-x-6 lg:gap-x-8 lg:gap-y-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {perks.map((perk) => (
               <div
                 key={perk.name}
-                className="text-center md:flex md:items-start md:text-left lg:block lg:text-center p-6 rounded-xl shadow-md border"
+                className="lg:block md:flex md:items-start shadow-md p-6 border rounded-xl text-center md:text-left lg:text-center"
               >
                 <div className="md:shrink-0">
                   <div className="flow-root">
                     <Image
                       alt=""
                       src={perk.imageUrl}
-                      className="mx-auto -my-1 h-24 w-auto"
+                      className="mx-auto -my-1 w-auto h-24"
                       width={96}
                       height={96}
                     />
                   </div>
                 </div>
-                <div className="mt-6 md:mt-0 md:ml-4 lg:mt-6 lg:ml-0">
-                  <h3 className="text-xl font-semibold">{perk.name}</h3>
+                <div className="mt-6 md:mt-0 lg:mt-6 md:ml-4 lg:ml-0">
+                  <h3 className="font-semibold text-xl">{perk.name}</h3>
                   <p className="mt-3">{perk.description}</p>
                 </div>
               </div>
             ))}
           </div>
         </section>
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Program Details</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Program Details</h2>
               <ul className="space-y-2">
                 {loyalty_program_sections.map((section) => (
                   <li key={section.id}>
@@ -144,8 +144,8 @@ const LoyaltyProgram = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -161,21 +161,21 @@ const LoyaltyProgram = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Introduction */}
             <div
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
+                  <FaBookOpen className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Introduction</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -223,15 +223,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["how-it-works"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("how-it-works")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaAward className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">How It Works</h2>
+                  <FaAward className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">How It Works</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -258,10 +258,10 @@ const LoyaltyProgram = () => {
                     greater perks and savings. It’s our way of saying thank you
                     for choosing us. Here’s how it works:
                   </p>
-                  <div className="p-4 rounded-lg space-y-4 mb-4">
+                  <div className="space-y-4 mb-4 p-4 rounded-lg">
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 rounded-full p-2">
-                        <FaStar className="h-5 w-5" />
+                      <div className="flex-shrink-0 p-2 rounded-full">
+                        <FaStar className="w-5 h-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Earn <strong>1 point</strong> for every{" "}
@@ -269,8 +269,8 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 rounded-full p-2">
-                        <FaGift className="h-5 w-5" />
+                      <div className="flex-shrink-0 p-2 rounded-full">
+                        <FaGift className="w-5 h-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Redeem your accumulated points for discounts, exclusive
@@ -278,8 +278,8 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 rounded-full p-2">
-                        <IoIosTrendingUp className="h-5 w-5" />
+                      <div className="flex-shrink-0 p-2 rounded-full">
+                        <IoIosTrendingUp className="w-5 h-5" />
                       </div>
                       <p className="ml-4 font-medium">
                         Reach higher tiers in the program for even better
@@ -306,15 +306,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["benefits"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("benefits")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaGift className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaGift className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Program Benefits
                   </h2>
                 </div>
@@ -343,7 +343,7 @@ const LoyaltyProgram = () => {
                     purchase. Here are some of the amazing benefits you’ll enjoy
                     as part of our Loyalty Rewards Program:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-3">
+                  <ul className="space-y-3 mx-5 list-disc list-outside">
                     <li>
                       <strong>Exclusive discounts on select products:</strong>{" "}
                       Enjoy special discounts on a curated selection of
@@ -393,15 +393,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["earning"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("earning")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaStar className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaStar className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Earning Points
                   </h2>
                 </div>
@@ -431,7 +431,7 @@ const LoyaltyProgram = () => {
                   </p>
                   <div className="space-y-4">
                     <div className="p-4 rounded-lg">
-                      <h3 className="font-medium mb-2">Standard Purchases</h3>
+                      <h3 className="mb-2 font-medium">Standard Purchases</h3>
                       <p>
                         Earn <strong>1 point</strong> for every{" "}
                         <strong>$1</strong> spent on regular-priced items. The
@@ -441,7 +441,7 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
-                      <h3 className="font-medium mb-2">Bonus Point Events</h3>
+                      <h3 className="mb-2 font-medium">Bonus Point Events</h3>
                       <p>
                         Throughout the year, we host special events where you
                         can earn <strong>double</strong> or even{" "}
@@ -452,7 +452,7 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
-                      <h3 className="font-medium mb-2">Referrals</h3>
+                      <h3 className="mb-2 font-medium">Referrals</h3>
                       <p>
                         Earn <strong>500 points</strong> for each friend you
                         refer who makes their first purchase. The more friends
@@ -462,7 +462,7 @@ const LoyaltyProgram = () => {
                       </p>
                     </div>
                     <div className="p-4 rounded-lg">
-                      <h3 className="font-medium mb-2">
+                      <h3 className="mb-2 font-medium">
                         Social Media Engagement
                       </h3>
                       <p>
@@ -483,15 +483,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["redeeming"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("redeeming")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaShoppingBag className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaShoppingBag className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Redeeming Points
                   </h2>
                 </div>
@@ -520,18 +520,18 @@ const LoyaltyProgram = () => {
                     unlock by using your points:
                   </p>
                   <div className="overflow-x-auto">
-                    <table className="min-w-full divide-y mb-4">
+                    <table className="mb-4 divide-y min-w-full">
                       <thead>
                         <tr>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                            className="px-6 py-3 font-medium text-left text-xs uppercase tracking-wider"
                           >
                             Points
                           </th>
                           <th
                             scope="col"
-                            className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                            className="px-6 py-3 font-medium text-left text-xs uppercase tracking-wider"
                           >
                             Reward
                           </th>
@@ -539,42 +539,42 @@ const LoyaltyProgram = () => {
                       </thead>
                       <tbody className="divide-y">
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             500
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             $5 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             1,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             $10 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             2,500
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             $25 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             5,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             $50 off your purchase
                           </td>
                         </tr>
                         <tr>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             10,000
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm">
+                          <td className="px-6 py-4 text-sm whitespace-nowrap">
                             Free product (up to $100 value)
                           </td>
                         </tr>
@@ -600,15 +600,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["tiers"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("tiers")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <IoIosTrendingUp className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <IoIosTrendingUp className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Membership Tiers
                   </h2>
                 </div>
@@ -637,42 +637,42 @@ const LoyaltyProgram = () => {
                     point accumulation, and special perks. Here's a breakdown of
                     the tiers and their associated benefits:
                   </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                    <div className="p-4 rounded-lg border">
-                      <h3 className="font-medium mb-2 flex items-center">
-                        <FaStar className="h-4 w-4 mr-1" />
+                  <div className="gap-4 grid grid-cols-1 md:grid-cols-3 mb-4">
+                    <div className="p-4 border rounded-lg">
+                      <h3 className="flex items-center mb-2 font-medium">
+                        <FaStar className="mr-1 w-4 h-4" />
                         Standard
                       </h3>
-                      <p className="text-sm mb-2">$0 - $500 annually</p>
-                      <ul className="text-sm space-y-1">
+                      <p className="mb-2 text-sm">$0 - $500 annually</p>
+                      <ul className="space-y-1 text-sm">
                         <li>Basic earning rate (1 point per $1 spent)</li>
                         <li>Access to member-only sales and promotions</li>
                         <li>Birthday reward to celebrate your special day</li>
                       </ul>
                     </div>
-                    <div className="p-4 rounded-lg border">
-                      <h3 className="font-medium mb-2 flex items-center">
-                        <FaStar className="h-4 w-4 mr-1" />
-                        <FaStar className="h-4 w-4 mr-1" />
+                    <div className="p-4 border rounded-lg">
+                      <h3 className="flex items-center mb-2 font-medium">
+                        <FaStar className="mr-1 w-4 h-4" />
+                        <FaStar className="mr-1 w-4 h-4" />
                         Silver
                       </h3>
-                      <p className="text-sm mb-2">$501 - $1,000 annually</p>
-                      <ul className="text-sm space-y-1">
+                      <p className="mb-2 text-sm">$501 - $1,000 annually</p>
+                      <ul className="space-y-1 text-sm">
                         <li>Earn 1.25 points per $1 spent</li>
                         <li>Free shipping on orders over $35</li>
                         <li>Early access to new product releases</li>
                         <li>All Standard benefits, plus extra rewards</li>
                       </ul>
                     </div>
-                    <div className="p-4 rounded-lg border">
-                      <h3 className="font-medium mb-2 flex items-center">
-                        <FaStar className="h-4 w-4 mr-1" />
-                        <FaStar className="h-4 w-4 mr-1" />
-                        <FaStar className="h-4 w-4 mr-1" />
+                    <div className="p-4 border rounded-lg">
+                      <h3 className="flex items-center mb-2 font-medium">
+                        <FaStar className="mr-1 w-4 h-4" />
+                        <FaStar className="mr-1 w-4 h-4" />
+                        <FaStar className="mr-1 w-4 h-4" />
                         Gold
                       </h3>
-                      <p className="text-sm mb-2">$1,001+ annually</p>
-                      <ul className="text-sm space-y-1">
+                      <p className="mb-2 text-sm">$1,001+ annually</p>
+                      <ul className="space-y-1 text-sm">
                         <li>Earn 1.5 points per $1 spent</li>
                         <li>Free shipping on all orders, no minimum</li>
                         <li>Exclusive seasonal gifts as a thank you</li>
@@ -702,15 +702,15 @@ const LoyaltyProgram = () => {
               ref={(el) => {
                 sectionRefs.current["faqs"] = el;
               }}
-              className="rounded-xl shadow-md overflow-hidden border"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("faqs")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <IoIosHelpCircleOutline className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <IoIosHelpCircleOutline className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Frequently Asked Questions
                   </h2>
                 </div>
@@ -737,9 +737,9 @@ const LoyaltyProgram = () => {
                       <div key={index} className="border-b last:border-b-0">
                         <button
                           onClick={() => toggleFaq(index)}
-                          className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                          className="flex justify-between items-center p-4 w-full text-left focus:outline-none"
                         >
-                          <h3 className="text-lg font-medium">
+                          <h3 className="font-medium text-lg">
                             {faq.question}
                           </h3>
                           <svg

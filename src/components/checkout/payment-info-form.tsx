@@ -16,13 +16,13 @@ import {
 } from "@/components/ui/select";
 import { PaymentInfoData } from "@/lib/interfaces";
 import { PaymentInfoFormProps } from "@/lib/types";
-import { generateMonths, generateYears } from "@/lib/utils/generate";
 import {
-  handleInputChange,
-  handleFormSubmit,
   handleBlur,
+  handleFormSubmit,
+  handleInputChange,
   handleSelectChange,
-} from "@/lib/utils/utils";
+} from "@/lib/utils";
+import { generateMonths, generateYears } from "@/lib/utils/generate";
 import { validateField } from "@/lib/utils/validation";
 
 import Image from "next/image";
@@ -207,9 +207,9 @@ export default function PaymentInfoForm({
   };
 
   return (
-    <div className="rounded-xl shadow-md p-6">
+    <div className="shadow-md p-6 rounded-xl">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Payment Information</h2>
+        <h2 className="mb-2 font-semibold text-xl">Payment Information</h2>
         <p className="text-sm">
           Please select your preferred payment method and enter your details
           securely.
@@ -241,7 +241,7 @@ export default function PaymentInfoForm({
                 className="mt-0.5"
               />
               <Label htmlFor="creditCard" className="flex-1 cursor-pointer">
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-center">
                   <div className="flex items-center">
                     <FaCreditCard
                       className={`h-5 w-5 mr-2 ${
@@ -260,28 +260,28 @@ export default function PaymentInfoForm({
                         alt="Visa"
                         width={24}
                         height={24}
-                        className="h-6 w-auto"
+                        className="w-auto h-6"
                       />
                       <Image
                         src="/mastercard.svg"
                         alt="Mastercard"
                         width={24}
                         height={24}
-                        className="h-6 w-auto"
+                        className="w-auto h-6"
                       />
                       <Image
                         src="/amex.svg"
                         alt="American Express"
                         width={24}
                         height={24}
-                        className="h-6 w-auto"
+                        className="w-auto h-6"
                       />
                       <Image
                         src="/discover.svg"
                         alt="Discover"
                         width={24}
                         height={24}
-                        className="h-6 w-auto"
+                        className="w-auto h-6"
                       />
                     </div>
                   </div>
@@ -298,7 +298,7 @@ export default function PaymentInfoForm({
             >
               <RadioGroupItem value="paypal" id="paypal" className="mt-0.5" />
               <Label htmlFor="paypal" className="flex-1 cursor-pointer">
-                <div className="flex items-center justify-between">
+                <div className="flex justify-between items-center">
                   <div className="flex items-center">
                     <FaCreditCard
                       className={`h-5 w-5 mr-2 ${
@@ -318,7 +318,7 @@ export default function PaymentInfoForm({
                       alt="PayPal"
                       width={24}
                       height={24}
-                      className="h-6 w-auto"
+                      className="w-auto h-6"
                     />
                   </div>
                 </div>
@@ -330,12 +330,12 @@ export default function PaymentInfoForm({
         {formData.paymentMethod === "creditCard" && (
           <div className="space-y-5 pt-2">
             <div className="space-y-2">
-              <Label htmlFor="cardNumber" className="text-sm font-medium">
+              <Label htmlFor="cardNumber" className="font-medium text-sm">
                 Card Number <span className="text-red-500">*</span>
               </Label>
               <div className="relative">
-                <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
-                  <FaCreditCard className="h-4 w-4" />
+                <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+                  <FaCreditCard className="w-4 h-4" />
                 </div>
                 <Input
                   id="cardNumber"
@@ -352,19 +352,19 @@ export default function PaymentInfoForm({
                   }`}
                 />
                 {cardType && (
-                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <div className="top-1/2 right-3 absolute transform -translate-y-1/2">
                     <Image
                       src={`/${cardType}.svg`}
                       alt={cardType}
                       width={24}
                       height={24}
-                      className="h-6 w-auto"
+                      className="w-auto h-6"
                     />
                   </div>
                 )}
                 {touched.cardNumber && errors.cardNumber && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <IoIosAlert className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="mr-1 w-3 h-3" />
                     {errors.cardNumber}
                   </div>
                 )}
@@ -372,7 +372,7 @@ export default function PaymentInfoForm({
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="nameOnCard" className="text-sm font-medium">
+              <Label htmlFor="nameOnCard" className="font-medium text-sm">
                 Name on Card <span className="text-red-500">*</span>
               </Label>
               <Input
@@ -391,15 +391,15 @@ export default function PaymentInfoForm({
               />
               {touched.nameOnCard && errors.nameOnCard && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <IoIosAlert className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="mr-1 w-3 h-3" />
                   {errors.nameOnCard}
                 </div>
               )}
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="gap-4 grid grid-cols-2 md:grid-cols-4">
               <div className="space-y-2 col-span-1">
-                <Label htmlFor="expiryMonth" className="text-sm font-medium">
+                <Label htmlFor="expiryMonth" className="font-medium text-sm">
                   Month <span className="text-red-500">*</span>
                 </Label>
                 <Select
@@ -434,14 +434,14 @@ export default function PaymentInfoForm({
                 </Select>
                 {touched.expiryMonth && errors.expiryMonth && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <IoIosAlert className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="mr-1 w-3 h-3" />
                     {errors.expiryMonth}
                   </div>
                 )}
               </div>
 
               <div className="space-y-2 col-span-1">
-                <Label htmlFor="expiryYear" className="text-sm font-medium">
+                <Label htmlFor="expiryYear" className="font-medium text-sm">
                   Year <span className="text-red-500">*</span>
                 </Label>
                 <Select
@@ -476,15 +476,15 @@ export default function PaymentInfoForm({
                 </Select>
                 {touched.expiryYear && errors.expiryYear && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <IoIosAlert className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="mr-1 w-3 h-3" />
                     {errors.expiryYear}
                   </div>
                 )}
               </div>
 
               <div className="space-y-2 col-span-2">
-                <div className="flex items-center justify-between">
-                  <Label htmlFor="cvc" className="text-sm font-medium">
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="cvc" className="font-medium text-sm">
                     CVC <span className="text-red-500">*</span>
                   </Label>
                   <button
@@ -516,7 +516,7 @@ export default function PaymentInfoForm({
                 />
                 {touched.cvc && errors.cvc && (
                   <div className="flex items-center mt-1 text-red-500 text-xs">
-                    <IoIosAlert className="h-3 w-3 mr-1" />
+                    <IoIosAlert className="mr-1 w-3 h-3" />
                     {errors.cvc}
                   </div>
                 )}
@@ -535,13 +535,13 @@ export default function PaymentInfoForm({
                 }
                 className="mt-1"
               />
-              <div className="grid gap-1.5 leading-none">
+              <div className="gap-1.5 grid leading-none">
                 <Label
                   htmlFor="savePaymentInfo"
-                  className="text-sm font-normal leading-snug"
+                  className="font-normal text-sm leading-snug"
                 >
                   Save my payment information for future purchases
-                  <Badge className="ml-2 bg-green-100 text-green-800 hover:bg-green-100">
+                  <Badge className="bg-green-100 hover:bg-green-100 ml-2 text-green-800">
                     Optional
                   </Badge>
                 </Label>
@@ -563,10 +563,10 @@ export default function PaymentInfoForm({
                 }
                 className="mt-1"
               />
-              <div className="grid gap-1.5 leading-none">
+              <div className="gap-1.5 grid leading-none">
                 <Label
                   htmlFor="billingAddressSameAsShipping"
-                  className="text-sm font-normal leading-snug"
+                  className="font-normal text-sm leading-snug"
                 >
                   Billing address is the same as my shipping address
                 </Label>
@@ -576,14 +576,14 @@ export default function PaymentInfoForm({
         )}
 
         {formData.paymentMethod === "paypal" && (
-          <div className="p-4 rounded-lg my-4">
+          <div className="my-4 p-4 rounded-lg">
             <div className="flex items-start">
-              <FaInfo className="h-5 w-5 text-blue-500 mt-0.5 mr-3 flex-shrink-0" />
+              <FaInfo className="flex-shrink-0 mt-0.5 mr-3 w-5 h-5 text-blue-500" />
               <div>
-                <h3 className="text-sm font-medium text-blue-800">
+                <h3 className="font-medium text-blue-800 text-sm">
                   You'll be redirected to PayPal to complete your purchase
                 </h3>
-                <p className="text-sm text-blue-600 mt-1">
+                <p className="mt-1 text-blue-600 text-sm">
                   After clicking "Place Order", you'll be taken to PayPal to
                   securely complete your payment.
                 </p>
@@ -592,10 +592,10 @@ export default function PaymentInfoForm({
           </div>
         )}
 
-        <div className="border-t hover:bg-secondary hover:text-secondary-foreground mt-6 pt-6">
+        <div className="hover:bg-secondary mt-6 pt-6 border-t hover:text-secondary-foreground">
           <div className="flex items-center mb-4 p-3 rounded-lg">
-            <FaLock className="h-5 w-5 text-blue-600 mr-2" />
-            <p className="text-sm text-blue-800">
+            <FaLock className="mr-2 w-5 h-5 text-blue-600" />
+            <p className="text-blue-800 text-sm">
               Your payment information is encrypted and secure.
             </p>
           </div>

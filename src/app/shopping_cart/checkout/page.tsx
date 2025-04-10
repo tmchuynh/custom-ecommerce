@@ -1,5 +1,8 @@
 "use client";
 
+import { useCurrency } from "@/app/context/currencyContext";
+import { usePayment } from "@/app/context/paymentContext";
+import { useProduct } from "@/app/context/productContext";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,9 +18,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { useCart } from "../../context/cartContext";
-import { usePayment } from "@/app/context/paymentContext";
-import { useProduct } from "@/app/context/productContext";
-import { useCurrency } from "@/app/context/currencyContext";
 
 // Import our newly created components
 import CustomerInfoForm from "@/components/checkout/customer-info-form";
@@ -26,11 +26,11 @@ import OrderItems from "@/components/checkout/order-items";
 import OrderSummary from "@/components/checkout/order-summary";
 import PaymentInfoForm from "@/components/checkout/payment-info-form";
 import ShippingAddressForm from "@/components/checkout/shipping-address-form";
-import { handleApplyDiscountUtil } from "@/lib/utils/utils";
+import { handleApplyDiscountUtil } from "@/lib/utils";
 import {
-  validatePhone,
-  validateEmail,
   validateCreditCard,
+  validateEmail,
+  validatePhone,
 } from "@/lib/utils/validation";
 
 /**
@@ -511,10 +511,10 @@ const CheckoutPage = () => {
   // Empty cart state
   if (cartItems.length === 0) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="h-[20rem] lg:h-[40rem] 2xl:h-[60rem] flex flex-col justify-center items-center">
-          <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
-          <p className="text-xl text-center">Your cart is empty.</p>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="flex flex-col justify-center items-center h-[20rem] lg:h-[40rem] 2xl:h-[60rem]">
+          <h1 className="mb-8 font-extrabold text-4xl text-center">Checkout</h1>
+          <p className="text-center text-xl">Your cart is empty.</p>
           <Button className="mt-6" onClick={() => handleNavigation("/")}>
             Continue Shopping
           </Button>
@@ -525,14 +525,14 @@ const CheckoutPage = () => {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-extrabold text-center mb-8">Checkout</h1>
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <h1 className="mb-8 font-extrabold text-4xl text-center">Checkout</h1>
         {/* Order Items - now using the OrderItems component */}
         <OrderItems cartItems={cartItems} handleNavigation={handleNavigation} />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-3">
           {/* Left Column - Forms */}
-          <div className="lg:col-span-2 space-y-8">
+          <div className="space-y-8 lg:col-span-2">
             {/* Customer Information Section */}
             <CustomerInfoForm
               customerName={customerName}
@@ -666,13 +666,13 @@ const CheckoutPage = () => {
             />
 
             {/* Navigation Buttons */}
-            <div className="flex flex-col gap-3 justify-between mt-4">
+            <div className="flex flex-col justify-between gap-3 mt-4">
               <Button variant="outline" onClick={() => handleNavigation("/")}>
                 Continue Shopping
               </Button>
 
               <Button
-                className="w-auto py-3"
+                className="py-3 w-auto"
                 onClick={handleCheckout}
                 disabled={!isFormValid}
               >
@@ -698,7 +698,7 @@ const CheckoutPage = () => {
             <AlertDialogDescription>
               You have unsaved information on this page. Would you like to save
               your progress before leaving?
-              <p className="mt-2 text-yellow-600 font-medium">
+              <p className="mt-2 font-medium text-yellow-600">
                 Note: This is a demo application. No personal information will
                 actually be saved or stored.
               </p>

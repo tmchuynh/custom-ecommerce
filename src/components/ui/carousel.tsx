@@ -1,12 +1,12 @@
 "use client";
 
-import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
+import * as React from "react";
 
-import { cn } from "@/lib/utils/utils";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -216,7 +216,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <FaArrowLeft className="h-4 w-4" />
+      <FaArrowLeft className="w-4 h-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -245,7 +245,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <FaArrowRight className="h-4 w-4" />
+      <FaArrowRight className="w-4 h-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   );
@@ -253,10 +253,10 @@ const CarouselNext = React.forwardRef<
 CarouselNext.displayName = "CarouselNext";
 
 export {
-  type CarouselApi,
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
   CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
 };

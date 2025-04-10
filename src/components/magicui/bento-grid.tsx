@@ -2,7 +2,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 
 interface BentoGridProps extends ComponentPropsWithoutRef<"div"> {
   children: ReactNode;
@@ -56,9 +56,9 @@ const BentoCard = ({
     {...props}
   >
     <div>{background}</div>
-    <div className="pointer-events-none z-10 flex transform-gpu flex-col gap-1 p-6 transition-all duration-300 group-hover:-translate-y-10">
-      <Icon className="h-12 w-12 origin-left transform-gpu transition-all duration-300 ease-in-out group-hover:scale-75" />
-      <h3 className="text-lg font-medium mb-4">{name}</h3>
+    <div className="z-10 flex flex-col gap-1 p-6 transform-gpu transition-all group-hover:-translate-y-10 duration-300 pointer-events-none">
+      <Icon className="w-12 h-12 transform-gpu origin-left transition-all duration-300 ease-in-out group-hover:scale-75" />
+      <h3 className="mb-4 font-medium text-lg">{name}</h3>
       <p className="max-w-lg">{description}</p>
     </div>
 
@@ -70,11 +70,11 @@ const BentoCard = ({
       <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
         <a href={href}>
           {cta}
-          <ArrowRightIcon className="ms-2 h-4 w-4 rtl:rotate-180" />
+          <ArrowRightIcon className="w-4 h-4 ms-2 rtl:rotate-180" />
         </a>
       </Button>
     </div>
-    <div className="pointer-events-none absolute inset-0 transform-gpu transition-all duration-300" />
+    <div className="absolute inset-0 transform-gpu transition-all duration-300 pointer-events-none" />
   </div>
 );
 

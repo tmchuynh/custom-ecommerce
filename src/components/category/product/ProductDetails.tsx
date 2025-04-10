@@ -11,8 +11,8 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Color, ProductDetailsProps, ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { capitalize } from "@/lib/utils/format";
-import { cn } from "@/lib/utils/utils";
 import { Radio, RadioGroup } from "@headlessui/react";
 import { JSX } from "react";
 
@@ -46,14 +46,14 @@ const ProductDetails = ({ details = [] }: ProductDetailsProps): JSX.Element => {
         Additional details
       </h2>
 
-      <div className="divide-y divide-gray-200 border-t">
+      <div className="border-t divide-y divide-gray-200">
         <Accordion type="single" collapsible>
           {details?.map((detail, index) => {
             const items = Object.values(detail?.items || {});
             return (
               <AccordionItem key={index} value={`detail-${index}`}>
-                <AccordionTrigger className="group relative flex w-full items-center justify-between py-6 text-left">
-                  <span className="text-lg font-medium group-data-open:">
+                <AccordionTrigger className="group relative flex justify-between items-center py-6 w-full text-left">
+                  <span className="group-data-open: font-medium text-lg">
                     Additional details
                   </span>
                 </AccordionTrigger>
@@ -67,7 +67,7 @@ const ProductDetails = ({ details = [] }: ProductDetailsProps): JSX.Element => {
                       <ul
                         key={idx}
                         role="list"
-                        className="list-disc space-y-1 pl-5 text-sm/6 marker:text-primary"
+                        className="space-y-1 pl-5 text-sm/6 marker:text-primary list-disc"
                       >
                         {value.map((v, i) => {
                           return (
@@ -141,11 +141,11 @@ const ProductColors = ({
                           key={index}
                           value={color}
                           aria-label={color.name}
-                          className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-hidden data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1"
+                          className="relative flex justify-center items-center focus:outline-hidden -m-0.5 p-0.5 rounded-full data-checked:ring-2 data-focus:data-checked:ring-3 data-focus:data-checked:ring-offset-1 cursor-pointer"
                         >
                           <span
                             aria-hidden="true"
-                            className="bg-dynamic size-8 rounded-full border"
+                            className="bg-dynamic border rounded-full size-8"
                             style={
                               {
                                 "--bg-color": color.bgColor,

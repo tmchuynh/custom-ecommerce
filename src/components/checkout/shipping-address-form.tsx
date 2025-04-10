@@ -1,9 +1,11 @@
 "use client";
 
-import { JSX, useState } from "react";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Select,
   SelectContent,
@@ -11,24 +13,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Badge } from "@/components/ui/badge";
+import { JSX, useState } from "react";
 
-import { ShippingAddressFormProps } from "@/lib/types";
 import { usStates } from "@/lib/constants/constants";
 import { ShippingAddress, ShippingMethod } from "@/lib/interfaces";
+import { ShippingAddressFormProps } from "@/lib/types";
 import {
-  handleInputChange,
-  handleFormSubmit,
   handleBlur,
+  handleFormSubmit,
+  handleInputChange,
   handleSelectChange,
-} from "@/lib/utils/utils";
+} from "@/lib/utils";
 import { validateField } from "@/lib/utils/validation";
-import { FaTruckFast } from "react-icons/fa6";
 import { BiSolidPackage } from "react-icons/bi";
-import { IoIosAlert } from "react-icons/io";
 import { FaBuilding, FaHome, FaMapPin } from "react-icons/fa";
+import { FaTruckFast } from "react-icons/fa6";
+import { IoIosAlert } from "react-icons/io";
 
 const shippingMethods: ShippingMethod[] = [
   {
@@ -159,9 +159,9 @@ export default function ShippingAddressForm({
   };
 
   return (
-    <div className="rounded-xl shadow-md p-6">
+    <div className="shadow-md p-6 rounded-xl">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Shipping Address</h2>
+        <h2 className="mb-2 font-semibold text-xl">Shipping Address</h2>
         <p className="text-sm">
           Please enter the address where you would like your order to be
           delivered.
@@ -170,12 +170,12 @@ export default function ShippingAddressForm({
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="space-y-2">
-          <Label htmlFor="addressLine1" className="text-sm font-medium">
+          <Label htmlFor="addressLine1" className="font-medium text-sm">
             Address <span className="text-red-500">*</span>
           </Label>
           <div className="relative">
-            <div className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
-              <FaMapPin className="h-4 w-4" />
+            <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+              <FaMapPin className="w-4 h-4" />
             </div>
             <Input
               id="addressLine1"
@@ -192,7 +192,7 @@ export default function ShippingAddressForm({
             />
             {touched.addressLine1 && errors.addressLine1 && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <IoIosAlert className="h-3 w-3 mr-1" />
+                <IoIosAlert className="mr-1 w-3 h-3" />
                 {errors.addressLine1}
               </div>
             )}
@@ -200,7 +200,7 @@ export default function ShippingAddressForm({
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="addressLine2" className="text-sm font-medium">
+          <Label htmlFor="addressLine2" className="font-medium text-sm">
             Apartment, suite, etc.
             <Badge className="ml-2">Optional</Badge>
           </Label>
@@ -213,9 +213,9 @@ export default function ShippingAddressForm({
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="city" className="text-sm font-medium">
+            <Label htmlFor="city" className="font-medium text-sm">
               City <span className="text-red-500">*</span>
             </Label>
             <Input
@@ -233,14 +233,14 @@ export default function ShippingAddressForm({
             />
             {touched.city && errors.city && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <IoIosAlert className="h-3 w-3 mr-1" />
+                <IoIosAlert className="mr-1 w-3 h-3" />
                 {errors.city}
               </div>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="state" className="text-sm font-medium">
+            <Label htmlFor="state" className="font-medium text-sm">
               State <span className="text-red-500">*</span>
             </Label>
             <Select
@@ -275,16 +275,16 @@ export default function ShippingAddressForm({
             </Select>
             {touched.state && errors.state && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <IoIosAlert className="h-3 w-3 mr-1" />
+                <IoIosAlert className="mr-1 w-3 h-3" />
                 {errors.state}
               </div>
             )}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="postalCode" className="text-sm font-medium">
+            <Label htmlFor="postalCode" className="font-medium text-sm">
               ZIP / Postal Code <span className="text-red-500">*</span>
             </Label>
             <Input
@@ -302,14 +302,14 @@ export default function ShippingAddressForm({
             />
             {touched.postalCode && errors.postalCode && (
               <div className="flex items-center mt-1 text-red-500 text-xs">
-                <IoIosAlert className="h-3 w-3 mr-1" />
+                <IoIosAlert className="mr-1 w-3 h-3" />
                 {errors.postalCode}
               </div>
             )}
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="country" className="text-sm font-medium">
+            <Label htmlFor="country" className="font-medium text-sm">
               Country <span className="text-red-500">*</span>
             </Label>
             <Select
@@ -336,8 +336,8 @@ export default function ShippingAddressForm({
         </div>
 
         <div className="space-y-2 pt-2">
-          <Label className="text-sm font-medium">Address Type</Label>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+          <Label className="font-medium text-sm">Address Type</Label>
+          <div className="gap-4 grid grid-cols-1 md:grid-cols-2 mt-2">
             <button
               type="button"
               onClick={() =>
@@ -405,7 +405,7 @@ export default function ShippingAddressForm({
         </div>
 
         <div className="space-y-2 pt-4">
-          <Label className="text-sm font-medium">Shipping Method</Label>
+          <Label className="font-medium text-sm">Shipping Method</Label>
           <RadioGroup
             value={formData.shippingMethod}
             onValueChange={(value) =>
@@ -429,7 +429,7 @@ export default function ShippingAddressForm({
                     className="mt-0.5"
                   />
                   <Label htmlFor={method.id} className="flex-1 cursor-pointer">
-                    <div className="flex items-center justify-between">
+                    <div className="flex justify-between items-center">
                       <div className="flex items-center">
                         <span
                           className={`mr-2 ${
@@ -438,7 +438,7 @@ export default function ShippingAddressForm({
                               : "bg-secondary"
                           }`}
                         >
-                          <method.icon className="h-6 w-6" />
+                          <method.icon className="w-6 h-6" />
                         </span>
                         <div>
                           <div className="font-medium">{method.title}</div>
@@ -468,10 +468,10 @@ export default function ShippingAddressForm({
             }
             className="mt-1"
           />
-          <div className="grid gap-1.5 leading-none">
+          <div className="gap-1.5 grid leading-none">
             <Label
               htmlFor="saveAddress"
-              className="text-sm font-normal leading-snug"
+              className="font-normal text-sm leading-snug"
             >
               Save this address for future orders
             </Label>

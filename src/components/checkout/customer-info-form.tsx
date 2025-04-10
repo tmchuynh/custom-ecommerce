@@ -6,11 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CustomerInfoData, CustomerInfoFormProps } from "@/lib/types";
-import {
-  handleBlur,
-  handleFormSubmit,
-  handleInputChange,
-} from "@/lib/utils/utils";
+import { handleBlur, handleFormSubmit, handleInputChange } from "@/lib/utils";
 import { validateField } from "@/lib/utils/validation";
 import { useState } from "react";
 import { FaMailBulk, FaPhoneAlt, FaUser } from "react-icons/fa";
@@ -124,9 +120,9 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
   };
 
   return (
-    <div className="rounded-xl shadow-md p-6">
+    <div className="shadow-md p-6 rounded-xl">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Customer Information</h2>
+        <h2 className="mb-2 font-semibold text-xl">Customer Information</h2>
         <p className="text-sm">
           Please enter your contact information for order confirmation and
           delivery updates.
@@ -134,14 +130,14 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
           <div className="space-y-2">
-            <Label htmlFor="firstName" className="text-sm font-medium">
+            <Label htmlFor="firstName" className="font-medium text-sm">
               First Name <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <FaUser className="h-4 w-4" />
+              <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+                <FaUser className="w-4 h-4" />
               </div>
               <Input
                 id="firstName"
@@ -158,7 +154,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.firstName && errors.firstName && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <IoIosAlert className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="mr-1 w-3 h-3" />
                   {errors.firstName}
                 </div>
               )}
@@ -166,12 +162,12 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="lastName" className="text-sm font-medium">
+            <Label htmlFor="lastName" className="font-medium text-sm">
               Last Name <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <FaUser className="h-4 w-4" />
+              <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+                <FaUser className="w-4 h-4" />
               </div>
               <Input
                 id="lastName"
@@ -189,7 +185,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               {touched.lastName && errors.lastName && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
                   {" "}
-                  <IoIosAlert className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="mr-1 w-3 h-3" />
                   {errors.lastName}
                 </div>
               )}
@@ -197,12 +193,12 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-medium">
+            <Label htmlFor="email" className="font-medium text-sm">
               Email Address <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <FaMailBulk className="h-4 w-4" />
+              <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+                <FaMailBulk className="w-4 h-4" />
               </div>
               <Input
                 id="email"
@@ -220,7 +216,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.email && errors.email && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <IoIosAlert className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="mr-1 w-3 h-3" />
                   {errors.email}
                 </div>
               )}
@@ -229,12 +225,12 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="phone" className="text-sm font-medium">
+            <Label htmlFor="phone" className="font-medium text-sm">
               Phone Number <span className="text-red-500">*</span>
             </Label>
             <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                <FaPhoneAlt className="h-4 w-4" />
+              <div className="top-1/2 left-3 absolute transform -translate-y-1/2">
+                <FaPhoneAlt className="w-4 h-4" />
               </div>
               <Input
                 id="phone"
@@ -252,7 +248,7 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               />
               {touched.phone && errors.phone && (
                 <div className="flex items-center mt-1 text-red-500 text-xs">
-                  <IoIosAlert className="h-3 w-3 mr-1" />
+                  <IoIosAlert className="mr-1 w-3 h-3" />
                   {errors.phone}
                 </div>
               )}
@@ -273,10 +269,10 @@ export default function CustomerInfoForm({}: CustomerInfoFormProps) {
               }
               className="mt-1"
             />
-            <div className="grid gap-1.5 leading-none">
+            <div className="gap-1.5 grid leading-none">
               <Label
                 htmlFor="marketingConsent"
-                className="text-sm font-normal  leading-snug"
+                className="font-normal text-sm leading-snug"
               >
                 Keep me updated about new products, promotions, and exclusive
                 offers

@@ -1,7 +1,5 @@
 "use client";
-import { Color, ProductType } from "@/lib/types";
-import { JSX, useEffect, useState } from "react";
-import { Button } from "../ui/button";
+import { useWishlist } from "@/app/context/wishlistContext";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,19 +11,21 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { useParams, usePathname } from "next/navigation";
-import ProductInfo from "../category/product/ProductInfo";
-import { useWishlist } from "@/app/context/wishlistContext";
 import { useProtectedAction } from "@/hooks/useProtectedAction";
+import { Color, ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { getAccessibleColor } from "@/lib/utils/accessibility";
 import theme from "@material-tailwind/react/theme";
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
+import { JSX, useEffect, useState } from "react";
+import { FaEye, FaHeart } from "react-icons/fa";
 import { toast } from "sonner";
 import { AuthDialog } from "../auth/AuthDialog";
 import components from "../category/product/ProductDetails";
 import ProductGallery from "../category/product/ProductGallery";
-import { getAccessibleColor } from "@/lib/utils/accessibility";
-import { cn } from "@/lib/utils/utils";
-import Link from "next/link";
-import { FaEye, FaHeart } from "react-icons/fa";
+import ProductInfo from "../category/product/ProductInfo";
+import { Button } from "../ui/button";
 
 /**
  * A React functional component that renders two buttons: "Quick Look" and "Add to Favorites".
@@ -132,9 +132,9 @@ const QuickLookAndFavoriteButtons = ({
       />
 
       <AlertDialog>
-        <AlertDialogTrigger className="p-2 rounded-full shadow-md transition-colors">
+        <AlertDialogTrigger className="shadow-md p-2 rounded-full transition-colors">
           <span className="sr-only"> Quick look </span>
-          <FaEye className="h-5 w-5 text-gray-600" />
+          <FaEye className="w-5 h-5 text-gray-600" />
         </AlertDialogTrigger>
         <AlertDialogContent className="border-4 min-w-11/12">
           <AlertDialogFooter>
@@ -144,7 +144,7 @@ const QuickLookAndFavoriteButtons = ({
           <AlertDialogTitle />
           <div className="mx-auto">
             {/* Product Section */}
-            <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8 relative py-10">
+            <div className="relative lg:items-start lg:gap-x-8 lg:grid lg:grid-cols-2 py-10">
               <ProductGallery
                 product={product}
                 page={false}
@@ -176,7 +176,7 @@ const QuickLookAndFavoriteButtons = ({
 
       <Button
         onClick={handleWishlistClick}
-        className="p-2 rounded-full shadow-md transition-colors"
+        className="shadow-md p-2 rounded-full transition-colors"
       >
         <FaHeart
           className={`h-5 w-5 ${

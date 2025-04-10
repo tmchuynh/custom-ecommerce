@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { privacy_policy_sections } from "@/lib/constants/informationDetails";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { JSX, useRef, useState } from "react";
 import {
@@ -72,22 +72,22 @@ const PrivacyPolicy = (): JSX.Element => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Privacy Policy</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Privacy Policy</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Protecting your privacy is important to us. Please read this privacy
             policy carefully to understand how we collect, use, and protect your
             information.
           </p>
-          <p className="text-sm mt-2">Last Updated: June 10, 2023</p>
+          <p className="mt-2 text-sm">Last Updated: June 10, 2023</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Contents</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Contents</h2>
               <ul className="space-y-2">
                 {privacy_policy_sections.map((section) => (
                   <li key={section.id}>
@@ -99,8 +99,8 @@ const PrivacyPolicy = (): JSX.Element => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -111,21 +111,21 @@ const PrivacyPolicy = (): JSX.Element => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Introduction */}
             <div
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="border rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
+                  <FaBookOpen className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Introduction</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -166,15 +166,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-collect"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-collect")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaDatabase className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaDatabase className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Information We Collect
                   </h2>
                 </div>
@@ -204,7 +204,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     optimize our website for better performance.
                   </p>
 
-                  <h3 className="text-xl font-medium mb-2">
+                  <h3 className="mb-2 font-medium text-xl">
                     Personal Information
                   </h3>
                   <p className="mb-4">
@@ -213,7 +213,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     process your orders, communicate with you, and provide
                     personalized services. This includes, but is not limited to:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2 mb-4">
+                  <ul className="space-y-2 mx-5 mb-4 list-disc list-outside">
                     <li>
                       <strong>Name:</strong> To identify you and provide
                       personalized service.
@@ -245,7 +245,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     </li>
                   </ul>
 
-                  <h3 className="text-xl font-medium mb-2">
+                  <h3 className="mb-2 font-medium text-xl">
                     Non-Personal Information
                   </h3>
                   <p className="mb-4">
@@ -257,7 +257,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     improving website performance, and providing better content
                     recommendations. This includes:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2">
+                  <ul className="space-y-2 mx-5 list-disc list-outside">
                     <li>
                       <strong>Browser type and version:</strong> To ensure
                       compatibility with your device and optimize the website’s
@@ -294,15 +294,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-usage"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-usage")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaFileAlt className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaFileAlt className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     How We Use Your Information
                   </h2>
                 </div>
@@ -330,7 +330,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     and ensure a secure and efficient transaction process. Below
                     are the key ways in which we utilize your information:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2">
+                  <ul className="space-y-2 mx-5 list-disc list-outside">
                     <li>
                       <strong>To process and fulfill your orders:</strong> We
                       use your personal and payment information to process your
@@ -398,15 +398,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["information-sharing"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("information-sharing")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaShare className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaShare className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Information Sharing
                   </h2>
                 </div>
@@ -436,7 +436,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     circumstances, all of which are necessary to provide our
                     services or comply with legal obligations:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2">
+                  <ul className="space-y-2 mx-5 list-disc list-outside">
                     <li>
                       <strong>Third-party service providers:</strong> We may
                       share your information with trusted third-party service
@@ -477,15 +477,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["data-protection"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("data-protection")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaShield className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaShield className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     How We Protect Your Information
                   </h2>
                 </div>
@@ -514,7 +514,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     of advanced security technologies and practices to mitigate
                     risks. Here are the key security measures we use:
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2 mb-4">
+                  <ul className="space-y-2 mx-5 mb-4 list-disc list-outside">
                     <li>
                       <strong>Encryption of sensitive data:</strong> All
                       sensitive information, such as payment details, is
@@ -566,15 +566,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["your-rights"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("your-rights")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaUserCheck className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Your Rights</h2>
+                  <FaUserCheck className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Your Rights</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -602,7 +602,7 @@ const PrivacyPolicy = (): JSX.Element => {
                     committed to helping you exercise these rights in accordance
                     with relevant data protection regulations.
                   </p>
-                  <ul className="list-disc list-outside mx-5 space-y-2">
+                  <ul className="space-y-2 mx-5 list-disc list-outside">
                     <li>
                       <strong>Access:</strong> You have the right to request a
                       copy of the personal information we hold about you. If you
@@ -656,15 +656,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["changes"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("changes")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaEdit className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FaEdit className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Changes to Privacy Policy
                   </h2>
                 </div>
@@ -707,15 +707,15 @@ const PrivacyPolicy = (): JSX.Element => {
               ref={(el) => {
                 sectionRefs.current["contact"] = el;
               }}
-              className="rounded-xl border shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("contact")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaPhoneAlt className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Contact Us</h2>
+                  <FaPhoneAlt className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Contact Us</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -737,9 +737,9 @@ const PrivacyPolicy = (): JSX.Element => {
                 <div className="p-6">
                   <div className="space-y-6">
                     <div className="flex items-start">
-                      <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMailBulk className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                       <div>
-                        <h3 className="text-lg font-medium mb-2">
+                        <h3 className="mb-2 font-medium text-lg">
                           Email Support
                         </h3>
                         <p className="mb-2">
@@ -755,7 +755,7 @@ const PrivacyPolicy = (): JSX.Element => {
                         >
                           support@yourcompany.com
                         </Button>
-                        <p className="text-sm mt-1">
+                        <p className="mt-1 text-sm">
                           We typically respond to emails within 24-48 hours
                           during business days.
                         </p>
@@ -763,9 +763,9 @@ const PrivacyPolicy = (): JSX.Element => {
                     </div>
 
                     <div className="flex items-start">
-                      <FaPhoneAlt className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaPhoneAlt className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                       <div>
-                        <h3 className="text-lg font-medium mb-2">
+                        <h3 className="mb-2 font-medium text-lg">
                           Phone Support
                         </h3>
                         <p className="mb-2">
@@ -775,7 +775,7 @@ const PrivacyPolicy = (): JSX.Element => {
                         <a href="tel:+15551234567" className="font-medium">
                           +1 (555) 123-4567
                         </a>
-                        <p className="text-sm mt-1">
+                        <p className="mt-1 text-sm">
                           Please check our business hours below for
                           availability.
                         </p>
@@ -783,16 +783,16 @@ const PrivacyPolicy = (): JSX.Element => {
                     </div>
 
                     <div className="flex items-start">
-                      <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                      <FaMessage className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                       <div>
-                        <h3 className="text-lg font-medium mb-2">Live Chat</h3>
+                        <h3 className="mb-2 font-medium text-lg">Live Chat</h3>
                         <p className="mb-2">
                           If you'd prefer to chat with a representative in
                           real-time, you can reach us using the live chat
                           feature on our website.
                         </p>
                         <Button>Start Live Chat</Button>
-                        <p className="text-sm mt-1">
+                        <p className="mt-1 text-sm">
                           Live chat is available during business hours only.
                         </p>
                       </div>

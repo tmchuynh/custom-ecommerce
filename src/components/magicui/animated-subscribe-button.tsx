@@ -1,8 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils/utils";
-import { HTMLMotionProps } from "motion/react";
-import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { AnimatePresence, HTMLMotionProps, motion } from "motion/react";
 import React, { useState } from "react";
 
 interface AnimatedSubscribeButtonProps
@@ -57,7 +56,7 @@ export const AnimatedSubscribeButton = React.forwardRef<
           >
             <motion.span
               key="action"
-              className="relative flex h-full w-full items-center justify-center font-semibold"
+              className="relative flex justify-center items-center w-full h-full font-semibold"
               initial={{ y: -50 }}
               animate={{ y: 0 }}
             >
@@ -82,7 +81,7 @@ export const AnimatedSubscribeButton = React.forwardRef<
           >
             <motion.span
               key="reaction"
-              className="relative flex items-center justify-center font-semibold"
+              className="relative flex justify-center items-center font-semibold"
               initial={{ x: 0 }}
               exit={{ x: 50, transition: { duration: 0.1 } }}
             >

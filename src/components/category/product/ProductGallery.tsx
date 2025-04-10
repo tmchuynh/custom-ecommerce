@@ -1,13 +1,13 @@
-import { Color, ProductType } from "@/lib/types";
-import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { JSX, useMemo, useState } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Color, ProductType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 import { getAccessibleColor } from "@/lib/utils/accessibility";
 import { generateRandomNumberArray } from "@/lib/utils/generate";
-import { cn } from "@/lib/utils/utils";
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { JSX, useMemo, useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 /**
  * A component that displays a gallery of product images or numbered panels with navigation controls.
@@ -115,7 +115,7 @@ const ProductGallery = ({
     >
       {/* TabList: render all tabs but hide those not in our visible window */}
       {panelsVisibility && (
-        <TabList className="grid grid-cols-3 gap-6">
+        <TabList className="gap-6 grid grid-cols-3">
           {randomArray.map((_, index) => (
             <Tab
               key={index}
@@ -129,7 +129,7 @@ const ProductGallery = ({
                 } as React.CSSProperties
               }
             >
-              <span className="absolute inset-0 overflow-hidden rounded-xl border">
+              <span className="absolute inset-0 border rounded-xl overflow-hidden">
                 {/* Pass the index as text to the Skeleton */}
                 <div
                   className={cn(
@@ -144,7 +144,7 @@ const ProductGallery = ({
               </span>
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 ring-2 ring-transparent ring-offset-2 group-data-selected:ring"
+                className="absolute inset-0 group-data-selected:ring ring-2 ring-transparent ring-offset-2 pointer-events-none"
               />
             </Tab>
           ))}
@@ -218,7 +218,7 @@ const ProductGallery = ({
             <Button
               variant="outline"
               onClick={goToPrevious}
-              className="absolute top-1/2 left-5 px-2 py-5 transform -translate-y-1/2"
+              className="top-1/2 left-5 absolute px-2 py-5 transform -translate-y-1/2"
               aria-label="Previous"
             >
               <IoIosArrowBack
@@ -236,7 +236,7 @@ const ProductGallery = ({
             <Button
               variant="outline"
               onClick={goToNext}
-              className="absolute top-1/2 right-5 px-2 py-5 transform -translate-y-1/2"
+              className="top-1/2 right-5 absolute px-2 py-5 transform -translate-y-1/2"
               aria-label="Next"
             >
               <IoIosArrowForward

@@ -1,9 +1,9 @@
 "use client";
 
-import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
+import * as React from "react";
 
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { FaCheckDouble } from "react-icons/fa6";
 
@@ -41,7 +41,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <FaChevronDown className="size-4 opacity-50" />
+        <FaChevronDown className="opacity-50 size-4" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -109,7 +109,7 @@ function SelectItem({
       )}
       {...props}
     >
-      <span className="absolute right-2 flex size-3.5 items-center justify-center">
+      <span className="right-2 absolute flex justify-center items-center size-3.5">
         <SelectPrimitive.ItemIndicator>
           <FaCheckDouble className="size-4" />
         </SelectPrimitive.ItemIndicator>

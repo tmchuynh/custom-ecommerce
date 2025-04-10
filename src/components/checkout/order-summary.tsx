@@ -1,10 +1,9 @@
 "use client";
-import { JSX, useState } from "react";
-import DiscountForm from "./discount-form";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { OrderSummaryProps } from "@/lib/types";
-import { handleApplyDiscountUtil } from "@/lib/utils/utils";
+import { handleApplyDiscountUtil } from "@/lib/utils";
+import { JSX, useState } from "react";
 import {
   FaCheckDouble,
   FaChevronDown,
@@ -12,6 +11,7 @@ import {
   FaChevronUp,
   FaInfo,
 } from "react-icons/fa";
+import DiscountForm from "./discount-form";
 
 /**
  * A component that displays the order summary during checkout, including pricing details and discount functionality.
@@ -90,9 +90,9 @@ export default function OrderSummary({
   };
 
   return (
-    <div className="rounded-xl shadow-md overflow-hidden sticky top-18">
+    <div className="top-18 sticky shadow-md rounded-xl overflow-hidden">
       <div className="p-6 border-b">
-        <h2 className="text-xl font-semibold mb-1">Order Summary</h2>
+        <h2 className="mb-1 font-semibold text-xl">Order Summary</h2>
         <p className="text-sm">
           {itemCount} {itemCount === 1 ? "item" : "items"}
         </p>
@@ -101,13 +101,13 @@ export default function OrderSummary({
       <div className="p-6">
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center justify-between w-full text-left mb-4 font-medium"
+          className="flex justify-between items-center mb-4 w-full font-medium text-left"
         >
           <span>Order Details</span>
           {showDetails ? (
-            <FaChevronUp className="h-5 w-5" />
+            <FaChevronUp className="w-5 h-5" />
           ) : (
-            <FaChevronDown className="h-5 w-5" />
+            <FaChevronDown className="w-5 h-5" />
           )}
         </button>
 
@@ -143,7 +143,7 @@ export default function OrderSummary({
               </div>
             )}
 
-            <div className="border-t pt-3 mt-3">
+            <div className="mt-3 pt-3 border-t">
               <div className="flex justify-between font-semibold text-lg">
                 <span>Total</span>
                 <span>{formatCurrency(total, selectedCurrency.code)}</span>
@@ -154,15 +154,15 @@ export default function OrderSummary({
 
         <button
           onClick={() => setShowDiscount(!showDiscount)}
-          className="flex items-center justify-between w-full text-left mb-4 "
+          className="flex justify-between items-center mb-4 w-full text-left"
         >
           <span>
             {discountAmount > 0 ? "Promo code applied" : "Add promo code"}
           </span>
           {showDiscount ? (
-            <FaChevronUp className="h-5 w-5" />
+            <FaChevronUp className="w-5 h-5" />
           ) : (
-            <FaChevronDown className="h-5 w-5" />
+            <FaChevronDown className="w-5 h-5" />
           )}
         </button>
 
@@ -180,9 +180,9 @@ export default function OrderSummary({
         )}
 
         {discountAmount > 0 && !showDiscount && (
-          <div className="flex items-center mb-4 bg-green-50 p-2 rounded-lg">
-            <FaCheckDouble className="h-4 w-4 text-green-500 mr-2" />
-            <p className="text-sm text-green-700">
+          <div className="flex items-center bg-green-50 mb-4 p-2 rounded-lg">
+            <FaCheckDouble className="mr-2 w-4 h-4 text-green-500" />
+            <p className="text-green-700 text-sm">
               Promo code applied: -
               {formatCurrency(discountAmount, selectedCurrency.code)}
             </p>
@@ -190,9 +190,9 @@ export default function OrderSummary({
         )}
 
         <div className="flex items-start space-x-2 mb-6 p-3 rounded-lg">
-          <FaInfo className="h-5 w-5 mt-0.5 flex-shrink-0" />
+          <FaInfo className="flex-shrink-0 mt-0.5 w-5 h-5" />
           <div>
-            <p className="text-sm text-gray-700">
+            <p className="text-gray-700 text-sm">
               By placing your order, you agree to our{" "}
               <a
                 href="/policies/terms_and_conditions"
@@ -214,9 +214,9 @@ export default function OrderSummary({
         <div className="space-y-3">
           <a
             href="/cart"
-            className="flex items-center justify-center text-sm hover:underline"
+            className="flex justify-center items-center text-sm hover:underline"
           >
-            <FaChevronLeft className="h-4 w-4 mr-1" />
+            <FaChevronLeft className="mr-1 w-4 h-4" />
             Return to cart
           </a>
         </div>

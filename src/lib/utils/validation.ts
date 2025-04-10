@@ -1,4 +1,4 @@
-import { getCardType } from "./utils";
+import { getCardType } from "../utils";
 
 /**
  * Validates a credit card number using the Luhn algorithm.

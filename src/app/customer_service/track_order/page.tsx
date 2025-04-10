@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { orderStatuses } from "@/lib/constants/constants";
 import { trackingOrderFAQs } from "@/lib/constants/faqs";
-import { cn, toggleAccordionSection } from "@/lib/utils/utils";
+import { cn, toggleAccordionSection } from "@/lib/utils";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
@@ -117,29 +117,29 @@ const TrackOrder = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Track Your Order</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Track Your Order</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Enter your tracking number to get the latest update on your order
             status.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Contents</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Contents</h2>
 
               <ul className="space-y-2">
                 <li>
                   <button
                     onClick={() => router.push("/customer_service/track_order")}
-                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                    className="flex items-center hover:bg-secondary px-3 py-2 rounded-lg w-full text-left hover:text-secondary-foreground transition-colors"
                   >
-                    <FaArrowLeft className="h-5 w-5 mr-2" />
-                    <span className="ml-2 text-sm font-medium">
+                    <FaArrowLeft className="mr-2 w-5 h-5" />
+                    <span className="ml-2 font-medium text-sm">
                       Back to Customer Service
                     </span>
                   </button>
@@ -148,11 +148,11 @@ const TrackOrder = () => {
                 <li>
                   <button
                     onClick={() => router.push("/user/orders")}
-                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                    className="flex items-center hover:bg-secondary px-3 py-2 rounded-lg w-full text-left hover:text-secondary-foreground transition-colors"
                   >
-                    <LuPackageCheck className="h-5 w-5 mr-2" />
+                    <LuPackageCheck className="mr-2 w-5 h-5" />
 
-                    <span className="ml-2 text-sm font-medium">
+                    <span className="ml-2 font-medium text-sm">
                       View My Orders
                     </span>
                   </button>
@@ -161,10 +161,10 @@ const TrackOrder = () => {
                 <li>
                   <button
                     onClick={() => router.push("/policies/return_policy")}
-                    className="flex items-center w-full text-left px-3 py-2 rounded-lg transition-colors hover:bg-secondary hover:text-secondary-foreground "
+                    className="flex items-center hover:bg-secondary px-3 py-2 rounded-lg w-full text-left hover:text-secondary-foreground transition-colors"
                   >
-                    <IoMdRefresh className="h-5 w-5 mr-2" />
-                    <span className="ml-2 text-sm font-medium">
+                    <IoMdRefresh className="mr-2 w-5 h-5" />
+                    <span className="ml-2 font-medium text-sm">
                       Return Policy
                     </span>
                   </button>
@@ -173,19 +173,19 @@ const TrackOrder = () => {
 
               <hr className="my-4" />
 
-              <div className="p-4 bg-muted rounded-lg space-y-2">
-                <h3 className="font-medium flex items-center">
-                  <FiHelpCircle className="h-4 w-4 mr-2" />
+              <div className="space-y-2 bg-muted p-4 rounded-lg">
+                <h3 className="flex items-center font-medium">
+                  <FiHelpCircle className="mr-2 w-4 h-4" />
                   Need Help?
                 </h3>
-                <p className="text-sm text-foreground">
+                <p className="text-foreground text-sm">
                   Our customer service team is available to assist you with any
                   questions.
                 </p>
                 <div className="flex mt-2">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="mr-2 w-4 h-4" /> Contact Support
                     </Button>
                   </Link>
                 </div>
@@ -194,13 +194,13 @@ const TrackOrder = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Tracking Form */}
             <Card className="shadow-lg p-8 rounded-lg">
               <div className="mb-6">
                 <label
                   htmlFor="tracking-number"
-                  className="text-lg font-medium mb-4 mt-8"
+                  className="mt-8 mb-4 font-medium text-lg"
                 >
                   Tracking Number
                 </label>
@@ -216,18 +216,18 @@ const TrackOrder = () => {
                   />
                   <Button
                     onClick={handleTrackOrder}
-                    className="absolute top-0 right-0 h-full rounded-l-none"
+                    className="top-0 right-0 absolute rounded-l-none h-full"
                     disabled={loading || !trackingNumber.trim()}
                   >
                     {loading ? (
-                      <FaClock className="h-4 w-4 mr-1 animate-spin" />
+                      <FaClock className="mr-1 w-4 h-4 animate-spin" />
                     ) : (
-                      <FaSearch className="h-4 w-4 mr-1" />
+                      <FaSearch className="mr-1 w-4 h-4" />
                     )}
                     {loading ? "Searching..." : "Track"}
                   </Button>
                 </div>
-                <p className="text-xs mt-1">
+                <p className="mt-1 text-xs">
                   You can find your tracking number in your order confirmation
                   email.
                 </p>
@@ -235,19 +235,19 @@ const TrackOrder = () => {
 
               {/* Tracking Results */}
               {orderStatus && (
-                <div className="mt-8 border-t pt-6">
-                  <h3 className="text-lg font-medium mb-4 rounded-lg">
+                <div className="mt-8 pt-6 border-t">
+                  <h3 className="mb-4 rounded-lg font-medium text-lg">
                     Order Status:
                   </h3>
 
                   {orderStatus === "Order not found" ? (
-                    <div className="p-4 rounded-lg flex items-start bg-red-200">
-                      <IoIosAlert className="h-5 w-5 text-red-600 mt-0.5 mr-3 flex-shrink-0" />
+                    <div className="flex items-start bg-red-200 p-4 rounded-lg">
+                      <IoIosAlert className="flex-shrink-0 mt-0.5 mr-3 w-5 h-5 text-red-600" />
                       <div>
                         <h4 className="font-medium text-red-800">
                           Order Not Found
                         </h4>
-                        <p className="text-sm text-red-700 mt-1">
+                        <p className="mt-1 text-red-700 text-sm">
                           We couldn't find an order with that tracking number.
                           Please check the number and try again.
                         </p>
@@ -255,17 +255,17 @@ const TrackOrder = () => {
                     </div>
                   ) : (
                     <>
-                      <div className="p-4 rounded-lg mb-6">
-                        <dl className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="mb-6 p-4 rounded-lg">
+                        <dl className="gap-4 grid grid-cols-1 md:grid-cols-2">
                           <div>
-                            <dt className="text-sm font-medium">
+                            <dt className="font-medium text-sm">
                               Tracking Number
                             </dt>
                             <dd className="mt-1 text-sm">{trackingNumber}</dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium">Status</dt>
-                            <dd className="mt-1 text-sm font-semibold">
+                            <dt className="font-medium text-sm">Status</dt>
+                            <dd className="mt-1 font-semibold text-sm">
                               <Badge
                                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium `}
                                 variant={
@@ -283,13 +283,13 @@ const TrackOrder = () => {
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium">Carrier</dt>
+                            <dt className="font-medium text-sm">Carrier</dt>
                             <dd className="mt-1 text-sm">
                               {orderDetails?.carrier}
                             </dd>
                           </div>
                           <div>
-                            <dt className="text-sm font-medium">
+                            <dt className="font-medium text-sm">
                               Estimated Delivery
                             </dt>
                             <dd className="mt-1 text-sm">
@@ -301,11 +301,11 @@ const TrackOrder = () => {
 
                       {/* Shipping Progress Indicator */}
                       <div className="mb-6">
-                        <h4 className="text-sm font-medium mb-3">
+                        <h4 className="mb-3 font-medium text-sm">
                           Shipping Progress
                         </h4>
                         <div className="relative">
-                          <div className="overflow-hidden h-2 mb-6 text-xs flex rounded">
+                          <div className="flex mb-6 rounded h-2 text-xs overflow-hidden">
                             <div
                               className={`shadow-none flex flex-col text-center whitespace-nowrap  justify-center  transition-all duration-500 ${
                                 currentStep === 1
@@ -321,7 +321,7 @@ const TrackOrder = () => {
                             ></div>
                           </div>
 
-                          <ol className="w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse md:grid md:grid-cols-2 md:gap-8">
+                          <ol className="sm:flex md:gap-8 rtl:space-x-reverse sm:space-x-8 space-y-4 sm:space-y-0 md:grid md:grid-cols-2 w-full">
                             <li
                               className={cn(
                                 "flex items-start space-x-2.5 rtl:space-x-reverse",
@@ -350,7 +350,7 @@ const TrackOrder = () => {
                                 >
                                   Processing
                                 </h3>
-                                <p className="text-sm text-foreground">
+                                <p className="text-foreground text-sm">
                                   Your order is being processed, and we are
                                   preparing your items for shipment.
                                 </p>
@@ -385,7 +385,7 @@ const TrackOrder = () => {
                                 >
                                   Shipped
                                 </h3>
-                                <p className="text-sm text-foreground">
+                                <p className="text-foreground text-sm">
                                   Your order has been shipped and is on its way
                                   to the delivery address.
                                 </p>
@@ -420,7 +420,7 @@ const TrackOrder = () => {
                                 >
                                   In Transit
                                 </h3>
-                                <p className="text-sm text-foreground">
+                                <p className="text-foreground text-sm">
                                   Your package is currently in transit and
                                   should arrive soon.
                                 </p>
@@ -455,7 +455,7 @@ const TrackOrder = () => {
                                 >
                                   Delivered
                                 </h3>
-                                <p className="text-sm text-foreground">
+                                <p className="text-foreground text-sm">
                                   Your order has been delivered! We hope you
                                   enjoy your purchase.
                                 </p>
@@ -466,11 +466,11 @@ const TrackOrder = () => {
                       </div>
 
                       {/* Last Update */}
-                      <div className="border-t pt-4">
-                        <h4 className="text-sm font-medium mb-2">
+                      <div className="pt-4 border-t">
+                        <h4 className="mb-2 font-medium text-sm">
                           Last Update
                         </h4>
-                        <p className="text-sm text-foreground">
+                        <p className="text-foreground text-sm">
                           {orderDetails?.lastUpdate}
                         </p>
                       </div>
@@ -478,7 +478,7 @@ const TrackOrder = () => {
                       {/* Tracking Link */}
                       {orderDetails?.carrier !== "Pending" && (
                         <div className="mt-4">
-                          <Button className="w-1/4 text-wrap p-2">
+                          <Button className="p-2 w-1/4 text-wrap">
                             View Details on {orderDetails?.carrier} Website
                           </Button>
                         </div>
@@ -494,15 +494,15 @@ const TrackOrder = () => {
               ref={(el) => {
                 sectionRefs.current["faqs"] = el;
               }}
-              className="rounded-lg border shadow-md overflow-hidden"
+              className="shadow-md border rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("faqs")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <FiHelpCircle className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <FiHelpCircle className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Frequently Asked Questions
                   </h2>
                 </div>
@@ -527,7 +527,7 @@ const TrackOrder = () => {
                   <div className="space-y-4 py-8">
                     {trackingOrderFAQs.map((faq, index) => (
                       <div key={index} className="p-4 rounded-lg">
-                        <h3 className="text-lg font-medium mb-2 flex items-start">
+                        <h3 className="flex items-start mb-2 font-medium text-lg">
                           <span className="mr-2">Q:</span>
                           {faq.question}
                         </h3>
@@ -538,8 +538,8 @@ const TrackOrder = () => {
                     ))}
                   </div>
 
-                  <div className="mt-6 p-6 bg-muted rounded-lg">
-                    <h3 className="text-lg font-medium mb-2">
+                  <div className="bg-muted mt-6 p-6 rounded-lg">
+                    <h3 className="mb-2 font-medium text-lg">
                       Need additional help?
                     </h3>
                     <p className="mb-4">
@@ -549,13 +549,13 @@ const TrackOrder = () => {
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <Button variant={"teritary"}>
-                        <FaMailBulk className="h-4 w-4 mr-2" /> Email Support
+                        <FaMailBulk className="mr-2 w-4 h-4" /> Email Support
                       </Button>
                       <Button
                         className="inline-flex items-center"
                         variant={"teritaryOutline"}
                       >
-                        <FaMessage className="h-4 w-4 mr-2" /> Live Chat
+                        <FaMessage className="mr-2 w-4 h-4" /> Live Chat
                       </Button>
                     </div>
                   </div>
@@ -568,15 +568,15 @@ const TrackOrder = () => {
               ref={(el) => {
                 sectionRefs.current["shipping-info"] = el;
               }}
-              className="rounded-lg border shadow-md overflow-hidden"
+              className="shadow-md border rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("shipping-info")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <IoBarChartSharp className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">
+                  <IoBarChartSharp className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">
                     Shipping Information
                   </h2>
                 </div>
@@ -599,8 +599,8 @@ const TrackOrder = () => {
               {activeSection === "shipping-info" && (
                 <div className="p-6 pt-0 border-t">
                   <div className="mt-4 p-3">
-                    <h3 className="text-lg font-medium ">Shipping Carriers</h3>
-                    <p className="text-sm mb-2">
+                    <h3 className="font-medium text-lg">Shipping Carriers</h3>
+                    <p className="mb-2 text-sm">
                       We partner with the following carriers to deliver your
                       orders:
                     </p>
@@ -611,9 +611,9 @@ const TrackOrder = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8">
-                    <div className="p-4 rounded-lg bg-muted">
-                      <h3 className="text-lg font-medium mb-4">
+                  <div className="gap-6 grid grid-cols-1 md:grid-cols-2 py-8">
+                    <div className="bg-muted p-4 rounded-lg">
+                      <h3 className="mb-4 font-medium text-lg">
                         Standard Shipping
                       </h3>
                       <ul className="space-y-1 text-sm">
@@ -623,8 +623,8 @@ const TrackOrder = () => {
                       </ul>
                     </div>
 
-                    <div className="p-4 rounded-lg bg-muted">
-                      <h3 className="text-lg font-medium mb-4">
+                    <div className="bg-muted p-4 rounded-lg">
+                      <h3 className="mb-4 font-medium text-lg">
                         Express Shipping
                       </h3>
                       <ul className="space-y-1 text-sm">

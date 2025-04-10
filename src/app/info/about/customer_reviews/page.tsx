@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { reviews } from "@/lib/constants/constants";
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 
 import { JSX, useState } from "react";
 import { FaFilter, FaSearch, FaThumbsUp } from "react-icons/fa";
@@ -146,20 +146,20 @@ const CustomerReviews = (): JSX.Element => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Customer Reviews</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Customer Reviews</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             See what our customers are saying about us! We value their feedback
             and continuously strive to provide the best service possible.
           </p>
         </div>
 
         {/* Rating Summary */}
-        <div className="rounded-xl shadow-md mb-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 border p-10 rounded-lg">
-            <div className="flex flex-col items-center justify-center">
-              <div className="text-5xl font-bold">
+        <div className="shadow-md mb-8 rounded-xl">
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-3 p-10 border rounded-lg">
+            <div className="flex flex-col justify-center items-center">
+              <div className="font-bold text-5xl">
                 {averageRating.toFixed(1)}
               </div>
               <div className="flex items-center mt-2">
@@ -174,18 +174,18 @@ const CustomerReviews = (): JSX.Element => {
                   />
                 ))}
               </div>
-              <div className="text-sm mt-1">{reviews.length} reviews</div>
+              <div className="mt-1 text-sm">{reviews.length} reviews</div>
             </div>
 
             <div className="col-span-2">
               {ratingCounts.map((ratingData) => (
                 <div key={ratingData.rating} className="flex items-center mb-2">
-                  <div className="w-12 text-sm font-medium">
+                  <div className="w-12 font-medium text-sm">
                     {ratingData.rating} stars
                   </div>
-                  <div className="flex-1 mx-3 h-4 rounded-full border overflow-hidden">
+                  <div className="flex-1 mx-3 border rounded-full h-4 overflow-hidden">
                     <div
-                      className="h-full bg-blue-600"
+                      className="bg-blue-600 h-full"
                       style={{ width: `${ratingData.percentage}%` }}
                     ></div>
                   </div>
@@ -196,19 +196,19 @@ const CustomerReviews = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Sidebar for filters */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4 flex items-center">
-                <FaFilter className="h-5 w-5 mr-2" />
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="flex items-center mb-4 font-bold text-xl">
+                <FaFilter className="mr-2 w-5 h-5" />
                 Filter Reviews
               </h2>
 
               <div className="mb-6">
                 <Label
                   htmlFor="search-reviews"
-                  className="text-sm font-medium mb-1 block"
+                  className="block mb-1 font-medium text-sm"
                 >
                   Search Reviews
                 </Label>
@@ -221,13 +221,13 @@ const CustomerReviews = (): JSX.Element => {
                     onChange={handleSearch}
                     className="pl-9"
                   />
-                  <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+                  <FaSearch className="top-1/2 left-3 absolute w-4 h-4 transform -translate-y-1/2" />
                 </div>
               </div>
 
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-2 flex items-center">
-                  <FaSliders className="h-4 w-4 mr-2" />
+                <h3 className="flex items-center mb-2 font-medium text-sm">
+                  <FaSliders className="mr-2 w-4 h-4" />
                   Sort By
                 </h3>
                 <div className="space-y-2">
@@ -238,7 +238,7 @@ const CustomerReviews = (): JSX.Element => {
                       name="sort"
                       checked={sortOrder === "newest"}
                       onChange={() => handleSortChange("newest")}
-                      className="h-4 w-4"
+                      className="w-4 h-4"
                     />
                     <Label htmlFor="sort-newest" className="ml-2 text-sm">
                       Newest First
@@ -251,7 +251,7 @@ const CustomerReviews = (): JSX.Element => {
                       name="sort"
                       checked={sortOrder === "highest"}
                       onChange={() => handleSortChange("highest")}
-                      className="h-4 w-4"
+                      className="w-4 h-4"
                     />
                     <Label htmlFor="sort-highest" className="ml-2 text-sm">
                       Highest Rating
@@ -264,7 +264,7 @@ const CustomerReviews = (): JSX.Element => {
                       name="sort"
                       checked={sortOrder === "lowest"}
                       onChange={() => handleSortChange("lowest")}
-                      className="h-4 w-4"
+                      className="w-4 h-4"
                     />
                     <Label htmlFor="sort-lowest" className="ml-2 text-sm">
                       Lowest Rating
@@ -274,8 +274,8 @@ const CustomerReviews = (): JSX.Element => {
               </div>
 
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-2 flex items-center">
-                  <FaStar className="h-4 w-4 mr-2" />
+                <h3 className="flex items-center mb-2 font-medium text-sm">
+                  <FaStar className="mr-2 w-4 h-4" />
                   Filter by Rating
                 </h3>
                 <div className="space-y-2">
@@ -288,7 +288,7 @@ const CustomerReviews = (): JSX.Element => {
                       />
                       <Label
                         htmlFor={`rating-${rating}`}
-                        className="ml-2 text-sm flex items-center"
+                        className="flex items-center ml-2 text-sm"
                       >
                         {rating} {rating === 1 ? "Star" : "Stars"} & Up
                       </Label>
@@ -301,7 +301,7 @@ const CustomerReviews = (): JSX.Element => {
                   onClick={() => setShowReviewForm(!showReviewForm)}
                   className={cn(`w-full ${buttonVariants()}`)}
                 >
-                  <FaMessage className="h-4 w-4 mr-2" />
+                  <FaMessage className="mr-2 w-4 h-4" />
                   Write a Review
                 </AlertDialogTrigger>
                 <AlertDialogContent className="border-4 min-w-11/12">
@@ -310,11 +310,11 @@ const CustomerReviews = (): JSX.Element => {
                     <AlertDialogAction>Continue</AlertDialogAction>
                   </AlertDialogFooter>
                   <AlertDialogTitle />
-                  <h2 className="text-xl font-semibold mb-4">Write a Review</h2>
+                  <h2 className="mb-4 font-semibold text-xl">Write a Review</h2>
                   <form onSubmit={handleReviewSubmit} className="space-y-4">
                     <div className="gap-4">
                       <div>
-                        <Label htmlFor="name" className="text-sm font-medium">
+                        <Label htmlFor="name" className="font-medium text-sm">
                           Your Name
                         </Label>
                         <Input
@@ -330,7 +330,7 @@ const CustomerReviews = (): JSX.Element => {
                         />
                       </div>
                       <div>
-                        <Label htmlFor="email" className="text-sm font-medium">
+                        <Label htmlFor="email" className="font-medium text-sm">
                           Your Email
                         </Label>
                         <Input
@@ -349,7 +349,7 @@ const CustomerReviews = (): JSX.Element => {
                     </div>
 
                     <div>
-                      <Label className="text-sm font-medium">Your Rating</Label>
+                      <Label className="font-medium text-sm">Your Rating</Label>
                       <div className="flex items-center mt-1">
                         {[1, 2, 3, 4, 5].map((rating) => (
                           <FaStar
@@ -366,7 +366,7 @@ const CustomerReviews = (): JSX.Element => {
                     </div>
 
                     <div>
-                      <Label htmlFor="review" className="text-sm font-medium">
+                      <Label htmlFor="review" className="font-medium text-sm">
                         Your Review
                       </Label>
                       <Textarea
@@ -400,10 +400,10 @@ const CustomerReviews = (): JSX.Element => {
           </div>
 
           {/* Main Content - Reviews */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Reviews Grid */}
             {filteredReviews.length === 0 ? (
-              <div className="rounded-xl shadow-md p-8 text-center">
+              <div className="shadow-md p-8 rounded-xl text-center">
                 <p className="text-lg">No reviews match your filters.</p>
                 <Button
                   onClick={() => {
@@ -417,16 +417,16 @@ const CustomerReviews = (): JSX.Element => {
                 </Button>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                 {filteredReviews.map((review, index) => (
                   <Card
                     key={index}
-                    className="rounded-lg p-6 shadow-md flex flex-col justify-between h-full transition-shadow hover:shadow-lg"
+                    className="flex flex-col justify-between shadow-md hover:shadow-lg p-6 rounded-lg h-full transition-shadow"
                   >
                     <CardContent className="p-0">
                       <div className="flex justify-between items-start mb-3">
                         <div className="flex flex-col">
-                          <div className="text-lg font-semibold">
+                          <div className="font-semibold text-lg">
                             {review.name}
                           </div>
                           <div className="text-sm">{review.date}</div>
@@ -449,7 +449,7 @@ const CustomerReviews = (): JSX.Element => {
 
                       <div className="flex justify-between items-center mt-auto pt-3 border-t">
                         <Button variant="ghost" size="sm">
-                          <FaThumbsUp className="h-4 w-4 mr-1" /> Helpful
+                          <FaThumbsUp className="mr-1 w-4 h-4" /> Helpful
                         </Button>
                         <div className="text-sm">Verified Purchase</div>
                       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 interface Avatar {
@@ -29,7 +29,7 @@ export const AvatarCircles = ({
         >
           <Image
             key={index}
-            className="h-10 w-10 rounded-full border-2 border-white dark:border-gray-800"
+            className="border-2 border-white dark:border-gray-800 rounded-full w-10 h-10"
             src={url.imageUrl}
             width={40}
             height={40}
@@ -39,7 +39,7 @@ export const AvatarCircles = ({
       ))}
       {(numPeople ?? 0) > 0 && (
         <a
-          className="flex h-10 w-10 items-center justify-center rounded-full border-2 bg-black text-center text-xs font-medium dark:text-black"
+          className="flex justify-center items-center bg-black border-2 rounded-full w-10 h-10 font-medium text-center text-xs dark:text-black"
           href=""
         >
           +{numPeople}

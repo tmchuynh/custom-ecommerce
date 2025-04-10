@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils/utils";
+import { cn } from "@/lib/utils";
 import React, { MouseEvent, useEffect, useState } from "react";
 
 interface RippleButtonProps
@@ -67,10 +67,10 @@ export const RippleButton = React.forwardRef<
         {...props}
       >
         <div className="relative z-10">{children}</div>
-        <span className="pointer-events-none absolute inset-0">
+        <span className="absolute inset-0 pointer-events-none">
           {buttonRipples.map((ripple) => (
             <span
-              className="absolute animate-rippling rounded-full bg-background opacity-30"
+              className="absolute bg-background opacity-30 rounded-full animate-rippling"
               key={ripple.key}
               style={{
                 width: `${ripple.size}px`,
