@@ -4,7 +4,7 @@ import Team from "@/components/Team";
 import { Button } from "@/components/ui/button";
 import { stats, values } from "@/lib/constants/constants";
 import { about_sections } from "@/lib/constants/informationDetails";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import {
@@ -33,23 +33,23 @@ export default function About() {
   };
 
   return (
-    <main className="isolate min-h-screen">
+    <main className="min-h-screen isolate">
       {/* Hero section with background */}
-      <div className="relative isolate -z-10">
+      <div className="relative -z-10 isolate">
         {/* Hero content */}
         <div className="overflow-hidden">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-12 sm:pt-32">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl font-extrabold mb-4">About Us</h1>
-              <p className="text-xl max-w-2xl mx-auto">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-12 max-w-7xl">
+            <div className="mb-12 text-center">
+              <h1 className="mb-4 font-extrabold text-5xl">About Us</h1>
+              <p className="mx-auto max-w-2xl text-xl">
                 We're changing the way people connect through innovative
                 products and exceptional experiences.
               </p>
             </div>
 
-            <div className="mx-auto max-w-7xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-              <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <p className="mt-8 text-lg font-medium text-pretty sm:max-w-md sm:text-xl/8 lg:max-w-none">
+            <div className="lg:flex lg:items-center gap-x-14 mx-auto lg:mx-0 max-w-7xl lg:max-w-none">
+              <div className="relative w-full lg:max-w-xl xl:max-w-2xl lg:shrink-0">
+                <p className="mt-8 sm:max-w-md lg:max-w-none font-medium text-lg text-pretty sm:text-xl/8">
                   Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
                   quis cupidatat mollit aute velit. Et labore commodo nulla
                   aliqua proident mollit ullamco exercitation tempor. Sint
@@ -58,27 +58,27 @@ export default function About() {
                   aliqua.
                 </p>
               </div>
-              <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
+              <div className="flex justify-end sm:justify-start gap-8 mt-14 sm:-mt-44 lg:mt-0 sm:pl-20 lg:pl-0">
                 <Image
                   alt="Team collaborating"
                   src="https://images.unsplash.com/photo-1472148083604-64f1084980b9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
+                  className="shadow-lg rounded-xl w-full aspect-2/3 object-cover"
                 />
                 <Image
                   alt="Customer experience"
                   src="https://images.unsplash.com/photo-1513171920216-2640b288471b?q=80&w=1709&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
+                  className="shadow-lg rounded-xl w-full aspect-2/3 object-cover"
                 />
                 <Image
                   alt="Community connection"
                   src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   width={352}
                   height={528}
-                  className="aspect-2/3 w-full rounded-xl object-cover shadow-lg"
+                  className="shadow-lg rounded-xl w-full aspect-2/3 object-cover"
                 />
               </div>
             </div>
@@ -87,12 +87,12 @@ export default function About() {
       </div>
 
       {/* Main content with accordions */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-4">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-18 rounded-xl shadow-md p-6 border">
-              <h2 className="text-xl font-bold mb-4">About Us</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">About Us</h2>
               <ul className="space-y-2">
                 {about_sections.map((section) => (
                   <li key={section.id}>
@@ -104,8 +104,8 @@ export default function About() {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -113,9 +113,9 @@ export default function About() {
                 ))}
               </ul>
 
-              <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
-                <h3 className="font-medium flex items-center">
-                  <FaAward className="h-4 w-4 mr-2" />
+              <div className="space-y-2 bg-muted mt-8 p-4 rounded-lg">
+                <h3 className="flex items-center font-medium">
+                  <FaAward className="mr-2 w-4 h-4" />
                   Join Our Team
                 </h3>
                 <p className="text-sm">
@@ -130,21 +130,21 @@ export default function About() {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-3 space-y-8">
+          <div className="space-y-8 lg:col-span-3">
             {/* Mission Section */}
             <div
               ref={(el) => {
                 sectionRefs.current["mission"] = el;
               }}
-              className="border rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("mission")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Our Mission</h2>
+                  <FaBookOpen className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Our Mission</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -164,8 +164,8 @@ export default function About() {
               </button>
               {activeSection === "mission" && (
                 <div className="p-6 pt-0 border-t">
-                  <div className="mt-6 flex flex-col gap-x-8 gap-y-10 lg:flex-row">
-                    <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
+                  <div className="flex lg:flex-row flex-col gap-x-8 gap-y-10 mt-6">
+                    <div className="lg:flex-auto lg:w-full lg:max-w-2xl">
                       <p className="text-xl/8">
                         Aliquet nec orci mattis amet quisque ullamcorper neque,
                         nibh sem. At arcu, sit dui mi, nibh dui, diam eget
@@ -184,14 +184,14 @@ export default function About() {
                       </p>
                     </div>
                     <div className="lg:flex lg:flex-auto lg:justify-center">
-                      <dl className="w-64 space-y-8 xl:w-80">
+                      <dl className="space-y-8 w-64 xl:w-80">
                         {stats.map((stat) => (
                           <div
                             key={stat.label}
                             className="flex flex-col-reverse gap-y-4"
                           >
                             <dt className="text-base/7">{stat.label}</dt>
-                            <dd className="text-5xl font-semibold tracking-tight">
+                            <dd className="font-semibold text-5xl tracking-tight">
                               {stat.value}
                             </dd>
                           </div>
@@ -206,7 +206,7 @@ export default function About() {
                       src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80"
                       width={2832}
                       height={1132}
-                      className="aspect-5/2 w-full object-cover rounded-xl"
+                      className="rounded-xl w-full aspect-5/2 object-cover"
                     />
                   </div>
                 </div>
@@ -218,15 +218,15 @@ export default function About() {
               ref={(el) => {
                 sectionRefs.current["values"] = el;
               }}
-              className="border rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("values")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaHeart className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Our Values</h2>
+                  <FaHeart className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Our Values</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -251,15 +251,15 @@ export default function About() {
                     Possimus magnam voluptatum cupiditate veritatis in accusamus
                     quisquam.
                   </p>
-                  <dl className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-10 text-base/7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-3">
+                  <dl className="gap-x-8 gap-y-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 mx-auto lg:mx-0 mt-10 max-w-2xl lg:max-w-none text-base/7">
                     {values.map((value) => (
                       <div
                         key={value.name}
-                        className="flex flex-col gap-5 border p-6 rounded-lg"
+                        className="flex flex-col gap-5 p-6 border rounded-lg"
                       >
                         <div className="flex items-center gap-4">
-                          <value.Icon className="h-10 w-10" />
-                          <dt className="font-bold uppercase text-lg">
+                          <value.Icon className="w-10 h-10" />
+                          <dt className="font-bold text-lg uppercase">
                             {value.name}
                           </dt>
                         </div>
@@ -276,15 +276,15 @@ export default function About() {
               ref={(el) => {
                 sectionRefs.current["team"] = el;
               }}
-              className="border rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("team")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaUsers className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Our Team</h2>
+                  <FaUsers className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Our Team</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -304,7 +304,7 @@ export default function About() {
               </button>
               {activeSection === "team" && (
                 <div className="p-6 pt-0 border-t">
-                  <p className="mt-4 text-lg/8 mb-8">
+                  <p className="mt-4 mb-8 text-lg/8">
                     Our dedicated team of professionals is passionate about
                     delivering exceptional products and experiences to our
                     customers.
@@ -319,15 +319,15 @@ export default function About() {
               ref={(el) => {
                 sectionRefs.current["partners"] = el;
               }}
-              className="border rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("partners")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBriefcase className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Our Partners</h2>
+                  <FaBriefcase className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Our Partners</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -347,7 +347,7 @@ export default function About() {
               </button>
               {activeSection === "partners" && (
                 <div className="p-6 pt-0 border-t">
-                  <p className="mt-4 text-lg/8 mb-8">
+                  <p className="mt-4 mb-8 text-lg/8">
                     We collaborate with industry-leading partners to provide the
                     best solutions and experiences for our customers.
                   </p>

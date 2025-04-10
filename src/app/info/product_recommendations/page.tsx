@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { productRecommendationsFAQs } from "@/lib/constants/faqs";
 import { productRecommendationsSections } from "@/lib/constants/informationDetails";
-import { scrollToSection } from "@/lib/utils/utils";
+import { scrollToSection } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { FaMailBulk, FaPhone } from "react-icons/fa";
@@ -49,22 +49,22 @@ const ProductRecommendationsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">
             Product Recommendations
           </h1>
-          <p className="text-xl max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl">
             Learn how our recommendation system helps you find the perfect
             products.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Contents</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Contents</h2>
               <ul className="space-y-2">
                 {productRecommendationsSections.map((section) => (
                   <li key={section.id}>
@@ -76,8 +76,8 @@ const ProductRecommendationsPage = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -88,19 +88,19 @@ const ProductRecommendationsPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {productRecommendationsSections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {
                   sectionRefs.current[section.id] = el;
                 }}
-                className="rounded-xl border shadow-md overflow-hidden"
+                className="shadow-md border rounded-xl overflow-hidden"
               >
-                <button className="w-full flex items-center justify-between p-6 focus:outline-none">
+                <button className="flex justify-between items-center p-6 w-full focus:outline-none">
                   <div className="flex items-center">
-                    <section.icon className="h-6 w-6" />
-                    <h2 className="text-2xl font-semibold ml-3">
+                    <section.icon className="w-6 h-6" />
+                    <h2 className="ml-3 font-semibold text-2xl">
                       {section.title}
                     </h2>
                   </div>
@@ -312,7 +312,7 @@ const ProductRecommendationsPage = () => {
                         <div className="space-y-6">
                           {productRecommendationsFAQs.map((faq, index) => (
                             <div key={index} className="p-4 rounded-lg">
-                              <h3 className="text-lg font-medium mb-2 flex items-start">
+                              <h3 className="flex items-start mb-2 font-medium text-lg">
                                 <span className="mr-2">Q:</span>
                                 {faq.question}
                               </h3>
@@ -327,7 +327,7 @@ const ProductRecommendationsPage = () => {
                           ))}
                         </div>
 
-                        <div className="mt-6 flex justify-center">
+                        <div className="flex justify-center mt-6">
                           <Button
                             onClick={() => handleScrollToSection("contact")}
                           >
@@ -341,9 +341,9 @@ const ProductRecommendationsPage = () => {
                       <div className="p-6">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Email Support
                               </h3>
                               <p className="mb-2">
@@ -359,7 +359,7 @@ const ProductRecommendationsPage = () => {
                               >
                                 support@yourcompany.com
                               </Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 We typically respond to emails within 24-48
                                 hours during business days.
                               </p>
@@ -367,9 +367,9 @@ const ProductRecommendationsPage = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Phone Support
                               </h3>
                               <p className="mb-2">
@@ -382,7 +382,7 @@ const ProductRecommendationsPage = () => {
                               >
                                 +1 (555) 123-4567
                               </a>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Please check our business hours below for
                                 availability.
                               </p>
@@ -390,9 +390,9 @@ const ProductRecommendationsPage = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Live Chat
                               </h3>
                               <p className="mb-2">
@@ -401,7 +401,7 @@ const ProductRecommendationsPage = () => {
                                 feature on our website.
                               </p>
                               <Button>Start Live Chat</Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Live chat is available during business hours
                                 only.
                               </p>

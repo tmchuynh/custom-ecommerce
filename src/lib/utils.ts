@@ -2,8 +2,8 @@
 
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { formatCreditCardNumber } from "./format";
-import { validateField } from "./validation";
+import { formatCreditCardNumber } from "./utils/format";
+import { validateField } from "./utils/validation";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

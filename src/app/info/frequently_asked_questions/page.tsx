@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { scrollToSection } from "@/lib/utils/utils";
+import { scrollToSection } from "@/lib/utils";
 import Link from "next/link";
 import { JSX, useRef, useState } from "react";
 import { FaCreditCard, FaShoppingBag, FaTruck, FaUser } from "react-icons/fa";
@@ -12,7 +12,7 @@ const faqCategories = [
   {
     id: "ordering",
     title: "Ordering",
-    icon: <FaShoppingBag className="h-5 w-5" />,
+    icon: <FaShoppingBag className="w-5 h-5" />,
     questions: [
       {
         question: "How do I place an order?",
@@ -44,7 +44,7 @@ const faqCategories = [
   {
     id: "payment",
     title: "Payment & Pricing",
-    icon: <FaCreditCard className="h-5 w-5" />,
+    icon: <FaCreditCard className="w-5 h-5" />,
     questions: [
       {
         question: "What payment methods do you accept?",
@@ -76,7 +76,7 @@ const faqCategories = [
   {
     id: "shipping",
     title: "Shipping & Delivery",
-    icon: <FaTruck className="h-5 w-5" />,
+    icon: <FaTruck className="w-5 h-5" />,
     questions: [
       {
         question: "How can I track my order?",
@@ -108,7 +108,7 @@ const faqCategories = [
   {
     id: "returns",
     title: "Returns & Refunds",
-    icon: <IoMdRefresh className="h-5 w-5" />,
+    icon: <IoMdRefresh className="w-5 h-5" />,
     questions: [
       {
         question: "Can I return an item?",
@@ -140,7 +140,7 @@ const faqCategories = [
   {
     id: "account",
     title: "Account & Privacy",
-    icon: <FaUser className="h-5 w-5" />,
+    icon: <FaUser className="w-5 h-5" />,
     questions: [
       {
         question: "How do I create an account?",
@@ -228,22 +228,22 @@ const FAQPage = (): JSX.Element => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="text-xl max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-xl">
             Find answers to common questions about our products, services, and
             policies.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Content</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Content</h2>
               <ul className="space-y-2">
                 {faqCategories.map((category) => (
                   <li key={category.id}>
@@ -256,7 +256,7 @@ const FAQPage = (): JSX.Element => {
                       }`}
                     >
                       {category.icon}
-                      <span className="ml-2 text-sm font-medium">
+                      <span className="ml-2 font-medium text-sm">
                         {category.title}
                       </span>
                     </button>
@@ -264,19 +264,19 @@ const FAQPage = (): JSX.Element => {
                 ))}
               </ul>
 
-              <div className="mt-8 p-4 bg-muted rounded-lg space-y-2">
-                <h3 className="font-medium flex items-center">
-                  <IoIosHelpCircle className="h-4 w-4 mr-2" />
+              <div className="space-y-2 bg-muted mt-8 p-4 rounded-lg">
+                <h3 className="flex items-center font-medium">
+                  <IoIosHelpCircle className="mr-2 w-4 h-4" />
                   Need More Help?
                 </h3>
                 <p className="text-sm">
                   Can't find what you're looking for? Our customer service team
                   is available to assist you.
                 </p>
-                <div className="mt-4 flex flex-col space-y-2">
+                <div className="flex flex-col space-y-2 mt-4">
                   <Link href="/customer_service" className="w-full">
                     <Button className="w-full">
-                      <FaMessage className="h-4 w-4 mr-2" /> Contact Support
+                      <FaMessage className="mr-2 w-4 h-4" /> Contact Support
                     </Button>
                   </Link>
                 </div>
@@ -285,19 +285,19 @@ const FAQPage = (): JSX.Element => {
           </div>
 
           {/* Main FAQ Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {faqCategories.map((category) => (
               <div
                 key={category.id}
                 ref={(el) => {
                   sectionRefs.current[category.id] = el;
                 }}
-                className="rounded-xl shadow-md overflow-hidden border"
+                className="shadow-md border rounded-xl overflow-hidden"
               >
-                <div className="w-full flex items-center justify-between p-6">
+                <div className="flex justify-between items-center p-6 w-full">
                   <div className="flex items-center">
                     {category.icon}
-                    <h2 className="text-2xl font-semibold ml-3">
+                    <h2 className="ml-3 font-semibold text-2xl">
                       {category.title}
                     </h2>
                   </div>
@@ -307,9 +307,9 @@ const FAQPage = (): JSX.Element => {
                     <div key={index} className="border-b last:border-b-0">
                       <button
                         onClick={() => toggleQuestion(category.id, index)}
-                        className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
+                        className="flex justify-between items-center p-4 w-full text-left focus:outline-none"
                       >
-                        <h3 className="text-lg font-medium">{faq.question}</h3>
+                        <h3 className="font-medium text-lg">{faq.question}</h3>
                         <svg
                           className={`w-5 h-5 transform transition-transform ${
                             isQuestionExpanded(category.id, index)

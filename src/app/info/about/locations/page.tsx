@@ -1,10 +1,10 @@
 "use client";
-import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
+import { locations } from "@/lib/constants/constants";
+import { scrollToSection } from "@/lib/utils";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import Link from "next/link";
-import { locations } from "@/lib/constants/constants";
-import { scrollToSection } from "@/lib/utils/utils";
+import { useCallback, useRef, useState } from "react";
 import {
   FaCalendar,
   FaCar,
@@ -86,20 +86,20 @@ const LocationsPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Our Locations</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Our Locations</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Find a store near you! Below are our locations with their addresses,
             store hours, and a map.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Store Locations</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Store Locations</h2>
               <ul className="space-y-2">
                 {locations.map((location) => (
                   <li key={location.id}>
@@ -111,8 +111,8 @@ const LocationsPage = () => {
                           : "hover:bg-gray-100 "
                       }`}
                     >
-                      <FaMapPin className="h-5 w-5 mr-2 flex-shrink-0" />
-                      <span className="text-sm font-medium">
+                      <FaMapPin className="flex-shrink-0 mr-2 w-5 h-5" />
+                      <span className="font-medium text-sm">
                         {location.name}
                       </span>
                     </button>
@@ -120,19 +120,19 @@ const LocationsPage = () => {
                 ))}
               </ul>
 
-              <div className="mt-8 p-4 rounded-lg bg-muted space-y-2">
-                <h3 className="font-medium flex items-center">
-                  <FaInfo className="h-4 w-4 mr-2" />
+              <div className="space-y-2 bg-muted mt-8 p-4 rounded-lg">
+                <h3 className="flex items-center font-medium">
+                  <FaInfo className="mr-2 w-4 h-4" />
                   Store Information
                 </h3>
-                <p className="text-sm ">
+                <p className="text-sm">
                   All our stores offer product returns, exchanges, and expert
                   advice from our staff.
                 </p>
                 <div className="mt-4">
                   <Link href="/customer_service">
                     <Button>
-                      <MdAssistantNavigation className="h-4 w-4 mr-2" /> Learn
+                      <MdAssistantNavigation className="mr-2 w-4 h-4" /> Learn
                       About Our Services
                     </Button>
                   </Link>
@@ -142,27 +142,27 @@ const LocationsPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {locations.map((location) => (
               <div
                 key={location.id}
                 ref={(el) => {
                   sectionRefs.current[location.id] = el;
                 }}
-                className="rounded-xl border-2 overflow-hidden"
+                className="border-2 rounded-xl overflow-hidden"
               >
                 <div className="p-6 border-b">
-                  <h2 className="text-2xl font-semibold flex items-center">
-                    <FaMapPin className="h-6 w-6 text-blue-600 mr-2" />
+                  <h2 className="flex items-center font-semibold text-2xl">
+                    <FaMapPin className="mr-2 w-6 h-6 text-blue-600" />
                     {location.name}
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
+                <div className="gap-6 grid grid-cols-1 md:grid-cols-2 p-6">
                   <div className="space-y-4">
                     <div className="flex items-start">
-                      <FaMapPin className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaMapPin className="flex-shrink-0 mt-1 mr-3 w-5 h-5 text-blue-600" />
                       <div>
-                        <h3 className="font-medium mb-1">Address</h3>
+                        <h3 className="mb-1 font-medium">Address</h3>
                         <p>{location.address}</p>
                         <a
                           href={`https://maps.google.com/?q=${encodeURIComponent(
@@ -170,19 +170,19 @@ const LocationsPage = () => {
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 flex items-center mt-2 text-sm hover:underline"
+                          className="flex items-center mt-2 text-blue-600 text-sm hover:underline"
                         >
-                          <MdAssistantNavigation className="h-4 w-4 mr-1" /> Get
+                          <MdAssistantNavigation className="mr-1 w-4 h-4" /> Get
                           Directions
                         </a>
                       </div>
                     </div>
 
                     <div className="flex items-start">
-                      <FaClock className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaClock className="flex-shrink-0 mt-1 mr-3 w-5 h-5 text-blue-600" />
                       <div>
-                        <h3 className="font-medium mb-1">Store Hours</h3>
-                        <ul className=" space-y-1">
+                        <h3 className="mb-1 font-medium">Store Hours</h3>
+                        <ul className="space-y-1">
                           {location.hours.map((hour, i) => (
                             <li key={i}>{hour}</li>
                           ))}
@@ -191,9 +191,9 @@ const LocationsPage = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <FaPhone className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaPhone className="flex-shrink-0 mt-1 mr-3 w-5 h-5 text-blue-600" />
                       <div>
-                        <h3 className="font-medium mb-1">Contact</h3>
+                        <h3 className="mb-1 font-medium">Contact</h3>
                         <p>
                           Phone:{" "}
                           <a
@@ -216,18 +216,18 @@ const LocationsPage = () => {
                     </div>
 
                     <div className="flex items-start">
-                      <FaInfo className="h-5 w-5 text-blue-600 mt-1 mr-3 flex-shrink-0" />
+                      <FaInfo className="flex-shrink-0 mt-1 mr-3 w-5 h-5 text-blue-600" />
                       <div>
-                        <h3 className="font-medium mb-1">Store Features</h3>
-                        <ul className=" space-y-1">
+                        <h3 className="mb-1 font-medium">Store Features</h3>
+                        <ul className="space-y-1">
                           {location.features.map((feature, i) => (
                             <li key={i} className="flex items-center">
                               {feature.includes("parking") ? (
-                                <FaCar className="h-4 w-4 mr-2 text-green-600" />
+                                <FaCar className="mr-2 w-4 h-4 text-green-600" />
                               ) : feature.includes("pickup") ? (
-                                <FaTruck className="h-4 w-4 mr-2 text-green-600" />
+                                <FaTruck className="mr-2 w-4 h-4 text-green-600" />
                               ) : (
-                                <FaCalendar className="h-4 w-4 mr-2 text-green-600" />
+                                <FaCalendar className="mr-2 w-4 h-4 text-green-600" />
                               )}
                               {feature}
                             </li>
@@ -237,7 +237,7 @@ const LocationsPage = () => {
                     </div>
                   </div>
 
-                  <div className="h-full w-full rounded-lg overflow-hidden border">
+                  <div className="border rounded-lg w-full h-full overflow-hidden">
                     {isLoaded ? (
                       <GoogleMap
                         mapContainerStyle={containerStyle}
@@ -250,7 +250,7 @@ const LocationsPage = () => {
                         <></>
                       </GoogleMap>
                     ) : (
-                      <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                      <div className="flex justify-center items-center bg-gray-100 w-full h-full">
                         <p>Loading map...</p>
                       </div>
                     )}
@@ -261,9 +261,9 @@ const LocationsPage = () => {
                     onClick={() =>
                       window.open(`tel:${location.phone}`, "_self")
                     }
-                    className=" w-full md:w-auto"
+                    className="w-full md:w-auto"
                   >
-                    <FaPhone className="h-4 w-4 mr-2" /> Call This Location
+                    <FaPhone className="mr-2 w-4 h-4" /> Call This Location
                   </Button>
                 </div>
               </div>

@@ -1,8 +1,8 @@
-import { cn } from "@/lib/utils/utils";
-import Image from "next/image";
-import DynamicButton from "../buttons/button-dynamic";
 import { FeaturedCategoryProps } from "@/lib/interfaces";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { JSX } from "react";
+import DynamicButton from "../buttons/button-dynamic";
 
 /**
  * A component that renders a featured category item with an image and overlay content
@@ -41,12 +41,12 @@ export default function FeaturedCategory({
           "w-full object-cover"
         )}
       />
-      <div className="absolute inset-0 flex flex-col justify-end overflow-hidden bg-gradient-to-t from-white/90 via-white/50 to-white/10 ">
-        <div className=" px-4 py-8 text-sm h-96 absolute w-full top-[50%] ">
-          <div className="flex items-center gap-5 text-2xl font-bold">
+      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-white/90 via-white/50 to-white/10 overflow-hidden">
+        <div className="top-[50%] absolute px-4 py-8 w-full h-96 text-sm">
+          <div className="flex items-center gap-5 font-bold text-2xl">
             <a
               href={item.href}
-              className="font-bold tracking-wider uppercase text-teritary"
+              className="font-bold text-teritary uppercase tracking-wider"
               onClick={closePopovers}
             >
               <span aria-hidden="true" className="absolute inset-0" />
@@ -56,7 +56,7 @@ export default function FeaturedCategory({
           <DynamicButton
             variant="secondary"
             text="Shop Now"
-            className="w-fit p-0 text-background my-2"
+            className="my-2 p-0 w-fit text-background"
           />
         </div>
       </div>

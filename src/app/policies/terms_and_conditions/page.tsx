@@ -1,12 +1,11 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useRef, useState } from "react";
-
 import { terms_and_conditions_sections } from "@/lib/constants/informationDetails";
-import { scrollToSection, toggleAccordionSection } from "@/lib/utils/utils";
-import { FaBookOpen, FaMailBulk, FaPhone, FaPhoneAlt } from "react-icons/fa";
-import { FaMessage } from "react-icons/fa6";
+import { scrollToSection, toggleAccordionSection } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import { useRef, useState } from "react";
+import { FaBookOpen, FaMailBulk, FaPhoneAlt } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 /**
  * A comprehensive Terms and Conditions page component that displays legal information in an accordion format.
@@ -55,21 +54,21 @@ const TermsAndConditions = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">Terms and Conditions</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">Terms and Conditions</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Please read these Terms and Conditions carefully before using our
             website or making a purchase.
           </p>
-          <p className="text-sm mt-2">Last Updated: June 10, 2023</p>
+          <p className="mt-2 text-sm">Last Updated: June 10, 2023</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Contents</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Contents</h2>
               <ul className="space-y-2">
                 {terms_and_conditions_sections.map((section) => (
                   <li key={section.id}>
@@ -81,8 +80,8 @@ const TermsAndConditions = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -93,21 +92,21 @@ const TermsAndConditions = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {/* Introduction */}
             <div
               ref={(el) => {
                 sectionRefs.current["introduction"] = el;
               }}
-              className="border text-muted-foreground rounded-xl shadow-md overflow-hidden"
+              className="shadow-md border rounded-xl text-muted-foreground overflow-hidden"
             >
               <button
                 onClick={() => toggleSection("introduction")}
-                className="w-full flex items-center justify-between p-6 focus:outline-none"
+                className="flex justify-between items-center p-6 w-full focus:outline-none"
               >
                 <div className="flex items-center">
-                  <FaBookOpen className="h-6 w-6" />
-                  <h2 className="text-2xl font-semibold ml-3">Introduction</h2>
+                  <FaBookOpen className="w-6 h-6" />
+                  <h2 className="ml-3 font-semibold text-2xl">Introduction</h2>
                 </div>
                 <svg
                   className={`w-6 h-6 transform transition-transform ${
@@ -151,15 +150,15 @@ const TermsAndConditions = () => {
                 ref={(el) => {
                   sectionRefs.current[section.id] = el;
                 }}
-                className="rounded-xl border shadow-md overflow-hidden"
+                className="shadow-md border rounded-xl overflow-hidden"
               >
                 <button
                   onClick={() => toggleSection(section.id)}
-                  className="w-full flex items-center justify-between p-6 focus:outline-none"
+                  className="flex justify-between items-center p-6 w-full focus:outline-none"
                 >
                   <div className="flex items-center">
-                    <section.icon className="h-6 w-6" />
-                    <h2 className="text-2xl font-semibold ml-3">
+                    <section.icon className="w-6 h-6" />
+                    <h2 className="ml-3 font-semibold text-2xl">
                       {section.title}
                     </h2>
                   </div>
@@ -192,7 +191,7 @@ const TermsAndConditions = () => {
                           of others or disrupt the operation or security of the
                           Site itself.
                         </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
+                        <ul className="space-y-2 mx-5 list-disc list-outside">
                           <li>
                             You agree not to engage in any fraudulent, unlawful,
                             or harmful activities, including but not limited to
@@ -241,7 +240,7 @@ const TermsAndConditions = () => {
                           change without notice, and we reserve the right to
                           adjust prices at any time.
                         </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
+                        <ul className="space-y-2 mx-5 list-disc list-outside">
                           <li>
                             We reserve the right to modify or discontinue any
                             product or service offered on our website without
@@ -284,7 +283,7 @@ const TermsAndConditions = () => {
                             Order Tracking
                           </a>
                         </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
+                        <ul className="space-y-2 mx-5 list-disc list-outside">
                           <li>
                             We reserve the right to reject or cancel any order
                             due to issues such as product availability, pricing
@@ -341,7 +340,7 @@ const TermsAndConditions = () => {
                           </a>{" "}
                           for all necessary information.
                         </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
+                        <ul className="space-y-2 mx-5 list-disc list-outside">
                           <li>
                             By providing your payment information, you authorize
                             us to charge the full amount of your order,
@@ -378,7 +377,7 @@ const TermsAndConditions = () => {
                           estimates and may be subject to delays due to factors
                           outside of our control.
                         </p>
-                        <ul className="list-disc list-outside mx-5 space-y-2">
+                        <ul className="space-y-2 mx-5 list-disc list-outside">
                           <li>
                             We are not responsible for delays caused by
                             third-party carriers, customs processing, or
@@ -489,9 +488,9 @@ const TermsAndConditions = () => {
                       <div className="p-6">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Email Support
                               </h3>
                               <p className="mb-2">
@@ -507,7 +506,7 @@ const TermsAndConditions = () => {
                               >
                                 support@yourcompany.com
                               </Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 We typically respond to emails within 24-48
                                 hours during business days.
                               </p>
@@ -515,9 +514,9 @@ const TermsAndConditions = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaPhoneAlt className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhoneAlt className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Phone Support
                               </h3>
                               <p className="mb-2">
@@ -530,7 +529,7 @@ const TermsAndConditions = () => {
                               >
                                 +1 (555) 123-4567
                               </a>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Please check our business hours below for
                                 availability.
                               </p>
@@ -538,9 +537,9 @@ const TermsAndConditions = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Live Chat
                               </h3>
                               <p className="mb-2">
@@ -549,7 +548,7 @@ const TermsAndConditions = () => {
                                 feature on our website.
                               </p>
                               <Button>Start Live Chat</Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Live chat is available during business hours
                                 only.
                               </p>

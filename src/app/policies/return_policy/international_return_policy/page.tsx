@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { internationalReturnPolicySections } from "@/lib/constants/informationDetails";
-import { scrollToSection } from "@/lib/utils/utils";
+import { scrollToSection } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import { FaMailBulk, FaPhone } from "react-icons/fa";
@@ -43,19 +43,19 @@ const InternationalReturnPolicyPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-extrabold mb-4">International Orders</h1>
-          <p className="text-xl max-w-2xl mx-auto">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h1 className="mb-4 font-extrabold text-5xl">International Orders</h1>
+          <p className="mx-auto max-w-2xl text-xl">
             Learn about our international shipping policies and payment options.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-7 gap-8">
+        <div className="gap-8 grid grid-cols-1 lg:grid-cols-7">
           {/* Table of Contents Sidebar */}
           <div className="lg:col-span-2">
-            <div className="sticky top-18 rounded-xl border shadow-md p-6">
-              <h2 className="text-xl font-bold mb-4">Contents</h2>
+            <div className="top-18 sticky shadow-md p-6 border rounded-xl">
+              <h2 className="mb-4 font-bold text-xl">Contents</h2>
               <ul className="space-y-2">
                 {internationalReturnPolicySections.map((section) => (
                   <li key={section.id}>
@@ -67,8 +67,8 @@ const InternationalReturnPolicyPage = () => {
                           : "hover:bg-secondary hover:text-secondary-foreground"
                       }`}
                     >
-                      <section.icon className="h-6 w-6" />
-                      <span className="ml-2 text-sm font-medium">
+                      <section.icon className="w-6 h-6" />
+                      <span className="ml-2 font-medium text-sm">
                         {section.title}
                       </span>
                     </button>
@@ -79,19 +79,19 @@ const InternationalReturnPolicyPage = () => {
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-8 lg:col-span-5">
             {internationalReturnPolicySections.map((section) => (
               <div
                 key={section.id}
                 ref={(el) => {
                   sectionRefs.current[section.id] = el;
                 }}
-                className="rounded-xl border shadow-md overflow-hidden"
+                className="shadow-md border rounded-xl overflow-hidden"
               >
-                <button className="w-full flex items-center justify-between p-6 focus:outline-none">
+                <button className="flex justify-between items-center p-6 w-full focus:outline-none">
                   <div className="flex items-center">
-                    <section.icon className="h-6 w-6" />
-                    <h2 className="text-2xl font-semibold ml-3">
+                    <section.icon className="w-6 h-6" />
+                    <h2 className="ml-3 font-semibold text-2xl">
                       {section.title}
                     </h2>
                   </div>
@@ -210,9 +210,9 @@ const InternationalReturnPolicyPage = () => {
                       <div className="p-6">
                         <div className="space-y-6">
                           <div className="flex items-start">
-                            <FaMailBulk className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMailBulk className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Email Support
                               </h3>
                               <p className="mb-2">
@@ -228,7 +228,7 @@ const InternationalReturnPolicyPage = () => {
                               >
                                 support@yourcompany.com
                               </Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 We typically respond to emails within 24-48
                                 hours during business days.
                               </p>
@@ -236,9 +236,9 @@ const InternationalReturnPolicyPage = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaPhone className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaPhone className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Phone Support
                               </h3>
                               <p className="mb-2">
@@ -251,7 +251,7 @@ const InternationalReturnPolicyPage = () => {
                               >
                                 +1 (555) 123-4567
                               </a>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Please check our business hours below for
                                 availability.
                               </p>
@@ -259,9 +259,9 @@ const InternationalReturnPolicyPage = () => {
                           </div>
 
                           <div className="flex items-start">
-                            <FaMessage className="h-6 w-6 mt-1 mr-4 flex-shrink-0" />
+                            <FaMessage className="flex-shrink-0 mt-1 mr-4 w-6 h-6" />
                             <div>
-                              <h3 className="text-lg font-medium mb-2">
+                              <h3 className="mb-2 font-medium text-lg">
                                 Live Chat
                               </h3>
                               <p className="mb-2">
@@ -270,7 +270,7 @@ const InternationalReturnPolicyPage = () => {
                                 feature on our website.
                               </p>
                               <Button>Start Live Chat</Button>
-                              <p className="text-sm mt-1">
+                              <p className="mt-1 text-sm">
                                 Live chat is available during business hours
                                 only.
                               </p>
