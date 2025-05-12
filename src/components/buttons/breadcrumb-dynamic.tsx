@@ -10,16 +10,17 @@ import {
 import { mockProductData } from "@/lib/constants/mockProductData";
 import { usePathname, useRouter } from "next/navigation";
 import React, { JSX, useEffect, useMemo, useState } from "react";
-import { Button } from "./button";
+
+import { capitalize } from "@/lib/utils/format";
+import { FaChevronDown } from "react-icons/fa";
+import { Button } from "../ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./dropdown-menu";
-import { capitalize } from "@/lib/utils/format";
-import { FaChevronDown } from "react-icons/fa";
+} from "../ui/dropdown-menu";
 
 /**
  * DynamicBreadcrumb Component
@@ -126,10 +127,10 @@ const DynamicBreadcrumb = (): JSX.Element | null => {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="bg-muted px-3 py-2 rounded-lg cursor-default border-none"
+                    className="bg-muted px-3 py-2 border-none rounded-lg cursor-default"
                   >
                     {capitalizedSegment}
-                    <FaChevronDown className="ml-1 h-4 w-4" />
+                    <FaChevronDown className="ml-1 w-4 h-4" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
@@ -166,8 +167,8 @@ const DynamicBreadcrumb = (): JSX.Element | null => {
   }
 
   return (
-    <Breadcrumb className="mx-auto pt-9 z-30 w-full flex flex-row md:w-11/12">
-      <BreadcrumbList className="flex flex-row items-center w-11/12 mx-auto">
+    <Breadcrumb className="z-30 flex flex-row mx-auto pt-9 w-full md:w-11/12">
+      <BreadcrumbList className="flex flex-row items-center mx-auto w-11/12">
         {breadcrumbItems}
       </BreadcrumbList>
     </Breadcrumb>
