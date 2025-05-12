@@ -1,21 +1,12 @@
-import { SkeletonProps } from "@/lib/interfaces";
 import { cn } from "@/lib/utils";
 
-function Skeleton({ className, text, ...props }: SkeletonProps) {
+function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
-      className={cn(
-        "flex justify-center items-center text-5xl bg-muted",
-        className
-      )}
+      data-slot="skeleton"
+      className={cn("bg-accent animate-pulse rounded-md", className)}
       {...props}
-    >
-      {text && (
-        <span className="z-20 font-Ruthie text-center text-primary">
-          {text}
-        </span>
-      )}
-    </div>
+    />
   );
 }
 
