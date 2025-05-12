@@ -1,9 +1,6 @@
 import { GiClothes, GiConverseShoe } from "react-icons/gi";
-import { NavigationDetails } from "../types";
-import { PiPants } from "react-icons/pi";
-import { FaExclamation, FaHeart, FaStar } from "react-icons/fa";
 import { IoWatchSharp } from "react-icons/io5";
-import { IoIosAlert } from "react-icons/io";
+import { NavigationDetails } from "../types";
 export const navigations: NavigationDetails = {
   categories: [
     {
@@ -14,26 +11,25 @@ export const navigations: NavigationDetails = {
       imageAlt: "Women's fashion collection",
       featured: [
         {
-          name: "New Arrivals",
-          href: "/shopping/women/collections/new_arrivals",
+          name: "Necklaces & Bracelets",
+          href: "/shopping/women/accessories/necklaces_and_braceslets",
           imageSrc:
-            "https://plus.unsplash.com/premium_photo-1658506871173-7498f5371ed1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d29tZW4lMjBzaG9wcGluZ3xlbnwwfDB8MHx8fDA%3D",
-          imageAlt:
-            "Latest arrivals in women's fashion, from dresses to casual wear.",
+            "https://media.istockphoto.com/id/187043060/photo/close-up-of-a-bride-and-her-jewelry.jpg?s=612x612&w=0&k=20&c=CsNLVvOYzrCbaf6TUIBEz8yHsyr6lcUVj69D_BmTppg=",
+          imageAlt: "Stylish necklaces and bracelets for every occasion.",
         },
         {
-          name: "Accessories",
-          href: "/shopping/women/accessories",
+          name: "Tops",
+          href: "/shopping/women/clothing/tops",
           imageSrc:
-            "https://images.unsplash.com/photo-1728936075080-94921fb44db9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdvbWVuJTIwc2hvcHBpbmclMjBqZXdsZXJ5fGVufDB8MHwwfHx8MA%3D%3D",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+            "https://media.istockphoto.com/id/1159432203/photo/portrait-of-a-mixed-race-young-woman-outdoor.jpg?s=612x612&w=0&k=20&c=SuAWhYshlH80U4irDI834nFPtt4_ZpXqx0NgtaSCk8I=",
+          imageAlt: "Great selection of tops for every occasion.",
         },
         {
-          name: "Latest Drops",
-          href: "/shopping/women/collections/latest_drops",
+          name: "Activewear",
+          href: "/shopping/women/clothing/activewear",
           imageSrc:
-            "https://media.istockphoto.com/id/938463446/photo/what-do-you-think-about-this-one.jpg?s=612x612&w=0&k=20&c=kxCtSwpj1tGGJ1ITJfChtC4x50cnAi3SmiKtvk1UFLA=",
-          imageAlt: "Elegant accessories to complement your outfits.",
+            "https://media.istockphoto.com/id/1438375009/photo/group-of-women-standing-together-in-a-yoga-studio.jpg?s=612x612&w=0&k=20&c=Kpu284MGjgrTTd5Hu8zverSCfwxtUG5HhuePPJOS2xs=",
+          imageAlt: "Stylish activewear for your fitness journey.",
         },
       ],
       sections: [
@@ -239,77 +235,6 @@ export const navigations: NavigationDetails = {
             ],
           },
         ],
-        [
-          {
-            id: "shop-collection",
-            name: "Shop by Collection",
-            href: "/shopping/women/collections",
-            imageSrc:
-              "https://media.istockphoto.com/id/1433320009/photo/diverse-businesswomen-smiling-at-the-camera-in-an-office.jpg?s=612x612&w=0&k=20&c=Pfez96VQsmXCTnpDD2S8FeYJLZVWVZ1c-tc6jGnVw8o=",
-            imageAlt: "",
-            items: [
-              {
-                name: "New Arrivals",
-                href: "/shopping/women/collections/new_arrivals",
-                imageSrc:
-                  "https://media.istockphoto.com/id/610255602/photo/happy-shopping-woman.jpg?s=612x612&w=0&k=20&c=Q6e2YxvqjIQZqf7vCtlwMDI6hvhgTlKIQXOotITOZ78=",
-                icon: FaExclamation,
-              },
-              {
-                name: "Latest Drops",
-                href: "/shopping/women/collections/latest_drops",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1662088111/photo/shopping-with-girlfriend.jpg?s=612x612&w=0&k=20&c=EpwnHCgwXkezn179WcIGqXHChdhHSKwyb__68P1h09Q=",
-                icon: IoIosAlert,
-              },
-              {
-                name: "Best Sellers",
-                href: "/shopping/women/collections/best_sellers",
-                imageSrc:
-                  "https://media.istockphoto.com/id/694044976/photo/i-know-ill-find-something-i-like-here.jpg?s=612x612&w=0&k=20&c=HeGXho7xvyLVdFjo7yM7c1_IErMoPPfg3Zk8hVQlV7I=",
-                icon: FaStar,
-              },
-              {
-                name: "Sale",
-                href: "/shopping/women/collections/sale",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1131097418/photo/beautiful-woman-with-shopping-bags-in-the-city-sale-shopping-tourism-and-happy-people-concept.jpg?s=612x612&w=0&k=20&c=XzAFRIbtsDn4hRYNMyiNn88CuO76vqyKLFANzRzUBzE=",
-                icon: IoIosAlert,
-              },
-            ],
-          },
-        ],
-      ],
-      collections: [
-        {
-          name: "New Arrivals",
-          href: "/shopping/women/collections/new_arrivals",
-          imageSrc:
-            "https://plus.unsplash.com/premium_photo-1664201890656-32ae80bfa8bb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWVuJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D",
-          imageAlt:
-            "Latest arrivals in women's fashion, from dresses to casual wear.",
-        },
-        {
-          name: "Best Sellers",
-          href: "/shopping/women/collections/best_sellers",
-          imageSrc:
-            "https://media.istockphoto.com/id/867341470/photo/window-shopping.jpg?s=612x612&w=0&k=20&c=2AdLIydxyTGmePMSNu5z5RQexib39GQDF-xUsoqJBkg=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
-        {
-          name: "Latest Drops",
-          href: "/shopping/women/collections/latest_drops",
-          imageSrc:
-            "https://media.istockphoto.com/id/918664682/photo/young-woman-choosing-clothes.jpg?s=612x612&w=0&k=20&c=isL-hRIaGRGKrGsCO2WtlJH-joVGrquhwB5NZ7Iw0lg=",
-          imageAlt: "Elegant accessories to complement your outfits.",
-        },
-        {
-          name: "Sale",
-          href: "/shopping/women/collections/sale",
-          imageSrc:
-            "https://media.istockphoto.com/id/2158155744/photo/beautiful-young-woman-trying-on-shoes.jpg?s=612x612&w=0&k=20&c=_beFGQxQKayGhEUdPK-CwV1pTSE1VIUZIXV4m7MQMrk=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
       ],
     },
     {
@@ -320,25 +245,25 @@ export const navigations: NavigationDetails = {
       imageAlt: "Women's fashion collection",
       featured: [
         {
-          name: "New Arrivals",
-          href: "/shopping/men/collections/new_arrivals",
+          name: "Formal Wear",
+          href: "/shopping/men/clothing/formal_wear",
           imageSrc:
-            "https://media.istockphoto.com/id/2066301960/photo/man-with-eyeglasses-stand-at-home-use-mobile-phone-sms-texting.jpg?s=612x612&w=0&k=20&c=6WBKuAaKy43cColcv9TaSIN1gu_rIF_q-o0WtPBZ3Z8=",
-          imageAlt: "New men's fashion trends for every occasion.",
+            "https://media.istockphoto.com/id/833606920/photo/business-mans-hand-in-pocket-wearing-a-watch.jpg?s=612x612&w=0&k=20&c=mFRdgwyQrQmZ2VblBPUNFTjsPXHYKLoAa4yL-vBgD-M=",
+          imageAlt: "Stylish formal wear for every occasion.",
         },
         {
-          name: "Shoes",
-          href: "/shopping/men/shoes",
+          name: "Outerwear",
+          href: "/shopping/men/clothing/outerwear",
           imageSrc:
-            "https://media.istockphoto.com/id/1201660255/photo/genuine-leather-sneakers-shoes-for-mens-fashions.jpg?s=612x612&w=0&k=20&c=OGxmUYPA6oFdi04IppLadAhY2tRdLlQ5uWMsx8a9W6c=",
-          imageAlt: "Hats, watches, and accessories to complete your look.",
+            "https://media.istockphoto.com/id/643902794/photo/modern-man-in-winter-coat.jpg?s=612x612&w=0&k=20&c=lbx_OvqzEqThcSXaQKtcDKSvdvMyrIvPFUYrslHznxk=",
+          imageAlt: "Great selection of outerwear for every occasion.",
         },
         {
-          name: "Latest Drops",
-          href: "/shopping/men/collections/latest_drops",
+          name: "Watches",
+          href: "/shopping/men/accessories/watches",
           imageSrc:
-            "https://media.istockphoto.com/id/1293366109/photo/this-one-match-perfect-with-me.jpg?s=612x612&w=0&k=20&c=wJ6yYbRrDfdmoViuQkX39s2z_0lCiNQYgEtLU--0EbY=",
-          imageAlt: "Comfortable and stylish t-shirts and shirts for men.",
+            "https://media.istockphoto.com/id/533714204/photo/businessman-checking-time-from-watch.jpg?s=612x612&w=0&k=20&c=bJN94WW68Rw8uEogp3GKtBYnhcrNFNnf1SkWb0KDvGo=",
+          imageAlt: "Stylish watches for your wrist.",
         },
       ],
       sections: [
@@ -509,77 +434,6 @@ export const navigations: NavigationDetails = {
             ],
           },
         ],
-        [
-          {
-            id: "shop-collection",
-            name: "Shop by Collection",
-            href: "/shopping/men/collections",
-            imageSrc:
-              "https://media.istockphoto.com/id/1216428594/photo/young-lady-grabbing-cup-of-coffee-and-using-smartphone.jpg?s=612x612&w=0&k=20&c=_Dqv3MAjDpx_pJRXD8IglC3I2_bXs2A5K2UVVNayLWA=",
-            imageAlt: "",
-            items: [
-              {
-                name: "New Arrivals",
-                href: "/shopping/men/collections/new_arrivals",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1144491656/photo/mens-summer-casual-clothes-flat-lay.jpg?s=612x612&w=0&k=20&c=Icwk_UY2_wpRcpwP9Sk_IznIKhuNJmQh_rlWz0JCTVE=",
-                icon: FaExclamation,
-              },
-              {
-                name: "Latest Drops",
-                href: "/shopping/men/collections/latest_drops",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1300966679/photo/young-handsome-man-in-classic-suit-over-the-lake-background.jpg?s=612x612&w=0&k=20&c=SiGc4kc1L8mK-LIGSuRzPj-UHtBY2ov5knFuzDy9hzc=",
-                icon: IoIosAlert,
-              },
-              {
-                name: "Best Sellers",
-                href: "/shopping/men/collections/best_sellers",
-                imageSrc:
-                  "https://media.istockphoto.com/id/494349086/photo/confident-and-handsome.jpg?s=612x612&w=0&k=20&c=980_nP-60-8zxhA1AputWa-0ZULEbXcIVDZe0uX_H_M=",
-                icon: FaStar,
-              },
-              {
-                name: "Sale",
-                href: "/shopping/men/collections/sale",
-                imageSrc:
-                  "https://media.istockphoto.com/id/870572130/photo/man-enjoyig-shopping.jpg?s=612x612&w=0&k=20&c=aC7aNJV3WBVAaPmRCg4yF6ItrBJ3CLOmq8yP3bzIKPA=",
-                icon: IoIosAlert,
-              },
-            ],
-          },
-        ],
-      ],
-      collections: [
-        {
-          name: "New Arrivals",
-          href: "/shopping/men/collections/new_arrivals",
-          imageSrc:
-            "https://media.istockphoto.com/id/950927830/photo/young-man-holding-paper-bags-and-walking-in-mall.jpg?s=612x612&w=0&k=20&c=Hle9P1wiD_4_QLleea0-NbbbJHz20e7i5EKPWmTjB8k=",
-          imageAlt:
-            "Latest arrivals in women's fashion, from dresses to casual wear.",
-        },
-        {
-          name: "Best Sellers",
-          href: "/shopping/men/collections//best_sellers",
-          imageSrc:
-            "https://media.istockphoto.com/id/1199957153/photo/man-shopping-in-central-rome.jpg?s=612x612&w=0&k=20&c=xFZw5KUja2ZRfFzIE2qPw40sCJ6pqJmvlUj49OoCW2E=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
-        {
-          name: "Latest Drops",
-          href: "/shopping/men/collections/latest_drops",
-          imageSrc:
-            "https://media.istockphoto.com/id/620972806/photo/man-texting-in-the-shopping-mall.jpg?s=612x612&w=0&k=20&c=c9ByRTLwKrXzlPSBag2QzjU0pDS7P_SR07AjxqMlcU8=",
-          imageAlt: "Elegant accessories to complement your outfits.",
-        },
-        {
-          name: "Sale",
-          href: "/shopping/men/collections/sale",
-          imageSrc:
-            "https://media.istockphoto.com/id/1464367016/photo/a-happy-man-is-using-mobile-phone-for-cashless-purchase-in-boutique.jpg?s=612x612&w=0&k=20&c=ScRwM6HJsyeLcWjf8Q7oyOLEo5oNMLX-lDLB7HMPsiw=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
       ],
     },
     {
@@ -590,25 +444,25 @@ export const navigations: NavigationDetails = {
       imageAlt: "Women's fashion collection",
       featured: [
         {
-          name: "New Arrivals",
-          href: "/shopping/kids/collections/new_arrivals",
+          name: "Sleepwear",
+          href: "/shopping/kids/clothing/sleepwear",
           imageSrc:
-            "https://media.istockphoto.com/id/1662857795/photo/happy-family-relaxing-in-the-park.jpg?s=612x612&w=0&k=20&c=MQ8HBA5tE0HmlsFuvXxf3aIohKJRgDsB_DanOPu-i6o=",
-          imageAlt: "New kids's fashion trends for every occasion.",
+            "https://media.istockphoto.com/id/656169078/photo/brothers-and-sister-on-bed.jpg?s=612x612&w=0&k=20&c=f0euDJbP7jOpFlxHe40fqDvHdxG_Z3kJPN1FvWhwNtI=",
+          imageAlt: "Comfortable sleepwear for kids.",
         },
         {
-          name: "Shoes",
-          href: "/shopping/kids/shoes",
+          name: "Sneakers",
+          href: "/shopping/kids/shoes/sneakers",
           imageSrc:
-            "https://media.istockphoto.com/id/902867422/photo/i-have-to-get-ready-for-school.jpg?s=612x612&w=0&k=20&c=Spsuu5AiCO8l0sYblU3iV7D9iBrw1NA2SyKkTMbguGA=",
-          imageAlt: "Hats, watches, and accessories to complete your look.",
+            "https://media.istockphoto.com/id/518868426/photo/new-sneakers-on-boys-feet.jpg?s=612x612&w=0&k=20&c=GSlpksRijdwFfVRvIL8LZkkwmlKUgLPduQ8Y8HTzQIo=",
+          imageAlt: "Stylish sneakers for kids.",
         },
         {
-          name: "Sale",
-          href: "/shopping/kids/collections/sale",
+          name: "Toys",
+          href: "/shopping/kids/accessories/toys",
           imageSrc:
-            "https://media.istockphoto.com/id/839295596/photo/six-pre-teen-friends-piggybacking-in-a-park-close-up-portrait.jpg?s=612x612&w=0&k=20&c=MWkFYzpRSvO1dRql3trV4k6ECO-rTy4HgF8OxrtUkH8=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
+            "https://media.istockphoto.com/id/589961490/photo/children-playing-with-colorful-blocks-building-a-block-tower.jpg?s=612x612&w=0&k=20&c=65mogYttliQ54CD7JElf6Y9DvfktYnE-qRGdsu65HwQ=",
+          imageAlt: "Fun toys for kids.",
         },
       ],
       sections: [
@@ -786,77 +640,6 @@ export const navigations: NavigationDetails = {
             ],
           },
         ],
-        [
-          {
-            id: "shop-collection",
-            name: "Shop by Collection",
-            href: "/shopping/kids/collections",
-            imageSrc:
-              "https://media.istockphoto.com/id/489803256/photo/below-view-of-young-cheerful-family-in-shopping.jpg?s=612x612&w=0&k=20&c=KcmaBiURs_ChPFCdvNKhmTD5AVEiUxM4MmANitqioz4=",
-            imageAlt: "",
-            items: [
-              {
-                name: "New Arrivals",
-                href: "/shopping/kids/collections/new_arrivals",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1026632588/photo/funny-child-girl-draws-laughing-shows-hands-dirty-with-paint.jpg?s=612x612&w=0&k=20&c=7JCNEfWqx9VfnkzQs-jFwbVpk_S7X5xT8mnVE8WK3R0=",
-                icon: FaExclamation,
-              },
-              {
-                name: "Latest Drops",
-                href: "/shopping/kids/collections/latest_drops",
-                imageSrc:
-                  "https://media.istockphoto.com/id/1302266351/photo/young-boy-having-fun-in-garden-chasing-and-bursting-bubbles.jpg?s=612x612&w=0&k=20&c=iil5Zt3zBHnqyVLxuDHLxvW_YGnSkjyPNzY0DTHOMW8=",
-                icon: IoIosAlert,
-              },
-              {
-                name: "Best Sellers",
-                href: "/shopping/kids/collections/best_sellers",
-                imageSrc:
-                  "https://media.istockphoto.com/id/537424502/photo/the-best-friends-playing-together.jpg?s=612x612&w=0&k=20&c=b6kpIttyqrbnJ9T_p4QtxNoWhx8hwSscYAgoZzXgGRk=",
-                icon: FaStar,
-              },
-              {
-                name: "Sale",
-                href: "/shopping/kids/collections/sale",
-                imageSrc:
-                  "https://media.istockphoto.com/id/664966806/photo/superheroes-cheerful-kids-expressing-positivity-concept.jpg?s=612x612&w=0&k=20&c=72nkiK5d_Te_v-7cnda4qy-4Vb188JjpgpwmE4s3GF8=",
-                icon: IoIosAlert,
-              },
-            ],
-          },
-        ],
-      ],
-      collections: [
-        {
-          name: "New Arrivals",
-          href: "/shopping/kids/collections/new_arrivals",
-          imageSrc:
-            "https://media.istockphoto.com/id/947959208/photo/little-kids-having-fun-outdoors.jpg?s=612x612&w=0&k=20&c=rylGvuenIxeOJQA_pckTA6MCmlHY9GZj-S9DJrreC14=",
-          imageAlt:
-            "Latest arrivals in women's fashion, from dresses to casual wear.",
-        },
-        {
-          name: "Best Sellers",
-          href: "/shopping/kids/collections/best_sellers",
-          imageSrc:
-            "https://images.unsplash.com/photo-1571210862729-78a52d3779a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGtpZHN8ZW58MHx8MHx8fDA%3D",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
-        {
-          name: "Latest Drops",
-          href: "/shopping/kids/collections/latest_drops",
-          imageSrc:
-            "https://images.unsplash.com/photo-1469406396016-013bfae5d83e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGtpZHN8ZW58MHx8MHx8fDA%3D",
-          imageAlt: "Elegant accessories to complement your outfits.",
-        },
-        {
-          name: "Sale",
-          href: "/shopping/kids/collections/sale",
-          imageSrc:
-            "https://media.istockphoto.com/id/1500076821/photo/happy-black-teenage-girl-in-high-school-hallway-looking-at-camera.jpg?s=612x612&w=0&k=20&c=Kc1x5IRZz7dqtUNt8k3zFB6ZKJz4CIiT-tbB0FFmAww=",
-          imageAlt: "Stylish dresses for all occasions, from formal to casual.",
-        },
       ],
     },
   ],

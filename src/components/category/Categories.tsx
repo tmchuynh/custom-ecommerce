@@ -1,7 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
 import { navigations } from "@/lib/constants/navigation";
-import { FaArrowRight } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
 import DynamicButton from "../buttons/button-dynamic";
 
 /**
@@ -23,45 +22,42 @@ import DynamicButton from "../buttons/button-dynamic";
  */
 export default function Categories() {
   return (
-    <section className=" py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold mb-4">Browse Categories</h2>
-          <p className="text-xl max-w-2xl mx-auto">
+    <section className="py-16">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 font-extrabold text-3xl">Browse Categories</h2>
+          <p className="mx-auto max-w-2xl text-xl">
             Explore our wide range of categories and find exactly what you're
             looking for
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {navigations.categories.map((category, index) => (
             <Link
               key={index}
               href={`/shopping/${category.name.toLowerCase()}`}
-              className="group relative flex flex-col rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 h-80"
+              className="group relative flex flex-col shadow-md hover:shadow-lg rounded-2xl h-80 transition-all duration-300 overflow-hidden"
             >
               <Image
                 src={
-                  category.collections[0]?.imageSrc ||
+                  category.featured[1]?.imageSrc ||
                   "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2070"
                 }
                 alt={category.name}
                 width={600}
                 height={400}
-                className="absolute inset-1.5 object-center w-full object-cover h-full opacity-75"
+                className="absolute inset-1.5 opacity-75 w-full h-full object-center object-cover"
               />
 
-              <div className="relative flex flex-col justify-end h-full p-6 z-20">
-                <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
-                <p className="mb-4 line-clamp-2">
-                  {`Explore our ${category.name.toLowerCase()} collection with ${
-                    category.collections.length
-                  } different styles.`}
-                </p>
+              <div className="relative z-20 flex flex-col justify-end p-6 h-full">
+                <h3 className="mb-2 font-bold text-2xl text-background">
+                  {category.name}
+                </h3>
 
                 <DynamicButton
                   text="Shop Now"
-                  className="w-fit p-0 text-background my-2"
+                  className="my-2 p-0 w-fit text-background"
                 />
               </div>
             </Link>

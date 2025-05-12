@@ -255,7 +255,7 @@ export type CategoryDetails = {
   imageAlt: string;
   featured: FeaturedDetails[];
   sections: SectionDetails[][];
-  collections: FeaturedDetails[];
+  collections?: FeaturedDetails[];
 };
 
 export type NavigationDetails = {

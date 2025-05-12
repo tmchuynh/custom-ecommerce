@@ -14,11 +14,8 @@ import {
 import { useProtectedAction } from "@/hooks/useProtectedAction";
 import { Color, ProductType } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { getAccessibleColor } from "@/lib/utils/accessibility";
-import theme from "@material-tailwind/react/theme";
 import Link from "next/link";
-import { useParams, usePathname } from "next/navigation";
-import { JSX, useEffect, useState } from "react";
+import { JSX, useState } from "react";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { toast } from "sonner";
 import { AuthDialog } from "../auth/AuthDialog";
@@ -78,48 +75,15 @@ const QuickLookAndFavoriteButtons = ({
     });
   };
 
-  const { gender, category, item, slug } = useParams();
-
-  const pathname = usePathname();
-  const segments = window.location.pathname.split("/");
-  const selectedGender = segments[2];
-  const selectedCategory = segments[3];
-  const selectedItem = segments[4];
   const [selectedColor, setSelectedColor] = useState<Color>({
     bgColor: "#000000",
     name: "Black",
   });
-  const [backgroundColor, setBackgroundColor] = useState<Color>({
-    bgColor: "#000000",
-    name: "Black",
-  });
-  const accessibleColor = getAccessibleColor(
-    `${backgroundColor.bgColor}`,
-    "AAA",
-    true
-  );
-
-  useEffect(() => {
-    // Only update when theme has a defined value
-    if (theme !== undefined) {
-      if (theme === "dark") {
-        setBackgroundColor({
-          bgColor: "#070707",
-          name: "Black",
-        });
-      } else {
-        setBackgroundColor({
-          bgColor: "#fff",
-          name: "White",
-        });
-      }
-    }
-  }, [theme]);
 
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-between mx-2 gap-1 p-2 mt-4 w-11/12",
+        "flex flex-col items-center justify-between mx-2 gap-5 p-2 mt-4 w-11/12",
         {
           "w-full": page,
         }
@@ -132,14 +96,13 @@ const QuickLookAndFavoriteButtons = ({
       />
 
       <AlertDialog>
-        <AlertDialogTrigger className="shadow-md p-2 rounded-full transition-colors">
+        <AlertDialogTrigger className="hover:bg-foreground shadow-md p-2 rounded-full hover:text-background transition-colors">
           <span className="sr-only"> Quick look </span>
-          <FaEye className="w-5 h-5 text-gray-600" />
+          <FaEye className="w-5 h-5" />
         </AlertDialogTrigger>
         <AlertDialogContent className="border-4 min-w-11/12">
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogCancel>Close</AlertDialogCancel>
           </AlertDialogFooter>
           <AlertDialogTitle />
           <div className="mx-auto">
@@ -182,7 +145,7 @@ const QuickLookAndFavoriteButtons = ({
           className={`h-5 w-5 ${
             wishlistItems.some((item) => item.name === product.name)
               ? "fill-red-500 text-red-500"
-              : "text-gray-600"
+              : ""
           }`}
         />
         <span className="sr-only">Add to Wishlist</span>
