@@ -7,11 +7,11 @@ import Image from "next/image";
 
 export default function Example() {
   return (
-    <div className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="relative px-6 lg:px-0 py-24 sm:py-32 overflow-hidden lg:overflow-visible isolate">
+      <div className="-z-10 absolute inset-0 overflow-hidden">
         <svg
           aria-hidden="true"
-          className="absolute top-0 left-[max(50%,25rem)] h-[64rem] w-[128rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
+          className="top-0 left-[max(50%,25rem)] absolute w-[128rem] h-[64rem] -translate-x-1/2 stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
         >
           <defs>
             <pattern
@@ -39,12 +39,12 @@ export default function Example() {
           />
         </svg>
       </div>
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <div className="lg:items-start gap-x-8 gap-y-16 lg:gap-y-10 grid grid-cols-1 lg:grid-cols-2 mx-auto lg:mx-0 max-w-2xl lg:max-w-none">
+        <div className="lg:gap-x-8 lg:grid lg:grid-cols-2 lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:px-8 lg:w-full lg:max-w-7xl">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold">Deploy faster</p>
-              <h1 className="text-4xl font-extrabold text-center mb-8">
+              <p className="font-semibold text-base/7">Deploy faster</p>
+              <h1 className="mb-8 font-extrabold text-4xl text-center">
                 A better workflow
               </h1>
               <p className="mt-6 text-xl/8">
@@ -60,12 +60,12 @@ export default function Example() {
           src="https://tailwindui.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
           width={912} // Adjust width as needed
           height={512} // Adjust height as needed
-          className="w-[48rem] max-w-none rounded-xl bg-gray-900 ring-1 shadow-xl ring-gray-400/10 sm:w-[57rem]"
+          className="bg-gray-900 shadow-xl rounded-xl ring-1 ring-gray-400/10 w-[48rem] sm:w-[57rem] max-w-none"
         />
       </div>
-      <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+      <div className="lg:gap-x-8 lg:grid lg:grid-cols-2 lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:px-8 lg:w-full lg:max-w-7xl">
         <div className="lg:pr-4">
-          <div className="max-w-xl text-base/7 lg:max-w-lg">
+          <div className="max-w-xl lg:max-w-lg text-base/7">
             <p>
               Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus
               enim. Mattis mauris semper sed amet vitae sed turpis id. Id dolor
@@ -74,11 +74,11 @@ export default function Example() {
               Dignissim sed eget risus enim. Mattis mauris semper sed amet vitae
               sed turpis id.
             </p>
-            <ul role="list" className="mt-8 space-y-8">
+            <ul role="list" className="space-y-8 mt-8">
               <li className="flex gap-x-3">
                 <CloudArrowUpIcon
                   aria-hidden="true"
-                  className="mt-1 size-5 flex-none"
+                  className="flex-none mt-1 size-5"
                 />
                 <span>
                   <strong className="font-semibold">Push to deploy.</strong>{" "}
@@ -90,7 +90,7 @@ export default function Example() {
               <li className="flex gap-x-3">
                 <LockClosedIcon
                   aria-hidden="true"
-                  className="mt-1 size-5 flex-none"
+                  className="flex-none mt-1 size-5"
                 />
                 <span>
                   <strong className="font-semibold">SSL certificates.</strong>{" "}
@@ -101,7 +101,7 @@ export default function Example() {
               <li className="flex gap-x-3">
                 <ServerIcon
                   aria-hidden="true"
-                  className="mt-1 size-5 flex-none"
+                  className="flex-none mt-1 size-5"
                 />
                 <span>
                   <strong className="font-semibold">Database backups.</strong>{" "}
@@ -117,7 +117,7 @@ export default function Example() {
               ultrices hac adipiscing egestas. Iaculis convallis ac tempor et
               ut. Ac lorem vel integer orci.
             </p>
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="mb-4 font-semibold text-2xl">
               No server? No problem.
             </h2>
             <p className="mt-6">
