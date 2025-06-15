@@ -18,27 +18,8 @@ export interface CartItem {
 }
 
 export interface DiscountRule {
-  code: str  const contextValue: CartContextType = {
-    items,
-    totalItems,
-    totalPrice,
-    appliedDiscount,
-    discountAmount,
-    membershipDiscount,
-    totalDiscountAmount,
-    subtotalAfterDiscount,
-    shippingFee,
-    grandTotal,
-    addToCart,
-    removeFromCart,
-    updateQuantity,
-    clearCart,
-    isInCart,
-    getCartItemQuantity,
-    applyDiscount,
-    removeDiscount,
-    checkout,
-  };
+  code: string;
+  name: string;
   type: "percentage" | "fixed";
   value: number;
   conditions: {
@@ -54,7 +35,6 @@ export interface DiscountRule {
   targetBrands?: string[];
   targetProductIds?: number[];
 }
-
 export interface AppliedDiscount {
   rule: DiscountRule;
   discountAmount: number;
