@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useCurrency } from "@/app/context/currencyContext"; // Import useCurrency
+import { useEffect, useState } from "react";
 
 interface FilterSidebarProps {
   onFilterChange: (filters: {
