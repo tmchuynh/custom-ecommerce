@@ -2,6 +2,7 @@
 
 import { ProductItem } from "@/lib/interfaces";
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "./authContext";
 
 export interface CartItem {
   id: number;
@@ -47,6 +48,8 @@ export interface CartContextType {
   totalPrice: number;
   appliedDiscount: AppliedDiscount | null;
   discountAmount: number;
+  membershipDiscount: number;
+  totalDiscountAmount: number;
   subtotalAfterDiscount: number;
   shippingFee: number;
   grandTotal: number;
@@ -76,6 +79,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   const [items, setItems] = useState<CartItem[]>([]);
   const [appliedDiscount, setAppliedDiscount] =
     useState<AppliedDiscount | null>(null);
+
+  // Get auth context for membership discounts
+  const auth = useAuth();
 
   // Predefined discount rules
   const discountRules: DiscountRule[] = [
@@ -391,14 +397,26 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return total + itemPrice * item.quantity;
   }, 0);
 
-  // Calculate discount amount
+  // Calculate coupon discount amount
   const discountAmount = appliedDiscount ? appliedDiscount.discountAmount : 0;
 
-  // Calculate subtotal after discount
-  const subtotalAfterDiscount = totalPrice - discountAmount;
+  // Calculate membership discount amount (applied to total price)
+  const membershipDiscountRate = auth?.hasMembership
+    ? (auth.user?.membershipTier?.discountPercentage || 0) / 100
+    : 0;
+  const membershipDiscount = totalPrice * membershipDiscountRate;
+
+  // Calculate total discount amount (coupon + membership)
+  const totalDiscountAmount = discountAmount + membershipDiscount;
+
+  // Calculate subtotal after all discounts
+  const subtotalAfterDiscount = totalPrice - totalDiscountAmount;
 
   // Calculate 12% shipping fee (only if there are items in cart, applied to discounted total)
-  const shippingFee = totalItems > 0 ? subtotalAfterDiscount * 0.12 : 0;
+  // Free shipping for premium/VIP members
+  const hasGroupShipping = auth?.user?.membershipTier?.freeShipping || false;
+  const shippingFee =
+    totalItems > 0 && !hasGroupShipping ? subtotalAfterDiscount * 0.12 : 0;
 
   // Calculate grand total (subtotal after discount + shipping)
   const grandTotal = subtotalAfterDiscount + shippingFee;
@@ -409,6 +427,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     totalPrice,
     appliedDiscount,
     discountAmount,
+    membershipDiscount,
+    totalDiscountAmount,
     subtotalAfterDiscount,
     shippingFee,
     grandTotal,
