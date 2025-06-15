@@ -24,6 +24,8 @@ import { FaChevronDown, FaDollarSign } from "react-icons/fa";
 import { ThemeToggle } from "../buttons/ThemeToggle";
 import CurrencyStatus from "../currency/CurrencyStatus";
 import CartIcon from "./CartIcon";
+import WishlistIcon from "./WishlistIcon";
+import UserMenu from "./UserMenu";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -102,6 +104,7 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-2 lg:hidden">
+          <WishlistIcon />
           <CartIcon />
           <button
             type="button"
@@ -149,7 +152,9 @@ export default function Header() {
 
           {/* Action buttons */}
           <div className="flex items-center space-x-2 ml-8">
+            <WishlistIcon />
             <CartIcon />
+            <UserMenu />
             <ThemeToggle />
           </div>
         </div>
