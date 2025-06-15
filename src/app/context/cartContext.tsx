@@ -18,8 +18,27 @@ export interface CartItem {
 }
 
 export interface DiscountRule {
-  code: string;
-  name: string;
+  code: str  const contextValue: CartContextType = {
+    items,
+    totalItems,
+    totalPrice,
+    appliedDiscount,
+    discountAmount,
+    membershipDiscount,
+    totalDiscountAmount,
+    subtotalAfterDiscount,
+    shippingFee,
+    grandTotal,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    isInCart,
+    getCartItemQuantity,
+    applyDiscount,
+    removeDiscount,
+    checkout,
+  };
   type: "percentage" | "fixed";
   value: number;
   conditions: {
@@ -390,6 +409,38 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     setAppliedDiscount(null);
   };
 
+  const checkout = async (): Promise<{ success: boolean; message: string }> => {
+    if (items.length === 0) {
+      return { success: false, message: "Your cart is empty" };
+    }
+
+    try {
+      // Get wishlist context to mark items as purchased
+      const { useWishlist } = await import("./wishlistContext");
+
+      // Extract product IDs from cart items
+      const productIds = items.map((item) => item.productId);
+
+      // Mark wishlist items as purchased (this will be handled by wishlist context)
+      // We'll need to handle this in the component level
+
+      // Clear the cart after successful checkout
+      clearCart();
+      setAppliedDiscount(null);
+
+      return {
+        success: true,
+        message: `Order placed successfully! Thank you for your purchase.`,
+      };
+    } catch (error) {
+      console.error("Checkout error:", error);
+      return {
+        success: false,
+        message: "Something went wrong during checkout. Please try again.",
+      };
+    }
+  };
+
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
   const totalPrice = items.reduce((total, item) => {
     const itemPrice = item.discountPercentage
@@ -441,6 +492,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     getCartItemQuantity,
     applyDiscount,
     removeDiscount,
+    checkout,
   };
 
   return (
