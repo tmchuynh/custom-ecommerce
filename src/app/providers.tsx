@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { JSX, ReactNode } from "react";
+import { CartProvider } from "./context/cartContext";
 import { CurrencyProvider } from "./context/currencyContext";
 import { NotFoundProvider } from "./context/NotFoundContext";
 
@@ -17,7 +18,9 @@ export function Providers({ children }: { children: ReactNode }): JSX.Element {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
       <CurrencyProvider>
-        <NotFoundProvider>{children}</NotFoundProvider>
+        <CartProvider>
+          <NotFoundProvider>{children}</NotFoundProvider>
+        </CartProvider>
       </CurrencyProvider>
     </ThemeProvider>
   );
