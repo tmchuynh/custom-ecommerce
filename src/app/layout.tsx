@@ -1,13 +1,8 @@
-import BackToTop from "@/components/BackToTop";
-import BreadcrumbWrapper from "@/components/BreadcrumbWrapper";
-import Footer from "@/components/Footer";
-import NavMenu from "@/components/navigation/NavMenu";
-import NavTopMenu from "@/components/navigation/NavTopMenu";
-import { Toaster } from "sonner";
-import { NotFoundProvider } from "./context/NotFoundContext";
+import Header from "@/components/navigation/Header";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
+import DynamicBreadcrumb from "@/components/navigation/breadcrumb-dynamic";
 import { Providers } from "./providers";
-import { ThemeProvider } from "next-themes";
 
 export default function RootLayout({
   children,
@@ -16,28 +11,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
+      <body className="relative flex flex-col min-h-screen">
         <Providers>
-          <NotFoundProvider>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <NavTopMenu />
-              <NavMenu />
-              <main className="flex-grow">
-                <BreadcrumbWrapper />
-                {children}
-                <Footer />
-              </main>
-              <BackToTop />
-              <Toaster
-                position="top-center"
-                toastOptions={{
-                  style: {
-                    marginTop: "200px",
-                  },
-                }}
-              />
-            </ThemeProvider>
-          </NotFoundProvider>
+          <main className="flex-grow mt-24 md:pb-0">
+            <Header />
+            <DynamicBreadcrumb />
+            {children}
+          </main>
+          <Toaster />
         </Providers>
       </body>
     </html>
