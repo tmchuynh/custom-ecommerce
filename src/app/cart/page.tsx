@@ -5,7 +5,7 @@ import { useCurrency } from "@/app/context/currencyContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Minus, Plus, ShoppingBag, Trash2, Tag } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Tag, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -74,7 +74,8 @@ export default function CartPage() {
                 Note: A 12% shipping fee will be applied at checkout.
               </p>
               <p className="text-muted-foreground text-sm">
-                Available discount codes: TECH20, BULK15, FASHION10, NEWUSER
+                Available discount codes: TECH20, BULK15, BEAUTY10, FASHION25,
+                SAVE50
               </p>
             </div>
             <Button asChild>
@@ -230,7 +231,7 @@ export default function CartPage() {
                   <span>Items ({totalItems})</span>
                   <span>{formatPrice(totalPrice)}</span>
                 </div>
-                
+
                 {/* Discount Section */}
                 {!appliedDiscount ? (
                   <div className="space-y-3">
@@ -239,7 +240,9 @@ export default function CartPage() {
                         placeholder="Discount code"
                         value={discountCode}
                         onChange={(e) => setDiscountCode(e.target.value)}
-                        onKeyPress={(e) => e.key === "Enter" && handleApplyDiscount()}
+                        onKeyPress={(e) =>
+                          e.key === "Enter" && handleApplyDiscount()
+                        }
                         className="flex-1"
                       />
                       <Button
@@ -248,22 +251,26 @@ export default function CartPage() {
                         size="sm"
                         variant="outline"
                       >
-                        <Tag className="w-4 h-4 mr-1" />
+                        <Tag className="mr-1 w-4 h-4" />
                         {isApplyingDiscount ? "Applying..." : "Apply"}
                       </Button>
                     </div>
+                    <p className="text-muted-foreground text-xs">
+                      Available codes: TECH20, BULK15, BEAUTY10, FASHION25,
+                      SAVE50
+                    </p>
                   </div>
                 ) : (
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-medium">
+                      <span className="font-medium text-green-600">
                         {appliedDiscount.rule.name}
                       </span>
                       <Button
                         onClick={handleRemoveDiscount}
                         size="sm"
                         variant="ghost"
-                        className="text-red-600 hover:text-red-700 h-auto p-1"
+                        className="p-1 h-auto text-red-600 hover:text-red-700"
                       >
                         Remove
                       </Button>
