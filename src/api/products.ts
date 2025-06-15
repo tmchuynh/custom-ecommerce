@@ -26,15 +26,15 @@ export async function fetchProducts(
     let url: string;
 
     if (searchQuery) {
-      // If a search query is provided, use the search endpoint
+      // If a search query is provided, use the search endpoint with limit=0 to get all results
       url = `${API_BASE_URL}/products/search?q=${encodeURIComponent(
         searchQuery
-      )}`;
+      )}&limit=0`;
     } else {
-      // Otherwise, fetch by category
+      // Otherwise, fetch by category with limit=0 to get all products in the category
       url = `${API_BASE_URL}/products/category/${encodeURIComponent(
         categorySlug
-      )}`;
+      )}?limit=0`;
     }
 
     const res = await fetch(url);
@@ -74,7 +74,7 @@ export async function getProductBySlug(
   try {
     const url = `${API_BASE_URL}/products/search?q=${toTitleCase(
       productTitle
-    )}`;
+    )}&limit=0`;
     console.log("Fetching product from URL:", url);
 
     const res = await fetch(url);
@@ -154,6 +154,27 @@ export async function getProductById(
   } catch (error) {
     console.error("Error in getProductById:", error);
     return null;
+  }
+}
+
+/**
+ * Get all products (useful for general browsing or when category is not specified)
+ * @returns Promise<ProductItem[]> - Array of all products
+ */
+export async function getAllProducts(): Promise<ProductItem[]> {
+  try {
+    const url = `${API_BASE_URL}/products?limit=0`;
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch all products: ${res.status}`);
+    }
+
+    const data: DummyJSONProductsResponse = await res.json();
+    return data.products || [];
+  } catch (error) {
+    console.error("Error in getAllProducts:", error);
+    throw error;
   }
 }
 
