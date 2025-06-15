@@ -1,28 +1,24 @@
 "use client";
 
-import React from "react";
-import { AuthProvider } from "./context/authContext";
-import { CartProvider } from "./context/cartContext";
+import { ThemeProvider } from "next-themes";
+import { JSX, ReactNode } from "react";
 import { CurrencyProvider } from "./context/currencyContext";
-import { CustomerProvider } from "./context/customerContext";
-import { PaymentProvider } from "./context/paymentContext";
-import { ProductProvider } from "./context/productContext";
-import { WishlistProvider } from "./context/wishlistContext";
+import { NotFoundProvider } from "./context/NotFoundContext";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+/**
+ * Providers component that wraps its children with a ThemeProvider.
+ *
+ * @param {Object} props - The props object.
+ * @param {ReactNode} props.children - The child components to be wrapped by the ThemeProvider.
+ *
+ * @returns {JSX.Element} The ThemeProvider component wrapping the children.
+ */
+export function Providers({ children }: { children: ReactNode }): JSX.Element {
   return (
-    <AuthProvider>
-      <CustomerProvider>
-        <CurrencyProvider>
-          <ProductProvider>
-            <WishlistProvider>
-              <PaymentProvider>
-                <CartProvider>{children}</CartProvider>
-              </PaymentProvider>
-            </WishlistProvider>
-          </ProductProvider>
-        </CurrencyProvider>
-      </CustomerProvider>
-    </AuthProvider>
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
+      <CurrencyProvider>
+        <NotFoundProvider>{children}</NotFoundProvider>
+      </CurrencyProvider>
+    </ThemeProvider>
   );
 }
