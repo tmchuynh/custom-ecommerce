@@ -23,6 +23,7 @@ import { useState } from "react";
 import { FaChevronDown, FaDollarSign } from "react-icons/fa";
 import { ThemeToggle } from "../buttons/ThemeToggle";
 import CurrencyStatus from "../currency/CurrencyStatus";
+import CartIcon from "./CartIcon";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,7 +57,10 @@ export default function Header() {
                 </span>
                 <FaChevronDown className="w-3 h-3" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="min-w-[200px]">
+              <DropdownMenuContent
+                align="end"
+                className="min-w-[200px] max-h-[15em] overflow-y-auto"
+              >
                 {currencies.map((currency) => (
                   <DropdownMenuItem
                     key={currency.code}
@@ -97,7 +101,8 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className="flex lg:hidden">
+        <div className="flex items-center gap-2 lg:hidden">
+          <CartIcon />
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -144,6 +149,7 @@ export default function Header() {
 
           {/* Action buttons */}
           <div className="flex items-center space-x-2 ml-8">
+            <CartIcon />
             <ThemeToggle />
           </div>
         </div>
