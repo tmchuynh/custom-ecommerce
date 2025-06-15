@@ -33,8 +33,11 @@ export default function CartPage() {
               <h1 className="mb-2 font-bold text-2xl text-foreground">
                 Your cart is empty
               </h1>
-              <p className="text-muted-foreground">
+              <p className="mb-2 text-muted-foreground">
                 Looks like you haven't added anything to your cart yet.
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Note: A 12% shipping fee will be applied at checkout.
               </p>
             </div>
             <Button asChild>
