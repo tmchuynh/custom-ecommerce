@@ -2,6 +2,8 @@
 
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
+import { useWishlist } from "@/app/context/wishlistContext";
+import { useAuth } from "@/app/context/authContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,7 +13,6 @@ import { cn } from "@/lib/utils";
 import { Check, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { toast } from "sonner";
 
 interface ProductGridProps {
@@ -25,21 +26,34 @@ export default function ProductGrid({
 }: ProductGridProps) {
   const { formatPrice } = useCurrency();
   const { addToCart, isInCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const { isLoggedIn } = useAuth();
   const router = useRouter();
-  const [wishlist, setWishlist] = useState<Set<number>>(new Set());
 
-  const toggleWishlist = (productId: number, e: React.MouseEvent) => {
+  const toggleWishlist = async (product: ProductItem, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setWishlist((prev) => {
-      const newWishlist = new Set(prev);
-      if (newWishlist.has(productId)) {
-        newWishlist.delete(productId);
+    
+    if (!isLoggedIn) {
+      toast.error("Please log in to add items to your wishlist");
+      return;
+    }
+
+    if (isInWishlist(product.id)) {
+      const result = await removeFromWishlist(product.id);
+      if (result.success) {
+        toast.success(result.message);
       } else {
-        newWishlist.add(productId);
+        toast.error(result.message);
       }
-      return newWishlist;
-    });
+    } else {
+      const result = await addToWishlist(product);
+      if (result.success) {
+        toast.success(result.message);
+      } else {
+        toast.error(result.message);
+      }
+    }
   };
 
   const handleAddToCart = (product: ProductItem, e: React.MouseEvent) => {
@@ -102,13 +116,13 @@ export default function ProductGrid({
                       <Button
                         variant="ghost"
                         size="sm"
-                        onClick={(e) => toggleWishlist(product.id, e)}
+                        onClick={(e) => toggleWishlist(product, e)}
                         className="ml-2 shrink-0"
                       >
                         <Heart
                           className={cn(
                             "h-4 w-4",
-                            wishlist.has(product.id)
+                            isInWishlist(product.id)
                               ? "fill-red-500 text-red-500"
                               : ""
                           )}
@@ -210,13 +224,13 @@ export default function ProductGrid({
             <Button
               variant="ghost"
               size="sm"
-              onClick={(e) => toggleWishlist(product.id, e)}
+              onClick={(e) => toggleWishlist(product, e)}
               className="top-3 right-3 absolute bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-800 backdrop-blur-sm"
             >
               <Heart
                 className={cn(
                   "h-4 w-4",
-                  wishlist.has(product.id) ? "fill-red-500 text-red-500" : ""
+                  isInWishlist(product.id) ? "fill-red-500 text-red-500" : ""
                 )}
               />
             </Button>
