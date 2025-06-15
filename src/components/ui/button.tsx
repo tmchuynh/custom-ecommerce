@@ -3,47 +3,40 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
+
 const buttonVariants = cva(
-  "inline-flex justify-center items-center gap-2 focus-visible:outline-hidden disabled:opacity-50 border-2 rounded-md focus-visible:ring-1 focus-visible:ring-ring font-medium text-sm whitespace-nowrap transition-colors [&_svg]:pointer-events-none disabled:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex justify-center items-center gap-2 disabled:opacity-50 aria-invalid:border-destructive focus-visible:border-ring rounded-lg aria-invalid:ring-destructive/20 focus-visible:ring-[3px] focus-visible:ring-ring/50 dark:aria-invalid:ring-destructive/40 font-medium text-sm whitespace-nowrap transition-all [&_svg]:pointer-events-none disabled:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none",
   {
     variants: {
       variant: {
         default:
-          "border-transparent bg-primary text-primary-foreground shadow-sm hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
-        outline:
-          "border border-accent bg-transparent shadow-xs hover:bg-secondary hover:text-secondary-foreground",
-        ghost: "border-transparent bg-transparent hover:text-accent",
-        link: "border-transparent text-primary underline-offset-4 hover:underline group-hover:text-secondary",
-        secondary:
-          "border-transparent bg-secondary text-secondary-foreground shadow-xs hover:bg-teritary hover:text-teritary-foreground hover:border-teritary",
-        secondaryOutline:
-          "border border-secondary bg-transparent shadow-xs hover:bg-teritary hover:text-teritary-foreground hover:border-teritary",
-        secondaryGhost:
-          "border-transparent bg-transparent text-secondary hover:text-teritary-foreground",
-        secondaryLink:
-          "border-transparent text-secondary underline-offset-4 hover:underline",
-        teritary:
-          "border-transparent bg-teritary text-teritary-foreground shadow-xs hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
-        teritaryOutline:
-          "border border-teritary bg-transparent shadow-xs hover:bg-secondary hover:text-secondary-foreground hover:border-secondary",
-        teritaryGhost:
-          "border-transparent bg-transparent text-teritary hover:text-secondary-foreground",
-        teritaryLink:
-          "border-transparent text-teritary underline-offset-4 hover:underline",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md focus-visible:ring-primary/20",
+        minimal:
+          "bg-card text-card-foreground border border-muted shadow-none hover:bg-muted/40 hover:border-muted-foreground/20 focus-visible:ring-muted-foreground/30",
+        modern:
+          "bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md hover:shadow-lg hover:from-primary/90 hover:to-primary/70 focus-visible:ring-primary/30",
+        classic:
+          "bg-secondary text-secondary-foreground border border-secondary/20 shadow-sm hover:bg-secondary/80 hover:shadow-md focus-visible:ring-secondary/20",
+        professional:
+          "bg-neutral-50 text-neutral-900 border border-neutral-200/80 shadow-none hover:bg-neutral-100 hover:border-neutral-300 dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-800 dark:hover:border-neutral-700 focus-visible:ring-neutral-400/30",
+        glass:
+          "bg-white/30 backdrop-blur-md text-foreground border border-white/20 shadow-lg hover:bg-white/40 hover:border-white/30 supports-[backdrop-filter]:bg-white/30 dark:bg-black/20 dark:hover:bg-black/30 dark:border-white/10 focus-visible:ring-white/30",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-xs hover:bg-transparent hover:text-destructive border-destructive",
-        destructiveOutline:
-          "border border-destructive bg-transparent shadow-xs hover:bg-destructive hover:text-destructive-foreground hover:border-destructive",
-        destructiveGhost:
-          "border-transparent bg-transparent text-destructive hover:text-destructive-foreground",
-        destructiveLink:
-          "border-transparent text-destructive underline-offset-4 hover:underline",
+          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-md focus-visible:ring-destructive/20",
+        outline:
+          "border border-border bg-transparent text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground hover:shadow-md focus-visible:ring-border/20",
+        ghost:
+          "bg-transparent text-muted-foreground hover:bg-muted/30 hover:text-foreground transition-colors focus-visible:ring-muted/40",
+        link: "text-primary underline-offset-4 hover:underline bg-transparent shadow-none focus-visible:ring-primary/20",
+        icon: "bg-transparent text-muted-foreground hover:text-accent shadow-none focus-visible:ring-accent/20",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-10 rounded-md px-8",
-        icon: "h-6 w-6 rounded-full",
+        xs: "h-6 px-2 text-xs gap-1 has-[>svg]:px-1.5",
+        sm: "h-8 px-3 text-xs gap-1.5 has-[>svg]:px-2.5",
+        default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        lg: "h-11 px-6 text-base has-[>svg]:px-5",
+        xl: "h-12 px-8 text-lg has-[>svg]:px-7",
+        icon: "size-9 p-0",
       },
     },
     defaultVariants: {
@@ -53,23 +46,25 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
-}
-
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+function Button({
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
+  }) {
     const Comp = asChild ? Slot : "button";
-    const buttonClassName = React.useMemo(
-      () => cn(buttonVariants({ variant, size, className })),
-      [variant, size, className]
-    );
 
-    return <Comp className={buttonClassName} ref={ref} {...props} />;
+    return (
+      <Comp
+        data-slot="button"
+        className={cn(buttonVariants({ variant, size, className }))}
+        {...props}
+      />
+    );
   }
-);
-Button.displayName = "Button";
 
 export { Button, buttonVariants };
