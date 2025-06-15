@@ -1,28 +1,69 @@
-\
-import Link from 'next/link';
+import Link from "next/link";
 
-const shoppingCategories = [
-  { name: "Men's Clothing", href: "/shopping/men", description: "Explore our collection for men." },
-  { name: "Women's Clothing", href: "/shopping/women", description: "Discover the latest trends for women." },
-  { name: "Electronics", href: "/shopping/electronics", description: "Find the newest gadgets and electronics." },
-  { name: "Jewelery", href: "/shopping/jewelery", description: "Browse our exquisite jewelery selection." },
-  { name: "Children", href: "/shopping/children", description: "Shop for the little ones. (Note: Product data for this category is not currently available from our primary API.)" },
-];
+// Helper function to fetch categories - typically this would be in a separate utils/api file
+async function getCategories(): Promise<string[]> {
+  try {
+    const response = await fetch(
+      "https://dummyjson.com/products/category-list"
+    );
+    if (!response.ok) {
+      throw new Error(`Failed to fetch categories: ${response.status}`);
+    }
+    const categories = await response.json();
+    // Ensure the response is an array of strings
+    if (
+      Array.isArray(categories) &&
+      categories.every((cat) => typeof cat === "string")
+    ) {
+      return categories;
+    }
+    console.error(
+      "Fetched categories are not in the expected format:",
+      categories
+    );
+    return []; // Return empty or handle error appropriately
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+    return []; // Return empty or handle error appropriately
+  }
+}
 
-export default function ShoppingPage() {
+// Helper function to format category names (e.g., "mens-shirts" -> "Men's Shirts")
+function formatCategoryName(slug: string): string {
+  return slug
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+export default async function ShoppingPage() {
+  const categories = await getCategories();
+
   return (
     <div className="mx-auto px-4 py-8 container">
       <h1 className="mb-8 font-bold text-3xl text-center">Shop by Category</h1>
-      <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {shoppingCategories.map((category) => (
-          <Link href={category.href} key={category.name} legacyBehavior>
-            <a className="block bg-white shadow-md hover:shadow-lg p-6 rounded-lg transition-shadow">
-              <h2 className="mb-2 font-semibold text-xl">{category.name}</h2>
-              <p className="text-gray-600">{category.description}</p>
-            </a>
-          </Link>
-        ))}
-      </div>
+      {categories.length > 0 ? (
+        <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {categories.map((categorySlug) => (
+            <Link
+              href={`/shopping/${categorySlug}`}
+              key={categorySlug}
+              legacyBehavior
+            >
+              <a className="block bg-white dark:bg-gray-800 shadow-md hover:shadow-lg p-4 rounded-lg text-center transition-shadow">
+                <h2 className="font-semibold text-gray-800 text-lg dark:text-gray-200">
+                  {formatCategoryName(categorySlug)}
+                </h2>
+                {/* Optional: Add a generic description or an icon later */}
+              </a>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-gray-600 dark:text-gray-400">
+          Could not load categories at this time. Please try again later.
+        </p>
+      )}
     </div>
   );
 }
