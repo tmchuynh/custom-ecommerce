@@ -1,178 +1,135 @@
 "use client";
 
+import { ChevronRight, Home, MoreHorizontal } from "lucide-react";
+import { usePathname } from "next/navigation";
+import React, { JSX, useMemo } from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { mockProductData } from "@/lib/constants/mockProductData";
-import { usePathname, useRouter } from "next/navigation";
-import React, { JSX, useEffect, useMemo, useState } from "react";
+} from "../ui/breadcrumb";
+import { cn } from "@/lib/utils";
+import { kebabToTitle } from "@/lib/utils/format";
 
-import { capitalize } from "@/lib/utils/format";
-import { FaChevronDown } from "react-icons/fa";
-import { Button } from "../ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
-
-/**
- * DynamicBreadcrumb Component
- *
- * A responsive breadcrumb navigation component that dynamically generates
- * breadcrumb items based on the current URL path. The last segment displays
- * a dropdown menu with related subcategories when available.
- *
- * Features:
- * - Automatically parses URL path segments into breadcrumb items
- * - Capitalizes and formats path segments for display
- * - Provides a dropdown menu for the current category showing available subcategories
- * - Handles navigation between related pages
- * - Does not render on the homepage
- *
- * Implementation details:
- * - Uses React hooks (useState, useEffect, useMemo) for state management and performance
- * - Fetches subcategory data from mockProductData based on the current path
- * - Supports dynamic navigation through multiple levels of categories
- * - Applies consistent styling to breadcrumb items
- *
- * @returns {JSX.Element|null} The rendered breadcrumb navigation or null if on homepage
- */
-const DynamicBreadcrumb = (): JSX.Element | null => {
+export default function DynamicBreadcrumb(): JSX.Element | null {
   const pathname = usePathname();
-  const [categories, setCategories] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const router = useRouter();
 
   const pathSegments = useMemo(
-    () => pathname.split("/").filter((segment) => segment),
+    () =>
+      pathname
+        .split("/")
+        .filter(Boolean)
+        .map((segment) => decodeURIComponent(segment)),
     [pathname]
   );
 
-  const capitalizedSegments = useMemo(
-    () => pathSegments.map((segment) => capitalize(segment)),
-    [pathSegments]
-  );
+  // Don't show breadcrumb on home page
+  if (pathname === "/" || pathSegments.length === 0) return null;
 
-  useEffect(() => {
-    const fetchItemsData = async () => {
-      if (pathSegments.length > 2) {
-        try {
-          const gender = pathSegments[1]?.toLowerCase();
-          const category = pathSegments[2]?.toLowerCase();
-          const categoryData = (mockProductData as any)[gender]?.[category];
+  // Detect if this is a 404 page
+  const isNotFoundPage = pathSegments.includes("not-found");
 
-          if (categoryData) {
-            const subpages: any[] = [];
+  const formatSegment = (segment: string, isLast: boolean): string => {
+    if (isLast && isNotFoundPage) return "Page Not Found";
+    if (segment.length === 2) return kebabToTitle(segment).toUpperCase();
+    return kebabToTitle(segment);
+  };
 
-            // Extract subpages from the category data
-            Object.entries(categoryData).forEach(
-              ([itemType]: [string, any]) => {
-                subpages.push({
-                  name: capitalize(itemType),
-                  href: `/${gender}/${category}/${itemType}`,
-                });
-              }
-            );
+  const buildHref = (index: number): string => {
+    return `/${pathSegments.slice(0, index + 1).join("/")}`;
+  };
 
-            setCategories(subpages);
-          } else {
-            console.error("Product data not found");
-          }
-        } catch (error) {
-          console.error("Error fetching product data", error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    };
-
-    fetchItemsData();
-  }, [pathSegments]);
-
-  const breadcrumbItems = useMemo(() => {
-    if (pathname === "/") {
-      return null; // Do not render breadcrumb on the homepage
-    }
-
-    const items = [
-      <BreadcrumbItem key="home">
-        <BreadcrumbLink
-          href="/"
-          className="bg-muted px-3 py-2 rounded-lg cursor-default"
-        >
-          Home
-        </BreadcrumbLink>
-      </BreadcrumbItem>,
-    ];
-
-    pathSegments.forEach((_segment, index) => {
-      const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
-      const capitalizedSegment = capitalizedSegments[index];
-      const isLast = index === pathSegments.length - 1;
-
-      items.push(
-        <React.Fragment key={href}>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            {isLast ? (
-              // Render dropdown on the last segment
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="bg-muted px-3 py-2 border-none rounded-lg cursor-default"
-                  >
-                    {capitalizedSegment}
-                    <FaChevronDown className="ml-1 w-4 h-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuGroup>
-                    {categories.map((item) => (
-                      <DropdownMenuItem
-                        key={item.href}
-                        onClick={() => router.push(item.href)}
-                      >
-                        {item.name.replaceAll("_", " ")}
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <BreadcrumbLink
-                href={href}
-                className="bg-muted px-3 py-2 rounded-lg cursor-default"
-              >
-                {capitalizedSegment}
-              </BreadcrumbLink>
-            )}
-          </BreadcrumbItem>
-        </React.Fragment>
-      );
-    });
-
-    return items;
-  }, [pathname, capitalizedSegments, pathSegments, categories, router]);
-
-  if (breadcrumbItems === null) {
-    return null;
-  }
+  // Smart collapsing for better UX
+  const shouldCollapse = pathSegments.length > 4;
+  const displaySegments = shouldCollapse
+    ? [pathSegments[0], pathSegments[1], ...pathSegments.slice(-2)]
+    : pathSegments;
 
   return (
-    <Breadcrumb className="z-30 flex flex-row mx-auto pt-9 w-full md:w-11/12">
-      <BreadcrumbList className="flex flex-row items-center mx-auto w-11/12">
-        {breadcrumbItems}
-      </BreadcrumbList>
-    </Breadcrumb>
-  );
-};
+    <div className="z-40 sticky backdrop-blur pt-9 w-full">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 w-full max-w-7xl">
+        <div className="flex items-center py-2 md:py-3 min-h-[3rem]">
+          <Breadcrumb>
+            <BreadcrumbList className="flex items-center font-medium text-sm">
+              {/* Home link */}
+              <BreadcrumbItem>
+                <BreadcrumbLink
+                  href="/"
+                  className={cn(
+                    "group flex items-center gap-2 text-muted-foreground/80",
+                    "rounded-lg px-2.5 py-1.5 transition-all duration-200 ease-in-out",
+                    "hover:text-foreground "
+                  )}
+                >
+                  <Home className="w-4 h-4 group-hover:text-accent transition-all duration-200 group-hover:scale-120" />
+                  <span className="sm:inline hidden font-medium">Home</span>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
 
-export default DynamicBreadcrumb;
+              {/* Show ellipsis if path is collapsed */}
+              {shouldCollapse && pathSegments.length > 2 && (
+                <>
+                  <BreadcrumbSeparator className="mx-1">
+                    <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50" />
+                  </BreadcrumbSeparator>
+                  <BreadcrumbItem>
+                    <div className="flex justify-center items-center rounded-md w-8 h-8 text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+                      <MoreHorizontal className="w-4 h-4" />
+                    </div>
+                  </BreadcrumbItem>
+                </>
+              )}
+
+              {/* Path segments */}
+              {displaySegments.map((segment, index) => {
+                const actualIndex =
+                  shouldCollapse && index > 1
+                    ? pathSegments.length - (displaySegments.length - index)
+                    : index;
+                const isLast = actualIndex === pathSegments.length - 1;
+                const href = buildHref(actualIndex);
+                const displayText = formatSegment(segment, isLast);
+
+                return (
+                  <React.Fragment key={`${href}-${actualIndex}`}>
+                    <BreadcrumbSeparator className="mx-1">
+                      <ChevronRight className="w-3.5 h-3.5 text-muted-foreground/50 transition-colors" />
+                    </BreadcrumbSeparator>
+
+                    <BreadcrumbItem className="flex items-center">
+                      {isLast ? (
+                        <BreadcrumbPage
+                          className={cn(
+                            "max-w-[8rem] truncate font-semibold text-foreground sm:max-w-none",
+                            "rounded-lg bg-primary/8 px-2.5 py-1.5 ring-1 ring-primary/20"
+                          )}
+                        >
+                          {displayText}
+                        </BreadcrumbPage>
+                      ) : (
+                        <BreadcrumbLink
+                          href={href}
+                          className={cn(
+                            "max-w-[6rem] truncate text-muted-foreground/80 sm:max-w-none",
+                            "rounded-lg px-2.5 py-1.5 font-medium transition-all duration-200 ease-in-out",
+                            "hover:text-foreground hover:underline decoration-fancy decoration-2 underline-offset-2",
+                            "focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2"
+                          )}
+                        >
+                          {displayText}
+                        </BreadcrumbLink>
+                      )}
+                    </BreadcrumbItem>
+                  </React.Fragment>
+                );
+              })}
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+    </div>
+  );
+}
