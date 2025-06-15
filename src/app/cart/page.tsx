@@ -73,6 +73,9 @@ export default function CartPage() {
               <p className="text-muted-foreground text-sm">
                 Note: A 12% shipping fee will be applied at checkout.
               </p>
+              <p className="text-muted-foreground text-sm">
+                Available discount codes: TECH20, BULK15, FASHION10, NEWUSER
+              </p>
             </div>
             <Button asChild>
               <Link href="/shopping">Continue Shopping</Link>
@@ -227,6 +230,51 @@ export default function CartPage() {
                   <span>Items ({totalItems})</span>
                   <span>{formatPrice(totalPrice)}</span>
                 </div>
+                
+                {/* Discount Section */}
+                {!appliedDiscount ? (
+                  <div className="space-y-3">
+                    <div className="flex gap-2">
+                      <Input
+                        placeholder="Discount code"
+                        value={discountCode}
+                        onChange={(e) => setDiscountCode(e.target.value)}
+                        onKeyPress={(e) => e.key === "Enter" && handleApplyDiscount()}
+                        className="flex-1"
+                      />
+                      <Button
+                        onClick={handleApplyDiscount}
+                        disabled={isApplyingDiscount}
+                        size="sm"
+                        variant="outline"
+                      >
+                        <Tag className="w-4 h-4 mr-1" />
+                        {isApplyingDiscount ? "Applying..." : "Apply"}
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="text-green-600 font-medium">
+                        {appliedDiscount.rule.name}
+                      </span>
+                      <Button
+                        onClick={handleRemoveDiscount}
+                        size="sm"
+                        variant="ghost"
+                        className="text-red-600 hover:text-red-700 h-auto p-1"
+                      >
+                        Remove
+                      </Button>
+                    </div>
+                    <div className="flex justify-between text-green-600">
+                      <span>Discount ({appliedDiscount.rule.code})</span>
+                      <span>-{formatPrice(discountAmount)}</span>
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex justify-between">
                   <span>Shipping (12%)</span>
                   <span>{formatPrice(shippingFee)}</span>
