@@ -4,20 +4,27 @@ import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
+import { Minus, Plus, ShoppingBag, Trash2, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { toast } from "sonner";
 
 export default function CartPage() {
   const {
     items,
     totalItems,
     totalPrice,
+    appliedDiscount,
+    discountAmount,
+    subtotalAfterDiscount,
     shippingFee,
     grandTotal,
     updateQuantity,
     removeFromCart,
     clearCart,
+    applyDiscount,
+    removeDiscount,
   } = useCart();
   const { formatPrice } = useCurrency();
 
