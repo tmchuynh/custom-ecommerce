@@ -33,7 +33,7 @@ export default function ProductGrid({ products }: ProductGridProps) {
           <div className="flex justify-between mt-4">
             <div>
               <h3 className="text-gray-700 text-sm dark:text-gray-300">
-                <Link href={`/shopping/${product.category}/${product.id}`}>
+                <Link href={`/shopping/${product.category}/${product.id}`} legacyBehavior>
                   <span aria-hidden="true" className="absolute inset-0" />
                   {product.title}
                 </Link>

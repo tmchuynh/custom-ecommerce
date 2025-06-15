@@ -120,11 +120,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     <div className="mx-auto px-4 py-8 container">
       <div className="mb-6 text-gray-600 text-sm dark:text-gray-400">
         <Link href="/shopping" className="text-blue-600 dark:text-blue-400 hover:underline">Shopping</Link>
-        {' > '}
         <Link href={`/shopping/${categorySlug}`} className="text-blue-600 dark:text-blue-400 hover:underline capitalize">
           {categorySlug.replace(/-/g, ' ')}
         </Link>
-        {' > '}
         <span className="text-gray-800 dark:text-gray-200">{product.title}</span>
       </div>
 
