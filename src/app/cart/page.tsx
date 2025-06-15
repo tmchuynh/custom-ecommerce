@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuth } from "@/app/context/authContext";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Button } from "@/components/ui/button";
@@ -18,6 +19,8 @@ export default function CartPage() {
     totalPrice,
     appliedDiscount,
     discountAmount,
+    membershipDiscount,
+    totalDiscountAmount,
     subtotalAfterDiscount,
     shippingFee,
     grandTotal,
@@ -28,6 +31,7 @@ export default function CartPage() {
     removeDiscount,
   } = useCart();
   const { formatPrice } = useCurrency();
+  const { user, hasMembership } = useAuth();
 
   const [discountCode, setDiscountCode] = useState("");
   const [isApplyingDiscount, setIsApplyingDiscount] = useState(false);
@@ -40,7 +44,7 @@ export default function CartPage() {
 
     setIsApplyingDiscount(true);
     const result = applyDiscount(discountCode.trim().toUpperCase());
-    
+
     if (result.success) {
       toast.success(result.message);
       setDiscountCode("");
@@ -282,9 +286,28 @@ export default function CartPage() {
                   </div>
                 )}
 
+                {/* Membership Discount */}
+                {hasMembership && membershipDiscount > 0 && (
+                  <div className="flex justify-between text-blue-600">
+                    <span>
+                      Membership Discount ({user?.membershipTier?.name})
+                    </span>
+                    <span>-{formatPrice(membershipDiscount)}</span>
+                  </div>
+                )}
+
                 <div className="flex justify-between">
-                  <span>Shipping (12%)</span>
-                  <span>{formatPrice(shippingFee)}</span>
+                  <span>
+                    Shipping
+                    {hasMembership && user?.membershipTier?.freeShipping
+                      ? " (FREE for members)"
+                      : " (12%)"}
+                  </span>
+                  <span>
+                    {hasMembership && user?.membershipTier?.freeShipping
+                      ? "FREE"
+                      : formatPrice(shippingFee)}
+                  </span>
                 </div>
                 <div className="pt-4 border-t">
                   <div className="flex justify-between font-semibold text-lg">
