@@ -75,10 +75,8 @@ export async function getProductBySlug(
     const url = `${API_BASE_URL}/products/search?q=${toTitleCase(
       productTitle
     )}&limit=0`;
-    console.log("Fetching product from URL:", url);
 
     const res = await fetch(url);
-    console.log("Product fetch response status:", res.status);
 
     if (!res.ok) {
       throw new Error(
@@ -87,20 +85,12 @@ export async function getProductBySlug(
     }
 
     const data: { products: ProductItem[] } = await res.json();
-    console.log("Product search API response:", data);
-    console.log("Looking for productTitle:", productTitle);
-    console.log(
-      "Available products:",
-      data.products.map((p) => p.title)
-    );
 
     // Convert productTitle (slug format) to title format for comparison
     const normalizedProductTitle = productTitle
       .split("-")
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(" ");
-
-    console.log("Normalized product title:", normalizedProductTitle);
 
     // Search returns an array, so we need to find the exact match
     const product = data.products.find((p) => {
@@ -114,13 +104,9 @@ export async function getProductBySlug(
         p.title.toLowerCase() === normalizedProductTitle.toLowerCase();
       const slugMatch = productSlug === productTitle.toLowerCase();
 
-      console.log(
-        `Comparing "${p.title}" (slug: "${productSlug}") with "${productTitle}" (normalized: "${normalizedProductTitle}"): titleMatch=${titleMatch}, slugMatch=${slugMatch}`
-      );
       return titleMatch || slugMatch;
     });
 
-    console.log("Found product:", product);
     return product || null;
   } catch (error) {
     console.error("Error in getProductBySlug:", error);
