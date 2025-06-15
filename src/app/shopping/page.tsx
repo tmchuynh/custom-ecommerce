@@ -243,7 +243,7 @@ export default function ShoppingPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="mx-auto px-4 py-8 container">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         {/* Header */}
         <div className="mb-8">
           <h1 className="mb-2 font-bold text-4xl text-foreground">
@@ -405,110 +405,100 @@ export default function ShoppingPage() {
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="flex lg:flex-row flex-col gap-8">
-          {/* Sidebar Filters */}
-          {showFilters && (
-            <div className="lg:w-80 shrink-0">
-              <div className="shadow-sm p-6 border rounded-xl">
-                <div className="space-y-6">
-                  {/* Search */}
-                  <div>
-                    <label className="block mb-3 font-medium text-sm">
-                      Search Products
-                    </label>
-                    <div className="relative">
-                      <Search className="top-1/2 left-3 absolute w-4 h-4 text-muted-foreground transform -translate-y-1/2" />
-                      <input
-                        type="text"
-                        placeholder="Search products..."
-                        value={activeFilters.searchQuery || ""}
-                        onChange={(e) =>
-                          handleFilterChange({ searchQuery: e.target.value })
-                        }
-                        className="bg-background py-2 pr-4 pl-10 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
-                      />
-                    </div>
-                  </div>
+        {/* Sidebar Filters */}
+        {showFilters && (
+          <div className="flex lg:flex-row flex-col gap-3 shadow-sm p-6 border rounded-xl w-full">
+            {/* Search */}
+            <div>
+              <label className="block mb-3 font-medium text-sm">
+                Search Products
+              </label>
+              <div className="relative">
+                <Search className="top-1/2 left-3 absolute w-4 h-4 text-muted-foreground transform -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search products..."
+                  value={activeFilters.searchQuery || ""}
+                  onChange={(e) =>
+                    handleFilterChange({ searchQuery: e.target.value })
+                  }
+                  className="bg-background py-2 pr-4 pl-10 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
+                />
+              </div>
+            </div>
 
-                  {/* Categories */}
-                  <div>
-                    <label className="block mb-3 font-medium text-sm">
-                      Category
-                    </label>
-                    <Select
-                      value={activeFilters.category || "all"}
-                      onValueChange={(value) =>
-                        handleFilterChange({ category: value })
-                      }
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="All Categories" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="all">All Categories</SelectItem>
-                        {categories.map((category) => (
-                          <SelectItem key={category} value={category}>
-                            {category.charAt(0).toUpperCase() +
-                              category.slice(1)}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  {/* Price Range */}
-                  <div>
-                    <label className="block mb-3 font-medium text-sm">
-                      Price Range
-                    </label>
-                    <div className="flex gap-3">
-                      <div className="flex-1">
-                        <input
-                          type="number"
-                          placeholder="Min"
-                          value={activeFilters.priceRange?.min || ""}
-                          onChange={(e) =>
-                            handleFilterChange({
-                              priceRange: {
-                                ...activeFilters.priceRange,
-                                min: e.target.value
-                                  ? Number(e.target.value)
-                                  : undefined,
-                              },
-                            })
-                          }
-                          className="bg-background px-3 py-2 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
-                        />
-                      </div>
-                      <span className="text-muted-foreground self-center">
-                        —
-                      </span>
-                      <div className="flex-1">
-                        <input
-                          type="number"
-                          placeholder="Max"
-                          value={activeFilters.priceRange?.max || ""}
-                          onChange={(e) =>
-                            handleFilterChange({
-                              priceRange: {
-                                ...activeFilters.priceRange,
-                                max: e.target.value
-                                  ? Number(e.target.value)
-                                  : undefined,
-                              },
-                            })
-                          }
-                          className="bg-background px-3 py-2 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
-                        />
-                      </div>
-                    </div>
-                  </div>
+            {/* Categories */}
+            <div>
+              <label className="block mb-3 font-medium text-sm">Category</label>
+              <Select
+                value={activeFilters.category || "all"}
+                onValueChange={(value) =>
+                  handleFilterChange({ category: value })
+                }
+              >
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="All Categories" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">All Categories</SelectItem>
+                  {categories.map((category) => (
+                    <SelectItem key={category} value={category}>
+                      {category.charAt(0).toUpperCase() + category.slice(1)}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            {/* Price Range */}
+            <div>
+              <label className="block mb-3 font-medium text-sm">
+                Price Range
+              </label>
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <input
+                    type="number"
+                    placeholder="Min"
+                    value={activeFilters.priceRange?.min || ""}
+                    onChange={(e) =>
+                      handleFilterChange({
+                        priceRange: {
+                          ...activeFilters.priceRange,
+                          min: e.target.value
+                            ? Number(e.target.value)
+                            : undefined,
+                        },
+                      })
+                    }
+                    className="bg-background px-3 py-2 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
+                  />
+                </div>
+                <span className="text-muted-foreground self-center">—</span>
+                <div className="flex-1">
+                  <input
+                    type="number"
+                    placeholder="Max"
+                    value={activeFilters.priceRange?.max || ""}
+                    onChange={(e) =>
+                      handleFilterChange({
+                        priceRange: {
+                          ...activeFilters.priceRange,
+                          max: e.target.value
+                            ? Number(e.target.value)
+                            : undefined,
+                        },
+                      })
+                    }
+                    className="bg-background px-3 py-2 border border-slate-200 focus:border-primary dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary/20 w-full transition-colors outline-none"
+                  />
                 </div>
               </div>
             </div>
-          )}
+          </div>
+        )}
 
+        {/* Main Content */}
+        <div className="flex lg:flex-row flex-col gap-8 mt-9">
           {/* Products Grid/List */}
           <div className="flex-1">
             {currentProducts.length === 0 ? (
