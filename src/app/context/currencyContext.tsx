@@ -1,277 +1,213 @@
 "use client";
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  ReactNode,
-  JSX,
-  useCallback,
-} from "react";
-// import { countryTaxRates } from "@/lib/constants/taxRatesConstant"; // Commented out as it's not used here
-import { CurrencyContextType } from "@/lib/contextTypes";
-// import { CountryTaxInfo } from "@/lib/interfaces"; // Commented out as it's not used here
-import { Currency, CurrencyCode } from "@/lib/types";
-import { currencyCountries } from "@/lib/constants/countriesConstant";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
-/**
- * Context for managing the current currency.
- *
- * Provides a way to access and update the selected currency throughout the application.
- */
+export interface CurrencyRates {
+  [key: string]: number;
+}
+
+export interface CurrencyData {
+  code: string;
+  name: string;
+  symbol: string;
+}
+
+export interface CurrencyContextType {
+  currentCurrency: CurrencyData;
+  rates: CurrencyRates;
+  isLoading: boolean;
+  error: string | null;
+  setCurrency: (currency: CurrencyData) => void;
+  convertPrice: (price: number, fromCurrency?: string) => number;
+  formatPrice: (price: number, fromCurrency?: string) => string;
+  refreshRates: () => Promise<void>;
+}
+
+const defaultCurrency: CurrencyData = {
+  code: "USD",
+  name: "US Dollar",
+  symbol: "$",
+};
+
+const currencies: CurrencyData[] = [
+  { code: "USD", name: "US Dollar", symbol: "$" },
+  { code: "EUR", name: "Euro", symbol: "€" },
+  { code: "GBP", name: "British Pound", symbol: "£" },
+  { code: "JPY", name: "Japanese Yen", symbol: "¥" },
+  { code: "AUD", name: "Australian Dollar", symbol: "A$" },
+  { code: "CAD", name: "Canadian Dollar", symbol: "C$" },
+  { code: "CNY", name: "Chinese Yuan", symbol: "¥" },
+  { code: "INR", name: "Indian Rupee", symbol: "₹" },
+  { code: "RUB", name: "Russian Ruble", symbol: "₽" },
+];
+
 const CurrencyContext = createContext<CurrencyContextType | undefined>(
   undefined
 );
 
-export const CurrencyProvider = ({
+export const useCurrency = () => {
+  const context = useContext(CurrencyContext);
+  if (!context) {
+    throw new Error("useCurrency must be used within a CurrencyProvider");
+  }
+  return context;
+};
+
+export const CurrencyProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
-}: {
-  children: ReactNode;
-}): JSX.Element => {
-  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(() => {
-    // Load saved currency from localStorage on initial load
-    if (typeof window !== "undefined") {
-      const savedCurrency = localStorage.getItem("selectedCurrency");
-      if (savedCurrency) {
-        try {
-          const parsedCurrency = JSON.parse(savedCurrency);
-          if (parsedCurrency?.code && parsedCurrency?.name) {
-            return {
-              ...parsedCurrency,
-              rate: parsedCurrency.rate || 1,
-              symbol:
-                parsedCurrency.symbol ||
-                currencyCountries.find((c) => c.code === parsedCurrency.code)
-                  ?.symbol ||
-                "$",
-            };
-          }
-        } catch (error) {
-          console.error("Error parsing saved currency:", error);
-          localStorage.removeItem("selectedCurrency");
-        }
-      }
-    }
-    return { code: "USD", name: "US Dollar", rate: 1, symbol: "$" }; // Default
-  });
+}) => {
+  const [currentCurrency, setCurrentCurrency] =
+    useState<CurrencyData>(defaultCurrency);
+  const [rates, setRates] = useState<CurrencyRates>({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const [exchangeRates, setExchangeRates] = useState<{ [key: string]: number }>(
-    {}
-  );
-  const [lastRatesUpdate, setLastRatesUpdate] = useState<Date | null>(null);
-  const [loadingRates, setLoadingRates] = useState(true);
-  const [errorRates, setErrorRates] = useState<string | null>(null);
+  const fetchExchangeRates = async () => {
+    try {
+      setIsLoading(true);
+      setError(null);
 
-  // Fetch exchange rates from API
-  useEffect(() => {
-    const fetchRates = async () => {
-      setLoadingRates(true);
-      setErrorRates(null);
-      const apiKey = process.env.NEXT_PUBLIC_EXCHANGERATE_API_KEY;
+      const apiKey = process.env.NEXT_PUBLIC_EXCHANGE_RATE_API_KEY;
+
+      // If no API key, use fallback rates immediately
       if (!apiKey) {
-        console.warn("ExchangeRate API key not found. Using fallback rates.");
-        setErrorRates(
-          "API key missing. Currency conversion will use default rates."
-        );
-        // Fallback: Use rates from currencyCountries if API fails or key is missing
-        const fallbackRates = currencyCountries.reduce((acc, curr) => {
-          acc[curr.code] = curr.rate || 1; // Ensure rate is a number
-          return acc;
-        }, {} as { [key: string]: number });
-        setExchangeRates(fallbackRates);
-        setLastRatesUpdate(new Date()); // Indicate rates (even if fallback) are set
-        setLoadingRates(false);
-
-        // Update selected currency with fallback rate
-        const fallbackSelectedRate = fallbackRates[selectedCurrency.code] || 1;
-        setSelectedCurrency((prev) => ({
-          ...prev,
-          rate: fallbackSelectedRate,
-        }));
+        console.warn("Exchange rate API key not found. Using fallback rates.");
+        setFallbackRates();
         return;
       }
 
-      try {
-        const response = await fetch(
-          `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`
-        );
-        if (!response.ok) {
-          throw new Error(
-            `Failed to fetch exchange rates: ${response.statusText} (status: ${response.status})`
-          );
-        }
-        const data = await response.json();
-        if (data.result === "success" && data.conversion_rates) {
-          setExchangeRates(data.conversion_rates);
-          setLastRatesUpdate(new Date(data.time_last_update_unix * 1000));
-          // Update selected currency rate based on newly fetched rates
-          const currentSelectedCode = selectedCurrency.code; // Use a stable value
-          const newRateForSelected = data.conversion_rates[currentSelectedCode];
-
-          if (newRateForSelected) {
-            setSelectedCurrency((prev) => ({
-              ...prev,
-              rate: newRateForSelected,
-            }));
-          } else if (currentSelectedCode === "USD") {
-            setSelectedCurrency((prev) => ({ ...prev, rate: 1 })); // USD base rate is 1
-          } else {
-            // If the selected currency is not in the new rates (should not happen with 'USD' base)
-            console.warn(
-              `Rate for ${currentSelectedCode} not found in new rates. Keeping existing rate.`
-            );
-          }
-        } else {
-          throw new Error(data.error_type || "Invalid API response structure");
-        }
-      } catch (error) {
-        console.error("Error fetching exchange rates:", error);
-        setErrorRates(
-          error instanceof Error
-            ? error.message
-            : "Unknown error fetching rates."
-        );
-        // Fallback: Use rates from currencyCountries if API fails
-        const fallbackRates = currencyCountries.reduce((acc, curr) => {
-          acc[curr.code] = curr.rate || 1; // Ensure rate is a number
-          return acc;
-        }, {} as { [key: string]: number });
-        setExchangeRates(fallbackRates);
-        const fallbackSelectedRate = fallbackRates[selectedCurrency.code] || 1;
-        setSelectedCurrency((prev) => ({
-          ...prev,
-          rate: fallbackSelectedRate,
-        }));
-      } finally {
-        setLoadingRates(false);
-      }
-    };
-
-    fetchRates();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Removed selectedCurrency.code from dependency array to prevent re-fetching on currency change if rates are already loaded
-
-  // Update localStorage when selectedCurrency changes
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem(
-        "selectedCurrency",
-        JSON.stringify(selectedCurrency)
+      const response = await fetch(
+        `https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`
       );
+
+      if (!response.ok) {
+        console.warn(
+          `Exchange rate API error: ${response.status}. Using fallback rates.`
+        );
+        setFallbackRates();
+        return;
+      }
+
+      const data = await response.json();
+
+      if (data.result !== "success") {
+        console.warn(
+          `Exchange rate API error: ${
+            data["error-type"] || "Unknown"
+          }. Using fallback rates.`
+        );
+        setFallbackRates();
+        return;
+      }
+
+      setRates(data.conversion_rates);
+    } catch (err) {
+      console.warn("Error fetching exchange rates:", err);
+      setFallbackRates();
+    } finally {
+      setIsLoading(false);
     }
-  }, [selectedCurrency]);
+  };
 
-  const updateCurrency = useCallback(
-    (currencyCode: CurrencyCode) => {
-      const newCurrencyDetails = currencyCountries.find(
-        (c) => c.code === currencyCode
-      );
-      if (newCurrencyDetails) {
-        const newRate =
-          exchangeRates[currencyCode] || newCurrencyDetails.rate || 1; // Use fetched rate if available
-        setSelectedCurrency({
-          code: newCurrencyDetails.code,
-          name: newCurrencyDetails.name,
-          rate: newRate,
-          symbol: newCurrencyDetails.symbol,
-        });
-      } else {
-        console.warn(
-          `Currency code ${currencyCode} not found in currencyCountries.`
-        );
-        // Optionally, fall back to USD or keep current if new code is invalid
-        if (currencyCode === "USD") {
-          setSelectedCurrency({
-            code: "USD",
-            name: "US Dollar",
-            rate: exchangeRates["USD"] || 1,
-            symbol: "$",
-          });
-        }
-      }
-    },
-    [exchangeRates]
-  );
+  const setFallbackRates = () => {
+    // Use static fallback rates (approximate values as of 2024)
+    setRates({
+      USD: 1,
+      EUR: 0.92,
+      GBP: 0.79,
+      JPY: 149.5,
+      AUD: 1.52,
+      CAD: 1.36,
+      CNY: 7.23,
+      INR: 83.1,
+      RUB: 92.5,
+    });
+    setError(null); // Don't show error for fallback rates
+  };
 
-  const convertPrice = useCallback(
-    (priceInUSD: number, toCurrencyCode?: CurrencyCode) => {
-      const targetCurrency = toCurrencyCode || selectedCurrency.code;
-      const rate = exchangeRates[targetCurrency];
-      if (typeof rate === "number") {
-        return priceInUSD * rate;
-      }
-      // Fallback if rate not found (e.g., during initial load or error)
-      const fallbackCurrencyDetails = currencyCountries.find(
-        (c) => c.code === targetCurrency
-      );
-      return priceInUSD * (fallbackCurrencyDetails?.rate || 1);
-    },
-    [exchangeRates, selectedCurrency.code]
-  );
+  useEffect(() => {
+    fetchExchangeRates();
 
-  const formatPrice = useCallback(
-    (priceInUSD: number, currencyCode?: CurrencyCode) => {
-      const targetCurrencyCode = currencyCode || selectedCurrency.code;
-      const convertedPrice = convertPrice(priceInUSD, targetCurrencyCode);
-      const currencyInfo =
-        currencyCountries.find((c) => c.code === targetCurrencyCode) ||
-        selectedCurrency;
+    // Refresh rates every hour
+    const interval = setInterval(fetchExchangeRates, 3600000);
 
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // Load saved currency preference from localStorage
+    const savedCurrency = localStorage.getItem("preferred-currency");
+    if (savedCurrency) {
       try {
-        return new Intl.NumberFormat(undefined, {
-          // Use locale-sensitive formatting
-          style: "currency",
-          currency: targetCurrencyCode,
-          currencyDisplay: "symbol", // Use symbol like $, €, etc.
-        }).format(convertedPrice);
-      } catch (e) {
-        // Fallback for unsupported currency codes by Intl.NumberFormat
-        console.warn(
-          `Formatting for ${targetCurrencyCode} failed, using fallback:`,
-          e
-        );
-        return `${currencyInfo.symbol}${convertedPrice.toFixed(2)}`;
+        const currency = JSON.parse(savedCurrency);
+        const validCurrency = currencies.find((c) => c.code === currency.code);
+        if (validCurrency) {
+          setCurrentCurrency(validCurrency);
+        }
+      } catch (err) {
+        console.error("Error loading saved currency:", err);
       }
-    },
-    [convertPrice, selectedCurrency]
-  );
+    }
+  }, []);
 
-  const value = {
-    selectedCurrency,
-    updateCurrency,
-    exchangeRates,
-    lastRatesUpdate,
-    loadingRates,
-    errorRates,
-    convertPrice, // Added convertPrice to context
-    formatPrice, // Added formatPrice to context
-    // --- Tax related properties (commented out as per previous discussion if not immediately needed) ---
-    // selectedCountryForTax: "US", // Default or from user profile
-    // setSelectedCountryForTax: () => {}, // Placeholder
-    // getTaxRate: (countryCode: string) => {
-    //   const countryInfo = countryTaxRates.find(
-    //     (ct: CountryTaxInfo) => ct.countryCode === countryCode
-    //   );
-    //   return countryInfo ? countryInfo.taxRate : 0; // Default to 0 if not found
-    // },
-    // calculateTotalPriceWithTax: (price: number, countryCode: string) => {
-    //   const taxRate = getTaxRate(countryCode);
-    //   return price * (1 + taxRate);
-    // },
+  const setCurrency = (currency: CurrencyData) => {
+    setCurrentCurrency(currency);
+    localStorage.setItem("preferred-currency", JSON.stringify(currency));
+  };
+
+  const convertPrice = (
+    price: number,
+    fromCurrency: string = "USD"
+  ): number => {
+    if (!rates || Object.keys(rates).length === 0) {
+      return price;
+    }
+
+    // Convert from source currency to USD first
+    const usdPrice =
+      fromCurrency === "USD" ? price : price / rates[fromCurrency];
+
+    // Then convert from USD to target currency
+    const convertedPrice = usdPrice * rates[currentCurrency.code];
+
+    return convertedPrice;
+  };
+
+  const formatPrice = (price: number, fromCurrency: string = "USD"): string => {
+    const convertedPrice = convertPrice(price, fromCurrency);
+
+    // Format based on currency
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: currentCurrency.code,
+      minimumFractionDigits: currentCurrency.code === "JPY" ? 0 : 2,
+      maximumFractionDigits: currentCurrency.code === "JPY" ? 0 : 2,
+    });
+
+    return formatter.format(convertedPrice);
+  };
+
+  const refreshRates = async () => {
+    await fetchExchangeRates();
+  };
+
+  const contextValue: CurrencyContextType = {
+    currentCurrency,
+    rates,
+    isLoading,
+    error,
+    setCurrency,
+    convertPrice,
+    formatPrice,
+    refreshRates,
   };
 
   return (
-    <CurrencyContext.Provider value={value}>
+    <CurrencyContext.Provider value={contextValue}>
       {children}
     </CurrencyContext.Provider>
   );
 };
 
-export const useCurrency = (): CurrencyContextType => {
-  const context = useContext(CurrencyContext);
-  if (context === undefined) {
-    throw new Error("useCurrency must be used within a CurrencyProvider");
-  }
-  return context;
-};
+export { currencies };
+export default CurrencyContext;
