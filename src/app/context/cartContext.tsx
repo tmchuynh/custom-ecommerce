@@ -407,6 +407,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     items,
     totalItems,
     totalPrice,
+    appliedDiscount,
+    discountAmount,
+    subtotalAfterDiscount,
     shippingFee,
     grandTotal,
     addToCart,
@@ -417,10 +420,6 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     getCartItemQuantity,
     applyDiscount,
     removeDiscount,
-    appliedDiscount,
-    discountAmount: appliedDiscount ? appliedDiscount.discountAmount : 0,
-    subtotalAfterDiscount:
-      totalPrice - (appliedDiscount ? appliedDiscount.discountAmount : 0),
   };
 
   return (
