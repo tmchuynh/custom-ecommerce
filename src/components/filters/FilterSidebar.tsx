@@ -1,21 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react"; // Added useEffect
+import { useState, useEffect } from "react";
+import { useCurrency } from "@/app/context/currencyContext"; // Import useCurrency
 
 interface FilterSidebarProps {
   onFilterChange: (filters: {
-    priceRange?: { min?: number; max?: number };
-    sortBy?: string; // e.g., 'price:asc', 'title:desc' - to match DummyJSON potential or be parsed
+    priceRange?: { min?: number; max?: number }; // Price range in USD
+    sortBy?: string;
     searchQuery?: string;
   }) => void;
-  // Removed initialFilters as filters are now applied on button click or search input change
 }
 
 export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
-  const [sortBy, setSortBy] = useState("default"); // 'default' means no specific sort order from sidebar
+  const [minPriceInput, setMinPriceInput] = useState(""); // Input string for min price
+  const [maxPriceInput, setMaxPriceInput] = useState(""); // Input string for max price
+  const [sortBy, setSortBy] = useState("default");
   const [searchQuery, setSearchQuery] = useState("");
+  const { convertPrice, currentCurrency } = useCurrency(); // Get currency context
 
   // Debounce search input
   useEffect(() => {
@@ -37,10 +38,21 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
   }, [searchQuery]); // Removed onFilterChange from deps to avoid loop if it's not memoized
 
   const handleApplyFilters = () => {
+    let minPriceUSD, maxPriceUSD;
+
+    if (minPriceInput) {
+      // Convert min price from current currency to USD for filtering
+      minPriceUSD = convertPrice(parseFloat(minPriceInput), currentCurrency.code);
+    }
+    if (maxPriceInput) {
+      // Convert max price from current currency to USD for filtering
+      maxPriceUSD = convertPrice(parseFloat(maxPriceInput), currentCurrency.code);
+    }
+
     onFilterChange({
       priceRange: {
-        min: minPrice ? parseFloat(minPrice) : undefined,
-        max: maxPrice ? parseFloat(maxPrice) : undefined,
+        min: minPriceUSD,
+        max: maxPriceUSD,
       },
       sortBy: sortBy === "default" ? undefined : sortBy,
       searchQuery: searchQuery.trim() || undefined,
@@ -57,10 +69,18 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortBy(e.target.value);
     // Automatically apply filters when sort changes
+    let minPriceUSD, maxPriceUSD;
+    if (minPriceInput) {
+      minPriceUSD = convertPrice(parseFloat(minPriceInput), currentCurrency.code);
+    }
+    if (maxPriceInput) {
+      maxPriceUSD = convertPrice(parseFloat(maxPriceInput), currentCurrency.code);
+    }
+
     onFilterChange({
       priceRange: {
-        min: minPrice ? parseFloat(minPrice) : undefined,
-        max: maxPrice ? parseFloat(maxPrice) : undefined,
+        min: minPriceUSD,
+        max: maxPriceUSD,
       },
       sortBy: e.target.value === "default" ? undefined : e.target.value,
       searchQuery: searchQuery.trim() || undefined,
@@ -85,13 +105,13 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
 
       {/* Price Range Filter */}
       <div className="mb-6">
-        <h3 className="mb-2 font-medium text-md">Price Range ($)</h3>
+        <h3 className="mb-2 font-medium text-md">Price Range ({currentCurrency.symbol})</h3>
         <div className="flex items-center space-x-2 mb-2">
           <input
             type="number"
             placeholder="Min"
-            value={minPrice}
-            onChange={(e) => setMinPrice(e.target.value)}
+            value={minPriceInput}
+            onChange={(e) => setMinPriceInput(e.target.value)}
             min="0"
             className="dark:bg-gray-700 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0 p-2 border dark:border-gray-600 rounded-md w-full appearance-none [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
@@ -99,8 +119,8 @@ export default function FilterSidebar({ onFilterChange }: FilterSidebarProps) {
           <input
             type="number"
             placeholder="Max"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(e.target.value)}
+            value={maxPriceInput}
+            onChange={(e) => setMaxPriceInput(e.target.value)}
             min="0"
             className="dark:bg-gray-700 [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0 p-2 border dark:border-gray-600 rounded-md w-full appearance-none [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
