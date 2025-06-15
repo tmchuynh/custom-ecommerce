@@ -61,6 +61,7 @@ export interface CartContextType {
   getCartItemQuantity: (productId: number) => number;
   applyDiscount: (code: string) => { success: boolean; message: string };
   removeDiscount: () => void;
+  checkout: () => Promise<{ success: boolean; message: string }>;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
