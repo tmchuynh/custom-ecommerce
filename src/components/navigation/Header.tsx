@@ -86,7 +86,7 @@ export default function Header() {
         className="flex justify-between items-center lg:px-8 p-4 border-b"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5" legacyBehavior>
+          <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center gap-2">
               <span className="sr-only">ParagonTrails</span>
               <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-2 rounded-lg text-white">
@@ -124,11 +124,7 @@ export default function Header() {
                 <DropdownMenuContent align="start" className="min-w-[200px]">
                   {item.dropdown.map((sub) => (
                     <DropdownMenuItem asChild key={sub.label}>
-                      <Link
-                        href={sub.href}
-                        className="block px-4 py-2 text-sm"
-                        legacyBehavior
-                      >
+                      <Link href={sub.href} className="block px-4 py-2 text-sm">
                         {sub.label}
                       </Link>
                     </DropdownMenuItem>
@@ -140,7 +136,6 @@ export default function Header() {
                 key={item.label}
                 href={item.href}
                 className="font-medium text-sm hover:text-primary transition-colors"
-                legacyBehavior
               >
                 {item.label}
               </Link>
@@ -196,7 +191,6 @@ export default function Header() {
                               key={sub.label}
                               href={sub.href}
                               className="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg text-gray-600 text-sm"
-                              legacyBehavior
                             >
                               {sub.label}
                             </Link>
@@ -209,7 +203,6 @@ export default function Header() {
                       key={item.label}
                       href={item.href}
                       className="block hover:bg-gray-50 -mx-3 px-3 py-3 rounded-lg font-medium text-base text-primary"
-                      legacyBehavior
                     >
                       {item.label}
                     </Link>
