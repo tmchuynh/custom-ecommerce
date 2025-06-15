@@ -13,6 +13,8 @@ export default function CartPage() {
     items,
     totalItems,
     totalPrice,
+    shippingFee,
+    grandTotal,
     updateQuantity,
     removeFromCart,
     clearCart,
@@ -189,13 +191,13 @@ export default function CartPage() {
                   <span>{formatPrice(totalPrice)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Shipping</span>
-                  <span>FREE</span>
+                  <span>Shipping (12%)</span>
+                  <span>{formatPrice(shippingFee)}</span>
                 </div>
                 <div className="pt-4 border-t">
                   <div className="flex justify-between font-semibold text-lg">
                     <span>Total</span>
-                    <span>{formatPrice(totalPrice)}</span>
+                    <span>{formatPrice(grandTotal)}</span>
                   </div>
                 </div>
                 <Button className="w-full" size="lg">
