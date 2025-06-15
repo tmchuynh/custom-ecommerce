@@ -1,5 +1,6 @@
 "use client";
 
+import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,11 +9,12 @@ import { displayRatingStars } from "@/lib/displayRatingStars";
 import { ProductItem } from "@/lib/interfaces";
 import { cn } from "@/lib/utils";
 import { formatToSlug } from "@/lib/utils/format";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Check, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 
 interface ProductGridProps {
   products: ProductItem[];
@@ -24,6 +26,7 @@ export default function ProductGrid({
   viewMode = "grid",
 }: ProductGridProps) {
   const { formatPrice } = useCurrency();
+  const { addToCart, isInCart } = useCart();
   const router = useRouter();
   const [wishlist, setWishlist] = useState<Set<number>>(new Set());
 
@@ -39,6 +42,20 @@ export default function ProductGrid({
       }
       return newWishlist;
     });
+  };
+
+  const handleAddToCart = (product: ProductItem, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const wasInCart = isInCart(product.id);
+    addToCart(product);
+
+    if (wasInCart) {
+      toast.success(`Added another ${product.title} to cart!`);
+    } else {
+      toast.success(`${product.title} added to cart!`);
+    }
   };
 
   if (viewMode === "list") {
@@ -144,9 +161,23 @@ export default function ProductGrid({
                             </span>
                           )}
                       </div>
-                      <Button size="sm" className="gap-2">
-                        <ShoppingCart className="w-4 h-4" />
-                        Add to Cart
+                      <Button
+                        size="sm"
+                        className="gap-2"
+                        onClick={(e) => handleAddToCart(product, e)}
+                        variant={isInCart(product.id) ? "outline" : "default"}
+                      >
+                        {isInCart(product.id) ? (
+                          <>
+                            <Check className="w-4 h-4" />
+                            Added
+                          </>
+                        ) : (
+                          <>
+                            <ShoppingCart className="w-4 h-4" />
+                            Add to Cart
+                          </>
+                        )}
                       </Button>
                     </div>
                   </div>
@@ -248,9 +279,22 @@ export default function ProductGrid({
               )}
             </div>
 
-            <Button className="gap-2 group-hover:bg-primary/90 w-full transition-colors">
-              <ShoppingCart className="w-4 h-4" />
-              Add to Cart
+            <Button
+              className="gap-2 group-hover:bg-primary/90 w-full transition-colors"
+              onClick={(e) => handleAddToCart(product, e)}
+              variant={isInCart(product.id) ? "outline" : "default"}
+            >
+              {isInCart(product.id) ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  Added
+                </>
+              ) : (
+                <>
+                  <ShoppingCart className="w-4 h-4" />
+                  Add to Cart
+                </>
+              )}
             </Button>
           </div>
         </Card>
