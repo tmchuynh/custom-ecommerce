@@ -62,6 +62,22 @@ export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) 
     }
   }, [wishlistItems, isLoggedIn, user?.id]);
 
+  // Listen for checkout events to mark wishlist items as purchased
+  useEffect(() => {
+    const handleCheckout = (event: CustomEvent) => {
+      const { productIds } = event.detail;
+      if (productIds && Array.isArray(productIds)) {
+        markAsPurchased(productIds);
+      }
+    };
+
+    window.addEventListener("cart-checkout", handleCheckout as EventListener);
+    
+    return () => {
+      window.removeEventListener("cart-checkout", handleCheckout as EventListener);
+    };
+  }, []);
+
   const getStorageKey = () => {
     return user ? `wishlist_${user.id}` : null;
   };
