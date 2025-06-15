@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from "next-themes";
 import { JSX, ReactNode } from "react";
+import { AuthProvider } from "./context/authContext";
 import { CartProvider } from "./context/cartContext";
 import { CurrencyProvider } from "./context/currencyContext";
 import { NotFoundProvider } from "./context/NotFoundContext";
@@ -17,11 +18,13 @@ import { NotFoundProvider } from "./context/NotFoundContext";
 export function Providers({ children }: { children: ReactNode }): JSX.Element {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
-      <CurrencyProvider>
-        <CartProvider>
-          <NotFoundProvider>{children}</NotFoundProvider>
-        </CartProvider>
-      </CurrencyProvider>
+      <AuthProvider>
+        <CurrencyProvider>
+          <CartProvider>
+            <NotFoundProvider>{children}</NotFoundProvider>
+          </CartProvider>
+        </CurrencyProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
