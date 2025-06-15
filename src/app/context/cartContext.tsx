@@ -20,6 +20,8 @@ export interface CartContextType {
   items: CartItem[];
   totalItems: number;
   totalPrice: number;
+  shippingFee: number;
+  grandTotal: number;
   addToCart: (product: ProductItem, quantity?: number) => void;
   removeFromCart: (productId: number) => void;
   updateQuantity: (productId: number, quantity: number) => void;
@@ -133,10 +135,18 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     return total + itemPrice * item.quantity;
   }, 0);
 
+  // Calculate 12% shipping fee (only if there are items in cart)
+  const shippingFee = totalItems > 0 ? totalPrice * 0.12 : 0;
+  
+  // Calculate grand total (subtotal + shipping)
+  const grandTotal = totalPrice + shippingFee;
+
   const contextValue: CartContextType = {
     items,
     totalItems,
     totalPrice,
+    shippingFee,
+    grandTotal,
     addToCart,
     removeFromCart,
     updateQuantity,
