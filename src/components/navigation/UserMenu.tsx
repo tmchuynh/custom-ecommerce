@@ -11,7 +11,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Crown, LogIn, LogOut, Settings, User, UserPlus } from "lucide-react";
+import { Crown, Heart, LogIn, LogOut, Settings, User, UserPlus } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -76,6 +76,12 @@ export default function UserMenu() {
           <Link href="/dashboard" className="cursor-pointer">
             <User className="mr-2 w-4 h-4" />
             <span>Dashboard</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem asChild>
+          <Link href="/wishlist" className="cursor-pointer">
+            <Heart className="mr-2 w-4 h-4" />
+            <span>Wishlist</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>

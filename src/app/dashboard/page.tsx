@@ -2,6 +2,7 @@
 
 import { useAuth } from "@/app/context/authContext";
 import { useCart } from "@/app/context/cartContext";
+import { useWishlist } from "@/app/context/wishlistContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   CreditCard,
   Crown,
+  Heart,
   LogOut,
   Mail,
   Phone,
@@ -25,6 +27,7 @@ import { useEffect } from "react";
 export default function DashboardPage() {
   const { user, isLoggedIn, logout, hasMembership } = useAuth();
   const { totalItems } = useCart();
+  const { wishlistCount, purchasedItems } = useWishlist();
   const { formatPrice } = useCurrency();
   const router = useRouter();
 

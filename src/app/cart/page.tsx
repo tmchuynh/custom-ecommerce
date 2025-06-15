@@ -29,12 +29,14 @@ export default function CartPage() {
     clearCart,
     applyDiscount,
     removeDiscount,
+    checkout,
   } = useCart();
   const { formatPrice } = useCurrency();
   const { user, hasMembership } = useAuth();
 
   const [discountCode, setDiscountCode] = useState("");
   const [isApplyingDiscount, setIsApplyingDiscount] = useState(false);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const handleApplyDiscount = async () => {
     if (!discountCode.trim()) {
@@ -57,6 +59,19 @@ export default function CartPage() {
   const handleRemoveDiscount = () => {
     removeDiscount();
     toast.info("Discount removed");
+  };
+
+  const handleCheckout = async () => {
+    setIsCheckingOut(true);
+    const result = await checkout();
+
+    if (result.success) {
+      toast.success(result.message);
+    } else {
+      toast.error(result.message);
+    }
+
+    setIsCheckingOut(false);
   };
 
   if (items.length === 0) {
@@ -315,8 +330,13 @@ export default function CartPage() {
                     <span>{formatPrice(grandTotal)}</span>
                   </div>
                 </div>
-                <Button className="w-full" size="lg">
-                  Proceed to Checkout
+                <Button
+                  className="w-full"
+                  size="lg"
+                  onClick={handleCheckout}
+                  disabled={isCheckingOut}
+                >
+                  {isCheckingOut ? "Processing..." : "Proceed to Checkout"}
                 </Button>
                 <Button variant="outline" className="w-full" asChild>
                   <Link href="/shopping">Continue Shopping</Link>
