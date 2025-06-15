@@ -4,6 +4,7 @@ import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Minus, Plus, ShoppingBag, Trash2, Tag } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,6 +28,32 @@ export default function CartPage() {
     removeDiscount,
   } = useCart();
   const { formatPrice } = useCurrency();
+
+  const [discountCode, setDiscountCode] = useState("");
+  const [isApplyingDiscount, setIsApplyingDiscount] = useState(false);
+
+  const handleApplyDiscount = async () => {
+    if (!discountCode.trim()) {
+      toast.error("Please enter a discount code");
+      return;
+    }
+
+    setIsApplyingDiscount(true);
+    const result = applyDiscount(discountCode.trim().toUpperCase());
+    
+    if (result.success) {
+      toast.success(result.message);
+      setDiscountCode("");
+    } else {
+      toast.error(result.message);
+    }
+    setIsApplyingDiscount(false);
+  };
+
+  const handleRemoveDiscount = () => {
+    removeDiscount();
+    toast.info("Discount removed");
+  };
 
   if (items.length === 0) {
     return (
