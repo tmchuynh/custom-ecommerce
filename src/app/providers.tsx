@@ -6,6 +6,7 @@ import { AuthProvider } from "./context/authContext";
 import { CartProvider } from "./context/cartContext";
 import { CurrencyProvider } from "./context/currencyContext";
 import { NotFoundProvider } from "./context/NotFoundContext";
+import { WishlistProvider } from "./context/wishlistContext";
 
 /**
  * Providers component that wraps its children with a ThemeProvider.
@@ -21,7 +22,9 @@ export function Providers({ children }: { children: ReactNode }): JSX.Element {
       <AuthProvider>
         <CurrencyProvider>
           <CartProvider>
-            <NotFoundProvider>{children}</NotFoundProvider>
+            <WishlistProvider>
+              <NotFoundProvider>{children}</NotFoundProvider>
+            </WishlistProvider>
           </CartProvider>
         </CurrencyProvider>
       </AuthProvider>
