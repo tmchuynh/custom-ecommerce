@@ -1,7 +1,8 @@
+import { useCurrency } from "@/app/context/currencyContext"; // Added import
 import { ProductItem } from "@/lib/interfaces";
+import { formatToSlug } from "@/lib/utils/format";
 import Image from "next/image";
 import Link from "next/link";
-import { useCurrency } from "@/app/context/currencyContext"; // Added import
 
 interface ProductGridProps {
   products: ProductItem[];
@@ -33,7 +34,11 @@ export default function ProductGrid({ products }: ProductGridProps) {
           <div className="flex justify-between mt-4">
             <div>
               <h3 className="text-gray-700 text-sm dark:text-gray-300">
-                <Link href={`/shopping/${product.category}/${product.id}`} legacyBehavior>
+                <Link
+                  href={`/shopping/${product.category}/${formatToSlug(
+                    product.title
+                  )}`}
+                >
                   <span aria-hidden="true" className="absolute inset-0" />
                   {product.title}
                 </Link>
