@@ -395,14 +395,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     try {
-      // Get wishlist context to mark items as purchased
-      const { useWishlist } = await import("./wishlistContext");
-
       // Extract product IDs from cart items
       const productIds = items.map((item) => item.productId);
 
-      // Mark wishlist items as purchased (this will be handled by wishlist context)
-      // We'll need to handle this in the component level
+      // Emit custom event to notify wishlist context about purchase
+      window.dispatchEvent(
+        new CustomEvent("cart-checkout", {
+          detail: { productIds },
+        })
+      );
 
       // Clear the cart after successful checkout
       clearCart();
