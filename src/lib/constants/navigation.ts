@@ -33,7 +33,7 @@ export const navbarItems = [
       },
       {
         label: "Order Tracking",
-        href: "/track-orders",
+        href: "/track-order",
       },
       {
         label: "Returns & Exchanges",
