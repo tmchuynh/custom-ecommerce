@@ -13,16 +13,12 @@ const selectTriggerVariants = cva(
       variant: {
         default:
           "border-border bg-background hover:border-border/80 focus-visible:border-ring focus-visible:ring-ring/20",
-        minimal:
-          "border-border/30 bg-background hover:bg-muted/30 focus-visible:border-border focus-visible:ring-border/10",
         modern:
           "border-primary/20 bg-background hover:border-primary/40 focus-visible:border-primary focus-visible:ring-primary/20",
         classic:
           "border-secondary/30 bg-background hover:border-secondary focus-visible:border-secondary focus-visible:ring-secondary/20",
         professional:
           "border-slate-200 bg-background hover:border-slate-300 focus-visible:border-slate-400 focus-visible:ring-slate-300/20 dark:border-slate-700 dark:hover:border-slate-600 dark:focus-visible:border-slate-500",
-        glass:
-          "border-white/10 bg-background/60 backdrop-blur-xl hover:bg-background/80 focus-visible:border-white/20 focus-visible:ring-white/10 supports-[backdrop-filter]:bg-background/60",
       },
       size: {
         sm: "h-8 px-2.5 text-xs",
@@ -31,7 +27,7 @@ const selectTriggerVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "professional",
       size: "default",
     },
   }
@@ -43,17 +39,14 @@ const selectContentVariants = cva(
     variants: {
       variant: {
         default: "bg-background text-foreground border-border/20",
-        minimal: "bg-background text-foreground border-0 shadow-sm",
         modern: "bg-background text-foreground border-border/10 shadow-xl",
         classic: "bg-card text-card-foreground border-border shadow-md",
         professional:
           "bg-background text-foreground border-slate-200 dark:border-slate-700 shadow-lg",
-        glass:
-          "bg-background/60 backdrop-blur-xl text-foreground border-white/10 shadow-2xl supports-[backdrop-filter]:bg-background/60",
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "professional",
     },
   }
 );
@@ -65,16 +58,13 @@ const selectItemVariants = cva(
       variant: {
         default:
           "hover:bg-accent/50 focus:bg-accent focus:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground",
-        minimal:
-          "hover:bg-muted/30 focus:bg-muted focus:text-foreground data-[highlighted]:bg-muted data-[highlighted]:text-foreground",
+
         modern:
           "hover:bg-primary/10 focus:bg-primary focus:text-primary-foreground data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground",
         classic:
           "hover:bg-secondary/20 focus:bg-secondary focus:text-secondary-foreground data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground",
         professional:
           "hover:bg-slate-100 dark:hover:bg-slate-800 focus:bg-slate-200 dark:focus:bg-slate-700 focus:text-foreground data-[highlighted]:bg-slate-200 dark:data-[highlighted]:bg-slate-700",
-        glass:
-          "hover:bg-white/10 focus:bg-white/20 focus:text-foreground data-[highlighted]:bg-white/20 data-[highlighted]:text-foreground",
       },
       size: {
         sm: "py-1 pr-6 pl-1.5 text-xs",
@@ -83,7 +73,7 @@ const selectItemVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+      variant: "professional",
       size: "default",
     },
   }
@@ -93,11 +83,9 @@ const selectLabelVariants = cva("font-medium", {
   variants: {
     variant: {
       default: "text-foreground",
-      minimal: "text-muted-foreground",
       modern: "text-primary font-semibold",
       classic: "text-foreground font-medium",
       professional: "text-slate-700 dark:text-slate-300 font-semibold",
-      glass: "text-foreground/90",
     },
     size: {
       sm: "px-1.5 py-1 text-xs",
@@ -106,7 +94,7 @@ const selectLabelVariants = cva("font-medium", {
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: "professional",
     size: "default",
   },
 });
@@ -115,15 +103,13 @@ const selectSeparatorVariants = cva("-mx-1 my-1 h-px pointer-events-none", {
   variants: {
     variant: {
       default: "bg-border/60",
-      minimal: "bg-border/30",
       modern: "bg-primary/20",
       classic: "bg-border",
       professional: "bg-slate-200 dark:bg-slate-700",
-      glass: "bg-white/20",
     },
   },
   defaultVariants: {
-    variant: "default",
+    variant: "professional",
   },
 });
 
@@ -147,7 +133,7 @@ function SelectValue({
 
 function SelectTrigger({
   className,
-  variant = "default",
+  variant = "professional",
   size = "default",
   children,
   ...props
@@ -175,7 +161,7 @@ function SelectTrigger({
 
 function SelectContent({
   className,
-  variant = "default",
+  variant = "professional",
   children,
   position = "popper",
   ...props
@@ -213,7 +199,7 @@ function SelectContent({
 
 function SelectLabel({
   className,
-  variant = "default",
+  variant = "professional",
   size = "default",
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Label> &
@@ -230,7 +216,7 @@ function SelectLabel({
 
 function SelectItem({
   className,
-  variant = "default",
+  variant = "professional",
   size = "default",
   children,
   ...props
@@ -272,7 +258,7 @@ function SelectItem({
 
 function SelectSeparator({
   className,
-  variant = "default",
+  variant = "professional",
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Separator> &
   VariantProps<typeof selectSeparatorVariants>) {
