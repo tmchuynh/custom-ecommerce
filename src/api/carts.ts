@@ -1,33 +1,5 @@
-// Base API URL for DummyJSON
-const API_BASE_URL = "https://dummyjson.com";
-
-export interface CartProduct {
-  id: number;
-  title: string;
-  price: number;
-  quantity: number;
-  total: number;
-  discountPercentage: number;
-  discountedTotal: number;
-  thumbnail: string;
-}
-
-export interface Cart {
-  id: number;
-  products: CartProduct[];
-  total: number;
-  discountedTotal: number;
-  userId: number;
-  totalProducts: number;
-  totalQuantity: number;
-}
-
-export interface UserCartsResponse {
-  carts: Cart[];
-  total: number;
-  skip: number;
-  limit: number;
-}
+import { UserCartsResponse, Cart, CartProduct } from "@/lib/interfaces/cart";
+import { API_BASE_URL } from ".";
 
 /**
  * Fetches all carts (order history) for a specific user
