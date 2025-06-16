@@ -6,10 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProductItem } from "@/lib/interfaces";
-import { cn } from "@/lib/utils";
 import { Grid3X3, List, Package, Search } from "lucide-react";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CategoryData {
   id: string;
@@ -120,14 +119,14 @@ export default function CategoriesPage() {
         {!selectedCategory ? (
           <>
             {/* Category Overview Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-3 mb-8">
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3">
                     <Package className="w-8 h-8 text-primary" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Total Categories</p>
-                      <p className="text-2xl font-bold">{categories.length}</p>
+                      <p className="text-muted-foreground text-sm">Total Categories</p>
+                      <p className="font-bold text-2xl">{categories.length}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -137,8 +136,8 @@ export default function CategoriesPage() {
                   <div className="flex items-center gap-3">
                     <Grid3X3 className="w-8 h-8 text-primary" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Total Products</p>
-                      <p className="text-2xl font-bold">{products.length}</p>
+                      <p className="text-muted-foreground text-sm">Total Products</p>
+                      <p className="font-bold text-2xl">{products.length}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -148,8 +147,8 @@ export default function CategoriesPage() {
                   <div className="flex items-center gap-3">
                     <Search className="w-8 h-8 text-primary" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Largest Category</p>
-                      <p className="text-2xl font-bold">
+                      <p className="text-muted-foreground text-sm">Largest Category</p>
+                      <p className="font-bold text-2xl">
                         {Math.max(...categories.map(cat => cat.count))} items
                       </p>
                     </div>
@@ -159,11 +158,11 @@ export default function CategoriesPage() {
             </div>
 
             {/* Category Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {categories.map((category) => (
                 <Card
                   key={category.id}
-                  className="hover:shadow-lg transition-all duration-300 cursor-pointer group"
+                  className="group hover:shadow-lg transition-all duration-300 cursor-pointer"
                   onClick={() => setSelectedCategory(category.id)}
                 >
                   <CardHeader className="pb-3">
@@ -181,15 +180,15 @@ export default function CategoriesPage() {
                     
                     {/* Sample products preview */}
                     <div className="space-y-2">
-                      <p className="text-sm text-muted-foreground">Sample items:</p>
+                      <p className="text-muted-foreground text-sm">Sample items:</p>
                       <div className="space-y-1">
                         {category.products.slice(0, 3).map((product) => (
-                          <p key={product.id} className="text-xs text-muted-foreground truncate">
+                          <p key={product.id} className="text-muted-foreground text-xs truncate">
                             • {product.title}
                           </p>
                         ))}
                         {category.count > 3 && (
-                          <p className="text-xs text-muted-foreground italic">
+                          <p className="text-muted-foreground text-xs italic">
                             +{category.count - 3} more items
                           </p>
                         )}
@@ -204,7 +203,7 @@ export default function CategoriesPage() {
           <>
             {/* Category Products View */}
             <div className="mb-6">
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div className="flex sm:flex-row flex-col justify-between items-start sm:items-center gap-4">
                 <div>
                   <Button
                     variant="ghost"
@@ -213,7 +212,7 @@ export default function CategoriesPage() {
                   >
                     ← Back to Categories
                   </Button>
-                  <h2 className="text-2xl font-bold">
+                  <h2 className="font-bold text-2xl">
                     {selectedCategoryData?.name}
                   </h2>
                   <p className="text-muted-foreground">
