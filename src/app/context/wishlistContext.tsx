@@ -62,6 +62,18 @@ export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) 
     }
   }, [wishlistItems, isLoggedIn, user?.id]);
 
+  const markAsPurchased = (productIds: number[]) => {
+    if (!isLoggedIn) return;
+
+    setWishlistItems(prev => 
+      prev.map(item => 
+        productIds.includes(item.id) 
+          ? { ...item, isPurchased: true, purchasedAt: new Date() }
+          : item
+      )
+    );
+  };
+
   // Listen for checkout events to mark wishlist items as purchased
   useEffect(() => {
     const handleCheckout = (event: CustomEvent) => {
@@ -76,7 +88,7 @@ export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) 
     return () => {
       window.removeEventListener("cart-checkout", handleCheckout as EventListener);
     };
-  }, []);
+  }, [isLoggedIn]); // Add isLoggedIn as dependency
 
   const getStorageKey = () => {
     return user ? `wishlist_${user.id}` : null;
@@ -178,18 +190,6 @@ export const WishlistProvider: React.FC<WishlistProviderProps> = ({ children }) 
       console.error("Error moving to cart:", error);
       return { success: false, message: "Failed to move item to cart" };
     }
-  };
-
-  const markAsPurchased = (productIds: number[]) => {
-    if (!isLoggedIn) return;
-
-    setWishlistItems(prev => 
-      prev.map(item => 
-        productIds.includes(item.id) 
-          ? { ...item, isPurchased: true, purchasedAt: new Date() }
-          : item
-      )
-    );
   };
 
   const isInWishlist = (productId: number): boolean => {
