@@ -70,8 +70,18 @@ import {
     AddressValidationResult,
     ValidatedAddress,
 } from "@/lib/interfaces/address";
+import { PaymentValidationResult, ValidatedPaymentMethod } from "@/lib/interfaces/payment";
 import { DummyUser } from "@/lib/interfaces/user";
 import { formatPostalCode } from "@/lib/utils/format";
+import {
+  validatePaymentMethodEnhanced,
+  validatePaymentField,
+  validateAndNormalizePaymentMethod,
+  detectCardType,
+  formatCardNumber,
+  maskCardNumber,
+  formatExpiryDate,
+} from "@/lib/utils/payment";
 import { validateAddressEnhanced, validateAndNormalizeAddress, validateAddressField } from "@/lib/utils/validate";
 import {
     ArrowLeft,
@@ -232,6 +242,12 @@ export default function SettingsPage() {
   const [editAddressErrors, setEditAddressErrors] = useState<
     Record<string, string>
   >({});
+  const [newPaymentErrors, setNewPaymentErrors] = useState<
+    Record<string, string>
+  >({});
+  const [editPaymentErrors, setEditPaymentErrors] = useState<
+    Record<string, string>
+  >({});
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -368,74 +384,23 @@ export default function SettingsPage() {
     return result.errors.map((error: any) => error.message);
   };
 
-  const validatePaymentMethod = (
+  const validatePaymentMethodLocal = (
     payment: Omit<PaymentMethod, "id" | "isDefault" | "isFromAPI">
-  ) => {
-    const errors: string[] = [];
+  ): string[] => {
+    // Convert local PaymentMethod interface to ValidatedPaymentMethod for API validation
+    const validatedPayment: Partial<ValidatedPaymentMethod> = {
+      cardNumber: payment.cardNumber,
+      cardType: payment.cardType,
+      cardExpire: payment.cardExpire,
+      cardHolderName: payment.cardHolderName,
+    };
 
-    if (!payment.cardHolderName.trim())
-      errors.push("Cardholder name is required");
-    if (!payment.cardNumber.trim()) errors.push("Card number is required");
-    if (!payment.cardExpire.trim()) errors.push("Expiry date is required");
-
-    // Additional validations
-    if (payment.cardHolderName.length < 2)
-      errors.push("Cardholder name must be at least 2 characters");
-
-    const cardNumberClean = payment.cardNumber.replace(/\s+/g, "");
-    if (cardNumberClean.length < 13 || cardNumberClean.length > 19) {
-      errors.push("Card number must be between 13-19 digits");
-    }
-
-    // Basic Luhn algorithm check
-    if (cardNumberClean.length >= 13 && !isValidCreditCard(cardNumberClean)) {
-      errors.push("Invalid card number");
-    }
-
-    // Expiry date validation (MM/YY format)
-    const expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
-    if (!expiryPattern.test(payment.cardExpire)) {
-      errors.push("Expiry date must be in MM/YY format");
-    } else {
-      const [month, year] = payment.cardExpire.split("/");
-      const currentDate = new Date();
-      const currentYear = currentDate.getFullYear() % 100;
-      const currentMonth = currentDate.getMonth() + 1;
-      const expYear = parseInt(year);
-      const expMonth = parseInt(month);
-
-      if (
-        expYear < currentYear ||
-        (expYear === currentYear && expMonth < currentMonth)
-      ) {
-        errors.push("Card has expired");
-      }
-    }
-
-    return errors;
+    const result: PaymentValidationResult = validatePaymentMethodEnhanced(validatedPayment);
+    
+    // Convert validation errors to string array
+    return result.errors.map((error: any) => error.message);
   };
 
-  const isValidCreditCard = (cardNumber: string): boolean => {
-    // Simple Luhn algorithm implementation
-    let sum = 0;
-    let isEven = false;
-
-    for (let i = cardNumber.length - 1; i >= 0; i--) {
-      let digit = parseInt(cardNumber.charAt(i));
-
-      if (isEven) {
-        digit *= 2;
-        if (digit > 9) {
-          digit -= 9;
-        }
-      }
-
-      sum += digit;
-      isEven = !isEven;
-    }
-
-    return sum % 10 === 0;
-  };
   const handleAddAddress = async () => {
     const validationErrors = validateAddressLocal(newAddress);
 
@@ -480,7 +445,7 @@ export default function SettingsPage() {
   };
 
   const handleAddPaymentMethod = async () => {
-    const validationErrors = validatePaymentMethod(newPaymentMethod);
+    const validationErrors = validatePaymentMethodLocal(newPaymentMethod);
 
     if (validationErrors.length > 0) {
       toast.error(validationErrors[0]); // Show first error
@@ -489,13 +454,19 @@ export default function SettingsPage() {
 
     setIsLoading(true);
     try {
+      // Use normalization to ensure consistent data format
+      const normalizedResult = validateAndNormalizePaymentMethod(newPaymentMethod);
+      
+      if (!normalizedResult.isValid || !normalizedResult.normalizedPayment) {
+        toast.error("Payment method validation failed");
+        return;
+      }
+
       const newPaymentWithId: PaymentMethod = {
-        ...newPaymentMethod,
+        ...normalizedResult.normalizedPayment,
         id: Date.now().toString(),
         isDefault: paymentMethods.length === 0,
-        cardType:
-          newPaymentMethod.cardType ||
-          detectCardType(newPaymentMethod.cardNumber),
+        cardType: normalizedResult.normalizedPayment.cardType,
         isFromAPI: false,
       };
 
@@ -506,6 +477,7 @@ export default function SettingsPage() {
         cardExpire: "",
         cardHolderName: "",
       });
+      setNewPaymentErrors({});
       setShowAddPayment(false);
       toast.success("Payment method added successfully!");
     } catch (error) {
@@ -623,7 +595,7 @@ export default function SettingsPage() {
   const handleSaveEditPayment = async () => {
     if (!editingPayment) return;
 
-    const validationErrors = validatePaymentMethod(editPaymentData);
+    const validationErrors = validatePaymentMethodLocal(editPaymentData);
 
     if (validationErrors.length > 0) {
       toast.error(validationErrors[0]);
@@ -632,21 +604,28 @@ export default function SettingsPage() {
 
     setIsLoading(true);
     try {
+      // Use normalization to ensure consistent data format
+      const normalizedResult = validateAndNormalizePaymentMethod(editPaymentData);
+      
+      if (!normalizedResult.isValid || !normalizedResult.normalizedPayment) {
+        toast.error("Payment method validation failed");
+        return;
+      }
+
       setPaymentMethods((prev) =>
         prev.map((payment) =>
           payment.id === editingPayment
             ? {
                 ...payment,
-                ...editPaymentData,
-                cardType:
-                  editPaymentData.cardType ||
-                  detectCardType(editPaymentData.cardNumber),
+                ...normalizedResult.normalizedPayment!,
+                cardType: normalizedResult.normalizedPayment!.cardType,
               }
             : payment
         )
       );
 
       setEditingPayment(null);
+      setEditPaymentErrors({});
       toast.success("Payment method updated successfully!");
     } catch (error) {
       toast.error("Failed to update payment method. Please try again.");
@@ -659,6 +638,7 @@ export default function SettingsPage() {
     setEditingAddress(null);
     setEditingPayment(null);
     setEditAddressErrors({});
+    setEditPaymentErrors({});
     setEditAddressData({
       address: "",
       city: "",
