@@ -1,5 +1,6 @@
 "use client";
 
+import { DummyUser, fetchUserById } from "@/api/users";
 import { useAuth } from "@/app/context/authContext";
 import {
   AlertDialog,
@@ -30,6 +31,8 @@ import {
   Bell,
   CreditCard,
   Lock,
+  MapPin,
+  Plus,
   Shield,
   Trash2,
   User,
@@ -48,11 +51,31 @@ interface SettingsFormData {
   confirmPassword: string;
   firstName: string;
   lastName: string;
+  middleName: string;
   address: string;
   city: string;
   state: string;
   zipCode: string;
   country: string;
+}
+
+interface Address {
+  id: string;
+  address: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  isDefault: boolean;
+}
+
+interface PaymentMethod {
+  id: string;
+  cardNumber: string;
+  cardType: string;
+  cardExpire: string;
+  cardHolderName: string;
+  isDefault: boolean;
 }
 
 interface NotificationSettings {
@@ -85,6 +108,7 @@ export default function SettingsPage() {
     confirmPassword: "",
     firstName: "",
     lastName: "",
+    middleName: "",
     address: "",
     city: "",
     state: "",
@@ -107,6 +131,29 @@ export default function SettingsPage() {
     personalizedAds: false,
   });
 
+  const [userData, setUserData] = useState<DummyUser | null>(null);
+  const [addresses, setAddresses] = useState<Address[]>([]);
+  const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
+  const [newAddress, setNewAddress] = useState<
+    Omit<Address, "id" | "isDefault">
+  >({
+    address: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "US",
+  });
+  const [newPaymentMethod, setNewPaymentMethod] = useState<
+    Omit<PaymentMethod, "id" | "isDefault">
+  >({
+    cardNumber: "",
+    cardType: "",
+    cardExpire: "",
+    cardHolderName: "",
+  });
+  const [showAddAddress, setShowAddAddress] = useState(false);
+  const [showAddPayment, setShowAddPayment] = useState(false);
+
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login");
@@ -114,12 +161,63 @@ export default function SettingsPage() {
     }
 
     if (user) {
-      setFormData((prev) => ({
-        ...prev,
-        username: user.username || "",
-        email: user.email || "",
-        phoneNumber: user.phoneNumber || "",
-      }));
+      // Use a consistent user ID based on the logged-in user's ID
+      // Convert string ID to number for DummyJSON API (fallback to 1 if parsing fails)
+      const apiUserId = parseInt(user.id) || 1;
+
+      // Load user data from DummyJSON API for demo purposes
+      fetchUserById(apiUserId)
+        .then((apiUser: DummyUser) => {
+          setUserData(apiUser);
+          setFormData((prev) => ({
+            ...prev,
+            username: user.username || "",
+            email: user.email || "",
+            phoneNumber: user.phoneNumber || "",
+            firstName: apiUser.firstName || "",
+            lastName: apiUser.lastName || "",
+            middleName: "", // Not provided by API
+          }));
+
+          // Set addresses from API
+          if (apiUser.address) {
+            setAddresses([
+              {
+                id: "1",
+                address: apiUser.address.address,
+                city: apiUser.address.city,
+                state: apiUser.address.state,
+                postalCode: apiUser.address.postalCode,
+                country: apiUser.address.country,
+                isDefault: true,
+              },
+            ]);
+          }
+
+          // Set payment methods from API
+          if (apiUser.bank) {
+            setPaymentMethods([
+              {
+                id: "1",
+                cardNumber: apiUser.bank.cardNumber,
+                cardType: apiUser.bank.cardType,
+                cardExpire: apiUser.bank.cardExpire,
+                cardHolderName: `${apiUser.firstName} ${apiUser.lastName}`,
+                isDefault: true,
+              },
+            ]);
+          }
+        })
+        .catch((error: Error) => {
+          console.error("Failed to fetch user data:", error);
+          // Fallback to just setting the basic user info
+          setFormData((prev) => ({
+            ...prev,
+            username: user.username || "",
+            email: user.email || "",
+            phoneNumber: user.phoneNumber || "",
+          }));
+        });
     }
   }, [isLoggedIn, user, router]);
 
@@ -152,6 +250,94 @@ export default function SettingsPage() {
 
   const handlePrivacyChange = (field: keyof PrivacySettings, value: any) => {
     setPrivacy((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleAddAddress = async () => {
+    if (
+      !newAddress.address ||
+      !newAddress.city ||
+      !newAddress.state ||
+      !newAddress.postalCode
+    ) {
+      toast.error("Please fill in all address fields");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const newAddressWithId: Address = {
+        ...newAddress,
+        id: Date.now().toString(),
+        isDefault: addresses.length === 0,
+      };
+
+      setAddresses((prev) => [...prev, newAddressWithId]);
+      setNewAddress({
+        address: "",
+        city: "",
+        state: "",
+        postalCode: "",
+        country: "US",
+      });
+      setShowAddAddress(false);
+      toast.success("Address added successfully!");
+    } catch (error) {
+      toast.error("Failed to add address. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleAddPaymentMethod = async () => {
+    if (
+      !newPaymentMethod.cardNumber ||
+      !newPaymentMethod.cardExpire ||
+      !newPaymentMethod.cardHolderName
+    ) {
+      toast.error("Please fill in all payment fields");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const newPaymentWithId: PaymentMethod = {
+        ...newPaymentMethod,
+        id: Date.now().toString(),
+        isDefault: paymentMethods.length === 0,
+        cardType:
+          newPaymentMethod.cardType ||
+          detectCardType(newPaymentMethod.cardNumber),
+      };
+
+      setPaymentMethods((prev) => [...prev, newPaymentWithId]);
+      setNewPaymentMethod({
+        cardNumber: "",
+        cardType: "",
+        cardExpire: "",
+        cardHolderName: "",
+      });
+      setShowAddPayment(false);
+      toast.success("Payment method added successfully!");
+    } catch (error) {
+      toast.error("Failed to add payment method. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const detectCardType = (cardNumber: string): string => {
+    const cleaned = cardNumber.replace(/\s+/g, "");
+    if (cleaned.startsWith("4")) return "Visa";
+    if (cleaned.startsWith("5") || cleaned.startsWith("2")) return "Mastercard";
+    if (cleaned.startsWith("3")) return "American Express";
+    if (cleaned.startsWith("6")) return "Discover";
+    return "Unknown";
+  };
+
+  const formatCardNumber = (number: string): string => {
+    const cleaned = number.replace(/\s+/g, "");
+    const masked = "•••• •••• •••• " + cleaned.slice(-4);
+    return masked;
   };
 
   const handleSaveProfile = async () => {
@@ -292,149 +478,283 @@ export default function SettingsPage() {
                     <User className="w-5 h-5" />
                     Profile & Personal Information
                   </CardTitle>
+                  {userData && (
+                    <p className="text-muted-foreground text-sm">
+                      Personal information is loaded from DummyJSON API (User
+                      ID: {userData.id}) and remains consistent for your
+                      session.
+                    </p>
+                  )}
                 </CardHeader>
                 <CardContent className="space-y-6">
+                  {/* Read-only user info from auth */}
                   <div className="gap-4 grid md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label htmlFor="username">Username</Label>
+                      <Label htmlFor="username">Username (Read-only)</Label>
                       <Input
                         id="username"
                         value={formData.username}
-                        onChange={(e) =>
-                          handleInputChange("username", e.target.value)
-                        }
-                        placeholder="Enter username"
+                        readOnly
+                        className="bg-muted"
+                        placeholder="Username"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">Email (Read-only)</Label>
                       <Input
                         id="email"
                         type="email"
                         value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
-                        }
-                        placeholder="Enter email"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="gap-4 grid md:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName">First Name</Label>
-                      <Input
-                        id="firstName"
-                        value={formData.firstName}
-                        onChange={(e) =>
-                          handleInputChange("firstName", e.target.value)
-                        }
-                        placeholder="Enter first name"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName">Last Name</Label>
-                      <Input
-                        id="lastName"
-                        value={formData.lastName}
-                        onChange={(e) =>
-                          handleInputChange("lastName", e.target.value)
-                        }
-                        placeholder="Enter last name"
+                        readOnly
+                        className="bg-muted"
+                        placeholder="Email"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="phoneNumber">Phone Number</Label>
+                    <Label htmlFor="phoneNumber">
+                      Phone Number (Read-only)
+                    </Label>
                     <Input
                       id="phoneNumber"
                       type="tel"
                       value={formData.phoneNumber}
-                      onChange={(e) =>
-                        handleInputChange("phoneNumber", e.target.value)
-                      }
-                      placeholder="Enter phone number"
+                      readOnly
+                      className="bg-muted"
+                      placeholder="Phone number"
                     />
                   </div>
 
                   <Separator />
 
+                  {/* Editable name fields */}
                   <div className="space-y-4">
                     <h3 className="font-semibold text-lg">
-                      Address Information
+                      Personal Information
                     </h3>
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Street Address</Label>
-                      <Input
-                        id="address"
-                        value={formData.address}
-                        onChange={(e) =>
-                          handleInputChange("address", e.target.value)
-                        }
-                        placeholder="Enter street address"
-                      />
-                    </div>
                     <div className="gap-4 grid md:grid-cols-3">
                       <div className="space-y-2">
-                        <Label htmlFor="city">City</Label>
+                        <Label htmlFor="firstName">First Name</Label>
                         <Input
-                          id="city"
-                          value={formData.city}
+                          id="firstName"
+                          value={formData.firstName}
                           onChange={(e) =>
-                            handleInputChange("city", e.target.value)
+                            handleInputChange("firstName", e.target.value)
                           }
-                          placeholder="Enter city"
+                          placeholder="Enter first name"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="state">State/Province</Label>
+                        <Label htmlFor="middleName">Middle Name</Label>
                         <Input
-                          id="state"
-                          value={formData.state}
+                          id="middleName"
+                          value={formData.middleName}
                           onChange={(e) =>
-                            handleInputChange("state", e.target.value)
+                            handleInputChange("middleName", e.target.value)
                           }
-                          placeholder="Enter state"
+                          placeholder="Enter middle name (optional)"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label htmlFor="zipCode">ZIP/Postal Code</Label>
+                        <Label htmlFor="lastName">Last Name</Label>
                         <Input
-                          id="zipCode"
-                          value={formData.zipCode}
+                          id="lastName"
+                          value={formData.lastName}
                           onChange={(e) =>
-                            handleInputChange("zipCode", e.target.value)
+                            handleInputChange("lastName", e.target.value)
                           }
-                          placeholder="Enter ZIP code"
+                          placeholder="Enter last name"
                         />
                       </div>
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="country">Country</Label>
-                      <Select
-                        value={formData.country}
-                        onValueChange={(value) =>
-                          handleInputChange("country", value)
-                        }
+                  </div>
+
+                  <Separator />
+
+                  {/* Address Management */}
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h3 className="font-semibold text-lg">
+                          Saved Addresses
+                        </h3>
+                        {userData && (
+                          <p className="text-muted-foreground text-sm">
+                            Address from DummyJSON API. Existing addresses
+                            cannot be edited or removed.
+                          </p>
+                        )}
+                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setShowAddAddress(true)}
                       >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select country" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="US">United States</SelectItem>
-                          <SelectItem value="CA">Canada</SelectItem>
-                          <SelectItem value="GB">United Kingdom</SelectItem>
-                          <SelectItem value="AU">Australia</SelectItem>
-                          <SelectItem value="DE">Germany</SelectItem>
-                          <SelectItem value="FR">France</SelectItem>
-                          <SelectItem value="JP">Japan</SelectItem>
-                          <SelectItem value="CN">China</SelectItem>
-                          <SelectItem value="IN">India</SelectItem>
-                          <SelectItem value="BR">Brazil</SelectItem>
-                        </SelectContent>
-                      </Select>
+                        <Plus className="mr-2 w-4 h-4" />
+                        Add Address
+                      </Button>
                     </div>
+
+                    {addresses.length > 0 ? (
+                      <div className="space-y-3">
+                        {addresses.map((address) => (
+                          <Card key={address.id} className="p-4">
+                            <div className="flex justify-between items-start">
+                              <div className="space-y-1">
+                                <div className="flex items-center gap-2">
+                                  <MapPin className="w-4 h-4" />
+                                  <span className="font-medium">
+                                    {address.isDefault && (
+                                      <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
+                                        Default
+                                      </span>
+                                    )}
+                                    Address
+                                  </span>
+                                </div>
+                                <p className="text-muted-foreground text-sm">
+                                  {address.address}
+                                </p>
+                                <p className="text-muted-foreground text-sm">
+                                  {address.city}, {address.state}{" "}
+                                  {address.postalCode}
+                                </p>
+                                <p className="text-muted-foreground text-sm">
+                                  {address.country}
+                                </p>
+                              </div>
+                              <span className="text-muted-foreground text-xs">
+                                Cannot be edited or removed
+                              </span>
+                            </div>
+                          </Card>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-muted-foreground text-sm">
+                        No saved addresses
+                      </p>
+                    )}
+
+                    {/* Add New Address Form */}
+                    {showAddAddress && (
+                      <Card className="p-4 border-dashed">
+                        <div className="space-y-4">
+                          <h4 className="font-medium">Add New Address</h4>
+                          <div className="space-y-3">
+                            <div className="space-y-2">
+                              <Label htmlFor="newAddress">Street Address</Label>
+                              <Input
+                                id="newAddress"
+                                value={newAddress.address}
+                                onChange={(e) =>
+                                  setNewAddress((prev) => ({
+                                    ...prev,
+                                    address: e.target.value,
+                                  }))
+                                }
+                                placeholder="Enter street address"
+                              />
+                            </div>
+                            <div className="gap-4 grid md:grid-cols-3">
+                              <div className="space-y-2">
+                                <Label htmlFor="newCity">City</Label>
+                                <Input
+                                  id="newCity"
+                                  value={newAddress.city}
+                                  onChange={(e) =>
+                                    setNewAddress((prev) => ({
+                                      ...prev,
+                                      city: e.target.value,
+                                    }))
+                                  }
+                                  placeholder="Enter city"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="newState">State/Province</Label>
+                                <Input
+                                  id="newState"
+                                  value={newAddress.state}
+                                  onChange={(e) =>
+                                    setNewAddress((prev) => ({
+                                      ...prev,
+                                      state: e.target.value,
+                                    }))
+                                  }
+                                  placeholder="Enter state"
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="newZipCode">
+                                  ZIP/Postal Code
+                                </Label>
+                                <Input
+                                  id="newZipCode"
+                                  value={newAddress.postalCode}
+                                  onChange={(e) =>
+                                    setNewAddress((prev) => ({
+                                      ...prev,
+                                      postalCode: e.target.value,
+                                    }))
+                                  }
+                                  placeholder="Enter ZIP code"
+                                />
+                              </div>
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="newCountry">Country</Label>
+                              <Select
+                                value={newAddress.country}
+                                onValueChange={(value) =>
+                                  setNewAddress((prev) => ({
+                                    ...prev,
+                                    country: value,
+                                  }))
+                                }
+                              >
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select country" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  <SelectItem value="US">
+                                    United States
+                                  </SelectItem>
+                                  <SelectItem value="CA">Canada</SelectItem>
+                                  <SelectItem value="GB">
+                                    United Kingdom
+                                  </SelectItem>
+                                  <SelectItem value="AU">Australia</SelectItem>
+                                  <SelectItem value="DE">Germany</SelectItem>
+                                  <SelectItem value="FR">France</SelectItem>
+                                  <SelectItem value="JP">Japan</SelectItem>
+                                  <SelectItem value="CN">China</SelectItem>
+                                  <SelectItem value="IN">India</SelectItem>
+                                  <SelectItem value="BR">Brazil</SelectItem>
+                                </SelectContent>
+                              </Select>
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={handleAddAddress}
+                              disabled={isLoading}
+                              size="sm"
+                            >
+                              {isLoading ? "Adding..." : "Add Address"}
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => setShowAddAddress(false)}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
+                    )}
                   </div>
 
                   <Button
@@ -809,14 +1129,171 @@ export default function SettingsPage() {
                     <CreditCard className="w-5 h-5" />
                     Billing & Payment Methods
                   </CardTitle>
+                  {userData && (
+                    <p className="text-muted-foreground text-sm">
+                      Payment information from DummyJSON API. Existing methods
+                      cannot be edited or removed, but you can add new ones.
+                    </p>
+                  )}
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-4">
-                    <h3 className="font-semibold text-lg">Payment Methods</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Manage your saved payment methods for faster checkout
-                    </p>
-                    <Button variant="outline">Add Payment Method</Button>
+                    <div className="flex justify-between items-center">
+                      <h3 className="font-semibold text-lg">Payment Methods</h3>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setShowAddPayment(true)}
+                      >
+                        <Plus className="mr-2 w-4 h-4" />
+                        Add Payment Method
+                      </Button>
+                    </div>
+
+                    {paymentMethods.length > 0 ? (
+                      <div className="space-y-3">
+                        {paymentMethods.map((payment) => (
+                          <Card key={payment.id} className="p-4">
+                            <div className="flex justify-between items-start">
+                              <div className="space-y-1">
+                                <div className="flex items-center gap-2">
+                                  <CreditCard className="w-4 h-4" />
+                                  <span className="font-medium">
+                                    {payment.isDefault && (
+                                      <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
+                                        Default
+                                      </span>
+                                    )}
+                                    {payment.cardType}
+                                  </span>
+                                </div>
+                                <p className="text-muted-foreground text-sm">
+                                  {formatCardNumber(payment.cardNumber)}
+                                </p>
+                                <p className="text-muted-foreground text-sm">
+                                  Expires: {payment.cardExpire}
+                                </p>
+                                <p className="text-muted-foreground text-sm">
+                                  {payment.cardHolderName}
+                                </p>
+                              </div>
+                              <span className="text-muted-foreground text-xs">
+                                Cannot be edited or removed
+                              </span>
+                            </div>
+                          </Card>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-muted-foreground text-sm">
+                        No saved payment methods
+                      </p>
+                    )}
+
+                    {/* Add New Payment Method Form */}
+                    {showAddPayment && (
+                      <Card className="p-4 border-dashed">
+                        <div className="space-y-4">
+                          <h4 className="font-medium">
+                            Add New Payment Method
+                          </h4>
+                          <div className="space-y-3">
+                            <div className="space-y-2">
+                              <Label htmlFor="cardHolderName">
+                                Cardholder Name
+                              </Label>
+                              <Input
+                                id="cardHolderName"
+                                value={newPaymentMethod.cardHolderName}
+                                onChange={(e) =>
+                                  setNewPaymentMethod((prev) => ({
+                                    ...prev,
+                                    cardHolderName: e.target.value,
+                                  }))
+                                }
+                                placeholder="Enter cardholder name"
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="cardNumber">Card Number</Label>
+                              <Input
+                                id="cardNumber"
+                                value={newPaymentMethod.cardNumber}
+                                onChange={(e) =>
+                                  setNewPaymentMethod((prev) => ({
+                                    ...prev,
+                                    cardNumber: e.target.value,
+                                  }))
+                                }
+                                placeholder="1234 5678 9012 3456"
+                                maxLength={19}
+                              />
+                            </div>
+                            <div className="gap-4 grid md:grid-cols-2">
+                              <div className="space-y-2">
+                                <Label htmlFor="cardExpire">Expiry Date</Label>
+                                <Input
+                                  id="cardExpire"
+                                  value={newPaymentMethod.cardExpire}
+                                  onChange={(e) =>
+                                    setNewPaymentMethod((prev) => ({
+                                      ...prev,
+                                      cardExpire: e.target.value,
+                                    }))
+                                  }
+                                  placeholder="MM/YY"
+                                  maxLength={5}
+                                />
+                              </div>
+                              <div className="space-y-2">
+                                <Label htmlFor="cardType">Card Type</Label>
+                                <Select
+                                  value={newPaymentMethod.cardType}
+                                  onValueChange={(value) =>
+                                    setNewPaymentMethod((prev) => ({
+                                      ...prev,
+                                      cardType: value,
+                                    }))
+                                  }
+                                >
+                                  <SelectTrigger>
+                                    <SelectValue placeholder="Select card type" />
+                                  </SelectTrigger>
+                                  <SelectContent>
+                                    <SelectItem value="Visa">Visa</SelectItem>
+                                    <SelectItem value="Mastercard">
+                                      Mastercard
+                                    </SelectItem>
+                                    <SelectItem value="American Express">
+                                      American Express
+                                    </SelectItem>
+                                    <SelectItem value="Discover">
+                                      Discover
+                                    </SelectItem>
+                                  </SelectContent>
+                                </Select>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex gap-2">
+                            <Button
+                              onClick={handleAddPaymentMethod}
+                              disabled={isLoading}
+                              size="sm"
+                            >
+                              {isLoading ? "Adding..." : "Add Payment Method"}
+                            </Button>
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => setShowAddPayment(false)}
+                            >
+                              Cancel
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
+                    )}
                   </div>
 
                   <Separator />
