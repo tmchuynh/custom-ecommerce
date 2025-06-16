@@ -409,7 +409,7 @@ export default function ShoppingPage() {
   if (loading) {
     return (
       <div className="min-h-screen">
-        <div className="mx-auto px-4 py-8 container">
+        <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex justify-center items-center min-h-[60vh]">
             <div className="text-center">
               <div className="mx-auto mb-4 border-primary border-b-2 rounded-full w-12 h-12 animate-spin"></div>
@@ -424,7 +424,7 @@ export default function ShoppingPage() {
   if (error) {
     return (
       <div className="min-h-screen">
-        <div className="mx-auto px-4 py-8 container">
+        <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex justify-center items-center min-h-[60vh]">
             <div className="text-center">
               <div className="mb-4 text-red-500">
