@@ -61,6 +61,7 @@ export interface CartContextType {
   applyDiscount: (code: string) => { success: boolean; message: string };
   removeDiscount: () => void;
   checkout: () => Promise<{ success: boolean; message: string }>;
+  redirectToCheckout: () => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -395,6 +396,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     }
 
     try {
+      // This is the legacy checkout for simple one-click checkout
+      // For full checkout flow, use redirectToCheckout instead
+
       // Extract product IDs from cart items
       const productIds = items.map((item) => item.productId);
 
@@ -420,6 +424,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         message: "Something went wrong during checkout. Please try again.",
       };
     }
+  };
+
+  const redirectToCheckout = () => {
+    // Redirect to the comprehensive checkout page
+    window.location.href = "/checkout";
   };
 
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
@@ -474,6 +483,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     applyDiscount,
     removeDiscount,
     checkout,
+    redirectToCheckout,
   };
 
   return (
