@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md focus-visible:ring-primary/20",
+          "text-foreground shadow-sm hover:bg-primary/90 hover:shadow-md focus-visible:ring-primary/20",
 
         minimal:
           "bg-card text-card-foreground border border-muted shadow-none hover:bg-muted/40 hover:border-muted-foreground/20 focus-visible:ring-muted-foreground/30",
