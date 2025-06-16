@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Clock,
@@ -30,14 +37,19 @@ export default function ContactUsPage() {
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      category: value,
     }));
   };
 
@@ -137,7 +149,7 @@ export default function ContactUsPage() {
       <section className="relative py-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge variant={"gradientInfo"}>Get in Touch</Badge>
+            <Badge variant="secondary">Get in Touch</Badge>
             <h1 className="my-6 font-bold text-4xl md:text-6xl">
               We're Here to Help
             </h1>
@@ -223,21 +235,30 @@ export default function ContactUsPage() {
 
                   <div>
                     <Label htmlFor="category">Category</Label>
-                    <select
-                      id="category"
-                      name="category"
+                    <Select
                       value={formData.category}
-                      onChange={handleInputChange}
-                      className="flex bg-background px-3 py-2 border border-input rounded-md focus-visible:ring-2 focus-visible:ring-ring ring-offset-background focus-visible:ring-offset-2 w-full h-10 text-sm placeholder:text-muted-foreground focus-visible:outline-none"
+                      onValueChange={handleSelectChange}
                     >
-                      <option value="">Select a category</option>
-                      <option value="orders">Orders & Shipping</option>
-                      <option value="account">Account & Membership</option>
-                      <option value="returns">Returns & Refunds</option>
-                      <option value="technical">Technical Support</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="feedback">Feedback</option>
-                    </select>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="orders">
+                          Orders & Shipping
+                        </SelectItem>
+                        <SelectItem value="account">
+                          Account & Membership
+                        </SelectItem>
+                        <SelectItem value="returns">
+                          Returns & Refunds
+                        </SelectItem>
+                        <SelectItem value="technical">
+                          Technical Support
+                        </SelectItem>
+                        <SelectItem value="general">General Inquiry</SelectItem>
+                        <SelectItem value="feedback">Feedback</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
@@ -265,7 +286,7 @@ export default function ContactUsPage() {
                     />
                   </div>
 
-                  <Button type="submit" variant={"classic"} className="w-full">
+                  <Button type="submit" variant="classic" className="w-full">
                     <Send className="mr-2 w-4 h-4" />
                     Send Message
                   </Button>
