@@ -21,15 +21,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ProductItem } from "@/lib/interfaces";
-import { cn } from "@/lib/utils";
-import { 
-  Grid3X3, 
-  List, 
-  Percent, 
-  Search, 
-  Tag, 
+import {
+  Grid3X3,
+  List,
+  Percent,
+  Search,
+  Tag,
   TrendingDown,
-  X 
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -245,14 +244,14 @@ export default function SaleItemsPage() {
         </div>
 
         {/* Sale Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <Card className="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 border-red-200 dark:border-red-800">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-4 mb-8">
+          <Card className="bg-gradient-to-r from-red-50 dark:from-red-950/20 to-pink-50 dark:to-pink-950/20 border-red-200 dark:border-red-800">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
                 <Percent className="w-8 h-8 text-red-500" />
                 <div>
-                  <p className="text-sm text-red-600 dark:text-red-400">Items on Sale</p>
-                  <p className="text-2xl font-bold text-red-700 dark:text-red-300">
+                  <p className="text-red-600 text-sm dark:text-red-400">Items on Sale</p>
+                  <p className="font-bold text-2xl text-red-700 dark:text-red-300">
                     {saleProducts.length}
                   </p>
                 </div>
@@ -260,13 +259,13 @@ export default function SaleItemsPage() {
             </CardContent>
           </Card>
           
-          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
+          <Card className="bg-gradient-to-r from-green-50 dark:from-green-950/20 to-emerald-50 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
                 <TrendingDown className="w-8 h-8 text-green-500" />
                 <div>
-                  <p className="text-sm text-green-600 dark:text-green-400">Avg. Discount</p>
-                  <p className="text-2xl font-bold text-green-700 dark:text-green-300">
+                  <p className="text-green-600 text-sm dark:text-green-400">Avg. Discount</p>
+                  <p className="font-bold text-2xl text-green-700 dark:text-green-300">
                     {savingsStats.averageDiscount.toFixed(1)}%
                   </p>
                 </div>
@@ -274,13 +273,13 @@ export default function SaleItemsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 border-blue-200 dark:border-blue-800">
+          <Card className="bg-gradient-to-r from-blue-50 dark:from-blue-950/20 to-cyan-50 dark:to-cyan-950/20 border-blue-200 dark:border-blue-800">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
                 <Tag className="w-8 h-8 text-blue-500" />
                 <div>
-                  <p className="text-sm text-blue-600 dark:text-blue-400">Categories</p>
-                  <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                  <p className="text-blue-600 text-sm dark:text-blue-400">Categories</p>
+                  <p className="font-bold text-2xl text-blue-700 dark:text-blue-300">
                     {categories.length}
                   </p>
                 </div>
@@ -288,13 +287,13 @@ export default function SaleItemsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20 border-purple-200 dark:border-purple-800">
+          <Card className="bg-gradient-to-r from-purple-50 dark:from-purple-950/20 to-violet-50 dark:to-violet-950/20 border-purple-200 dark:border-purple-800">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
                 <Search className="w-8 h-8 text-purple-500" />
                 <div>
-                  <p className="text-sm text-purple-600 dark:text-purple-400">Best Deal</p>
-                  <p className="text-2xl font-bold text-purple-700 dark:text-purple-300">
+                  <p className="text-purple-600 text-sm dark:text-purple-400">Best Deal</p>
+                  <p className="font-bold text-2xl text-purple-700 dark:text-purple-300">
                     {Math.max(...saleProducts.map(p => p.discountPercentage || 0)).toFixed(0)}% Off
                   </p>
                 </div>
@@ -452,7 +451,7 @@ export default function SaleItemsPage() {
                   <Tag className="opacity-50 mx-auto w-12 h-12" />
                 </div>
                 <h3 className="mb-2 font-medium text-lg">No sale items found</h3>
-                <p className="text-muted-foreground mb-6">
+                <p className="mb-6 text-muted-foreground">
                   Try adjusting your filters or check back later for new deals
                 </p>
                 <Button asChild>
