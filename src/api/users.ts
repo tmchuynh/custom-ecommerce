@@ -24,6 +24,24 @@ export interface DummyUser {
     cardExpire: string;
     iban: string;
   };
+  university: string;
+  company: {
+    department: string;
+    name: string;
+    title: string;
+    address: {
+      address: string;
+      city: string;
+      state: string;
+      stateCode: string;
+      postalCode: string;
+      country: string;
+      coordinates: {
+        lat: number;
+        lng: number;
+      };
+    };
+  };
 }
 
 export interface DummyUsersResponse {
