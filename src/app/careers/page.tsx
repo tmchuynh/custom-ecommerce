@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Briefcase,
+  Brush,
   Clock,
   Coffee,
   DollarSign,
@@ -15,9 +16,10 @@ import {
   MapPin,
   Star,
   TrendingUp,
-  Users,
 } from "lucide-react";
 import Link from "next/link";
+import { FaHelmetSafety } from "react-icons/fa6";
+import { IoLogoDesignernews } from "react-icons/io";
 
 export default function CareersPage() {
   const benefits = [
@@ -164,36 +166,42 @@ export default function CareersPage() {
       count: 12,
       description: "Build the future of e-commerce",
       color: "bg-blue-500",
+      icon: <FaHelmetSafety className="w-6 h-6" />,
     },
     {
       name: "Product",
       count: 5,
       description: "Shape user experiences",
       color: "bg-green-500",
+      icon: <IoLogoDesignernews className="w-6 h-6" />,
     },
     {
       name: "Design",
       count: 4,
       description: "Create beautiful interfaces",
       color: "bg-purple-500",
+      icon: <Brush className="w-6 h-6" />,
     },
     {
       name: "Marketing",
       count: 6,
       description: "Tell our story to the world",
       color: "bg-red-500",
+      icon: <Globe className="w-6 h-6" />,
     },
     {
       name: "Customer Success",
       count: 8,
       description: "Help customers succeed",
       color: "bg-yellow-500",
+      icon: <Heart className="w-6 h-6" />,
     },
     {
       name: "Operations",
       count: 7,
       description: "Keep everything running smoothly",
       color: "bg-indigo-500",
+      icon: <Home className="w-6 h-6" />,
     },
   ];
 
@@ -203,7 +211,9 @@ export default function CareersPage() {
       <section className="relative pt-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto text-center">
-            <Badge className="mb-4">Join Our Team</Badge>
+            <Badge className="mb-4" variant={"glassSuccess"}>
+              Join Our Team
+            </Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Build the Future of E-Commerce
             </h1>
@@ -256,11 +266,9 @@ export default function CareersPage() {
               <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className={`w-10 h-10 ${dept.color} rounded-full flex items-center justify-center`}
-                    >
-                      <Users className="w-5 h-5 text-white" />
-                    </div>
+                    <Badge className="mb-4 rounded-full w-12 h-12">
+                      <div> {dept.icon}</div>
+                    </Badge>
                     <div>
                       <h3 className="font-semibold">{dept.name}</h3>
                       <p className="text-muted-foreground text-sm">
