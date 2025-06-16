@@ -6,7 +6,17 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ProductItem } from "@/lib/interfaces";
-import { Grid3X3, List, Package, Search } from "lucide-react";
+import {
+  ArrowLeft,
+  Grid3X3,
+  List,
+  Package,
+  Search,
+  ShoppingBag,
+  Star,
+  TrendingUp,
+} from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -46,7 +56,9 @@ export default function CategoriesPage() {
         const categoryData: CategoryData[] = Array.from(categoryMap.entries())
           .map(([category, categoryProducts]) => ({
             id: category,
-            name: category.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+            name: category
+              .replace(/-/g, " ")
+              .replace(/\b\w/g, (l) => l.toUpperCase()),
             count: categoryProducts.length,
             products: categoryProducts,
           }))
@@ -65,7 +77,9 @@ export default function CategoriesPage() {
     loadProducts();
   }, []);
 
-  const selectedCategoryData = categories.find(cat => cat.id === selectedCategory);
+  const selectedCategoryData = categories.find(
+    (cat) => cat.id === selectedCategory
+  );
 
   if (loading) {
     return (
@@ -104,52 +118,71 @@ export default function CategoriesPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="mb-2 font-bold text-4xl text-foreground">
+      {/* Hero Section */}
+      <div className="relative py-20">
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-7xl text-center">
+          <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
             Shop by Categories
           </h1>
-          <p className="text-muted-foreground">
-            Browse our products organized by category
+          <p className="opacity-90 text-xl md:text-2xl">
+            Discover amazing products organized just for you
           </p>
         </div>
+      </div>
 
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         {/* Category Selection or Product Display */}
         {!selectedCategory ? (
           <>
             {/* Category Overview Stats */}
-            <div className="gap-6 grid grid-cols-1 md:grid-cols-3 mb-8">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3">
-                    <Package className="w-8 h-8 text-primary" />
+            <div className="gap-6 grid grid-cols-1 md:grid-cols-3 -mt-8 mb-12">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 shadow-lg border-blue-200">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-blue-500 p-3 rounded-xl">
+                      <Package className="w-8 h-8 text-white" />
+                    </div>
                     <div>
-                      <p className="text-muted-foreground text-sm">Total Categories</p>
-                      <p className="font-bold text-2xl">{categories.length}</p>
+                      <p className="font-medium text-blue-700">
+                        Total Categories
+                      </p>
+                      <p className="font-bold text-3xl text-blue-900">
+                        {categories.length}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3">
-                    <Grid3X3 className="w-8 h-8 text-primary" />
+              <Card className="bg-gradient-to-br from-green-50 to-green-100 shadow-lg border-green-200">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-green-500 p-3 rounded-xl">
+                      <ShoppingBag className="w-8 h-8 text-white" />
+                    </div>
                     <div>
-                      <p className="text-muted-foreground text-sm">Total Products</p>
-                      <p className="font-bold text-2xl">{products.length}</p>
+                      <p className="font-medium text-green-700">
+                        Total Products
+                      </p>
+                      <p className="font-bold text-3xl text-green-900">
+                        {products.length}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3">
-                    <Search className="w-8 h-8 text-primary" />
+              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 shadow-lg border-purple-200">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-purple-500 p-3 rounded-xl">
+                      <TrendingUp className="w-8 h-8 text-white" />
+                    </div>
                     <div>
-                      <p className="text-muted-foreground text-sm">Largest Category</p>
-                      <p className="font-bold text-2xl">
-                        {Math.max(...categories.map(cat => cat.count))} items
+                      <p className="font-medium text-purple-700">
+                        Largest Category
+                      </p>
+                      <p className="font-bold text-3xl text-purple-900">
+                        {Math.max(...categories.map((cat) => cat.count))} items
                       </p>
                     </div>
                   </div>
@@ -158,45 +191,106 @@ export default function CategoriesPage() {
             </div>
 
             {/* Category Grid */}
-            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {categories.map((category) => (
-                <Card
-                  key={category.id}
-                  className="group hover:shadow-lg transition-all duration-300 cursor-pointer"
-                  onClick={() => setSelectedCategory(category.id)}
-                >
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
-                      {category.name}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex justify-between items-center mb-4">
-                      <Badge variant="secondary" className="text-xs">
-                        {category.count} products
+            <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {categories.map((category, index) => {
+                // Get a sample product image for the category
+                const sampleProduct = category.products[0];
+                const categoryImage =
+                  sampleProduct?.thumbnail ||
+                  sampleProduct?.images?.[0] ||
+                  `https://images.unsplash.com/photo-${
+                    1560472354 + index
+                  }?w=400&h=300&fit=crop`;
+
+                return (
+                  <Card
+                    key={category.id}
+                    className="group flex flex-col justify-between shadow-lg hover:shadow-2xl border transition-all hover:-translate-y-1 duration-300 cursor-pointer overflow-hidden"
+                    onClick={() => setSelectedCategory(category.id)}
+                  >
+                    {/* Category Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={categoryImage}
+                        alt={category.name}
+                        fill
+                        className="transition-transform duration-500 object-cover group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <Badge className="top-3 right-3 absolute bg-white/90 font-semibold text-gray-800">
+                        {category.count} items
                       </Badge>
-                      <Package className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                     </div>
-                    
-                    {/* Sample products preview */}
-                    <div className="space-y-2">
-                      <p className="text-muted-foreground text-sm">Sample items:</p>
-                      <div className="space-y-1">
-                        {category.products.slice(0, 3).map((product) => (
-                          <p key={product.id} className="text-muted-foreground text-xs truncate">
-                            • {product.title}
-                          </p>
-                        ))}
-                        {category.count > 3 && (
-                          <p className="text-muted-foreground text-xs italic">
-                            +{category.count - 3} more items
-                          </p>
-                        )}
+
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">
+                        {category.name}
+                      </CardTitle>
+                      {/* Category Stats */}
+                      <div className="flex justify-between items-center">
+                        <div className="flex items-center gap-2">
+                          <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                          <span className="font-medium text-sm">
+                            {(
+                              category.products.reduce(
+                                (sum, p) => sum + (p.rating || 0),
+                                0
+                              ) / category.products.length || 0
+                            ).toFixed(1)}
+                          </span>
+                        </div>
+                        <div className="text-sm">
+                          $
+                          {Math.min(
+                            ...category.products.map((p) => p.price)
+                          ).toFixed(0)}{" "}
+                          - $
+                          {Math.max(
+                            ...category.products.map((p) => p.price)
+                          ).toFixed(0)}
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                    </CardHeader>
+
+                    <CardContent className="space-y-4">
+                      {/* Sample products preview */}
+                      <div className="space-y-2">
+                        <p className="font-medium text-sm">Popular items:</p>
+                        <div className="space-y-1">
+                          {category.products.slice(0, 3).map((product) => (
+                            <div
+                              key={product.id}
+                              className="flex items-center gap-2"
+                            >
+                              <div className="bg-purple-400 rounded-full w-1.5 h-1.5"></div>
+                              <p className="text-xs truncate">
+                                {product.title}
+                              </p>
+                            </div>
+                          ))}
+                          {category.count > 3 && (
+                            <p className="pl-3.5 text-gray-500 text-xs italic">
+                              +{category.count - 3} more items
+                            </p>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* View Category Button */}
+                      <Button
+                        variant={"classic"}
+                        className="mt-4 w-full"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedCategory(category.id);
+                        }}
+                      >
+                        Explore Category
+                      </Button>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </>
         ) : (
@@ -208,9 +302,9 @@ export default function CategoriesPage() {
                   <Button
                     variant="ghost"
                     onClick={() => setSelectedCategory(null)}
-                    className="mb-2 p-0 h-auto text-primary hover:text-primary/80"
+                    className="mb-4"
                   >
-                    ← Back to Categories
+                    <ArrowLeft className="mr-2 w-4 h-4" /> Back to Categories
                   </Button>
                   <h2 className="font-bold text-2xl">
                     {selectedCategoryData?.name}
@@ -222,7 +316,7 @@ export default function CategoriesPage() {
 
                 {/* View Mode Toggle */}
                 <div className="flex items-center gap-3">
-                  <div className="flex border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                  <div className="flex border border-border rounded-lg overflow-hidden">
                     <Button
                       variant={viewMode === "grid" ? "default" : "ghost"}
                       size="sm"
@@ -246,26 +340,41 @@ export default function CategoriesPage() {
 
             {/* Products Display */}
             {selectedCategoryData && (
-              <ProductGrid 
-                products={selectedCategoryData.products} 
-                viewMode={viewMode} 
+              <ProductGrid
+                products={selectedCategoryData.products}
+                viewMode={viewMode}
               />
             )}
           </>
         )}
 
         {/* Quick Actions */}
-        <div className="mt-12 text-center">
-          <h3 className="mb-4 font-semibold text-lg">Looking for something specific?</h3>
+        <div className="mt-16 p-12 rounded-2xl text-center">
+          <h3 className="mb-6 font-bold text-2xl">
+            Looking for something specific?
+          </h3>
+          <p className="mx-auto mb-8 max-w-2xl">
+            Can't find what you're looking for? Try browsing all products,
+            checking our latest deals, or exploring new arrivals.
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild variant="outline">
-              <Link href="/shopping">Browse All Products</Link>
+            <Button asChild variant="classic" size="lg">
+              <Link href="/shopping">
+                <ShoppingBag className="mr-2 w-4 h-4" />
+                Browse All Products
+              </Link>
             </Button>
-            <Button asChild variant="outline">
-              <Link href="/shopping/sale-items">View Sale Items</Link>
+            <Button asChild variant="tertiary" size="lg">
+              <Link href="/shopping/sale-items">
+                <Star className="mr-2 w-4 h-4" />
+                View Sale Items
+              </Link>
             </Button>
-            <Button asChild variant="outline">
-              <Link href="/shopping/new-arrivals">New Arrivals</Link>
+            <Button asChild variant="tertiary" size="lg">
+              <Link href="/shopping/new-arrivals">
+                <TrendingUp className="mr-2 w-4 h-4" />
+                New Arrivals
+              </Link>
             </Button>
           </div>
         </div>
