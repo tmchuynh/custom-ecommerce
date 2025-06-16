@@ -2,8 +2,8 @@
 
 import { useAuth } from "@/app/context/authContext";
 import { useCart } from "@/app/context/cartContext";
-import { useWishlist } from "@/app/context/wishlistContext";
 import { useCurrency } from "@/app/context/currencyContext";
+import { useWishlist } from "@/app/context/wishlistContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -286,7 +286,7 @@ export default function DashboardPage() {
                 {wishlistCount > 0 && (
                   <Button variant="outline" size="sm" className="w-full" asChild>
                     <Link href="/wishlist">
-                      <Heart className="w-4 h-4 mr-2" />
+                      <Heart className="mr-2 w-4 h-4" />
                       View Wishlist ({wishlistCount})
                     </Link>
                   </Button>
