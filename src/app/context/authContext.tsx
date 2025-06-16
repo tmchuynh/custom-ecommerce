@@ -107,7 +107,7 @@ export const membershipTiers: MembershipTier[] = [
     ],
     discountPercentage: 15,
     freeShipping: true,
-    color: "bg-gold-500",
+    color: "bg-amber-500",
   },
 ];
 
