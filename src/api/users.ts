@@ -77,3 +77,25 @@ export async function fetchUsers(
     throw error;
   }
 }
+
+/**
+ * Fetches demo login credentials for testing purposes
+ * Returns a user with username and password for demo login
+ */
+export async function fetchDemoCredentials(): Promise<{
+  username: string;
+  password: string;
+  fullName: string;
+}> {
+  try {
+    const user = await fetchRandomUser();
+    return {
+      username: user.username,
+      password: user.password,
+      fullName: `${user.firstName} ${user.lastName}`,
+    };
+  } catch (error) {
+    console.error("Error fetching demo credentials:", error);
+    throw error;
+  }
+}
