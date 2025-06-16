@@ -1,40 +1,55 @@
 /**
- * COMPREHENSIVE ADDRESS VALIDATION IMPLEMENTATION
- * ===============================================
+ * COMPREHENSIVE ADDRESS & PAYMENT VALIDATION IMPLEMENTATION
+ * =========================================================
  *
- * This settings page now includes robust address validation with the following features:
+ * This settings page now includes robust validation for both addresses and payment methods:
  *
  * 1. REAL-TIME VALIDATION:
  *    - Validates each field as the user types
  *    - Shows immediate feedback with red borders and error messages
- *    - Automatically formats postal codes based on country
+ *    - Automatically formats postal codes and card numbers
  *
- * 2. ENHANCED VALIDATION RULES:
+ * 2. ENHANCED ADDRESS VALIDATION:
  *    - Street address: min 5 chars, max 100 chars, valid characters only
  *    - City: min 2 chars, max 50 chars, letters/spaces/hyphens/apostrophes/periods only
  *    - State: min 2 chars, max 50 chars, validates against valid state codes for US/CA/AU
  *    - Postal Code: min 3 chars, max 10 chars, country-specific format validation
  *    - Country: must be valid 2-letter ISO code from comprehensive list
  *
- * 3. COUNTRY-SPECIFIC FEATURES:
- *    - Postal code validation for 50+ countries with proper regex patterns
- *    - State/province validation for US, Canada, and Australia
- *    - Automatic postal code formatting (e.g., Canadian postal codes get space inserted)
+ * 3. ENHANCED PAYMENT VALIDATION:
+ *    - Card Number: Luhn algorithm validation, supports 8+ card types (Visa, MC, Amex, etc.)
+ *    - Cardholder Name: min 2 chars, max 50 chars, valid characters only
+ *    - Expiry Date: MM/YY format, checks for expiration and future limits
+ *    - CVV: 3-4 digits based on card type, numbers only
+ *    - Auto-detection of card type from card number
  *
- * 4. DATA NORMALIZATION:
- *    - All addresses are normalized before saving (proper casing, formatting)
+ * 4. SUPPORTED CARD TYPES:
+ *    - Visa, Mastercard, American Express, Discover
+ *    - JCB, Diners Club, Maestro, UnionPay
+ *    - Proper length and CVV validation for each type
+ *
+ * 5. AUTO-FORMATTING FEATURES:
+ *    - Card numbers formatted with proper spacing (4-4-4-4 or 4-6-5 for Amex)
+ *    - Expiry dates auto-formatted as MM/YY
+ *    - Postal codes formatted by country (e.g., Canadian A1A 1A1)
+ *    - Card numbers masked for display security
+ *
+ * 6. DATA NORMALIZATION:
+ *    - All data is normalized before saving (proper casing, formatting)
  *    - Consistent data format across the application
+ *    - Removes extra spaces and validates character sets
  *
- * 5. USER EXPERIENCE:
+ * 7. USER EXPERIENCE:
  *    - Clear distinction between API data (read-only) and user data (editable)
  *    - Comprehensive error messages that guide users to fix issues
  *    - Form validation prevents submission with invalid data
  *    - Error states are cleared when forms are canceled or reset
  *
- * 6. API INTEGRATION:
- *    - All validation logic is centralized in the API layer
- *    - Reusable validation functions that can be used elsewhere in the app
- *    - Comprehensive error reporting with field-specific messages
+ * 8. SECURITY FEATURES:
+ *    - Luhn algorithm validation for all card numbers
+ *    - Expiry date validation (not expired, not too far future)
+ *    - CVV length validation based on card type
+ *    - Input sanitization and character validation
  */
 
 "use client";
@@ -74,15 +89,16 @@ import { PaymentValidationResult, ValidatedPaymentMethod } from "@/lib/interface
 import { DummyUser } from "@/lib/interfaces/user";
 import { formatPostalCode } from "@/lib/utils/format";
 import {
-  validatePaymentMethodEnhanced,
-  validatePaymentField,
-  validateAndNormalizePaymentMethod,
-  detectCardType,
-  formatCardNumber,
-  maskCardNumber,
-  formatExpiryDate,
+    formatExpiryDate,
+    validateAndNormalizePaymentMethod,
+    validatePaymentField,
+    validatePaymentMethodEnhanced
 } from "@/lib/utils/payment";
-import { validateAddressEnhanced, validateAndNormalizeAddress, validateAddressField } from "@/lib/utils/validate";
+import {
+  validateAddressEnhanced,
+  validateAddressField,
+  validateAndNormalizeAddress,
+} from "@/lib/utils/validate";
 import {
     ArrowLeft,
     Bell,
@@ -774,6 +790,23 @@ export default function SettingsPage() {
     }));
   };
 
+  // Real-time payment validation functions
+  const validateNewPaymentField = (field: keyof ValidatedPaymentMethod, value: string) => {
+    const error = validatePaymentField(field, value, newPaymentMethod);
+    setNewPaymentErrors(prev => ({
+      ...prev,
+      [field]: error || ''
+    }));
+  };
+
+  const validateEditPaymentField = (field: keyof ValidatedPaymentMethod, value: string) => {
+    const error = validatePaymentField(field, value, editPaymentData);
+    setEditPaymentErrors(prev => ({
+      ...prev,
+      [field]: error || ''
+    }));
+  };
+
   // Enhanced address change handlers
   const handleNewAddressChange = (
     field: keyof typeof newAddress,
@@ -808,6 +841,43 @@ export default function SettingsPage() {
     // Real-time validation - ensure field is a valid ValidatedAddress key
     if (field in editAddressData) {
       validateEditAddressField(field as keyof ValidatedAddress, formattedValue);
+    }
+  };
+
+  // Enhanced payment change handlers
+  const handleNewPaymentChange = (field: keyof typeof newPaymentMethod, value: string) => {
+    let formattedValue = value;
+    
+    // Apply specific formatting based on field
+    if (field === 'cardNumber') {
+      formattedValue = formatCardNumber(value);
+    } else if (field === 'cardExpire') {
+      formattedValue = formatExpiryDate(value);
+    }
+
+    setNewPaymentMethod(prev => ({ ...prev, [field]: formattedValue }));
+    
+    // Real-time validation - ensure field is a valid ValidatedPaymentMethod key
+    if (field in newPaymentMethod) {
+      validateNewPaymentField(field as keyof ValidatedPaymentMethod, formattedValue);
+    }
+  };
+
+  const handleEditPaymentChange = (field: keyof typeof editPaymentData, value: string) => {
+    let formattedValue = value;
+    
+    // Apply specific formatting based on field
+    if (field === 'cardNumber') {
+      formattedValue = formatCardNumber(value);
+    } else if (field === 'cardExpire') {
+      formattedValue = formatExpiryDate(value);
+    }
+
+    setEditPaymentData(prev => ({ ...prev, [field]: formattedValue }));
+    
+    // Real-time validation - ensure field is a valid ValidatedPaymentMethod key
+    if (field in editPaymentData) {
+      validateEditPaymentField(field as keyof ValidatedPaymentMethod, formattedValue);
     }
   };
 
@@ -1858,14 +1928,13 @@ export default function SettingsPage() {
                                     <Input
                                       id="editCardHolderName"
                                       value={editPaymentData.cardHolderName}
-                                      onChange={(e) =>
-                                        setEditPaymentData((prev) => ({
-                                          ...prev,
-                                          cardHolderName: e.target.value,
-                                        }))
-                                      }
+                                      onChange={(e) => handleEditPaymentChange('cardHolderName', e.target.value)}
                                       placeholder="Enter cardholder name"
+                                      className={editPaymentErrors.cardHolderName ? "border-red-500" : ""}
                                     />
+                                    {editPaymentErrors.cardHolderName && (
+                                      <p className="text-red-500 text-sm">{editPaymentErrors.cardHolderName}</p>
+                                    )}
                                   </div>
                                   <div className="space-y-2">
                                     <Label htmlFor="editCardNumber">
@@ -1874,15 +1943,14 @@ export default function SettingsPage() {
                                     <Input
                                       id="editCardNumber"
                                       value={editPaymentData.cardNumber}
-                                      onChange={(e) =>
-                                        setEditPaymentData((prev) => ({
-                                          ...prev,
-                                          cardNumber: e.target.value,
-                                        }))
-                                      }
+                                      onChange={(e) => handleEditPaymentChange('cardNumber', e.target.value)}
                                       placeholder="1234 5678 9012 3456"
-                                      maxLength={19}
+                                      maxLength={23} // Allow for spacing
+                                      className={editPaymentErrors.cardNumber ? "border-red-500" : ""}
                                     />
+                                    {editPaymentErrors.cardNumber && (
+                                      <p className="text-red-500 text-sm">{editPaymentErrors.cardNumber}</p>
+                                    )}
                                   </div>
                                   <div className="gap-4 grid md:grid-cols-2">
                                     <div className="space-y-2">
@@ -1892,15 +1960,14 @@ export default function SettingsPage() {
                                       <Input
                                         id="editCardExpire"
                                         value={editPaymentData.cardExpire}
-                                        onChange={(e) =>
-                                          setEditPaymentData((prev) => ({
-                                            ...prev,
-                                            cardExpire: e.target.value,
-                                          }))
-                                        }
+                                        onChange={(e) => handleEditPaymentChange('cardExpire', e.target.value)}
                                         placeholder="MM/YY"
                                         maxLength={5}
+                                        className={editPaymentErrors.cardExpire ? "border-red-500" : ""}
                                       />
+                                      {editPaymentErrors.cardExpire && (
+                                        <p className="text-red-500 text-sm">{editPaymentErrors.cardExpire}</p>
+                                      )}
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor="editCardType">
@@ -2039,29 +2106,27 @@ export default function SettingsPage() {
                               <Input
                                 id="cardHolderName"
                                 value={newPaymentMethod.cardHolderName}
-                                onChange={(e) =>
-                                  setNewPaymentMethod((prev) => ({
-                                    ...prev,
-                                    cardHolderName: e.target.value,
-                                  }))
-                                }
+                                onChange={(e) => handleNewPaymentChange('cardHolderName', e.target.value)}
                                 placeholder="Enter cardholder name"
+                                className={newPaymentErrors.cardHolderName ? "border-red-500" : ""}
                               />
+                              {newPaymentErrors.cardHolderName && (
+                                <p className="text-red-500 text-sm">{newPaymentErrors.cardHolderName}</p>
+                              )}
                             </div>
                             <div className="space-y-2">
                               <Label htmlFor="cardNumber">Card Number</Label>
                               <Input
                                 id="cardNumber"
                                 value={newPaymentMethod.cardNumber}
-                                onChange={(e) =>
-                                  setNewPaymentMethod((prev) => ({
-                                    ...prev,
-                                    cardNumber: e.target.value,
-                                  }))
-                                }
+                                onChange={(e) => handleNewPaymentChange('cardNumber', e.target.value)}
                                 placeholder="1234 5678 9012 3456"
-                                maxLength={19}
+                                maxLength={23} // Allow for spacing
+                                className={newPaymentErrors.cardNumber ? "border-red-500" : ""}
                               />
+                              {newPaymentErrors.cardNumber && (
+                                <p className="text-red-500 text-sm">{newPaymentErrors.cardNumber}</p>
+                              )}
                             </div>
                             <div className="gap-4 grid md:grid-cols-2">
                               <div className="space-y-2">
@@ -2069,15 +2134,14 @@ export default function SettingsPage() {
                                 <Input
                                   id="cardExpire"
                                   value={newPaymentMethod.cardExpire}
-                                  onChange={(e) =>
-                                    setNewPaymentMethod((prev) => ({
-                                      ...prev,
-                                      cardExpire: e.target.value,
-                                    }))
-                                  }
+                                  onChange={(e) => handleNewPaymentChange('cardExpire', e.target.value)}
                                   placeholder="MM/YY"
                                   maxLength={5}
+                                  className={newPaymentErrors.cardExpire ? "border-red-500" : ""}
                                 />
+                                {newPaymentErrors.cardExpire && (
+                                  <p className="text-red-500 text-sm">{newPaymentErrors.cardExpire}</p>
+                                )}
                               </div>
                               <div className="space-y-2">
                                 <Label htmlFor="cardType">Card Type</Label>
