@@ -370,7 +370,7 @@ export default function ShoppingPage() {
       <div className="space-y-1">
         <div
           className="flex items-center space-x-2"
-          style={{ paddingLeft: `${level * 16}px` }}
+          style={{ paddingLeft: `${level * 12}px` }}
         >
           <Checkbox
             id={`category-${node.id}`}
@@ -498,18 +498,26 @@ export default function ShoppingPage() {
                     </Badge>
                   )}
                   {activeFilters.categories &&
-                    activeFilters.categories.length > 0 && (
-                      <Badge variant="secondary" className="gap-1">
-                        Categories:{" "}
-                        {activeFilters.categories
-                          .map((id) => getCategoryDisplayName(id))
-                          .join(", ")}
+                    activeFilters.categories.length > 0 &&
+                    activeFilters.categories.map((categoryId) => (
+                      <Badge
+                        key={categoryId}
+                        variant="secondary"
+                        className="gap-1"
+                      >
+                        {getCategoryDisplayName(categoryId)}
                         <X
                           className="w-3 h-3 hover:text-destructive cursor-pointer"
-                          onClick={() => handleFilterChange({ categories: [] })}
+                          onClick={() => {
+                            const newCategories =
+                              activeFilters.categories!.filter(
+                                (id) => id !== categoryId
+                              );
+                            handleFilterChange({ categories: newCategories });
+                          }}
                         />
                       </Badge>
-                    )}
+                    ))}
                   {(activeFilters.priceRange?.min ||
                     activeFilters.priceRange?.max) && (
                     <Badge variant="secondary" className="gap-1">
@@ -659,7 +667,7 @@ export default function ShoppingPage() {
                   </Button>
                 </div>
               </div>
-              <div className="space-y-2 pr-2 max-h-64 overflow-y-auto">
+              <div className="gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 pr-2">
                 {categoryTree.map((node) => (
                   <CategoryTreeNode key={node.id} node={node} />
                 ))}
