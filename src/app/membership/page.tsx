@@ -52,11 +52,11 @@ export default function MembershipPage() {
   const getTierBadgeVariant = (tierName: string) => {
     switch (tierName.toLowerCase()) {
       case "basic":
-        return "outline";
+        return "gradient";
       case "premium":
-        return "default";
+        return "platinum";
       case "vip":
-        return "destructive";
+        return "premium";
       default:
         return "outline";
     }
@@ -174,7 +174,7 @@ export default function MembershipPage() {
 
                   <Button
                     className="w-full"
-                    variant={tier.name === "Premium" ? "default" : "outline"}
+                    variant={tier.name === "Premium" ? "modern" : "classic"}
                     onClick={() => handlePurchase(tier.name)}
                     disabled={!isLoggedIn || isPurchasing || isCurrentTier}
                   >
