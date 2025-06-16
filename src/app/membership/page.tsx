@@ -119,7 +119,7 @@ export default function MembershipPage() {
                 } ${isCurrentTier ? "border-4 border-green-500" : ""}`}
               >
                 {tier.name === "Premium" && (
-                  <div className="top-0 right-0 left-0 absolute py-2 text-center text-primary-foreground">
+                  <div className="top-0 right-0 left-0 absolute bg-primary py-2 text-center text-primary-foreground">
                     <span className="font-medium text-sm">Most Popular</span>
                   </div>
                 )}
