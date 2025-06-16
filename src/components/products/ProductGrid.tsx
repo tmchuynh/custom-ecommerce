@@ -1,9 +1,9 @@
 "use client";
 
+import { useAuth } from "@/app/context/authContext";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { useWishlist } from "@/app/context/wishlistContext";
-import { useAuth } from "@/app/context/authContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
