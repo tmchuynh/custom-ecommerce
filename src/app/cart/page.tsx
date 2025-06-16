@@ -273,19 +273,19 @@ export default function CartPage() {
                 ) : (
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-medium text-green-600">
+                      <span className="font-medium text-primary">
                         {appliedDiscount.rule.name}
                       </span>
                       <Button
                         onClick={handleRemoveDiscount}
                         size="sm"
                         variant="ghost"
-                        className="p-1 h-auto text-red-600 hover:text-red-700"
+                        className="p-1 h-auto text-destructive hover:text-destructive/80"
                       >
                         Remove
                       </Button>
                     </div>
-                    <div className="flex justify-between text-green-600">
+                    <div className="flex justify-between text-primary">
                       <span>Discount ({appliedDiscount.rule.code})</span>
                       <span>-{formatPrice(discountAmount)}</span>
                     </div>
@@ -294,7 +294,7 @@ export default function CartPage() {
 
                 {/* Membership Discount */}
                 {hasMembership && membershipDiscount > 0 && (
-                  <div className="flex justify-between text-blue-600">
+                  <div className="flex justify-between text-secondary-foreground">
                     <span>
                       Membership Discount ({user?.membershipTier?.name})
                     </span>
