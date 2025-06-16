@@ -1,7 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
 import { ProductItem } from "@/lib/interfaces";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
 
 export interface WishlistItem {
