@@ -5,12 +5,16 @@ export interface DummyUser {
   id: number;
   firstName: string;
   lastName: string;
+  maidenName?: string;
   age: number;
   email: string;
   phone: string;
   username: string;
   password: string;
   image: string;
+  role: string; // Added from DummyJSON /auth/me
+  birthDate: string;
+  gender: string;
   address: {
     address: string;
     city: string;
