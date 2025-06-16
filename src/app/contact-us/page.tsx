@@ -1,5 +1,6 @@
 "use client";
 
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -14,6 +15,15 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  sanitizeContactForm,
+  validateContactField,
+  validateContactForm,
+  type ContactFormData,
+  type ContactValidationError,
+} from "@/lib/utils/contact";
+import {
+  AlertCircle,
+  CheckCircle,
   Clock,
   Globe,
   Headphones,
@@ -25,10 +35,10 @@ import {
   Shield,
   Users,
 } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 export default function ContactUsPage() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     subject: "",
@@ -36,31 +46,123 @@ export default function ContactUsPage() {
     message: "",
   });
 
+  const [errors, setErrors] = useState<Record<keyof ContactFormData, string>>({
+    name: "",
+    email: "",
+    subject: "",
+    category: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  // Real-time field validation
+  const validateField = useCallback(
+    (field: keyof ContactFormData, value: string) => {
+      const error = validateContactField(field, value, formData);
+      setErrors((prev) => ({
+        ...prev,
+        [field]: error || "",
+      }));
+      return !error;
+    },
+    [formData]
+  );
+
   const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
+    const fieldName = name as keyof ContactFormData;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [fieldName]: value,
     }));
+
+    // Validate field on blur or after user stops typing
+    setTimeout(() => validateField(fieldName, value), 300);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      category: value,
+    }));
+    validateField("category", value);
+  };
+
+  const handleBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    validateField(name as keyof ContactFormData, value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      category: "",
-      message: "",
-    });
-    alert("Thank you for your message! We'll get back to you soon.");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    // Comprehensive form validation
+    const validation = validateContactForm(formData);
+
+    if (!validation.isValid) {
+      // Set all validation errors
+      const newErrors: Record<keyof ContactFormData, string> = {
+        name: "",
+        email: "",
+        subject: "",
+        category: "",
+        message: "",
+      };
+
+      validation.errors.forEach((error: ContactValidationError) => {
+        newErrors[error.field] = error.message;
+      });
+
+      setErrors(newErrors);
+      setIsSubmitting(false);
+      setSubmitStatus("error");
+      return;
+    }
+
+    try {
+      // Sanitize form data before submission
+      const sanitizedData = sanitizeContactForm(formData);
+
+      // Simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
+      console.log("Form submitted:", sanitizedData);
+
+      // Reset form on success
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        category: "",
+        message: "",
+      });
+
+      setErrors({
+        name: "",
+        email: "",
+        subject: "",
+        category: "",
+        message: "",
+      });
+
+      setSubmitStatus("success");
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -201,6 +303,26 @@ export default function ContactUsPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
+                {/* Form Status Messages */}
+                {submitStatus === "success" && (
+                  <Alert className="bg-green-50 dark:bg-green-950/20 mb-6 border-green-200">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                    <AlertDescription className="text-green-800 dark:text-green-200">
+                      Thank you for your message! We'll get back to you within
+                      24 hours.
+                    </AlertDescription>
+                  </Alert>
+                )}
+
+                {submitStatus === "error" && (
+                  <Alert className="bg-red-50 dark:bg-red-950/20 mb-6 border-red-200">
+                    <AlertCircle className="w-4 h-4 text-red-600" />
+                    <AlertDescription className="text-red-800 dark:text-red-200">
+                      Please fix the errors below and try again.
+                    </AlertDescription>
+                  </Alert>
+                )}
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="gap-4 grid sm:grid-cols-2">
                     <div>
@@ -210,9 +332,16 @@ export default function ContactUsPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        onBlur={handleBlur}
                         required
                         placeholder="Your full name"
+                        className={errors.name ? "border-red-500" : ""}
                       />
+                      {errors.name && (
+                        <p className="mt-1 text-red-600 text-sm">
+                          {errors.name}
+                        </p>
+                      )}
                     </div>
                     <div>
                       <Label htmlFor="email">Email *</Label>
@@ -222,19 +351,32 @@ export default function ContactUsPage() {
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
+                        onBlur={handleBlur}
                         required
                         placeholder="your.email@example.com"
+                        className={errors.email ? "border-red-500" : ""}
                       />
+                      {errors.email && (
+                        <p className="mt-1 text-red-600 text-sm">
+                          {errors.email}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="category">Category</Label>
+                    <Label htmlFor="category">Category *</Label>
                     <Select
                       value={formData.category}
-                      onValueChange={() => handleInputChange}
+                      onValueChange={handleSelectChange}
+                      required
+                      name="category"
                     >
-                      <SelectTrigger className="mt-2">
+                      <SelectTrigger
+                        className={`mt-2 ${
+                          errors.category ? "border-red-500" : ""
+                        }`}
+                      >
                         <SelectValue placeholder="Select a category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -254,6 +396,11 @@ export default function ContactUsPage() {
                         <SelectItem value="feedback">Feedback</SelectItem>
                       </SelectContent>
                     </Select>
+                    {errors.category && (
+                      <p className="mt-1 text-red-600 text-sm">
+                        {errors.category}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -263,9 +410,16 @@ export default function ContactUsPage() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       required
                       placeholder="Brief description of your inquiry"
+                      className={errors.subject ? "border-red-500" : ""}
                     />
+                    {errors.subject && (
+                      <p className="mt-1 text-red-600 text-sm">
+                        {errors.subject}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -275,15 +429,39 @@ export default function ContactUsPage() {
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
+                      onBlur={handleBlur}
                       required
                       placeholder="Please provide details about your inquiry..."
                       rows={6}
+                      className={errors.message ? "border-red-500" : ""}
                     />
+                    <div className="flex justify-between items-center mt-1">
+                      {errors.message ? (
+                        <p className="text-red-600 text-sm">{errors.message}</p>
+                      ) : (
+                        <p className="text-muted-foreground text-sm">
+                          {formData.message.length}/5000 characters
+                        </p>
+                      )}
+                    </div>
                   </div>
 
-                  <Button type="submit" className="w-full">
-                    <Send className="mr-2 w-4 h-4" />
-                    Send Message
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="mr-2 border-2 border-white border-t-transparent rounded-full w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </CardContent>

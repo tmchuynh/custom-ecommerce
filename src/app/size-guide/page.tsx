@@ -354,7 +354,7 @@ export default function SizeGuidePage() {
               <Card key={index}>
                 <CardContent className="p-6">
                   <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-10 h-10">
-                    {tip.icon}
+                    <div> {tip.icon}</div>
                   </Badge>
                   <h3 className="mb-3 font-semibold text-center">
                     {tip.title}

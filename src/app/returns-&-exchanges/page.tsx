@@ -191,7 +191,7 @@ export default function ReturnsExchangesPage() {
               <Card key={step.step} className="text-center">
                 <CardContent className="p-6">
                   <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-12 h-12">
-                    {step.icon}
+                    <div> {step.icon}</div>
                   </Badge>
                   <div className="mb-2 font-semibold text-sm">
                     Step {step.step}
@@ -219,7 +219,7 @@ export default function ReturnsExchangesPage() {
               <Card key={index}>
                 <CardContent className="p-6 text-center">
                   <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-12 h-12">
-                    {policy.icon}
+                    <div> {policy.icon}</div>
                   </Badge>
                   <h3 className="mb-2 font-semibold text-sm">{policy.title}</h3>
                   <p className="text-muted-foreground text-xs">

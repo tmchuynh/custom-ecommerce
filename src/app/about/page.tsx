@@ -91,7 +91,9 @@ export default function AboutPage() {
       <section className="relative py-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge>About Our Story</Badge>
+            <Badge variant={"glassSecondary"} className="mb-4">
+              About Our Story
+            </Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Redefining Your Shopping Experience
             </h1>
@@ -100,10 +102,10 @@ export default function AboutPage() {
               while delivering exceptional service that exceeds expectations.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <Button size="lg" variant="default">
+              <Button size="lg" variant="modern">
                 <Link href="/shopping">Shop Now</Link>
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="classic">
                 <Link href="/contact-us">Contact Us</Link>
               </Button>
             </div>
@@ -161,8 +163,8 @@ export default function AboutPage() {
             {milestones.map((milestone, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
-                  <div className="flex md:flex-row flex-col items-start gap-4">
-                    <Badge className="bg-primary px-4 py-2 text-lg">
+                  <div className="flex md:flex-row flex-col items-center gap-4">
+                    <Badge className="px-4 py-2 text-lg" variant={"premium"}>
                       {milestone.year}
                     </Badge>
                     <div className="flex-1">
@@ -189,9 +191,9 @@ export default function AboutPage() {
             {features.map((feature, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="p-6">
-                  <div className="flex justify-center items-center bg-primary/10 mx-auto mb-4 rounded-full w-12 h-12">
-                    {feature.icon}
-                  </div>
+                  <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-12 h-12">
+                    <div> {feature.icon}</div>
+                  </Badge>
                   <h3 className="mb-2 font-semibold">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm">
                     {feature.description}
