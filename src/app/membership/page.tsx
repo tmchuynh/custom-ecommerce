@@ -112,11 +112,11 @@ export default function MembershipPage() {
             return (
               <Card
                 key={tier.id}
-                className={`relative overflow-hidden transition-all duration-300 hover:shadow-lg ${
+                className={`relative overflow-hidden transition-all flex flex-col justify-between duration-300 hover:shadow-lg ${
                   tier.name === "Premium"
                     ? "border-primary shadow-md scale-105"
                     : ""
-                } ${isCurrentTier ? "ring-2 ring-green-500" : ""}`}
+                } ${isCurrentTier ? "border-4 border-green-500" : ""}`}
               >
                 {tier.name === "Premium" && (
                   <div className="top-0 right-0 left-0 absolute py-2 text-center text-primary-foreground">
@@ -162,8 +162,8 @@ export default function MembershipPage() {
                   </div>
                 </CardHeader>
 
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
+                <CardContent className="flex flex-col h-full">
+                  <ul className="space-y-3 mb-6 h-full">
                     {tier.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <Check className="mt-0.5 w-5 h-5 text-green-500 shrink-0" />
