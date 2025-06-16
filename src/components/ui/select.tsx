@@ -60,7 +60,7 @@ const selectItemVariants = cva(
           "hover:bg-accent/50 focus:bg-accent focus:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground",
 
         modern:
-          "hover:bg-primary/10 focus:bg-primary focus:text-primary-foreground data-[highlighted]:bg-primary data-[highlighted]:text-primary-foreground",
+          "hover:bg-primary/10 focus:focus:text-primary-foreground data-[highlighted]:data-[highlighted]:text-primary-foreground",
         classic:
           "hover:bg-secondary/20 focus:bg-secondary focus:text-secondary-foreground data-[highlighted]:bg-secondary data-[highlighted]:text-secondary-foreground",
         professional:

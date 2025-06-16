@@ -13,7 +13,7 @@ const checkboxVariants = cva(
     variants: {
       variant: {
         default:
-          "border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50",
+          "border-input dark:bg-input/30 data-[state=checked]:data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50",
         secondary:
           "border-input dark:bg-input/30 data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground data-[state=checked]:border-secondary focus-visible:border-secondary focus-visible:ring-secondary/50",
         tertiary:
