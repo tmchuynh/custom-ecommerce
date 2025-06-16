@@ -1,26 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
 import { CSSProperties, DetailedHTMLProps, HTMLAttributes } from "react";
-import {
-  // CreditCard, // Keep if used elsewhere, otherwise review
-  FeaturedDetails,
-  LengthType,
-  // PaymentStatus, // Keep if used elsewhere, otherwise review
-  SectionDetails,
-} from "./types";
-
-export interface LoaderSizeMarginProps extends CommonProps {
-  size?: LengthType;
-  margin?: LengthType;
-}
-
-export interface LoaderSizeProps extends CommonProps {
-  size?: LengthType;
-}
-
-// export interface LoaderSizeMarginProps extends CommonProps { // Duplicate removed
-//   size?: LengthType;
-//   margin?: LengthType;
-// }
 
 export interface CommonProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement> {
@@ -30,35 +9,10 @@ export interface CommonProps
   speedMultiplier?: number;
 }
 
-export interface FeaturedCategoryProps {
-  item: FeaturedDetails;
-  index: number;
-  closePopovers?: () => void;
-}
-
-export interface CategoryProps {
-  category: {
-    id: string; // This might need to be string if using DummyJSON category slugs
-    name: string;
-    featured: FeaturedDetails[];
-    sections: SectionDetails[];
-  };
-  section: SectionDetails;
-  index: number;
-  closePopovers?: () => void;
-}
-
 export interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
 }
-
-// Old UserType - to be replaced or updated if simple ID/name/email is still needed elsewhere
-// export interface UserType {
-//   id: string;
-//   name: string;
-//   email: string;
-// }
 
 // Updated ProductItem for DummyJSON
 export interface ProductItem {
