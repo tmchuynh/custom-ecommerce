@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchRandomUser } from "@/api/users";
 import { useAuth } from "@/app/context/authContext";
 import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
@@ -25,6 +26,7 @@ import {
   Lock,
   MapPin,
   Package,
+  Shuffle,
   Truck,
 } from "lucide-react";
 import Link from "next/link";
@@ -81,6 +83,83 @@ export default function CheckoutPage() {
   });
 
   const [specialInstructions, setSpecialInstructions] = useState("");
+  const [isLoadingAutofill, setIsLoadingAutofill] = useState(false);
+
+  // Autofill functions for demo purposes
+  const autofillShippingInfo = async () => {
+    setIsLoadingAutofill(true);
+    try {
+      const randomUser = await fetchRandomUser();
+
+      const newShippingInfo = {
+        fullName: `${randomUser.firstName} ${randomUser.lastName}`,
+        email: randomUser.email,
+        phone: randomUser.phone,
+        address: randomUser.address.address,
+        city: randomUser.address.city,
+        state: randomUser.address.state,
+        zipCode: randomUser.address.postalCode,
+        country: "United States",
+      };
+
+      setShippingInfo(newShippingInfo);
+
+      // Auto-fill billing if same as shipping
+      if (sameAsBilling) {
+        setBillingInfo((prev) => ({
+          ...prev,
+          fullName: newShippingInfo.fullName,
+          address: newShippingInfo.address,
+          city: newShippingInfo.city,
+          state: newShippingInfo.state,
+          zipCode: newShippingInfo.zipCode,
+          country: newShippingInfo.country,
+        }));
+      }
+
+      toast.success(
+        "Demo shipping info filled! (Note: This is fake data for testing purposes)"
+      );
+    } catch (error) {
+      toast.error("Failed to load demo data");
+    } finally {
+      setIsLoadingAutofill(false);
+    }
+  };
+
+  const autofillPaymentInfo = async () => {
+    setIsLoadingAutofill(true);
+    try {
+      const randomUser = await fetchRandomUser();
+
+      // Generate a random expiry date (future date)
+      const currentYear = new Date().getFullYear();
+      const expiryYear = currentYear + Math.floor(Math.random() * 5) + 1;
+      const expiryMonth = Math.floor(Math.random() * 12) + 1;
+      const expiryDate = `${expiryMonth
+        .toString()
+        .padStart(2, "0")}/${expiryYear.toString().slice(-2)}`;
+
+      // Generate a random CVV
+      const cvv = Math.floor(Math.random() * 900) + 100;
+
+      setBillingInfo((prev) => ({
+        ...prev,
+        cardNumber: randomUser.bank.cardNumber,
+        expiryDate: expiryDate,
+        cvv: cvv.toString(),
+        nameOnCard: `${randomUser.firstName} ${randomUser.lastName}`,
+      }));
+
+      toast.success(
+        "Demo payment info filled! (Note: This is fake data for testing purposes)"
+      );
+    } catch (error) {
+      toast.error("Failed to load demo data");
+    } finally {
+      setIsLoadingAutofill(false);
+    }
+  };
 
   // Validation functions
   const validateShipping = () => {
@@ -280,10 +359,26 @@ export default function CheckoutPage() {
             {currentStep === 1 && (
               <Card>
                 <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Truck className="mr-2 w-5 h-5" />
-                    Shipping Information
-                  </CardTitle>
+                  <div className="flex justify-between items-center">
+                    <CardTitle className="flex items-center">
+                      <Truck className="mr-2 w-5 h-5" />
+                      Shipping Information
+                    </CardTitle>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={autofillShippingInfo}
+                      disabled={isLoadingAutofill}
+                      className="text-xs"
+                    >
+                      <Shuffle className="mr-1 w-3 h-3" />
+                      {isLoadingAutofill ? "Loading..." : "Fill Demo Data"}
+                    </Button>
+                  </div>
+                  <p className="text-muted-foreground text-xs">
+                    Demo autofill uses fake data from DummyJSON for testing
+                    purposes only
+                  </p>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
@@ -410,10 +505,26 @@ export default function CheckoutPage() {
               <div className="space-y-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center">
-                      <CreditCard className="mr-2 w-5 h-5" />
-                      Payment Method
-                    </CardTitle>
+                    <div className="flex justify-between items-center">
+                      <CardTitle className="flex items-center">
+                        <CreditCard className="mr-2 w-5 h-5" />
+                        Payment Method
+                      </CardTitle>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={autofillPaymentInfo}
+                        disabled={isLoadingAutofill || paymentMethod !== "card"}
+                        className="text-xs"
+                      >
+                        <Shuffle className="mr-1 w-3 h-3" />
+                        {isLoadingAutofill ? "Loading..." : "Fill Demo Data"}
+                      </Button>
+                    </div>
+                    <p className="text-muted-foreground text-xs">
+                      Demo autofill uses fake payment data for testing purposes
+                      only
+                    </p>
                   </CardHeader>
                   <CardContent>
                     <RadioGroup
