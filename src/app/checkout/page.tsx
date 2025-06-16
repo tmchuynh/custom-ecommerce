@@ -331,7 +331,7 @@ export default function CheckoutPage() {
                 <div
                   className={`flex items-center justify-center w-10 h-10 rounded-full border-2 ${
                     currentStep >= step
-                      ? "bg-primary text-primary-foreground border-primary"
+                      ? " border-primary"
                       : "bg-background text-muted-foreground border-muted"
                   }`}
                 >
