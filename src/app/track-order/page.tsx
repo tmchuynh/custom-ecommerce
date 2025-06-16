@@ -24,7 +24,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { toast } from "sonner";
 
 interface TrackingEvent {
@@ -34,7 +34,7 @@ interface TrackingEvent {
   description: string;
 }
 
-export default function TrackOrderPage() {
+function TrackOrderContent() {
   const searchParams = useSearchParams();
   const initialTracking = searchParams.get("tracking") || "";
 
@@ -562,5 +562,42 @@ export default function TrackOrderPage() {
         </Card>
       </div>
     </div>
+  );
+}
+
+function LoadingFallback() {
+  return (
+    <div className="min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
+        <div className="mb-8">
+          <div className="bg-muted mb-2 rounded w-64 h-8 animate-pulse"></div>
+          <div className="bg-muted rounded w-96 h-4 animate-pulse"></div>
+        </div>
+        <Card className="mb-8">
+          <CardHeader>
+            <div className="bg-muted rounded w-32 h-6 animate-pulse"></div>
+          </CardHeader>
+          <CardContent>
+            <div className="flex sm:flex-row flex-col gap-4">
+              <div className="flex-1">
+                <div className="bg-muted mb-2 rounded w-24 h-4 animate-pulse"></div>
+                <div className="bg-muted rounded w-full h-10 animate-pulse"></div>
+              </div>
+              <div className="flex items-end">
+                <div className="bg-muted rounded w-32 h-10 animate-pulse"></div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
+export default function TrackOrderPage() {
+  return (
+    <Suspense fallback={<LoadingFallback />}>
+      <TrackOrderContent />
+    </Suspense>
   );
 }
