@@ -24,8 +24,8 @@ import { FaChevronDown, FaDollarSign } from "react-icons/fa";
 import { ThemeToggle } from "../buttons/ThemeToggle";
 import CurrencyStatus from "../currency/CurrencyStatus";
 import CartIcon from "./CartIcon";
-import WishlistIcon from "./WishlistIcon";
 import UserMenu from "./UserMenu";
+import WishlistIcon from "./WishlistIcon";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
