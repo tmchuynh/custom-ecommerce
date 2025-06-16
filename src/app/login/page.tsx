@@ -1,5 +1,6 @@
 "use client";
 
+import { fetchDemoCredentials } from "@/api/users";
 import { useAuth } from "@/app/context/authContext";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Eye, EyeOff, LogIn, Shuffle } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -27,6 +28,28 @@ export default function LoginPage() {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingAutofill, setIsLoadingAutofill] = useState(false);
+
+  // Autofill demo credentials
+  const autofillCredentials = async () => {
+    setIsLoadingAutofill(true);
+    try {
+      const credentials = await fetchDemoCredentials();
+
+      setFormData({
+        username: credentials.username,
+        password: credentials.password,
+      });
+
+      toast.success(
+        `Demo credentials filled for ${credentials.fullName}! (Note: This is fake data for testing purposes)`
+      );
+    } catch (error) {
+      toast.error("Failed to load demo credentials");
+    } finally {
+      setIsLoadingAutofill(false);
+    }
+  };
 
   // Redirect if already logged in
   if (isLoggedIn) {
@@ -116,6 +139,29 @@ export default function LoginPage() {
                   )}
                 </Button>
               </div>
+            </div>
+
+            {/* Demo Autofill Section */}
+            <div className="pt-4 border-t">
+              <div className="flex justify-between items-center mb-2">
+                <p className="text-muted-foreground text-xs">
+                  Quick demo login:
+                </p>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={autofillCredentials}
+                  disabled={isLoadingAutofill || isLoading}
+                  className="text-xs"
+                >
+                  <Shuffle className="mr-1 w-3 h-3" />
+                  {isLoadingAutofill ? "Loading..." : "Fill Demo Login"}
+                </Button>
+              </div>
+              <p className="text-muted-foreground text-xs">
+                Uses fake credentials from DummyJSON for testing purposes
+              </p>
             </div>
 
             <Button type="submit" className="w-full" disabled={isLoading}>
