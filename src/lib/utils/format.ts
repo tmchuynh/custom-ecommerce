@@ -106,3 +106,41 @@ export function convertTo12HourFormat(time: string): string {
   const adjustedHours = hours % 12 || 12; // Convert 0 to 12 for midnight
   return `${adjustedHours}:${minutes.toString().padStart(2, "0")} ${period}`;
 }
+
+
+/**
+ * Format postal code according to country conventions
+ */
+export function formatPostalCode(postalCode: string, country: string): string {
+  const trimmed = postalCode.trim().toUpperCase();
+  const countryCode = country.toUpperCase();
+
+  switch (countryCode) {
+    case "CA":
+      // Format Canadian postal codes as A1A 1A1
+      if (/^[A-Z]\d[A-Z]\d[A-Z]\d$/.test(trimmed)) {
+        return `${trimmed.slice(0, 3)} ${trimmed.slice(3)}`;
+      }
+      return trimmed;
+
+    case "US":
+      // Format US ZIP codes as 12345 or 12345-6789
+      if (/^\d{9}$/.test(trimmed)) {
+        return `${trimmed.slice(0, 5)}-${trimmed.slice(5)}`;
+      }
+      return trimmed;
+
+    case "GB":
+      // Format UK postcodes with proper spacing
+      if (/^[A-Z]{1,2}\d[A-Z\d]?\d[A-Z]{2}$/.test(trimmed)) {
+        const match = trimmed.match(/^([A-Z]{1,2}\d[A-Z\d]?)(\d[A-Z]{2})$/);
+        if (match) {
+          return `${match[1]} ${match[2]}`;
+        }
+      }
+      return trimmed;
+
+    default:
+      return trimmed;
+  }
+}
