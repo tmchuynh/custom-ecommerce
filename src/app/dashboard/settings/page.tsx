@@ -161,9 +161,20 @@ export default function SettingsPage() {
     }
 
     if (user) {
-      // Use a consistent user ID based on the logged-in user's ID
-      // Convert string ID to number for DummyJSON API (fallback to 1 if parsing fails)
-      const apiUserId = parseInt(user.id) || 1;
+      // Extract the DummyJSON user ID from the user ID
+      let apiUserId = 1; // default fallback
+      
+      if (user.id.startsWith('demo-')) {
+        // Extract the original DummyJSON user ID
+        const demoId = user.id.replace('demo-', '');
+        apiUserId = parseInt(demoId) || 1;
+      } else {
+        // For local users, use a consistent ID based on username hash or default to 1
+        apiUserId = Math.abs(user.username.split('').reduce((a, b) => {
+          a = ((a << 5) - a) + b.charCodeAt(0);
+          return a & a;
+        }, 0)) % 30 + 1; // Use hash to get a number between 1-30
+      }
 
       // Load user data from DummyJSON API for demo purposes
       fetchUserById(apiUserId)
@@ -171,9 +182,9 @@ export default function SettingsPage() {
           setUserData(apiUser);
           setFormData((prev) => ({
             ...prev,
-            username: user.username || "",
-            email: user.email || "",
-            phoneNumber: user.phoneNumber || "",
+            username: apiUser.username || user.username || "",
+            email: apiUser.email || user.email || "",
+            phoneNumber: apiUser.phone || user.phoneNumber || "",
             firstName: apiUser.firstName || "",
             lastName: apiUser.lastName || "",
             middleName: "", // Not provided by API
@@ -480,9 +491,8 @@ export default function SettingsPage() {
                   </CardTitle>
                   {userData && (
                     <p className="text-muted-foreground text-sm">
-                      Personal information is loaded from DummyJSON API (User
-                      ID: {userData.id}) and remains consistent for your
-                      session.
+                      All personal information (username, email, phone, address, payment methods) 
+                      is from the same DummyJSON API user (ID: {userData.id}) - {userData.firstName} {userData.lastName}.
                     </p>
                   )}
                 </CardHeader>
@@ -581,8 +591,8 @@ export default function SettingsPage() {
                         </h3>
                         {userData && (
                           <p className="text-muted-foreground text-sm">
-                            Address from DummyJSON API. Existing addresses
-                            cannot be edited or removed.
+                            Address belongs to {userData.firstName} {userData.lastName}. 
+                            Existing addresses cannot be edited or removed.
                           </p>
                         )}
                       </div>
@@ -1131,8 +1141,8 @@ export default function SettingsPage() {
                   </CardTitle>
                   {userData && (
                     <p className="text-muted-foreground text-sm">
-                      Payment information from DummyJSON API. Existing methods
-                      cannot be edited or removed, but you can add new ones.
+                      Payment information belongs to {userData.firstName} {userData.lastName} (User ID: {userData.id}). 
+                      Existing methods cannot be edited or removed, but you can add new ones.
                     </p>
                   )}
                 </CardHeader>
