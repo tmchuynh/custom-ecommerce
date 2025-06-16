@@ -24,6 +24,7 @@ import { ProductItem } from "@/lib/interfaces";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Filter, Grid3X3, List, Search, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { FaShoppingBag } from "react-icons/fa";
 
 interface CategoryNode {
   id: string;
@@ -443,17 +444,22 @@ export default function ShoppingPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="mb-2 font-bold text-4xl text-foreground">
-            Shop All Products
-          </h1>
-          <p className="text-muted-foreground">
+      {/* Hero Section */}
+      <div className="relative py-20">
+        <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-7xl text-center">
+          <div className="flex justify-center items-center gap-3 mb-2">
+            <FaShoppingBag className="mb-5 w-10 h-10 text-primary" />
+            <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
+              Shop All Products
+            </h1>
+          </div>
+          <p className="opacity-90 text-xl md:text-2xl">
             Discover our complete collection of premium products
           </p>
         </div>
+      </div>
 
+      <div className="mx-auto px-6 lg:px-8 py-2 max-w-7xl">
         {/* Filter and Sort Bar */}
         <div className="shadow-sm mb-8 p-4 border border-border rounded-xl">
           <div className="flex lg:flex-row flex-col justify-between items-start lg:items-center gap-4">
@@ -568,7 +574,7 @@ export default function ShoppingPage() {
               </Select>
 
               {/* View mode toggle */}
-              <div className="flex border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+              <div className="flex border rounded-lg overflow-hidden">
                 <Button
                   variant={viewMode === "grid" ? "default" : "ghost"}
                   size="sm"

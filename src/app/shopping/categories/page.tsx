@@ -19,6 +19,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FaShoppingBag } from "react-icons/fa";
 
 interface CategoryData {
   id: string;
@@ -120,11 +121,13 @@ export default function CategoriesPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative py-20">
-        <div className="absolute inset-0"></div>
         <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-7xl text-center">
-          <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
-            Shop by Categories
-          </h1>
+          <div className="flex justify-center items-center gap-3 mb-2">
+            <FaShoppingBag className="mb-5 w-10 h-10 text-secondary" />
+            <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
+              Shop by Categories
+            </h1>
+          </div>
           <p className="opacity-90 text-xl md:text-2xl">
             Discover amazing products organized just for you
           </p>

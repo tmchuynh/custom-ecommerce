@@ -233,41 +233,45 @@ export default function SaleItemsPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            <Tag className="w-8 h-8 text-red-500" />
-            <h1 className="font-bold text-4xl text-foreground">Sale Items</h1>
+      {/* Hero Section */}
+      <div className="relative py-20">
+        <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-7xl text-center">
+          <div className="flex justify-center items-center gap-3 mb-2">
+            <Tag className="mb-5 w-10 h-10 text-red-500" />
+            <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
+              Sale Items
+            </h1>
           </div>
-          <p className="text-muted-foreground">
+          <p className="opacity-90 text-xl md:text-2xl">
             Don't miss out on these amazing deals and discounts!
           </p>
         </div>
+      </div>
 
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         {/* Sale Statistics */}
-        <div className="gap-6 grid grid-cols-1 md:grid-cols-4 mb-8">
-          <Card className="bg-gradient-to-r from-red-50 dark:from-red-950/20 to-pink-50 dark:to-pink-950/20 border-red-200 dark:border-red-800">
+        <div className="gap-6 grid grid-cols-1 md:grid-cols-4 -mt-8 mb-8">
+          <Card className="bg-gradient-to-r from-red-50 to-pink-50 border-red-200">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
-                <Percent className="w-8 h-8 text-red-500" />
+                <Percent className="m-2 w-8 h-8 text-red-500" />
                 <div>
-                  <p className="text-red-600 text-sm dark:text-red-400">Items on Sale</p>
-                  <p className="font-bold text-2xl text-red-700 dark:text-red-300">
+                  <p className="font-medium text-red-600">Items on Sale</p>
+                  <p className="font-bold text-3xl text-red-700">
                     {saleProducts.length}
                   </p>
                 </div>
               </div>
             </CardContent>
           </Card>
-          
-          <Card className="bg-gradient-to-r from-green-50 dark:from-green-950/20 to-emerald-50 dark:to-emerald-950/20 border-green-200 dark:border-green-800">
+
+          <Card className="bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
-                <TrendingDown className="w-8 h-8 text-green-500" />
+                <TrendingDown className="m-2 w-8 h-8 text-green-500" />
                 <div>
-                  <p className="text-green-600 text-sm dark:text-green-400">Avg. Discount</p>
-                  <p className="font-bold text-2xl text-green-700 dark:text-green-300">
+                  <p className="font-medium text-green-600">Avg. Discount</p>
+                  <p className="font-bold text-3xl text-green-700">
                     {savingsStats.averageDiscount.toFixed(1)}%
                   </p>
                 </div>
@@ -275,13 +279,13 @@ export default function SaleItemsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-blue-50 dark:from-blue-950/20 to-cyan-50 dark:to-cyan-950/20 border-blue-200 dark:border-blue-800">
+          <Card className="bg-gradient-to-r from-blue-50 to-cyan-50 border-blue-200">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
-                <Tag className="w-8 h-8 text-blue-500" />
+                <Tag className="m-2 w-8 h-8 text-blue-500" />
                 <div>
-                  <p className="text-blue-600 text-sm dark:text-blue-400">Categories</p>
-                  <p className="font-bold text-2xl text-blue-700 dark:text-blue-300">
+                  <p className="font-medium text-blue-600">Categories</p>
+                  <p className="font-bold text-3xl text-blue-700">
                     {categories.length}
                   </p>
                 </div>
@@ -289,14 +293,17 @@ export default function SaleItemsPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-r from-purple-50 dark:from-purple-950/20 to-violet-50 dark:to-violet-950/20 border-purple-200 dark:border-purple-800">
+          <Card className="bg-gradient-to-r from-purple-50 to-violet-50 border-purple-200">
             <CardContent className="p-6">
               <div className="flex items-center gap-3">
-                <Search className="w-8 h-8 text-purple-500" />
+                <Search className="m-2 w-8 h-8 text-purple-500" />
                 <div>
-                  <p className="text-purple-600 text-sm dark:text-purple-400">Best Deal</p>
-                  <p className="font-bold text-2xl text-purple-700 dark:text-purple-300">
-                    {Math.max(...saleProducts.map(p => p.discountPercentage || 0)).toFixed(0)}% Off
+                  <p className="font-medium text-purple-600">Best Deal</p>
+                  <p className="font-bold text-3xl text-purple-700">
+                    {Math.max(
+                      ...saleProducts.map((p) => p.discountPercentage || 0)
+                    ).toFixed(0)}
+                    % Off
                   </p>
                 </div>
               </div>
@@ -310,7 +317,7 @@ export default function SaleItemsPage() {
             {/* Left side - Active filters */}
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-medium text-sm">Filters:</span>
-              
+
               {activeFilters.minDiscount && activeFilters.minDiscount > 0 && (
                 <Badge variant="secondary" className="gap-1">
                   {activeFilters.minDiscount}%+ Off
@@ -320,10 +327,12 @@ export default function SaleItemsPage() {
                   />
                 </Badge>
               )}
-              
+
               {activeFilters.category && activeFilters.category !== "all" && (
                 <Badge variant="secondary" className="gap-1">
-                  {activeFilters.category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                  {activeFilters.category
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase())}
                   <X
                     className="w-3 h-3 hover:text-destructive cursor-pointer"
                     onClick={() => handleFilterChange({ category: "all" })}
@@ -361,7 +370,10 @@ export default function SaleItemsPage() {
                 </SelectTrigger>
                 <SelectContent>
                   {DISCOUNT_RANGES.map((range) => (
-                    <SelectItem key={range.value} value={range.value.toString()}>
+                    <SelectItem
+                      key={range.value}
+                      value={range.value.toString()}
+                    >
                       {range.label}
                     </SelectItem>
                   ))}
@@ -371,7 +383,9 @@ export default function SaleItemsPage() {
               {/* Category filter */}
               <Select
                 value={activeFilters.category || "all"}
-                onValueChange={(value) => handleFilterChange({ category: value })}
+                onValueChange={(value) =>
+                  handleFilterChange({ category: value })
+                }
               >
                 <SelectTrigger className="w-40">
                   <SelectValue placeholder="All Categories" />
@@ -380,7 +394,9 @@ export default function SaleItemsPage() {
                   <SelectItem value="all">All Categories</SelectItem>
                   {categories.map((category) => (
                     <SelectItem key={category} value={category}>
-                      {category.replace(/-/g, " ").replace(/\b\w/g, l => l.toUpperCase())}
+                      {category
+                        .replace(/-/g, " ")
+                        .replace(/\b\w/g, (l) => l.toUpperCase())}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -404,7 +420,7 @@ export default function SaleItemsPage() {
               </Select>
 
               {/* View mode toggle */}
-              <div className="flex border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+              <div className="flex border rounded-lg overflow-hidden">
                 <Button
                   variant={viewMode === "grid" ? "default" : "ghost"}
                   size="sm"
@@ -432,7 +448,9 @@ export default function SaleItemsPage() {
                   <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="discount:desc">Highest Discount</SelectItem>
+                  <SelectItem value="discount:desc">
+                    Highest Discount
+                  </SelectItem>
                   <SelectItem value="discount:asc">Lowest Discount</SelectItem>
                   <SelectItem value="price:asc">Price: Low to High</SelectItem>
                   <SelectItem value="price:desc">Price: High to Low</SelectItem>
@@ -452,7 +470,9 @@ export default function SaleItemsPage() {
                 <div className="mb-4 text-muted-foreground">
                   <Tag className="opacity-50 mx-auto w-12 h-12" />
                 </div>
-                <h3 className="mb-2 font-medium text-lg">No sale items found</h3>
+                <h3 className="mb-2 font-medium text-lg">
+                  No sale items found
+                </h3>
                 <p className="mb-6 text-muted-foreground">
                   Try adjusting your filters or check back later for new deals
                 </p>
@@ -482,30 +502,33 @@ export default function SaleItemsPage() {
                           />
                         </PaginationItem>
 
-                        {Array.from({ length: Math.min(7, totalPages) }, (_, i) => {
-                          let pageNum;
-                          if (totalPages <= 7) {
-                            pageNum = i + 1;
-                          } else if (currentPage <= 4) {
-                            pageNum = i + 1;
-                          } else if (currentPage >= totalPages - 3) {
-                            pageNum = totalPages - 6 + i;
-                          } else {
-                            pageNum = currentPage - 3 + i;
-                          }
+                        {Array.from(
+                          { length: Math.min(7, totalPages) },
+                          (_, i) => {
+                            let pageNum;
+                            if (totalPages <= 7) {
+                              pageNum = i + 1;
+                            } else if (currentPage <= 4) {
+                              pageNum = i + 1;
+                            } else if (currentPage >= totalPages - 3) {
+                              pageNum = totalPages - 6 + i;
+                            } else {
+                              pageNum = currentPage - 3 + i;
+                            }
 
-                          return (
-                            <PaginationItem key={pageNum}>
-                              <PaginationLink
-                                onClick={() => setCurrentPage(pageNum)}
-                                isActive={currentPage === pageNum}
-                                className="cursor-pointer"
-                              >
-                                {pageNum}
-                              </PaginationLink>
-                            </PaginationItem>
-                          );
-                        })}
+                            return (
+                              <PaginationItem key={pageNum}>
+                                <PaginationLink
+                                  onClick={() => setCurrentPage(pageNum)}
+                                  isActive={currentPage === pageNum}
+                                  className="cursor-pointer"
+                                >
+                                  {pageNum}
+                                </PaginationLink>
+                              </PaginationItem>
+                            );
+                          }
+                        )}
 
                         <PaginationItem>
                           <PaginationNext
