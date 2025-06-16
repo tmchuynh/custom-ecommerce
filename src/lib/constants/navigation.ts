@@ -33,7 +33,7 @@ export const navbarItems = [
       },
       {
         label: "Order Tracking",
-        href: "/track-order",
+        href: "/track-orders",
       },
       {
         label: "Returns & Exchanges",
@@ -56,10 +56,6 @@ export const navbarItems = [
         label: "Benefits",
         href: "/membership/benefits",
       },
-      {
-        label: "Member Exclusive Deals",
-        href: "/member-deals",
-      },
     ],
   },
   {
@@ -74,5 +70,9 @@ export const navbarItems = [
         href: "/careers",
       },
     ],
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
