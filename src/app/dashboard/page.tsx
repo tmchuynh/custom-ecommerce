@@ -20,7 +20,6 @@ import {
   Package,
   Phone,
   RefreshCw,
-  Settings,
   ShoppingBag,
   Star,
   TrendingUp,
@@ -125,10 +124,6 @@ export default function DashboardPage() {
             </p>
           </div>
           <div className="flex gap-2 mt-4 sm:mt-0">
-            <Button variant="outline" size="sm">
-              <Settings className="mr-2 w-4 h-4" />
-              Settings
-            </Button>
             <Button variant="outline" size="sm" onClick={handleLogout}>
               <LogOut className="mr-2 w-4 h-4" />
               Sign Out
@@ -521,16 +516,6 @@ export default function DashboardPage() {
                 </CardContent>
               </Card>
             </Link>
-
-            <Card className="hover:shadow-md transition-shadow cursor-pointer">
-              <CardContent className="flex flex-col items-center p-6 text-center">
-                <Settings className="mb-3 w-8 h-8 text-primary" />
-                <h3 className="font-medium">Account Settings</h3>
-                <p className="text-muted-foreground text-sm">
-                  Manage preferences
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
 
