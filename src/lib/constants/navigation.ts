@@ -4,70 +4,82 @@ export const navbarItems = [
     href: "/",
   },
   {
-    label: "Find Your Next Adventure",
+    label: "Shop",
     dropdown: [
       {
-        label: "Destinations",
-        href: "/destinations", // Destination search page
+        label: "All Products",
+        href: "/shopping",
       },
       {
-        label: "Activities",
-        href: "/activities", // Activity search page
+        label: "Categories",
+        href: "/categories",
       },
       {
-        label: "Attractions",
-        href: "/attractions", // Attraction search page
+        label: "New Arrivals",
+        href: "/new-arrivals",
       },
       {
-        label: "Tours",
-        href: "/tours", // Tour search page
+        label: "Sale Items",
+        href: "/sale",
       },
     ],
   },
   {
-    label: "Book Travel",
+    label: "Services",
     dropdown: [
       {
-        label: "Flights",
-        href: "/flights", // Flight search page
+        label: "Customer Support",
+        href: "/support",
       },
       {
-        label: "Hotels",
-        href: "/hotels", // Hotel search page
+        label: "Order Tracking",
+        href: "/track-order",
       },
       {
-        label: "Vehicle Rentals",
-        href: "/vehicles", // Vehicle rental search page
+        label: "Returns & Exchanges",
+        href: "/returns",
+      },
+      {
+        label: "Size Guide",
+        href: "/size-guide",
       },
     ],
   },
   {
-    label: "Trip Planner",
+    label: "Membership",
     dropdown: [
       {
-        label: "Create New Trip",
-        href: "/trip-planner",
+        label: "Join Now",
+        href: "/membership",
       },
       {
-        label: "Trip Budget Calculator",
-        href: "/budget-calculator",
+        label: "Benefits",
+        href: "/membership/benefits",
+      },
+      {
+        label: "Member Exclusive Deals",
+        href: "/member-deals",
       },
     ],
   },
   {
-    label: "About Us",
+    label: "About",
     dropdown: [
       {
         label: "Our Story",
         href: "/about",
       },
       {
-        label: "Our History",
-        href: "/about/our-history",
-      },
-      {
         label: "Contact Us",
         href: "/contact",
+      },
+      {
+        label: "Store Locations",
+        href: "/stores",
+      },
+      {
+        label: "Careers",
+        href: "/careers",
       },
     ],
   },
