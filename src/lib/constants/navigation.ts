@@ -15,10 +15,6 @@ export const navbarItems = [
         href: "/shopping/categories",
       },
       {
-        label: "New Arrivals",
-        href: "/shopping/new-arrivals",
-      },
-      {
         label: "Sale Items",
         href: "/shopping/sale-items",
       },
@@ -28,8 +24,8 @@ export const navbarItems = [
     label: "Services",
     dropdown: [
       {
-        label: "Customer Support",
-        href: "/support",
+        label: "Membership",
+        href: "/membership",
       },
       {
         label: "Order Tracking",
@@ -45,19 +41,7 @@ export const navbarItems = [
       },
     ],
   },
-  {
-    label: "Membership",
-    dropdown: [
-      {
-        label: "Join Now",
-        href: "/membership",
-      },
-      {
-        label: "Benefits",
-        href: "/membership/benefits",
-      },
-    ],
-  },
+
   {
     label: "About",
     dropdown: [
@@ -73,6 +57,6 @@ export const navbarItems = [
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "/contact-us",
   },
 ];
