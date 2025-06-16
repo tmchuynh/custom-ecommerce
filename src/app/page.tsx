@@ -1,68 +1,58 @@
 "use client";
+import { getAllProducts } from "@/api/products";
 import ProductGrid from "@/components/products/ProductGrid";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { ProductItem } from "@/lib/interfaces";
+import { Package, ShoppingBag, Tag, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-// Placeholder product data - replace with your actual data fetching logic
-const sampleProducts = [
-  {
-    id: 1, // Changed from string to number
-    title: "Classic White Tee",
-    price: 25.99,
-    images: ["/images/Shopping/Men/classic-white-tee.jpg"], // Replace with actual image path
-    thumbnail: "/images/Shopping/Men/classic-white-tee.jpg", // Replace with actual image path
-    rating: 4.5,
-    category: "Men's Apparel",
-    stock: 50,
-    description: "A timeless classic, perfect for any occasion.",
-  },
-  {
-    id: 2, // Changed from string to number
-    title: "Slim Fit Jeans",
-    price: 79.5,
-    images: ["/images/Shopping/Women/slim-fit-jeans.jpg"], // Replace with actual image path
-    thumbnail: "/images/Shopping/Women/slim-fit-jeans.jpg", // Replace with actual image path
-    rating: 4.2,
-    category: "Women's Apparel",
-    stock: 30,
-    description: "Comfortable and stylish slim fit jeans.",
-  },
-  {
-    id: 3, // Changed from string to number
-    title: "Summer Floral Dress",
-    price: 45.0,
-    images: ["/images/Shopping/Women/summer-floral-dress.jpg"], // Replace with actual image path
-    thumbnail: "/images/Shopping/Women/summer-floral-dress.jpg", // Replace with actual image path
-    rating: 4.8,
-    category: "Women's Apparel",
-    stock: 25,
-    description: "A beautiful dress perfect for sunny days.",
-  },
-  {
-    id: 4, // Changed from string to number
-    title: "Leather Backpack",
-    price: 120.0,
-    images: ["/images/Shopping/Accessories/leather-backpack.jpg"], // Replace with actual image path
-    thumbnail: "/images/Shopping/Accessories/leather-backpack.jpg", // Replace with actual image path
-    rating: 4.9,
-    category: "Accessories",
-    stock: 15,
-    description: "Durable and stylish leather backpack for everyday use.",
-  },
-];
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  const [featuredProducts, setFeaturedProducts] = useState<ProductItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  // Fetch featured products on component mount
+  useEffect(() => {
+    const loadFeaturedProducts = async () => {
+      try {
+        setLoading(true);
+        const allProducts = await getAllProducts();
+
+        // Get a selection of featured products (first 8 products with good ratings)
+        const featured = allProducts
+          .filter((product) => product.price > 100)
+          .filter((product) => (product.rating || 0) >= 4.5)
+          .filter(
+            (product) =>
+              product.discountPercentage && product.discountPercentage > 2
+          )
+          .slice(0, 8);
+
+        setFeaturedProducts(featured);
+      } catch (error) {
+        console.error("Failed to load featured products:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadFeaturedProducts();
+  }, []);
   return (
     <div>
       {/* New Hero Section */}
-      <section className="relative bg-gradient-to-r from-purple-600 to-blue-600 py-20 md:py-32 text-white">
+      <section className="relative -mt-15 py-20 md:py-32 text-white">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 h-[50em]" />
         <div className="absolute inset-0">
           <Image
-            src="/images/yosemite.jpg" // Replace with your desired hero image
+            src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHww"
             alt="Hero background"
-            fill
-            className="opacity-30 object-cover"
+            width={1920}
+            height={1080}
+            className="opacity-30 h-[50em] object-cover"
             priority
           />
         </div>
@@ -84,37 +74,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      <main className="mx-auto px-4 sm:px-6 lg:px-8 py-12 container">
+      <main className="mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl container">
         {/* Featured Products Section */}
         <section aria-labelledby="featured-products-heading" className="py-16">
           <div className="mb-12 text-center">
             <h2
               id="featured-products-heading"
-              className="font-bold text-3xl text-gray-900 sm:text-4xl tracking-tight"
+              className="font-bold text-3xl sm:text-4xl tracking-tight"
             >
               Featured Products
             </h2>
-            <p className="mt-4 text-gray-600 text-lg">
+            <p className="mt-4 text-lg">
               Check out some of our most popular items.
             </p>
           </div>
-          {/* You'll need to fetch actual product data here */}
-          <ProductGrid products={sampleProducts} />
+          {/* Featured Products */}
+          {loading ? (
+            <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+              {Array.from({ length: 8 }).map((_, i) => (
+                <Card key={i} className="animate-pulse">
+                  <CardContent className="p-4">
+                    <div className="bg-gray-200 mb-4 rounded h-48"></div>
+                    <div className="bg-gray-200 mb-2 rounded h-4"></div>
+                    <div className="bg-gray-200 rounded w-3/4 h-4"></div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <ProductGrid products={featuredProducts} />
+          )}
         </section>
 
         {/* Category Showcase Section */}
-        <section
-          aria-labelledby="category-showcase-heading"
-          className="bg-gray-50 py-16 rounded-lg"
-        >
+        <section aria-labelledby="category-showcase-heading" className="py-16">
           <div className="mb-12 text-center">
             <h2
               id="category-showcase-heading"
-              className="font-bold text-3xl text-gray-900 sm:text-4xl tracking-tight"
+              className="font-bold text-3xl sm:text-4xl tracking-tight"
             >
               Shop by Category
             </h2>
-            <p className="mt-4 text-gray-600 text-lg">
+            <p className="mt-4 text-lg">
               Find what you're looking for with ease.
             </p>
           </div>
@@ -122,28 +123,33 @@ export default function HomePage() {
             {/* Example Categories - Replace with your actual categories and links */}
             {[
               {
-                name: "Men's Apparel",
-                href: "/shopping/men",
-                imageSrc: "/images/Shopping/Men/category-men.jpg",
-              }, // Replace with actual image
-              {
-                name: "Women's Apparel",
-                href: "/shopping/women",
-                imageSrc: "/images/Shopping/Women/category-women.jpg",
-              }, // Replace with actual image
-              {
-                name: "Accessories",
-                href: "/shopping/accessories",
+                name: "All Products",
+                href: "/shopping",
                 imageSrc:
-                  "/images/Shopping/Accessories/category-accessories.jpg",
-              }, // Replace with actual image
+                  "https://plus.unsplash.com/premium_photo-1699973055451-c2061752297b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8%3D",
+                description: "Browse our complete collection",
+              },
+              {
+                name: "Sale Items",
+                href: "/shopping/sale-items",
+                imageSrc:
+                  "https://plus.unsplash.com/premium_photo-1683121041726-3b192f629fa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
+                description: "Great deals and discounts",
+              },
+              {
+                name: "Categories",
+                href: "/shopping/categories",
+                imageSrc:
+                  "https://plus.unsplash.com/premium_photo-1700056213493-d2a2747c76be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNhbGVzJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D",
+                description: "Shop by product category",
+              },
             ].map((category) => (
               <Link
                 href={category.href}
                 key={category.name}
                 className="group block relative"
               >
-                <div className="relative bg-white group-hover:opacity-75 rounded-lg w-full sm:aspect-w-2 lg:aspect-w-1 h-80 sm:aspect-h-1 sm:h-64 lg:aspect-h-1 overflow-hidden">
+                <div className="relative group-hover:opacity-75 rounded-lg w-full sm:aspect-w-2 lg:aspect-w-1 h-80 sm:aspect-h-1 sm:h-64 lg:aspect-h-1 overflow-hidden">
                   <Image
                     src={category.imageSrc}
                     alt={category.name}
@@ -151,38 +157,90 @@ export default function HomePage() {
                     className="object-cover object-center"
                   />
                 </div>
-                <h3 className="mt-6 font-semibold text-base text-center text-gray-900">
+                <h3 className="mt-6 font-semibold text-base text-center lg:text-xl">
                   {category.name}
                 </h3>
+                <p className="mt-2 text-center text-sm">
+                  {category.description}
+                </p>
               </Link>
             ))}
           </div>
         </section>
 
+        {/* Features Section */}
+        <section className="py-16">
+          <div className="mb-12 text-center">
+            <h2 className="font-bold text-3xl sm:text-4xl tracking-tight">
+              Why Shop With Us
+            </h2>
+            <p className="mt-4 text-lg">
+              Experience the best in online shopping with these benefits.
+            </p>
+          </div>
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-4">
+                  <ShoppingBag className="w-12 h-12 text-purple-600" />
+                </div>
+                <h3 className="mb-2 font-semibold text-lg">Free Shipping</h3>
+                <p className="">Free shipping on orders over $50</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-4">
+                  <Package className="w-12 h-12 text-purple-600" />
+                </div>
+                <h3 className="mb-2 font-semibold text-lg">Fast Delivery</h3>
+                <p className="">2-3 day delivery nationwide</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-4">
+                  <Tag className="w-12 h-12 text-purple-600" />
+                </div>
+                <h3 className="mb-2 font-semibold text-lg">Best Prices</h3>
+                <p className="">Competitive prices with regular sales</p>
+              </CardContent>
+            </Card>
+            <Card className="p-6 text-center">
+              <CardContent className="p-0">
+                <div className="flex justify-center mb-4">
+                  <TrendingUp className="w-12 h-12 text-purple-600" />
+                </div>
+                <h3 className="mb-2 font-semibold text-lg">Quality Products</h3>
+                <p className="">Curated selection of high-quality items</p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
         {/* Call to Action Section */}
         <section className="py-16 text-center">
-          <h2 className="mb-6 font-bold text-3xl text-gray-900 sm:text-4xl tracking-tight">
+          <h2 className="mb-6 font-bold text-3xl sm:text-4xl tracking-tight">
             Join Our Community
           </h2>
-          <p className="mx-auto mb-8 max-w-xl text-gray-600 text-lg">
+          <p className="mx-auto mb-8 max-w-xl text-lg">
             Sign up for our newsletter to get the latest updates on new
             arrivals, special offers, and more.
           </p>
-          <form className="sm:flex mx-auto max-w-md">
+          <form className="sm:flex items-center mx-auto max-w-md">
             <label htmlFor="email-address" className="sr-only">
               Email address
             </label>
-            <input
+            <Input
               id="email-address"
               name="email"
               type="email"
               autoComplete="email"
               required
-              className="px-5 py-3 border-gray-300 focus:border-indigo-500 rounded-md focus:ring-indigo-500 w-full sm:max-w-xs placeholder-gray-500"
               placeholder="Enter your email"
             />
-            <div className="sm:flex-shrink-0 shadow mt-3 sm:mt-0 sm:ml-3 rounded-md">
-              <Button type="submit" className="w-full">
+            <div className="sm:flex-shrink-0 md:mt-2 sm:ml-3">
+              <Button type="submit" variant={"classic"} className="m-0 w-full">
                 Subscribe
               </Button>
             </div>
