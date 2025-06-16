@@ -29,13 +29,16 @@ import { Switch } from "@/components/ui/switch";
 import {
   ArrowLeft,
   Bell,
+  Check,
   CreditCard,
+  Edit2,
   Lock,
   MapPin,
   Plus,
   Shield,
   Trash2,
   User,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -67,6 +70,7 @@ interface Address {
   postalCode: string;
   country: string;
   isDefault: boolean;
+  isFromAPI: boolean;
 }
 
 interface PaymentMethod {
@@ -76,6 +80,7 @@ interface PaymentMethod {
   cardExpire: string;
   cardHolderName: string;
   isDefault: boolean;
+  isFromAPI: boolean;
 }
 
 interface NotificationSettings {
@@ -135,7 +140,7 @@ export default function SettingsPage() {
   const [addresses, setAddresses] = useState<Address[]>([]);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
   const [newAddress, setNewAddress] = useState<
-    Omit<Address, "id" | "isDefault">
+    Omit<Address, "id" | "isDefault" | "isFromAPI">
   >({
     address: "",
     city: "",
@@ -144,7 +149,7 @@ export default function SettingsPage() {
     country: "US",
   });
   const [newPaymentMethod, setNewPaymentMethod] = useState<
-    Omit<PaymentMethod, "id" | "isDefault">
+    Omit<PaymentMethod, "id" | "isDefault" | "isFromAPI">
   >({
     cardNumber: "",
     cardType: "",
@@ -153,6 +158,25 @@ export default function SettingsPage() {
   });
   const [showAddAddress, setShowAddAddress] = useState(false);
   const [showAddPayment, setShowAddPayment] = useState(false);
+  const [editingAddress, setEditingAddress] = useState<string | null>(null);
+  const [editingPayment, setEditingPayment] = useState<string | null>(null);
+  const [editAddressData, setEditAddressData] = useState<
+    Omit<Address, "id" | "isDefault" | "isFromAPI">
+  >({
+    address: "",
+    city: "",
+    state: "",
+    postalCode: "",
+    country: "US",
+  });
+  const [editPaymentData, setEditPaymentData] = useState<
+    Omit<PaymentMethod, "id" | "isDefault" | "isFromAPI">
+  >({
+    cardNumber: "",
+    cardType: "",
+    cardExpire: "",
+    cardHolderName: "",
+  });
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -163,17 +187,22 @@ export default function SettingsPage() {
     if (user) {
       // Extract the DummyJSON user ID from the user ID
       let apiUserId = 1; // default fallback
-      
-      if (user.id.startsWith('demo-')) {
+
+      if (user.id.startsWith("demo-")) {
         // Extract the original DummyJSON user ID
-        const demoId = user.id.replace('demo-', '');
+        const demoId = user.id.replace("demo-", "");
         apiUserId = parseInt(demoId) || 1;
       } else {
         // For local users, use a consistent ID based on username hash or default to 1
-        apiUserId = Math.abs(user.username.split('').reduce((a, b) => {
-          a = ((a << 5) - a) + b.charCodeAt(0);
-          return a & a;
-        }, 0)) % 30 + 1; // Use hash to get a number between 1-30
+        apiUserId =
+          (Math.abs(
+            user.username.split("").reduce((a, b) => {
+              a = (a << 5) - a + b.charCodeAt(0);
+              return a & a;
+            }, 0)
+          ) %
+            30) +
+          1; // Use hash to get a number between 1-30
       }
 
       // Load user data from DummyJSON API for demo purposes
@@ -201,6 +230,7 @@ export default function SettingsPage() {
                 postalCode: apiUser.address.postalCode,
                 country: apiUser.address.country,
                 isDefault: true,
+                isFromAPI: true,
               },
             ]);
           }
@@ -215,6 +245,7 @@ export default function SettingsPage() {
                 cardExpire: apiUser.bank.cardExpire,
                 cardHolderName: `${apiUser.firstName} ${apiUser.lastName}`,
                 isDefault: true,
+                isFromAPI: true,
               },
             ]);
           }
@@ -263,14 +294,102 @@ export default function SettingsPage() {
     setPrivacy((prev) => ({ ...prev, [field]: value }));
   };
 
+  const validateAddress = (
+    address: Omit<Address, "id" | "isDefault" | "isFromAPI">
+  ) => {
+    const errors: string[] = [];
+
+    if (!address.address.trim()) errors.push("Street address is required");
+    if (!address.city.trim()) errors.push("City is required");
+    if (!address.state.trim()) errors.push("State/Province is required");
+    if (!address.postalCode.trim()) errors.push("ZIP/Postal code is required");
+    if (!address.country.trim()) errors.push("Country is required");
+
+    // Additional validations
+    if (address.address.length < 5)
+      errors.push("Street address must be at least 5 characters");
+    if (address.city.length < 2)
+      errors.push("City must be at least 2 characters");
+    if (address.postalCode.length < 3)
+      errors.push("Postal code must be at least 3 characters");
+
+    return errors;
+  };
+
+  const validatePaymentMethod = (
+    payment: Omit<PaymentMethod, "id" | "isDefault" | "isFromAPI">
+  ) => {
+    const errors: string[] = [];
+
+    if (!payment.cardHolderName.trim())
+      errors.push("Cardholder name is required");
+    if (!payment.cardNumber.trim()) errors.push("Card number is required");
+    if (!payment.cardExpire.trim()) errors.push("Expiry date is required");
+
+    // Additional validations
+    if (payment.cardHolderName.length < 2)
+      errors.push("Cardholder name must be at least 2 characters");
+
+    const cardNumberClean = payment.cardNumber.replace(/\s+/g, "");
+    if (cardNumberClean.length < 13 || cardNumberClean.length > 19) {
+      errors.push("Card number must be between 13-19 digits");
+    }
+
+    // Basic Luhn algorithm check
+    if (cardNumberClean.length >= 13 && !isValidCreditCard(cardNumberClean)) {
+      errors.push("Invalid card number");
+    }
+
+    // Expiry date validation (MM/YY format)
+    const expiryPattern = /^(0[1-9]|1[0-2])\/\d{2}$/;
+    if (!expiryPattern.test(payment.cardExpire)) {
+      errors.push("Expiry date must be in MM/YY format");
+    } else {
+      const [month, year] = payment.cardExpire.split("/");
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear() % 100;
+      const currentMonth = currentDate.getMonth() + 1;
+      const expYear = parseInt(year);
+      const expMonth = parseInt(month);
+
+      if (
+        expYear < currentYear ||
+        (expYear === currentYear && expMonth < currentMonth)
+      ) {
+        errors.push("Card has expired");
+      }
+    }
+
+    return errors;
+  };
+
+  const isValidCreditCard = (cardNumber: string): boolean => {
+    // Simple Luhn algorithm implementation
+    let sum = 0;
+    let isEven = false;
+
+    for (let i = cardNumber.length - 1; i >= 0; i--) {
+      let digit = parseInt(cardNumber.charAt(i));
+
+      if (isEven) {
+        digit *= 2;
+        if (digit > 9) {
+          digit -= 9;
+        }
+      }
+
+      sum += digit;
+      isEven = !isEven;
+    }
+
+    return sum % 10 === 0;
+  };
+
   const handleAddAddress = async () => {
-    if (
-      !newAddress.address ||
-      !newAddress.city ||
-      !newAddress.state ||
-      !newAddress.postalCode
-    ) {
-      toast.error("Please fill in all address fields");
+    const validationErrors = validateAddress(newAddress);
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]); // Show first error
       return;
     }
 
@@ -280,6 +399,7 @@ export default function SettingsPage() {
         ...newAddress,
         id: Date.now().toString(),
         isDefault: addresses.length === 0,
+        isFromAPI: false,
       };
 
       setAddresses((prev) => [...prev, newAddressWithId]);
@@ -300,12 +420,10 @@ export default function SettingsPage() {
   };
 
   const handleAddPaymentMethod = async () => {
-    if (
-      !newPaymentMethod.cardNumber ||
-      !newPaymentMethod.cardExpire ||
-      !newPaymentMethod.cardHolderName
-    ) {
-      toast.error("Please fill in all payment fields");
+    const validationErrors = validatePaymentMethod(newPaymentMethod);
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]); // Show first error
       return;
     }
 
@@ -318,6 +436,7 @@ export default function SettingsPage() {
         cardType:
           newPaymentMethod.cardType ||
           detectCardType(newPaymentMethod.cardNumber),
+        isFromAPI: false,
       };
 
       setPaymentMethods((prev) => [...prev, newPaymentWithId]);
@@ -334,6 +453,153 @@ export default function SettingsPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleRemoveAddress = async (addressId: string) => {
+    const address = addresses.find((a) => a.id === addressId);
+    if (address?.isFromAPI) {
+      toast.error("Cannot remove address from API");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      setAddresses((prev) => prev.filter((a) => a.id !== addressId));
+      toast.success("Address removed successfully!");
+    } catch (error) {
+      toast.error("Failed to remove address. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleRemovePaymentMethod = async (paymentId: string) => {
+    const payment = paymentMethods.find((p) => p.id === paymentId);
+    if (payment?.isFromAPI) {
+      toast.error("Cannot remove payment method from API");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      setPaymentMethods((prev) => prev.filter((p) => p.id !== paymentId));
+      toast.success("Payment method removed successfully!");
+    } catch (error) {
+      toast.error("Failed to remove payment method. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEditAddress = (address: Address) => {
+    if (address.isFromAPI) {
+      toast.error("Cannot edit address from API");
+      return;
+    }
+
+    setEditingAddress(address.id);
+    setEditAddressData({
+      address: address.address,
+      city: address.city,
+      state: address.state,
+      postalCode: address.postalCode,
+      country: address.country,
+    });
+  };
+
+  const handleSaveEditAddress = async () => {
+    if (!editingAddress) return;
+
+    const validationErrors = validateAddress(editAddressData);
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]);
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      setAddresses((prev) =>
+        prev.map((addr) =>
+          addr.id === editingAddress ? { ...addr, ...editAddressData } : addr
+        )
+      );
+
+      setEditingAddress(null);
+      toast.success("Address updated successfully!");
+    } catch (error) {
+      toast.error("Failed to update address. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleEditPayment = (payment: PaymentMethod) => {
+    if (payment.isFromAPI) {
+      toast.error("Cannot edit payment method from API");
+      return;
+    }
+
+    setEditingPayment(payment.id);
+    setEditPaymentData({
+      cardNumber: payment.cardNumber,
+      cardType: payment.cardType,
+      cardExpire: payment.cardExpire,
+      cardHolderName: payment.cardHolderName,
+    });
+  };
+
+  const handleSaveEditPayment = async () => {
+    if (!editingPayment) return;
+
+    const validationErrors = validatePaymentMethod(editPaymentData);
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]);
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      setPaymentMethods((prev) =>
+        prev.map((payment) =>
+          payment.id === editingPayment
+            ? {
+                ...payment,
+                ...editPaymentData,
+                cardType:
+                  editPaymentData.cardType ||
+                  detectCardType(editPaymentData.cardNumber),
+              }
+            : payment
+        )
+      );
+
+      setEditingPayment(null);
+      toast.success("Payment method updated successfully!");
+    } catch (error) {
+      toast.error("Failed to update payment method. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setEditingAddress(null);
+    setEditingPayment(null);
+    setEditAddressData({
+      address: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      country: "US",
+    });
+    setEditPaymentData({
+      cardNumber: "",
+      cardType: "",
+      cardExpire: "",
+      cardHolderName: "",
+    });
   };
 
   const detectCardType = (cardNumber: string): string => {
@@ -491,8 +757,9 @@ export default function SettingsPage() {
                   </CardTitle>
                   {userData && (
                     <p className="text-muted-foreground text-sm">
-                      All personal information (username, email, phone, address, payment methods) 
-                      is from the same DummyJSON API user (ID: {userData.id}) - {userData.firstName} {userData.lastName}.
+                      All personal information (username, email, phone, address,
+                      payment methods) is from the same DummyJSON API user (ID:{" "}
+                      {userData.id}) - {userData.firstName} {userData.lastName}.
                     </p>
                   )}
                 </CardHeader>
@@ -591,8 +858,9 @@ export default function SettingsPage() {
                         </h3>
                         {userData && (
                           <p className="text-muted-foreground text-sm">
-                            Address belongs to {userData.firstName} {userData.lastName}. 
-                            Existing addresses cannot be edited or removed.
+                            Address belongs to {userData.firstName}{" "}
+                            {userData.lastName}. Existing addresses cannot be
+                            edited or removed.
                           </p>
                         )}
                       </div>
@@ -610,34 +878,204 @@ export default function SettingsPage() {
                       <div className="space-y-3">
                         {addresses.map((address) => (
                           <Card key={address.id} className="p-4">
-                            <div className="flex justify-between items-start">
-                              <div className="space-y-1">
-                                <div className="flex items-center gap-2">
-                                  <MapPin className="w-4 h-4" />
-                                  <span className="font-medium">
-                                    {address.isDefault && (
-                                      <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
-                                        Default
-                                      </span>
-                                    )}
-                                    Address
-                                  </span>
+                            {editingAddress === address.id ? (
+                              // Edit mode
+                              <div className="space-y-4">
+                                <h4 className="font-medium">Edit Address</h4>
+                                <div className="space-y-3">
+                                  <div className="space-y-2">
+                                    <Label htmlFor="editAddress">
+                                      Street Address
+                                    </Label>
+                                    <Input
+                                      id="editAddress"
+                                      value={editAddressData.address}
+                                      onChange={(e) =>
+                                        setEditAddressData((prev) => ({
+                                          ...prev,
+                                          address: e.target.value,
+                                        }))
+                                      }
+                                      placeholder="Enter street address"
+                                    />
+                                  </div>
+                                  <div className="gap-4 grid md:grid-cols-3">
+                                    <div className="space-y-2">
+                                      <Label htmlFor="editCity">City</Label>
+                                      <Input
+                                        id="editCity"
+                                        value={editAddressData.city}
+                                        onChange={(e) =>
+                                          setEditAddressData((prev) => ({
+                                            ...prev,
+                                            city: e.target.value,
+                                          }))
+                                        }
+                                        placeholder="Enter city"
+                                      />
+                                    </div>
+                                    <div className="space-y-2">
+                                      <Label htmlFor="editState">
+                                        State/Province
+                                      </Label>
+                                      <Input
+                                        id="editState"
+                                        value={editAddressData.state}
+                                        onChange={(e) =>
+                                          setEditAddressData((prev) => ({
+                                            ...prev,
+                                            state: e.target.value,
+                                          }))
+                                        }
+                                        placeholder="Enter state"
+                                      />
+                                    </div>
+                                    <div className="space-y-2">
+                                      <Label htmlFor="editZipCode">
+                                        ZIP/Postal Code
+                                      </Label>
+                                      <Input
+                                        id="editZipCode"
+                                        value={editAddressData.postalCode}
+                                        onChange={(e) =>
+                                          setEditAddressData((prev) => ({
+                                            ...prev,
+                                            postalCode: e.target.value,
+                                          }))
+                                        }
+                                        placeholder="Enter ZIP code"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="space-y-2">
+                                    <Label htmlFor="editCountry">Country</Label>
+                                    <Select
+                                      value={editAddressData.country}
+                                      onValueChange={(value) =>
+                                        setEditAddressData((prev) => ({
+                                          ...prev,
+                                          country: value,
+                                        }))
+                                      }
+                                    >
+                                      <SelectTrigger>
+                                        <SelectValue placeholder="Select country" />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                        <SelectItem value="US">
+                                          United States
+                                        </SelectItem>
+                                        <SelectItem value="CA">
+                                          Canada
+                                        </SelectItem>
+                                        <SelectItem value="GB">
+                                          United Kingdom
+                                        </SelectItem>
+                                        <SelectItem value="AU">
+                                          Australia
+                                        </SelectItem>
+                                        <SelectItem value="DE">
+                                          Germany
+                                        </SelectItem>
+                                        <SelectItem value="FR">
+                                          France
+                                        </SelectItem>
+                                        <SelectItem value="JP">
+                                          Japan
+                                        </SelectItem>
+                                        <SelectItem value="CN">
+                                          China
+                                        </SelectItem>
+                                        <SelectItem value="IN">
+                                          India
+                                        </SelectItem>
+                                        <SelectItem value="BR">
+                                          Brazil
+                                        </SelectItem>
+                                      </SelectContent>
+                                    </Select>
+                                  </div>
                                 </div>
-                                <p className="text-muted-foreground text-sm">
-                                  {address.address}
-                                </p>
-                                <p className="text-muted-foreground text-sm">
-                                  {address.city}, {address.state}{" "}
-                                  {address.postalCode}
-                                </p>
-                                <p className="text-muted-foreground text-sm">
-                                  {address.country}
-                                </p>
+                                <div className="flex gap-2">
+                                  <Button
+                                    onClick={handleSaveEditAddress}
+                                    disabled={isLoading}
+                                    size="sm"
+                                  >
+                                    <Check className="mr-2 w-4 h-4" />
+                                    {isLoading ? "Saving..." : "Save"}
+                                  </Button>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={handleCancelEdit}
+                                  >
+                                    <X className="mr-2 w-4 h-4" />
+                                    Cancel
+                                  </Button>
+                                </div>
                               </div>
-                              <span className="text-muted-foreground text-xs">
-                                Cannot be edited or removed
-                              </span>
-                            </div>
+                            ) : (
+                              // View mode
+                              <div className="flex justify-between items-start">
+                                <div className="space-y-1">
+                                  <div className="flex items-center gap-2">
+                                    <MapPin className="w-4 h-4" />
+                                    <span className="font-medium">
+                                      {address.isDefault && (
+                                        <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
+                                          Default
+                                        </span>
+                                      )}
+                                      {address.isFromAPI && (
+                                        <span className="bg-blue-500 mr-2 px-2 py-1 rounded text-white text-xs">
+                                          API
+                                        </span>
+                                      )}
+                                      Address
+                                    </span>
+                                  </div>
+                                  <p className="text-muted-foreground text-sm">
+                                    {address.address}
+                                  </p>
+                                  <p className="text-muted-foreground text-sm">
+                                    {address.city}, {address.state}{" "}
+                                    {address.postalCode}
+                                  </p>
+                                  <p className="text-muted-foreground text-sm">
+                                    {address.country}
+                                  </p>
+                                </div>
+                                <div className="flex gap-2">
+                                  {address.isFromAPI ? (
+                                    <span className="text-muted-foreground text-xs">
+                                      Cannot be edited or removed
+                                    </span>
+                                  ) : (
+                                    <>
+                                      <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() =>
+                                          handleEditAddress(address)
+                                        }
+                                      >
+                                        <Edit2 className="w-4 h-4" />
+                                      </Button>
+                                      <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        onClick={() =>
+                                          handleRemoveAddress(address.id)
+                                        }
+                                      >
+                                        <Trash2 className="w-4 h-4" />
+                                      </Button>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            )}
                           </Card>
                         ))}
                       </div>
@@ -1141,8 +1579,10 @@ export default function SettingsPage() {
                   </CardTitle>
                   {userData && (
                     <p className="text-muted-foreground text-sm">
-                      Payment information belongs to {userData.firstName} {userData.lastName} (User ID: {userData.id}). 
-                      Existing methods cannot be edited or removed, but you can add new ones.
+                      Payment information belongs to {userData.firstName}{" "}
+                      {userData.lastName} (User ID: {userData.id}). Existing
+                      methods cannot be edited or removed, but you can add new
+                      ones.
                     </p>
                   )}
                 </CardHeader>
@@ -1164,33 +1604,177 @@ export default function SettingsPage() {
                       <div className="space-y-3">
                         {paymentMethods.map((payment) => (
                           <Card key={payment.id} className="p-4">
-                            <div className="flex justify-between items-start">
-                              <div className="space-y-1">
-                                <div className="flex items-center gap-2">
-                                  <CreditCard className="w-4 h-4" />
-                                  <span className="font-medium">
-                                    {payment.isDefault && (
-                                      <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
-                                        Default
-                                      </span>
-                                    )}
-                                    {payment.cardType}
-                                  </span>
+                            {editingPayment === payment.id ? (
+                              // Edit mode
+                              <div className="space-y-4">
+                                <h4 className="font-medium">
+                                  Edit Payment Method
+                                </h4>
+                                <div className="space-y-3">
+                                  <div className="space-y-2">
+                                    <Label htmlFor="editCardHolderName">
+                                      Cardholder Name
+                                    </Label>
+                                    <Input
+                                      id="editCardHolderName"
+                                      value={editPaymentData.cardHolderName}
+                                      onChange={(e) =>
+                                        setEditPaymentData((prev) => ({
+                                          ...prev,
+                                          cardHolderName: e.target.value,
+                                        }))
+                                      }
+                                      placeholder="Enter cardholder name"
+                                    />
+                                  </div>
+                                  <div className="space-y-2">
+                                    <Label htmlFor="editCardNumber">
+                                      Card Number
+                                    </Label>
+                                    <Input
+                                      id="editCardNumber"
+                                      value={editPaymentData.cardNumber}
+                                      onChange={(e) =>
+                                        setEditPaymentData((prev) => ({
+                                          ...prev,
+                                          cardNumber: e.target.value,
+                                        }))
+                                      }
+                                      placeholder="1234 5678 9012 3456"
+                                      maxLength={19}
+                                    />
+                                  </div>
+                                  <div className="gap-4 grid md:grid-cols-2">
+                                    <div className="space-y-2">
+                                      <Label htmlFor="editCardExpire">
+                                        Expiry Date
+                                      </Label>
+                                      <Input
+                                        id="editCardExpire"
+                                        value={editPaymentData.cardExpire}
+                                        onChange={(e) =>
+                                          setEditPaymentData((prev) => ({
+                                            ...prev,
+                                            cardExpire: e.target.value,
+                                          }))
+                                        }
+                                        placeholder="MM/YY"
+                                        maxLength={5}
+                                      />
+                                    </div>
+                                    <div className="space-y-2">
+                                      <Label htmlFor="editCardType">
+                                        Card Type
+                                      </Label>
+                                      <Select
+                                        value={editPaymentData.cardType}
+                                        onValueChange={(value) =>
+                                          setEditPaymentData((prev) => ({
+                                            ...prev,
+                                            cardType: value,
+                                          }))
+                                        }
+                                      >
+                                        <SelectTrigger>
+                                          <SelectValue placeholder="Select card type" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                          <SelectItem value="Visa">
+                                            Visa
+                                          </SelectItem>
+                                          <SelectItem value="Mastercard">
+                                            Mastercard
+                                          </SelectItem>
+                                          <SelectItem value="American Express">
+                                            American Express
+                                          </SelectItem>
+                                          <SelectItem value="Discover">
+                                            Discover
+                                          </SelectItem>
+                                        </SelectContent>
+                                      </Select>
+                                    </div>
+                                  </div>
                                 </div>
-                                <p className="text-muted-foreground text-sm">
-                                  {formatCardNumber(payment.cardNumber)}
-                                </p>
-                                <p className="text-muted-foreground text-sm">
-                                  Expires: {payment.cardExpire}
-                                </p>
-                                <p className="text-muted-foreground text-sm">
-                                  {payment.cardHolderName}
-                                </p>
+                                <div className="flex gap-2">
+                                  <Button
+                                    onClick={handleSaveEditPayment}
+                                    disabled={isLoading}
+                                    size="sm"
+                                  >
+                                    <Check className="mr-2 w-4 h-4" />
+                                    {isLoading ? "Saving..." : "Save"}
+                                  </Button>
+                                  <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={handleCancelEdit}
+                                  >
+                                    <X className="mr-2 w-4 h-4" />
+                                    Cancel
+                                  </Button>
+                                </div>
                               </div>
-                              <span className="text-muted-foreground text-xs">
-                                Cannot be edited or removed
-                              </span>
-                            </div>
+                            ) : (
+                              // View mode
+                              <div className="flex justify-between items-start">
+                                <div className="space-y-1">
+                                  <div className="flex items-center gap-2">
+                                    <CreditCard className="w-4 h-4" />
+                                    <span className="font-medium">
+                                      {payment.isDefault && (
+                                        <span className="bg-primary mr-2 px-2 py-1 rounded text-primary-foreground text-xs">
+                                          Default
+                                        </span>
+                                      )}
+                                      {payment.isFromAPI && (
+                                        <span className="bg-blue-500 mr-2 px-2 py-1 rounded text-white text-xs">
+                                          API
+                                        </span>
+                                      )}
+                                      {payment.cardType}
+                                    </span>
+                                  </div>
+                                  <p className="text-muted-foreground text-sm">
+                                    {formatCardNumber(payment.cardNumber)}
+                                  </p>
+                                  <p className="text-muted-foreground text-sm">
+                                    Expires: {payment.cardExpire}
+                                  </p>
+                                  <p className="text-muted-foreground text-sm">
+                                    {payment.cardHolderName}
+                                  </p>
+                                </div>
+                                <div className="flex gap-2">
+                                  {payment.isFromAPI ? (
+                                    <span className="text-muted-foreground text-xs">
+                                      Cannot be edited or removed
+                                    </span>
+                                  ) : (
+                                    <>
+                                      <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={() =>
+                                          handleEditPayment(payment)
+                                        }
+                                      >
+                                        <Edit2 className="w-4 h-4" />
+                                      </Button>
+                                      <Button
+                                        variant="destructive"
+                                        size="sm"
+                                        onClick={() =>
+                                          handleRemovePaymentMethod(payment.id)
+                                        }
+                                      >
+                                        <Trash2 className="w-4 h-4" />
+                                      </Button>
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            )}
                           </Card>
                         ))}
                       </div>
