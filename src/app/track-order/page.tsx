@@ -214,11 +214,12 @@ export default function TrackOrderPage() {
                 <Button
                   onClick={() => handleSearch()}
                   disabled={isSearching || !trackingNumber.trim()}
+                  variant={isSearching ? "classic" : "modern"}
                   className="w-full sm:w-auto"
                 >
                   {isSearching ? (
                     <>
-                      <div className="mr-2 border-white border-b-2 rounded-full w-4 h-4 animate-spin"></div>
+                      <div className="mr-2 border-b-2 rounded-full w-4 h-4 animate-spin"></div>
                       Searching...
                     </>
                   ) : (
