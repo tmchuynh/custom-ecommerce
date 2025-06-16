@@ -126,7 +126,11 @@ export default function DashboardPage() {
             </p>
           </div>
           <div className="flex gap-2 mt-4 sm:mt-0">
-            <Button variant="outline" size="sm">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => router.push("/dashboard/settings")}
+            >
               <Settings className="mr-2 w-4 h-4" />
               Settings
             </Button>
@@ -528,15 +532,17 @@ export default function DashboardPage() {
               </Card>
             </Link>
 
-            <Card className="hover:shadow-md transition-shadow cursor-pointer">
-              <CardContent className="flex flex-col items-center p-6 text-center">
-                <Settings className="mb-3 w-8 h-8 text-primary" />
-                <h3 className="font-medium">Account Settings</h3>
-                <p className="text-muted-foreground text-sm">
-                  Manage preferences
-                </p>
-              </CardContent>
-            </Card>
+            <Link href={"/dashboard/settings"}>
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex flex-col items-center p-6 text-center">
+                  <Settings className="mb-3 w-8 h-8 text-primary" />
+                  <h3 className="font-medium">Account Settings</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Manage preferences
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
 

@@ -245,12 +245,12 @@ export default function CartPage() {
                 {/* Discount Section */}
                 {!appliedDiscount ? (
                   <div className="space-y-3">
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2">
                       <Input
                         placeholder="Discount code"
                         value={discountCode}
                         onChange={(e) => setDiscountCode(e.target.value)}
-                        onKeyPress={(e) =>
+                        onKeyDown={(e) =>
                           e.key === "Enter" && handleApplyDiscount()
                         }
                         className="flex-1"
@@ -260,6 +260,9 @@ export default function CartPage() {
                         disabled={isApplyingDiscount}
                         size="sm"
                         variant="outline"
+                        aria-label="Apply discount code"
+                        aria-disabled={isApplyingDiscount}
+                        aria-busy={isApplyingDiscount}
                       >
                         <Tag className="mr-1 w-4 h-4" />
                         {isApplyingDiscount ? "Applying..." : "Apply"}

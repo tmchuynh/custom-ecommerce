@@ -207,7 +207,7 @@ function TrackOrderContent() {
                   placeholder="Enter your tracking number (e.g., TRK1234567890AB)"
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                   className="mt-1"
                 />
               </div>
