@@ -259,6 +259,16 @@ export default function DashboardPage() {
                 <span className="text-sm">Items in Cart:</span>
                 <Badge variant="outline">{totalItems}</Badge>
               </div>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-sm">Wishlist Items:</span>
+                <Badge variant="outline">{wishlistCount}</Badge>
+              </div>
+
+              <div className="flex justify-between items-center">
+                <span className="text-sm">Previously Purchased:</span>
+                <Badge variant="outline">{purchasedItems.length}</Badge>
+              </div>
 
               {hasMembership && (
                 <div className="bg-green-50 dark:bg-green-900/20 p-3 border border-green-200 dark:border-green-800 rounded-lg">
@@ -273,6 +283,14 @@ export default function DashboardPage() {
                 <Button variant="outline" size="sm" className="w-full" asChild>
                   <Link href="/shopping">Continue Shopping</Link>
                 </Button>
+                {wishlistCount > 0 && (
+                  <Button variant="outline" size="sm" className="w-full" asChild>
+                    <Link href="/wishlist">
+                      <Heart className="w-4 h-4 mr-2" />
+                      View Wishlist ({wishlistCount})
+                    </Link>
+                  </Button>
+                )}
                 {totalItems > 0 && (
                   <Button size="sm" className="w-full" asChild>
                     <Link href="/cart">View Cart ({totalItems})</Link>
@@ -325,6 +343,25 @@ export default function DashboardPage() {
                   <h3 className="font-medium">Shopping Cart</h3>
                   <p className="text-muted-foreground text-sm">
                     Review your items
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
+
+            <Link href="/wishlist">
+              <Card className="hover:shadow-md transition-shadow cursor-pointer">
+                <CardContent className="flex flex-col items-center p-6 text-center">
+                  <div className="relative">
+                    <Heart className="mb-3 w-8 h-8 text-primary" />
+                    {wishlistCount > 0 && (
+                      <Badge className="-top-2 -right-2 absolute flex justify-center items-center p-0 w-5 h-5 text-xs">
+                        {wishlistCount}
+                      </Badge>
+                    )}
+                  </div>
+                  <h3 className="font-medium">Wishlist</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Saved for later
                   </p>
                 </CardContent>
               </Card>
