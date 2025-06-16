@@ -86,7 +86,7 @@ export default function RegisterPage() {
     <div className="flex justify-center items-center bg-background p-4 min-h-screen">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <div className="bg-primary mx-auto mb-4 p-3 rounded-full w-fit">
+          <div className="mx-auto mb-4 p-3 rounded-full w-fit">
             <UserPlus className="w-6 h-6 text-primary-foreground" />
           </div>
           <CardTitle className="text-2xl">Create Account</CardTitle>
