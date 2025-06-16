@@ -24,11 +24,13 @@ export default function WishlistPage() {
   // Redirect if not logged in
   if (!isLoggedIn) {
     return (
-      <div className="mx-auto px-4 py-8 container">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         <div className="text-center">
           <Heart className="mx-auto mb-4 w-16 h-16 text-gray-400" />
           <h1 className="mb-2 font-bold text-2xl">Your Wishlist</h1>
-          <p className="mb-6 text-gray-600">Please log in to view your wishlist</p>
+          <p className="mb-6 text-gray-600">
+            Please log in to view your wishlist
+          </p>
           <div className="space-x-4">
             <Button asChild>
               <Link href="/login">Log In</Link>
@@ -69,11 +71,13 @@ export default function WishlistPage() {
 
   if (activeWishlistItems.length === 0 && purchasedItems.length === 0) {
     return (
-      <div className="mx-auto px-4 py-8 container">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         <div className="text-center">
           <Heart className="mx-auto mb-4 w-16 h-16 text-gray-400" />
           <h1 className="mb-2 font-bold text-2xl">Your Wishlist</h1>
-          <p className="mb-6 text-gray-600">You haven't added any items to your wishlist yet</p>
+          <p className="mb-6 text-gray-600">
+            You haven't added any items to your wishlist yet
+          </p>
           <Button asChild>
             <Link href="/shopping">Start Shopping</Link>
           </Button>
@@ -83,11 +87,12 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="mx-auto px-4 py-8 container">
+    <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
       <div className="mb-8">
         <h1 className="mb-2 font-bold text-3xl">Your Wishlist</h1>
         <p className="text-gray-600">
-          {activeWishlistItems.length} {activeWishlistItems.length === 1 ? 'item' : 'items'} in your wishlist
+          {activeWishlistItems.length}{" "}
+          {activeWishlistItems.length === 1 ? "item" : "items"} in your wishlist
         </p>
       </div>
 
@@ -99,7 +104,10 @@ export default function WishlistPage() {
             {activeWishlistItems.map((wishlistItem) => {
               const { product } = wishlistItem;
               return (
-                <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <Card
+                  key={product.id}
+                  className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
+                >
                   <div className="relative">
                     <div className="overflow-hidden aspect-square">
                       {product.thumbnail ? (
@@ -118,11 +126,12 @@ export default function WishlistPage() {
                     </div>
 
                     {/* Discount Badge */}
-                    {product.discountPercentage && product.discountPercentage > 0 && (
-                      <Badge className="top-3 left-3 absolute bg-red-500 hover:bg-red-600 shadow-lg text-white">
-                        -{Math.round(product.discountPercentage)}%
-                      </Badge>
-                    )}
+                    {product.discountPercentage &&
+                      product.discountPercentage > 0 && (
+                        <Badge className="top-3 left-3 absolute bg-red-500 hover:bg-red-600 shadow-lg text-white">
+                          -{Math.round(product.discountPercentage)}%
+                        </Badge>
+                      )}
 
                     {/* Remove Button */}
                     <Button
@@ -158,7 +167,9 @@ export default function WishlistPage() {
                         <div className="flex">
                           {displayRatingStars(product.rating)}
                         </div>
-                        <span className="text-gray-500 text-sm">({product.rating})</span>
+                        <span className="text-gray-500 text-sm">
+                          ({product.rating})
+                        </span>
                       </div>
                     )}
 
@@ -167,13 +178,15 @@ export default function WishlistPage() {
                       <span className="font-bold text-primary text-xl">
                         {formatPrice(product.price)}
                       </span>
-                      {product.discountPercentage && product.discountPercentage > 0 && (
-                        <span className="text-gray-500 text-sm line-through">
-                          {formatPrice(
-                            product.price / (1 - product.discountPercentage / 100)
-                          )}
-                        </span>
-                      )}
+                      {product.discountPercentage &&
+                        product.discountPercentage > 0 && (
+                          <span className="text-gray-500 text-sm line-through">
+                            {formatPrice(
+                              product.price /
+                                (1 - product.discountPercentage / 100)
+                            )}
+                          </span>
+                        )}
                     </div>
 
                     {/* Action Buttons */}
@@ -184,11 +197,14 @@ export default function WishlistPage() {
                         disabled={isLoading}
                       >
                         <ShoppingCart className="mr-2 w-4 h-4" />
-                        {isInCart(product.id) ? "Already in Cart" : "Move to Cart"}
+                        {isInCart(product.id)
+                          ? "Already in Cart"
+                          : "Move to Cart"}
                       </Button>
 
                       <p className="text-center text-gray-500 text-xs">
-                        Added {new Date(wishlistItem.addedAt).toLocaleDateString()}
+                        Added{" "}
+                        {new Date(wishlistItem.addedAt).toLocaleDateString()}
                       </p>
                     </div>
                   </CardContent>
@@ -227,7 +243,7 @@ export default function WishlistPage() {
                         </div>
                       )}
                     </div>
-                    
+
                     <Badge className="top-3 left-3 absolute bg-green-500">
                       <PackageCheck className="mr-1 w-3 h-3" />
                       Purchased
