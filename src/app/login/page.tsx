@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, LogIn, Shuffle } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 export default function LoginPage() {
@@ -52,10 +52,11 @@ export default function LoginPage() {
   };
 
   // Redirect if already logged in
-  if (isLoggedIn) {
-    router.push("/dashboard");
-    return null;
-  }
+  useEffect(() => {
+    if (isLoggedIn) {
+      router.push("/dashboard");
+    }
+  }, [isLoggedIn, router]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
