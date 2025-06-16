@@ -1,17 +1,17 @@
 import {
   CARD_PATTERNS,
   CARD_TYPE_PATTERNS,
+  CardType,
   EXPIRY_PATTERNS,
   PAYMENT_ERROR_MESSAGES,
   SECURITY_CONSTANTS,
-  CardType,
 } from "../constants/validate/payment";
 import {
+  CardDetectionResult,
+  ExpiryValidationResult,
   PaymentValidationError,
   PaymentValidationResult,
   ValidatedPaymentMethod,
-  CardDetectionResult,
-  ExpiryValidationResult,
 } from "../interfaces/payment";
 
 /**
