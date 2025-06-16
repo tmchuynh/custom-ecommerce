@@ -4,6 +4,7 @@ import { getAllProducts } from "@/api/products";
 import ProductGrid from "@/components/products/ProductGrid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Pagination,
   PaginationContent,
@@ -24,11 +25,17 @@ import { cn } from "@/lib/utils";
 import { ChevronDown, Filter, Grid3X3, List, Search, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+interface CategoryNode {
+  id: string;
+  name: string;
+  children?: CategoryNode[];
+}
+
 interface Filters {
   priceRange?: { min?: number; max?: number };
   sortBy?: string;
   searchQuery?: string;
-  category?: string;
+  categories?: string[];
 }
 
 const ITEMS_PER_PAGE_OPTIONS = [12, 24, 48, 96];
@@ -44,6 +51,7 @@ export default function ShoppingPage() {
   const [showFilters, setShowFilters] = useState(false);
   const [activeFilters, setActiveFilters] = useState<Filters>({});
   const [categories, setCategories] = useState<string[]>([]);
+  const [categoryTree, setCategoryTree] = useState<CategoryNode[]>([]);
 
   // Fetch all products on component mount
   useEffect(() => {
@@ -59,6 +67,10 @@ export default function ShoppingPage() {
           new Set(allProducts.map((product) => product.category))
         ).sort();
         setCategories(uniqueCategories);
+
+        // Create category tree structure
+        const tree = buildCategoryTree(uniqueCategories);
+        setCategoryTree(tree);
       } catch (err) {
         setError(
           err instanceof Error ? err.message : "Failed to load products"
@@ -70,6 +82,103 @@ export default function ShoppingPage() {
 
     loadProducts();
   }, []);
+
+  // Build category tree from flat category list
+  const buildCategoryTree = (flatCategories: string[]): CategoryNode[] => {
+    const tree: CategoryNode[] = [];
+
+    // Define the mens subcategories mapping
+    const mensSubcategories = ["mens-shirts", "mens-shoes", "mens-watches"];
+    const womensSubcategories = [
+      "womens-bags",
+      "womens-dresses",
+      "womens-jewellery",
+      "womens-shoes",
+      "womens-tops",
+      "womens-watches",
+    ];
+
+    // Find mens related categories
+    const mensCategories = flatCategories.filter(
+      (cat) => mensSubcategories.includes(cat) || cat === "mens"
+    );
+
+    // Find womens related categories
+    const womensCategories = flatCategories.filter(
+      (cat) => womensSubcategories.includes(cat) || cat === "womens"
+    );
+
+    // Other categories that don't fit the pattern
+    const otherCategories = flatCategories.filter(
+      (cat) => !mensCategories.includes(cat) && !womensCategories.includes(cat)
+    );
+
+    // Create mens parent node if we have mens subcategories
+    if (mensCategories.length > 0) {
+      const mensNode: CategoryNode = {
+        id: "mens",
+        name: "Mens",
+        children: mensCategories
+          .filter((cat) => cat !== "mens")
+          .map((cat) => ({
+            id: cat,
+            name: cat
+              .replace("mens-", "")
+              .replace("-", " ")
+              .replace(/\b\w/g, (l) => l.toUpperCase()),
+          })),
+      };
+
+      // Add standalone mens category if it exists
+      if (flatCategories.includes("mens")) {
+        mensNode.children = mensNode.children || [];
+        mensNode.children.unshift({
+          id: "mens",
+          name: "General Mens",
+        });
+      }
+
+      tree.push(mensNode);
+    }
+
+    // Create womens parent node if we have womens subcategories
+    if (womensCategories.length > 0) {
+      const womensNode: CategoryNode = {
+        id: "womens",
+        name: "Womens",
+        children: womensCategories
+          .filter((cat) => cat !== "womens")
+          .map((cat) => ({
+            id: cat,
+            name: cat
+              .replace("womens-", "")
+              .replace("-", " ")
+              .replace(/\b\w/g, (l) => l.toUpperCase()),
+          })),
+      };
+
+      // Add standalone womens category if it exists
+      if (flatCategories.includes("womens")) {
+        womensNode.children = womensNode.children || [];
+        womensNode.children.unshift({
+          id: "womens",
+          name: "General Womens",
+        });
+      }
+
+      tree.push(womensNode);
+    }
+
+    // Add other categories as top-level nodes
+    otherCategories.forEach((cat) => {
+      tree.push({
+        id: cat,
+        name: cat.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      });
+    });
+
+    return tree;
+  };
 
   // Apply filters whenever filters or products change
   const applyFilters = useCallback(
@@ -89,9 +198,9 @@ export default function ShoppingPage() {
       }
 
       // Category filter
-      if (filters.category && filters.category !== "all") {
-        filtered = filtered.filter(
-          (product) => product.category === filters.category
+      if (filters.categories && filters.categories.length > 0) {
+        filtered = filtered.filter((product) =>
+          filters.categories!.includes(product.category)
         );
       }
 
@@ -202,9 +311,100 @@ export default function ShoppingPage() {
   }, [currentPage, totalPages]);
 
   // Count active filters
-  const activeFilterCount = Object.values(activeFilters).filter(
-    (value) => value !== undefined && value !== "" && value !== "all"
-  ).length;
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (activeFilters.searchQuery) count++;
+    if (activeFilters.categories && activeFilters.categories.length > 0)
+      count++;
+    if (
+      activeFilters.priceRange?.min !== undefined ||
+      activeFilters.priceRange?.max !== undefined
+    )
+      count++;
+    if (activeFilters.sortBy) count++;
+    return count;
+  }, [activeFilters]);
+
+  // Get all category IDs for select all functionality
+  const getAllCategoryIds = (nodes: CategoryNode[]): string[] => {
+    const ids: string[] = [];
+    nodes.forEach((node) => {
+      ids.push(node.id);
+      if (node.children) {
+        ids.push(...getAllCategoryIds(node.children));
+      }
+    });
+    return ids;
+  };
+
+  // Get category display name from tree
+  const getCategoryDisplayName = (categoryId: string): string => {
+    const findCategoryName = (nodes: CategoryNode[]): string | null => {
+      for (const node of nodes) {
+        if (node.id === categoryId) {
+          return node.name;
+        }
+        if (node.children) {
+          const found = findCategoryName(node.children);
+          if (found) return found;
+        }
+      }
+      return null;
+    };
+
+    return findCategoryName(categoryTree) || categoryId;
+  };
+
+  // Recursive category tree component
+  const CategoryTreeNode = ({
+    node,
+    level = 0,
+  }: {
+    node: CategoryNode;
+    level?: number;
+  }) => {
+    const isChecked = activeFilters.categories?.includes(node.id) || false;
+    const hasChildren = node.children && node.children.length > 0;
+
+    return (
+      <div className="space-y-1">
+        <div
+          className="flex items-center space-x-2"
+          style={{ paddingLeft: `${level * 16}px` }}
+        >
+          <Checkbox
+            id={`category-${node.id}`}
+            checked={isChecked}
+            onCheckedChange={(checked) => {
+              const currentCategories = activeFilters.categories || [];
+              let newCategories;
+              if (checked) {
+                newCategories = [...currentCategories, node.id];
+              } else {
+                newCategories = currentCategories.filter((c) => c !== node.id);
+              }
+              handleFilterChange({ categories: newCategories });
+            }}
+          />
+          <label
+            htmlFor={`category-${node.id}`}
+            className={`text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer ${
+              level === 0 ? "font-medium" : "font-normal"
+            }`}
+          >
+            {node.name}
+          </label>
+        </div>
+        {hasChildren && (
+          <div className="space-y-1">
+            {node.children!.map((child) => (
+              <CategoryTreeNode key={child.id} node={child} level={level + 1} />
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   if (loading) {
     return (
@@ -297,15 +497,16 @@ export default function ShoppingPage() {
                       />
                     </Badge>
                   )}
-                  {activeFilters.category &&
-                    activeFilters.category !== "all" && (
+                  {activeFilters.categories &&
+                    activeFilters.categories.length > 0 && (
                       <Badge variant="secondary" className="gap-1">
-                        Category: {activeFilters.category}
+                        Categories:{" "}
+                        {activeFilters.categories
+                          .map((id) => getCategoryDisplayName(id))
+                          .join(", ")}
                         <X
                           className="w-3 h-3 hover:text-destructive cursor-pointer"
-                          onClick={() =>
-                            handleFilterChange({ category: undefined })
-                          }
+                          onClick={() => handleFilterChange({ categories: [] })}
                         />
                       </Badge>
                     )}
@@ -429,25 +630,40 @@ export default function ShoppingPage() {
 
             {/* Categories */}
             <div>
-              <label className="block mb-3 font-medium text-sm">Category</label>
-              <Select
-                value={activeFilters.category || "all"}
-                onValueChange={(value) =>
-                  handleFilterChange({ category: value })
-                }
-              >
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="All Categories" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
-                  {categories.map((category) => (
-                    <SelectItem key={category} value={category}>
-                      {category.charAt(0).toUpperCase() + category.slice(1)}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <div className="flex justify-between items-center mb-3">
+                <label className="font-medium text-sm">Categories</label>
+                <div className="flex gap-2">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="px-2 h-6 text-xs"
+                    onClick={() => {
+                      const allIds = getAllCategoryIds(categoryTree);
+                      handleFilterChange({ categories: allIds });
+                    }}
+                    disabled={
+                      activeFilters.categories?.length ===
+                      getAllCategoryIds(categoryTree).length
+                    }
+                  >
+                    Select All
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="px-2 h-6 text-xs"
+                    onClick={() => handleFilterChange({ categories: [] })}
+                    disabled={!activeFilters.categories?.length}
+                  >
+                    Clear
+                  </Button>
+                </div>
+              </div>
+              <div className="space-y-2 pr-2 max-h-64 overflow-y-auto">
+                {categoryTree.map((node) => (
+                  <CategoryTreeNode key={node.id} node={node} />
+                ))}
+              </div>
             </div>
             {/* Price Range */}
             <div>
