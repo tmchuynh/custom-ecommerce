@@ -1,16 +1,9 @@
-import { ProductItem } from "@/lib/interfaces/product";
+import {
+  DummyJSONProductsResponse,
+  ProductItem,
+} from "@/lib/interfaces/product";
 import { toTitleCase } from "@/lib/utils/format";
-
-// Base API URL for DummyJSON
-const API_BASE_URL = "https://dummyjson.com";
-
-// API Response interface for DummyJSON products
-interface DummyJSONProductsResponse {
-  products: ProductItem[];
-  total: number;
-  skip: number;
-  limit: number;
-}
+import { API_BASE_URL } from ".";
 
 /**
  * Fetch products by category or search query
