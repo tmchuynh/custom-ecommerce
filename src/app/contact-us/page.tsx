@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
   Clock,
@@ -134,12 +141,10 @@ export default function ContactUsPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary to-primary/80 py-20 text-primary-foreground">
+      <section className="relative pt-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
-            <Badge className="bg-white/20 mb-4 border-white/30 text-white">
-              Get in Touch
-            </Badge>
+            <Badge className="mb-4">Get in Touch</Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               We're Here to Help
             </h1>
@@ -225,21 +230,30 @@ export default function ContactUsPage() {
 
                   <div>
                     <Label htmlFor="category">Category</Label>
-                    <select
-                      id="category"
-                      name="category"
+                    <Select
                       value={formData.category}
-                      onChange={handleInputChange}
-                      className="flex bg-background px-3 py-2 border border-input rounded-md focus-visible:ring-2 focus-visible:ring-ring ring-offset-background focus-visible:ring-offset-2 w-full h-10 text-sm placeholder:text-muted-foreground focus-visible:outline-none"
+                      onValueChange={() => handleInputChange}
                     >
-                      <option value="">Select a category</option>
-                      <option value="orders">Orders & Shipping</option>
-                      <option value="account">Account & Membership</option>
-                      <option value="returns">Returns & Refunds</option>
-                      <option value="technical">Technical Support</option>
-                      <option value="general">General Inquiry</option>
-                      <option value="feedback">Feedback</option>
-                    </select>
+                      <SelectTrigger className="mt-2">
+                        <SelectValue placeholder="Select a category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="orders">
+                          Orders & Shipping
+                        </SelectItem>
+                        <SelectItem value="account">
+                          Account & Membership
+                        </SelectItem>
+                        <SelectItem value="returns">
+                          Returns & Refunds
+                        </SelectItem>
+                        <SelectItem value="technical">
+                          Technical Support
+                        </SelectItem>
+                        <SelectItem value="general">General Inquiry</SelectItem>
+                        <SelectItem value="feedback">Feedback</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   <div>
