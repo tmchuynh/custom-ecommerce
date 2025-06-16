@@ -12,15 +12,15 @@ export const navbarItems = [
       },
       {
         label: "Categories",
-        href: "/categories",
+        href: "/shopping/categories",
       },
       {
         label: "New Arrivals",
-        href: "/new-arrivals",
+        href: "/shopping/new-arrivals",
       },
       {
         label: "Sale Items",
-        href: "/sale",
+        href: "/shopping/sale-items",
       },
     ],
   },
@@ -37,7 +37,7 @@ export const navbarItems = [
       },
       {
         label: "Returns & Exchanges",
-        href: "/returns",
+        href: "/returns-&-exchanges",
       },
       {
         label: "Size Guide",
@@ -68,14 +68,6 @@ export const navbarItems = [
       {
         label: "Our Story",
         href: "/about",
-      },
-      {
-        label: "Contact Us",
-        href: "/contact",
-      },
-      {
-        label: "Store Locations",
-        href: "/stores",
       },
       {
         label: "Careers",
