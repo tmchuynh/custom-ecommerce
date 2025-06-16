@@ -106,6 +106,9 @@ const badgeVariants = cva(
           "border-transparent bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-yellow-900 shadow-md shadow-yellow-500/25 hover:shadow-lg hover:shadow-yellow-500/30",
         platinum:
           "border-transparent bg-gradient-to-r from-slate-400 via-slate-500 to-slate-600 text-white shadow-md shadow-slate-500/25 hover:shadow-lg hover:shadow-slate-500/30",
+        gold: "border-transparent bg-gradient-to-r from-yellow-500 to-yellow-400 text-yellow-900 shadow-md shadow-yellow-500/25 hover:shadow-lg hover:shadow-yellow-500/30",
+        silver:
+          "border-transparent bg-gradient-to-r from-gray-300 to-gray-200 text-gray-800 shadow-md shadow-gray-300/25 hover:shadow-lg hover:shadow-gray-300/30",
 
         // Status variants for professional applications
         active:
