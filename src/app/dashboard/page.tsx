@@ -83,16 +83,16 @@ export default function DashboardPage() {
     }
   };
 
-  const getTierColor = (tierName?: string) => {
+  const getTierVariant = (tierName?: string) => {
     switch (tierName?.toLowerCase()) {
       case "basic":
-        return "bg-blue-500";
+        return "default";
       case "premium":
-        return "bg-purple-500";
+        return "secondary";
       case "vip":
-        return "bg-yellow-500";
+        return "outline";
       default:
-        return "bg-gray-500";
+        return "default";
     }
   };
 
@@ -147,7 +147,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="flex justify-center items-center bg-primary rounded-full w-12 h-12">
+                <div className="flex justify-center items-center rounded-full w-12 h-12">
                   <User className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
@@ -186,25 +186,20 @@ export default function DashboardPage() {
               {hasMembership && user.membershipTier ? (
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <div
-                      className={`w-10 h-10 ${getTierColor(
-                        user.membershipTier.name
-                      )} rounded-full flex items-center justify-center text-white`}
+                    <Badge
+                      variant={getTierVariant(user.membershipTier.name)}
+                      className="px-3 h-10"
                     >
                       {getTierIcon(user.membershipTier.name)}
-                    </div>
-                    <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold">
-                          {user.membershipTier.name}
-                        </span>
-                        <Badge>Active</Badge>
-                      </div>
-                      <p className="text-muted-foreground text-sm">
-                        {user.membershipTier.discountPercentage}% discount on
-                        all purchases
-                      </p>
-                    </div>
+                      <span className="ml-2">{user.membershipTier.name}</span>
+                    </Badge>
+                    <Badge variant="secondary">Active</Badge>
+                  </div>
+                  <div>
+                    <p className="text-muted-foreground text-sm">
+                      {user.membershipTier.discountPercentage}% discount on all
+                      purchases
+                    </p>
                   </div>
 
                   <div className="space-y-2">
@@ -217,8 +212,8 @@ export default function DashboardPage() {
                       <span
                         className={
                           daysUntilExpiry <= 7
-                            ? "text-red-600"
-                            : "text-green-600"
+                            ? "text-destructive"
+                            : "text-primary"
                         }
                       >
                         {daysUntilExpiry} days
@@ -231,7 +226,7 @@ export default function DashboardPage() {
                     <ul className="space-y-1 text-xs">
                       {user.membershipTier.benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <div className="bg-primary mt-2 rounded-full w-1 h-1 shrink-0" />
+                          <div className="mt-2 rounded-full w-1 h-1 shrink-0" />
                           <span>{benefit}</span>
                         </li>
                       ))}
@@ -288,8 +283,8 @@ export default function DashboardPage() {
               </div>
 
               {hasMembership && (
-                <div className="bg-green-50 dark:bg-green-900/20 p-3 border border-green-200 dark:border-green-800 rounded-lg">
-                  <p className="text-green-800 text-sm dark:text-green-200">
+                <div className="bg-primary/10 p-3 border border-primary/20 rounded-lg">
+                  <p className="text-primary text-sm">
                     🎉 You're saving {user.membershipTier?.discountPercentage}%
                     on all purchases!
                   </p>
@@ -597,7 +592,7 @@ export default function DashboardPage() {
                           {purchaseStats.totalOrders}
                         </p>
                       </div>
-                      <History className="w-8 h-8 text-blue-500" />
+                      <History className="w-8 h-8" />
                     </div>
                   </CardContent>
                 </Card>
@@ -613,7 +608,7 @@ export default function DashboardPage() {
                           {formatPrice(purchaseStats.totalSpent)}
                         </p>
                       </div>
-                      <CreditCard className="w-8 h-8 text-green-500" />
+                      <CreditCard className="w-8 h-8" />
                     </div>
                   </CardContent>
                 </Card>
@@ -629,7 +624,7 @@ export default function DashboardPage() {
                           {purchaseStats.totalItems}
                         </p>
                       </div>
-                      <Package className="w-8 h-8 text-purple-500" />
+                      <Package className="w-8 h-8" />
                     </div>
                   </CardContent>
                 </Card>
@@ -645,7 +640,7 @@ export default function DashboardPage() {
                           {formatPrice(purchaseStats.totalSavings)}
                         </p>
                       </div>
-                      <Zap className="w-8 h-8 text-orange-500" />
+                      <Zap className="w-8 h-8" />
                     </div>
                   </CardContent>
                 </Card>
