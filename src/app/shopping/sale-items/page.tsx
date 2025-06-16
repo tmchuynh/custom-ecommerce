@@ -199,7 +199,7 @@ export default function SaleItemsPage() {
   if (loading) {
     return (
       <div className="min-h-screen">
-        <div className="mx-auto px-4 py-8 container">
+        <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex justify-center items-center min-h-[60vh]">
             <div className="text-center">
               <div className="mx-auto mb-4 border-primary border-b-2 rounded-full w-12 h-12 animate-spin"></div>
@@ -214,13 +214,15 @@ export default function SaleItemsPage() {
   if (error) {
     return (
       <div className="min-h-screen">
-        <div className="mx-auto px-4 py-8 container">
+        <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex justify-center items-center min-h-[60vh]">
             <div className="text-center">
               <div className="mb-4 text-red-500">
                 <X className="mx-auto w-12 h-12" />
               </div>
-              <h2 className="mb-2 font-semibold text-xl">Failed to load sale items</h2>
+              <h2 className="mb-2 font-semibold text-xl">
+                Failed to load sale items
+              </h2>
               <p className="text-muted-foreground">{error}</p>
             </div>
           </div>
