@@ -63,8 +63,8 @@ export default function MembershipPage() {
   };
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="mx-auto px-4 py-8 container">
+    <div className="min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         <div className="mb-12 text-center">
           <h1 className="mb-4 font-bold text-4xl">Choose Your Membership</h1>
           <p className="mx-auto max-w-2xl text-muted-foreground text-xl">

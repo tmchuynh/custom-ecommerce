@@ -7,16 +7,21 @@ import { useWishlist } from "@/app/context/wishlistContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import useOrderManagement from "@/hooks/useOrderManagement";
 import {
+  Calendar,
   CreditCard,
   Crown,
   Heart,
   LogOut,
   Mail,
+  Package,
   Phone,
   Settings,
   ShoppingBag,
   Star,
+  TrendingUp,
+  Truck,
   User,
   Zap,
 } from "lucide-react";
@@ -29,6 +34,7 @@ export default function DashboardPage() {
   const { totalItems } = useCart();
   const { wishlistCount, purchasedItems } = useWishlist();
   const { formatPrice } = useCurrency();
+  const { orderStats, orders } = useOrderManagement(user?.email);
   const router = useRouter();
 
   useEffect(() => {
@@ -95,8 +101,8 @@ export default function DashboardPage() {
     : 0;
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="mx-auto px-4 py-8 container">
+    <div className="min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         {/* Header */}
         <div className="flex sm:flex-row flex-col justify-between items-start sm:items-center mb-8">
           <div>
@@ -259,7 +265,7 @@ export default function DashboardPage() {
                 <span className="text-sm">Items in Cart:</span>
                 <Badge variant="outline">{totalItems}</Badge>
               </div>
-              
+
               <div className="flex justify-between items-center">
                 <span className="text-sm">Wishlist Items:</span>
                 <Badge variant="outline">{wishlistCount}</Badge>
@@ -284,7 +290,12 @@ export default function DashboardPage() {
                   <Link href="/shopping">Continue Shopping</Link>
                 </Button>
                 {wishlistCount > 0 && (
-                  <Button variant="outline" size="sm" className="w-full" asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="w-full"
+                    asChild
+                  >
                     <Link href="/wishlist">
                       <Heart className="mr-2 w-4 h-4" />
                       View Wishlist ({wishlistCount})
@@ -300,6 +311,144 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </div>
+
+        {/* Order Statistics */}
+        <div className="mt-8">
+          <h2 className="mb-4 font-semibold text-xl">Order Overview</h2>
+          <div className="gap-4 grid sm:grid-cols-2 lg:grid-cols-4">
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-muted-foreground text-sm">
+                      Total Orders
+                    </p>
+                    <p className="font-bold text-2xl">
+                      {orderStats.totalOrders}
+                    </p>
+                  </div>
+                  <Package className="w-8 h-8 text-primary" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-muted-foreground text-sm">Total Spent</p>
+                    <p className="font-bold text-2xl">
+                      {formatPrice(orderStats.totalSpent)}
+                    </p>
+                  </div>
+                  <CreditCard className="w-8 h-8 text-primary" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-muted-foreground text-sm">
+                      Average Order
+                    </p>
+                    <p className="font-bold text-2xl">
+                      {formatPrice(orderStats.averageOrderValue)}
+                    </p>
+                  </div>
+                  <TrendingUp className="w-8 h-8 text-primary" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-muted-foreground text-sm">
+                      Recent Orders
+                    </p>
+                    <p className="font-bold text-2xl">
+                      {orderStats.recentOrders.length}
+                    </p>
+                  </div>
+                  <Calendar className="w-8 h-8 text-primary" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Recent Orders */}
+        {orderStats.recentOrders.length > 0 && (
+          <div className="mt-8">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="font-semibold text-xl">Recent Orders</h2>
+              <div className="flex gap-2">
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="/orders">View All Orders</Link>
+                </Button>
+                <Button variant="outline" size="sm" asChild>
+                  <Link href="/track-order">Track Order</Link>
+                </Button>
+              </div>
+            </div>
+            <div className="space-y-4">
+              {orderStats.recentOrders.slice(0, 3).map((order) => (
+                <Card key={order.id}>
+                  <CardContent className="p-4">
+                    <div className="flex justify-between items-start">
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <p className="font-medium">Order #{order.id}</p>
+                          <Badge
+                            variant={
+                              order.status === "delivered"
+                                ? "default"
+                                : order.status === "shipped"
+                                ? "secondary"
+                                : order.status === "processing"
+                                ? "outline"
+                                : "destructive"
+                            }
+                          >
+                            {order.status}
+                          </Badge>
+                        </div>
+                        <p className="text-muted-foreground text-sm">
+                          {new Date(order.orderDate).toLocaleDateString()} •{" "}
+                          {order.items.length} items
+                        </p>
+                        <p className="text-muted-foreground text-sm">
+                          Tracking: {order.trackingNumber}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <p className="font-semibold">
+                          {formatPrice(order.grandTotal)}
+                        </p>
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          asChild
+                          className="mt-1"
+                        >
+                          <Link
+                            href={`/track-order?tracking=${order.trackingNumber}`}
+                          >
+                            <Truck className="mr-1 w-4 h-4" />
+                            Track
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Quick Actions */}
         <div className="mt-8">
