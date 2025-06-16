@@ -22,32 +22,32 @@ import Link from "next/link";
 export default function CareersPage() {
   const benefits = [
     {
-      icon: <Heart className="w-6 h-6" />,
+      icon: <Heart className="w-6 h-6 text-red-500" />,
       title: "Health & Wellness",
       description: "Comprehensive health insurance and wellness programs",
     },
     {
-      icon: <Home className="w-6 h-6" />,
+      icon: <Home className="w-6 h-6 text-blue-500" />,
       title: "Work-Life Balance",
       description: "Flexible hours and remote work opportunities",
     },
     {
-      icon: <GraduationCap className="w-6 h-6" />,
+      icon: <GraduationCap className="w-6 h-6 text-green-500" />,
       title: "Learning & Development",
       description: "Continuous learning opportunities and skill development",
     },
     {
-      icon: <DollarSign className="w-6 h-6" />,
+      icon: <DollarSign className="w-6 h-6 text-yellow-500" />,
       title: "Competitive Compensation",
       description: "Competitive salary and performance-based bonuses",
     },
     {
-      icon: <Coffee className="w-6 h-6" />,
+      icon: <Coffee className="w-6 h-6 text-purple-500" />,
       title: "Great Environment",
       description: "Modern workspace with free snacks and drinks",
     },
     {
-      icon: <Globe className="w-6 h-6" />,
+      icon: <Globe className="w-6 h-6 text-indigo-500" />,
       title: "Global Impact",
       description: "Work on projects that reach customers worldwide",
     },
@@ -163,42 +163,50 @@ export default function CareersPage() {
       name: "Engineering",
       count: 12,
       description: "Build the future of e-commerce",
+      color: "bg-blue-500",
     },
     {
       name: "Product",
       count: 5,
       description: "Shape user experiences",
+      color: "bg-green-500",
     },
     {
       name: "Design",
       count: 4,
       description: "Create beautiful interfaces",
+      color: "bg-purple-500",
     },
     {
       name: "Marketing",
       count: 6,
       description: "Tell our story to the world",
+      color: "bg-red-500",
     },
     {
       name: "Customer Success",
       count: 8,
       description: "Help customers succeed",
+      color: "bg-yellow-500",
     },
     {
       name: "Operations",
       count: 7,
       description: "Keep everything running smoothly",
+      color: "bg-indigo-500",
     },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20">
+      <section className="relative bg-gradient-to-br from-primary to-primary/80 py-20 text-primary-foreground">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="mx-auto max-w-7xl text-center">
-            <Badge variant={"gradientSecondary"}>Join Our Team</Badge>
-            <h1 className="my-6 font-bold text-4xl md:text-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge className="bg-white/20 mb-4 border-white/30 text-white">
+              Join Our Team
+            </Badge>
+            <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Build the Future of E-commerce
             </h1>
             <p className="opacity-90 mb-8 text-lg md:text-xl">
@@ -206,7 +214,11 @@ export default function CareersPage() {
               online shopping and create amazing experiences for millions of
               customers.
             </p>
-            <Button size="lg" variant="classic">
+            <Button
+              size="lg"
+              variant="outline"
+              className="hover:bg-white border-white text-white hover:text-primary"
+            >
               View Open Positions
             </Button>
           </div>
@@ -253,8 +265,10 @@ export default function CareersPage() {
               <Card key={index} className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="flex justify-center items-center rounded-full w-10 h-10">
-                      <Users className="w-5 h-5" />
+                    <div
+                      className={`w-10 h-10 ${dept.color} rounded-full flex items-center justify-center`}
+                    >
+                      <Users className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <h3 className="font-semibold">{dept.name}</h3>
@@ -310,12 +324,10 @@ export default function CareersPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="font-semibold text-lg text-primary">
+                      <div className="font-semibold text-green-600 text-lg">
                         {position.salary}
                       </div>
-                      <Button size="sm" className="mt-2" variant={"modern"}>
-                        Apply Now
-                      </Button>
+                      <Button size="sm">Apply Now</Button>
                     </div>
                   </div>
                 </CardHeader>
@@ -377,9 +389,9 @@ export default function CareersPage() {
             ].map((step, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="p-6">
-                  <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-12 h-12 font-bold text-lg">
+                  <div className="flex justify-center items-center bg-primary mx-auto mb-4 rounded-full w-12 h-12 font-bold text-lg text-primary-foreground">
                     {step.step}
-                  </Badge>
+                  </div>
                   <h3 className="mb-2 font-semibold">{step.title}</h3>
                   <p className="text-muted-foreground text-sm">
                     {step.description}
@@ -392,7 +404,7 @@ export default function CareersPage() {
 
         {/* Call to Action */}
         <section className="text-center">
-          <Card className="">
+          <Card className="bg-gradient-to-r from-primary to-primary/80 text-primary-foreground">
             <CardContent className="p-12">
               <h2 className="mb-4 font-bold text-3xl">Ready to Join Us?</h2>
               <p className="opacity-90 mx-auto mb-8 max-w-2xl text-lg">
@@ -400,10 +412,19 @@ export default function CareersPage() {
                 talented individuals to join our team.
               </p>
               <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Button size="lg" variant={"modern"}>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="hover:bg-white border-white text-white hover:text-primary"
+                >
                   View All Positions
                 </Button>
-                <Button size="lg" variant="classic" asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="hover:bg-white border-white text-white hover:text-primary"
+                  asChild
+                >
                   <Link href="/contact-us">Send General Inquiry</Link>
                 </Button>
               </div>

@@ -20,6 +20,7 @@ import {
   Package,
   Phone,
   RefreshCw,
+  Settings,
   ShoppingBag,
   Star,
   TrendingUp,
@@ -27,6 +28,7 @@ import {
   User,
   Zap,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -82,16 +84,16 @@ export default function DashboardPage() {
     }
   };
 
-  const getTierVariant = (tierName?: string) => {
+  const getTierColor = (tierName?: string) => {
     switch (tierName?.toLowerCase()) {
       case "basic":
-        return "default";
+        return "bg-blue-500";
       case "premium":
-        return "secondary";
+        return "bg-purple-500";
       case "vip":
-        return "outline";
+        return "bg-yellow-500";
       default:
-        return "default";
+        return "bg-gray-500";
     }
   };
 
@@ -124,6 +126,10 @@ export default function DashboardPage() {
             </p>
           </div>
           <div className="flex gap-2 mt-4 sm:mt-0">
+            <Button variant="outline" size="sm">
+              <Settings className="mr-2 w-4 h-4" />
+              Settings
+            </Button>
             <Button variant="outline" size="sm" onClick={handleLogout}>
               <LogOut className="mr-2 w-4 h-4" />
               Sign Out
@@ -142,7 +148,7 @@ export default function DashboardPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="flex justify-center items-center rounded-full w-12 h-12">
+                <div className="flex justify-center items-center bg-primary rounded-full w-12 h-12">
                   <User className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
@@ -181,20 +187,25 @@ export default function DashboardPage() {
               {hasMembership && user.membershipTier ? (
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Badge
-                      variant={getTierVariant(user.membershipTier.name)}
-                      className="px-3 h-10"
+                    <div
+                      className={`w-10 h-10 ${getTierColor(
+                        user.membershipTier.name
+                      )} rounded-full flex items-center justify-center text-white`}
                     >
                       {getTierIcon(user.membershipTier.name)}
-                      <span className="ml-2">{user.membershipTier.name}</span>
-                    </Badge>
-                    <Badge variant="secondary">Active</Badge>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground text-sm">
-                      {user.membershipTier.discountPercentage}% discount on all
-                      purchases
-                    </p>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold">
+                          {user.membershipTier.name}
+                        </span>
+                        <Badge>Active</Badge>
+                      </div>
+                      <p className="text-muted-foreground text-sm">
+                        {user.membershipTier.discountPercentage}% discount on
+                        all purchases
+                      </p>
+                    </div>
                   </div>
 
                   <div className="space-y-2">
@@ -207,8 +218,8 @@ export default function DashboardPage() {
                       <span
                         className={
                           daysUntilExpiry <= 7
-                            ? "text-destructive"
-                            : "text-primary"
+                            ? "text-red-600"
+                            : "text-green-600"
                         }
                       >
                         {daysUntilExpiry} days
@@ -221,7 +232,7 @@ export default function DashboardPage() {
                     <ul className="space-y-1 text-xs">
                       {user.membershipTier.benefits.map((benefit, index) => (
                         <li key={index} className="flex items-start gap-2">
-                          <div className="mt-2 rounded-full w-1 h-1 shrink-0" />
+                          <div className="bg-primary mt-2 rounded-full w-1 h-1 shrink-0" />
                           <span>{benefit}</span>
                         </li>
                       ))}
@@ -278,8 +289,8 @@ export default function DashboardPage() {
               </div>
 
               {hasMembership && (
-                <div className="bg-primary/10 p-3 border border-primary/20 rounded-lg">
-                  <p className="text-primary text-sm">
+                <div className="bg-green-50 dark:bg-green-900/20 p-3 border border-green-200 dark:border-green-800 rounded-lg">
+                  <p className="text-green-800 text-sm dark:text-green-200">
                     🎉 You're saving {user.membershipTier?.discountPercentage}%
                     on all purchases!
                   </p>
@@ -516,6 +527,16 @@ export default function DashboardPage() {
                 </CardContent>
               </Card>
             </Link>
+
+            <Card className="hover:shadow-md transition-shadow cursor-pointer">
+              <CardContent className="flex flex-col items-center p-6 text-center">
+                <Settings className="mb-3 w-8 h-8 text-primary" />
+                <h3 className="font-medium">Account Settings</h3>
+                <p className="text-muted-foreground text-sm">
+                  Manage preferences
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
 
@@ -577,7 +598,7 @@ export default function DashboardPage() {
                           {purchaseStats.totalOrders}
                         </p>
                       </div>
-                      <History className="w-8 h-8" />
+                      <History className="w-8 h-8 text-blue-500" />
                     </div>
                   </CardContent>
                 </Card>
@@ -593,7 +614,7 @@ export default function DashboardPage() {
                           {formatPrice(purchaseStats.totalSpent)}
                         </p>
                       </div>
-                      <CreditCard className="w-8 h-8" />
+                      <CreditCard className="w-8 h-8 text-green-500" />
                     </div>
                   </CardContent>
                 </Card>
@@ -609,7 +630,7 @@ export default function DashboardPage() {
                           {purchaseStats.totalItems}
                         </p>
                       </div>
-                      <Package className="w-8 h-8" />
+                      <Package className="w-8 h-8 text-purple-500" />
                     </div>
                   </CardContent>
                 </Card>
@@ -625,7 +646,7 @@ export default function DashboardPage() {
                           {formatPrice(purchaseStats.totalSavings)}
                         </p>
                       </div>
-                      <Zap className="w-8 h-8" />
+                      <Zap className="w-8 h-8 text-orange-500" />
                     </div>
                   </CardContent>
                 </Card>
@@ -642,10 +663,13 @@ export default function DashboardPage() {
                       <Card key={product.id}>
                         <CardContent className="p-4">
                           <div className="flex items-start gap-3">
-                            <img
+                            <Image
                               src={product.thumbnail}
                               alt={product.title}
                               className="rounded w-16 h-16 object-cover"
+                              width={64}
+                              height={64}
+                              loading="lazy"
                             />
                             <div className="flex-1 min-w-0">
                               <h4 className="font-medium text-sm line-clamp-2">

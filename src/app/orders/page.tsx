@@ -25,6 +25,7 @@ import {
   Search,
   Truck,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -364,10 +365,13 @@ export default function OrdersPage() {
                           >
                             <div className="flex justify-center items-center bg-background rounded-lg w-12 h-12">
                               {item.thumbnail ? (
-                                <img
+                                <Image
                                   src={item.thumbnail}
                                   alt={item.title}
                                   className="rounded-lg w-full h-full object-cover"
+                                  width={64}
+                                  height={64}
+                                  loading="lazy"
                                 />
                               ) : (
                                 <Package className="w-6 h-6 text-muted-foreground" />

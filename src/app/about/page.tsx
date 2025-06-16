@@ -37,25 +37,25 @@ export default function AboutPage() {
 
   const values = [
     {
-      icon: <Heart className="w-8 h-8" />,
+      icon: <Heart className="w-8 h-8 text-red-500" />,
       title: "Customer First",
       description:
         "Every decision we make starts with our customers. Their satisfaction is our top priority.",
     },
     {
-      icon: <Shield className="w-8 h-8" />,
+      icon: <Shield className="w-8 h-8 text-blue-500" />,
       title: "Trust & Security",
       description:
         "We maintain the highest standards of security and transparency in all our operations.",
     },
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Zap className="w-8 h-8 text-yellow-500" />,
       title: "Innovation",
       description:
         "We continuously evolve and improve our platform to deliver the best shopping experience.",
     },
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <Users className="w-8 h-8 text-green-500" />,
       title: "Community",
       description:
         "We believe in building a community where everyone feels valued and connected.",
@@ -90,9 +90,9 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative py-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="mx-auto max-w-7xl text-center">
-            <Badge variant="gradientInfo">About Our Story</Badge>
-            <h1 className="my-6 font-bold text-4xl md:text-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge>About Our Story</Badge>
+            <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Redefining Your Shopping Experience
             </h1>
             <p className="opacity-90 mb-8 text-lg md:text-xl">
@@ -100,10 +100,10 @@ export default function AboutPage() {
               while delivering exceptional service that exceeds expectations.
             </p>
             <div className="flex sm:flex-row flex-col justify-center gap-4">
-              <Button size="lg" variant="classic" asChild>
+              <Button size="lg" variant="default">
                 <Link href="/shopping">Shop Now</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline">
                 <Link href="/contact-us">Contact Us</Link>
               </Button>
             </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
               experience that brings high-quality products directly to your
               doorstep while building lasting relationships with our community.
             </p>
-            <Card>
+            <Card className="bg-gradient-to-r from-blue-50 dark:from-blue-950/50 to-purple-50 dark:to-purple-950/50">
               <CardContent className="p-8">
                 <blockquote className="text-lg italic">
                   "We believe that shopping should be more than a transaction—it
@@ -161,11 +161,8 @@ export default function AboutPage() {
             {milestones.map((milestone, index) => (
               <Card key={index}>
                 <CardContent className="p-6">
-                  <div className="flex md:flex-row flex-col items-center gap-4">
-                    <Badge
-                      variant="gradientSuccess"
-                      className="px-4 py-2 text-lg"
-                    >
+                  <div className="flex md:flex-row flex-col items-start gap-4">
+                    <Badge className="bg-primary px-4 py-2 text-lg">
                       {milestone.year}
                     </Badge>
                     <div className="flex-1">
@@ -192,9 +189,9 @@ export default function AboutPage() {
             {features.map((feature, index) => (
               <Card key={index} className="text-center">
                 <CardContent className="p-6">
-                  <Badge className="flex justify-center items-center mx-auto mb-4 rounded-full w-12 h-12">
+                  <div className="flex justify-center items-center bg-primary/10 mx-auto mb-4 rounded-full w-12 h-12">
                     {feature.icon}
-                  </Badge>
+                  </div>
                   <h3 className="mb-2 font-semibold">{feature.title}</h3>
                   <p className="text-muted-foreground text-sm">
                     {feature.description}
@@ -207,7 +204,7 @@ export default function AboutPage() {
 
         {/* Statistics */}
         <section className="mb-16">
-          <Card>
+          <Card className=" ">
             <CardContent className="p-8">
               <h2 className="mb-8 font-bold text-3xl text-center">
                 Our Impact in Numbers
@@ -242,10 +239,10 @@ export default function AboutPage() {
             preferred choice for online shopping.
           </p>
           <div className="flex sm:flex-row flex-col justify-center gap-4">
-            <Button size="lg" variant={"classic"} asChild>
+            <Button size="lg" asChild>
               <Link href="/shopping">Browse Products</Link>
             </Button>
-            <Button size="lg" variant="modern" asChild>
+            <Button size="lg" variant="outline" asChild>
               <Link href="/membership">View Memberships</Link>
             </Button>
           </div>

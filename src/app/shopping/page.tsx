@@ -427,7 +427,7 @@ export default function ShoppingPage() {
         <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex justify-center items-center min-h-[60vh]">
             <div className="text-center">
-              <div className="mb-4 text-destructive">
+              <div className="mb-4 text-red-500">
                 <X className="mx-auto w-12 h-12" />
               </div>
               <h2 className="mb-2 font-semibold text-xl">

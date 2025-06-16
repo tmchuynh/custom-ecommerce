@@ -17,12 +17,13 @@ import {
   Package,
   Truck,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
-function OrderConfirmationContent() {
+export default function OrderConfirmationPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId");
@@ -214,10 +215,13 @@ function OrderConfirmationContent() {
                     >
                       <div className="flex justify-center items-center bg-muted rounded-lg w-16 h-16">
                         {item.thumbnail ? (
-                          <img
+                          <Image
                             src={item.thumbnail}
                             alt={item.title}
                             className="rounded-lg w-full h-full object-cover"
+                            width={64}
+                            height={64}
+                            loading="lazy"
                           />
                         ) : (
                           <Package className="w-8 h-8 text-muted-foreground" />
@@ -388,24 +392,5 @@ function OrderConfirmationContent() {
         </Card>
       </div>
     </div>
-  );
-}
-
-function OrderConfirmationFallback() {
-  return (
-    <div className="flex justify-center items-center bg-background min-h-screen">
-      <div className="text-center">
-        <div className="mx-auto mb-4 border-primary border-b-2 rounded-full w-8 h-8 animate-spin"></div>
-        <p className="text-muted-foreground">Loading order confirmation...</p>
-      </div>
-    </div>
-  );
-}
-
-export default function OrderConfirmationPage() {
-  return (
-    <Suspense fallback={<OrderConfirmationFallback />}>
-      <OrderConfirmationContent />
-    </Suspense>
   );
 }
