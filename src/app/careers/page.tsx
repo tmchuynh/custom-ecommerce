@@ -200,27 +200,18 @@ export default function CareersPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary to-primary/80 py-20 text-primary-foreground">
+      <section className="relative pt-20">
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge className="bg-white/20 mb-4 border-white/30 text-white">
-              Join Our Team
-            </Badge>
+          <div className="mx-auto text-center">
+            <Badge className="mb-4">Join Our Team</Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
-              Build the Future of E-commerce
+              Build the Future of E-Commerce
             </h1>
             <p className="opacity-90 mb-8 text-lg md:text-xl">
               Join a team of passionate individuals working to revolutionize
               online shopping and create amazing experiences for millions of
               customers.
             </p>
-            <Button
-              size="lg"
-              variant="outline"
-              className="hover:bg-white border-white text-white hover:text-primary"
-            >
-              View Open Positions
-            </Button>
           </div>
         </div>
       </section>
@@ -412,19 +403,10 @@ export default function CareersPage() {
                 talented individuals to join our team.
               </p>
               <div className="flex sm:flex-row flex-col justify-center gap-4">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="hover:bg-white border-white text-white hover:text-primary"
-                >
+                <Button size="lg" variant="outline">
                   View All Positions
                 </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="hover:bg-white border-white text-white hover:text-primary"
-                  asChild
-                >
+                <Button size="lg" variant="outline" asChild>
                   <Link href="/contact-us">Send General Inquiry</Link>
                 </Button>
               </div>
