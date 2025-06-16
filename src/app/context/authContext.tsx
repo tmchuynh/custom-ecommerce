@@ -190,6 +190,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     password: string
   ): Promise<{ success: boolean; message: string }> => {
     try {
+      // First check local registered users
       const existingUsers = JSON.parse(
         localStorage.getItem("registeredUsers") || "[]"
       );
@@ -197,25 +198,59 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         (u: any) => u.username === username && u.password === password
       );
 
-      if (!foundUser) {
-        return { success: false, message: "Invalid username or password" };
+      if (foundUser) {
+        // Local user found
+        const loggedInUser: User = {
+          id: foundUser.id,
+          username: foundUser.username,
+          phoneNumber: foundUser.phoneNumber,
+          email: foundUser.email,
+          membershipTier: foundUser.membershipTier || null,
+          membershipExpiry: foundUser.membershipExpiry
+            ? new Date(foundUser.membershipExpiry)
+            : undefined,
+          joinedDate: new Date(foundUser.joinedDate),
+        };
+
+        setUser(loggedInUser);
+        return { success: true, message: "Login successful!" };
       }
 
-      // Create user object
-      const loggedInUser: User = {
-        id: foundUser.id,
-        username: foundUser.username,
-        phoneNumber: foundUser.phoneNumber,
-        email: foundUser.email,
-        membershipTier: foundUser.membershipTier || null,
-        membershipExpiry: foundUser.membershipExpiry
-          ? new Date(foundUser.membershipExpiry)
-          : undefined,
-        joinedDate: new Date(foundUser.joinedDate),
-      };
+      // If not found locally, try demo login with DummyJSON API
+      try {
+        const response = await fetch("https://dummyjson.com/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: username,
+            password: password,
+          }),
+        });
 
-      setUser(loggedInUser);
-      return { success: true, message: "Login successful!" };
+        if (response.ok) {
+          const demoUser = await response.json();
+
+          // Create demo user object
+          const loggedInUser: User = {
+            id: `demo-${demoUser.id}`,
+            username: demoUser.username,
+            phoneNumber: demoUser.phone || "+1-555-0123",
+            email: demoUser.email,
+            membershipTier: null,
+            joinedDate: new Date(),
+          };
+
+          setUser(loggedInUser);
+          return {
+            success: true,
+            message: `Demo login successful! Welcome ${demoUser.firstName} ${demoUser.lastName}`,
+          };
+        }
+      } catch (demoError) {
+        console.error("Demo login failed:", demoError);
+      }
+
+      return { success: false, message: "Invalid username or password" };
     } catch (error) {
       return { success: false, message: "Login failed. Please try again." };
     }
