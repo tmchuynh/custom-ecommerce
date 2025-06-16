@@ -1,44 +1,91 @@
+/**
+ * COMPREHENSIVE ADDRESS VALIDATION IMPLEMENTATION
+ * ===============================================
+ *
+ * This settings page now includes robust address validation with the following features:
+ *
+ * 1. REAL-TIME VALIDATION:
+ *    - Validates each field as the user types
+ *    - Shows immediate feedback with red borders and error messages
+ *    - Automatically formats postal codes based on country
+ *
+ * 2. ENHANCED VALIDATION RULES:
+ *    - Street address: min 5 chars, max 100 chars, valid characters only
+ *    - City: min 2 chars, max 50 chars, letters/spaces/hyphens/apostrophes/periods only
+ *    - State: min 2 chars, max 50 chars, validates against valid state codes for US/CA/AU
+ *    - Postal Code: min 3 chars, max 10 chars, country-specific format validation
+ *    - Country: must be valid 2-letter ISO code from comprehensive list
+ *
+ * 3. COUNTRY-SPECIFIC FEATURES:
+ *    - Postal code validation for 50+ countries with proper regex patterns
+ *    - State/province validation for US, Canada, and Australia
+ *    - Automatic postal code formatting (e.g., Canadian postal codes get space inserted)
+ *
+ * 4. DATA NORMALIZATION:
+ *    - All addresses are normalized before saving (proper casing, formatting)
+ *    - Consistent data format across the application
+ *
+ * 5. USER EXPERIENCE:
+ *    - Clear distinction between API data (read-only) and user data (editable)
+ *    - Comprehensive error messages that guide users to fix issues
+ *    - Form validation prevents submission with invalid data
+ *    - Error states are cleared when forms are canceled or reset
+ *
+ * 6. API INTEGRATION:
+ *    - All validation logic is centralized in the API layer
+ *    - Reusable validation functions that can be used elsewhere in the app
+ *    - Comprehensive error reporting with field-specific messages
+ */
+
 "use client";
 
-import { DummyUser, fetchUserById } from "@/api/users";
+
+import { fetchUserById } from "@/api";
 import { useAuth } from "@/app/context/authContext";
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import {
-  ArrowLeft,
-  Bell,
-  Check,
-  CreditCard,
-  Edit2,
-  Lock,
-  MapPin,
-  Plus,
-  Shield,
-  Trash2,
-  User,
-  X,
+    AddressValidationResult,
+    ValidatedAddress,
+} from "@/lib/interfaces/address";
+import { DummyUser } from "@/lib/interfaces/user";
+import { formatPostalCode } from "@/lib/utils/format";
+import { validateAddressEnhanced, validateAndNormalizeAddress, validateAddressField } from "@/lib/utils/validate";
+import {
+    ArrowLeft,
+    Bell,
+    Check,
+    CreditCard,
+    Edit2,
+    Lock,
+    MapPin,
+    Plus,
+    Shield,
+    Trash2,
+    User,
+    X,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -178,6 +225,14 @@ export default function SettingsPage() {
     cardHolderName: "",
   });
 
+  // Real-time validation error states
+  const [newAddressErrors, setNewAddressErrors] = useState<
+    Record<string, string>
+  >({});
+  const [editAddressErrors, setEditAddressErrors] = useState<
+    Record<string, string>
+  >({});
+
   useEffect(() => {
     if (!isLoggedIn) {
       router.push("/login");
@@ -294,26 +349,23 @@ export default function SettingsPage() {
     setPrivacy((prev) => ({ ...prev, [field]: value }));
   };
 
-  const validateAddress = (
+  const validateAddressLocal = (
     address: Omit<Address, "id" | "isDefault" | "isFromAPI">
-  ) => {
-    const errors: string[] = [];
+  ): string[] => {
+    // Convert local Address interface to ValidatedAddress for API validation
+    const validatedAddress: Partial<ValidatedAddress> = {
+      address: address.address,
+      city: address.city,
+      state: address.state,
+      postalCode: address.postalCode,
+      country: address.country,
+    };
 
-    if (!address.address.trim()) errors.push("Street address is required");
-    if (!address.city.trim()) errors.push("City is required");
-    if (!address.state.trim()) errors.push("State/Province is required");
-    if (!address.postalCode.trim()) errors.push("ZIP/Postal code is required");
-    if (!address.country.trim()) errors.push("Country is required");
+    const result: AddressValidationResult =
+      validateAddressEnhanced(validatedAddress);
 
-    // Additional validations
-    if (address.address.length < 5)
-      errors.push("Street address must be at least 5 characters");
-    if (address.city.length < 2)
-      errors.push("City must be at least 2 characters");
-    if (address.postalCode.length < 3)
-      errors.push("Postal code must be at least 3 characters");
-
-    return errors;
+    // Convert validation errors to string array
+    return result.errors.map((error: any) => error.message);
   };
 
   const validatePaymentMethod = (
@@ -384,9 +436,8 @@ export default function SettingsPage() {
 
     return sum % 10 === 0;
   };
-
   const handleAddAddress = async () => {
-    const validationErrors = validateAddress(newAddress);
+    const validationErrors = validateAddressLocal(newAddress);
 
     if (validationErrors.length > 0) {
       toast.error(validationErrors[0]); // Show first error
@@ -395,8 +446,16 @@ export default function SettingsPage() {
 
     setIsLoading(true);
     try {
+      // Use normalization to ensure consistent data format
+      const normalizedResult = validateAndNormalizeAddress(newAddress);
+
+      if (!normalizedResult.isValid || !normalizedResult.normalizedAddress) {
+        toast.error("Address validation failed");
+        return;
+      }
+
       const newAddressWithId: Address = {
-        ...newAddress,
+        ...normalizedResult.normalizedAddress,
         id: Date.now().toString(),
         isDefault: addresses.length === 0,
         isFromAPI: false,
@@ -410,6 +469,7 @@ export default function SettingsPage() {
         postalCode: "",
         country: "US",
       });
+      setNewAddressErrors({});
       setShowAddAddress(false);
       toast.success("Address added successfully!");
     } catch (error) {
@@ -510,7 +570,7 @@ export default function SettingsPage() {
   const handleSaveEditAddress = async () => {
     if (!editingAddress) return;
 
-    const validationErrors = validateAddress(editAddressData);
+    const validationErrors = validateAddressLocal(editAddressData);
 
     if (validationErrors.length > 0) {
       toast.error(validationErrors[0]);
@@ -519,13 +579,24 @@ export default function SettingsPage() {
 
     setIsLoading(true);
     try {
+      // Use normalization to ensure consistent data format
+      const normalizedResult = validateAndNormalizeAddress(editAddressData);
+
+      if (!normalizedResult.isValid || !normalizedResult.normalizedAddress) {
+        toast.error("Address validation failed");
+        return;
+      }
+
       setAddresses((prev) =>
         prev.map((addr) =>
-          addr.id === editingAddress ? { ...addr, ...editAddressData } : addr
+          addr.id === editingAddress
+            ? { ...addr, ...normalizedResult.normalizedAddress }
+            : addr
         )
       );
 
       setEditingAddress(null);
+      setEditAddressErrors({});
       toast.success("Address updated successfully!");
     } catch (error) {
       toast.error("Failed to update address. Please try again.");
@@ -587,6 +658,7 @@ export default function SettingsPage() {
   const handleCancelEdit = () => {
     setEditingAddress(null);
     setEditingPayment(null);
+    setEditAddressErrors({});
     setEditAddressData({
       address: "",
       city: "",
@@ -699,6 +771,66 @@ export default function SettingsPage() {
     }
   };
 
+  // Real-time validation functions
+  const validateNewAddressField = (
+    field: keyof ValidatedAddress,
+    value: string
+  ) => {
+    const error = validateAddressField(field, value, newAddress);
+    setNewAddressErrors((prev) => ({
+      ...prev,
+      [field]: error || "",
+    }));
+  };
+
+  const validateEditAddressField = (
+    field: keyof ValidatedAddress,
+    value: string
+  ) => {
+    const error = validateAddressField(field, value, editAddressData);
+    setEditAddressErrors((prev) => ({
+      ...prev,
+      [field]: error || "",
+    }));
+  };
+
+  // Enhanced address change handlers
+  const handleNewAddressChange = (
+    field: keyof typeof newAddress,
+    value: string
+  ) => {
+    // Format postal code if it's a postal code field
+    const formattedValue =
+      field === "postalCode" && newAddress.country
+        ? formatPostalCode(value, newAddress.country)
+        : value;
+
+    setNewAddress((prev) => ({ ...prev, [field]: formattedValue }));
+
+    // Real-time validation - ensure field is a valid ValidatedAddress key
+    if (field in newAddress) {
+      validateNewAddressField(field as keyof ValidatedAddress, formattedValue);
+    }
+  };
+
+  const handleEditAddressChange = (
+    field: keyof typeof editAddressData,
+    value: string
+  ) => {
+    // Format postal code if it's a postal code field
+    const formattedValue =
+      field === "postalCode" && editAddressData.country
+        ? formatPostalCode(value, editAddressData.country)
+        : value;
+
+    setEditAddressData((prev) => ({ ...prev, [field]: formattedValue }));
+
+    // Real-time validation - ensure field is a valid ValidatedAddress key
+    if (field in editAddressData) {
+      validateEditAddressField(field as keyof ValidatedAddress, formattedValue);
+    }
+  };
+
   const tabs = [
     { id: "profile", label: "Profile & Personal Info", icon: User },
     { id: "security", label: "Security & Password", icon: Lock },
@@ -717,8 +849,11 @@ export default function SettingsPage() {
               Back to Dashboard
             </Link>
           </Button>
-          <h1 className="font-bold text-3xl">Checkout</h1>
-          <p className="text-muted-foreground">Complete your order</p>
+          <h1 className="font-bold text-3xl">Settings Page</h1>
+          <p className="text-muted-foreground">
+            Pariatur amet sit ad deserunt duis elit cillum amet dolore anim
+            cupidatat.
+          </p>
         </div>
 
         <div className="gap-8 grid lg:grid-cols-4">
@@ -891,13 +1026,23 @@ export default function SettingsPage() {
                                       id="editAddress"
                                       value={editAddressData.address}
                                       onChange={(e) =>
-                                        setEditAddressData((prev) => ({
-                                          ...prev,
-                                          address: e.target.value,
-                                        }))
+                                        handleEditAddressChange(
+                                          "address",
+                                          e.target.value
+                                        )
                                       }
                                       placeholder="Enter street address"
+                                      className={
+                                        editAddressErrors.address
+                                          ? "border-red-500"
+                                          : ""
+                                      }
                                     />
+                                    {editAddressErrors.address && (
+                                      <p className="text-red-500 text-sm">
+                                        {editAddressErrors.address}
+                                      </p>
+                                    )}
                                   </div>
                                   <div className="gap-4 grid md:grid-cols-3">
                                     <div className="space-y-2">
@@ -906,13 +1051,23 @@ export default function SettingsPage() {
                                         id="editCity"
                                         value={editAddressData.city}
                                         onChange={(e) =>
-                                          setEditAddressData((prev) => ({
-                                            ...prev,
-                                            city: e.target.value,
-                                          }))
+                                          handleEditAddressChange(
+                                            "city",
+                                            e.target.value
+                                          )
                                         }
                                         placeholder="Enter city"
+                                        className={
+                                          editAddressErrors.city
+                                            ? "border-red-500"
+                                            : ""
+                                        }
                                       />
+                                      {editAddressErrors.city && (
+                                        <p className="text-red-500 text-sm">
+                                          {editAddressErrors.city}
+                                        </p>
+                                      )}
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor="editState">
@@ -922,13 +1077,23 @@ export default function SettingsPage() {
                                         id="editState"
                                         value={editAddressData.state}
                                         onChange={(e) =>
-                                          setEditAddressData((prev) => ({
-                                            ...prev,
-                                            state: e.target.value,
-                                          }))
+                                          handleEditAddressChange(
+                                            "state",
+                                            e.target.value
+                                          )
                                         }
                                         placeholder="Enter state"
+                                        className={
+                                          editAddressErrors.state
+                                            ? "border-red-500"
+                                            : ""
+                                        }
                                       />
+                                      {editAddressErrors.state && (
+                                        <p className="text-red-500 text-sm">
+                                          {editAddressErrors.state}
+                                        </p>
+                                      )}
                                     </div>
                                     <div className="space-y-2">
                                       <Label htmlFor="editZipCode">
@@ -938,27 +1103,56 @@ export default function SettingsPage() {
                                         id="editZipCode"
                                         value={editAddressData.postalCode}
                                         onChange={(e) =>
-                                          setEditAddressData((prev) => ({
-                                            ...prev,
-                                            postalCode: e.target.value,
-                                          }))
+                                          handleEditAddressChange(
+                                            "postalCode",
+                                            e.target.value
+                                          )
                                         }
                                         placeholder="Enter ZIP code"
+                                        className={
+                                          editAddressErrors.postalCode
+                                            ? "border-red-500"
+                                            : ""
+                                        }
                                       />
+                                      {editAddressErrors.postalCode && (
+                                        <p className="text-red-500 text-sm">
+                                          {editAddressErrors.postalCode}
+                                        </p>
+                                      )}
                                     </div>
                                   </div>
                                   <div className="space-y-2">
                                     <Label htmlFor="editCountry">Country</Label>
                                     <Select
                                       value={editAddressData.country}
-                                      onValueChange={(value) =>
-                                        setEditAddressData((prev) => ({
-                                          ...prev,
-                                          country: value,
-                                        }))
-                                      }
+                                      onValueChange={(value) => {
+                                        handleEditAddressChange(
+                                          "country",
+                                          value
+                                        );
+                                        // Re-validate state and postal code when country changes
+                                        if (editAddressData.state) {
+                                          validateEditAddressField(
+                                            "state",
+                                            editAddressData.state
+                                          );
+                                        }
+                                        if (editAddressData.postalCode) {
+                                          validateEditAddressField(
+                                            "postalCode",
+                                            editAddressData.postalCode
+                                          );
+                                        }
+                                      }}
                                     >
-                                      <SelectTrigger>
+                                      <SelectTrigger
+                                        className={
+                                          editAddressErrors.country
+                                            ? "border-red-500"
+                                            : ""
+                                        }
+                                      >
                                         <SelectValue placeholder="Select country" />
                                       </SelectTrigger>
                                       <SelectContent>
@@ -994,6 +1188,11 @@ export default function SettingsPage() {
                                         </SelectItem>
                                       </SelectContent>
                                     </Select>
+                                    {editAddressErrors.country && (
+                                      <p className="text-red-500 text-sm">
+                                        {editAddressErrors.country}
+                                      </p>
+                                    )}
                                   </div>
                                 </div>
                                 <div className="flex gap-2">
@@ -1097,13 +1296,23 @@ export default function SettingsPage() {
                                 id="newAddress"
                                 value={newAddress.address}
                                 onChange={(e) =>
-                                  setNewAddress((prev) => ({
-                                    ...prev,
-                                    address: e.target.value,
-                                  }))
+                                  handleNewAddressChange(
+                                    "address",
+                                    e.target.value
+                                  )
                                 }
                                 placeholder="Enter street address"
+                                className={
+                                  newAddressErrors.address
+                                    ? "border-red-500"
+                                    : ""
+                                }
                               />
+                              {newAddressErrors.address && (
+                                <p className="text-red-500 text-sm">
+                                  {newAddressErrors.address}
+                                </p>
+                              )}
                             </div>
                             <div className="gap-4 grid md:grid-cols-3">
                               <div className="space-y-2">
@@ -1112,13 +1321,23 @@ export default function SettingsPage() {
                                   id="newCity"
                                   value={newAddress.city}
                                   onChange={(e) =>
-                                    setNewAddress((prev) => ({
-                                      ...prev,
-                                      city: e.target.value,
-                                    }))
+                                    handleNewAddressChange(
+                                      "city",
+                                      e.target.value
+                                    )
                                   }
                                   placeholder="Enter city"
+                                  className={
+                                    newAddressErrors.city
+                                      ? "border-red-500"
+                                      : ""
+                                  }
                                 />
+                                {newAddressErrors.city && (
+                                  <p className="text-red-500 text-sm">
+                                    {newAddressErrors.city}
+                                  </p>
+                                )}
                               </div>
                               <div className="space-y-2">
                                 <Label htmlFor="newState">State/Province</Label>
@@ -1126,13 +1345,23 @@ export default function SettingsPage() {
                                   id="newState"
                                   value={newAddress.state}
                                   onChange={(e) =>
-                                    setNewAddress((prev) => ({
-                                      ...prev,
-                                      state: e.target.value,
-                                    }))
+                                    handleNewAddressChange(
+                                      "state",
+                                      e.target.value
+                                    )
                                   }
                                   placeholder="Enter state"
+                                  className={
+                                    newAddressErrors.state
+                                      ? "border-red-500"
+                                      : ""
+                                  }
                                 />
+                                {newAddressErrors.state && (
+                                  <p className="text-red-500 text-sm">
+                                    {newAddressErrors.state}
+                                  </p>
+                                )}
                               </div>
                               <div className="space-y-2">
                                 <Label htmlFor="newZipCode">
@@ -1142,27 +1371,53 @@ export default function SettingsPage() {
                                   id="newZipCode"
                                   value={newAddress.postalCode}
                                   onChange={(e) =>
-                                    setNewAddress((prev) => ({
-                                      ...prev,
-                                      postalCode: e.target.value,
-                                    }))
+                                    handleNewAddressChange(
+                                      "postalCode",
+                                      e.target.value
+                                    )
                                   }
                                   placeholder="Enter ZIP code"
+                                  className={
+                                    newAddressErrors.postalCode
+                                      ? "border-red-500"
+                                      : ""
+                                  }
                                 />
+                                {newAddressErrors.postalCode && (
+                                  <p className="text-red-500 text-sm">
+                                    {newAddressErrors.postalCode}
+                                  </p>
+                                )}
                               </div>
                             </div>
                             <div className="space-y-2">
                               <Label htmlFor="newCountry">Country</Label>
                               <Select
                                 value={newAddress.country}
-                                onValueChange={(value) =>
-                                  setNewAddress((prev) => ({
-                                    ...prev,
-                                    country: value,
-                                  }))
-                                }
+                                onValueChange={(value) => {
+                                  handleNewAddressChange("country", value);
+                                  // Re-validate state and postal code when country changes
+                                  if (newAddress.state) {
+                                    validateNewAddressField(
+                                      "state",
+                                      newAddress.state
+                                    );
+                                  }
+                                  if (newAddress.postalCode) {
+                                    validateNewAddressField(
+                                      "postalCode",
+                                      newAddress.postalCode
+                                    );
+                                  }
+                                }}
                               >
-                                <SelectTrigger>
+                                <SelectTrigger
+                                  className={
+                                    newAddressErrors.country
+                                      ? "border-red-500"
+                                      : ""
+                                  }
+                                >
                                   <SelectValue placeholder="Select country" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -1182,6 +1437,11 @@ export default function SettingsPage() {
                                   <SelectItem value="BR">Brazil</SelectItem>
                                 </SelectContent>
                               </Select>
+                              {newAddressErrors.country && (
+                                <p className="text-red-500 text-sm">
+                                  {newAddressErrors.country}
+                                </p>
+                              )}
                             </div>
                           </div>
                           <div className="flex gap-2">
