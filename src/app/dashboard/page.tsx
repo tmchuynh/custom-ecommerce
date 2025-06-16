@@ -8,15 +8,18 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useOrderManagement from "@/hooks/useOrderManagement";
+import { usePurchaseHistory } from "@/hooks/usePurchaseHistory";
 import {
   Calendar,
   CreditCard,
   Crown,
   Heart,
+  History,
   LogOut,
   Mail,
   Package,
   Phone,
+  RefreshCw,
   Settings,
   ShoppingBag,
   Star,
@@ -35,6 +38,14 @@ export default function DashboardPage() {
   const { wishlistCount, purchasedItems } = useWishlist();
   const { formatPrice } = useCurrency();
   const { orderStats, orders } = useOrderManagement(user?.email);
+  const {
+    previouslyPurchased,
+    orderHistory,
+    purchaseStats,
+    isLoading: isPurchaseHistoryLoading,
+    error: purchaseHistoryError,
+    refetch: refetchPurchaseHistory,
+  } = usePurchaseHistory();
   const router = useRouter();
 
   useEffect(() => {
@@ -526,6 +537,192 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
           </div>
+        </div>
+
+        {/* Purchase History from DummyJSON */}
+        <div className="mt-8">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="font-semibold text-xl">Purchase History</h2>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={refetchPurchaseHistory}
+                disabled={isPurchaseHistoryLoading}
+              >
+                <RefreshCw
+                  className={`mr-1 w-4 h-4 ${
+                    isPurchaseHistoryLoading ? "animate-spin" : ""
+                  }`}
+                />
+                Refresh
+              </Button>
+              {purchaseStats && (
+                <Badge variant="secondary">
+                  {purchaseStats.totalOrders} demo orders
+                </Badge>
+              )}
+            </div>
+          </div>
+
+          {isPurchaseHistoryLoading ? (
+            <Card>
+              <CardContent className="flex justify-center items-center p-8">
+                <RefreshCw className="mr-2 w-4 h-4 animate-spin" />
+                Loading purchase history...
+              </CardContent>
+            </Card>
+          ) : purchaseHistoryError ? (
+            <Card>
+              <CardContent className="p-6 text-center">
+                <div className="text-muted-foreground">
+                  <Package className="mx-auto mb-2 w-8 h-8" />
+                  <p>Unable to load purchase history</p>
+                  <p className="text-sm">{purchaseHistoryError}</p>
+                </div>
+              </CardContent>
+            </Card>
+          ) : purchaseStats ? (
+            <>
+              {/* Purchase Statistics */}
+              <div className="gap-4 grid sm:grid-cols-2 lg:grid-cols-4 mb-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-muted-foreground text-sm">
+                          Demo Orders
+                        </p>
+                        <p className="font-bold text-2xl">
+                          {purchaseStats.totalOrders}
+                        </p>
+                      </div>
+                      <History className="w-8 h-8 text-blue-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-muted-foreground text-sm">
+                          Demo Spent
+                        </p>
+                        <p className="font-bold text-2xl">
+                          {formatPrice(purchaseStats.totalSpent)}
+                        </p>
+                      </div>
+                      <CreditCard className="w-8 h-8 text-green-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-muted-foreground text-sm">
+                          Demo Items
+                        </p>
+                        <p className="font-bold text-2xl">
+                          {purchaseStats.totalItems}
+                        </p>
+                      </div>
+                      <Package className="w-8 h-8 text-purple-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <p className="text-muted-foreground text-sm">
+                          Demo Savings
+                        </p>
+                        <p className="font-bold text-2xl">
+                          {formatPrice(purchaseStats.totalSavings)}
+                        </p>
+                      </div>
+                      <Zap className="w-8 h-8 text-orange-500" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Previously Purchased Items */}
+              {previouslyPurchased.length > 0 && (
+                <div className="mb-6">
+                  <h3 className="mb-3 font-medium text-lg">
+                    Previously Purchased Items
+                  </h3>
+                  <div className="gap-4 grid sm:grid-cols-2 lg:grid-cols-3">
+                    {previouslyPurchased.slice(0, 6).map((product) => (
+                      <Card key={product.id}>
+                        <CardContent className="p-4">
+                          <div className="flex items-start gap-3">
+                            <img
+                              src={product.thumbnail}
+                              alt={product.title}
+                              className="rounded w-16 h-16 object-cover"
+                            />
+                            <div className="flex-1 min-w-0">
+                              <h4 className="font-medium text-sm line-clamp-2">
+                                {product.title}
+                              </h4>
+                              <p className="text-muted-foreground text-xs">
+                                Qty: {product.quantity} •{" "}
+                                {formatPrice(product.total)}
+                              </p>
+                              {product.discountPercentage > 0 && (
+                                <Badge
+                                  variant="secondary"
+                                  className="mt-1 text-xs"
+                                >
+                                  {product.discountPercentage}% off
+                                </Badge>
+                              )}
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
+                  {previouslyPurchased.length > 6 && (
+                    <div className="mt-4 text-center">
+                      <Button variant="outline" size="sm">
+                        View All {previouslyPurchased.length} Items
+                      </Button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Demo Notice */}
+              <Card className="border-dashed">
+                <CardContent className="p-4 text-center">
+                  <div className="text-muted-foreground text-sm">
+                    <Star className="mx-auto mb-2 w-5 h-5" />
+                    <p>This purchase history is demo data from DummyJSON API</p>
+                    <p>Used for testing and demonstration purposes only</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          ) : (
+            <Card>
+              <CardContent className="p-6 text-center">
+                <div className="text-muted-foreground">
+                  <Package className="mx-auto mb-2 w-8 h-8" />
+                  <p>No purchase history available</p>
+                  <p className="text-sm">
+                    Demo data will appear here when available
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </div>
