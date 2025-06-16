@@ -172,7 +172,7 @@ export default function ProductGrid({
                       size="sm"
                       className="gap-2"
                       onClick={(e) => handleAddToCart(product, e)}
-                      variant={isInCart(product.id) ? "outline" : "default"}
+                      variant={isInCart(product.id) ? "classic" : "modern"}
                     >
                       {isInCart(product.id) ? (
                         <>
@@ -283,7 +283,7 @@ export default function ProductGrid({
             <Button
               className="gap-2 group-hover:bg-primary/90 w-full transition-colors"
               onClick={(e) => handleAddToCart(product, e)}
-              variant={isInCart(product.id) ? "outline" : "default"}
+              variant={isInCart(product.id) ? "classic" : "modern"}
             >
               {isInCart(product.id) ? (
                 <>
