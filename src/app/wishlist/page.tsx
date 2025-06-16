@@ -1,19 +1,18 @@
 "use client";
 
-import { useWishlist } from "@/app/context/wishlistContext";
-import { useCart } from "@/app/context/cartContext";
 import { useAuth } from "@/app/context/authContext";
+import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
+import { useWishlist } from "@/app/context/wishlistContext";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { displayRatingStars } from "@/lib/displayRatingStars";
-import { Heart, ShoppingCart, Trash2, PackageCheck } from "lucide-react";
+import { Heart, PackageCheck, ShoppingCart, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { cn } from "@/lib/utils";
 
 export default function WishlistPage() {
   const { activeWishlistItems, purchasedItems, removeFromWishlist, isLoading } = useWishlist();
@@ -25,11 +24,11 @@ export default function WishlistPage() {
   // Redirect if not logged in
   if (!isLoggedIn) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="mx-auto px-4 py-8 container">
         <div className="text-center">
-          <Heart className="mx-auto h-16 w-16 text-gray-400 mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Your Wishlist</h1>
-          <p className="text-gray-600 mb-6">Please log in to view your wishlist</p>
+          <Heart className="mx-auto mb-4 w-16 h-16 text-gray-400" />
+          <h1 className="mb-2 font-bold text-2xl">Your Wishlist</h1>
+          <p className="mb-6 text-gray-600">Please log in to view your wishlist</p>
           <div className="space-x-4">
             <Button asChild>
               <Link href="/login">Log In</Link>
@@ -70,11 +69,11 @@ export default function WishlistPage() {
 
   if (activeWishlistItems.length === 0 && purchasedItems.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-8">
+      <div className="mx-auto px-4 py-8 container">
         <div className="text-center">
-          <Heart className="mx-auto h-16 w-16 text-gray-400 mb-4" />
-          <h1 className="text-2xl font-bold mb-2">Your Wishlist</h1>
-          <p className="text-gray-600 mb-6">You haven't added any items to your wishlist yet</p>
+          <Heart className="mx-auto mb-4 w-16 h-16 text-gray-400" />
+          <h1 className="mb-2 font-bold text-2xl">Your Wishlist</h1>
+          <p className="mb-6 text-gray-600">You haven't added any items to your wishlist yet</p>
           <Button asChild>
             <Link href="/shopping">Start Shopping</Link>
           </Button>
@@ -84,9 +83,9 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="mx-auto px-4 py-8 container">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Your Wishlist</h1>
+        <h1 className="mb-2 font-bold text-3xl">Your Wishlist</h1>
         <p className="text-gray-600">
           {activeWishlistItems.length} {activeWishlistItems.length === 1 ? 'item' : 'items'} in your wishlist
         </p>
@@ -95,24 +94,24 @@ export default function WishlistPage() {
       {/* Active Wishlist Items */}
       {activeWishlistItems.length > 0 && (
         <div className="mb-12">
-          <h2 className="text-xl font-semibold mb-6">Wishlist Items</h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <h2 className="mb-6 font-semibold text-xl">Wishlist Items</h2>
+          <div className="gap-6 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {activeWishlistItems.map((wishlistItem) => {
               const { product } = wishlistItem;
               return (
-                <Card key={product.id} className="group overflow-hidden transition-all duration-300 hover:shadow-lg">
+                <Card key={product.id} className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
                   <div className="relative">
-                    <div className="aspect-square overflow-hidden">
+                    <div className="overflow-hidden aspect-square">
                       {product.thumbnail ? (
                         <Image
                           src={product.thumbnail}
                           alt={product.title}
                           width={300}
                           height={300}
-                          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full transition-transform duration-300 object-cover group-hover:scale-105"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-400">
+                        <div className="flex justify-center items-center bg-gray-200 w-full h-full text-gray-400">
                           No Image
                         </div>
                       )}
@@ -120,7 +119,7 @@ export default function WishlistPage() {
 
                     {/* Discount Badge */}
                     {product.discountPercentage && product.discountPercentage > 0 && (
-                      <Badge className="absolute top-3 left-3 bg-red-500 hover:bg-red-600 shadow-lg text-white">
+                      <Badge className="top-3 left-3 absolute bg-red-500 hover:bg-red-600 shadow-lg text-white">
                         -{Math.round(product.discountPercentage)}%
                       </Badge>
                     )}
@@ -130,16 +129,16 @@ export default function WishlistPage() {
                       variant="ghost"
                       size="sm"
                       onClick={() => handleRemoveFromWishlist(product.id)}
-                      className="absolute top-3 right-3 bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-800 backdrop-blur-sm"
+                      className="top-3 right-3 absolute bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-800 backdrop-blur-sm"
                       disabled={isLoading}
                     >
-                      <Trash2 className="h-4 w-4 text-red-500" />
+                      <Trash2 className="w-4 h-4 text-red-500" />
                     </Button>
                   </div>
 
                   <CardContent className="p-4">
                     <div className="mb-2">
-                      <h3 className="font-semibold line-clamp-2 min-h-[2.5rem]">
+                      <h3 className="min-h-[2.5rem] font-semibold line-clamp-2">
                         {product.title}
                       </h3>
                       {product.brand && (
@@ -149,7 +148,7 @@ export default function WishlistPage() {
                       )}
                     </div>
 
-                    <p className="text-sm text-gray-600 line-clamp-2 mb-3">
+                    <p className="mb-3 text-gray-600 text-sm line-clamp-2">
                       {product.description}
                     </p>
 
@@ -159,17 +158,17 @@ export default function WishlistPage() {
                         <div className="flex">
                           {displayRatingStars(product.rating)}
                         </div>
-                        <span className="text-sm text-gray-500">({product.rating})</span>
+                        <span className="text-gray-500 text-sm">({product.rating})</span>
                       </div>
                     )}
 
                     {/* Price */}
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="text-xl font-bold text-primary">
+                      <span className="font-bold text-primary text-xl">
                         {formatPrice(product.price)}
                       </span>
                       {product.discountPercentage && product.discountPercentage > 0 && (
-                        <span className="text-sm text-gray-500 line-through">
+                        <span className="text-gray-500 text-sm line-through">
                           {formatPrice(
                             product.price / (1 - product.discountPercentage / 100)
                           )}
@@ -184,11 +183,11 @@ export default function WishlistPage() {
                         className="w-full"
                         disabled={isLoading}
                       >
-                        <ShoppingCart className="h-4 w-4 mr-2" />
+                        <ShoppingCart className="mr-2 w-4 h-4" />
                         {isInCart(product.id) ? "Already in Cart" : "Move to Cart"}
                       </Button>
 
-                      <p className="text-xs text-gray-500 text-center">
+                      <p className="text-center text-gray-500 text-xs">
                         Added {new Date(wishlistItem.addedAt).toLocaleDateString()}
                       </p>
                     </div>
@@ -203,43 +202,43 @@ export default function WishlistPage() {
       {/* Purchased Items */}
       {purchasedItems.length > 0 && (
         <div>
-          <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-            <PackageCheck className="h-5 w-5" />
+          <h2 className="flex items-center gap-2 mb-6 font-semibold text-xl">
+            <PackageCheck className="w-5 h-5" />
             Previously Purchased ({purchasedItems.length})
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="gap-4 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {purchasedItems.map((wishlistItem) => {
               const { product } = wishlistItem;
               return (
                 <Card key={`purchased-${product.id}`} className="opacity-75">
                   <div className="relative">
-                    <div className="aspect-square overflow-hidden">
+                    <div className="overflow-hidden aspect-square">
                       {product.thumbnail ? (
                         <Image
                           src={product.thumbnail}
                           alt={product.title}
                           width={200}
                           height={200}
-                          className="h-full w-full object-cover"
+                          className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-400">
+                        <div className="flex justify-center items-center bg-gray-200 w-full h-full text-gray-400">
                           No Image
                         </div>
                       )}
                     </div>
                     
-                    <Badge className="absolute top-3 left-3 bg-green-500">
-                      <PackageCheck className="h-3 w-3 mr-1" />
+                    <Badge className="top-3 left-3 absolute bg-green-500">
+                      <PackageCheck className="mr-1 w-3 h-3" />
                       Purchased
                     </Badge>
                   </div>
 
                   <CardContent className="p-4">
-                    <h3 className="font-semibold line-clamp-2 mb-2">
+                    <h3 className="mb-2 font-semibold line-clamp-2">
                       {product.title}
                     </h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-gray-500 text-sm">
                       Purchased {wishlistItem.purchasedAt?.toLocaleDateString()}
                     </p>
                   </CardContent>
