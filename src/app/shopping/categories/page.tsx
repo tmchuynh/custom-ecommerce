@@ -120,7 +120,7 @@ export default function CategoriesPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative py-20">
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute inset-0"></div>
         <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-7xl text-center">
           <h1 className="mb-4 font-extrabold text-5xl md:text-6xl">
             Shop by Categories
