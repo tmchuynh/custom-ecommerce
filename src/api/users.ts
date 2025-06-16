@@ -117,3 +117,22 @@ export async function fetchDemoCredentials(): Promise<{
     throw error;
   }
 }
+
+/**
+ * Fetches a specific user by ID from DummyJSON API
+ */
+export async function fetchUserById(userId: number): Promise<DummyUser> {
+  try {
+    const response = await fetch(`${API_BASE_URL}/users/${userId}`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch user: ${response.statusText}`);
+    }
+
+    const user: DummyUser = await response.json();
+    return user;
+  } catch (error) {
+    console.error("Error fetching user by ID:", error);
+    throw error;
+  }
+}
