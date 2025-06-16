@@ -7,7 +7,7 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
 import * as React from "react";
 
 const selectTriggerVariants = cva(
-  "flex justify-between items-center gap-2 bg-transparent disabled:opacity-50 shadow-sm border rounded-lg focus-visible:ring-[3px] w-full text-sm [&_svg:not([class*='text-'])]:text-muted-foreground data-[placeholder]:text-muted-foreground whitespace-nowrap transition-all disabled:cursor-not-allowed [&_svg]:pointer-events-none outline-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "flex justify-between items-center gap-2 bg-transparent disabled:opacity-50 shadow-sm mt-2 border rounded-lg focus-visible:ring-[3px] w-full text-sm [&_svg:not([class*='text-'])]:text-muted-foreground data-[placeholder]:text-muted-foreground whitespace-nowrap transition-all disabled:cursor-not-allowed [&_svg]:pointer-events-none outline-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
