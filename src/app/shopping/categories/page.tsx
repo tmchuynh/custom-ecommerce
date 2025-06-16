@@ -216,7 +216,7 @@ export default function CategoriesPage() {
                         fill
                         className="transition-transform duration-500 object-cover group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                       <Badge className="top-3 right-3 absolute bg-white/90 font-semibold text-gray-800">
                         {category.count} items
                       </Badge>
