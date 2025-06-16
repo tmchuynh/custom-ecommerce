@@ -44,33 +44,46 @@ export default function HomePage() {
   return (
     <div>
       {/* New Hero Section */}
-      <section className="relative -mt-15 py-20 md:py-32 text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 h-[50em]" />
+      <section className="relative -mt-15 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 h-[50em]" />
         <div className="absolute inset-0">
           <Image
-            src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHww"
+            src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHww"
             alt="Hero background"
-            width={1920}
-            height={1080}
-            className="opacity-30 h-[50em] object-cover"
+            fill
+            className="opacity-20 h-[50em] object-cover object-center scale-105"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
         </div>
-        <div className="relative z-10 mx-auto px-6 text-center container">
-          <h1 className="mb-6 font-bold text-4xl md:text-6xl">
-            Discover Your Next Favorite
-          </h1>
-          <p className="mx-auto mb-8 max-w-2xl text-lg md:text-xl">
-            Explore our curated collection of high-quality products, designed to
-            inspire and delight.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-white hover:bg-gray-100 text-purple-700"
-          >
-            <Link href="/shopping">Shop Now</Link>
-          </Button>
+        <div className="relative z-10 flex justify-center items-center px-6 min-h-[50em] text-center text-white">
+          <div className="mx-auto max-w-4xl">
+            <h1 className="mb-6 font-extrabold text-5xl md:text-7xl leading-tight">
+              Discover Your Next
+              <span className="block text-yellow-300">Favorite</span>
+            </h1>
+            <p className="opacity-90 mx-auto mb-10 max-w-2xl text-xl md:text-2xl leading-relaxed">
+              Explore our curated collection of high-quality products, designed
+              to inspire and delight.
+            </p>
+            <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-white hover:bg-gray-100 px-8 py-4 font-semibold text-lg text-purple-700"
+              >
+                <Link href="/shopping">Shop Now</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="hover:bg-white px-8 py-4 border-white font-semibold text-lg text-white hover:text-purple-700"
+              >
+                <Link href="/shopping/sale-items">View Sales</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -119,52 +132,67 @@ export default function HomePage() {
               Find what you're looking for with ease.
             </p>
           </div>
-          <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Example Categories - Replace with your actual categories and links */}
-            {[
-              {
-                name: "All Products",
-                href: "/shopping",
-                imageSrc:
-                  "https://plus.unsplash.com/premium_photo-1699973055451-c2061752297b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8%3D",
-                description: "Browse our complete collection",
-              },
-              {
-                name: "Sale Items",
-                href: "/shopping/sale-items",
-                imageSrc:
-                  "https://plus.unsplash.com/premium_photo-1683121041726-3b192f629fa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D",
-                description: "Great deals and discounts",
-              },
-              {
-                name: "Categories",
-                href: "/shopping/categories",
-                imageSrc:
-                  "https://plus.unsplash.com/premium_photo-1700056213493-d2a2747c76be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNhbGVzJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D",
-                description: "Shop by product category",
-              },
-            ].map((category) => (
+          <div className="gap-6 grid grid-cols-1 md:grid-cols-3">
+            {/* Featured large category card */}
+            <div className="md:col-span-2">
               <Link
-                href={category.href}
-                key={category.name}
-                className="group block relative"
+                href="/shopping"
+                className="group block relative shadow-lg rounded-2xl h-96 overflow-hidden"
               >
-                <div className="relative group-hover:opacity-75 rounded-lg w-full sm:aspect-w-2 lg:aspect-w-1 h-80 sm:aspect-h-1 sm:h-64 lg:aspect-h-1 overflow-hidden">
-                  <Image
-                    src={category.imageSrc}
-                    alt={category.name}
-                    fill
-                    className="object-cover object-center"
-                  />
+                <Image
+                  src="https://plus.unsplash.com/premium_photo-1699973055451-c2061752297b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8%3D"
+                  alt="All Products"
+                  fill
+                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="right-0 bottom-0 left-0 absolute p-8 text-white">
+                  <h3 className="mb-2 font-bold text-3xl">All Products</h3>
+                  <p className="opacity-90 text-lg">
+                    Browse our complete collection
+                  </p>
                 </div>
-                <h3 className="mt-6 font-semibold text-base text-center lg:text-xl">
-                  {category.name}
-                </h3>
-                <p className="mt-2 text-center text-sm">
-                  {category.description}
-                </p>
               </Link>
-            ))}
+            </div>
+
+            {/* Smaller category cards */}
+            <div className="space-y-6">
+              <Link
+                href="/shopping/sale-items"
+                className="group block relative shadow-lg rounded-2xl h-44 overflow-hidden"
+              >
+                <Image
+                  src="https://plus.unsplash.com/premium_photo-1683121041726-3b192f629fa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
+                  alt="Sale Items"
+                  fill
+                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="right-0 bottom-0 left-0 absolute p-6 text-white">
+                  <h3 className="mb-1 font-bold text-xl">Sale Items</h3>
+                  <p className="opacity-90 text-sm">
+                    Great deals and discounts
+                  </p>
+                </div>
+              </Link>
+
+              <Link
+                href="/shopping/categories"
+                className="group block relative shadow-lg rounded-2xl h-44 overflow-hidden"
+              >
+                <Image
+                  src="https://plus.unsplash.com/premium_photo-1700056213493-d2a2747c76be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNhbGVzJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D"
+                  alt="Categories"
+                  fill
+                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="right-0 bottom-0 left-0 absolute p-6 text-white">
+                  <h3 className="mb-1 font-bold text-xl">Categories</h3>
+                  <p className="opacity-90 text-sm">Shop by product category</p>
+                </div>
+              </Link>
+            </div>
           </div>
         </section>
 
