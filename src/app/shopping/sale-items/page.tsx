@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import {
   Grid3X3,
   List,

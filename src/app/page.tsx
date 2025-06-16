@@ -4,7 +4,7 @@ import ProductGrid from "@/components/products/ProductGrid";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import { Package, ShoppingBag, Tag, TrendingUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

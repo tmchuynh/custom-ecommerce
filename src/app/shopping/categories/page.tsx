@@ -5,7 +5,7 @@ import ProductGrid from "@/components/products/ProductGrid";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import {
   ArrowLeft,
   Grid3X3,

@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
 

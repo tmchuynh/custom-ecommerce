@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { displayRatingStars } from "@/lib/displayRatingStars";
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import { cn } from "@/lib/utils";
 import { Check, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";

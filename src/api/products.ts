@@ -1,4 +1,4 @@
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import { toTitleCase } from "@/lib/utils/format";
 
 // Base API URL for DummyJSON

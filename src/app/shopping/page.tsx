@@ -20,7 +20,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ProductItem } from "@/lib/interfaces";
+import { ProductItem } from "@/lib/interfaces/product";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Filter, Grid3X3, List, Search, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
