@@ -29,7 +29,7 @@ export default function CartPage() {
     clearCart,
     applyDiscount,
     removeDiscount,
-    checkout,
+    redirectToCheckout,
   } = useCart();
   const { formatPrice } = useCurrency();
   const { user, hasMembership } = useAuth();
@@ -61,23 +61,14 @@ export default function CartPage() {
     toast.info("Discount removed");
   };
 
-  const handleCheckout = async () => {
-    setIsCheckingOut(true);
-    const result = await checkout();
-
-    if (result.success) {
-      toast.success(result.message);
-    } else {
-      toast.error(result.message);
-    }
-
-    setIsCheckingOut(false);
+  const handleCheckout = () => {
+    redirectToCheckout();
   };
 
   if (items.length === 0) {
     return (
-      <div className="bg-background min-h-screen">
-        <div className="mx-auto px-4 py-8 container">
+      <div className="min-h-screen">
+        <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
           <div className="flex flex-col justify-center items-center space-y-6 py-16 text-center">
             <div className="flex justify-center items-center bg-muted rounded-full w-24 h-24">
               <ShoppingBag className="w-12 h-12 text-muted-foreground" />
@@ -107,13 +98,13 @@ export default function CartPage() {
   }
 
   return (
-    <div className="bg-background min-h-screen">
-      <div className="mx-auto px-4 py-8 container">
+    <div className="min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         <div className="gap-8 grid lg:grid-cols-3">
           {/* Cart Items */}
           <div className="lg:col-span-2">
             <div className="flex justify-between items-center mb-6">
-              <h1 className="font-bold text-2xl">Shopping Cart</h1>
+              <h1 className="font-bold text-4xl">Shopping Cart</h1>
               <Button
                 variant="outline"
                 size="sm"
@@ -330,13 +321,8 @@ export default function CartPage() {
                     <span>{formatPrice(grandTotal)}</span>
                   </div>
                 </div>
-                <Button
-                  className="w-full"
-                  size="lg"
-                  onClick={handleCheckout}
-                  disabled={isCheckingOut}
-                >
-                  {isCheckingOut ? "Processing..." : "Proceed to Checkout"}
+                <Button className="w-full" size="lg" onClick={handleCheckout}>
+                  Proceed to Checkout
                 </Button>
                 <Button variant="outline" className="w-full" asChild>
                   <Link href="/shopping">Continue Shopping</Link>
