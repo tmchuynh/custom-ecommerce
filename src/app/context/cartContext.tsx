@@ -83,10 +83,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       value: 20,
       conditions: {
         minItems: 2,
-        requiredCategories: ["laptops", "smartphones"],
+        requiredCategories: ["laptops", "smartphones", "tablets"],
       },
       appliesTo: "category",
-      targetCategories: ["laptops", "smartphones"],
+      targetCategories: ["laptops", "smartphones", "tablets"],
     },
     {
       code: "BULK15",
