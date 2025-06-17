@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import useOrderManagement from "@/hooks/useOrderManagement";
 import { usePurchaseHistory } from "@/hooks/usePurchaseHistory";
+import { getStatusColor } from "@/lib/utils/orders";
 import {
   Calendar,
   CreditCard,
@@ -61,9 +62,6 @@ export default function DashboardPage() {
         demoOrders: 0,
       };
     }
-
-    console.log("Order History (Demo Data):", orderHistory);
-    console.log("User Orders (Real Data):", orders);
 
     const combinedTotal = orderStats.totalOrders + purchaseStats.totalOrders;
     const combinedSpent = orderStats.totalSpent + purchaseStats.totalSpent;
@@ -447,7 +445,7 @@ export default function DashboardPage() {
               <h2 className="font-semibold text-xl">Your Recent Orders</h2>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" asChild>
-                  <Link href="/orders">View All Orders</Link>
+                  <Link href="/dashboard/my-orders">View All Orders</Link>
                 </Button>
                 <Button variant="outline" size="sm" asChild>
                   <Link href="/track-order">Track Order</Link>
@@ -462,17 +460,7 @@ export default function DashboardPage() {
                       <div className="space-y-1">
                         <div className="flex items-center gap-2">
                           <p className="font-medium">Order #{order.id}</p>
-                          <Badge
-                            variant={
-                              order.status === "delivered"
-                                ? "default"
-                                : order.status === "shipped"
-                                ? "secondary"
-                                : order.status === "processing"
-                                ? "outline"
-                                : "destructive"
-                            }
-                          >
+                          <Badge variant={`${getStatusColor(order.status)}`}>
                             {order.status}
                           </Badge>
                         </div>

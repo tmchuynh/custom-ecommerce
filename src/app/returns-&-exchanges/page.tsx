@@ -352,7 +352,7 @@ export default function ReturnsExchangesPage() {
                       className="w-full"
                       asChild
                     >
-                      <Link href="/track-order">Track Return</Link>
+                      <Link href="/track-order">Track Your Package</Link>
                     </Button>
                   </div>
                   <div className="p-3 border rounded-lg">
@@ -369,20 +369,6 @@ export default function ReturnsExchangesPage() {
                       asChild
                     >
                       <Link href="/contact-us">Contact Us</Link>
-                    </Button>
-                  </div>
-                  <div className="p-3 border rounded-lg">
-                    <h4 className="mb-2 font-medium text-sm">Return Center</h4>
-                    <p className="mb-3 text-muted-foreground text-xs">
-                      Manage all your returns in one place
-                    </p>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      className="w-full"
-                      asChild
-                    >
-                      <Link href="/orders">View Orders</Link>
                     </Button>
                   </div>
                 </CardContent>
