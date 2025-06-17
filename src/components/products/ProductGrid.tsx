@@ -281,7 +281,7 @@ export default function ProductGrid({
             </div>
 
             <Button
-              className="gap-2 group-hover:bg-primary/90 w-full transition-colors"
+              className="gap-2 w-full transition-colors"
               onClick={(e) => handleAddToCart(product, e)}
               variant={isInCart(product.id) ? "classic" : "modern"}
             >
