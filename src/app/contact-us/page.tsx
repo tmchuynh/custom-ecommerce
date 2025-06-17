@@ -502,7 +502,7 @@ export default function ContactUsPage() {
                     Support Hours
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-3">
+                <CardContent>
                   <div className="flex justify-between items-center py-2 border-b">
                     <span className="text-sm">Phone Support</span>
                     <span className="font-medium text-sm">
