@@ -20,15 +20,6 @@ const buttonVariants = cva(
         classic:
           "bg-secondary text-secondary-foreground border border-secondary/20 shadow-sm hover:bg-secondary/80 hover:shadow-md focus-visible:ring-secondary/20",
 
-        tertiary:
-          "bg-tertiary text-tertiary-foreground shadow-sm hover:bg-tertiary/90 hover:shadow-md focus-visible:ring-tertiary/20",
-        primary:
-          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow-md focus-visible:ring-primary/20",
-        professional:
-          "bg-neutral-50 text-neutral-900 border border-neutral-200/80 shadow-none hover:bg-neutral-100 hover:border-neutral-300 dark:bg-neutral-900 dark:text-neutral-100 dark:border-neutral-800 dark:hover:bg-neutral-800 dark:hover:border-neutral-700 focus-visible:ring-neutral-400/30",
-
-        glass:
-          "bg-white/30 backdrop-blur-md text-foreground border border-white/20 shadow-lg hover:bg-white/40 hover:border-white/30 supports-[backdrop-filter]:bg-white/30 dark:bg-black/20 dark:hover:bg-black/30 dark:border-white/10 focus-visible:ring-white/30",
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 hover:shadow-md focus-visible:ring-destructive/20",
         outline:
@@ -48,7 +39,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "classic",
+      variant: "modern",
       size: "default",
     },
   }
@@ -56,7 +47,7 @@ const buttonVariants = cva(
 
 function Button({
   className,
-  variant = "classic",
+  variant = "modern",
   size,
   asChild = false,
   ...props
