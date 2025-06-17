@@ -31,7 +31,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 export default function DashboardPage() {
   const { user, isLoggedIn, logout, hasMembership } = useAuth();
@@ -48,6 +48,37 @@ export default function DashboardPage() {
     refetch: refetchPurchaseHistory,
   } = usePurchaseHistory();
   const router = useRouter();
+
+  // Combine user orders with demo purchase history for display
+  const combinedOrderStats = useMemo(() => {
+    if (!purchaseStats) {
+      return {
+        totalOrders: orderStats.totalOrders,
+        totalSpent: orderStats.totalSpent,
+        averageOrderValue: orderStats.averageOrderValue,
+        recentOrders: orderStats.recentOrders.length,
+        userOrders: orderStats.totalOrders,
+        demoOrders: 0,
+      };
+    }
+
+    console.log("Order History:", orderHistory);
+    console.log("Orders:", orders);
+
+    const combinedTotal = orderStats.totalOrders + purchaseStats.totalOrders;
+    const combinedSpent = orderStats.totalSpent + purchaseStats.totalSpent;
+    const combinedAverage =
+      combinedTotal > 0 ? combinedSpent / combinedTotal : 0;
+
+    return {
+      totalOrders: combinedTotal,
+      totalSpent: combinedSpent,
+      averageOrderValue: combinedAverage,
+      recentOrders: orderStats.recentOrders.length,
+      userOrders: orderStats.totalOrders,
+      demoOrders: purchaseStats.totalOrders,
+    };
+  }, [orderStats, purchaseStats]);
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -340,8 +371,15 @@ export default function DashboardPage() {
                       Total Orders
                     </p>
                     <p className="font-bold text-2xl">
-                      {orderStats.totalOrders}
+                      {combinedOrderStats.totalOrders}
                     </p>
+                    {combinedOrderStats.userOrders > 0 &&
+                      combinedOrderStats.demoOrders > 0 && (
+                        <p className="text-muted-foreground text-xs">
+                          {combinedOrderStats.userOrders} real +{" "}
+                          {combinedOrderStats.demoOrders} demo
+                        </p>
+                      )}
                   </div>
                   <Package className="w-8 h-8 text-primary" />
                 </div>
@@ -354,8 +392,14 @@ export default function DashboardPage() {
                   <div>
                     <p className="text-muted-foreground text-sm">Total Spent</p>
                     <p className="font-bold text-2xl">
-                      {formatPrice(orderStats.totalSpent)}
+                      {formatPrice(combinedOrderStats.totalSpent)}
                     </p>
+                    {combinedOrderStats.userOrders > 0 &&
+                      combinedOrderStats.demoOrders > 0 && (
+                        <p className="text-muted-foreground text-xs">
+                          Combined real + demo
+                        </p>
+                      )}
                   </div>
                   <CreditCard className="w-8 h-8 text-primary" />
                 </div>
@@ -370,7 +414,7 @@ export default function DashboardPage() {
                       Average Order
                     </p>
                     <p className="font-bold text-2xl">
-                      {formatPrice(orderStats.averageOrderValue)}
+                      {formatPrice(combinedOrderStats.averageOrderValue)}
                     </p>
                   </div>
                   <TrendingUp className="w-8 h-8 text-primary" />
@@ -386,7 +430,7 @@ export default function DashboardPage() {
                       Recent Orders
                     </p>
                     <p className="font-bold text-2xl">
-                      {orderStats.recentOrders.length}
+                      {combinedOrderStats.recentOrders}
                     </p>
                   </div>
                   <Calendar className="w-8 h-8 text-primary" />
@@ -400,7 +444,7 @@ export default function DashboardPage() {
         {orderStats.recentOrders.length > 0 && (
           <div className="mt-8">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="font-semibold text-xl">Recent Orders</h2>
+              <h2 className="font-semibold text-xl">Your Recent Orders</h2>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" asChild>
                   <Link href="/orders">View All Orders</Link>
@@ -549,7 +593,7 @@ export default function DashboardPage() {
         {/* Purchase History from DummyJSON */}
         <div className="mt-8">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-semibold text-xl">Purchase History</h2>
+            <h2 className="font-semibold text-xl">Demo Purchase History</h2>
             <div className="flex gap-2">
               <Button
                 variant="outline"
