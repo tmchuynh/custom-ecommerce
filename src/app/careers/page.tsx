@@ -231,7 +231,7 @@ export default function CareersPage() {
         <section className="mb-16">
           <div className="mb-12 text-center">
             <h2 className="mb-4 font-bold text-3xl">
-              Ventryx. Where Everything Connects.
+              Fynix. Where Everything Connects.
             </h2>
             <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
               We believe in creating an environment where talented people can do
