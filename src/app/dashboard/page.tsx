@@ -62,8 +62,8 @@ export default function DashboardPage() {
       };
     }
 
-    console.log("Order History:", orderHistory);
-    console.log("Orders:", orders);
+    console.log("Order History (Demo Data):", orderHistory);
+    console.log("User Orders (Real Data):", orders);
 
     const combinedTotal = orderStats.totalOrders + purchaseStats.totalOrders;
     const combinedSpent = orderStats.totalSpent + purchaseStats.totalSpent;
@@ -78,7 +78,7 @@ export default function DashboardPage() {
       userOrders: orderStats.totalOrders,
       demoOrders: purchaseStats.totalOrders,
     };
-  }, [orderStats, purchaseStats]);
+  }, [orderStats, purchaseStats, orderHistory, orders]);
 
   useEffect(() => {
     if (!isLoggedIn) {
