@@ -644,7 +644,7 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Category Breakdown */}
-                    <div className="space-y-3 h-[15em]">
+                    <div className="space-y-3 h-[17em]">
                       <h4 className="font-medium text-sm">
                         Category Breakdown
                       </h4>
