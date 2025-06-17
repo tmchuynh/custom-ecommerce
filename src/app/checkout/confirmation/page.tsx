@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { getStatusColor } from "@/lib/utils/orders";
 import {
   Calendar,
   CheckCircle,
@@ -56,8 +57,33 @@ function OrderConfirmationContent() {
   };
 
   const downloadReceipt = () => {
-    // In a real application, this would generate and download a PDF receipt
-    toast.success("Receipt download started!");
+    if (!order) return;
+    const receiptData = `
+      Order ID: ${order.id}
+      Order Date: ${new Date(order.orderDate).toLocaleDateString("en-US")}
+      Tracking Number: ${order.trackingNumber}
+      Customer: ${order.customerName} (${order.customerEmail})
+      Shipping Address: ${order.shippingAddress}
+      Payment Method: ${order.paymentMethod}
+      Status: ${order.status}
+      Subtotal: ${formatPrice(order.totalAmount)}
+      Discount: ${formatPrice(order.discountAmount)}
+      Membership Discount: ${formatPrice(order.membershipDiscount ?? 0)}
+      Shipping Fee: ${
+        order.shippingFee > 0 ? formatPrice(order.shippingFee) : "FREE"
+      }
+      Total Amount: ${formatPrice(order.grandTotal)}
+      Items: ${order.items
+        .map((item) => `${item.title} (x${item.quantity})`)
+        .join(", ")}
+    `;
+    const blob = new Blob([receiptData], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `receipt-${order.id}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   if (loading) {
@@ -116,6 +142,14 @@ function OrderConfirmationContent() {
             <span>Order #{order.id}</span>
             <span>•</span>
             <span>{formatDate(order.orderDate)}</span>
+          </div>
+          <div className="flex justify-center items-center space-x-2 my-3">
+            <Badge
+              variant={`${getStatusColor(order.status)}`}
+              className="capitalize"
+            >
+              {order.status}
+            </Badge>
           </div>
           <div className="bg-blue-50 dark:bg-blue-900/20 mx-auto mt-4 p-3 border border-blue-200 dark:border-blue-800 rounded-lg max-w-md">
             <p className="text-blue-800 text-sm dark:text-blue-200">
@@ -183,15 +217,6 @@ function OrderConfirmationContent() {
                         {formatDate(order.estimatedDelivery)}
                       </p>
                     </div>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Badge variant="secondary" className="capitalize">
-                      {order.status}
-                    </Badge>
-                    <span className="text-muted-foreground text-sm">
-                      {order.shippingCarrier}
-                    </span>
                   </div>
 
                   <div className="pt-4">
@@ -306,7 +331,10 @@ function OrderConfirmationContent() {
                 )}
 
                 <div className="flex justify-between">
-                  <span>Shipping</span>
+                  <span>
+                    Shipping{" "}
+                    <span className="text-xs">({order.shippingCarrier})</span>
+                  </span>
                   <span>
                     {order.shippingFee > 0
                       ? formatPrice(order.shippingFee)
