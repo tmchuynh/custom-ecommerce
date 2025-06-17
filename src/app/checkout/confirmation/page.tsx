@@ -117,6 +117,15 @@ function OrderConfirmationContent() {
             <span>•</span>
             <span>{formatDate(order.orderDate)}</span>
           </div>
+          <div className="bg-blue-50 dark:bg-blue-900/20 mx-auto mt-4 p-3 border border-blue-200 dark:border-blue-800 rounded-lg max-w-md">
+            <p className="text-blue-800 text-sm dark:text-blue-200">
+              💡 Your order will appear in your{" "}
+              <Link href="/dashboard" className="font-medium underline">
+                dashboard
+              </Link>{" "}
+              and can be tracked from there.
+            </p>
+          </div>
         </div>
 
         <div className="gap-8 grid grid-cols-1 lg:grid-cols-3">
@@ -322,6 +331,13 @@ function OrderConfirmationContent() {
                     Download Receipt
                   </Button>
 
+                  <Button asChild className="gap-2 w-full">
+                    <Link href="/dashboard">
+                      <Package className="w-4 h-4" />
+                      View in Dashboard
+                    </Link>
+                  </Button>
+
                   <Button asChild variant="outline" className="gap-2 w-full">
                     <Link href="/shopping">
                       <Package className="w-4 h-4" />
@@ -329,7 +345,7 @@ function OrderConfirmationContent() {
                     </Link>
                   </Button>
 
-                  <Button asChild className="gap-2 w-full">
+                  <Button asChild variant="outline" className="gap-2 w-full">
                     <Link href="/">
                       <Home className="w-4 h-4" />
                       Return Home
