@@ -33,9 +33,9 @@ export default function Header() {
   const { currentCurrency, setCurrency, isLoading } = useCurrency();
 
   return (
-    <header className="top-0 z-50 fixed inset-x-0 shadow-sm backdrop-blur-sm w-full">
+    <header className="top-0 z-50 fixed inset-x-0 bg-background shadow-sm backdrop-blur-sm w-full">
       {/* Top bar */}
-      <div className="bg-black px-4 py-2 text-white">
+      <div className="bg-black px-4 py-2 border-b text-white">
         <div className="flex justify-between items-center mx-auto max-w-7xl text-sm">
           <div className="flex items-center space-x-4">
             <span>Your Passport to Unforgettable Stories</span>
