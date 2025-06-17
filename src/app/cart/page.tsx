@@ -305,23 +305,10 @@ export default function CartPage() {
                   </div>
                 )}
 
-                <div className="flex justify-between">
-                  <span>
-                    Shipping
-                    {hasMembership && user?.membershipTier?.freeShipping
-                      ? " (FREE for members)"
-                      : " (12%)"}
-                  </span>
-                  <span>
-                    {hasMembership && user?.membershipTier?.freeShipping
-                      ? "FREE"
-                      : formatPrice(shippingFee)}
-                  </span>
-                </div>
                 <div className="pt-4 border-t">
                   <div className="flex justify-between font-semibold text-lg">
-                    <span>Total</span>
-                    <span>{formatPrice(grandTotal)}</span>
+                    <span>Subtotal</span>
+                    <span>{formatPrice(subtotalAfterDiscount)}</span>
                   </div>
                 </div>
                 <Button className="w-full" size="lg" onClick={handleCheckout}>
