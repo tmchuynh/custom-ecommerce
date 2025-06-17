@@ -220,24 +220,21 @@ export default function CheckoutPage() {
   };
 
   const validateBilling = () => {
-    if (sameAsBilling) return true;
-
     const required = ["fullName", "address", "city", "state", "zipCode"];
-    const billingValid = required.every((field) =>
-      billingInfo[field as keyof typeof billingInfo]?.trim()
-    );
-
-    if (paymentMethod === "card") {
-      return (
-        billingValid &&
-        billingInfo.cardNumber &&
-        billingInfo.expiryDate &&
-        billingInfo.cvv &&
-        billingInfo.nameOnCard
+    const billingValid =
+      sameAsBilling ||
+      required.every((field) =>
+        billingInfo[field as keyof typeof billingInfo]?.trim()
       );
-    }
 
-    return billingValid;
+    // Always require card details since card is the only payment method
+    return (
+      billingValid &&
+      billingInfo.cardNumber &&
+      billingInfo.expiryDate &&
+      billingInfo.cvv &&
+      billingInfo.nameOnCard
+    );
   };
 
   const handleShippingChange = (field: string, value: string) => {
@@ -561,7 +558,7 @@ export default function CheckoutPage() {
                         variant="outline"
                         size="sm"
                         onClick={autofillPaymentInfo}
-                        disabled={isLoadingAutofill || paymentMethod !== "card"}
+                        disabled={isLoadingAutofill}
                         className="text-xs"
                       >
                         <Shuffle className="mr-1 w-3 h-3" />
@@ -587,69 +584,56 @@ export default function CheckoutPage() {
                         <RadioGroupItem value="card" id="card" />
                         <Label htmlFor="card">Credit/Debit Card</Label>
                       </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="paypal" id="paypal" />
-                        <Label htmlFor="paypal">PayPal</Label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RadioGroupItem value="apple-pay" id="apple-pay" />
-                        <Label htmlFor="apple-pay">Apple Pay</Label>
-                      </div>
                     </RadioGroup>
 
-                    {paymentMethod === "card" && (
-                      <div className="space-y-4 mt-6">
+                    <div className="space-y-4 mt-6">
+                      <div>
+                        <Label htmlFor="nameOnCard">Name on Card *</Label>
+                        <Input
+                          id="nameOnCard"
+                          value={billingInfo.nameOnCard}
+                          onChange={(e) =>
+                            handleBillingChange("nameOnCard", e.target.value)
+                          }
+                          placeholder="Enter name as it appears on card"
+                        />
+                      </div>
+                      <div>
+                        <Label htmlFor="cardNumber">Card Number *</Label>
+                        <Input
+                          id="cardNumber"
+                          value={billingInfo.cardNumber}
+                          onChange={(e) =>
+                            handleBillingChange("cardNumber", e.target.value)
+                          }
+                          placeholder="1234 5678 9012 3456"
+                        />
+                      </div>
+                      <div className="gap-4 grid grid-cols-2">
                         <div>
-                          <Label htmlFor="nameOnCard">Name on Card *</Label>
+                          <Label htmlFor="expiryDate">Expiry Date *</Label>
                           <Input
-                            id="nameOnCard"
-                            value={billingInfo.nameOnCard}
+                            id="expiryDate"
+                            value={billingInfo.expiryDate}
                             onChange={(e) =>
-                              handleBillingChange("nameOnCard", e.target.value)
+                              handleBillingChange("expiryDate", e.target.value)
                             }
-                            placeholder="Enter name as it appears on card"
+                            placeholder="MM/YY"
                           />
                         </div>
                         <div>
-                          <Label htmlFor="cardNumber">Card Number *</Label>
+                          <Label htmlFor="cvv">CVV *</Label>
                           <Input
-                            id="cardNumber"
-                            value={billingInfo.cardNumber}
+                            id="cvv"
+                            value={billingInfo.cvv}
                             onChange={(e) =>
-                              handleBillingChange("cardNumber", e.target.value)
+                              handleBillingChange("cvv", e.target.value)
                             }
-                            placeholder="1234 5678 9012 3456"
+                            placeholder="123"
                           />
-                        </div>
-                        <div className="gap-4 grid grid-cols-2">
-                          <div>
-                            <Label htmlFor="expiryDate">Expiry Date *</Label>
-                            <Input
-                              id="expiryDate"
-                              value={billingInfo.expiryDate}
-                              onChange={(e) =>
-                                handleBillingChange(
-                                  "expiryDate",
-                                  e.target.value
-                                )
-                              }
-                              placeholder="MM/YY"
-                            />
-                          </div>
-                          <div>
-                            <Label htmlFor="cvv">CVV *</Label>
-                            <Input
-                              id="cvv"
-                              value={billingInfo.cvv}
-                              onChange={(e) =>
-                                handleBillingChange("cvv", e.target.value)
-                              }
-                              placeholder="123"
-                            />
-                          </div>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </CardContent>
                 </Card>
 
@@ -819,10 +803,8 @@ export default function CheckoutPage() {
                     <div>
                       <h3 className="mb-2 font-semibold">Payment Method</h3>
                       <div className="text-muted-foreground text-sm">
-                        <p className="capitalize">
-                          {paymentMethod.replace("-", " ")}
-                        </p>
-                        {paymentMethod === "card" && billingInfo.cardNumber && (
+                        <p>Credit/Debit Card</p>
+                        {billingInfo.cardNumber && (
                           <p>
                             **** **** **** {billingInfo.cardNumber.slice(-4)}
                           </p>
