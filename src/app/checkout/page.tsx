@@ -90,36 +90,54 @@ export default function CheckoutPage() {
   const autofillShippingInfo = async () => {
     setIsLoadingAutofill(true);
     try {
-      const randomUser = await fetchRandomUser();
+      let shippingData;
 
-      const newShippingInfo = {
-        fullName: `${randomUser.firstName} ${randomUser.lastName}`,
-        email: randomUser.email,
-        phone: randomUser.phone,
-        address: randomUser.address.address,
-        city: randomUser.address.city,
-        state: randomUser.address.state,
-        zipCode: randomUser.address.postalCode,
-        country: "United States",
-      };
+      if (user) {
+        // Use logged-in user's data
+        shippingData = {
+          fullName: user.username || "John Doe",
+          email: user.email || "user@example.com",
+          phone: user.phoneNumber || "555-123-4567",
+          address: "123 Main Street",
+          city: "Sample City",
+          state: "CA",
+          zipCode: "90210",
+          country: "United States",
+        };
+      } else {
+        // Fall back to random user if no user is logged in
+        const randomUser = await fetchRandomUser();
+        shippingData = {
+          fullName: `${randomUser.firstName} ${randomUser.lastName}`,
+          email: randomUser.email,
+          phone: randomUser.phone,
+          address: randomUser.address.address,
+          city: randomUser.address.city,
+          state: randomUser.address.state,
+          zipCode: randomUser.address.postalCode,
+          country: "United States",
+        };
+      }
 
-      setShippingInfo(newShippingInfo);
+      setShippingInfo(shippingData);
 
       // Auto-fill billing if same as shipping
       if (sameAsBilling) {
         setBillingInfo((prev) => ({
           ...prev,
-          fullName: newShippingInfo.fullName,
-          address: newShippingInfo.address,
-          city: newShippingInfo.city,
-          state: newShippingInfo.state,
-          zipCode: newShippingInfo.zipCode,
-          country: newShippingInfo.country,
+          fullName: shippingData.fullName,
+          address: shippingData.address,
+          city: shippingData.city,
+          state: shippingData.state,
+          zipCode: shippingData.zipCode,
+          country: shippingData.country,
         }));
       }
 
       toast.success(
-        "Demo shipping info filled! (Note: This is fake data for testing purposes)"
+        user 
+          ? "User shipping info filled!"
+          : "Demo shipping info filled! (Note: This is fake data for testing purposes)"
       );
     } catch (error) {
       toast.error("Failed to load demo data");
@@ -131,29 +149,52 @@ export default function CheckoutPage() {
   const autofillPaymentInfo = async () => {
     setIsLoadingAutofill(true);
     try {
-      const randomUser = await fetchRandomUser();
+      let paymentData;
 
-      // Generate a random expiry date (future date)
-      const currentYear = new Date().getFullYear();
-      const expiryYear = currentYear + Math.floor(Math.random() * 5) + 1;
-      const expiryMonth = Math.floor(Math.random() * 12) + 1;
-      const expiryDate = `${expiryMonth
-        .toString()
-        .padStart(2, "0")}/${expiryYear.toString().slice(-2)}`;
+      if (user) {
+        // Use consistent demo payment data for logged-in user
+        const currentYear = new Date().getFullYear();
+        const expiryYear = currentYear + 2; // Always 2 years from now for consistency
+        const expiryDate = `12/${expiryYear.toString().slice(-2)}`;
 
-      // Generate a random CVV
-      const cvv = Math.floor(Math.random() * 900) + 100;
+        paymentData = {
+          cardNumber: "4532 1234 5678 9012", // Demo Visa card
+          expiryDate: expiryDate,
+          cvv: "123",
+          nameOnCard: user.username || "John Doe",
+        };
+      } else {
+        // Fall back to random user if no user is logged in
+        const randomUser = await fetchRandomUser();
+
+        // Generate a random expiry date (future date)
+        const currentYear = new Date().getFullYear();
+        const expiryYear = currentYear + Math.floor(Math.random() * 5) + 1;
+        const expiryMonth = Math.floor(Math.random() * 12) + 1;
+        const expiryDate = `${expiryMonth
+          .toString()
+          .padStart(2, "0")}/${expiryYear.toString().slice(-2)}`;
+
+        // Generate a random CVV
+        const cvv = Math.floor(Math.random() * 900) + 100;
+
+        paymentData = {
+          cardNumber: randomUser.bank.cardNumber,
+          expiryDate: expiryDate,
+          cvv: cvv.toString(),
+          nameOnCard: `${randomUser.firstName} ${randomUser.lastName}`,
+        };
+      }
 
       setBillingInfo((prev) => ({
         ...prev,
-        cardNumber: randomUser.bank.cardNumber,
-        expiryDate: expiryDate,
-        cvv: cvv.toString(),
-        nameOnCard: `${randomUser.firstName} ${randomUser.lastName}`,
+        ...paymentData,
       }));
 
       toast.success(
-        "Demo payment info filled! (Note: This is fake data for testing purposes)"
+        user
+          ? "User payment info filled!"
+          : "Demo payment info filled! (Note: This is fake data for testing purposes)"
       );
     } catch (error) {
       toast.error("Failed to load demo data");
