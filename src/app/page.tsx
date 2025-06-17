@@ -268,7 +268,7 @@ export default function HomePage() {
               placeholder="Enter your email"
             />
             <div className="sm:flex-shrink-0 md:mt-2 sm:ml-3">
-              <Button type="submit" variant={"classic"} className="m-0 w-full">
+              <Button type="submit" variant={"modern"} className="m-0 w-full">
                 Subscribe
               </Button>
             </div>
