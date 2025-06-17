@@ -85,24 +85,32 @@ export default function DashboardPage() {
     };
   }, [orderStats, purchaseStats, orderHistory, orders]);
 
-  // Calculate total savings from membership shipping benefits
+  // Calculate total savings from membership shipping benefits and discount codes
   const totalSavings = useMemo(() => {
-    if (!hasMembership || !user?.membershipTier) return 0;
-
-    // Estimate savings: assume standard shipping is $9.99 per order
-    const standardShippingCost = 9.99;
-    const totalOrdersCount = combinedOrderStats.totalOrders;
-
     // Calculate shipping savings (members typically get free shipping)
-    const shippingSavings = totalOrdersCount * standardShippingCost;
+    const standardShippingCost = 9.99;
+    const shippingSavings =
+      hasMembership && user?.membershipTier
+        ? combinedOrderStats.totalOrders * standardShippingCost
+        : 0;
 
-    // Calculate discount savings from purchases
-    const discountSavings =
-      combinedOrderStats.totalSpent *
-      (user.membershipTier.discountPercentage / 100);
+    // Calculate total discount savings from ALL sources (membership + discount codes + promotions)
+    const userDiscountSavings = orders.reduce(
+      (total, order) => total + order.discountAmount,
+      0
+    );
 
-    return shippingSavings + discountSavings;
-  }, [hasMembership, user?.membershipTier, combinedOrderStats]);
+    // Add demo purchase savings if available
+    const demoDiscountSavings = purchaseStats?.totalSavings || 0;
+
+    return shippingSavings + userDiscountSavings + demoDiscountSavings;
+  }, [
+    hasMembership,
+    user?.membershipTier,
+    combinedOrderStats,
+    orders,
+    purchaseStats,
+  ]);
 
   // Calculate shopping trends by category
   const shoppingTrends = useMemo(() => {
@@ -110,16 +118,31 @@ export default function DashboardPage() {
 
     // Process user orders
     orders.forEach((order) => {
+      // Calculate the actual amount paid after ALL discounts (membership + discount codes + promotions)
+      const orderSubtotal = order.items.reduce(
+        (sum, item) => sum + item.price * item.quantity,
+        0
+      );
+
+      // The actual amount paid is the subtotal minus all discount amounts
+      const actualAmountPaid = orderSubtotal - order.discountAmount;
+
+      // Calculate discount factor based on actual amount paid vs original subtotal
+      const discountFactor =
+        orderSubtotal > 0 ? actualAmountPaid / orderSubtotal : 1;
+
       order.items.forEach((item) => {
         if (!categoryStats[item.category]) {
           categoryStats[item.category] = { count: 0, total: 0 };
         }
         categoryStats[item.category].count += item.quantity;
-        categoryStats[item.category].total += item.price * item.quantity;
+        // Apply the discount factor to get the actual amount paid per item
+        const itemTotal = item.price * item.quantity * discountFactor;
+        categoryStats[item.category].total += itemTotal;
       });
     });
 
-    // Process purchase history
+    // Process purchase history (these already include discounts in the 'total' field)
     if (previouslyPurchased.length > 0) {
       previouslyPurchased.forEach((product) => {
         // Use a fallback category since the type might not have category
@@ -146,7 +169,7 @@ export default function DashboardPage() {
     // Calculate percentages
     const total = chartData.reduce((sum, item) => sum + item.value, 0);
     chartData.forEach((item) => {
-      item.percentage = total > 0 ? Math.round((item.value / total) * 100) : 0;
+      item.percentage = total > 0 ? Math.ceil((item.value / total) * 100) : 0;
     });
 
     return chartData;
@@ -359,12 +382,18 @@ export default function DashboardPage() {
                   <div className="space-y-2">
                     <h4 className="font-medium text-sm">Benefits:</h4>
                     <ul className="space-y-1 text-xs">
-                      {user.membershipTier.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <div className="bg-primary mt-2 rounded-full w-1 h-1 shrink-0" />
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
+                      {user.membershipTier.benefits
+                        .slice(0, 3)
+                        .map((benefit, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <div className="bg-primary mt-2 rounded-full w-1 h-1 shrink-0" />
+                            <span>{benefit}</span>
+                          </li>
+                        ))}
+                      <li className="flex items-start gap-2">
+                        <div className="bg-primary mt-2 rounded-full w-1 h-1 shrink-0" />
+                        ...AND MORE
+                      </li>
                     </ul>
                   </div>
 
@@ -503,9 +532,11 @@ export default function DashboardPage() {
                     <p className="font-bold text-2xl">
                       {formatPrice(totalSavings)}
                     </p>
-                    {hasMembership && totalSavings > 0 && (
+                    {totalSavings > 0 && (
                       <p className="text-green-600 text-xs">
-                        Membership benefits
+                        {hasMembership
+                          ? "Shipping + discounts"
+                          : "Discount codes"}
                       </p>
                     )}
                   </div>
@@ -602,22 +633,17 @@ export default function DashboardPage() {
                       <div className="absolute inset-0 flex flex-col justify-center items-center">
                         <div className="text-center">
                           <p className="font-bold text-2xl">
-                            {formatPrice(
-                              shoppingTrends.reduce(
-                                (sum, item) => sum + item.value,
-                                0
-                              )
-                            )}
+                            {formatPrice(combinedOrderStats.totalSpent)}
                           </p>
                           <p className="text-muted-foreground text-sm">
-                            Total Spent
+                            After Discounts
                           </p>
                         </div>
                       </div>
                     </div>
 
                     {/* Category Breakdown */}
-                    <div className="space-y-3">
+                    <div className="space-y-3 h-[15em]">
                       <h4 className="font-medium text-sm">
                         Category Breakdown
                       </h4>
