@@ -58,41 +58,44 @@
 import { fetchUserById } from "@/api";
 import { useAuth } from "@/app/context/authContext";
 import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import {
-    AddressValidationResult,
-    ValidatedAddress,
+  AddressValidationResult,
+  ValidatedAddress,
 } from "@/lib/interfaces/address";
-import { PaymentValidationResult, ValidatedPaymentMethod } from "@/lib/interfaces/payment";
+import {
+  PaymentValidationResult,
+  ValidatedPaymentMethod,
+} from "@/lib/interfaces/payment";
 import { DummyUser } from "@/lib/interfaces/user";
 import { formatPostalCode } from "@/lib/utils/format";
 import {
-    formatExpiryDate,
-    validateAndNormalizePaymentMethod,
-    validatePaymentField,
-    validatePaymentMethodEnhanced
+  formatExpiryDate,
+  validateAndNormalizePaymentMethod,
+  validatePaymentField,
+  validatePaymentMethodEnhanced,
 } from "@/lib/utils/payment";
 import {
   validateAddressEnhanced,
@@ -100,18 +103,18 @@ import {
   validateAndNormalizeAddress,
 } from "@/lib/utils/validate";
 import {
-    ArrowLeft,
-    Bell,
-    Check,
-    CreditCard,
-    Edit2,
-    Lock,
-    MapPin,
-    Plus,
-    Shield,
-    Trash2,
-    User,
-    X,
+  ArrowLeft,
+  Bell,
+  Check,
+  CreditCard,
+  Edit2,
+  Lock,
+  MapPin,
+  Plus,
+  Shield,
+  Trash2,
+  User,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -172,7 +175,8 @@ interface PrivacySettings {
 }
 
 export default function SettingsPage() {
-  const { user, isLoggedIn, logout } = useAuth();
+  const { user, isLoggedIn, logout, cancelMembership, isMembershipCancelled } =
+    useAuth();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("profile");
@@ -411,8 +415,9 @@ export default function SettingsPage() {
       cardHolderName: payment.cardHolderName,
     };
 
-    const result: PaymentValidationResult = validatePaymentMethodEnhanced(validatedPayment);
-    
+    const result: PaymentValidationResult =
+      validatePaymentMethodEnhanced(validatedPayment);
+
     // Convert validation errors to string array
     return result.errors.map((error: any) => error.message);
   };
@@ -471,8 +476,9 @@ export default function SettingsPage() {
     setIsLoading(true);
     try {
       // Use normalization to ensure consistent data format
-      const normalizedResult = validateAndNormalizePaymentMethod(newPaymentMethod);
-      
+      const normalizedResult =
+        validateAndNormalizePaymentMethod(newPaymentMethod);
+
       if (!normalizedResult.isValid || !normalizedResult.normalizedPayment) {
         toast.error("Payment method validation failed");
         return;
@@ -621,8 +627,9 @@ export default function SettingsPage() {
     setIsLoading(true);
     try {
       // Use normalization to ensure consistent data format
-      const normalizedResult = validateAndNormalizePaymentMethod(editPaymentData);
-      
+      const normalizedResult =
+        validateAndNormalizePaymentMethod(editPaymentData);
+
       if (!normalizedResult.isValid || !normalizedResult.normalizedPayment) {
         toast.error("Payment method validation failed");
         return;
@@ -767,6 +774,22 @@ export default function SettingsPage() {
     }
   };
 
+  const handleCancelMembership = async () => {
+    setIsLoading(true);
+    try {
+      const result = await cancelMembership();
+      if (result.success) {
+        toast.success(result.message);
+      } else {
+        toast.error(result.message);
+      }
+    } catch (error) {
+      toast.error("Failed to cancel membership. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   // Real-time validation functions
   const validateNewAddressField = (
     field: keyof ValidatedAddress,
@@ -791,19 +814,25 @@ export default function SettingsPage() {
   };
 
   // Real-time payment validation functions
-  const validateNewPaymentField = (field: keyof ValidatedPaymentMethod, value: string) => {
+  const validateNewPaymentField = (
+    field: keyof ValidatedPaymentMethod,
+    value: string
+  ) => {
     const error = validatePaymentField(field, value, newPaymentMethod);
-    setNewPaymentErrors(prev => ({
+    setNewPaymentErrors((prev) => ({
       ...prev,
-      [field]: error || ''
+      [field]: error || "",
     }));
   };
 
-  const validateEditPaymentField = (field: keyof ValidatedPaymentMethod, value: string) => {
+  const validateEditPaymentField = (
+    field: keyof ValidatedPaymentMethod,
+    value: string
+  ) => {
     const error = validatePaymentField(field, value, editPaymentData);
-    setEditPaymentErrors(prev => ({
+    setEditPaymentErrors((prev) => ({
       ...prev,
-      [field]: error || ''
+      [field]: error || "",
     }));
   };
 
@@ -845,39 +874,51 @@ export default function SettingsPage() {
   };
 
   // Enhanced payment change handlers
-  const handleNewPaymentChange = (field: keyof typeof newPaymentMethod, value: string) => {
+  const handleNewPaymentChange = (
+    field: keyof typeof newPaymentMethod,
+    value: string
+  ) => {
     let formattedValue = value;
-    
+
     // Apply specific formatting based on field
-    if (field === 'cardNumber') {
+    if (field === "cardNumber") {
       formattedValue = formatCardNumber(value);
-    } else if (field === 'cardExpire') {
+    } else if (field === "cardExpire") {
       formattedValue = formatExpiryDate(value);
     }
 
-    setNewPaymentMethod(prev => ({ ...prev, [field]: formattedValue }));
-    
+    setNewPaymentMethod((prev) => ({ ...prev, [field]: formattedValue }));
+
     // Real-time validation - ensure field is a valid ValidatedPaymentMethod key
     if (field in newPaymentMethod) {
-      validateNewPaymentField(field as keyof ValidatedPaymentMethod, formattedValue);
+      validateNewPaymentField(
+        field as keyof ValidatedPaymentMethod,
+        formattedValue
+      );
     }
   };
 
-  const handleEditPaymentChange = (field: keyof typeof editPaymentData, value: string) => {
+  const handleEditPaymentChange = (
+    field: keyof typeof editPaymentData,
+    value: string
+  ) => {
     let formattedValue = value;
-    
+
     // Apply specific formatting based on field
-    if (field === 'cardNumber') {
+    if (field === "cardNumber") {
       formattedValue = formatCardNumber(value);
-    } else if (field === 'cardExpire') {
+    } else if (field === "cardExpire") {
       formattedValue = formatExpiryDate(value);
     }
 
-    setEditPaymentData(prev => ({ ...prev, [field]: formattedValue }));
-    
+    setEditPaymentData((prev) => ({ ...prev, [field]: formattedValue }));
+
     // Real-time validation - ensure field is a valid ValidatedPaymentMethod key
     if (field in editPaymentData) {
-      validateEditPaymentField(field as keyof ValidatedPaymentMethod, formattedValue);
+      validateEditPaymentField(
+        field as keyof ValidatedPaymentMethod,
+        formattedValue
+      );
     }
   };
 
@@ -1928,12 +1969,23 @@ export default function SettingsPage() {
                                     <Input
                                       id="editCardHolderName"
                                       value={editPaymentData.cardHolderName}
-                                      onChange={(e) => handleEditPaymentChange('cardHolderName', e.target.value)}
+                                      onChange={(e) =>
+                                        handleEditPaymentChange(
+                                          "cardHolderName",
+                                          e.target.value
+                                        )
+                                      }
                                       placeholder="Enter cardholder name"
-                                      className={editPaymentErrors.cardHolderName ? "border-red-500" : ""}
+                                      className={
+                                        editPaymentErrors.cardHolderName
+                                          ? "border-red-500"
+                                          : ""
+                                      }
                                     />
                                     {editPaymentErrors.cardHolderName && (
-                                      <p className="text-red-500 text-sm">{editPaymentErrors.cardHolderName}</p>
+                                      <p className="text-red-500 text-sm">
+                                        {editPaymentErrors.cardHolderName}
+                                      </p>
                                     )}
                                   </div>
                                   <div className="space-y-2">
@@ -1943,13 +1995,24 @@ export default function SettingsPage() {
                                     <Input
                                       id="editCardNumber"
                                       value={editPaymentData.cardNumber}
-                                      onChange={(e) => handleEditPaymentChange('cardNumber', e.target.value)}
+                                      onChange={(e) =>
+                                        handleEditPaymentChange(
+                                          "cardNumber",
+                                          e.target.value
+                                        )
+                                      }
                                       placeholder="1234 5678 9012 3456"
                                       maxLength={23} // Allow for spacing
-                                      className={editPaymentErrors.cardNumber ? "border-red-500" : ""}
+                                      className={
+                                        editPaymentErrors.cardNumber
+                                          ? "border-red-500"
+                                          : ""
+                                      }
                                     />
                                     {editPaymentErrors.cardNumber && (
-                                      <p className="text-red-500 text-sm">{editPaymentErrors.cardNumber}</p>
+                                      <p className="text-red-500 text-sm">
+                                        {editPaymentErrors.cardNumber}
+                                      </p>
                                     )}
                                   </div>
                                   <div className="gap-4 grid md:grid-cols-2">
@@ -1960,13 +2023,24 @@ export default function SettingsPage() {
                                       <Input
                                         id="editCardExpire"
                                         value={editPaymentData.cardExpire}
-                                        onChange={(e) => handleEditPaymentChange('cardExpire', e.target.value)}
+                                        onChange={(e) =>
+                                          handleEditPaymentChange(
+                                            "cardExpire",
+                                            e.target.value
+                                          )
+                                        }
                                         placeholder="MM/YY"
                                         maxLength={5}
-                                        className={editPaymentErrors.cardExpire ? "border-red-500" : ""}
+                                        className={
+                                          editPaymentErrors.cardExpire
+                                            ? "border-red-500"
+                                            : ""
+                                        }
                                       />
                                       {editPaymentErrors.cardExpire && (
-                                        <p className="text-red-500 text-sm">{editPaymentErrors.cardExpire}</p>
+                                        <p className="text-red-500 text-sm">
+                                          {editPaymentErrors.cardExpire}
+                                        </p>
                                       )}
                                     </div>
                                     <div className="space-y-2">
@@ -2106,12 +2180,23 @@ export default function SettingsPage() {
                               <Input
                                 id="cardHolderName"
                                 value={newPaymentMethod.cardHolderName}
-                                onChange={(e) => handleNewPaymentChange('cardHolderName', e.target.value)}
+                                onChange={(e) =>
+                                  handleNewPaymentChange(
+                                    "cardHolderName",
+                                    e.target.value
+                                  )
+                                }
                                 placeholder="Enter cardholder name"
-                                className={newPaymentErrors.cardHolderName ? "border-red-500" : ""}
+                                className={
+                                  newPaymentErrors.cardHolderName
+                                    ? "border-red-500"
+                                    : ""
+                                }
                               />
                               {newPaymentErrors.cardHolderName && (
-                                <p className="text-red-500 text-sm">{newPaymentErrors.cardHolderName}</p>
+                                <p className="text-red-500 text-sm">
+                                  {newPaymentErrors.cardHolderName}
+                                </p>
                               )}
                             </div>
                             <div className="space-y-2">
@@ -2119,13 +2204,24 @@ export default function SettingsPage() {
                               <Input
                                 id="cardNumber"
                                 value={newPaymentMethod.cardNumber}
-                                onChange={(e) => handleNewPaymentChange('cardNumber', e.target.value)}
+                                onChange={(e) =>
+                                  handleNewPaymentChange(
+                                    "cardNumber",
+                                    e.target.value
+                                  )
+                                }
                                 placeholder="1234 5678 9012 3456"
                                 maxLength={23} // Allow for spacing
-                                className={newPaymentErrors.cardNumber ? "border-red-500" : ""}
+                                className={
+                                  newPaymentErrors.cardNumber
+                                    ? "border-red-500"
+                                    : ""
+                                }
                               />
                               {newPaymentErrors.cardNumber && (
-                                <p className="text-red-500 text-sm">{newPaymentErrors.cardNumber}</p>
+                                <p className="text-red-500 text-sm">
+                                  {newPaymentErrors.cardNumber}
+                                </p>
                               )}
                             </div>
                             <div className="gap-4 grid md:grid-cols-2">
@@ -2134,13 +2230,24 @@ export default function SettingsPage() {
                                 <Input
                                   id="cardExpire"
                                   value={newPaymentMethod.cardExpire}
-                                  onChange={(e) => handleNewPaymentChange('cardExpire', e.target.value)}
+                                  onChange={(e) =>
+                                    handleNewPaymentChange(
+                                      "cardExpire",
+                                      e.target.value
+                                    )
+                                  }
                                   placeholder="MM/YY"
                                   maxLength={5}
-                                  className={newPaymentErrors.cardExpire ? "border-red-500" : ""}
+                                  className={
+                                    newPaymentErrors.cardExpire
+                                      ? "border-red-500"
+                                      : ""
+                                  }
                                 />
                                 {newPaymentErrors.cardExpire && (
-                                  <p className="text-red-500 text-sm">{newPaymentErrors.cardExpire}</p>
+                                  <p className="text-red-500 text-sm">
+                                    {newPaymentErrors.cardExpire}
+                                  </p>
                                 )}
                               </div>
                               <div className="space-y-2">
@@ -2208,15 +2315,125 @@ export default function SettingsPage() {
 
                   <div className="space-y-4">
                     <h3 className="font-semibold text-lg">Membership</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Manage your membership subscription and benefits
-                    </p>
+                    <div className="space-y-3">
+                      <p className="text-muted-foreground text-sm">
+                        Manage your membership subscription and benefits
+                      </p>
+
+                      {user.membershipTier && (
+                        <div className="bg-muted/50 p-4 border rounded-lg">
+                          <div className="flex justify-between items-start mb-2">
+                            <div>
+                              <h4 className="font-medium">
+                                {user.membershipTier.name} Member
+                              </h4>
+                              <p className="text-muted-foreground text-sm">
+                                {user.membershipTier.discountPercentage}%
+                                discount on all purchases
+                              </p>
+                            </div>
+                            <div
+                              className={`px-2 py-1 rounded-full text-xs font-medium ${
+                                isMembershipCancelled
+                                  ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200"
+                                  : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+                              }`}
+                            >
+                              {isMembershipCancelled ? "Cancelled" : "Active"}
+                            </div>
+                          </div>
+
+                          {user.membershipExpiry && (
+                            <p className="text-muted-foreground text-sm">
+                              {isMembershipCancelled
+                                ? `Benefits end on ${new Date(
+                                    user.membershipExpiry
+                                  ).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  })}`
+                                : `Renews on ${new Date(
+                                    user.membershipExpiry
+                                  ).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                  })}`}
+                            </p>
+                          )}
+
+                          {isMembershipCancelled &&
+                            user.membershipCancellationDate && (
+                              <p className="mt-1 text-muted-foreground text-sm">
+                                Cancelled on{" "}
+                                {new Date(
+                                  user.membershipCancellationDate
+                                ).toLocaleDateString("en-US", {
+                                  year: "numeric",
+                                  month: "long",
+                                  day: "numeric",
+                                })}
+                              </p>
+                            )}
+                        </div>
+                      )}
+                    </div>
+
                     <div className="flex gap-2">
                       <Button variant="outline" asChild>
                         <Link href="/membership">View Membership</Link>
                       </Button>
-                      {user.membershipTier && (
-                        <Button variant="outline">Cancel Membership</Button>
+                      {user.membershipTier && !isMembershipCancelled && (
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className="text-destructive hover:text-destructive"
+                            >
+                              Cancel Membership
+                            </Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>
+                                Are you sure you want to cancel your{" "}
+                                {user.membershipTier.name} membership?
+                              </AlertDialogTitle>
+                            </AlertDialogHeader>
+                            <div className="space-y-2">
+                              <p>
+                                Your membership benefits will remain active
+                                until the 21st of this month. If today is after
+                                the 21st, your benefits will continue until the
+                                21st of next month.
+                              </p>
+                              <p className="font-medium">
+                                You can reactivate your membership at any time
+                                before it expires.
+                              </p>
+                            </div>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>
+                                Keep Membership
+                              </AlertDialogCancel>
+                              <AlertDialogAction
+                                onClick={handleCancelMembership}
+                                disabled={isLoading}
+                                className="bg-destructive hover:bg-destructive/90 text-destructive-foreground"
+                              >
+                                {isLoading
+                                  ? "Cancelling..."
+                                  : "Cancel Membership"}
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      )}
+                      {isMembershipCancelled && (
+                        <Button variant="outline" asChild>
+                          <Link href="/membership">Reactivate Membership</Link>
+                        </Button>
                       )}
                     </div>
                   </div>
