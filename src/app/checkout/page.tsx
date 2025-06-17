@@ -55,6 +55,7 @@ export default function CheckoutPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [sameAsBilling, setSameAsBilling] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [selectedShippingTier, setSelectedShippingTier] = useState("standard");
 
   // Shipping information
   const [shippingInfo, setShippingInfo] = useState({
@@ -85,6 +86,81 @@ export default function CheckoutPage() {
 
   const [specialInstructions, setSpecialInstructions] = useState("");
   const [isLoadingAutofill, setIsLoadingAutofill] = useState(false);
+
+  // Shipping tiers configuration
+  const shippingTiers = [
+    {
+      id: "standard",
+      name: "Standard Shipping",
+      price: 5.99,
+      deliveryTime: "5-7 business days",
+      description: "Free on orders over $50",
+    },
+    {
+      id: "express",
+      name: "Express Shipping",
+      price: 12.99,
+      deliveryTime: "2-3 business days",
+      description: "Faster delivery",
+    },
+    {
+      id: "next-day",
+      name: "Next Day Delivery",
+      price: 19.99,
+      deliveryTime: "1 business day",
+      description: "Order by 2 PM for next day delivery",
+      premiumFree: true, // Free for Premium and VIP members
+    },
+    {
+      id: "overnight",
+      name: "Overnight Express",
+      price: 29.99,
+      deliveryTime: "Next morning by 10 AM",
+      description: "Premium overnight service",
+      vipFree: true, // Free for VIP members on select items
+      vipOnly: false, // Available to all, but free for VIP
+    },
+  ];
+
+  // Get user membership tier
+  const userMembershipTier =
+    user?.membershipTier?.name?.toLowerCase() || "none";
+  const isPremiumOrVip = ["premium", "vip"].includes(userMembershipTier);
+  const isVip = userMembershipTier === "vip";
+
+  // Check if any items qualify for VIP free overnight shipping
+  const hasVipEligibleItems = items.some(
+    (item) =>
+      // You can customize this logic based on your business rules
+      // For example: electronics, premium brands, or high-value items
+      item.price > 100 || item.category?.toLowerCase().includes("electronics")
+  );
+
+  // Calculate shipping cost based on selected tier and membership
+  const calculateShippingCost = () => {
+    const tier = shippingTiers.find((t) => t.id === selectedShippingTier);
+    if (!tier) return 0;
+
+    // Standard shipping: free on orders over $50
+    if (tier.id === "standard" && totalPrice >= 50) {
+      return 0;
+    }
+
+    // Premium/VIP members get free next day shipping
+    if (tier.id === "next-day" && isPremiumOrVip) {
+      return 0;
+    }
+
+    // VIP members get free overnight shipping on select items
+    if (tier.id === "overnight" && isVip && hasVipEligibleItems) {
+      return 0;
+    }
+
+    return tier.price;
+  };
+
+  // Update shipping fee calculation
+  const dynamicShippingFee = calculateShippingCost();
 
   // Autofill functions for demo purposes
   const autofillShippingInfo = async () => {
@@ -135,7 +211,7 @@ export default function CheckoutPage() {
       }
 
       toast.success(
-        user 
+        user
           ? "User shipping info filled!"
           : "Demo shipping info filled! (Note: This is fake data for testing purposes)"
       );
@@ -295,15 +371,22 @@ export default function CheckoutPage() {
     setIsProcessing(true);
 
     try {
+      const finalGrandTotal =
+        totalPrice - discountAmount - membershipDiscount + dynamicShippingFee;
+      const selectedTier = shippingTiers.find(
+        (t) => t.id === selectedShippingTier
+      );
+
       const result = await createOrder(
         items,
         {
           totalAmount: totalPrice,
           discountAmount,
           membershipDiscount,
-          shippingFee,
-          grandTotal,
+          shippingFee: dynamicShippingFee,
+          grandTotal: finalGrandTotal,
           discountCode: appliedDiscount?.rule.code,
+          shippingTier: selectedTier?.name || "Standard Shipping",
         },
         shippingInfo,
         billingInfo,
@@ -533,6 +616,98 @@ export default function CheckoutPage() {
                         <SelectItem value="Australia">Australia</SelectItem>
                       </SelectContent>
                     </Select>
+                  </div>
+
+                  {/* Shipping Tier Selection */}
+                  <div className="space-y-4">
+                    <div>
+                      <Label>Shipping Options</Label>
+                      <div className="space-y-3 mt-2">
+                        {shippingTiers.map((tier) => {
+                          const isFree =
+                            (tier.id === "standard" && totalPrice >= 50) ||
+                            (tier.id === "next-day" && isPremiumOrVip) ||
+                            (tier.id === "overnight" &&
+                              isVip &&
+                              hasVipEligibleItems);
+
+                          const price = isFree ? 0 : tier.price;
+                          const isRecommended =
+                            tier.id === "next-day" && isPremiumOrVip;
+
+                          return (
+                            <div
+                              key={tier.id}
+                              className={`border rounded-lg p-4 cursor-pointer transition-colors ${
+                                selectedShippingTier === tier.id
+                                  ? "border-primary bg-primary/5"
+                                  : "border-border hover:border-primary/50"
+                              } ${
+                                isRecommended ? "ring-2 ring-primary/20" : ""
+                              }`}
+                              onClick={() => setSelectedShippingTier(tier.id)}
+                            >
+                              <div className="flex justify-between items-center">
+                                <div className="flex items-center space-x-3">
+                                  <input
+                                    type="radio"
+                                    name="shipping"
+                                    value={tier.id}
+                                    checked={selectedShippingTier === tier.id}
+                                    onChange={() =>
+                                      setSelectedShippingTier(tier.id)
+                                    }
+                                    className="text-primary"
+                                  />
+                                  <div>
+                                    <div className="flex items-center gap-2">
+                                      <p className="font-medium">{tier.name}</p>
+                                      {isRecommended && (
+                                        <span className="bg-primary px-2 py-1 rounded-full text-primary-foreground text-xs">
+                                          Recommended
+                                        </span>
+                                      )}
+                                      {isFree && (
+                                        <span className="bg-green-100 px-2 py-1 rounded-full text-green-800 text-xs">
+                                          FREE
+                                        </span>
+                                      )}
+                                    </div>
+                                    <p className="text-muted-foreground text-sm">
+                                      {tier.deliveryTime} • {tier.description}
+                                    </p>
+                                    {tier.id === "next-day" &&
+                                      isPremiumOrVip && (
+                                        <p className="mt-1 text-blue-600 text-xs">
+                                          ✨ Free with {userMembershipTier}{" "}
+                                          membership
+                                        </p>
+                                      )}
+                                    {tier.id === "overnight" &&
+                                      isVip &&
+                                      hasVipEligibleItems && (
+                                        <p className="mt-1 text-purple-600 text-xs">
+                                          👑 Free VIP overnight on eligible
+                                          items
+                                        </p>
+                                      )}
+                                  </div>
+                                </div>
+                                <div className="text-right">
+                                  <p
+                                    className={`font-semibold ${
+                                      isFree ? "text-green-600" : ""
+                                    }`}
+                                  >
+                                    {price === 0 ? "FREE" : formatPrice(price)}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex justify-end pt-4">
@@ -883,9 +1058,22 @@ export default function CheckoutPage() {
                 )}
 
                 <div className="flex justify-between">
-                  <span>Shipping</span>
+                  <div>
+                    <span>Shipping</span>
+                    {currentStep >= 1 && selectedShippingTier && (
+                      <p className="text-muted-foreground text-xs">
+                        {
+                          shippingTiers.find(
+                            (t) => t.id === selectedShippingTier
+                          )?.name
+                        }
+                      </p>
+                    )}
+                  </div>
                   <span>
-                    {shippingFee > 0 ? formatPrice(shippingFee) : "FREE"}
+                    {dynamicShippingFee > 0
+                      ? formatPrice(dynamicShippingFee)
+                      : "FREE"}
                   </span>
                 </div>
 
@@ -893,7 +1081,14 @@ export default function CheckoutPage() {
 
                 <div className="flex justify-between font-semibold text-lg">
                   <span>Total</span>
-                  <span>{formatPrice(grandTotal)}</span>
+                  <span>
+                    {formatPrice(
+                      totalPrice -
+                        discountAmount -
+                        membershipDiscount +
+                        dynamicShippingFee
+                    )}
+                  </span>
                 </div>
 
                 <div className="mt-4 text-muted-foreground text-xs">
