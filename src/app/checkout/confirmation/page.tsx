@@ -1,5 +1,6 @@
 "use client";
 
+import { useCart } from "@/app/context/cartContext";
 import { useCurrency } from "@/app/context/currencyContext";
 import { Order, useOrder } from "@/app/context/orderContext";
 import { Badge } from "@/components/ui/badge";
@@ -30,12 +31,14 @@ function OrderConfirmationContent() {
   const orderId = searchParams.get("orderId");
   const { getOrderById } = useOrder();
   const { formatPrice } = useCurrency();
+  const { removeDiscount } = useCart();
 
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (orderId) {
+      removeDiscount(); // Clear any existing discounts
       const foundOrder = getOrderById(orderId);
       if (foundOrder) {
         setOrder(foundOrder);
