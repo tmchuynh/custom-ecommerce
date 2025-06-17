@@ -19,7 +19,6 @@ export interface MembershipTier {
   duration: number; // in months
   benefits: string[];
   discountPercentage: number;
-  freeShipping: boolean;
   color: string;
 }
 
@@ -72,7 +71,6 @@ export const membershipTiers: MembershipTier[] = [
       "Monthly newsletter",
     ],
     discountPercentage: 5,
-    freeShipping: false,
     color: "bg-blue-500",
   },
   {
@@ -82,13 +80,12 @@ export const membershipTiers: MembershipTier[] = [
     duration: 1,
     benefits: [
       "10% discount on all purchases",
-      "Free shipping on all orders",
+      "Free next day shipping on orders",
       "Early access to new products",
       "Priority customer support",
       "Exclusive member events",
     ],
     discountPercentage: 10,
-    freeShipping: true,
     color: "bg-purple-500",
   },
   {
@@ -98,7 +95,8 @@ export const membershipTiers: MembershipTier[] = [
     duration: 1,
     benefits: [
       "15% discount on all purchases",
-      "Free shipping on all orders",
+      "Free overnight express on selected items",
+      "Free next day shipping on all orders",
       "Early access to new products",
       "24/7 priority customer support",
       "Exclusive member events",
@@ -106,7 +104,6 @@ export const membershipTiers: MembershipTier[] = [
       "Birthday gifts",
     ],
     discountPercentage: 15,
-    freeShipping: true,
     color: "bg-amber-500",
   },
 ];
