@@ -1,21 +1,10 @@
 "use client";
 
+import { CartItem } from "@/lib/interfaces/cart";
 import { ProductItem } from "@/lib/interfaces/product";
+import { useRouter } from "next/navigation";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
-
-export interface CartItem {
-  id: number;
-  productId: number;
-  title: string;
-  price: number;
-  quantity: number;
-  image?: string;
-  category: string;
-  thumbnail?: string;
-  discountPercentage?: number;
-  brand?: string;
-}
 
 export interface DiscountRule {
   code: string;
@@ -83,6 +72,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Get auth context for membership discounts
   const auth = useAuth();
+  const router = useRouter();
 
   // Predefined discount rules
   const discountRules: DiscountRule[] = [
@@ -164,12 +154,145 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
         console.error("Error loading cart from localStorage:", error);
       }
     }
+
+    // Load applied discount from localStorage
+    const savedDiscount = localStorage.getItem("applied-discount");
+    if (savedDiscount) {
+      try {
+        const parsedDiscount = JSON.parse(savedDiscount);
+        setAppliedDiscount(parsedDiscount);
+        console.log(
+          "Loaded discount from localStorage:",
+          parsedDiscount.rule.code
+        );
+      } catch (error) {
+        console.error("Error loading discount from localStorage:", error);
+      }
+    } else {
+      console.log("No saved discount found in localStorage");
+    }
   }, []);
 
   // Save cart to localStorage whenever items change
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(items));
   }, [items]);
+
+  // Save applied discount to localStorage whenever it changes
+  useEffect(() => {
+    if (appliedDiscount) {
+      localStorage.setItem("applied-discount", JSON.stringify(appliedDiscount));
+    } else {
+      localStorage.removeItem("applied-discount");
+    }
+  }, [appliedDiscount]);
+
+  // Validate applied discount when cart items change
+  useEffect(() => {
+    if (appliedDiscount && items.length > 0) {
+      // Re-validate the discount to ensure it's still valid
+      const result = validateDiscount(appliedDiscount.rule);
+      if (!result.isValid) {
+        // If discount is no longer valid, remove it
+        setAppliedDiscount(null);
+        localStorage.removeItem("applied-discount");
+        // Optionally show a message to user
+        console.warn(
+          `Discount ${appliedDiscount.rule.code} is no longer valid: ${result.reason}`
+        );
+      }
+    } else if (appliedDiscount && items.length === 0) {
+      // Keep discount even when cart is empty so it persists during navigation
+      console.log(
+        `Keeping discount ${appliedDiscount.rule.code} during navigation`
+      );
+    }
+  }, [items]);
+
+  // Discount validation helper function
+  const validateDiscount = (
+    rule: DiscountRule
+  ): {
+    isValid: boolean;
+    reason?: string;
+  } => {
+    // Check conditions
+    const totalQuantity = items.reduce(
+      (total, item) => total + item.quantity,
+      0
+    );
+
+    if (rule.conditions.minItems && totalQuantity < rule.conditions.minItems) {
+      return {
+        isValid: false,
+        reason: `Requires at least ${rule.conditions.minItems} items`,
+      };
+    }
+
+    if (rule.conditions.maxItems && totalQuantity > rule.conditions.maxItems) {
+      return {
+        isValid: false,
+        reason: `Only applies to ${rule.conditions.maxItems} or fewer items`,
+      };
+    }
+
+    if (rule.conditions.minTotal) {
+      const currentTotal = items.reduce((total, item) => {
+        const itemPrice = item.discountPercentage
+          ? item.price * (1 - item.discountPercentage / 100)
+          : item.price;
+        return total + itemPrice * item.quantity;
+      }, 0);
+
+      if (currentTotal < rule.conditions.minTotal) {
+        return {
+          isValid: false,
+          reason: `Requires minimum order of $${rule.conditions.minTotal}`,
+        };
+      }
+    }
+
+    // Check category requirements
+    if (
+      rule.conditions.requiredCategories &&
+      rule.conditions.requiredCategories.length > 0
+    ) {
+      const hasRequiredCategory = items.some((item) =>
+        rule.conditions.requiredCategories!.includes(item.category)
+      );
+
+      if (!hasRequiredCategory) {
+        return {
+          isValid: false,
+          reason: `Only applies to ${rule.conditions.requiredCategories.join(
+            ", "
+          )} items`,
+        };
+      }
+    }
+
+    // Check brand requirements
+    if (
+      rule.conditions.requiredBrands &&
+      rule.conditions.requiredBrands.length > 0
+    ) {
+      const hasRequiredBrand = items.some(
+        (item) =>
+          item.brand && rule.conditions.requiredBrands!.includes(item.brand)
+      );
+
+      if (!hasRequiredBrand) {
+        return {
+          isValid: false,
+          reason: `Only applies to ${rule.conditions.requiredBrands.join(
+            ", "
+          )} brands`,
+        };
+      }
+    }
+
+    return { isValid: true };
+  };
 
   const addToCart = (product: ProductItem, quantity: number = 1) => {
     setItems((prevItems) => {
@@ -374,11 +497,20 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
       }
     }
 
-    setAppliedDiscount({
+    const newAppliedDiscount = {
       rule,
       discountAmount,
       appliedItems,
-    });
+    };
+
+    setAppliedDiscount(newAppliedDiscount);
+
+    // Immediately save to localStorage to ensure persistence
+    localStorage.setItem(
+      "applied-discount",
+      JSON.stringify(newAppliedDiscount)
+    );
+    console.log("Saved discount to localStorage:", rule.code);
 
     return {
       success: true,
@@ -388,6 +520,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const removeDiscount = () => {
     setAppliedDiscount(null);
+    // Immediately remove from localStorage
+    localStorage.removeItem("applied-discount");
+    console.log("Removed discount from localStorage");
   };
 
   const checkout = async (): Promise<{ success: boolean; message: string }> => {
@@ -427,8 +562,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   const redirectToCheckout = () => {
-    // Redirect to the comprehensive checkout page
-    window.location.href = "/checkout";
+    // Use Next.js router to navigate without losing state
+    router.push("/checkout");
   };
 
   const totalItems = items.reduce((total, item) => total + item.quantity, 0);
