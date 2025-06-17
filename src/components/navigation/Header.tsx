@@ -94,11 +94,11 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <div className="flex items-center gap-2">
-              <span className="sr-only">ParagonTrails</span>
+              <span className="sr-only">Fynix</span>
               <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-2 rounded-lg text-white">
                 <GlobeAltIcon className="w-6 h-6" />
               </div>
-              <span className="font-bold text-xl">ParagonTrails</span>
+              <span className="font-bold text-xl">Fynix</span>
             </div>
           </Link>
         </div>
@@ -172,9 +172,7 @@ export default function Header() {
               <div className="bg-gradient-to-r from-blue-600 to-teal-500 p-2 rounded-lg">
                 <GlobeAltIcon className="w-5 h-5" />
               </div>
-              <span className="font-bold text-gray-800 text-lg">
-                ParagonTrails
-              </span>
+              <span className="font-bold text-gray-800 text-lg">Fynix</span>
             </div>
             <button
               type="button"
