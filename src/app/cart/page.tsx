@@ -84,8 +84,8 @@ export default function CartPage() {
                 Note: A 12% shipping fee will be applied at checkout.
               </p>
               <p className="text-muted-foreground text-sm">
-                Available discount codes: TECH20, BULK15, BEAUTY10, FASHION25,
-                SAVE50
+                Available discount codes: TECH20, BEAUTY10, SAVE50,...and others
+                hidden on the website.
               </p>
             </div>
             <Button asChild>
