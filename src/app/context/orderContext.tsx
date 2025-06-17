@@ -1,7 +1,7 @@
 "use client";
 
+import { CartItem } from "@/lib/interfaces/cart";
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { CartItem } from "./cartContext";
 
 export interface OrderItem {
   id: number;
@@ -221,7 +221,7 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({
         estimatedDelivery,
         paymentMethod,
         discountCode: totals.discountCode,
-        shippingCarrier: "Standard Shipping",
+        shippingCarrier: totals.shippingTier || "Standard Shipping",
         shippingTier: totals.shippingTier,
         lastUpdated: orderDate,
       };
