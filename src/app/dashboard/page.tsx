@@ -7,19 +7,27 @@ import { useWishlist } from "@/app/context/wishlistContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 import useOrderManagement from "@/hooks/useOrderManagement";
 import { usePurchaseHistory } from "@/hooks/usePurchaseHistory";
 import { getStatusColor } from "@/lib/utils/orders";
 import {
-  Calendar,
   CreditCard,
   Crown,
+  DollarSign,
   Heart,
   History,
   LogOut,
   Mail,
   Package,
   Phone,
+  PieChart as PieChartIcon,
   RefreshCw,
   Settings,
   ShoppingBag,
@@ -33,6 +41,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo } from "react";
+import { Cell, Pie, PieChart } from "recharts";
 
 export default function DashboardPage() {
   const { user, isLoggedIn, logout, hasMembership } = useAuth();
@@ -77,6 +86,95 @@ export default function DashboardPage() {
       demoOrders: purchaseStats.totalOrders,
     };
   }, [orderStats, purchaseStats, orderHistory, orders]);
+
+  // Calculate total savings from membership shipping benefits
+  const totalSavings = useMemo(() => {
+    if (!hasMembership || !user?.membershipTier) return 0;
+
+    // Estimate savings: assume standard shipping is $9.99 per order
+    const standardShippingCost = 9.99;
+    const totalOrdersCount = combinedOrderStats.totalOrders;
+
+    // Calculate shipping savings (members typically get free shipping)
+    const shippingSavings = totalOrdersCount * standardShippingCost;
+
+    // Calculate discount savings from purchases
+    const discountSavings =
+      combinedOrderStats.totalSpent *
+      (user.membershipTier.discountPercentage / 100);
+
+    return shippingSavings + discountSavings;
+  }, [hasMembership, user?.membershipTier, combinedOrderStats]);
+
+  // Calculate shopping trends by category
+  const shoppingTrends = useMemo(() => {
+    const categoryStats: Record<string, { count: number; total: number }> = {};
+
+    // Process user orders
+    orders.forEach((order) => {
+      order.items.forEach((item) => {
+        if (!categoryStats[item.category]) {
+          categoryStats[item.category] = { count: 0, total: 0 };
+        }
+        categoryStats[item.category].count += item.quantity;
+        categoryStats[item.category].total += item.price * item.quantity;
+      });
+    });
+
+    // Process purchase history
+    if (previouslyPurchased.length > 0) {
+      previouslyPurchased.forEach((product) => {
+        // Use a fallback category since the type might not have category
+        const category = (product as any).category || "Other";
+        if (!categoryStats[category]) {
+          categoryStats[category] = { count: 0, total: 0 };
+        }
+        categoryStats[category].count += product.quantity;
+        categoryStats[category].total += product.total;
+      });
+    }
+
+    // Convert to chart data
+    const chartData = Object.entries(categoryStats)
+      .map(([category, stats]) => ({
+        category: category.charAt(0).toUpperCase() + category.slice(1),
+        value: stats.total,
+        count: stats.count,
+        percentage: 0,
+      }))
+      .sort((a, b) => b.value - a.value)
+      .slice(0, 6); // Top 6 categories
+
+    // Calculate percentages
+    const total = chartData.reduce((sum, item) => sum + item.value, 0);
+    chartData.forEach((item) => {
+      item.percentage = total > 0 ? Math.round((item.value / total) * 100) : 0;
+    });
+
+    return chartData;
+  }, [orders, previouslyPurchased]);
+
+  // Chart configuration
+  const chartConfig = {
+    value: {
+      label: "Amount Spent",
+    },
+    ...shoppingTrends.reduce((acc, item, index) => {
+      const colors = [
+        "hsl(var(--chart-1))",
+        "hsl(var(--chart-2))",
+        "hsl(var(--chart-3))",
+        "hsl(var(--chart-4))",
+        "hsl(var(--chart-5))",
+        "hsl(var(--chart-6))",
+      ];
+      acc[item.category.toLowerCase()] = {
+        label: item.category,
+        color: colors[index % colors.length],
+      };
+      return acc;
+    }, {} as any),
+  };
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -365,29 +463,6 @@ export default function DashboardPage() {
               <CardContent className="p-6">
                 <div className="flex justify-between items-center">
                   <div>
-                    <p className="text-muted-foreground text-sm">
-                      Total Orders
-                    </p>
-                    <p className="font-bold text-2xl">
-                      {combinedOrderStats.totalOrders}
-                    </p>
-                    {combinedOrderStats.userOrders > 0 &&
-                      combinedOrderStats.demoOrders > 0 && (
-                        <p className="text-muted-foreground text-xs">
-                          {combinedOrderStats.userOrders} real +{" "}
-                          {combinedOrderStats.demoOrders} demo
-                        </p>
-                      )}
-                  </div>
-                  <Package className="w-8 h-8 text-primary" />
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex justify-between items-center">
-                  <div>
                     <p className="text-muted-foreground text-sm">Total Spent</p>
                     <p className="font-bold text-2xl">
                       {formatPrice(combinedOrderStats.totalSpent)}
@@ -425,17 +500,157 @@ export default function DashboardPage() {
                 <div className="flex justify-between items-center">
                   <div>
                     <p className="text-muted-foreground text-sm">
-                      Recent Orders
+                      Total Savings
                     </p>
                     <p className="font-bold text-2xl">
-                      {combinedOrderStats.recentOrders}
+                      {formatPrice(totalSavings)}
                     </p>
+                    {hasMembership && totalSavings > 0 && (
+                      <p className="text-green-600 text-xs">
+                        Membership benefits
+                      </p>
+                    )}
                   </div>
-                  <Calendar className="w-8 h-8 text-primary" />
+                  <DollarSign className="w-8 h-8 text-green-500" />
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <p className="text-muted-foreground text-sm">
+                      Total Orders
+                    </p>
+                    <p className="font-bold text-2xl">
+                      {combinedOrderStats.totalOrders}
+                    </p>
+                    {combinedOrderStats.userOrders > 0 &&
+                      combinedOrderStats.demoOrders > 0 && (
+                        <p className="text-muted-foreground text-xs">
+                          {combinedOrderStats.userOrders} real +{" "}
+                          {combinedOrderStats.demoOrders} demo
+                        </p>
+                      )}
+                  </div>
+                  <Package className="w-8 h-8 text-blue-500" />
                 </div>
               </CardContent>
             </Card>
           </div>
+
+          {/* Shopping Trends Chart */}
+          {shoppingTrends.length > 0 && (
+            <div className="mt-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <PieChartIcon className="w-5 h-5" />
+                    Shopping Trends by Category
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="gap-6 grid lg:grid-cols-2">
+                    {/* Chart */}
+                    <div className="flex justify-center">
+                      <ChartContainer
+                        config={chartConfig}
+                        className="mx-auto max-h-[350px] aspect-square"
+                      >
+                        <PieChart>
+                          <ChartTooltip
+                            cursor={false}
+                            content={
+                              <ChartTooltipContent
+                                hideLabel
+                                formatter={(value, name) => [
+                                  formatPrice(value as number),
+                                  name,
+                                ]}
+                              />
+                            }
+                          />
+                          <Pie
+                            data={shoppingTrends}
+                            dataKey="value"
+                            nameKey="category"
+                            innerRadius={60}
+                            outerRadius={120}
+                            strokeWidth={2}
+                            stroke="#ffffff"
+                          >
+                            {shoppingTrends.map((entry, index) => {
+                              const colors = [
+                                "#3B82F6", // Blue
+                                "#10B981", // Green  
+                                "#8B5CF6", // Purple
+                                "#F59E0B", // Orange
+                                "#EF4444", // Red
+                                "#06B6D4", // Cyan
+                              ];
+                              return (
+                                <Cell
+                                  key={`cell-${index}`}
+                                  fill={colors[index % colors.length]}
+                                />
+                              );
+                            })}
+                          </Pie>
+                        </PieChart>
+                      </ChartContainer>
+                    </div>
+
+                    {/* Category Breakdown */}
+                    <div className="space-y-3">
+                      <h4 className="font-medium text-sm">
+                        Category Breakdown
+                      </h4>
+                      {shoppingTrends.map((category, index) => {
+                        const colors = [
+                          "#3B82F6", // Blue
+                          "#10B981", // Green  
+                          "#8B5CF6", // Purple
+                          "#F59E0B", // Orange
+                          "#EF4444", // Red
+                          "#06B6D4", // Cyan
+                        ];
+                        return (
+                          <div
+                            key={category.category}
+                            className="flex justify-between items-center"
+                          >
+                            <div className="flex items-center gap-2">
+                              <div
+                                className="w-3 h-3 rounded-full"
+                                style={{ backgroundColor: colors[index % colors.length] }}
+                              />
+                              <span className="text-sm">
+                                {category.category}
+                              </span>
+                            </div>
+                            <div className="text-right text-sm">
+                              <p className="font-medium">
+                                {formatPrice(category.value)}
+                              </p>
+                              <p className="text-muted-foreground text-xs">
+                                {category.percentage}%
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                      {shoppingTrends.length === 0 && (
+                        <p className="py-4 text-center text-muted-foreground text-sm">
+                          No purchase data available yet
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
         </div>
 
         {/* Recent Orders */}
@@ -514,18 +729,6 @@ export default function DashboardPage() {
               </Card>
             </Link>
 
-            <Link href="/membership">
-              <Card className="hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="flex flex-col items-center p-6 text-center">
-                  <Crown className="mb-3 w-8 h-8 text-primary" />
-                  <h3 className="font-medium">Memberships</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Upgrade your plan
-                  </p>
-                </CardContent>
-              </Card>
-            </Link>
-
             <Link href="/cart">
               <Card className="hover:shadow-md transition-shadow cursor-pointer">
                 <CardContent className="flex flex-col items-center p-6 text-center">
@@ -581,7 +784,7 @@ export default function DashboardPage() {
         {/* Purchase History from DummyJSON */}
         <div className="mt-8">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="font-semibold text-xl">Demo Purchase History</h2>
+            <h2 className="font-semibold text-xl">DEMO Purchase History</h2>
             <div className="flex gap-2">
               <Button
                 variant="outline"
@@ -598,7 +801,7 @@ export default function DashboardPage() {
               </Button>
               {purchaseStats && (
                 <Badge variant="secondary">
-                  {purchaseStats.totalOrders} demo orders
+                  {purchaseStats.totalOrders} orders
                 </Badge>
               )}
             </div>
@@ -630,7 +833,7 @@ export default function DashboardPage() {
                     <div className="flex justify-between items-center">
                       <div>
                         <p className="text-muted-foreground text-sm">
-                          Demo Orders
+                          Total Orders
                         </p>
                         <p className="font-bold text-2xl">
                           {purchaseStats.totalOrders}
@@ -646,7 +849,7 @@ export default function DashboardPage() {
                     <div className="flex justify-between items-center">
                       <div>
                         <p className="text-muted-foreground text-sm">
-                          Demo Spent
+                          Total Spent
                         </p>
                         <p className="font-bold text-2xl">
                           {formatPrice(purchaseStats.totalSpent)}
@@ -662,7 +865,7 @@ export default function DashboardPage() {
                     <div className="flex justify-between items-center">
                       <div>
                         <p className="text-muted-foreground text-sm">
-                          Demo Items
+                          Total Items
                         </p>
                         <p className="font-bold text-2xl">
                           {purchaseStats.totalItems}
@@ -678,7 +881,7 @@ export default function DashboardPage() {
                     <div className="flex justify-between items-center">
                       <div>
                         <p className="text-muted-foreground text-sm">
-                          Demo Savings
+                          Total Savings
                         </p>
                         <p className="font-bold text-2xl">
                           {formatPrice(purchaseStats.totalSavings)}
@@ -741,7 +944,7 @@ export default function DashboardPage() {
                 </div>
               )}
 
-              {/* Demo Notice */}
+              {/* Notice */}
               <Card className="border-dashed">
                 <CardContent className="p-4 text-center">
                   <div className="text-muted-foreground text-sm">
@@ -759,7 +962,7 @@ export default function DashboardPage() {
                   <Package className="mx-auto mb-2 w-8 h-8" />
                   <p>No purchase history available</p>
                   <p className="text-sm">
-                    Demo data will appear here when available
+                    data will appear here when available
                   </p>
                 </div>
               </CardContent>
