@@ -9,8 +9,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
@@ -541,7 +539,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Shopping Trends Chart */}
-          {shoppingTrends.length > 0 && (
+          {shoppingTrends.length > 0 ? (
             <div className="mt-6">
               <Card>
                 <CardHeader>
@@ -553,7 +551,7 @@ export default function DashboardPage() {
                 <CardContent>
                   <div className="gap-6 grid lg:grid-cols-2">
                     {/* Chart */}
-                    <div className="flex justify-center">
+                    <div className="relative flex justify-center">
                       <ChartContainer
                         config={chartConfig}
                         className="mx-auto max-h-[350px] aspect-square"
@@ -583,7 +581,7 @@ export default function DashboardPage() {
                             {shoppingTrends.map((entry, index) => {
                               const colors = [
                                 "#3B82F6", // Blue
-                                "#10B981", // Green  
+                                "#10B981", // Green
                                 "#8B5CF6", // Purple
                                 "#F59E0B", // Orange
                                 "#EF4444", // Red
@@ -599,6 +597,23 @@ export default function DashboardPage() {
                           </Pie>
                         </PieChart>
                       </ChartContainer>
+
+                      {/* Center Label */}
+                      <div className="absolute inset-0 flex flex-col justify-center items-center">
+                        <div className="text-center">
+                          <p className="font-bold text-2xl">
+                            {formatPrice(
+                              shoppingTrends.reduce(
+                                (sum, item) => sum + item.value,
+                                0
+                              )
+                            )}
+                          </p>
+                          <p className="text-muted-foreground text-sm">
+                            Total Spent
+                          </p>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Category Breakdown */}
@@ -609,7 +624,7 @@ export default function DashboardPage() {
                       {shoppingTrends.map((category, index) => {
                         const colors = [
                           "#3B82F6", // Blue
-                          "#10B981", // Green  
+                          "#10B981", // Green
                           "#8B5CF6", // Purple
                           "#F59E0B", // Orange
                           "#EF4444", // Red
@@ -622,8 +637,11 @@ export default function DashboardPage() {
                           >
                             <div className="flex items-center gap-2">
                               <div
-                                className="w-3 h-3 rounded-full"
-                                style={{ backgroundColor: colors[index % colors.length] }}
+                                className="rounded-full w-3 h-3"
+                                style={{
+                                  backgroundColor:
+                                    colors[index % colors.length],
+                                }}
                               />
                               <span className="text-sm">
                                 {category.category}
@@ -640,12 +658,31 @@ export default function DashboardPage() {
                           </div>
                         );
                       })}
-                      {shoppingTrends.length === 0 && (
-                        <p className="py-4 text-center text-muted-foreground text-sm">
-                          No purchase data available yet
-                        </p>
-                      )}
                     </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          ) : (
+            <div className="mt-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <PieChartIcon className="w-5 h-5" />
+                    Shopping Trends by Category
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="py-12">
+                  <div className="text-center">
+                    <PieChartIcon className="mx-auto mb-4 w-12 h-12 text-muted-foreground" />
+                    <h3 className="mb-2 font-medium">No Purchase Data Yet</h3>
+                    <p className="mb-4 text-muted-foreground text-sm">
+                      Start shopping to see your category trends and spending
+                      patterns
+                    </p>
+                    <Button asChild>
+                      <Link href="/shopping">Start Shopping</Link>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
