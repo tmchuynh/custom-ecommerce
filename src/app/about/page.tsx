@@ -92,7 +92,7 @@ export default function AboutPage() {
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto max-w-3xl text-center">
             <Badge variant={"glassSecondary"} className="mb-4">
-              About Our Story
+              Your Trusted Online Marketplace
             </Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Redefining Your Shopping Experience
@@ -116,7 +116,9 @@ export default function AboutPage() {
       <div className="mx-auto px-6 lg:px-8 py-16 max-w-7xl">
         {/* Mission Statement */}
         <section className="mb-16 text-center">
-          <h2 className="mb-6 font-bold text-3xl">Our Mission</h2>
+          <h2 className="mb-6 font-bold text-3xl">
+            Simplify Shopping. Amplify Living.
+          </h2>
           <div className="mx-auto max-w-3xl">
             <p className="mb-6 text-lg text-muted-foreground">
               To create a seamless, enjoyable, and trustworthy shopping
