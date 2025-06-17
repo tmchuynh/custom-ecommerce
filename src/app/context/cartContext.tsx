@@ -456,9 +456,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Calculate 12% shipping fee (only if there are items in cart, applied to discounted total)
   // Free shipping for premium/VIP members
-  const hasGroupShipping = auth?.user?.membershipTier?.freeShipping || false;
-  const shippingFee =
-    totalItems > 0 && !hasGroupShipping ? subtotalAfterDiscount * 0.12 : 0;
+  const shippingFee = totalItems > 0 ? subtotalAfterDiscount * 0.12 : 0;
 
   // Calculate grand total (subtotal after discount + shipping)
   const grandTotal = subtotalAfterDiscount + shippingFee;
