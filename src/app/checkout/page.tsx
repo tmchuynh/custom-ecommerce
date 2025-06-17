@@ -414,12 +414,17 @@ export default function CheckoutPage() {
                       className="text-xs"
                     >
                       <Shuffle className="mr-1 w-3 h-3" />
-                      {isLoadingAutofill ? "Loading..." : "Fill Demo Data"}
+                      {isLoadingAutofill
+                        ? "Loading..."
+                        : user
+                        ? "Fill My Info"
+                        : "Fill Demo Data"}
                     </Button>
                   </div>
                   <p className="text-muted-foreground text-xs">
-                    Demo autofill uses fake data from DummyJSON for testing
-                    purposes only
+                    {user
+                      ? "Autofill uses your account information with sample address data"
+                      : "Demo autofill uses fake data from DummyJSON for testing purposes only"}
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-4">
@@ -560,12 +565,17 @@ export default function CheckoutPage() {
                         className="text-xs"
                       >
                         <Shuffle className="mr-1 w-3 h-3" />
-                        {isLoadingAutofill ? "Loading..." : "Fill Demo Data"}
+                        {isLoadingAutofill
+                          ? "Loading..."
+                          : user
+                          ? "Fill My Info"
+                          : "Fill Demo Data"}
                       </Button>
                     </div>
                     <p className="text-muted-foreground text-xs">
-                      Demo autofill uses fake payment data for testing purposes
-                      only
+                      {user
+                        ? "Autofill uses your account name with demo payment data for testing"
+                        : "Demo autofill uses fake payment data for testing purposes only"}
                     </p>
                   </CardHeader>
                   <CardContent>
