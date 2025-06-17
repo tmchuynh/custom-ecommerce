@@ -8,18 +8,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { formatDate } from "@/lib/utils/format";
+import { getStatusColor, getStatusIcon } from "@/lib/utils/orders.tsx";
 import {
   AlertCircle,
   Calendar,
-  CheckCircle,
-  Clock,
   Copy,
   ExternalLink,
   MapPin,
   Package,
   Search,
   Truck,
-  X,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -134,50 +133,6 @@ function TrackOrderContent() {
     }
   };
 
-  const getStatusIcon = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "pending":
-        return <Clock className="w-5 h-5 text-yellow-500" />;
-      case "processing":
-        return <Package className="w-5 h-5 text-blue-500" />;
-      case "shipped":
-        return <Truck className="w-5 h-5 text-purple-500" />;
-      case "delivered":
-        return <CheckCircle className="w-5 h-5 text-green-500" />;
-      case "cancelled":
-        return <X className="w-5 h-5 text-red-500" />;
-      default:
-        return <AlertCircle className="w-5 h-5 text-gray-500" />;
-    }
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "pending":
-        return "bg-yellow-100 text-yellow-800 border-yellow-200";
-      case "processing":
-        return "bg-blue-100 text-blue-800 border-blue-200";
-      case "shipped":
-        return "bg-purple-100 text-purple-800 border-purple-200";
-      case "delivered":
-        return "bg-green-100 text-green-800 border-green-200";
-      case "cancelled":
-        return "bg-red-100 text-red-800 border-red-200";
-      default:
-        return "bg-gray-100 text-gray-800 border-gray-200";
-    }
-  };
-
-  const formatDate = (date: Date | string) => {
-    return new Date(date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
   return (
     <div className="min-h-screen">
       <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
@@ -265,9 +220,7 @@ function TrackOrderContent() {
                       {getStatusIcon(order.status)}
                       <span className="ml-2">Order Status</span>
                     </span>
-                    <Badge
-                      className={`capitalize ${getStatusColor(order.status)}`}
-                    >
+                    <Badge variant={`${getStatusColor(order.status)}`}>
                       {order.status}
                     </Badge>
                   </CardTitle>
@@ -500,11 +453,7 @@ function TrackOrderContent() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <Badge
-                        className={`capitalize mb-1 ${getStatusColor(
-                          recentOrder.status
-                        )}`}
-                      >
+                      <Badge variant={`${getStatusColor(recentOrder.status)}`}>
                         {recentOrder.status}
                       </Badge>
                       <p className="text-muted-foreground text-sm">

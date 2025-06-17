@@ -22,8 +22,15 @@ export const useOrderManagement = (userEmail?: string) => {
 
   // Get user-specific orders if email is provided
   const userOrders = useMemo(() => {
-    if (!userEmail) return [];
-    return getUserOrders(userEmail);
+    if (!userEmail) {
+      console.log("useOrderManagement: No userEmail provided");
+      return [];
+    }
+    const filteredOrders = getUserOrders(userEmail);
+    console.log("useOrderManagement: Filtering orders for email:", userEmail);
+    console.log("useOrderManagement: All orders:", orders);
+    console.log("useOrderManagement: Filtered user orders:", filteredOrders);
+    return filteredOrders;
   }, [userEmail, getUserOrders, orders]);
 
   // Calculate order statistics
