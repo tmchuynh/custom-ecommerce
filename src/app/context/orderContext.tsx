@@ -35,6 +35,7 @@ export interface Order {
   membershipDiscount?: number;
   notes?: string;
   shippingCarrier?: string;
+  shippingTier?: string;
   lastUpdated: Date;
 }
 
@@ -75,6 +76,7 @@ export interface OrderContextType {
       grandTotal: number;
       discountCode?: string;
       membershipDiscount?: number;
+      shippingTier?: string;
     },
     shippingInfo: ShippingInfo,
     billingInfo: BillingInfo,
@@ -113,10 +115,27 @@ const generateOrderId = (): string => {
   return `${prefix}${timestamp}${random}`;
 };
 
-// Estimate delivery date (5-7 business days)
-const estimateDeliveryDate = (): Date => {
+// Estimate delivery date based on shipping tier
+const estimateDeliveryDate = (shippingTier?: string): Date => {
   const today = new Date();
-  const deliveryDays = Math.floor(Math.random() * 3) + 5; // 5-7 days
+  let deliveryDays: number;
+
+  switch (shippingTier) {
+    case "Next Day Delivery":
+      deliveryDays = 1;
+      break;
+    case "Overnight Express":
+      deliveryDays = 1;
+      break;
+    case "Express Shipping":
+      deliveryDays = Math.floor(Math.random() * 2) + 2; // 2-3 days
+      break;
+    case "Standard Shipping":
+    default:
+      deliveryDays = Math.floor(Math.random() * 3) + 5; // 5-7 days
+      break;
+  }
+
   const deliveryDate = new Date(today);
   deliveryDate.setDate(today.getDate() + deliveryDays);
   return deliveryDate;
@@ -158,6 +177,7 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({
       grandTotal: number;
       discountCode?: string;
       membershipDiscount?: number;
+      shippingTier?: string;
     },
     shippingInfo: ShippingInfo,
     billingInfo: BillingInfo,
@@ -167,7 +187,7 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({
       const orderId = generateOrderId();
       const trackingNumber = generateTrackingNumber();
       const orderDate = new Date();
-      const estimatedDelivery = estimateDeliveryDate();
+      const estimatedDelivery = estimateDeliveryDate(totals.shippingTier);
 
       // Convert cart items to order items
       const orderItems: OrderItem[] = items.map((item) => ({
@@ -202,6 +222,7 @@ export const OrderProvider: React.FC<{ children: React.ReactNode }> = ({
         paymentMethod,
         discountCode: totals.discountCode,
         shippingCarrier: "Standard Shipping",
+        shippingTier: totals.shippingTier,
         lastUpdated: orderDate,
       };
 
