@@ -15,7 +15,10 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import useOrderManagement from "@/hooks/useOrderManagement";
+import { formatDate } from "@/lib/utils/format";
+import { getStatusColor } from "@/lib/utils/orders.tsx";
 import {
+  ArrowLeft,
   Calendar,
   ChevronDown,
   ChevronUp,
@@ -108,38 +111,17 @@ export default function OrdersPage() {
     setExpandedOrders(newExpanded);
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status.toLowerCase()) {
-      case "pending":
-        return "bg-yellow-100 text-yellow-800";
-      case "processing":
-        return "bg-blue-100 text-blue-800";
-      case "shipped":
-        return "bg-purple-100 text-purple-800";
-      case "delivered":
-        return "bg-green-100 text-green-800";
-      case "cancelled":
-        return "bg-red-100 text-red-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
-
-  const formatDate = (date: Date | string) => {
-    return new Date(date).toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
   return (
-    <div className="bg-background min-h-screen">
-      <div className="mx-auto px-4 py-8 container">
+    <div className="min-h-screen">
+      <div className="mx-auto px-6 lg:px-8 py-12 max-w-7xl">
         {/* Header */}
         <div className="mb-8">
+          <Button variant="ghost" asChild className="mb-4">
+            <Link href="/dashboard">
+              <ArrowLeft className="mr-2 w-4 h-4" />
+              Back to Dashboard
+            </Link>
+          </Button>
           <h1 className="mb-2 font-bold text-3xl">My Orders</h1>
           <p className="text-muted-foreground">
             Track and manage all your orders in one place
@@ -284,31 +266,55 @@ export default function OrdersPage() {
               <Card key={order.id}>
                 <CardContent className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-3">
-                        <h3 className="font-semibold">Order #{order.id}</h3>
-                        <Badge
-                          className={`capitalize ${getStatusColor(
-                            order.status
-                          )}`}
-                        >
-                          {order.status}
-                        </Badge>
+                    <div className="flex">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        onClick={() => toggleOrderExpansion(order.id)}
+                      >
+                        {expandedOrders.has(order.id) ? (
+                          <ChevronUp className="w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
+                      </Button>
+                      <div className="flex flex-col justify-between space-y-1 text-sm">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-3">
+                            <h3 className="font-semibold">Order #{order.id}</h3>
+                            <Badge variant={`${getStatusColor(order.status)}`}>
+                              {order.status}
+                            </Badge>
+                          </div>
+                          <p className="text-muted-foreground text-sm">
+                            {formatDate(order.orderDate)} • {order.items.length}{" "}
+                            items
+                          </p>
+                          <p className="text-muted-foreground text-sm">
+                            Tracking: {order.trackingNumber}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center gap-4">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-4 h-4" />
+                            Est. Delivery:{" "}
+                            {new Date(
+                              order.estimatedDelivery
+                            ).toLocaleDateString()}
+                          </span>
+                          <span className="text-muted-foreground">
+                            {order.shippingCarrier}
+                          </span>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground text-sm">
-                        {formatDate(order.orderDate)} • {order.items.length}{" "}
-                        items
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        Tracking: {order.trackingNumber}
-                      </p>
                     </div>
 
                     <div className="text-right space-y-2">
                       <p className="font-semibold text-lg">
                         {formatPrice(order.grandTotal)}
                       </p>
-                      <div className="flex gap-2">
+                      <div className="flex flex-col gap-2">
                         <Button variant="outline" size="sm" asChild>
                           <Link
                             href={`/track-order?tracking=${order.trackingNumber}`}
@@ -317,39 +323,16 @@ export default function OrdersPage() {
                             Track
                           </Link>
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => toggleOrderExpansion(order.id)}
-                        >
-                          {expandedOrders.has(order.id) ? (
-                            <ChevronUp className="w-4 h-4" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4" />
-                          )}
+                        <Button variant="ghost" size="sm" asChild>
+                          <Link
+                            href={`/checkout/confirmation?orderId=${order.id}`}
+                          >
+                            <Eye className="mr-1 w-4 h-4" />
+                            View Details
+                          </Link>
                         </Button>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Order Summary */}
-                  <div className="flex justify-between items-center text-sm">
-                    <div className="flex items-center gap-4">
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        Est. Delivery:{" "}
-                        {new Date(order.estimatedDelivery).toLocaleDateString()}
-                      </span>
-                      <span className="text-muted-foreground">
-                        {order.shippingCarrier}
-                      </span>
-                    </div>
-                    <Button variant="ghost" size="sm" asChild>
-                      <Link href={`/checkout/confirmation?orderId=${order.id}`}>
-                        <Eye className="mr-1 w-4 h-4" />
-                        View Details
-                      </Link>
-                    </Button>
                   </div>
 
                   {/* Expanded Order Details */}
