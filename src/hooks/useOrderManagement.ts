@@ -7,6 +7,13 @@ export interface OrderStats {
   averageOrderValue: number;
   ordersByStatus: Record<string, number>;
   recentOrders: Order[];
+  userOrders: number; // Number of actual user orders (not demo data)
+  demoOrders: number; // Number of demo orders from DummyJSON
+}
+
+export interface CombinedOrderStats {
+  userOrderStats: OrderStats;
+  totalOrderStats: OrderStats; // Combined user + demo data for display
 }
 
 export const useOrderManagement = (userEmail?: string) => {
@@ -48,6 +55,8 @@ export const useOrderManagement = (userEmail?: string) => {
       averageOrderValue,
       ordersByStatus,
       recentOrders,
+      userOrders: userEmail ? userOrders.length : 0,
+      demoOrders: 0, // This will be set by the caller if needed
     };
   }, [userOrders, orders, userEmail]);
 
