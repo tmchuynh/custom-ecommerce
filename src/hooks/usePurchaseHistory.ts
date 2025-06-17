@@ -1,11 +1,10 @@
 import {
-  Cart,
-  CartProduct,
   getOrderHistory,
   getPreviouslyPurchased,
   getUserPurchaseStats,
 } from "@/api/carts";
 import { useAuth } from "@/app/context/authContext";
+import { CartProduct, Cart } from "@/lib/interfaces/cart";
 import { useEffect, useState } from "react";
 
 interface UsePurchaseHistoryReturn {
