@@ -212,7 +212,7 @@ export default function CareersPage() {
         <div className="mx-auto px-6 lg:px-8 max-w-7xl">
           <div className="mx-auto text-center">
             <Badge className="mb-4" variant={"glassSuccess"}>
-              Join Our Team
+              Gear Up. Stand Out.
             </Badge>
             <h1 className="mb-6 font-bold text-4xl md:text-6xl">
               Build the Future of E-Commerce
@@ -230,7 +230,9 @@ export default function CareersPage() {
         {/* Why Work Here */}
         <section className="mb-16">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 font-bold text-3xl">Why Work With Us?</h2>
+            <h2 className="mb-4 font-bold text-3xl">
+              Ventryx. Where Everything Connects.
+            </h2>
             <p className="mx-auto max-w-3xl text-lg text-muted-foreground">
               We believe in creating an environment where talented people can do
               their best work and grow their careers.
