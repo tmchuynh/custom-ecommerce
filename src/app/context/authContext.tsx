@@ -9,6 +9,7 @@ export interface User {
   email?: string;
   membershipTier: MembershipTier | null;
   membershipExpiry?: Date;
+  membershipCancellationDate?: Date; // Date when membership was cancelled, still active until expiry
   joinedDate: Date;
 }
 
@@ -36,8 +37,10 @@ export interface AuthContextType {
   purchaseMembership: (
     tierName: string
   ) => Promise<{ success: boolean; message: string }>;
+  cancelMembership: () => Promise<{ success: boolean; message: string }>;
   isLoggedIn: boolean;
   hasMembership: boolean;
+  isMembershipCancelled: boolean;
   membershipDiscount: number;
 }
 
@@ -310,12 +313,103 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   };
 
+  const cancelMembership = async (): Promise<{
+    success: boolean;
+    message: string;
+  }> => {
+    if (!user) {
+      return {
+        success: false,
+        message: "Please log in to cancel membership",
+      };
+    }
+
+    if (!hasMembership) {
+      return {
+        success: false,
+        message: "No active membership to cancel",
+      };
+    }
+
+    if (user.membershipCancellationDate) {
+      return {
+        success: false,
+        message: "Membership is already cancelled",
+      };
+    }
+
+    try {
+      // Calculate the date when membership will end (21st of current month)
+      const today = new Date();
+      const currentMonth = today.getMonth();
+      const currentYear = today.getFullYear();
+
+      // Set cancellation date to today
+      const cancellationDate = new Date();
+
+      // Set membership to end on the 21st of the current month
+      // If today is after the 21st, it will end on the 21st of next month
+      let endMonth = currentMonth;
+      let endYear = currentYear;
+
+      if (today.getDate() > 21) {
+        endMonth += 1;
+        if (endMonth > 11) {
+          endMonth = 0;
+          endYear += 1;
+        }
+      }
+
+      const membershipEndDate = new Date(endYear, endMonth, 21, 23, 59, 59);
+
+      // Update user with cancellation date and new expiry
+      const updatedUser: User = {
+        ...user,
+        membershipCancellationDate: cancellationDate,
+        membershipExpiry: membershipEndDate,
+      };
+
+      // Update in "database"
+      const existingUsers = JSON.parse(
+        localStorage.getItem("registeredUsers") || "[]"
+      );
+      const userIndex = existingUsers.findIndex((u: any) => u.id === user.id);
+      if (userIndex !== -1) {
+        existingUsers[userIndex] = {
+          ...existingUsers[userIndex],
+          membershipCancellationDate: cancellationDate,
+          membershipExpiry: membershipEndDate,
+        };
+        localStorage.setItem("registeredUsers", JSON.stringify(existingUsers));
+      }
+
+      setUser(updatedUser);
+
+      const endDateString = membershipEndDate.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      return {
+        success: true,
+        message: `Membership cancelled successfully. Your benefits will remain active until ${endDateString}.`,
+      };
+    } catch (error) {
+      return {
+        success: false,
+        message: "Cancellation failed. Please try again.",
+      };
+    }
+  };
+
   const isLoggedIn = !!user;
   const hasMembership = !!(
     user?.membershipTier &&
     user?.membershipExpiry &&
     new Date(user.membershipExpiry) > new Date()
   );
+  const isMembershipCancelled = !!user?.membershipCancellationDate;
   const membershipDiscount = hasMembership
     ? user?.membershipTier?.discountPercentage || 0
     : 0;
@@ -327,8 +421,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     register,
     logout,
     purchaseMembership,
+    cancelMembership,
     isLoggedIn,
     hasMembership,
+    isMembershipCancelled,
     membershipDiscount,
   };
 
