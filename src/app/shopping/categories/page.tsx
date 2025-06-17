@@ -367,13 +367,13 @@ export default function CategoriesPage() {
                 Browse All Products
               </Link>
             </Button>
-            <Button asChild variant="tertiary" size="lg">
+            <Button asChild variant="modern" size="lg">
               <Link href="/shopping/sale-items">
                 <Star className="mr-2 w-4 h-4" />
                 View Sale Items
               </Link>
             </Button>
-            <Button asChild variant="tertiary" size="lg">
+            <Button asChild variant="modern" size="lg">
               <Link href="/shopping/new-arrivals">
                 <TrendingUp className="mr-2 w-4 h-4" />
                 New Arrivals
