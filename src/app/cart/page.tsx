@@ -62,6 +62,7 @@ export default function CartPage() {
   };
 
   const handleCheckout = () => {
+    removeDiscount();
     redirectToCheckout();
   };
 

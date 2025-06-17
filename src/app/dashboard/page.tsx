@@ -142,7 +142,7 @@ export default function DashboardPage() {
       });
     });
 
-    // Process purchase history (these already include discounts in the 'total' field)
+    // Process purchase history (use discountedTotal to reflect actual amount paid)
     if (previouslyPurchased.length > 0) {
       previouslyPurchased.forEach((product) => {
         // Use a fallback category since the type might not have category
@@ -151,7 +151,8 @@ export default function DashboardPage() {
           categoryStats[category] = { count: 0, total: 0 };
         }
         categoryStats[category].count += product.quantity;
-        categoryStats[category].total += product.total;
+        // Use discountedTotal instead of total to reflect actual amount paid after discounts
+        categoryStats[category].total += product.discountedTotal;
       });
     }
 
