@@ -2,7 +2,14 @@ import { DummyUser, DummyUsersResponse } from "@/lib/interfaces/user";
 import { API_BASE_URL } from ".";
 
 /**
- * Fetches a random user from DummyJSON API for demo purposes
+ * Fetches a random user from the API.
+ *
+ * This function generates a random user ID between 1 and 100, then sends a request
+ * to the API to retrieve the corresponding user data. If the request fails, an error
+ * is thrown and logged to the console.
+ *
+ * @returns {Promise<DummyUser>} A promise that resolves to a `DummyUser` object.
+ * @throws Will throw an error if the network request fails or the response is not OK.
  */
 export async function fetchRandomUser(): Promise<DummyUser> {
   try {
@@ -23,7 +30,12 @@ export async function fetchRandomUser(): Promise<DummyUser> {
 }
 
 /**
- * Fetches multiple users from DummyJSON API
+ * Fetches a list of users from the API with optional pagination.
+ *
+ * @param limit - The maximum number of users to retrieve. Defaults to 10.
+ * @param skip - The number of users to skip for pagination. Defaults to 0.
+ * @returns A promise that resolves to a `DummyUsersResponse` containing the users data.
+ * @throws Will throw an error if the network request fails or the response is not OK.
  */
 export async function fetchUsers(
   limit: number = 10,
@@ -47,8 +59,10 @@ export async function fetchUsers(
 }
 
 /**
- * Fetches demo login credentials for testing purposes
- * Returns a user with username and password for demo login
+ * Fetches demo user credentials by retrieving a random user.
+ *
+ * @returns A promise that resolves to an object containing the username, password, and full name of the demo user.
+ * @throws Will throw an error if fetching the random user fails.
  */
 export async function fetchDemoCredentials(): Promise<{
   username: string;
@@ -69,7 +83,11 @@ export async function fetchDemoCredentials(): Promise<{
 }
 
 /**
- * Fetches a specific user by ID from DummyJSON API
+ * Fetches a user by their unique ID from the API.
+ *
+ * @param userId - The unique identifier of the user to fetch.
+ * @returns A promise that resolves to a `DummyUser` object containing the user's data.
+ * @throws Will throw an error if the network request fails or the response is not OK.
  */
 export async function fetchUserById(userId: number): Promise<DummyUser> {
   try {

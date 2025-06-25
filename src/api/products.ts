@@ -6,10 +6,16 @@ import { toTitleCase } from "@/lib/utils/format";
 import { API_BASE_URL } from ".";
 
 /**
- * Fetch products by category or search query
- * @param categorySlug - The category slug to fetch products from
- * @param searchQuery - Optional search query to filter products
- * @returns Promise<ProductItem[]> - Array of products
+ * Fetches a list of products from the API based on the provided category slug or search query.
+ *
+ * - If a `searchQuery` is provided, it fetches products matching the search term using the search endpoint.
+ * - If no `searchQuery` is provided, it fetches all products within the specified category.
+ * - Both fetches use `limit=0` to retrieve all matching products.
+ *
+ * @param categorySlug - The slug of the category to fetch products from.
+ * @param searchQuery - (Optional) The search query to filter products.
+ * @returns A promise that resolves to an array of `ProductItem` objects.
+ * @throws Will throw an error if the fetch fails or if the category is not found.
  */
 export async function fetchProducts(
   categorySlug: string,
@@ -52,9 +58,14 @@ export async function fetchProducts(
 }
 
 /**
- * Search for a specific product by title (slug format)
- * @param productTitle - The product title in slug format (e.g., "essence-mascara-lash-princess")
- * @returns Promise<ProductItem | null> - The found product or null
+ * Retrieves a product by its slug or title from the API.
+ *
+ * This function searches for a product using the provided `productTitle`, which can be in slug format
+ * (e.g., "my-product-title") or title format (e.g., "My Product Title"). It fetches products from the API,
+ * normalizes the input and product titles, and returns the product that matches either by slug or by title.
+ *
+ * @param productTitle - The slug or title of the product to search for.
+ * @returns A promise that resolves to the matching `ProductItem` if found, or `null` if not found or on error.
  */
 export async function getProductBySlug(
   productTitle: string
@@ -136,9 +147,16 @@ export async function getProductById(
   }
 }
 
+
 /**
- * Get all products (useful for general browsing or when category is not specified)
- * @returns Promise<ProductItem[]> - Array of all products
+ * Fetches all products from the API.
+ *
+ * @returns {Promise<ProductItem[]>} A promise that resolves to an array of `ProductItem` objects.
+ * @throws Will throw an error if the fetch operation fails or the response is not OK.
+ *
+ * @example
+ * const products = await getAllProducts();
+ * console.log(products);
  */
 export async function getAllProducts(): Promise<ProductItem[]> {
   try {
@@ -158,8 +176,10 @@ export async function getAllProducts(): Promise<ProductItem[]> {
 }
 
 /**
- * Get all available product categories
- * @returns Promise<Array<{slug: string, name: string, url: string}>> - Array of categories
+ * Fetches the list of product categories from the API.
+ *
+ * @returns A promise that resolves to an array of category objects, each containing a `slug`, `name`, and `url`.
+ * @throws Will throw an error if the network request fails or the response is not OK.
  */
 export async function getProductCategories(): Promise<
   Array<{ slug: string; name: string; url: string }>
@@ -181,8 +201,10 @@ export async function getProductCategories(): Promise<
 }
 
 /**
- * Get category list (just the slugs)
- * @returns Promise<string[]> - Array of category slugs
+ * Fetches the list of product categories from the API.
+ *
+ * @returns {Promise<string[]>} A promise that resolves to an array of category names.
+ * @throws Will throw an error if the network request fails or the response is not OK.
  */
 export async function getProductCategoryList(): Promise<string[]> {
   try {
