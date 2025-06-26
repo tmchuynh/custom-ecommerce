@@ -12,7 +12,6 @@ import { ProductItem } from "@/lib/interfaces/product";
 import { cn } from "@/lib/utils";
 import { Check, Heart, ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 interface ProductGridProps {
@@ -28,12 +27,11 @@ export default function ProductGrid({
   const { addToCart, isInCart } = useCart();
   const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
   const { isLoggedIn } = useAuth();
-  const router = useRouter();
 
   const toggleWishlist = async (product: ProductItem, e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     if (!isLoggedIn) {
       toast.error("Please log in to add items to your wishlist");
       return;
@@ -76,12 +74,12 @@ export default function ProductGrid({
         {products.map((product) => (
           <Card
             key={product.id}
-            className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
+            className="group hover:shadow-lg duration-300 transition-all overflow-hidden"
           >
             <CardContent className="p-0">
-              <div className="flex sm:flex-row flex-col">
+              <div className="flex flex-col sm:flex-row">
                 {/* Image */}
-                <div className="relative sm:w-48 h-48 sm:h-32 overflow-hidden sm:shrink-0">
+                <div className="relative h-48 sm:h-32 sm:w-48 overflow-hidden sm:shrink-0">
                   <Image
                     src={
                       product.images?.[0] ||
@@ -90,26 +88,26 @@ export default function ProductGrid({
                     }
                     alt={product.title}
                     fill
-                    className="transition-transform duration-300 object-cover group-hover:scale-105"
+                    className="duration-300 transition-transform object-cover group-hover:scale-105"
                     sizes="(max-width: 640px) 100vw, 192px"
                   />
                   {product.discountPercentage &&
                     product.discountPercentage > 0 && (
-                      <Badge className="top-2 left-2 absolute bg-red-500 hover:bg-red-600">
+                      <Badge className="absolute left-2 top-2 bg-red-500 hover:bg-red-600">
                         -{Math.round(product.discountPercentage)}%
                       </Badge>
                     )}
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-1 justify-between p-4">
+                <div className="flex flex-1 flex-col justify-between p-4">
                   <div>
-                    <div className="flex justify-between items-start mb-2">
+                    <div className="flex items-start justify-between mb-2">
                       <div className="flex-1">
                         <h3 className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors line-clamp-2">
                           {product.title}
                         </h3>
-                        <p className="mt-1 text-muted-foreground text-sm capitalize">
+                        <p className="mt-1 capitalize text-muted-foreground text-sm">
                           {product.category}
                         </p>
                       </div>
@@ -134,9 +132,9 @@ export default function ProductGrid({
                       {product.description}
                     </p>
 
-                    <div className="flex items-center gap-4 mb-3">
+                    <div className="flex gap-4 items-center mb-3">
                       {product.rating && (
-                        <div className="flex items-center gap-1">
+                        <div className="flex gap-1 items-center">
                           <div className="flex">
                             {displayRatingStars(product.rating)}
                           </div>
@@ -153,14 +151,14 @@ export default function ProductGrid({
                     </div>
                   </div>
 
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-2 items-center">
                       <span className="font-bold text-primary text-xl">
                         {formatPrice(product.price)}
                       </span>
                       {product.discountPercentage &&
                         product.discountPercentage > 0 && (
-                          <span className="text-muted-foreground text-sm line-through">
+                          <span className="line-through text-muted-foreground text-sm">
                             {formatPrice(
                               product.price /
                                 (1 - product.discountPercentage / 100)
@@ -176,12 +174,12 @@ export default function ProductGrid({
                     >
                       {isInCart(product.id) ? (
                         <>
-                          <Check className="w-4 h-4" />
+                          <Check className="h-4 w-4" />
                           Added
                         </>
                       ) : (
                         <>
-                          <ShoppingCart className="w-4 h-4" />
+                          <ShoppingCart className="h-4 w-4" />
                           Add to Cart
                         </>
                       )}
@@ -201,7 +199,7 @@ export default function ProductGrid({
       {products.map((product) => (
         <Card
           key={product.id}
-          className="group hover:shadow-xl p-0 border-border transition-all duration-300 overflow-hidden"
+          className="group hover:shadow-xl p-0 border-border duration-300 transition-all overflow-hidden"
         >
           {/* Image */}
           <div className="relative overflow-hidden aspect-square">
@@ -212,12 +210,12 @@ export default function ProductGrid({
                 "/placeholder-image.jpg"
               }
               alt={product.title}
-              className="transition-transform duration-300 object-cover group-hover:scale-105"
+              className="duration-300 transition-transform object-cover group-hover:scale-105"
               width={500}
               height={500}
             />
             {product.discountPercentage && product.discountPercentage > 0 && (
-              <Badge className="top-3 left-3 absolute bg-red-500 hover:bg-red-600 shadow-lg text-white">
+              <Badge className="absolute left-3 top-3 bg-red-500 hover:bg-red-600 shadow-lg text-white">
                 -{Math.round(product.discountPercentage)}%
               </Badge>
             )}
@@ -225,7 +223,7 @@ export default function ProductGrid({
               variant="ghost"
               size="sm"
               onClick={(e) => toggleWishlist(product, e)}
-              className="top-3 right-3 absolute bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-800 backdrop-blur-sm"
+              className="absolute right-3 top-3 backdrop-blur-sm bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-800"
             >
               <Heart
                 className={cn(
@@ -243,12 +241,12 @@ export default function ProductGrid({
                 <h3 className="mb-1 font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
                   {product.title}
                 </h3>
-                <p className="text-muted-foreground text-sm capitalize">
+                <p className="capitalize text-muted-foreground text-sm">
                   {product.category}
                 </p>
               </div>
               {product.rating && (
-                <div className="flex items-center gap-1 mb-3">
+                <div className="flex gap-1 items-center mb-3">
                   <div className="flex">
                     {displayRatingStars(product.rating)}
                   </div>
@@ -259,14 +257,14 @@ export default function ProductGrid({
               )}
             </div>
 
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex items-center justify-between mb-4">
               <div className="flex flex-col">
                 <span className="font-bold text-lg text-primary">
                   {formatPrice(product.price)}
                 </span>
                 {product.discountPercentage &&
                   product.discountPercentage > 0 && (
-                    <span className="text-muted-foreground text-sm line-through">
+                    <span className="line-through text-muted-foreground text-sm">
                       {formatPrice(
                         product.price / (1 - product.discountPercentage / 100)
                       )}
@@ -287,12 +285,12 @@ export default function ProductGrid({
             >
               {isInCart(product.id) ? (
                 <>
-                  <Check className="w-4 h-4" />
+                  <Check className="h-4 w-4" />
                   Added
                 </>
               ) : (
                 <>
-                  <ShoppingCart className="w-4 h-4" />
+                  <ShoppingCart className="h-4 w-4" />
                   Add to Cart
                 </>
               )}

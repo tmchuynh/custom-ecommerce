@@ -16,9 +16,13 @@ export default function HomePage() {
 
   // Fetch featured products on component mount
   useEffect(() => {
+    // Function to load featured products
     const loadFeaturedProducts = async () => {
       try {
+        // Set loading state to true while fetching
         setLoading(true);
+
+        // Fetch all products from the API
         const allProducts = await getAllProducts();
 
         // Get a selection of featured products (first 8 products with good ratings)
@@ -31,21 +35,36 @@ export default function HomePage() {
           )
           .slice(0, 8);
 
+        // Update the state with featured products
         setFeaturedProducts(featured);
       } catch (error) {
+        // Handle any errors that occur during the fetch
+        setFeaturedProducts([]);
+        // Optionally log the error or show a notification
+        // For example, you can use console.error or a toast notification
+        // from a library like Sonner or react-toastify
+        // sonner.error("Failed to load featured products");
+        // or
+        // reactToastify.error("Failed to load featured products");
+        // For now, we will just log the error to the console
+        // You can replace this with a more user-friendly error handling
+        // mechanism later
         console.error("Failed to load featured products:", error);
       } finally {
+        // Set loading state to false after fetching
         setLoading(false);
       }
     };
 
+    // Call the function to load featured products
     loadFeaturedProducts();
   }, []);
+
   return (
     <div>
       {/* New Hero Section */}
       <section className="relative -mt-15 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-700 h-[50em]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-700 via-blue-600 h-[50em]" />
         <div className="absolute inset-0">
           <Image
             src="https://plus.unsplash.com/premium_photo-1681488262364-8aeb1b6aac56?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHww"
@@ -54,19 +73,19 @@ export default function HomePage() {
             className="opacity-20 h-[50em] object-cover object-center scale-105"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent via-transparent" />
         </div>
-        <div className="relative z-10 flex justify-center items-center px-6 min-h-[50em] text-center text-white">
+        <div className="relative z-10 flex items-center justify-center px-6 min-h-[50em] text-center text-white">
           <div className="mx-auto max-w-4xl">
-            <h1 className="mb-6 font-extrabold text-5xl md:text-7xl leading-tight">
+            <h1 className="mb-6 font-extrabold leading-tight text-5xl md:text-7xl">
               Discover Your Next
               <span className="block text-yellow-300">Favorite</span>
             </h1>
-            <p className="opacity-90 mx-auto mb-10 max-w-2xl text-xl md:text-2xl leading-relaxed">
+            <p className="opacity-90 mb-10 mx-auto max-w-2xl leading-relaxed text-xl md:text-2xl">
               Explore our curated collection of high-quality products, designed
               to inspire and delight.
             </p>
-            <div className="flex sm:flex-row flex-col justify-center items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
               <Button
                 asChild
                 size="lg"
@@ -109,7 +128,7 @@ export default function HomePage() {
                   <CardContent className="p-4">
                     <div className="bg-gray-200 mb-4 rounded h-48"></div>
                     <div className="bg-gray-200 mb-2 rounded h-4"></div>
-                    <div className="bg-gray-200 rounded w-3/4 h-4"></div>
+                    <div className="bg-gray-200 rounded h-4 w-3/4"></div>
                   </CardContent>
                 </Card>
               ))}
@@ -137,16 +156,16 @@ export default function HomePage() {
             <div className="md:col-span-2">
               <Link
                 href="/shopping"
-                className="group block relative shadow-lg rounded-2xl h-96 overflow-hidden"
+                className="block group relative shadow-lg rounded-2xl h-96 overflow-hidden"
               >
                 <Image
                   src="https://plus.unsplash.com/premium_photo-1699973055451-c2061752297b?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8%3D"
                   alt="All Products"
                   fill
-                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                  className="duration-500 transition-transform object-cover group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="right-0 bottom-0 left-0 absolute p-8 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent via-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <h3 className="mb-2 font-bold text-3xl">All Products</h3>
                   <p className="opacity-90 text-lg">
                     Browse our complete collection
@@ -159,16 +178,16 @@ export default function HomePage() {
             <div className="space-y-6">
               <Link
                 href="/shopping/sale-items"
-                className="group block relative shadow-lg rounded-2xl h-44 overflow-hidden"
+                className="block group relative shadow-lg rounded-2xl h-44 overflow-hidden"
               >
                 <Image
                   src="https://plus.unsplash.com/premium_photo-1683121041726-3b192f629fa5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
                   alt="Sale Items"
                   fill
-                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                  className="duration-500 transition-transform object-cover group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="right-0 bottom-0 left-0 absolute p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent via-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="mb-1 font-bold text-xl">Sale Items</h3>
                   <p className="opacity-90 text-sm">
                     Great deals and discounts
@@ -178,16 +197,16 @@ export default function HomePage() {
 
               <Link
                 href="/shopping/categories"
-                className="group block relative shadow-lg rounded-2xl h-44 overflow-hidden"
+                className="block group relative shadow-lg rounded-2xl h-44 overflow-hidden"
               >
                 <Image
                   src="https://plus.unsplash.com/premium_photo-1700056213493-d2a2747c76be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHNhbGVzJTIwc2hvcHBpbmd8ZW58MHx8MHx8fDA%3D"
                   alt="Categories"
                   fill
-                  className="transition-transform duration-500 object-cover group-hover:scale-105"
+                  className="duration-500 transition-transform object-cover group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="right-0 bottom-0 left-0 absolute p-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent via-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="mb-1 font-bold text-xl">Categories</h3>
                   <p className="opacity-90 text-sm">Shop by product category</p>
                 </div>
@@ -210,7 +229,7 @@ export default function HomePage() {
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <div className="flex justify-center mb-4">
-                  <ShoppingBag className="w-12 h-12 text-purple-600" />
+                  <ShoppingBag className="h-12 w-12 text-purple-600" />
                 </div>
                 <h3 className="mb-2 font-semibold text-lg">Free Shipping</h3>
                 <p className="">Free shipping on orders over $50</p>
@@ -219,7 +238,7 @@ export default function HomePage() {
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <div className="flex justify-center mb-4">
-                  <Package className="w-12 h-12 text-purple-600" />
+                  <Package className="h-12 w-12 text-purple-600" />
                 </div>
                 <h3 className="mb-2 font-semibold text-lg">Fast Delivery</h3>
                 <p className="">2-3 day delivery nationwide</p>
@@ -228,7 +247,7 @@ export default function HomePage() {
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <div className="flex justify-center mb-4">
-                  <Tag className="w-12 h-12 text-purple-600" />
+                  <Tag className="h-12 w-12 text-purple-600" />
                 </div>
                 <h3 className="mb-2 font-semibold text-lg">Best Prices</h3>
                 <p className="">Competitive prices with regular sales</p>
@@ -237,7 +256,7 @@ export default function HomePage() {
             <Card className="p-6 text-center">
               <CardContent className="p-0">
                 <div className="flex justify-center mb-4">
-                  <TrendingUp className="w-12 h-12 text-purple-600" />
+                  <TrendingUp className="h-12 w-12 text-purple-600" />
                 </div>
                 <h3 className="mb-2 font-semibold text-lg">Quality Products</h3>
                 <p className="">Curated selection of high-quality items</p>
@@ -251,7 +270,7 @@ export default function HomePage() {
           <h2 className="mb-6 font-bold text-3xl sm:text-4xl tracking-tight">
             Join Our Community
           </h2>
-          <p className="mx-auto mb-8 max-w-xl text-lg">
+          <p className="mb-8 mx-auto max-w-xl text-lg">
             Sign up for our newsletter to get the latest updates on new
             arrivals, special offers, and more.
           </p>
@@ -267,7 +286,7 @@ export default function HomePage() {
               required
               placeholder="Enter your email"
             />
-            <div className="sm:flex-shrink-0 md:mt-2 sm:ml-3">
+            <div className="sm:flex-shrink-0 sm:ml-3 md:mt-2">
               <Button type="submit" variant={"modern"} className="m-0 w-full">
                 Subscribe
               </Button>

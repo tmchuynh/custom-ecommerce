@@ -3,23 +3,12 @@
  * Provides comprehensive validation for contact form fields
  */
 
-export interface ContactFormData {
-  name: string;
-  email: string;
-  subject: string;
-  category: string;
-  message: string;
-}
+import {
+  ContactFormData,
+  ContactValidationError,
+  ContactValidationResult,
+} from "../interfaces/contact";
 
-export interface ContactValidationError {
-  field: keyof ContactFormData;
-  message: string;
-}
-
-export interface ContactValidationResult {
-  isValid: boolean;
-  errors: ContactValidationError[];
-}
 
 /**
  * Email validation using RFC 5322 compliant regex
