@@ -5,6 +5,7 @@ import { useCurrency } from "@/app/context/currencyContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getTierBadgeVariant, getTierIcon } from "@/lib/utils/membership";
 import { Check, Crown, Star, Zap } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -34,32 +35,6 @@ export default function MembershipPage() {
     }
 
     setPurchasingTier(null);
-  };
-
-  const getTierIcon = (tierName: string) => {
-    switch (tierName.toLowerCase()) {
-      case "basic":
-        return <Star className="w-6 h-6" />;
-      case "premium":
-        return <Zap className="w-6 h-6" />;
-      case "vip":
-        return <Crown className="w-6 h-6" />;
-      default:
-        return <Star className="w-6 h-6" />;
-    }
-  };
-
-  const getTierBadgeVariant = (tierName: string) => {
-    switch (tierName.toLowerCase()) {
-      case "basic":
-        return "gradient";
-      case "premium":
-        return "platinum";
-      case "vip":
-        return "premium";
-      default:
-        return "outline";
-    }
   };
 
   return (
