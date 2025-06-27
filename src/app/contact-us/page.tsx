@@ -15,11 +15,13 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  ContactFormData,
+  ContactValidationError,
+} from "@/lib/interfaces/contact";
+import {
   sanitizeContactForm,
   validateContactField,
   validateContactForm,
-  type ContactFormData,
-  type ContactValidationError,
 } from "@/lib/utils/contact";
 import {
   AlertCircle,
