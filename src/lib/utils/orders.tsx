@@ -1,10 +1,10 @@
 import {
+  AlertCircle,
+  CheckCircle,
   Clock,
   Package,
   Truck,
-  CheckCircle,
   X,
-  AlertCircle,
 } from "lucide-react";
 
 export const getStatusColor = (status: string) => {
