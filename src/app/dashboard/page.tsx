@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/chart";
 import useOrderManagement from "@/hooks/useOrderManagement";
 import { usePurchaseHistory } from "@/hooks/usePurchaseHistory";
+import { getTierColor, getTierIcon } from "@/lib/utils/membership";
 import { getStatusColor } from "@/lib/utils/orders";
 import {
   CreditCard,
@@ -219,32 +220,6 @@ export default function DashboardPage() {
       </div>
     );
   }
-
-  const getTierIcon = (tierName?: string) => {
-    switch (tierName?.toLowerCase()) {
-      case "basic":
-        return <Star className="w-5 h-5" />;
-      case "premium":
-        return <Zap className="w-5 h-5" />;
-      case "vip":
-        return <Crown className="w-5 h-5" />;
-      default:
-        return <User className="w-5 h-5" />;
-    }
-  };
-
-  const getTierColor = (tierName?: string) => {
-    switch (tierName?.toLowerCase()) {
-      case "basic":
-        return "bg-blue-500";
-      case "premium":
-        return "bg-purple-500";
-      case "vip":
-        return "bg-yellow-500";
-      default:
-        return "bg-gray-500";
-    }
-  };
 
   const handleLogout = () => {
     logout();
