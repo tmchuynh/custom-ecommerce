@@ -93,6 +93,7 @@ import { DummyUser } from "@/lib/interfaces/user";
 import { formatPostalCode } from "@/lib/utils/format";
 import {
   formatExpiryDate,
+  maskCardNumber,
   validateAndNormalizePaymentMethod,
   validatePaymentField,
   validatePaymentMethodEnhanced,
@@ -882,7 +883,7 @@ export default function SettingsPage() {
 
     // Apply specific formatting based on field
     if (field === "cardNumber") {
-      formattedValue = formatCardNumber(value);
+      formattedValue = maskCardNumber(value);
     } else if (field === "cardExpire") {
       formattedValue = formatExpiryDate(value);
     }
@@ -906,7 +907,7 @@ export default function SettingsPage() {
 
     // Apply specific formatting based on field
     if (field === "cardNumber") {
-      formattedValue = formatCardNumber(value);
+      formattedValue = maskCardNumber(value);
     } else if (field === "cardExpire") {
       formattedValue = formatExpiryDate(value);
     }
@@ -2117,7 +2118,7 @@ export default function SettingsPage() {
                                     </span>
                                   </div>
                                   <p className="text-muted-foreground text-sm">
-                                    {formatCardNumber(payment.cardNumber)}
+                                    {maskCardNumber(payment.cardNumber)}
                                   </p>
                                   <p className="text-muted-foreground text-sm">
                                     Expires: {payment.cardExpire}
